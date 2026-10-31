@@ -150,14 +150,14 @@
       "id": 12,
       "slug": "12-ipv4-header",
       "title": "IPv4 헤더 읽기",
-      "description": "주소와 길이, 프로토콜 등 주요 필드를 해석합니다.",
+      "description": "IPv4 헤더의 구조·옵션·서비스 표시·길이·IP ID를 바이트와 계산, 관측의 한계까지 연결해 읽습니다.",
       "printed_pages": [
         91,
         100
       ],
-      "status": "planned",
-      "updated": null,
-      "minutes": null
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 65
     },
     {
       "id": 13,
