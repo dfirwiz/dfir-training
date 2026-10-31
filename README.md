@@ -21,3 +21,8 @@
 Settings → Pages → Build and deployment → Deploy from a branch → `main` / `(root)` → Save.
 
 본 프로젝트의 콘텐츠는 독립적으로 작성하며 타사 교육 자료의 원문을 복제하지 않습니다.
+
+
+## 학습 노트 갱신
+
+`content/course.json`과 `content/notes/`의 본문을 수정한 뒤 `python3 scripts/build_notes.py`로 목록과 페이지를 갱신합니다. 진행 상태는 `.learning/progress.json`, 작성 기준은 `.learning/EDITORIAL.md`에서 관리합니다. GitHub Pages는 main 브랜치의 루트 파일을 배포합니다.

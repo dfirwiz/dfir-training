@@ -1,0 +1,12 @@
+{
+  "part": "01",
+  "status": "in_progress",
+  "completed_lesson_ids": [
+    1,
+    2
+  ],
+  "next_lesson_id": 3,
+  "completed_printed_through": 21,
+  "updated": "2026-11-01",
+  "stop_after_lesson_id": 15
+}
