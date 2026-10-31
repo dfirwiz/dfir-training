@@ -3,10 +3,11 @@
   "status": "in_progress",
   "completed_lesson_ids": [
     1,
-    2
+    2,
+    3
   ],
-  "next_lesson_id": 3,
-  "completed_printed_through": 21,
+  "next_lesson_id": 4,
+  "completed_printed_through": 30,
   "updated": "2026-11-01",
   "stop_after_lesson_id": 15
 }
