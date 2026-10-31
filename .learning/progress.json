@@ -4,10 +4,11 @@
   "completed_lesson_ids": [
     1,
     2,
-    3
+    3,
+    4
   ],
-  "next_lesson_id": 4,
-  "completed_printed_through": 30,
+  "next_lesson_id": 5,
+  "completed_printed_through": 45,
   "updated": "2026-11-01",
   "stop_after_lesson_id": 15
 }
