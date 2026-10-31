@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-01",
+  "updated": "2026-10-31",
   "lessons": [
     {
       "id": 1,
@@ -64,9 +64,9 @@
         46,
         50
       ],
-      "status": "planned",
-      "updated": null,
-      "minutes": null
+      "status": "published",
+      "updated": "2026-10-31",
+      "minutes": 40
     },
     {
       "id": 6,
