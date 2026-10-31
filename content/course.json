@@ -6,15 +6,15 @@
     {
       "id": 1,
       "slug": "01-why-packets",
-      "title": "패킷 분석의 역할과 현대적 가치",
-      "description": "암호화된 환경에서도 무엇을 확인할 수 있는지, 경고와 증거를 어떻게 구분하는지 배웁니다.",
+      "title": "보안 장비가 있는데도 패킷을 공부하는 이유",
+      "description": "경고를 검증하는 과정부터 암호화 환경에서의 분석 가치까지, 사례와 함께 차근차근 설명합니다.",
       "printed_pages": [
         4,
         11
       ],
       "status": "published",
       "updated": "2026-11-01",
-      "minutes": 18
+      "minutes": 25
     },
     {
       "id": 2,
