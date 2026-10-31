@@ -163,14 +163,14 @@
       "id": 13,
       "slug": "13-ipv4-analysis",
       "title": "IPv4 분석과 검증",
-      "description": "IP 헤더의 나머지 필드를 분석하고 연습합니다.",
+      "description": "TTL·ICMP 오류·프로토콜·체크섬·주소·옵션을 분석하고 관측 조건과 현재 지침으로 검증합니다.",
       "printed_pages": [
         101,
         110
       ],
-      "status": "planned",
-      "updated": null,
-      "minutes": null
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 65
     },
     {
       "id": 14,
