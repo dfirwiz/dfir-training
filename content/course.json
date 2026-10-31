@@ -124,9 +124,22 @@
       "id": 10,
       "slug": "10-arp",
       "title": "주소 해석과 ARP",
-      "description": "IP 주소와 링크 계층 주소의 관계를 분석합니다.",
+      "description": "다음 홉 선택과 ARP 요청·응답의 필드, 캐시와 전달 표를 차근차근 분석합니다.",
       "printed_pages": [
         77,
+        83
+      ],
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 50
+    },
+    {
+      "id": 11,
+      "slug": "11-arp-defense",
+      "title": "ARP 캐시 오염과 방어 검증",
+      "description": "주소 대응의 위조 정황과 전달 경로, 스위치 방어 기능의 역할과 한계를 분석합니다.",
+      "printed_pages": [
+        84,
         90
       ],
       "status": "planned",
@@ -134,8 +147,8 @@
       "minutes": null
     },
     {
-      "id": 11,
-      "slug": "11-ipv4-header",
+      "id": 12,
+      "slug": "12-ipv4-header",
       "title": "IPv4 헤더 읽기",
       "description": "주소와 길이, 프로토콜 등 주요 필드를 해석합니다.",
       "printed_pages": [
@@ -147,8 +160,8 @@
       "minutes": null
     },
     {
-      "id": 12,
-      "slug": "12-ipv4-analysis",
+      "id": 13,
+      "slug": "13-ipv4-analysis",
       "title": "IPv4 분석과 검증",
       "description": "IP 헤더의 나머지 필드를 분석하고 연습합니다.",
       "printed_pages": [
@@ -160,8 +173,8 @@
       "minutes": null
     },
     {
-      "id": 13,
-      "slug": "13-fragmentation",
+      "id": 14,
+      "slug": "14-fragmentation",
       "title": "IPv4 단편화의 원리",
       "description": "MTU와 단편화 필드, 재조립 과정을 이해합니다.",
       "printed_pages": [
@@ -173,8 +186,8 @@
       "minutes": null
     },
     {
-      "id": 14,
-      "slug": "14-fragmentation-analysis",
+      "id": 15,
+      "slug": "15-fragmentation-analysis",
       "title": "단편화 트래픽 분석",
       "description": "분할된 패킷을 해석하고 수집과 탐지의 한계를 검토합니다.",
       "printed_pages": [
@@ -186,8 +199,8 @@
       "minutes": null
     },
     {
-      "id": 15,
-      "slug": "15-shell-workflow",
+      "id": 16,
+      "slug": "16-shell-workflow",
       "title": "명령줄 분석 워크플로",
       "description": "여러 명령을 연결해 반복 가능한 분석을 만듭니다.",
       "printed_pages": [
@@ -199,8 +212,8 @@
       "minutes": null
     },
     {
-      "id": 16,
-      "slug": "16-regex-review",
+      "id": 17,
+      "slug": "17-regex-review",
       "title": "정규표현식과 종합 복습",
       "description": "문자열 검색을 분석에 적용하고 기초 과정을 정리합니다.",
       "printed_pages": [
