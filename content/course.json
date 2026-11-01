@@ -59,14 +59,14 @@
       "id": 5,
       "slug": "05-normal-traffic",
       "title": "정상 통신을 판단하는 기준",
-      "description": "표준과 실제 구현의 차이를 이해하고 정상의 기준을 세웁니다.",
+      "description": "정상의 세 기준과 RFC 읽기부터 구현 차이·TCP 겹침·실제 수신 종단까지, 조건을 바꾼 예제로 조사 판단을 연습합니다.",
       "printed_pages": [
         46,
         50
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 40
+      "updated": "2026-11-02",
+      "minutes": 65
     },
     {
       "id": 6,
