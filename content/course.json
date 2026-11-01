@@ -33,14 +33,14 @@
       "id": 3,
       "slug": "03-network-models",
       "title": "TCP/IP 계층과 캡슐화",
-      "description": "통신 계층과 데이터가 포장되는 구조를 이해합니다.",
+      "description": "계층별 역할부터 캡슐화·역캡슐화, 옵션과 길이 계산, 캡처·클라우드 관측의 한계까지 예제로 차근차근 연결합니다.",
       "printed_pages": [
         22,
         30
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 32
+      "updated": "2026-11-02",
+      "minutes": 65
     },
     {
       "id": 4,
