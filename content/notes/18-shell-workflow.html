@@ -2,7 +2,7 @@
 <p>캡처가 커지면 모든 패킷을 화면에서 하나씩 읽기는 어렵습니다. 명령줄에서는 조건으로 범위를 좁히고, 필요한 정보를 추출한 뒤, 같은 절차를 다시 실행할 수 있습니다. 이번 목표는 긴 명령을 암기하는 것이 아니라 <strong>각 단계가 무엇을 받아 무엇을 내보내는지 설명하는 능력</strong>입니다. 이 능력은 패킷 외에 서버·인증 로그를 정리할 때도 사용할 수 있습니다.</p>
 <p>GUI는 흐름을 시각적으로 탐색하고 선택한 패킷을 자세히 읽는 데 유용합니다. 명령줄은 큰 자료의 반복 추출·집계를 자동화하는 데 유용합니다. GUI는 큰 파일을 전혀 처리할 수 없다거나 tcpdump가 언제나 가장 빠르다고 일반화하지 않습니다. 파일 형식·필터·디스크·해석 옵션·재조립·메모리 조건에 따라 성능이 달라집니다.</p>
 <p>예를 들어 메타데이터에서 외부 방향 전송량 증가를 발견했다면 파일 반출을 가설로 세울 수 있습니다. 그러나 전송량이나 포트 하나만으로 FTP 업로드·피싱·악성코드 전달을 확정하지 않습니다. 관련 패킷, DNS·메일·단말·서버 로그를 찾아 가설을 검증합니다. 암호화되었거나 수집하지 않은 내용은 명령줄로도 새로 만들어 낼 수 없습니다.</p>
-<div class="callout"><span class="label">이번 회차의 범위와 실행 구분</span><p>파이프·페이저·cut·awk·sort·uniq·head·wc를 다룹니다. 별도 실습 PCAP은 없으므로 tcpdump·TShark의 PCAP 명령은 사용법 예시입니다. 대신 문서용 주소로 만든 가상 텍스트 여섯 줄을 실제 텍스트 도구에 넣어 추출·집계 결과를 검산했습니다. 이는 실제 네트워크 사건이나 원본 PCAP의 실행 결과가 아닙니다. 바이너리 패킷 스트림과 검색·치환 도구는 다음 회차로 나눕니다.</p></div>
+<div class="callout"><span class="label">이번 회차의 범위와 실행 구분</span><p>파이프·페이저·cut·awk·sort·uniq·head·wc를 다룹니다. 이 회차의 tcpdump·TShark 명령은 사용법 예시입니다. 추가 확보한 첫째 날 PCAP은 별도 오프라인 해석으로 검증했으며 해당 명령을 실행한 출력과 혼동하지 않습니다. 대신 문서용 주소로 만든 가상 텍스트 여섯 줄을 실제 텍스트 도구에 넣어 추출·집계 결과를 검산했습니다. 이는 실제 네트워크 사건이나 원본 PCAP의 실행 결과가 아닙니다. 바이너리 패킷 스트림과 검색·치환 도구는 다음 회차로 나눕니다.</p></div>
 </section>
 <section id="pipes"><h2>2. 파이프는 화면을 복사하는 장치가 아니다</h2>
 <p>프로그램에는 입력을 받는 <strong>표준 입력(stdin)</strong>, 일반 결과를 쓰는 <strong>표준 출력(stdout)</strong>, 진단·오류를 쓰는 <strong>표준 오류(stderr)</strong>라는 통로가 있습니다. Bash 같은 셸에서 <code>A | B</code>라고 쓰면 A의 표준 출력을 B의 표준 입력에 연결합니다. B는 화면의 그림이 아니라 전달된 데이터를 읽습니다. <a class="ref" href="#ref-1">[1]</a></p>
@@ -140,6 +140,8 @@ tshark -r sample.pcap -Y 'ip and tcp' -T fields -e ip.src -e tcp.srcport</code><
 <p><strong>질문 10:</strong>443이 많이 보이면HTTPS 유출이나 공격 성공을 확정할까요?</p><p><strong>해설:</strong> 방향·서비스 정체·중복·재전송·바이트량·실행 프로세스와 활동의 정당성을 확인합니다. 텍스트 빈도 하나는 연결 수나 전송 내용을 입증하지 않습니다. 암호화와 관측 한계도 함께 남깁니다.</p>
 <p><strong>추가 연습:</strong> 합성 입력의 첫 줄에서 공백 하나를 두 개로 바꾸고 cut과awk의 셋째 필드를 비교해 보세요. 또 <code>-f 3,5</code>와 <code>-f 5,3</code>을 비교해 출력 순서가 같은지 확인하세요. 마지막으로 줄바꿈 없는 한 줄의 <code>wc -l</code>을 관찰하고, ‘명령이 센 단위’를 한 문장으로 설명해 보세요. 원본 실습 PCAP의 정답이 아니라 직접 정의한 텍스트의 학습 문제입니다.</p>
 </section>
+<section id="workbook-practice"><h2>워크북 연계 실습</h2>
+<p>파일 읽기·이름 변환·시각·개수·바이트·링크 계층 출력을 연결합니다. <a href="22-day-one-practice.html#tcpdump">tcpdump 옵션 복습</a>에서 단계별 설명과 복습을 읽을 수 있습니다. 이 페이지의 기존 자체 예시는 그대로 유지하며, 원본 PCAP을 실행한 출력으로 제시하지 않습니다.</p></section>
 <section id="references" class="references"><h2>참고 자료</h2><p>최신 보충 확인일: 2026년11월1일. 공식 매뉴얼·프로젝트 자료·설치 도구의 공식 내장 도움말과 합성 텍스트 검산을 대조했습니다. 실제 PCAP·공격·페이저 화면의 실행 결과는 제시하지 않습니다.</p><ol>
 <li id="ref-1"><a href="https://www.gnu.org/software/bash/manual/html_node/Pipelines.html">GNU Bash — 파이프와 종료 상태</a></li>
 <li id="ref-2"><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_pipelines">Microsoft — PowerShell 파이프와 객체</a></li>

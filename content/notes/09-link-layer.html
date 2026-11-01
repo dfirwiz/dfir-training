@@ -95,7 +95,7 @@ wireshark sample.pcap &amp;</code></pre>
 <p>암호화된 통신에서도 링크 정보는 ‘어디에서 어떤 형태로 관측했는가’를 검증하는 데 도움이 됩니다. 다만 MAC은 현재 링크의 정보이며 암호화된 내용을 풀거나 전체 경로를 증명하지는 않습니다. 필요한 단말·스위치·서버 기록과 연결해야 패킷 분석의 의미가 분명해집니다.</p>
 </section>
 <section id="review"><h2>13. 복습 — 기준점과 전제를 붙여 계산하기</h2>
-<p>다음은 독립적으로 구성한 복습입니다. 이번 범위에는 별도 워크북 연습 안내가 없으며, 제공되지 않은 PCAP의 실행 결과를 묻지 않습니다.</p>
+<p>다음은 독립적으로 구성한 복습입니다. 이번 범위에는 별도 워크북 연습 안내가 없으며, 원본 PCAP의 실행 결과를 묻는 문제와 구분합니다.</p>
 <p><strong>질문 1:</strong> IP 목적지는 외부 서버인데 목적지 MAC은 게이트웨이입니다. 이상한 통신일까요?</p><p><strong>해설:</strong> 다른 네트워크로 가는 정상 전달에서 가능한 구조입니다. IP 목적지와 현재 링크의 다음 전달 지점을 구분합니다. MAC 하나로 최종 서버나 사용자를 확정하지 않습니다.</p>
 <p><strong>질문 2:</strong> 태그 없는 프레임에 상위 데이터 28바이트가 들어갑니다. 최소 길이에 필요한 패딩과 전체 길이는 얼마일까요?</p><p><strong>해설:</strong> 데이터·패딩 최소는 46바이트이므로 패딩은 18바이트입니다. 헤더 14 + 데이터 28 + 패딩 18 + FCS 4 = 64바이트입니다. FCS가 없는 캡처에는 60바이트로 보일 수 있습니다.</p>
 <p><strong>질문 3:</strong> Type/Length가 1520입니다. 0x0600보다 작으니 길이라고 하면 될까요?</p><p><strong>해설:</strong> 일반 길이 범위는 1500 이하이고 Type 범위는 1536 이상입니다. 그 사이 값을 정상적인 길이로 확정하지 않고 형식·손상·해석 기준 등을 검토합니다.</p>
@@ -105,6 +105,8 @@ wireshark sample.pcap &amp;</code></pre>
 <p><strong>질문 7:</strong> IDS 처리량을 위해 태그를 항상 지워야 할까요?</p><p><strong>해설:</strong> 지원·성능과 문맥 보존을 함께 봅니다. 같은 주소를 다른 VLAN에서 쓰면 태그 제거가 통신 구별에 영향을 줄 수 있습니다. 센서의 VLAN 추적과 별도 수집 소스 식별을 확인한 뒤 설계해야 합니다.</p>
 <p><strong>질문 8:</strong> CRC 오류가 PCAP에 없으면 회선에 손상이 없었다고 해도 될까요?</p><p><strong>해설:</strong> FCS가 제공되지 않았거나 하드웨어에서 먼저 버렸을 수 있습니다. 캡처에 없는 사실을 오류 부재로 바꾸지 않고 포트·NIC 카운터와 수집 조건을 대조합니다. 정상 CRC도 악성 여부의 판정은 아닙니다.</p>
 </section>
+<section id="workbook-practice"><h2>워크북 연계 실습</h2>
+<p>프레임 주소와 ARP 내부 주소, MAC 학습 자원의 의미를 비교합니다. <a href="22-day-one-practice.html#link">링크 계층 실습</a>에서 단계별 설명과 복습을 읽을 수 있습니다. 이 페이지의 기존 자체 예시는 그대로 유지하며, 원본 PCAP을 실행한 출력으로 제시하지 않습니다.</p></section>
 <section id="references" class="references"><h2>참고 자료</h2><p>최신 보충 확인일: 2026년 11월 1일. 공식 문서·기술 자료와 대조했습니다. 오래된 문서의 발행일과 현재 확인일은 구분하며, 예시는 독립적으로 구성했습니다. 실제 실습 PCAP을 실행하지 않았습니다.</p><ol>
 <li id="ref-1"><a href="https://www.rfc-editor.org/rfc/rfc4861.html">IETF RFC 4861 — IPv6 Neighbor Discovery</a></li>
 <li id="ref-2"><a href="https://www.ieee802.org/1/files/public/docs2020/maint-seaman-protocol-ids-in-std-802-0520-v01.pdf">IEEE 802.1 공개 기술 자료 — Protocol identification in 802 LANs, 2020년 초안</a></li>

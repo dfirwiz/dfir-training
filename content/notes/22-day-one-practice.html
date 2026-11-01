@@ -1,0 +1,118 @@
+<section id="goal"><h2>1. 첫째 날 개념을 분석 절차로 연결하기</h2>
+<p>헤더의 위치를 외우는 것과 처음 보는 캡처를 설명하는 것은 서로 다른 능력입니다. 이번 실습 가이드는 숫자와 계층, Wireshark 통계, 링크 계층, IPv4, 단편화, IPv6를 하나의 분석 순서로 연결합니다. 앞의 21강에서 배운 원리를 유지하면서 각 단계에서 무엇을 보고 어떤 근거를 남길지 연습합니다.</p>
+<p>예시는 문서용 주소와 새로 만든 바이트·관측 표로 구성했습니다. 원본 실습의 정답이나 실행 출력이 아닙니다. 추가 확보한 첫째 날 PCAP 여섯 개는 별도로 오프라인 해석·교차 검증했습니다. 이 페이지의 명령은 독립 예시용 PCAP에 적용하는 사용법이고 아래 예상값은 해당 가상 입력에만 적용합니다. 실제 사건에서는 파일·패킷 번호·관측 지점·도구 설정을 함께 기록해야 합니다.</p>
+<div class="table-wrap"><table><caption>주제별 학습 경로</caption><thead><tr><th scope="col">연습</th><th scope="col">먼저 읽을 강의</th><th scope="col">남길 결과</th></tr></thead><tbody>
+<tr><td>계층과 바이트</td><td><a href="03-network-models.html">3강</a> · <a href="04-bits-and-bytes.html">4강</a> · <a href="05-normal-traffic.html">5강</a></td><td>옵션별 차이와 헤더 필드 해석</td></tr>
+<tr><td>Wireshark 탐색</td><td><a href="06-wireshark-start.html">6강</a> · <a href="07-wireshark-analysis.html">7강</a> · <a href="08-wireshark-streams.html">8강</a></td><td>통계에서 스트림으로 좁힌 근거</td></tr>
+<tr><td>이더넷과 ARP</td><td><a href="09-link-layer.html">9강</a> · <a href="10-arp.html">10강</a> · <a href="11-arp-defense.html">11강</a></td><td>주소 대응 변화와 추가 확인 자료</td></tr>
+<tr><td>IPv4 필드</td><td><a href="12-ipv4-header.html">12강</a> · <a href="13-ipv4-analysis.html">13강</a></td><td>기준점·길이·검사 결과</td></tr>
+<tr><td>조각과 재조립</td><td><a href="14-fragmentation.html">14강</a>~<a href="17-vpn-fragmentation.html">17강</a></td><td>구간표와 누락·중첩의 위치</td></tr>
+<tr><td>IPv6 확장</td><td>이 가이드의 <a href="#ipv6-basics">IPv6 기초</a>부터</td><td>라우터 광고·헤더 연결·주소 대응</td></tr>
+</tbody></table></div>
+<p>실습마다 먼저 예상 답을 적고, 관측값을 기록한 뒤, 두 값이 다르면 이유를 설명하세요. 정답과 다른 이유가 설정·재조립·표시 단위 때문인지 판단하는 과정이 핵심입니다. 명령줄을 다시 살펴보고 싶다면 <a href="18-shell-workflow.html">18강</a>과 <a href="19-packet-streams.html">19강</a>으로 돌아갈 수 있습니다.</p></section>
+
+<section id="tcpdump"><h2>2. 계층을 바꾸어 같은 패킷 읽기</h2>
+<p>준비한 파일을 <code>practice-concepts.pcap</code>이라고 가정합니다. 먼저 요약을 읽고, 같은 기록을 바이트와 링크 계층으로 다시 읽습니다. 옵션은 관측 대상을 바꾸는 것이 아니라 보여 주는 정보와 이름 변환 동작을 바꿉니다.</p>
+<pre><code>tcpdump -nn -r practice-concepts.pcap
+tcpdump -nn -t -c 2 -r practice-concepts.pcap
+tcpdump -nn -t -x -c 1 -r practice-concepts.pcap
+tcpdump -nn -t -e -v -c 1 -r practice-concepts.pcap</code></pre>
+<p><code>-r</code> 다음에는 파일명, <code>-c</code> 다음에는 처리 개수가 옵니다. <code>-nn</code>은 주소와 포트 이름 변환을 막고, <code>-t</code>는 시각을 숨기며, <code>-x</code>는 링크 계층 헤더를 제외한 16진수, <code>-e</code>는 링크 계층 정보, <code>-v</code>는 더 자세한 해석을 보여 줍니다. 시각을 숨긴 출력만 보고 보고서의 시간 관계를 복원하려 하지 마세요. <a class="ref" href="#ref-1">[1]</a></p>
+<p>가상의 IPv4 헤더 첫 바이트가 <code>0x46</code>이라면 상위 4비트의 4는 버전, 하위 4비트의 6은 IHL입니다. IHL의 단위는 4바이트이므로 헤더 길이는 24바이트입니다. IPv4 헤더 시작에서 오프셋 8의 값이 <code>0x3f</code>라면 TTL은 63, 오프셋 9가 <code>0x11</code>이라면 다음 프로토콜은 UDP입니다. 전체 길이가 <code>0x0044</code>라면 68바이트이고 IP 데이터는 <code>68−24=44바이트</code>입니다.</p>
+<div class="table-wrap"><table><caption>계층별 식별값을 혼동하지 않기</caption><thead><tr><th scope="col">확인 위치</th><th scope="col">가상 관측</th><th scope="col">해석</th></tr></thead><tbody><tr><td>Ethernet II의 Type</td><td>0x0800</td><td>뒤에 IPv4가 옴</td></tr><tr><td>IPv4의 Protocol</td><td>17 또는 0x11</td><td>뒤에 UDP가 옴</td></tr><tr><td>UDP의 포트와 데이터</td><td>출발지 53과 DNS 응답 구조</td><td>DNS 응답이라는 해석을 함께 지지함</td></tr></tbody></table></div>
+<p>이름 변환을 껐는데 DNS 질의 이름이 보일 수도 있습니다. 분석 도구가 새로 조회한 이름과 패킷 데이터 안에 원래 들어 있던 이름을 구분해야 합니다. 포트 53만으로 모든 내용을 DNS로 확정하지 말고 질의·응답 구조와 거래 식별자를 확인합니다.</p>
+<p><strong>확인 질문:</strong> Ethernet 헤더까지 바이트로 출력하도록 바꾸면 IPv4 TTL의 절대 위치도 그대로일까요? <strong>해설:</strong> IPv4 시작을 기준으로 한 오프셋 8은 같지만 프레임 시작에서의 위치는 앞 헤더 길이를 더해야 합니다. VLAN 태그·링크 유형·IP 옵션을 확인하고 기준점을 먼저 고정합니다.</p></section>
+
+<section id="wireshark"><h2>3. Wireshark에서 통계와 스트림 연결하기</h2>
+<p>가상의 캡처에 IP 주소 다섯 개와 TCP 대화 여섯 개가 있다고 해 봅시다. 주소 수·대화 수·응용 프로토콜 수는 같은 단위가 아닙니다. 한 주소 쌍 사이에 여러 TCP 연결이 있을 수 있고, 한 TCP 연결의 서버 배너가 응용의 정체를 더 구체적으로 보여 줄 수도 있습니다.</p>
+<ol><li><strong>Protocol Hierarchy:</strong> 전체 계층에서 응용 프로토콜 후보를 기록합니다. 계층별 수치를 모두 더해 전체 패킷 수로 만들지 않습니다. 같은 패킷이 여러 계층에 포함될 수 있습니다. <a class="ref" href="#ref-2">[2]</a></li>
+<li><strong>Endpoints와 Conversations:</strong> 고유 주소 수는 Endpoints에서, 주소 쌍·포트 쌍별 대화는 Conversations에서 봅니다. 바이트 수와 Duration을 정렬하고 표시 필터의 적용 여부를 기록합니다. 캡처에서 관측한 지속 시간과 서비스의 실제 가동 시간은 다릅니다. <a class="ref" href="#ref-3">[3]</a></li>
+<li><strong>헤더와 바이트:</strong> 같은 패킷의 Ethernet Type, TTL, Protocol, TCP 헤더 길이를 선택하고 강조되는 바이트를 확인합니다. TCP 마지막 바이트를 찾을 때 기본 20바이트라고 가정하면 옵션이 있는 패킷에서 틀립니다.</li>
+<li><strong>Follow TCP Stream:</strong> 조사할 대화의 패킷을 선택해 양방향 데이터를 읽습니다. 가상의 배너 <code>demo-db/3.2</code>와 명령 <code>INSERT INTO audit_events</code>가 보였다면 서버가 주장한 문자열과 요청한 테이블 이름을 구별해 적습니다. 배너만으로 실제 설치 버전이나 명령 성공을 확정하지 않습니다. 스트림 창을 닫은 뒤 표시 필터가 남았는지도 확인합니다. <a class="ref" href="#ref-4">[4]</a></li></ol>
+<p>특정 문자열을 찾을 때는 Find Packet의 검색 대상을 확인합니다. 패킷 바이트·해석된 상세 내용·목록 문구는 같은 입력이 아닙니다. 가령 바이트 검색에서 <code>orange</code>가 기록 210과 389에 있다면 마지막 일치는 389입니다. 검색이 끝에서 다시 처음으로 돌아갈 수 있으므로 한 바퀴의 범위와 현재 필터를 확인하세요. 두 패킷 경계에 나뉜 문자열은 패킷별 검색만으로 놓칠 수 있습니다.</p>
+<p>심화 연습은 TCP 옵션의 코드·길이·값을 분리하는 것입니다. 가상 MSS 옵션 <code>02 04 04 b0</code>는 4바이트 전체가 MSS 값이라는 뜻이 아닙니다. 코드 02, 길이 04, 값 <code>0x04b0=1200</code>으로 나눕니다. NOP는 한 바이트 패딩이고 옵션 배치 하나만으로 운영체제를 확정하지 않습니다.</p>
+<p><strong>확인 질문:</strong> 스트림에 SQL 요청이 보이면 데이터가 저장되었다고 보고할까요? <strong>해설:</strong> 요청 전송과 서버 처리 성공은 다릅니다. 응답 상태와 데이터베이스 감사 로그를 연결하고, 암호화·수집 누락으로 확인하지 못한 부분을 남깁니다.</p></section>
+
+<section id="link"><h2>4. ARP 대응 변화와 스위치 관측 분석하기</h2>
+<p>가상의 호스트 <code>192.0.2.20</code>이 같은 링크의 <code>192.0.2.1</code>을 찾는다고 합시다. 일반 ARP 요청의 Ethernet 목적지는 <code>ff:ff:ff:ff:ff:ff</code>이고 ARP 내부 Target Hardware Address는 아직 모르는 값을 나타내는 0일 수 있습니다. 두 값은 다른 헤더의 필드입니다. ARP의 Ethernet Type은 <code>0x0806</code>이며 IPv4 헤더를 안에 넣어서 전송하는 형식이 아닙니다.</p>
+<div class="table-wrap"><table><caption>새로 구성한 ARP 관측 기록</caption><thead><tr><th scope="col">순서</th><th scope="col">내용</th><th scope="col">판단</th></tr></thead><tbody><tr><td>A</td><td>192.0.2.20이 192.0.2.1의 MAC 요청</td><td>주소 해석 시작</td></tr><tr><td>B</td><td>192.0.2.1 → 02:00:00:00:00:01 주장</td><td>기존 대응 후보</td></tr><tr><td>C</td><td>같은 IP → 02:00:00:00:00:99 주장</td><td>서로 다른 대응 발견</td></tr></tbody></table></div>
+<p>C는 캐시 오염을 의심할 단서이지만, 그 프레임만으로 피해자가 새 대응을 받아들였는지는 모릅니다. 주소 중복·장비 교체·고가용성 전환도 검토합니다. 대상의 이웃 캐시, 스위치의 MAC 학습 표, 승인된 장비 목록, 전환 로그와 이후 실제 전달 경로를 확인해야 합니다.</p>
+<p>짧은 구간에서 같은 출발지 IP와 수많은 출발지 MAC이 관측되면 관측 위치부터 확인하세요. 라우터를 지난 프레임, 가상화·중계·주소 이동에서는 대응이 단순하지 않을 수 있습니다. 같은 링크의 동일 장비라는 전제와 함께 MAC 생성 속도·스위치 학습 실패·포트별 카운터가 맞아야 테이블 고갈 가설이 강해집니다. 학습 실패 뒤의 전달 범위는 VLAN·포트 정책·장비 동작에 좌우되므로 스위치가 언제나 모든 프레임을 전 포트에 뿌린다고 설명하지 않습니다.</p>
+<p>자발적 ARP 공지도 살펴봅니다. 요청 형식의 ARP도 주소 대응을 알릴 수 있으므로 응답만 검사하면 놓칩니다. 정상 주소 충돌 검사와 공지에도 ARP가 쓰인다는 점을 함께 보아야 합니다. <a class="ref" href="#ref-5">[5]</a> arpwatch의 주소 변경 경고는 변화의 기록이지 공격 성공 판정은 아닙니다.</p>
+<p><strong>확인 질문:</strong> 출발지 IP가 같은데 MAC이 다르면 항상 위조일까요? <strong>해설:</strong> 아닙니다. 먼저 수집 위치와 네트워크 역할을 고정하고 정상 이동·이중화 가능성을 검토합니다. 그 뒤 승인되지 않은 대응과 피해 호스트의 수용 여부를 분리해 검증합니다.</p></section>
+
+<section id="ipv4"><h2>5. IPv4 필드와 이상값을 바이트로 확인하기</h2>
+<p>IPv4 헤더 시작을 0으로 잡으면 TTL은 8, Protocol은 9, 헤더 체크섬은 10~11, 출발지 주소는 12~15, 목적지 주소는 16~19바이트에 있습니다. 버전·IHL은 첫 바이트를 반씩 나누어 읽습니다. Ethernet 프레임 시작과 혼동하지 마세요. <a class="ref" href="#ref-6">[6]</a></p>
+<p>가상 주소 바이트 <code>c0 00 02 14</code>는 <code>192.0.2.20</code>입니다. 헤더 첫 바이트 <code>45</code>는 IPv4와 20바이트 헤더를 뜻합니다. Total Length가 84라면 헤더 뒤의 데이터는 64바이트입니다. Protocol이 ICMP라면 이 64에는 ICMP 헤더도 포함되며, 모두 응용 데이터라고 쓰지 않습니다.</p>
+<p>잘못된 버전 값 때문에 도구가 상세 해석을 멈추어도 바이트 확인은 계속할 수 있습니다. 다만 뒤의 바이트를 IPv4 구조로 해석하는 것은 제작 의도나 주변 문맥을 전제로 한 분석입니다. 체크섬 필드가 0이라는 이유만으로 모든 패킷을 불량이라고 단정하지도 않습니다. 해당 헤더 전체의 계산값, 수집 위치, 송신 체크섬 오프로딩 여부를 구분합니다. 이 가이드에서는 원본 패킷의 장비 수신 결과를 확인한 것으로 표시하지 않습니다.</p>
+<p>단편 데이터도 이어서 확인합니다. 같은 묶음의 조각이 같은 위치에 서로 다른 내용을 담는다면 중첩의 증거가 됩니다. IP 전체 길이가 수집 링크에서 설정한 MTU보다 크면 점보 설정·오프로딩·수집 지점을 확인합니다. Ethernet이라는 이름만으로 모든 관측 패킷의 IP 길이가 항상 1500 이하라고 가정하지 않습니다.</p>
+<p><strong>확인 질문:</strong> IHL 6, Total Length 76이라면 헤더 뒤 길이는? <strong>해설:</strong> <code>76−6×4=52바이트</code>입니다. IHL을 그대로 6바이트로 빼거나 ICMP 헤더까지 다시 빼면서 질문의 단위를 바꾸지 않습니다.</p></section>
+
+<section id="fragments"><h2>6. 단편을 구간표로 배치하기</h2>
+<p>조각을 묶을 때는 IPv4 출발지·목적지·Protocol·Identification과 시간 문맥을 확인합니다. ID 하나만 같다고 같은 메시지로 합치지 않습니다. 각 조각의 데이터 길이는 <code>Total Length−IHL×4</code>, 원래 데이터의 시작 위치는 <code>원시 Fragment Offset×8</code>입니다. tcpdump의 출력처럼 이미 바이트 단위로 변환된 위치에는 8을 다시 곱하지 않습니다.</p>
+<div class="table-wrap"><table><caption>가상 조각 묶음 ID 42000 · IP 헤더는 모두 20바이트</caption><thead><tr><th scope="col">조각</th><th scope="col">전체 길이</th><th scope="col">원시 Offset</th><th scope="col">MF</th><th scope="col">데이터 구간</th></tr></thead><tbody><tr><td>A</td><td>36</td><td>0</td><td>1</td><td>[0,16)</td></tr><tr><td>B</td><td>36</td><td>2</td><td>1</td><td>[16,32)</td></tr><tr><td>C</td><td>28</td><td>3</td><td>1</td><td>[24,32)</td></tr><tr><td>D</td><td>28</td><td>5</td><td>0</td><td>[40,48)</td></tr></tbody></table></div>
+<p>A와 B는 경계에서 이어지고 C는 B의 뒤 8바이트와 중첩합니다. D가 전체 끝을 48로 알려 주더라도 <code>[32,40)</code>은 비어 있습니다. C와 B의 내용이 같은지 다른지 확인하고, 중복 수집·재전송 가능성과 충돌하는 내용을 구별합니다. 순서가 A→D→C→B였어도 데이터 위치는 바뀌지 않습니다.</p>
+<figure class="diagram"><svg viewBox="0 0 720 240" role="img" aria-labelledby="practice-frag-title"><title id="practice-frag-title">가상 조각 A B C D의 중첩과 누락 구간</title><g stroke="#62e3c2" fill="#19443f"><rect x="110" y="25" width="192" height="32"/><rect x="302" y="69" width="192" height="32"/><rect x="398" y="113" width="96" height="32"/><rect x="590" y="157" width="96" height="32"/></g><rect x="494" y="25" width="96" height="164" fill="#3d2935" stroke="#de9cb5" stroke-dasharray="5 4"/><g><text x="25" y="48">A</text><text x="25" y="92">B</text><text x="25" y="136">C</text><text x="25" y="180">D</text><text x="110" y="222">0</text><text x="290" y="222">16</text><text x="386" y="222">24</text><text x="482" y="222">32</text><text x="578" y="222">40</text><text x="672" y="222">48</text><text x="507" y="98" class="svg-label">미수집</text></g></svg><figcaption>가로축은 원래 IP 데이터의 바이트 위치입니다. C는 B와 중첩하고 32~40은 제공되지 않았습니다. 실제 PCAP의 재조립 결과가 아닌 계산 예시입니다.</figcaption></figure>
+<p>끝 조각이 없으면 전체 길이를 확정하기 어렵고, 시작 조각이 없으면 상위 헤더를 확인하지 못할 수 있습니다. IPv4 재조립 시간 초과 알림은 첫 조각 수신 여부 등 생성 조건을 확인해야 합니다. 오류가 없다는 이유로 성공을 확정하지 않습니다. 조각이 올 때마다 모든 구현이 타이머를 무조건 새로 시작한다고 외우지 말고 고정 재조립 제한과 실제 구현을 확인합니다. <a class="ref" href="#ref-7">[7]</a></p>
+<p>작거나 서로 다른 크기의 조각은 조사 단서이지만 그 사실 하나가 반드시 규격 위반이나 공격을 뜻하지는 않습니다. 마지막이 아닌 조각의 데이터는 8바이트 배수인지 확인합니다. IP 옵션의 복사 비트가 설정된 옵션은 다른 조각에도 실리는지 확인하며, 조각마다 IHL이 같다고 가정하지 않습니다. <a class="ref" href="#ref-6">[6]</a></p>
+<pre><code># 사용법 예시: Echo Request의 시작 조각 후보
+tcpdump -nn -v -r practice-fragments.pcap 'icmp[0] = 8'
+# 같은 관측 구간의 한 묶음 후보를 IPv4 헤더로 다시 선택
+tcpdump -nn -v -r practice-fragments.pcap 'src host 192.0.2.20 and dst host 192.0.2.1 and ip proto 1 and ip[4:2] = 42000'</code></pre>
+<p>첫 명령은 ICMP Type을 읽으므로 같은 Echo Request의 후속 조각을 모두 보여 주지 않습니다. 후속 조각에는 ICMP 헤더가 다시 실리지 않기 때문입니다. 두 번째 명령은 IP 헤더의 묶음 조건으로 돌아갑니다. ID 재사용과 시간 범위를 확인해야 하며, 이 명령을 실행한 결과가 위 표라고 주장하지 않습니다. <a class="ref" href="#ref-8">[8]</a></p>
+<p>중첩 심화 문제에서는 수신자가 돌려준 Echo Reply 데이터를 요청의 여러 후보와 대조합니다. 한 구간의 일치만 보고 모든 중첩에서 선착 또는 후착을 우선한다고 결론내리지 않습니다. 도착 순서·겹친 위치·완전 중첩과 부분 중첩에 따라 증거를 나누고, 이것은 해당 관측의 결과이지 모든 운영체제의 공통 정책이 아닙니다.</p>
+<p><strong>확인 질문:</strong> B의 전체 길이가 36이고 헤더가 24로 바뀌면? <strong>해설:</strong> 데이터는 12바이트이고 구간은 [16,28)입니다. MF1인 조각의 데이터 길이가 8바이트 배수가 아니라는 추가 이상도 확인합니다. 이전 [16,32)를 그대로 쓰면 안 됩니다.</p></section>
+
+<section id="ipv6-basics"><h2>7. IPv6의 기본 헤더와 이웃 탐색 익히기</h2>
+<p>IPv6는 주소 표기만 길어진 IPv4가 아닙니다. 기본 헤더는 40바이트이고 Payload Length는 그 기본 헤더 뒤 길이를 나타냅니다. IPv4의 Total Length처럼 기본 헤더까지 포함하는 값과 구분하세요. 기본 헤더에는 IPv4식 IHL과 헤더 체크섬이 없고 TTL의 역할에는 Hop Limit이 대응합니다.</p>
+<p>Next Header는 바로 뒤 구조를 가리킵니다. 다음 구조가 상위 프로토콜일 수도 있고 다른 확장 헤더일 수도 있어 연결을 끝까지 따라가야 합니다. IPv6에서는 경유 라우터가 IPv4처럼 패킷을 조각내지 않으며 출발지가 Fragment 헤더를 사용합니다. <a class="ref" href="#ref-9">[9]</a></p>
+<div class="table-wrap"><table><caption>실습에서 구분할 이웃 탐색 메시지</caption><thead><tr><th scope="col">ICMPv6 종류</th><th scope="col">번호</th><th scope="col">역할</th></tr></thead><tbody><tr><td>Router Solicitation</td><td>133</td><td>라우터에게 광고를 요청</td></tr><tr><td>Router Advertisement</td><td>134</td><td>라우터·프리픽스 등 구성 정보를 알림</td></tr><tr><td>Neighbor Solicitation</td><td>135</td><td>이웃 주소 해석·도달 가능성 확인 등에 사용</td></tr><tr><td>Neighbor Advertisement</td><td>136</td><td>이웃 정보를 알림</td></tr></tbody></table></div>
+<p>Router Solicitation을 단순히 ‘IPv4 ARP와 같은 MAC 질의’로 외우지 마세요. 라우터 광고를 요청하는 절차와 이웃 주소 해석은 목적이 다릅니다. IPv6의 이웃 탐색은 ICMPv6 위에서 동작하며 Ethernet ARP를 그대로 쓰지 않습니다. <a class="ref" href="#ref-10">[10]</a></p></section>
+
+<section id="ipv6-practice"><h2>8. 라우터 광고와 확장 헤더를 분석하기</h2>
+<p>가상의 호스트가 RS를 보낸 뒤 라우터 A의 RA와 승인되지 않은 것으로 의심되는 B의 RA를 관측했다고 합시다. 먼저 각 RA의 출발지 IPv6 주소, Ethernet 출발지, Source Link-Layer Address 옵션이 있으면 그 값, Router Lifetime, 프리픽스·플래그를 나누어 기록합니다. MAC 두 개를 보았다는 사실만으로 B가 악성이라거나 호스트의 기본 경로가 바뀌었다고 확정하지 않습니다. 승인된 라우터 목록, 단말 경로·이웃 캐시와 이후 전달 경로가 필요합니다. <a class="ref" href="#ref-10">[10]</a></p>
+<p>다음은 새로 만든 헤더 연결 예입니다. 화살표 왼쪽 괄호 안 숫자는 그 헤더의 Next Header 값이며, 바로 오른쪽 헤더를 식별합니다.</p>
+<pre><code>IPv6 (NH=0)
+  → Hop-by-Hop Options (NH=44)
+  → Fragment (NH=17)
+  → UDP</code></pre>
+<p>0은 Hop-by-Hop Options, 44는 Fragment, 17은 UDP입니다. Fragment 뒤를 무조건 새로운 IPv6 헤더로 해석하지 않습니다. 첫 조각과 후속 조각에서 Fragment 앞에 반복되는 부분을 비교하고, 상위 헤더는 어디까지 실제로 확보했는지 확인합니다. 기본 IPv6 헤더 하나의 Next Header만 보고 UDP가 없다고 결론내리면 확장 헤더 안쪽을 놓칠 수 있습니다. <a class="ref" href="#ref-9">[9]</a></p>
+<p>중첩 처리도 IPv4 사례와 분리해야 합니다. IPv6 중첩 조각을 발견하면 해당 데이터그램 전체를 폐기하도록 정해져 있으므로 IPv4에서 관측한 중첩 우선순위를 IPv6의 정상 처리 규칙으로 옮기지 않습니다. <a class="ref" href="#ref-11">[11]</a></p>
+<p>IPv4와 IPv6 주소의 관계를 찾는 연습에서는 같은 시각·같은 링크에서 관측한 MAC을 연결 단서로 삼습니다. 가상 ARP 응답의 <code>192.0.2.44 → 02:00:00:00:00:44</code>와 NA의 <code>2001:db8::44 → 같은 MAC</code>이 맞으면 같은 인터페이스라는 가설을 세울 수 있습니다. NA에서는 외부 IPv6 출발지뿐 아니라 Target Address와 Target Link-Layer Address 옵션을 확인해야 합니다. 프록시 응답·가상 MAC·위조·주소 변경이 있으므로 동일 MAC만으로 사람이나 물리 호스트의 신원을 확정하지 않습니다.</p>
+<pre><code># 자신이 준비한 파일에 적용하는 MAC 후보 검색 예시
+tcpdump -nn -e -r practice-ipv6.pcap 'ether src 02:00:00:00:00:44'
+# Wireshark 표시 필터
+eth.src == 02:00:00:00:00:44</code></pre>
+<p><strong>확인 질문:</strong> RA의 외부 Ethernet 출발지와 링크 계층 주소 옵션을 하나의 값으로 기록해도 될까요? <strong>해설:</strong> 각각 프레임 전달과 메시지 내부의 주장입니다. 같은지 확인하는 것은 유용하지만 필드를 합쳐 버리면 위조·중계·프록시 상황을 조사할 근거가 사라집니다.</p></section>
+
+<section id="review"><h2>9. 관측과 해석을 분리한 종합 복습</h2>
+<p><strong>질문 1:</strong> 이름 변환을 껐는데 질의 이름이 보이면 실패인가요? <strong>해설:</strong> 아닙니다. 패킷 데이터에 이미 실린 이름과 분석 중 새로 수행하는 이름 조회를 구분합니다.</p>
+<p><strong>질문 2:</strong> IP 주소 다섯 개면 TCP 연결도 다섯 개인가요? <strong>해설:</strong> 아닙니다. 주소·주소 쌍·포트 쌍별 연결은 서로 다른 집계 단위입니다.</p>
+<p><strong>질문 3:</strong> ARP 요청의 Ethernet 목적지와 Target MAC이 다른 이유는? <strong>해설:</strong> 하나는 프레임을 전달할 주소이고 다른 하나는 아직 알아내려는 주소입니다.</p>
+<p><strong>질문 4:</strong> 헤더 뒤 52바이트면 응용 데이터도 52바이트인가요? <strong>해설:</strong> 상위 프로토콜의 헤더가 포함될 수 있습니다. 질문이 어느 계층 길이를 묻는지 먼저 확인합니다.</p>
+<p><strong>질문 5:</strong> 마지막 조각이 있으면 완전한가요? <strong>해설:</strong> 끝 위치를 알 수 있을 뿐입니다. 모든 구간의 누락·중첩·잘림과 같은 묶음 조건을 확인해야 합니다.</p>
+<p><strong>질문 6:</strong> 크기가 다른 조각은 모두 공격인가요? <strong>해설:</strong> 아닙니다. 재단편화와 헤더 길이 차이도 가능하므로 배수 조건과 전체 구간·경로를 함께 판단합니다.</p>
+<p><strong>질문 7:</strong> Echo Request 필터가 모든 조각을 보여 주지 않는 이유는? <strong>해설:</strong> 후속 조각에는 ICMP Type 위치의 헤더가 반복되지 않습니다. 시작 조각에서 묶음 조건을 얻어 IP 헤더로 다시 선택합니다.</p>
+<p><strong>질문 8:</strong> 라우터 광고를 받았으면 기본 경로도 바뀌었나요? <strong>해설:</strong> 수신과 채택은 다릅니다. 수신자의 설정·정책·경로 상태와 실제 전달을 확인합니다.</p>
+<p><strong>질문 9:</strong> IPv4 중첩 실습의 결과를 IPv6에 그대로 적용하나요? <strong>해설:</strong> 아닙니다. IPv6의 중첩 조각 폐기 규칙을 적용해 따로 판단합니다.</p>
+<p><strong>질문 10:</strong> 같은 MAC으로 IPv4·IPv6를 연결하면 충분한가요? <strong>해설:</strong> 시간·링크·프록시·가상화와 메시지의 Target 필드를 확인하고 단말 자료로 가설을 검증합니다.</p>
+<p>각 연습의 마지막에는 ‘어느 입력에서 어떤 필드를 보았는지, 그 값이 어떤 해석을 지지하는지, 무엇은 아직 확인하지 못했는지’를 한 문단으로 적으세요. 개념 풀이를 읽은 것, 계산을 검산한 것, 실제 PCAP을 실행한 것, 수신 장비의 동작을 확인한 것은 서로 다른 완료 단계입니다.</p></section>
+
+<section id="pcap-validation"><h2>10. 실제 캡처 대조에서 확인한 분석 습관</h2>
+<p>첫째 날의 여섯 캡처를 파일 내용으로 읽고, 기록 수·시각·Ethernet·ARP·IPv4·TCP·IPv6 필드를 독립 패킷 라이브러리와 교차 검증했습니다. 확장자가 같아도 일부는 PCAP, 일부는 PCAPNG였습니다. 파일 이름이나 확장자만으로 형식과 동일성을 판단하지 말고 헤더와 파일 해시를 기록하세요.</p>
+<p>통계의 반올림된 표시는 정확한 바이트·시간과 다를 수 있습니다. 대화의 시작과 끝 시각을 원래 정밀도로 계산한 뒤 화면 단위에 맞춰 비교하면 불일치처럼 보이는 차이를 설명할 수 있습니다. 문자열 검색 결과와 스트림 재구성도 조사 범위가 다르므로 어느 입력에서 찾았는지 기록합니다.</p>
+<p>기재 출력과 일부 실제 조각 플래그가 다른 대목은 실제 바이트를 기준으로 구분했습니다. IPv4 헤더 체크섬과 전체 ICMP 응답 체크섬도 따로 검사했습니다. 이 검증은 저장된 파일을 읽은 결과이며 tcpdump·TShark 명령이나 Wireshark 메뉴를 직접 실행한 기록, 실제 스위치·라우터·피해 호스트에서 공격을 재현한 결과는 아닙니다. 앞의 가상 예시는 실제 파일 출력으로 바꾸어 표시하지 않습니다.</p>
+</section>
+<section id="references" class="references"><h2>참고 자료</h2><p>도구 사용법과 표준 보충 확인일: 2026년 11월 1일. 위 관측값과 도식은 독립적으로 구성한 학습 예시입니다.</p><ol>
+<li id="ref-1"><a href="https://github.com/the-tcpdump-group/tcpdump/blob/master/tcpdump.1.in">tcpdump 공식 매뉴얼 소스</a></li>
+<li id="ref-2"><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChStatHierarchy.html">Wireshark Protocol Hierarchy</a></li>
+<li id="ref-3"><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChStatConversations.html">Wireshark Conversations</a></li>
+<li id="ref-4"><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChAdvFollowStreamSection.html">Wireshark Following Protocol Streams</a></li>
+<li id="ref-5"><a href="https://www.rfc-editor.org/rfc/rfc5227.html">RFC 5227 IPv4 주소 충돌 검사와 ARP 공지</a></li>
+<li id="ref-6"><a href="https://datatracker.ietf.org/doc/html/rfc791">RFC 791 IPv4 필드와 옵션</a></li>
+<li id="ref-7"><a href="https://www.rfc-editor.org/rfc/rfc1122.html#section-3.3.2">RFC 1122 재조립 시간 제한</a></li>
+<li id="ref-8"><a href="https://github.com/the-tcpdump-group/libpcap/blob/master/pcap-filter.manmisc.in">libpcap 공식 필터 매뉴얼 소스</a></li>
+<li id="ref-9"><a href="https://www.rfc-editor.org/rfc/rfc8200.html">RFC 8200 IPv6 헤더와 단편화</a></li>
+<li id="ref-10"><a href="https://www.rfc-editor.org/rfc/rfc4861.html">RFC 4861 IPv6 이웃 탐색</a></li>
+<li id="ref-11"><a href="https://www.rfc-editor.org/rfc/rfc5722.html">RFC 5722 IPv6 중첩 조각 처리</a></li>
+</ol></section>

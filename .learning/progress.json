@@ -22,13 +22,14 @@
     18,
     19,
     20,
-    21
+    21,
+    22
   ],
   "next_lesson_id": null,
   "completed_printed_through": 167,
   "updated": "2026-11-01",
-  "stop_after_lesson_id": 21,
-  "plan_adjustment": "7강은 통계와 조사 범위(인쇄 57~61쪽), 새 8강은 스트림·객체 분석과 연습(62~70쪽)으로 분할. 이후 예정 회차 번호를 1씩 이동. 전체 종료 범위 167쪽은 유지. 10강은 주소 해석·요청·응답(77~83쪽), 새 11강은 캐시 오염·방어와 복습(84~90쪽)으로 분할. 이후 예정 회차 번호를 1씩 이동하여 총17회차로 조정. 최종167쪽 유지. 14강은 단편화 개념·비트 판별(111~121쪽), 새15강은 길이·오프셋 덤프 계산(122~126쪽)으로 분할. 이후 예정 회차 번호를1씩 이동하여 총18회차. 최종167쪽 유지. 16강은 중첩·세조각 재조립·도구 표시·체크섬(127~139쪽), 새17강은 VPN과 단편화 문제 해결·종합 복습(140~143쪽)으로 분할. 이후 명령줄과 정규표현식 회차를1씩 이동하여 총19회차. 최종167쪽 유지. 18강은 파이프·필드 추출·정렬·집계(144~154쪽), 새19강은 바이너리 패킷 스트림·검색과 치환(155~158쪽)으로 분할. 정규표현식은20강159~167쪽으로 이동. 최종167쪽 유지. 20강은 정규표현식 기초·탐욕성과 첫 두 예제(159~163쪽), 새21강은 결합식·경계와 종합 복습(164~167쪽)으로 분할. 전체 누락 점검과 최종167쪽 유지.",
+  "stop_after_lesson_id": 22,
+  "plan_adjustment": "7강은 통계와 조사 범위(인쇄 57~61쪽), 새 8강은 스트림·객체 분석과 연습(62~70쪽)으로 분할. 이후 예정 회차 번호를 1씩 이동. 전체 종료 범위 167쪽은 유지. 10강은 주소 해석·요청·응답(77~83쪽), 새 11강은 캐시 오염·방어와 복습(84~90쪽)으로 분할. 이후 예정 회차 번호를 1씩 이동하여 총17회차로 조정. 최종167쪽 유지. 14강은 단편화 개념·비트 판별(111~121쪽), 새15강은 길이·오프셋 덤프 계산(122~126쪽)으로 분할. 이후 예정 회차 번호를1씩 이동하여 총18회차. 최종167쪽 유지. 16강은 중첩·세조각 재조립·도구 표시·체크섬(127~139쪽), 새17강은 VPN과 단편화 문제 해결·종합 복습(140~143쪽)으로 분할. 이후 명령줄과 정규표현식 회차를1씩 이동하여 총19회차. 최종167쪽 유지. 18강은 파이프·필드 추출·정렬·집계(144~154쪽), 새19강은 바이너리 패킷 스트림·검색과 치환(155~158쪽)으로 분할. 정규표현식은20강159~167쪽으로 이동. 최종167쪽 유지. 20강은 정규표현식 기초·탐욕성과 첫 두 예제(159~163쪽), 새21강은 결합식·경계와 종합 복습(164~167쪽)으로 분할. 전체 누락 점검과 최종167쪽 유지. 첫째 날 워크북 확인 후 기존 21강을 유지하고 22강 실습·IPv6 보충을 추가. 교재 인쇄 4~167쪽 범위는 변경하지 않음.",
   "completed_pdf_through": 169,
   "completed_at": "2026-11-01",
   "coverage_audit": {
@@ -37,12 +38,31 @@
     "unresolved_core_items": []
   },
   "supplementary_practice_validation": {
-    "status": "not_performed_missing_materials",
-    "materials": [
-      "workbook",
-      "original practice PCAP",
+    "status": "workbook_and_day_one_pcaps_offline_validated",
+    "workbook_review_completed_at": "2026-11-01",
+    "workbook_source_updated": "2021-07-26",
+    "day_one_labs_reviewed": [
+      "1.1",
+      "1.2",
+      "1.3",
+      "1.4",
+      "1.5",
+      "1.6"
+    ],
+    "review": ".learning/reviews/day-one-workbook-20261101.md",
+    "published_lesson_id": 22,
+    "original_pcap_execution": "offline_bytes_validated_not_tshark_or_gui",
+    "remaining_materials": [
       "dedicated VM",
+      "header reference spreadsheet",
       "audio answer explanations"
+    ],
+    "pcap_files_validated": 6,
+    "packet_records_crosschecked": 621,
+    "independent_library": "dpkt 1.9.8",
+    "remaining_validation": [
+      "Wireshark GUI and tcpdump/TShark command execution",
+      "target host and network device behavior"
     ]
   }
 }
