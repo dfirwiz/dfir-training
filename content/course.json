@@ -228,9 +228,22 @@
       "id": 18,
       "slug": "18-shell-workflow",
       "title": "명령줄 분석 워크플로",
-      "description": "여러 명령을 연결해 반복 가능한 분석을 만듭니다.",
+      "description": "표준 입출력·필드 추출·정렬·집계를 단계별로 검산하고 텍스트의 행 수와 증거의 단위를 구별합니다.",
       "printed_pages": [
         144,
+        154
+      ],
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 65
+    },
+    {
+      "id": 19,
+      "slug": "19-packet-streams",
+      "title": "패킷 스트림과 검색 도구",
+      "description": "바이너리 패킷 전달과 정확한 기록 수, 검색·치환 도구의 문법과 현재 사용법을 배웁니다.",
+      "printed_pages": [
+        155,
         158
       ],
       "status": "planned",
@@ -238,8 +251,8 @@
       "minutes": null
     },
     {
-      "id": 19,
-      "slug": "19-regex-review",
+      "id": 20,
+      "slug": "20-regex-review",
       "title": "정규표현식과 종합 복습",
       "description": "문자열 검색을 분석에 적용하고 기초 과정을 정리합니다.",
       "printed_pages": [
