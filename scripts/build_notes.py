@@ -18,21 +18,22 @@ def lesson_label(item):
     return f'{item["id"]}강'
 
 def nav(current):
-    rows = []
-    last_day = None
+    days = {}
     for item in lessons:
-        day = item.get('day', 1)
-        if day != last_day:
-            rows.append(f'<li class="sidebar-group">{escape(day_title(day))}</li>')
-            last_day = day
-        number = f'<span class="num">{item["id"]:02d}</span>'
-        title = escape(item['title'])
-        if item['status'] == 'published':
-            active = ' aria-current="page"' if item['id'] == current else ''
-            rows.append(f'<li><a href="{item["slug"]}.html"{active}>{number}<span>{title}</span></a></li>')
-        else:
-            rows.append(f'<li><span class="upcoming">{number}<span>{title} · 예정</span></span></li>')
-    return '<aside class="course-sidebar"><details open><summary>기초 네트워크 분석 · 전체 목차</summary><ol>' + ''.join(rows) + '</ol></details></aside>'
+        days.setdefault(item.get('day', 1), []).append(item)
+    groups = []
+    for day, items in days.items():
+        rows = []
+        for item in items:
+            number = f'<span class="num">{item["id"]:02d}</span>'
+            title = escape(item['title'])
+            if item['status'] == 'published':
+                active = ' aria-current="page"' if item['id'] == current else ''
+                rows.append(f'<li><a href="{item["slug"]}.html"{active}>{number}<span>{title}</span></a></li>')
+            else:
+                rows.append(f'<li><span class="upcoming">{number}<span>{title} · 예정</span></span></li>')
+        groups.append(f'<details class="course-day"><summary>{escape(day_title(day))}</summary><ol>{"".join(rows)}</ol></details>')
+    return '<aside class="course-sidebar"><details class="course-menu" open><summary>기초 네트워크 분석 · 전체 목차</summary><div class="course-days">' + ''.join(groups) + '</div></details></aside>'
 
 for item in published:
     body_path = ROOT / f'content/notes/{item["slug"]}.html'
