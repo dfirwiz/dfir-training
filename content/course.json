@@ -46,14 +46,14 @@
       "id": 4,
       "slug": "04-bits-and-bytes",
       "title": "비트와 바이트를 읽는 방법",
-      "description": "이진수와 16진수를 패킷 필드 해석에 연결합니다.",
+      "description": "비트·니블·진법의 원리부터 필드 위치·바이트 순서·tcpdump 덤프까지, 작은 계산과 조건 변경 예제로 차근차근 읽습니다.",
       "printed_pages": [
         31,
         45
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 35
+      "updated": "2026-11-02",
+      "minutes": 65
     },
     {
       "id": 5,
