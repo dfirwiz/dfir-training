@@ -72,14 +72,14 @@
       "id": 6,
       "slug": "06-wireshark-start",
       "title": "Wireshark로 패킷 읽기",
-      "description": "화면 구성과 분석의 시작점을 익힙니다.",
+      "description": "파일 열기와 세 패널의 연결부터 필터·바이트 기준점·스트림·객체의 한계까지, 조건을 바꾼 예제로 분석 화면을 읽습니다.",
       "printed_pages": [
         51,
         56
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 40
+      "updated": "2026-11-02",
+      "minutes": 65
     },
     {
       "id": 7,
