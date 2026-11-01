@@ -137,14 +137,14 @@
       "id": 11,
       "slug": "11-arp-defense",
       "title": "ARP 캐시 오염과 방어 검증",
-      "description": "주소 대응의 위조 정황과 전달 경로, 스위치 방어 기능의 역할과 한계를 분석합니다.",
+      "description": "주소 주장과 캐시 변화·실제 전달을 나누어 읽고, 응답 바이트·경쟁 사례·포트 보안·DAI의 방어 범위를 증거로 검증합니다.",
       "printed_pages": [
         84,
         90
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 55
+      "updated": "2026-11-02",
+      "minutes": 85
     },
     {
       "id": 12,
