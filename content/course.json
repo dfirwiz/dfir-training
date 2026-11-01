@@ -202,9 +202,22 @@
       "id": 16,
       "slug": "16-fragmentation-analysis",
       "title": "단편화 트래픽 분석",
-      "description": "분할된 패킷을 해석하고 수집과 탐지의 한계를 검토합니다.",
+      "description": "중첩 조각과 재조립 정책, 세 조각의 길이·표시·필터·체크섬을 근거와 한계까지 연결해 분석합니다.",
       "printed_pages": [
         127,
+        139
+      ],
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 75
+    },
+    {
+      "id": 17,
+      "slug": "17-vpn-fragmentation",
+      "title": "VPN과 단편화 문제 해결",
+      "description": "터널의 안팎 헤더와 MTU·DF·MSS, 손실·재조립 시간 초과를 구분하고 단편화 학습을 종합합니다.",
+      "printed_pages": [
+        140,
         143
       ],
       "status": "planned",
@@ -212,8 +225,8 @@
       "minutes": null
     },
     {
-      "id": 17,
-      "slug": "17-shell-workflow",
+      "id": 18,
+      "slug": "18-shell-workflow",
       "title": "명령줄 분석 워크플로",
       "description": "여러 명령을 연결해 반복 가능한 분석을 만듭니다.",
       "printed_pages": [
@@ -225,8 +238,8 @@
       "minutes": null
     },
     {
-      "id": 18,
-      "slug": "18-regex-review",
+      "id": 19,
+      "slug": "19-regex-review",
       "title": "정규표현식과 종합 복습",
       "description": "문자열 검색을 분석에 적용하고 기초 과정을 정리합니다.",
       "printed_pages": [
