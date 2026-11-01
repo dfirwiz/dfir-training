@@ -6,6 +6,8 @@
 <p>처음부터 TCP/IP와 패킷 구조를 자세히 다루는 이유가 여기에 있습니다. 용어를 외우기 위한 기초 공부가 아니라, 나중에 경고의 의미를 직접 검증하기 위한 준비입니다.</p>
 <div class="table-wrap"><table><caption>앞으로의 학습 흐름</caption><thead><tr><th scope="col">단계</th><th scope="col">주요 내용</th><th scope="col">이 내용을 배우는 이유</th></tr></thead><tbody><tr><td>네트워크 기초</td><td>TCP/IP, 패킷 구조, Wireshark와 필터</td><td>통신이 어떻게 이루어졌는지 직접 읽기 위해</td></tr><tr><td>규칙 기반 탐지</td><td>응용 프로토콜, Snort·Suricata 탐지 규칙</td><td>경고가 발생한 조건과 탐지의 한계를 이해하기 위해</td></tr><tr><td>관측과 행위 분석</td><td>센서 배치, TLS, Zeek, 행위 분석과 우회</td><td>관측 가능한 범위를 파악하고 여러 통신을 연결하기 위해</td></tr><tr><td>대규모 데이터 분석</td><td>NetFlow, 통계·시각화·머신러닝</td><td>많은 데이터에서 조사할 만한 흐름을 찾기 위해</td></tr></tbody></table></div>
 <p>처음에는 패킷의 필드와 숫자가 낯설어도 괜찮습니다. 우선 ‘이 정보로 어떤 질문에 답할 수 있는가’를 연결하면서 읽는 것이 좋습니다. 이후의 실습에서 같은 정보를 여러 번 확인하다 보면 각 필드가 필요한 이유도 점차 익숙해집니다.</p>
+<p>기초 용어를 배운 뒤에는 작은 자료에 직접 적용하고, 시간이 지난 후 다시 계산해 보는 과정이 필요합니다. 설명을 읽는 것과 스스로 경계를 찾는 것은 다른 능력입니다. 실습과 간격을 둔 복습을 반복하면 앞에서 배운 계층·진법·길이가 뒤의 분석에서 어떻게 쓰이는지도 연결할 수 있습니다. 이해되지 않은 용어는 그대로 쌓아 두지 말고 해당 정의와 예제로 돌아가 확인하세요.</p>
+<p>학습 자료도 구분합니다. 본 교재 외에 워크북·실습 데이터·전용 환경·빠른 참조표 같은 보조 자료가 있을 수 있습니다. 이 노트에는 제공된 본문을 바탕으로 독립 예제와 해설을 구성합니다. 별도 자료가 없을 때는 원래 실습을 수행하거나 정답을 확인했다고 표시하지 않으며, 자체 예제 검산과 원본 실습의 재현을 구별합니다.</p>
 </section>
 <section id="packet"><h2>2. 패킷은 무엇이고 왜 중요한가</h2>
 <p>웹사이트를 열거나 파일을 내려받으면 데이터는 네트워크에서 전송할 수 있는 단위로 나뉘어 이동합니다. 이 과정에서 분석하는 기본 단위가 패킷입니다.</p>
@@ -67,7 +69,7 @@
 <p><strong>해설:</strong> 아직 확정하기 어렵습니다. 탐지 조건에 해당하는 통신이 있었다는 사실과, 그 통신으로 시스템에 영향이 발생했다는 사실을 구분해야 합니다. 대상의 응답, 보안 장비의 처리 결과, 서버나 단말에서 발생한 활동을 추가로 확인해야 합니다.</p>
 <p>노트에는 다음처럼 근거와 남은 의문을 함께 적는 것이 좋습니다.</p>
 <blockquote>공격 의심 요청이 관측되었다. 현재 확보한 패킷만으로 명령 실행 성공 여부는 확인되지 않는다. 서버의 접근 로그와 프로세스 실행 기록을 추가로 확인해야 한다.</blockquote>
-<details><summary>본문이 암호화되어 있으면 패킷 분석을 건너뛰어도 될까요?</summary><p>아닙니다. 접속 대상·빈도·전송량·시간과 연결 상태를 분석할 수 있습니다. 다만 이런 단서에서 도출한 가설은 단말·서버·클라우드 로그 등으로 검증해야 합니다.</p></details>
+<p><strong>질문:</strong> 본문이 암호화되어 있으면 패킷 분석을 건너뛰어도 될까요?</p><p><strong>해설:</strong> 아닙니다. 접속 대상·빈도·전송량·시간과 연결 상태를 분석할 수 있습니다. 다만 이런 단서에서 도출한 가설은 단말·서버·클라우드 로그 등으로 검증해야 합니다.</p>
 <p>다음 회차에서는 SYN 스캔, ICMP 터널, Ping Sweep을 경고 이름만으로 우선순위 매기기 어려운 이유를 패킷 흐름과 함께 살펴봅니다.</p>
 </section>
 <section id="references" class="references"><h2>참고 자료</h2><p>최신 보충 확인일: 2026년 11월 1일. 개념 설명과 사례는 학습을 위해 독립적으로 구성했습니다.</p><ol><li id="ref-1"><a href="https://csrc.nist.gov/glossary/term/traffic_analysis">NIST — Traffic analysis</a></li><li id="ref-2"><a href="https://wiki.wireshark.org/TLS/">Wireshark — TLS decryption</a></li><li id="ref-3"><a href="https://www.rfc-editor.org/rfc/rfc9000.html">IETF RFC 9000 — QUIC</a></li><li id="ref-4"><a href="https://www.rfc-editor.org/rfc/rfc9849.html">IETF RFC 9849 — TLS Encrypted Client Hello</a></li><li id="ref-5"><a href="https://docs.zeek.org/en/current/reference/logs/conn.html">Zeek — conn.log</a></li><li id="ref-6"><a href="https://docs.zeek.org/en/current/reference/logs/ssl.html">Zeek — ssl.log</a></li><li id="ref-7"><a href="https://www.cyber.gov.au/publication/priority-logs-for-siem-ingestion-practitioner-guidance">ASD ACSC — Priority logs for SIEM ingestion</a></li></ol></section>
