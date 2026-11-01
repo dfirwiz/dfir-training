@@ -286,6 +286,21 @@
       "status": "published",
       "updated": "2026-11-01",
       "minutes": 100
+    },
+    {
+      "id": 23,
+      "slug": "23-display-filter-basics",
+      "title": "수많은 패킷 속에서 필요한 것만 찾기",
+      "description": "둘째 날 1강. Wireshark 표시 필터를 쉬운 비유로 익히고, 주소·문자열 조건과 버전 차이, 암호화된 DNS의 관측 한계를 조사에 연결합니다.",
+      "day": 2,
+      "day_lesson": 1,
+      "printed_pages": [
+        4,
+        11
+      ],
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 55
     }
   ]
 }

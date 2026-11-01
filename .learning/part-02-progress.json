@@ -1,0 +1,18 @@
+{
+  "part": "02",
+  "status": "first_lesson_published_source_ready",
+  "publication_mode": "manual",
+  "completed_lesson_ids": [
+    23
+  ],
+  "completed_day_lessons": [
+    1
+  ],
+  "completed_printed_through": 11,
+  "completed_pdf_through": 13,
+  "next_lesson_id": 24,
+  "next_printed_page": 12,
+  "updated": "2026-11-01",
+  "scope": "현재 요청은 둘째 날 첫 강의 게시. 다음 강의의 자동 게시나 자동화 생성은 요청되지 않음.",
+  "review": ".learning/reviews/day-two-01-20261101.md"
+}
