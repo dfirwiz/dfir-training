@@ -253,10 +253,23 @@
     {
       "id": 20,
       "slug": "20-regex-review",
-      "title": "정규표현식과 종합 복습",
-      "description": "문자열 검색을 분석에 적용하고 기초 과정을 정리합니다.",
+      "title": "정규표현식의 기초와 일치 범위",
+      "description": "메타문자·반복·문자 집합·앵커를 읽고, 탐욕성과 엔진별 일치 선택을 자체 텍스트로 검산합니다.",
       "printed_pages": [
         159,
+        163
+      ],
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 60
+    },
+    {
+      "id": 21,
+      "slug": "21-regex-boundaries",
+      "title": "정규표현식의 경계와 종합 복습",
+      "description": "여러 조건을 결합한 정규식의 성공·실패를 분해하고 기초 학습 범위 전체를 점검합니다.",
+      "printed_pages": [
+        164,
         167
       ],
       "status": "planned",
