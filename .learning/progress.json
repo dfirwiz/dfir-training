@@ -79,9 +79,10 @@
       8,
       9,
       10,
-      11
+      11,
+      12
     ],
-    "next_lesson_id": 12,
+    "next_lesson_id": 13,
     "updated": "2026-11-02",
     "basis": "User-approved detailed conversational style of revised lesson 1. User authorized immediate lesson 2 and subsequent hourly sequential rewriting and publication on 2026-11-02; no per-lesson approval required.",
     "target_lesson_ids": [
@@ -109,7 +110,7 @@
       22
     ],
     "final_coverage_audit": "pending",
-    "last_review": ".learning/reviews/lesson-11-rewrite-20261102.md",
+    "last_review": ".learning/reviews/lesson-12-rewrite-20261102.md",
     "publication_mode": "user_authorized_automatic_one_lesson_per_run",
     "stop_condition": "All day-one target lessons including supplementary practice are revised, checked, and published; final coverage audit passes; then disable the revision automation."
   }

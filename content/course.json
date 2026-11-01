@@ -150,14 +150,14 @@
       "id": 12,
       "slug": "12-ipv4-header",
       "title": "IPv4 헤더 읽기",
-      "description": "IPv4 헤더의 구조·옵션·서비스 표시·길이·IP ID를 바이트와 계산, 관측의 한계까지 연결해 읽습니다.",
+      "description": "바이트 경계와 길이·옵션부터 DSCP/ECN·IP ID까지, 기준점과 조건을 바꾼 계산으로 읽고 실제 처리 결과와 관측을 구별합니다.",
       "printed_pages": [
         91,
         100
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 65
+      "updated": "2026-11-02",
+      "minutes": 85
     },
     {
       "id": 13,
