@@ -176,9 +176,22 @@
       "id": 14,
       "slug": "14-fragmentation",
       "title": "IPv4 단편화의 원리",
-      "description": "MTU와 단편화 필드, 재조립 과정을 이해합니다.",
+      "description": "MTU·DF/MF·8바이트 단위의 위치와 재조립을 정상 조건·현재 지침과 함께 차근차근 이해합니다.",
       "printed_pages": [
         111,
+        121
+      ],
+      "status": "published",
+      "updated": "2026-11-01",
+      "minutes": 65
+    },
+    {
+      "id": 15,
+      "slug": "15-fragmentation-fields",
+      "title": "단편의 길이와 오프셋 계산",
+      "description": "헤더 덤프에서 조각의 전체 길이·데이터 길이·원시 오프셋을 계산하고 검증합니다.",
+      "printed_pages": [
+        122,
         126
       ],
       "status": "planned",
@@ -186,8 +199,8 @@
       "minutes": null
     },
     {
-      "id": 15,
-      "slug": "15-fragmentation-analysis",
+      "id": 16,
+      "slug": "16-fragmentation-analysis",
       "title": "단편화 트래픽 분석",
       "description": "분할된 패킷을 해석하고 수집과 탐지의 한계를 검토합니다.",
       "printed_pages": [
@@ -199,8 +212,8 @@
       "minutes": null
     },
     {
-      "id": 16,
-      "slug": "16-shell-workflow",
+      "id": 17,
+      "slug": "17-shell-workflow",
       "title": "명령줄 분석 워크플로",
       "description": "여러 명령을 연결해 반복 가능한 분석을 만듭니다.",
       "printed_pages": [
@@ -212,8 +225,8 @@
       "minutes": null
     },
     {
-      "id": 17,
-      "slug": "17-regex-review",
+      "id": 18,
+      "slug": "18-regex-review",
       "title": "정규표현식과 종합 복습",
       "description": "문자열 검색을 분석에 적용하고 기초 과정을 정리합니다.",
       "printed_pages": [
