@@ -64,5 +64,16 @@
       "Wireshark GUI and tcpdump/TShark command execution",
       "target host and network device behavior"
     ]
+  },
+  "editorial_revision": {
+    "day": 1,
+    "status": "in_progress",
+    "completed_lesson_ids": [
+      1
+    ],
+    "next_lesson_id": 2,
+    "updated": "2026-11-01",
+    "basis": "User-approved detailed conversational lecture; preserve paragraphs, analogies, examples, tables, diagram semantics and review explanations. Revise one lesson at a time; show the next draft in chat before separate publication instruction."
   }
 }
+
