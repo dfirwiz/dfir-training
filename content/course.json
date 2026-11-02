@@ -215,14 +215,14 @@
       "id": 17,
       "slug": "17-vpn-fragmentation",
       "title": "VPN과 단편화 문제 해결",
-      "description": "터널의 안팎 헤더와 MTU·DF·MSS, 손실·재조립 시간 초과를 구분하고 단편화 학습을 종합합니다.",
+      "description": "VPN 안팎의 주소·길이·DF부터 PMTU 피드백, MTU·MSS 조정과 손실 복구까지 조건을 바꾼 예제로 검증합니다.",
       "printed_pages": [
         140,
         143
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 60
+      "updated": "2026-11-02",
+      "minutes": 85
     },
     {
       "id": 18,
