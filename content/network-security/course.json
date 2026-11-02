@@ -7,18 +7,30 @@
       "id": 1,
       "slug": "01-network-architecture",
       "title": "네트워크 구조: 통신이 지나가는 길과 증거가 남는 위치",
-      "status": "published"
+      "status": "published",
+      "description": "1강. 네트워크 경로와 접근 정책을 이해하고 라우터·스위치·방화벽에서 찾을 증거와 관측 한계를 연결합니다.",
+      "short_title": "네트워크 구조"
     },
     {
       "id": 2,
       "slug": "02-traffic-capture-analysis",
       "title": "트래픽 수집과 분석 — 요약 기록에서 패킷 증거까지",
-      "status": "published"
+      "status": "published",
+      "description": "2강. 플로·애플리케이션 메타데이터·패킷 원본을 비교하고 TShark·Zeek·Wireshark를 조사에 연결합니다.",
+      "short_title": "트래픽 수집과 분석"
     },
     {
       "id": 3,
       "slug": "03-understanding-dns",
-      "title": "DNS의 동작 원리",
+      "title": "DNS의 동작 원리 — 이름에서 주소로, 응답에서 증거로",
+      "status": "published",
+      "description": "3강. DNS의 조회 경로·캐시·주요 레코드를 이해하고 질문과 응답을 패킷 증거와 연결합니다.",
+      "short_title": "DNS의 동작 원리"
+    },
+    {
+      "id": 4,
+      "slug": "04-dns-analysis-attacks",
+      "title": "DNS 분석과 공격 징후",
       "status": "planned"
     }
   ]

@@ -3,26 +3,27 @@
   "updated": "2026-11-02",
   "completed_lessons": [
     1,
-    2
+    2,
+    3
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      18,
-      30
+      31,
+      50
     ],
     "pdf_pages": [
-      20,
-      32
+      33,
+      52
     ]
   },
   "next_scope": {
-    "topic": "Understanding DNS",
+    "topic": "DNS Analysis and Attacks",
     "printed_pages": [
-      31,
-      50
+      51,
+      85
     ]
   },
-  "workflow": "Show complete lecture in chat first; publish only when instructed. Preserve reviewed prose, examples, tables, diagrams and review explanations. Do not use third-party course identifiers in public course content.",
+  "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content.",
   "build": "python scripts/build_network_security.py"
 }
