@@ -1,10 +1,21 @@
 {
   "course": "red-team-foundations",
   "updated": "2026-11-02",
-  "completed_lessons": [1, 2, 3],
-  "published_unit": "레드팀 기초 첫 단원",
-  "next_scope": "법과 준수 원칙",
-  "next_lesson_status": "not_written",
+  "completed_lessons": [
+    1,
+    2,
+    3,
+    4
+  ],
+  "published_unit": "첫 단원 전체 및 두 번째 단원 핵심 요약",
+  "next_scope": null,
+  "next_lesson_status": "awaiting_user_request",
   "workflow": "Publish only user-requested lessons. Preserve reviewed prose, examples, tables, diagrams and immediate review explanations.",
-  "build": "python3 scripts/build_red_team_foundations.py"
+  "build": "python3 scripts/build_red_team_foundations.py",
+  "unit_2": {
+    "status": "published",
+    "lesson_id": 4,
+    "format": "summary",
+    "authorization": "2026-11-02 사용자 요청: 2장은 기존 지침을 따르되 핵심만 요약해 직접 게시"
+  }
 }

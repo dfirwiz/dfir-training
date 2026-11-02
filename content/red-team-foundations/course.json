@@ -1,6 +1,6 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. 레드팀의 목적과 TTP, 위협 인텔리전스와 공격 생명주기, ROE·OPSEC과 작업 기록을 차근차근 배웁니다.",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. 레드팀의 목적과 TTP, 위협 인텔리전스와 공격 생명주기, ROE·OPSEC과 작업 기록, 법과 준수 원칙을 배웁니다.",
   "updated": "2026-11-02",
   "lessons": [
     {
@@ -32,6 +32,19 @@
       "status": "published",
       "sections": 13,
       "review_questions": 7
+    },
+    {
+      "id": 4,
+      "slug": "04-law-compliance",
+      "title": "법과 준수 원칙: 허가·개인정보·증거 취급 핵심 요약",
+      "short_title": "법과 준수 원칙 · 핵심 요약",
+      "description": "두 번째 단원 요약. 영국·EU 법률을 중심으로 접근 허가, 개인정보 최소 수집, 증거 보존과 업종별 시험 기준을 짧은 사례로 정리합니다.",
+      "status": "published",
+      "sections": 7,
+      "review_questions": 3,
+      "figures": 0,
+      "unit": 2,
+      "format": "summary"
     }
   ]
 }

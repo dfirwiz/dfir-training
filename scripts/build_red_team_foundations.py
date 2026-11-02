@@ -1,4 +1,4 @@
-"""Build the reviewed, independent three-lesson red-team foundations course.
+"""Build the independent red-team foundations course.
 
 Standard library only. Existing courses are not regenerated or modified.
 """
@@ -213,13 +213,13 @@ def page(course, title, description, body, toc, selected=None):
             nxt = course['lessons'][index + 1]
             pager += f'<a href="{nxt["slug"]}.html">{nxt["id"]}강 · {escape(nxt["short_title"])} →</a>'
         else:
-            pager += '<span class="pending">후속 강의 · 법과 준수 원칙 · 준비 중</span>'
+            pager += '<span class="pending">다음 강의는 게시 후 안내합니다</span>'
     else:
         pager += f'<a href="{course["lessons"][0]["slug"]}.html">1강부터 읽기 →</a>'
     pager += '</nav>'
     filename = selected['slug'] + '.html' if selected else 'index.html'
     label = f'LESSON {selected["id"]:02d}' if selected else 'COURSE 03'
-    meta = f'{selected["id"]}강 · {selected["review_questions"]}개의 복습과 해설' if selected else '3강 공개 · 18개의 복습과 해설'
+    meta = f'{selected["id"]}강 · {selected["review_questions"]}개의 복습과 해설' if selected else f'{len(course["lessons"])}강 공개 · {sum(item["review_questions"] for item in course["lessons"])}개의 복습과 해설'
     return f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="{ORIGIN}courses/red-team-foundations/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css"></head>
 <body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a></p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / {label}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{meta}</span><span>업데이트 2026-11-02</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
@@ -235,18 +235,18 @@ def main():
         body, toc, counts = render(md)
         assert counts['sections'] == item['sections']
         assert counts['review_questions'] == item['review_questions']
-        assert counts['figures'] == 1
+        assert counts['figures'] == item.get('figures', 1)
         assert md.count('**해설:**') == item['review_questions']
         html = page(course, item['title'], item['description'], body, toc, item)
         assert not re.search(r'libfile_|file_000||Getting Started\.html', html, re.I)
         (OUT / f'{item["slug"]}.html').write_text(html, encoding='utf-8')
         audit.append(dict(id=item['id'], source_bytes=len(md.encode()), **counts))
     cards = ''.join(f'<a class="note-card live" href="{item["slug"]}.html"><span class="number">LESSON {item["id"]:02d} / 공개</span><h3>{escape(item["title"])}</h3><p>{escape(item["description"])}</p><span class="read">{item["review_questions"]}개의 복습과 해설 · {item["id"]}강 읽기 ↗</span></a>' for item in course['lessons'])
-    intro = '<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 첫 단원 1~3강 전체</strong><p>상세 본문, 비교표, SVG 다이어그램 3개, 바로 읽을 수 있는 복습 질문과 해설 18개를 함께 제공합니다. 후속 범위는 법과 준수 원칙입니다.</p></div></section><section id="lessons"><h2>강의 목차</h2><div class="course-cards">' + cards + '</div></section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 필터와 PowerShell 명령을 실제 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료의 확인일은 2026년 11월 2일이며 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
+    intro = '<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 첫 단원 1~3강 + 두 번째 단원 핵심 요약 4강</strong><p>첫 단원은 상세 강의로, 두 번째 단원은 법과 준수 원칙의 핵심 요약으로 제공합니다. 비교표, SVG 다이어그램 3개, 바로 읽을 수 있는 복습 질문과 해설 21개가 포함됩니다.</p></div></section><section id="lessons"><h2>강의 목차</h2><div class="course-cards">' + cards + '</div></section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 필터와 PowerShell 명령을 실제 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료의 확인일은 2026년 11월 2일이며 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
     (OUT / 'index.html').write_text(page(course, TITLE, course['description'], intro, []), encoding='utf-8')
     home = ROOT / 'index.html'
     text = home.read_text(encoding='utf-8')
-    card = '<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · 첫 단원 3강 공개</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 상세한 설명과 가상 조사 사례, 비교표·다이어그램·복습 해설을 모두 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1강 읽기</a></div></div><div class="outline">' + ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["id"]:02d}</b>{escape(item["short_title"])} · 공개 ↗</a>' for item in course['lessons']) + '<div class="lesson"><b>→</b> 법과 준수 원칙 · 준비 중</div></div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
+    card = '<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · 4강 공개</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 첫 단원의 상세 강의에 법과 준수 원칙의 핵심 요약을 더했습니다. 가상 조사 사례, 비교표·다이어그램·복습 해설을 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1강 읽기</a></div></div><div class="outline">' + ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["id"]:02d}</b>{escape(item["short_title"])} · 공개 ↗</a>' for item in course['lessons']) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
     if '<!-- RED-TEAM-FOUNDATIONS:START -->' in text:
         text = re.sub(r'<!-- RED-TEAM-FOUNDATIONS:START -->.*?<!-- RED-TEAM-FOUNDATIONS:END -->', card, text, flags=re.S)
     else:
