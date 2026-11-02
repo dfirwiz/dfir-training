@@ -6,6 +6,7 @@ from pathlib import Path
 from html import escape
 import json
 import re
+from red_team_windows_diagrams import build_windows_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'content/red-team-foundations'
@@ -16,15 +17,15 @@ ORIGIN = 'https://dfirwiz.github.io/dfir-training/'
 
 
 def inline(text):
-    pattern = r'(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\(https://[^\s)]+\))'
+    pattern = r'(`[^`]+`|\*\*[^*]+\*\*|\[[^\]]+\]\((?:https://[^\s)]+|\.\./\.\./assets/red-team-foundations/[A-Za-z0-9_.-]+)\))'
     parts = []
     for token in re.split(pattern, text):
         if token.startswith('`') and token.endswith('`'):
             parts.append('<code>' + escape(token[1:-1]) + '</code>')
         elif token.startswith('**') and token.endswith('**'):
             parts.append('<strong>' + inline(token[2:-2]) + '</strong>')
-        elif re.fullmatch(r'\[[^\]]+\]\(https://[^\s)]+\)', token):
-            label, url = re.fullmatch(r'\[([^\]]+)\]\((https://[^\s)]+)\)', token).groups()
+        elif re.fullmatch(r'\[[^\]]+\]\((?:https://[^\s)]+|\.\./\.\./assets/red-team-foundations/[A-Za-z0-9_.-]+)\)', token):
+            label, url = re.fullmatch(r'\[([^\]]+)\]\(((?:https://[^\s)]+|\.\./\.\./assets/red-team-foundations/[A-Za-z0-9_.-]+))\)', token).groups()
             parts.append(f'<a href="{escape(url, quote=True)}">{inline(label)}</a>')
         else:
             parts.append(escape(token))
@@ -104,6 +105,7 @@ def build_diagrams():
     }
     for name, text in items.items():
         (ASSETS / name).write_text(text, encoding='utf-8')
+    build_windows_diagrams(ASSETS, diagram)
 
 
 def render(md):
@@ -242,11 +244,11 @@ def main():
         (OUT / f'{item["slug"]}.html').write_text(html, encoding='utf-8')
         audit.append(dict(id=item['id'], source_bytes=len(md.encode()), **counts))
     cards = ''.join(f'<a class="note-card live" href="{item["slug"]}.html"><span class="number">LESSON {item["id"]:02d} / 공개</span><h3>{escape(item["title"])}</h3><p>{escape(item["description"])}</p><span class="read">{item["review_questions"]}개의 복습과 해설 · {item["id"]}강 읽기 ↗</span></a>' for item in course['lessons'])
-    intro = '<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 첫 단원 1~3강 + 두 번째 단원 핵심 요약 4강</strong><p>첫 단원은 상세 강의로, 두 번째 단원은 법과 준수 원칙의 핵심 요약으로 제공합니다. 비교표, SVG 다이어그램 3개, 바로 읽을 수 있는 복습 질문과 해설 21개가 포함됩니다.</p></div></section><section id="lessons"><h2>강의 목차</h2><div class="course-cards">' + cards + '</div></section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 필터와 PowerShell 명령을 실제 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료의 확인일은 2026년 11월 2일이며 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
+    intro = '<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 1~3단원 · 1~8강</strong><p>첫 단원 1~3강과 세 번째 단원 5~8강은 상세 강의로 제공합니다. 두 번째 단원 4강은 법과 준수 원칙의 핵심 요약입니다. 세 번째 단원에서는 PE 파일 구조, 프로세스·메모리·권한, 코드 주입의 증거, C# P/Invoke를 배웁니다. 비교표, SVG 다이어그램 11개, 바로 읽는 복습 질문과 해설 53개, 읽기 전용 PE 검사기가 포함됩니다.</p></div></section><section id="lessons"><h2>강의 목차</h2><div class="course-cards">' + cards + '</div></section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 5강의 Python 합성 헤더 읽기 실습은 실제 실행하여 검증했습니다. Windows API·C#·필터·PowerShell 예제는 실제 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료의 확인일은 2026년 11월 2일이며 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
     (OUT / 'index.html').write_text(page(course, TITLE, course['description'], intro, []), encoding='utf-8')
     home = ROOT / 'index.html'
     text = home.read_text(encoding='utf-8')
-    card = '<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · 4강 공개</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 첫 단원의 상세 강의에 법과 준수 원칙의 핵심 요약을 더했습니다. 가상 조사 사례, 비교표·다이어그램·복습 해설을 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1강 읽기</a></div></div><div class="outline">' + ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["id"]:02d}</b>{escape(item["short_title"])} · 공개 ↗</a>' for item in course['lessons']) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
+    card = '<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · 8강 공개</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 법과 준수 원칙을 정리하고 PE 파일 구조, 프로세스·메모리·권한, 코드 주입과 C# P/Invoke까지 배웁니다. 가상 조사 사례, 비교표·다이어그램·복습 해설과 읽기 전용 예제를 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1강 읽기</a></div></div><div class="outline">' + ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["id"]:02d}</b>{escape(item["short_title"])} · 공개 ↗</a>' for item in course['lessons']) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
     if '<!-- RED-TEAM-FOUNDATIONS:START -->' in text:
         text = re.sub(r'<!-- RED-TEAM-FOUNDATIONS:START -->.*?<!-- RED-TEAM-FOUNDATIONS:END -->', card, text, flags=re.S)
     else:

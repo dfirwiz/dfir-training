@@ -1,6 +1,6 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. 레드팀의 목적과 TTP, 위협 인텔리전스와 공격 생명주기, ROE·OPSEC과 작업 기록, 법과 준수 원칙을 배웁니다.",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. TTP·위협 정보·활동 계획·법과 준수 원칙에서 PE 파일, 프로세스·메모리·권한, 코드 주입과 C# P/Invoke까지 배웁니다.",
   "updated": "2026-11-02",
   "lessons": [
     {
@@ -45,6 +45,58 @@
       "figures": 0,
       "unit": 2,
       "format": "summary"
+    },
+    {
+      "id": 5,
+      "slug": "05-pe-file-memory",
+      "title": "PE 파일 구조: 디스크의 바이트와 메모리 주소를 연결하기",
+      "short_title": "PE 파일 구조·RVA·읽기 전용 실습",
+      "description": "MZ와 PE 헤더, 섹션·데이터 디렉터리를 읽고 파일 오프셋·RVA·VA를 계산합니다. 실제 검증한 Python 합성 헤더 실습과 8개의 복습 해설을 제공합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 3,
+      "format": "full"
+    },
+    {
+      "id": 6,
+      "slug": "06-process-memory-security",
+      "title": "프로세스·스레드·메모리·토큰: 실행 중인 Windows 이해하기",
+      "short_title": "프로세스·메모리·접근 토큰",
+      "description": "프로세스와 스레드의 공유 자원, 가상 메모리와 할당, 접근 토큰·DACL·특권 및 생성·종료 API의 계약을 사례로 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 3,
+      "format": "full"
+    },
+    {
+      "id": 7,
+      "slug": "07-injection-evidence",
+      "title": "코드 주입을 어떻게 구분하고 어떤 증거로 확인할까요?",
+      "short_title": "코드 주입의 원리와 증거 해석",
+      "description": "원격 스레드·스레드 흐름 변경·APC·할로잉을 구별하고, ATT&CK와 Sysmon 로그에서 확인한 사실과 아직 필요한 증거를 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 3,
+      "format": "full"
+    },
+    {
+      "id": 8,
+      "slug": "08-csharp-native-interop",
+      "title": "C#과 Windows API 사이: P/Invoke·자료형·문자열·오류 처리",
+      "short_title": "C# P/Invoke·인코딩·오류 처리",
+      "description": "공식 네이티브 원형을 C# 선언으로 옮기는 법을 배우고, 자료형 크기·A/W 인코딩·마샬링·오류 규칙을 읽기 전용 예제로 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 3,
+      "format": "full"
     }
   ]
 }
