@@ -267,14 +267,14 @@
       "id": 21,
       "slug": "21-regex-boundaries",
       "title": "정규표현식의 경계와 종합 복습",
-      "description": "여러 조건을 결합한 정규식의 성공·실패를 분해하고 기초 학습 범위 전체를 점검합니다.",
+      "description": "세 결합식의 성공·실패 위치부터 공백·탭·반복·검사 버퍼까지, 조건을 하나씩 바꾼 검산으로 검색 경계와 조사 판단을 연결합니다.",
       "printed_pages": [
         164,
         167
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 65
+      "updated": "2026-11-02",
+      "minutes": 95
     },
     {
       "id": 22,
