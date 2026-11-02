@@ -1,0 +1,9 @@
+{
+  "course": "network-security",
+  "updated": "2026-11-02",
+  "completed_lessons": [1],
+  "source_scope": {"volume": 2, "printed_pages": [6,17], "pdf_pages": [8,19]},
+  "next_scope": {"topic": "Traffic Capture and Analysis", "printed_pages": [18,30]},
+  "workflow": "Show complete lecture in chat first; publish only when instructed. Preserve reviewed prose, examples, tables, diagrams and review explanations. Do not use third-party course identifiers in public course content.",
+  "build": "python scripts/build_network_security.py"
+}
