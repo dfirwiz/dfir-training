@@ -176,14 +176,14 @@
       "id": 14,
       "slug": "14-fragmentation",
       "title": "IPv4 단편화의 원리",
-      "description": "MTU·DF/MF·8바이트 단위의 위치와 재조립을 정상 조건·현재 지침과 함께 차근차근 이해합니다.",
+      "description": "MTU와 DF/MF부터 오프셋·재조립까지, 크기와 도착 순서를 바꾼 예제로 계산하고 정상 생성 조건과 실제 처리 결과를 구별합니다.",
       "printed_pages": [
         111,
         121
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 65
+      "updated": "2026-11-02",
+      "minutes": 90
     },
     {
       "id": 15,
