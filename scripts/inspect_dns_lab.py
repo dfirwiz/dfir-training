@@ -69,9 +69,9 @@ assert transactions[0]['response_frame']==4 and transactions[1]['response_frame'
 assert rows[7]['rcode']==0 and not rows[7]['answers'] and rows[7]['authority_types']=='SOA'
 assert rows[9]['rcode']==3 and rows[11]['ttls']=='180;180;180'
 csvwrite(OUT/'packets.csv',rows);csvwrite(OUT/'transactions.csv',transactions)
-(OUT/'analysis-results.json').write_text(json.dumps(stats,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+(OUT/'analysis-results.json').write_text(json.dumps(stats,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
 files=sorted(p for p in OUT.iterdir() if p.is_file() and p.name not in ('SHA256SUMS.txt','dns-investigation-lab.zip'))
-(OUT/'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name+'\n' for p in files),encoding='ascii')
+(OUT/'SHA256SUMS.txt').write_text(''.join(hashlib.sha256(p.read_bytes()).hexdigest()+'  '+p.name+'\n' for p in files),encoding='ascii',newline='\n')
 with zipfile.ZipFile(OUT/'dns-investigation-lab.zip','w',zipfile.ZIP_DEFLATED) as z:
     for p in files+[OUT/'SHA256SUMS.txt']:
         info=zipfile.ZipInfo(p.name,date_time=(2026,11,2,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED
