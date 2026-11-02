@@ -30,7 +30,15 @@
     {
       "id": 4,
       "slug": "04-dns-analysis-attacks",
-      "title": "DNS 분석과 공격 징후",
+      "title": "DNS 분석과 공격 징후 — 조회 기록에서 조사 판단까지",
+      "status": "published",
+      "short_title": "DNS 분석과 공격 징후",
+      "description": "4강. 수집 위치·도메인 보강·비인가 DNS·터널링·유사 문자·암호화 DNS를 근거 중심의 조사로 연결합니다."
+    },
+    {
+      "id": 5,
+      "slug": "05-dns-investigation-practice",
+      "title": "DNS 분석 실습 — 질문·응답에서 조사 기록까지",
       "status": "planned"
     }
   ]

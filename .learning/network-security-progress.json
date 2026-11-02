@@ -4,25 +4,28 @@
   "completed_lessons": [
     1,
     2,
-    3
+    3,
+    4
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      31,
-      50
+      51,
+      85
     ],
     "pdf_pages": [
-      33,
-      52
+      53,
+      87
     ]
   },
   "next_scope": {
-    "topic": "DNS Analysis and Attacks",
+    "topic": "Independent DNS investigation practice; source exercise pointer only, workbook not located",
     "printed_pages": [
-      51,
-      85
-    ]
+      86,
+      87
+    ],
+    "then_topic": "Understanding HTTP",
+    "then_printed_start": 89
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content.",
   "build": "python scripts/build_network_security.py"
