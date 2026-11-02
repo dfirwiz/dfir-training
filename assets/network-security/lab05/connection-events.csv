@@ -1,0 +1,3 @@
+time_utc,src,dst,dst_port,transport,observation
+2026-11-02T00:00:00.200000Z,192.0.2.25,203.0.113.80,443,tcp,connection allowed; application success not recorded
+2026-11-02T00:02:01Z,192.0.2.25,198.51.100.53,53,udp,allow; endpoint resolver use outside approved policy

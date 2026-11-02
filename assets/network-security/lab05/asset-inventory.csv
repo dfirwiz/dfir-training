@@ -1,0 +1,4 @@
+ip,host,role,valid_from_utc,valid_to_utc
+192.0.2.25,WS25,employee endpoint,2026-11-02T00:00:00Z,2026-11-02T01:00:00Z
+192.0.2.26,WS26,employee endpoint,2026-11-02T00:00:00Z,2026-11-02T01:00:00Z
+192.0.2.53,DNS-FWD,approved forwarding resolver,2026-11-02T00:00:00Z,2026-11-02T01:00:00Z

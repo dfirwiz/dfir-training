@@ -39,6 +39,14 @@
       "id": 5,
       "slug": "05-dns-investigation-practice",
       "title": "DNS 분석 실습 — 질문·응답에서 조사 기록까지",
+      "status": "published",
+      "short_title": "DNS 분석 실습",
+      "description": "5강. 내려받는 자체 PCAP·CSV로 질문과 응답, 재시도·빈 답·TCP 전환을 읽고 근거 있는 조사 기록을 작성합니다."
+    },
+    {
+      "id": 6,
+      "slug": "06-understanding-http",
+      "title": "HTTP의 동작 원리 — 웹 요청과 응답 읽기",
       "status": "planned"
     }
   ]

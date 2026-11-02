@@ -1,0 +1,42 @@
+{
+  "decoder": "dpkt 1.9.8",
+  "frames": 46,
+  "dns_messages": 42,
+  "query_rows": 22,
+  "response_rows": 20,
+  "paired_queries": 20,
+  "unanswered_query_frames": [
+    15,
+    16
+  ],
+  "external_query_frames": [
+    13
+  ],
+  "collect_query_frames": [
+    17,
+    19,
+    21,
+    23,
+    25,
+    27,
+    29,
+    31
+  ],
+  "collect_query_rows": 8,
+  "collect_unique_names": 6,
+  "collect_unique_ratio": 0.75,
+  "nxdomain_responses": 1,
+  "nxdomain_response_ratio": 0.05,
+  "truncated_response_frames": [
+    40
+  ],
+  "tcp_dns_frames": [
+    44,
+    45
+  ],
+  "upstream_frames": 4,
+  "upstream_query_sources": [
+    "192.0.2.53"
+  ],
+  "ipv4_and_transport_checksums": "all valid"
+}

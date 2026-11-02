@@ -5,27 +5,31 @@
     1,
     2,
     3,
-    4
+    4,
+    5
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      51,
-      85
-    ],
-    "pdf_pages": [
-      53,
-      87
-    ]
-  },
-  "next_scope": {
-    "topic": "Independent DNS investigation practice; source exercise pointer only, workbook not located",
-    "printed_pages": [
       86,
       87
     ],
-    "then_topic": "Understanding HTTP",
-    "then_printed_start": 89
+    "pdf_pages": [
+      88,
+      89
+    ],
+    "role": "Exercise pointer only; independent original lab authored because workbook/capture unavailable"
+  },
+  "next_scope": {
+    "topic": "Understanding HTTP",
+    "printed_pages": [
+      89,
+      106
+    ],
+    "pdf_pages": [
+      91,
+      108
+    ]
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content.",
   "build": "python scripts/build_network_security.py"

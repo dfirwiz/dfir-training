@@ -1,0 +1,7 @@
+time_utc,host,process_guid,image,event,detail
+2026-11-02T00:00:00Z,WS25,PROC-BROWSER-25,browser.exe,dns_query,portal.example.com
+2026-11-02T00:02:01Z,WS25,PROC-DIAG-25,diagnostic-helper.exe,dns_query,portal.example.com; resolver=198.51.100.53; approval unknown
+2026-11-02T00:02:09Z,WS25,PROC-HELPER-25,lab-helper.exe,process_start,installation approval unknown
+2026-11-02T00:02:09.500000Z,WS25,PROC-HELPER-25,lab-helper.exe,file_read,training-notes.txt; content not recorded
+2026-11-02T00:02:10Z,WS25,PROC-HELPER-25,lab-helper.exe,dns_query,collect.example.net subtree; DNS payload not recorded here
+2026-11-02T00:02:21Z,WS26,PROC-SECURITY-26,security-agent.exe,dns_query,check.security.example.com subtree; approved training inventory entry
