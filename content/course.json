@@ -228,14 +228,14 @@
       "id": 18,
       "slug": "18-shell-workflow",
       "title": "명령줄 분석 워크플로",
-      "description": "표준 입출력·필드 추출·정렬·집계를 단계별로 검산하고 텍스트의 행 수와 증거의 단위를 구별합니다.",
+      "description": "파이프·공백과 필드·정렬·집계·종료 상태를 실제 합성 텍스트로 검산하고, 숫자의 단위와 조사 의미를 연결합니다.",
       "printed_pages": [
         144,
         154
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 65
+      "updated": "2026-11-02",
+      "minutes": 95
     },
     {
       "id": 19,
