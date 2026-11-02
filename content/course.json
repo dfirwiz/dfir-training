@@ -241,14 +241,14 @@
       "id": 19,
       "slug": "19-packet-streams",
       "title": "패킷 스트림과 검색 도구",
-      "description": "바이너리 패킷 전달과 정확한 기록 수, 검색·치환 도구의 문법과 현재 사용법을 배웁니다.",
+      "description": "센서·시간·바이너리 입력부터 기록 수·검색 경계·치환 순서까지, 조건을 바꾼 예제로 확인하고 실제 조사 판단에 연결합니다.",
       "printed_pages": [
         155,
         158
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 55
+      "updated": "2026-11-02",
+      "minutes": 90
     },
     {
       "id": 20,
