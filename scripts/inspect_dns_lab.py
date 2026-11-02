@@ -13,7 +13,7 @@ OUT=Path(__file__).resolve().parents[1]/'assets/network-security/lab05'
 TYPES={1:'A',5:'CNAME',6:'SOA',12:'PTR',16:'TXT',28:'AAAA'}
 def csvwrite(path,rows):
     with path.open('w',newline='',encoding='utf-8') as f:
-        w=csv.DictWriter(f,fieldnames=list(rows[0]));w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
 def utc(ts):return datetime.fromtimestamp(ts,tz=timezone.utc).isoformat(timespec='microseconds').replace('+00:00','Z')
 def decode(path):
     rows=[];pending=defaultdict(deque);transactions=[];dns_count=0

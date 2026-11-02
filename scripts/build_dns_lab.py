@@ -54,7 +54,7 @@ def write_pcap(path,events):
 
 def write_csv(path,rows,fields=None):
     with path.open('w',encoding='utf-8',newline='') as f:
-        w=csv.DictWriter(f,fieldnames=fields or list(rows[0]));w.writeheader();w.writerows(rows)
+        w=csv.DictWriter(f,fieldnames=fields or list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
 
 def build():
     events=[];r='192.0.2.53';c='192.0.2.25';d='192.0.2.26'
