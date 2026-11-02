@@ -89,9 +89,10 @@
       18,
       19,
       20,
-      21
+      21,
+      22
     ],
-    "next_lesson_id": 22,
+    "next_lesson_id": null,
     "updated": "2026-11-02",
     "basis": "User-approved detailed conversational style of revised lesson 1. User authorized immediate lesson 2 and subsequent hourly sequential rewriting and publication on 2026-11-02; no per-lesson approval required.",
     "target_lesson_ids": [
@@ -118,9 +119,11 @@
       21,
       22
     ],
-    "final_coverage_audit": "pending",
-    "last_review": ".learning/reviews/lesson-21-rewrite-20261102.md",
+    "final_coverage_audit": "blocked_source_access",
+    "last_review": ".learning/reviews/lesson-22-rewrite-20261102.md",
     "publication_mode": "user_authorized_automatic_one_lesson_per_run",
-    "stop_condition": "All day-one target lessons including supplementary practice are revised, checked, and published; final coverage audit passes; then disable the revision automation."
+    "stop_condition": "All day-one target lessons including supplementary practice are revised, checked, and published; final coverage audit passes; then disable the revision automation.",
+    "final_coverage_review": ".learning/reviews/day-one-revision-final-coverage-20261102.md",
+    "pending_action": "Re-access the original day-one electronic workbook and compare its complete objective/question list; prior six-topic review mapping is verified, but exhaustive workbook coverage is not certified."
   }
 }

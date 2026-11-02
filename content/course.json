@@ -280,12 +280,12 @@
       "id": 22,
       "slug": "22-day-one-practice",
       "title": "첫째 날 실습과 IPv6 분석",
-      "description": "계층·Wireshark·ARP·IPv4·단편화 실습을 연결하고 IPv6 라우터 광고와 확장 헤더를 분석합니다.",
+      "description": "여섯 실습 주제의 증거·길이·구간을 연결하고, IPv6 이웃 탐색·광고·확장 헤더·조각을 조건을 바꾼 예제로 검산합니다.",
       "printed_pages": [],
       "source_type": "supplementary_practice",
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 100
+      "updated": "2026-11-02",
+      "minutes": 120
     },
     {
       "id": 23,
