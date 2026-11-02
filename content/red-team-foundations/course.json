@@ -1,0 +1,37 @@
+{
+  "title": "레드팀 기초: 공격 이해와 보안 검증",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. 레드팀의 목적과 TTP, 위협 인텔리전스와 공격 생명주기, ROE·OPSEC과 작업 기록을 차근차근 배웁니다.",
+  "updated": "2026-11-02",
+  "lessons": [
+    {
+      "id": 1,
+      "slug": "01-purpose-ttp-evidence",
+      "title": "레드팀은 무엇을 검증하고, 블루팀은 무엇을 확인할까요?",
+      "short_title": "레드팀의 목적·TTP·증거 해석",
+      "description": "보안 장비가 있는데도 훈련이 필요한 이유부터 목표 설정, TTP, 공격자 모방과 시뮬레이션, 패킷·단말 증거의 해석까지 연결합니다.",
+      "status": "published",
+      "sections": 9,
+      "review_questions": 5
+    },
+    {
+      "id": 2,
+      "slug": "02-intelligence-attack-lifecycle",
+      "title": "위협 인텔리전스와 공격 생명주기: 흩어진 행동을 하나의 사건으로 연결하기",
+      "short_title": "위협 인텔리전스와 공격 생명주기",
+      "description": "IOC와 TTP, STIX·TAXII, Cyber Kill Chain과 내부 이동의 반복을 배우고, 문서 접근과 유출을 증거로 구분합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 6
+    },
+    {
+      "id": 3,
+      "slug": "03-engagement-opsec-records",
+      "title": "실행 전에 무엇을 정하고, 실행 후에는 무엇을 남겨야 할까요?",
+      "short_title": "활동 계획·ROE·OPSEC·작업 기록",
+      "description": "목표와 활동 경계를 정하고, 관측 가능성과 운영 영향을 구분하며, 실행 시각·PowerShell 기록·실습 준비·복구를 연결합니다.",
+      "status": "published",
+      "sections": 13,
+      "review_questions": 7
+    }
+  ]
+}
