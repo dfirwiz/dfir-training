@@ -163,14 +163,14 @@
       "id": 13,
       "slug": "13-ipv4-analysis",
       "title": "IPv4 분석과 검증",
-      "description": "TTL·ICMP 오류·프로토콜·체크섬·주소·옵션을 분석하고 관측 조건과 현재 지침으로 검증합니다.",
+      "description": "TTL·ICMP 오류의 겹친 헤더부터 체크섬·주소·옵션까지, 조건을 바꾼 바이트 계산과 증거 대조로 전달과 실제 처리 결과를 검증합니다.",
       "printed_pages": [
         101,
         110
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 65
+      "updated": "2026-11-02",
+      "minutes": 90
     },
     {
       "id": 14,
