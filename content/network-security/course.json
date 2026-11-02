@@ -3,7 +3,23 @@
   "slug": "network-security",
   "updated": "2026-11-02",
   "lessons": [
-    {"id": 1, "slug": "01-network-architecture", "title": "네트워크 구조: 통신이 지나가는 길과 증거가 남는 위치", "status": "published"},
-    {"id": 2, "slug": "02-traffic-capture-analysis", "title": "트래픽 수집과 분석", "status": "planned"}
+    {
+      "id": 1,
+      "slug": "01-network-architecture",
+      "title": "네트워크 구조: 통신이 지나가는 길과 증거가 남는 위치",
+      "status": "published"
+    },
+    {
+      "id": 2,
+      "slug": "02-traffic-capture-analysis",
+      "title": "트래픽 수집과 분석 — 요약 기록에서 패킷 증거까지",
+      "status": "published"
+    },
+    {
+      "id": 3,
+      "slug": "03-understanding-dns",
+      "title": "DNS의 동작 원리",
+      "status": "planned"
+    }
   ]
 }
