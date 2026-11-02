@@ -47,6 +47,14 @@
       "id": 6,
       "slug": "06-understanding-http",
       "title": "HTTP의 동작 원리 — 웹 요청과 응답 읽기",
+      "status": "published",
+      "short_title": "HTTP의 동작 원리",
+      "description": "6강. URL·메서드·요청·응답·헤더·상태 코드에서 HTTP/2·3까지, 웹 통신의 구조를 근거 중심으로 읽습니다."
+    },
+    {
+      "id": 7,
+      "slug": "07-http-analysis-attacks",
+      "title": "HTTP·HTTPS 분석과 공격 징후",
       "status": "planned"
     }
   ]

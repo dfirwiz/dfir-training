@@ -6,22 +6,11 @@
     2,
     3,
     4,
-    5
+    5,
+    6
   ],
   "source_scope": {
     "volume": 2,
-    "printed_pages": [
-      86,
-      87
-    ],
-    "pdf_pages": [
-      88,
-      89
-    ],
-    "role": "Exercise pointer only; independent original lab authored because workbook/capture unavailable"
-  },
-  "next_scope": {
-    "topic": "Understanding HTTP",
     "printed_pages": [
       89,
       106
@@ -30,6 +19,11 @@
       91,
       108
     ]
+  },
+  "next_scope": {
+    "topic": "HTTP(S) Analysis and Attacks",
+    "printed_start": 108,
+    "pdf_start": 110
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content.",
   "build": "python scripts/build_network_security.py"
