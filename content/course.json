@@ -189,14 +189,14 @@
       "id": 15,
       "slug": "15-fragmentation-fields",
       "title": "단편의 길이와 오프셋 계산",
-      "description": "헤더 덤프에서 조각의 전체 길이·데이터 길이·원시 오프셋을 계산하고 검증합니다.",
+      "description": "헤더 바이트와 도구의 표시 단위부터 길이·오프셋·누락 구간까지, 조건을 바꾼 계산으로 검산하고 선언 길이와 실제 확보 범위를 구별합니다.",
       "printed_pages": [
         122,
         126
       ],
       "status": "published",
-      "updated": "2026-11-01",
-      "minutes": 50
+      "updated": "2026-11-02",
+      "minutes": 85
     },
     {
       "id": 16,
