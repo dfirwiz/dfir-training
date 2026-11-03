@@ -1,0 +1,23 @@
+<div class="callout"><span class="label">학습 범위와 예제</span><p>둘째 날 6강 · 교재 인쇄 70~76쪽의 학습 주제를 자체 예제와 해설로 풀었습니다. 아래 주소·숫자·흐름은 별도 표시가 없으면 가상 학습 예시입니다. 명령은 분석 절차이며 실제 실행 출력으로 제시하지 않습니다.</p></div><section id="goal"><h2>1. 플래그는 패킷에 붙은 처리 안내입니다</h2>
+<p>창구에서 번호표를 뽑는 것과 업무를 마쳤다고 알리는 것은 다른 행동이지요. TCP 플래그도 연결의 시작·확인·종료 같은 처리를 알립니다. 플래그는 따로 존재하는 명령 문자열이 아니라 헤더 안의 비트입니다. 여러 비트가 동시에 켜질 수 있으므로 이름 하나만 보고 패킷 전체를 분류하면 중요한 조합을 놓칠 수 있습니다.</p>
+<p>SYN은 순서 번호를 동기화하며 연결을 시작할 때 사용합니다. ACK는 확인 번호 필드가 유효하다는 뜻입니다. ACK 비트가 있다는 사실만으로 상대의 어떤 데이터를 확인했는지 알 수 없으므로 반드시 ACK 숫자를 읽습니다. tcpdump는 ACK를 점(.)으로 보여주기도 합니다. [S.]는 SYN과 ACK가 함께 있다는 뜻입니다.</p>
+</section>
+<div class="table-wrap"><table><caption>자주 보는 플래그를 실제 질문으로 바꾸기</caption><thead><tr><th scope="col">표시</th><th scope="col">역할</th><th scope="col">함께 볼 것</th></tr></thead><tbody><tr><td>SYN</td><td>시작과 순서 번호 동기화</td><td>ISN·포트·옵션</td></tr><tr><td>ACK</td><td>확인 번호가 유효</td><td>ACK 값과 반대 방향 데이터 범위</td></tr><tr><td>PSH</td><td>받은 데이터를 응용에 전달하도록 알리는 의미</td><td>실제 데이터 길이·응용 경계</td></tr><tr><td>RST</td><td>연결 거부·중단</td><td>수신 상태에서 받아들일 수 있는지</td></tr><tr><td>FIN</td><td>이 방향의 전송 종료</td><td>FIN 이전 데이터와 확인 번호</td></tr><tr><td>URG</td><td>Urgent Pointer가 유효</td><td>포인터 해석과 수신 구현</td></tr></tbody></table></div><section id="three"><h2>2. 세 번의 교환에서 무엇을 확인하나요?</h2>
+<p>A가 SYN과 SEQ 3000을 보냅니다. B는 A의 SYN을 받아 ACK 3001을 돌려주면서 자기 SEQ 9000을 SYN으로 알립니다. A는 ACK 9001을 보냅니다. 이렇게 양쪽이 서로의 시작 번호를 알고 확인합니다. 첫 SYN의 ACK 필드에 어떤 숫자가 들어 있더라도 ACK 비트가 없다면 유효한 확인 정보로 취급하지 않습니다.</p>
+<p>이때 주소와 포트뿐 아니라 MSS, 윈도 스케일, SACK 허용 등의 옵션도 확인합니다. 분석가는 첫 SYN을 누가 보냈는지로 역할을 추정할 수 있지만, 프록시·중간 장비와 동시 열기 같은 예외를 고려합니다. 작은 포트가 언제나 서버라는 규칙보다 실제 교환 순서가 더 좋은 근거입니다.</p>
+<p>“SYN/ACK가 보였다”는 연결 요청에 대한 응답을 관측했다는 뜻입니다. 마지막 ACK가 안 보인다면 연결 완성을 곧바로 주장할 수 없습니다. 응답 경로가 센서를 지나지 않았는지, 캡처가 끝났는지, 이후 데이터가 있는지 확인합니다.</p>
+</section>
+<figure class="diagram"><svg viewBox="0 0 680 270" role="img" aria-label="기본 3단계 연결 수립 · 숫자는 가상 예시"><title>기본 3단계 연결 수립 · 숫자는 가상 예시</title><rect x="25" y="10" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="44" text-anchor="middle">A → B : SYN, SEQ 3000</text><path d="M340 66 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="95" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="129" text-anchor="middle">B → A : SYN/ACK, SEQ 9000, ACK 3001</text><path d="M340 151 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="180" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="214" text-anchor="middle">A → B : ACK, SEQ 3001, ACK 9001</text></svg><figcaption>기본 3단계 연결 수립 · 숫자는 가상 예시. 위에서 아래로 읽는 자체 학습 개념도입니다.</figcaption></figure><section id="ecn"><h2>3. ECN 비트가 더 있다고 이상한 SYN일까요?</h2>
+<p>혼잡한 도로의 안내판처럼 네트워크가 혼잡을 알릴 방법이 ECN입니다. 기본 ECN에서는 IP 헤더의 표시와 TCP의 ECE/CWR 비트가 함께 역할을 합니다. 연결 협상에서의 비트 의미와 이미 데이터를 교환하는 단계의 의미를 나누어 읽어야 합니다. 모든 ECE를 즉시 발생한 혼잡으로 해석하면 안 됩니다.</p>
+<p>교재가 다루는 기본 협상에서는 SYN에 ECE/CWR가 함께 나타날 수 있습니다. 따라서 플래그 바이트가 정확히 0x02인 것만 찾으면 이런 시작 요청을 놓칠 수 있습니다. “SYN=1, ACK=0” 조건으로 후보를 찾고 나머지 비트를 확인하는 이유입니다. 여기서 기본 ECN 설명을 모든 최신 확장 방식의 완전한 상태표로 사용하지는 않습니다.</p>
+</section>
+<section id="exceptions"><h2>4. PSH와 패킷 수를 오해하지 않습니다</h2>
+<p>PSH를 “이 패킷은 최고 우선순위로 보낸다”라고 외우면 곤란합니다. IP 경로의 우선순위나 암호화 여부를 뜻하지 않습니다. 또 PSH 경계가 곧 HTTP 메시지 경계인 것도 아닙니다. 하나의 응용 메시지가 여러 TCP 세그먼트로 나뉘거나 여러 메시지가 한 세그먼트에 실릴 수 있습니다.</p>
+<p>TCP는 동시 열기처럼 양쪽이 SYN을 시작하는 상태도 처리할 수 있습니다. 교재의 네 번 교환 예제는 정확히 세 패킷만 있어야 정상이라는 가정의 한계를 보여줍니다. 다만 모든 네 패킷 흐름을 동시 열기라고 부르지 말고, 실제 SYN·ACK 관계와 순서 번호를 추적해야 합니다. 관측 패킷 수가 늘어난 원인이 재전송일 수도 있습니다.</p>
+</section>
+<section id="review"><h2>복습 · 조건을 바꾸어 생각하기</h2>
+<p><strong>질문 1. SYN/ACK만 보이면 웹 접속 성공인가요?</strong></p><p>연결 시작 응답을 봤을 뿐입니다. 연결 완성과 응용 요청·응답을 확인해야 합니다.</p>
+<p><strong>질문 2. PSH가 없으면 데이터가 없나요?</strong></p><p>데이터 유무는 길이로 확인합니다. ACK만 켜진 세그먼트에도 데이터가 있을 수 있습니다.</p>
+<p><strong>질문 3. ECE가 있는 SYN을 제외해도 되나요?</strong></p><p>연결 후보 탐색에서 누락될 수 있습니다. 기본 ECN 협상과 그 외 플래그를 문맥에서 읽습니다.</p>
+</section>
+<section id="references" class="references"><h2>근거와 더 읽을 자료</h2><p>공식 자료 확인: 2026년 11월 3일. 오래된 화면의 메뉴 위치와 설치한 버전의 차이를 구별하세요.</p><ul><li><a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293 · TCP 기본 규격</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc3168.html">RFC 3168 · 기본 ECN 동작</a></li></ul></section>

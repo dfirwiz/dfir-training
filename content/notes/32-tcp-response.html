@@ -1,0 +1,25 @@
+<div class="callout"><span class="label">학습 범위와 예제</span><p>둘째 날 10강 · 교재 인쇄 107~114쪽의 학습 주제를 자체 예제와 해설로 풀었습니다. 아래 주소·숫자·흐름은 별도 표시가 없으면 가상 학습 예시입니다. 명령은 분석 절차이며 실제 실행 출력으로 제시하지 않습니다.</p></div><section id="goal"><h2>1. 초인종을 눌렀는데 대답이 없습니다</h2>
+<p>초인종을 눌러도 대답이 없으면 무엇을 알 수 있을까요? 집이 비었을 수도 있고, 초인종이 고장 났거나, 소리를 듣지 못했을 수도 있습니다. “응답이 없다”는 사실 하나로 어느 원인인지 확정할 수는 없습니다. TCP 연결 시도도 마찬가지입니다. 송신한 SYN을 자극으로 두고 응답과 무응답의 가능한 원인을 나눠 보겠습니다.</p>
+<p>분석 전에 센서가 어디에 있는지 표시합니다. 클라이언트 옆인지, 방화벽 바깥인지, 서버 옆인지에 따라 보이는 패킷이 다릅니다. 센서에서 보았다는 것과 서버가 받았다는 것은 동일한 문장이 아닙니다. 양방향을 볼 수 있는지도 먼저 확인하세요.</p>
+</section>
+<section id="matrix"><h2>2. 응답 형태를 먼저 기록하고 해석을 붙입니다</h2>
+<p>일반적인 수신 대기 상태라면 SYN/ACK가 돌아올 수 있습니다. 닫힌 포트라면 RST/ACK가 올 수 있습니다. 경로에서 도달 불가나 정책 거절이 발생하면 ICMP 오류를 볼 수도 있습니다. 그러나 방화벽과 프록시가 종단을 대신해 응답할 수 있으므로 응답 주소만으로 실제 프로그램의 상태를 확정하지 않습니다.</p>
+</section>
+<div class="table-wrap"><table><caption>같은 가상 연결 시도에 대한 관측과 후속 확인</caption><thead><tr><th scope="col">관측</th><th scope="col">우선 가설</th><th scope="col">추가 확인</th></tr></thead><tbody><tr><td>SYN/ACK</td><td>연결 요청을 받아들이는 TCP 종단 또는 중간 장비</td><td>마지막 ACK·후속 데이터·장비 위치</td></tr><tr><td>RST/ACK</td><td>닫힌 포트 또는 능동 거절</td><td>방화벽 정책·실제 송신 지점</td></tr><tr><td>ICMP 도달 불가</td><td>경로·호스트·정책 관련 실패</td><td>Type/Code·인용 원본 패킷</td></tr><tr><td>SYN 반복, 응답 없음</td><td>차단·손실·호스트 부재·경로/수집 문제</td><td>양단 캡처·라우팅·ARP·센서 손실</td></tr></tbody></table></div><section id="unreachable"><h2>3. 호스트 부재와 경로 실패를 나눠 봅니다</h2>
+<p>같은 링크의 목적지에 보내려는데 MAC을 찾지 못하면 ARP 실패가 먼저 나타날 수 있습니다. 이런 경우 실제 SYN 프레임이 선로에 나가지 않았을 수도 있습니다. 반면 원격 목적지라면 로컬 게이트웨이까지는 전달되고 그 뒤 경로에서 실패할 수 있겠지요.</p>
+<p>ICMP 오류가 있다면 바깥 IP 주소는 오류를 보낸 장비이고, ICMP 안의 인용 패킷은 무엇을 보내다가 실패했는지 알려주는 자료입니다. 이 둘을 섞지 마세요. Code와 인용된 원래 목적지·포트가 해당 SYN에 맞는지도 확인합니다. “Host Unreachable”이라는 문구를 보고 호스트가 영구적으로 존재하지 않는다고 확대 해석하지 않습니다.</p>
+</section>
+<section id="silence"><h2>4. 조용한 차단은 유일한 무응답 원인이 아닙니다</h2>
+<p>방화벽이 아무 응답 없이 버리면 클라이언트는 재전송하다가 포기할 수 있습니다. 하지만 같은 모습은 응답 경로가 다른 곳으로 흐르거나 캡처 필터가 응답을 제외했을 때도 보입니다. 첫 확인은 필터를 풀어 원본 범위를 점검하는 것입니다.</p>
+<p>방화벽 로그가 차단을 보여준다면 시각과 다섯 요소가 맞는지 확인합니다. 서버 캡처에서 SYN이 보이지 않는다면 경로 중 어디에서 사라졌는지 관측 지점을 늘릴 수 있습니다. 서버에 SYN이 있고 응답도 나갔는데 클라이언트에 없다면 응답 경로를 조사합니다. 한 번에 “방화벽 문제”라고 쓰기보다 관측 가능한 구간을 한 단계씩 좁혀 가세요.</p>
+</section>
+<figure class="diagram"><svg viewBox="0 0 680 355" role="img" aria-label="무응답 가설을 검증하는 관측 순서"><title>무응답 가설을 검증하는 관측 순서</title><rect x="25" y="10" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="44" text-anchor="middle">클라이언트에서 실제 SYN 송신 확인</text><path d="M340 66 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="95" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="129" text-anchor="middle">방화벽·경로에서 전달과 차단 기록 확인</text><path d="M340 151 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="180" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="214" text-anchor="middle">서버에서 수신과 응답 송신 확인</text><path d="M340 236 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="265" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="299" text-anchor="middle">클라이언트로 돌아오는 경로와 센서 확인</text></svg><figcaption>무응답 가설을 검증하는 관측 순서. 위에서 아래로 읽는 자체 학습 개념도입니다.</figcaption></figure><section id="report"><h2>5. 보고서는 확인한 범위로 씁니다</h2>
+<p>“서버가 죽었습니다” 대신 “이 센서의 10초 관측 구간에서 동일 연결의 SYN 세 번을 확인했으며 대응 응답은 관측하지 못했습니다”라고 적으면 증거 범위가 분명해집니다. 이어서 차단·호스트 부재·경로·수집 문제를 가설로 적고 필요한 자료를 제시합니다.</p>
+<p>워크북에서 외부 SYN/ACK만 다수 들어오는 상황도 같은 방식으로 봅니다. 출발지 위조에 따른 반사 응답, 비대칭 경로, 수집 누락을 구별해야 합니다. 위조 가설을 검토하더라도 SYN을 직접 보지 못한 상태에서 공격자를 특정하지 않습니다. 동일 ACK 값·대상 분포 같은 단서는 결론의 재료입니다.</p>
+</section>
+<section id="review"><h2>복습 · 조건을 바꾸어 생각하기</h2>
+<p><strong>질문 1. RST/ACK가 보이면 실제 서버 프로그램이 닫혔다고 확정하나요?</strong></p><p>중간 장비의 능동 거절일 수도 있습니다. 응답 주체와 서버 상태를 대조합니다.</p>
+<p><strong>질문 2. ICMP가 없으면 방화벽이 없나요?</strong></p><p>아닙니다. 정책·속도 제한·손실·비대칭 경로로 ICMP가 안 보일 수 있습니다.</p>
+<p><strong>질문 3. SYN/ACK만 들어오는 현상을 어떻게 기록하나요?</strong></p><p>관측 범위를 명시하고 반사 응답·경로 차이·수집 누락 등의 가설을 자료로 검증합니다.</p>
+</section>
+<section id="references" class="references"><h2>근거와 더 읽을 자료</h2><p>공식 자료 확인: 2026년 11월 3일. 오래된 화면의 메뉴 위치와 설치한 버전의 차이를 구별하세요.</p><ul><li><a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293 · TCP 기본 규격</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc792">RFC 792 · ICMPv4</a></li><li><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChAdvTCPAnalysis.html">Wireshark · TCP 분석 표시의 의미</a></li></ul></section>

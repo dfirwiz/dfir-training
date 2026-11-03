@@ -1,0 +1,27 @@
+<div class="callout"><span class="label">학습 범위와 예제</span><p>둘째 날 11강 · 교재 인쇄 115~127쪽의 학습 주제를 자체 예제와 해설로 풀었습니다. 아래 주소·숫자·흐름은 별도 표시가 없으면 가상 학습 예시입니다. 명령은 분석 절차이며 실제 실행 출력으로 제시하지 않습니다.</p></div><section id="goal"><h2>1. UDP는 전달 절차를 어디까지 맡을까요?</h2>
+<p>TCP는 바이트 순서와 재전송을 전송 계층에서 관리합니다. UDP는 주소·포트·길이·체크섬을 가진 개별 데이터그램을 전달하지만 TCP와 같은 연결 수립과 순서 복구를 자체 제공하지 않습니다. 그렇다고 UDP 위의 모든 응용이 손실을 방치한다는 뜻은 아닙니다. 필요한 재시도·순서·혼잡 제어를 상위 프로토콜이 맡을 수 있습니다.</p>
+<p>따라서 UDP가 무조건 빠르고 TCP가 무조건 느리다는 비교는 지나치게 단순합니다. 메시지 크기·왕복 시간·손실·응용 구현에 따라 결과가 달라집니다. UDP를 쓰는 암호화 전송도 있으므로 UDP 페이로드를 항상 평문으로 볼 수 있다는 가정도 피합니다.</p>
+</section>
+<section id="header"><h2>2. 네 필드, 여덟 바이트</h2>
+<p>UDP 헤더는 출발지 포트, 목적지 포트, 길이, 체크섬이 각각 2바이트씩 차지합니다. Length는 헤더를 포함합니다. 예를 들어 Length가 48이면 기본 계산상 데이터는 48-8=40바이트입니다. TCP의 Data Offset처럼 가변 UDP 헤더 길이를 곱하는 필드는 없습니다.</p>
+<p>일반 데이터그램에서 8보다 작은 길이는 유효성을 점검해야 합니다. 길이 0을 모든 IP 패킷에서 정상이라고 읽어서는 안 됩니다. IPv6 jumbogram의 특수 조건이 있으며 그 조건을 검증해야 합니다. 일반 IPv4 UDP 길이 0을 곧바로 점보그램으로 분류하지 않습니다.</p>
+</section>
+<div class="table-wrap"><table><caption>가상 UDP 헤더의 바이트 위치</caption><thead><tr><th scope="col">오프셋</th><th scope="col">길이</th><th scope="col">필드</th><th scope="col">예시</th></tr></thead><tbody><tr><td>0</td><td>2바이트</td><td>출발지 포트</td><td>53000</td></tr><tr><td>2</td><td>2바이트</td><td>목적지 포트</td><td>53</td></tr><tr><td>4</td><td>2바이트</td><td>UDP 전체 길이</td><td>48</td></tr><tr><td>6</td><td>2바이트</td><td>체크섬</td><td>가상 헤더·UDP 헤더·데이터로 계산</td></tr></tbody></table></div><section id="checksum"><h2>3. 체크섬 0의 의미는 IP 버전에 따라 다릅니다</h2>
+<p>IPv4 UDP에서는 체크섬 필드 0이 체크섬을 사용하지 않는다는 의미로 쓰입니다. 계산 결과가 0일 때의 전송 표현과 “미사용 0”도 구별해야 합니다. 일반 IPv6 UDP는 체크섬이 필요하며 제한적인 터널 예외를 평범한 UDP 전체에 일반화하지 않습니다.</p>
+<p>UDP 체크섬도 IP 주소 등의 가상 헤더 정보를 포함합니다. 캡처에서 잘못된 값처럼 보이면 TCP 때처럼 오프로딩·수집 위치·잘림과 실제 손상을 비교합니다. UDP 헤더에 체크섬이 있다고 데이터를 자동으로 재전송하는 것은 아닙니다. 오류 검출과 신뢰성 복구는 서로 다른 기능입니다.</p>
+</section>
+<section id="response"><h2>4. UDP 포트가 조용하면 열려 있는 걸까요?</h2>
+<p>DNS 요청이 정상 서버에 도착하면 질의에 맞는 응답을 기대할 수 있습니다. 닫힌 UDP 포트에서는 ICMP Port Unreachable이 돌아올 수 있습니다. 그러나 열려 있어도 응용 형식이 잘못되어 응답하지 않을 수 있고, 닫혀 있어도 필터나 속도 제한 때문에 ICMP를 못 볼 수 있습니다.</p>
+<p>거래를 연결할 때는 양 끝 주소·포트, 시간, DNS 거래 ID와 질문 이름처럼 응용 정보를 함께 봅니다. 포트가 53이라는 사실은 DNS 후보라는 단서입니다. 실제 DNS로 해석되고 요청·응답 관계가 맞는지 확인해야 합니다. 반복 질의도 TCP 재전송과 동일한 전송 계층 동작으로 부르지 말고 응용의 재시도일 수 있음을 구별합니다.</p>
+</section>
+<section id="traceroute"><h2>5. TTL을 늘리며 오류의 발신자를 관찰합니다</h2>
+<p>전형적인 UDP traceroute는 TTL을 1부터 늘려 목적지로 탐사 패킷을 보냅니다. 중간 라우터에서 TTL이 소진되면 ICMP Time Exceeded가 올 수 있습니다. 마지막 목적지의 닫힌 UDP 포트에 도착하면 Port Unreachable이 경로 완료를 알려줄 수 있습니다. UDP를 보냈는데 ICMP를 읽어야 하는 이유입니다.</p>
+<p>각 홉의 왕복 시간은 출발지에서 그 응답까지의 시간입니다. 인접 홉의 전송 지연을 직접 측정한 값이 아니므로 뒤 홉의 값이 더 작아 보일 수 있습니다. 응답 패킷은 다른 경로로 돌아올 수 있고 라우터는 응답에 낮은 우선순위를 줄 수도 있습니다.</p>
+<p>별표는 해당 탐사에 대한 응답을 시간 안에 못 받았다는 표시입니다. 반드시 그 홉에서 모든 일반 통신이 막힌 것은 아닙니다. ICMP 기반 tracert, TCP 기반 탐사 등도 있으므로 도구 이름만 외우지 말고 실제 프로토콜·TTL·응답을 봅니다. 세 번씩 보낸다는 횟수도 구현·옵션의 기본값일 뿐 보편 규칙은 아닙니다.</p>
+</section>
+<figure class="diagram"><svg viewBox="0 0 680 270" role="img" aria-label="전형적인 UDP 경로 탐사의 가상 예"><title>전형적인 UDP 경로 탐사의 가상 예</title><rect x="25" y="10" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="44" text-anchor="middle">TTL 1 : 첫 라우터 → Time Exceeded</text><path d="M340 66 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="95" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="129" text-anchor="middle">TTL 2 : 두 번째 라우터 → Time Exceeded</text><path d="M340 151 v22 m-5 -6 l5 6 5 -6" fill="none" stroke="#75d8c3"/><rect x="25" y="180" width="630" height="56" rx="8" fill="#153a36" stroke="#75d8c3"/><text x="340" y="214" text-anchor="middle">TTL 3 : 목적지 닫힌 UDP 포트 → Port Unreachable</text></svg><figcaption>전형적인 UDP 경로 탐사의 가상 예. 위에서 아래로 읽는 자체 학습 개념도입니다.</figcaption></figure><section id="review"><h2>복습 · 조건을 바꾸어 생각하기</h2>
+<p><strong>질문 1. UDP Length 72면 데이터는 몇 바이트인가요?</strong></p><p>일반 조건에서는 72-8=64바이트입니다.</p>
+<p><strong>질문 2. UDP에서 응답도 ICMP 오류도 없으면 열린 포트인가요?</strong></p><p>그것만으로 확정할 수 없습니다. 필터·손실·응용 요구 조건 등도 검토합니다.</p>
+<p><strong>질문 3. traceroute의 뒤 홉 RTT가 앞 홉보다 작으면 모순인가요?</strong></p><p>각 탐사와 돌아오는 경로·처리 지연이 다를 수 있습니다. 인접 링크 지연으로 단순 빼지 않습니다.</p>
+</section>
+<section id="references" class="references"><h2>근거와 더 읽을 자료</h2><p>공식 자료 확인: 2026년 11월 3일. 오래된 화면의 메뉴 위치와 설치한 버전의 차이를 구별하세요.</p><ul><li><a href="https://www.rfc-editor.org/rfc/rfc768">RFC 768 · UDP</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc8085.html">RFC 8085 · UDP 사용 지침</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc792">RFC 792 · ICMPv4</a></li></ul></section>

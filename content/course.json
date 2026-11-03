@@ -301,6 +301,246 @@
       "status": "published",
       "updated": "2026-11-01",
       "minutes": 55
+    },
+    {
+      "id": 24,
+      "slug": "24-filter-evidence",
+      "title": "필터를 만들고 사건의 증거를 묶는 방법",
+      "description": "메뉴·자동 완성·선택 필드에서 필터를 만들고, 문맥을 보존하며 관련 패킷을 내보냅니다.",
+      "day": 2,
+      "day_lesson": 2,
+      "printed_pages": [
+        12,
+        30
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 25,
+      "slug": "25-bpf-offset-mask",
+      "title": "BPF의 기준점과 비트 마스크",
+      "description": "헤더의 시작점·바이트 길이를 고정하고, 한 바이트 안의 작은 필드를 분리해 읽습니다.",
+      "day": 2,
+      "day_lesson": 3,
+      "printed_pages": [
+        31,
+        45
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 26,
+      "slug": "26-bpf-three-tests",
+      "title": "정확히 같음·모두 포함·하나라도 포함",
+      "description": "세 종류의 플래그 조건을 진리표로 구별하고, ECN과 가변 헤더에서 필터가 놓치는 것을 점검합니다.",
+      "day": 2,
+      "day_lesson": 4,
+      "printed_pages": [
+        46,
+        58
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 27,
+      "slug": "27-tcp-sequence-ack",
+      "title": "TCP의 두 방향과 순서·확인 번호",
+      "description": "포트·연결 식별자·바이트 순서를 연결하고 ACK를 계산해 실제 수신 범위를 읽습니다.",
+      "day": 2,
+      "day_lesson": 5,
+      "printed_pages": [
+        59,
+        69
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 28,
+      "slug": "28-tcp-flags-handshake",
+      "title": "TCP 플래그와 연결 시작을 읽는 순서",
+      "description": "SYN·ACK·PSH·ECN의 의미를 나누고 세 번의 교환에서 양방향 상태가 어떻게 만들어지는지 읽습니다.",
+      "day": 2,
+      "day_lesson": 6,
+      "printed_pages": [
+        70,
+        76
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 29,
+      "slug": "29-tcp-close-retries",
+      "title": "TCP 종료·재전송·수신 공백 분석",
+      "description": "FIN·RST의 차이와 재전송 후보를 읽고 센서와 종단의 해석이 달라질 수 있는 조건을 점검합니다.",
+      "day": 2,
+      "day_lesson": 7,
+      "printed_pages": [
+        77,
+        85
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 30,
+      "slug": "30-tcp-length-window-checksum",
+      "title": "TCP 길이·윈도·체크섬을 검산하기",
+      "description": "두 가변 헤더의 길이에서 페이로드를 구하고, 수신 윈도와 오프로딩이 분석에 미치는 영향을 살펴봅니다.",
+      "day": 2,
+      "day_lesson": 8,
+      "printed_pages": [
+        86,
+        97
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 31,
+      "slug": "31-tcp-options",
+      "title": "TCP 옵션으로 성능과 수신 범위를 이해하기",
+      "description": "MSS·윈도 스케일·Timestamp·SACK·Fast Open을 계산 예제와 관측 한계로 연결합니다.",
+      "day": 2,
+      "day_lesson": 9,
+      "printed_pages": [
+        98,
+        106
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 65
+    },
+    {
+      "id": 32,
+      "slug": "32-tcp-response",
+      "title": "같은 SYN에 다른 응답이 돌아오는 이유",
+      "description": "수신 대기·거절·도달 실패·무응답을 비교하고 응답의 주체와 관측 지점으로 가설을 검증합니다.",
+      "day": 2,
+      "day_lesson": 10,
+      "printed_pages": [
+        107,
+        114
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 33,
+      "slug": "33-udp-traceroute",
+      "title": "UDP 헤더와 경로 추적을 연결하기",
+      "description": "8바이트 헤더의 길이·체크섬을 읽고 UDP 무응답과 traceroute의 ICMP 응답을 해석합니다.",
+      "day": 2,
+      "day_lesson": 11,
+      "printed_pages": [
+        115,
+        127
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 34,
+      "slug": "34-icmp-echo",
+      "title": "ICMP Echo에서 요청과 응답을 맞추기",
+      "description": "Type·Code·식별자·순서와 페이로드를 분리해 읽고, 낯선 ping의 내용이 뜻하는 것을 검증합니다.",
+      "day": 2,
+      "day_lesson": 12,
+      "printed_pages": [
+        128,
+        141
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 35,
+      "slug": "35-icmp-errors",
+      "title": "ICMP 오류 안의 원래 패킷 읽기",
+      "description": "Time Exceeded·Destination Unreachable의 인용 패킷과 필터 범위를 구별하고 ICMP 억제 조건을 이해합니다.",
+      "day": 2,
+      "day_lesson": 13,
+      "printed_pages": [
+        142,
+        152
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 36,
+      "slug": "36-ipv6-header-address",
+      "title": "IPv6 주소·기본 헤더·확장 헤더 읽기",
+      "description": "주소 표현과 범위, 40바이트 기본 헤더, Next Header 연결을 IPv4와 비교합니다.",
+      "day": 2,
+      "day_lesson": 14,
+      "printed_pages": [
+        153,
+        162
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 37,
+      "slug": "37-ipv6-neighbor-router",
+      "title": "IPv6 이웃과 라우터는 어떻게 찾을까요?",
+      "description": "NS·NA·RS·RA와 멀티캐스트를 연결하고, 위조 정황과 실제 경로 변경을 구분합니다.",
+      "day": 2,
+      "day_lesson": 15,
+      "printed_pages": [
+        163,
+        174
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 65
+    },
+    {
+      "id": 38,
+      "slug": "38-day-two-investigation",
+      "title": "둘째 날 종합: 패킷에서 서비스 지도로",
+      "description": "필터·방향·집계 단위를 연결해 서비스 후보와 ICMP 활동을 조사하고 빠진 관측을 점검합니다.",
+      "day": 2,
+      "day_lesson": 16,
+      "printed_pages": [
+        175,
+        184
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 55
+    },
+    {
+      "id": 39,
+      "slug": "39-day-two-workbook",
+      "title": "둘째 날 워크북: 네 실습의 판단 과정",
+      "description": "표시 필터·BPF·TCP·UDP/ICMP 실습을 원리·검산·반례로 연결하고 오프라인 검증 범위를 기록합니다.",
+      "day": 2,
+      "day_lesson": 17,
+      "printed_pages": [
+        30,
+        152
+      ],
+      "status": "published",
+      "updated": "2026-11-03",
+      "minutes": 90
     }
   ]
 }

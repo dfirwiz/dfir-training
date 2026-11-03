@@ -1,18 +1,57 @@
 {
   "part": "02",
-  "status": "first_lesson_published_source_ready",
-  "publication_mode": "manual",
+  "status": "completed",
+  "publication_mode": "user_requested_day_two_continuation",
   "completed_lesson_ids": [
-    23
+    23,
+    24,
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31,
+    32,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38,
+    39
   ],
   "completed_day_lessons": [
-    1
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17
   ],
-  "completed_printed_through": 11,
-  "completed_pdf_through": 13,
-  "next_lesson_id": 24,
-  "next_printed_page": 12,
-  "updated": "2026-11-01",
-  "scope": "현재 요청은 둘째 날 첫 강의 게시. 다음 강의의 자동 게시나 자동화 생성은 요청되지 않음.",
-  "review": ".learning/reviews/day-two-01-20261101.md"
+  "completed_printed_through": 184,
+  "completed_pdf_through": 186,
+  "next_lesson_id": null,
+  "next_printed_page": null,
+  "updated": "2026-11-03",
+  "scope": "2026-11-03 user requested full day-two continuation with day-one format and existing TOC duplicate-number fix. Existing first lesson retained; 16 lessons added. No automation created or restarted.",
+  "review": ".learning/reviews/day-two-complete-20261103.md",
+  "validation_limits": [
+    "Wireshark GUI and tcpdump/TShark execution",
+    "target VM receive behavior",
+    "bootcamp score server questions unavailable"
+  ],
+  "pcap_records_offline_checked": 1067,
+  "pcap_files": 6
 }
