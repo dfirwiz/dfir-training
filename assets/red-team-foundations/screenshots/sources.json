@@ -1,0 +1,145 @@
+[
+  {
+    "file": "client-connect.png",
+    "width": 527,
+    "height": 281,
+    "bytes": 14991,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/start-client_startup-panel.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/welcome_starting-cs-client.htm",
+    "sha256": "5e4ea4f8865a6f6b652e15119bf9359cb8e4033462fa831fc72888537f2b45b0",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "http-listener.png",
+    "width": 440,
+    "height": 629,
+    "bytes": 41933,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/listener-new_beacon-http-https.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-http-https.htm",
+    "sha256": "0afbe1aa5d71016ac7558e7f9752e83c97a0ca00377c7af649dbb1606d7402d4",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "guardrails.png",
+    "width": 354,
+    "height": 199,
+    "bytes": 11526,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/http-https-beacon_new-listener_gaurdrails-parm4-8.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-http-https.htm",
+    "sha256": "783ae207bd6a53d76b9d4772ae9b595b506d59d930316f33c8c451a38f4e16d2",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "proxy-settings.png",
+    "width": 469,
+    "height": 267,
+    "bytes": 13610,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/http-https-beacon_proxy-settings.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-http-https.htm",
+    "sha256": "3ca9ac645d78fdb7502a9c92c84445e3472d12c6aa5518131349740f4e3a83df",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "dns-listener.png",
+    "width": 440,
+    "height": 581,
+    "bytes": 39035,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/listener-new_beacon-dns.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-dns.htm",
+    "sha256": "6a98c3f84348c967b15eb7e647ce822c20d07c6e78cfed672679e700875c13a7",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "smb-listener.png",
+    "width": 440,
+    "height": 303,
+    "bytes": 22909,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/listener-new_beacon-smb.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-smb.htm",
+    "sha256": "1ebddba202f00e8a1e8990830400877c778f9bb1fea7fb3f90b86b2663d45c86",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "tcp-listener.png",
+    "width": 440,
+    "height": 333,
+    "bytes": 23291,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/listener-new_beacon-tcp.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-tcp.htm",
+    "sha256": "85d688d60e432f6ab906c32c81cf530063ae724e7ca899fffb2c7517cfe7c95c",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "stageless-generator.png",
+    "width": 446,
+    "height": 527,
+    "bytes": 47508,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/attack-pkg_payload-gen-stageless.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_user-driven-attack-packages.htm",
+    "sha256": "52c0e62b64b53e1a3bdbd2116f211b4b753e5f0b0747979a2a7b13debd2e1eaf",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "windows-stageless.png",
+    "width": 489,
+    "height": 586,
+    "bytes": 67270,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/attack-pkg_win-execute-s_4-13.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_user-driven-attack-packages.htm",
+    "sha256": "ae98a9ea22615165f3d88c23e7d6e1e5e7d8160c63bb59825af57fc14043a246",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "pivot-graph.png",
+    "width": 759,
+    "height": 486,
+    "bytes": 37575,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/visualizations_graph-view_4-7.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_session-target-visualizations.htm",
+    "sha256": "f9d07d4d18aa6d1a8ec6825bed56735941f6fbf90bff7e01de77b691d5fa9eea",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "sessions-table.png",
+    "width": 1283,
+    "height": 236,
+    "bytes": 134201,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/visualizations_sessions-table.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_session-target-visualizations.htm",
+    "sha256": "d666c8740dd1f255b69df5c786e125f7130651146939abbd15ad8a9db0786ea8",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "beacon-console.png",
+    "width": 654,
+    "height": 288,
+    "bytes": 29431,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/post-exploit_beacon-conslole.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_main.htm",
+    "sha256": "e3d0c6286f02272032d3c606d434518b910693f38b65c7aa9c91bff2c1010b2d",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  },
+  {
+    "file": "job-browser.png",
+    "width": 1007,
+    "height": 330,
+    "bytes": 9602,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/resources/images/jobbrowser/job%20browser.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/job%20browser.htm",
+    "sha256": "9fed2d1a61371294b2eb20e2483419533719a37089703a805bdc782c98c9727b",
+    "retrieved_on": "2026-11-03",
+    "modified": false
+  }
+]

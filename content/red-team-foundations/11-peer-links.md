@@ -46,6 +46,30 @@ SMB 리스너의 파이프 이름은 에이전트가 사용할 통신 지점을 
 
 기존 설명에서 `msagent_` 계열 이름을 예로 만날 수 있어도 이를 모든 버전과 구성의 필수 이름으로 외우지 않습니다. 조사에서는 이름과 함께 프로세스 출처·연결 관계·시각을 확인합니다. 예제 이름을 악성 여부의 단독 기준으로 만들면 이름이 다른 사례와 정상 파이프를 잘못 판단할 수 있습니다.
 
+### 실제 화면 6: SMB 리스너는 어느 창에서 만드나요?
+
+**Cobalt Strike → Listeners → Add → Channel: Beacon SMB** 순서로 엽니다. 아래의 **Pipename (C2)**가 이 리스너의 핵심 입력칸입니다. HTTP 호스트 목록이나 Team Server의 445 포트 입력칸이 보이지 않는 이유는 이 구성이 단말 쪽 파이프와 P2P 연결을 정의하기 때문입니다.
+
+![공식 Beacon SMB의 New Listener. Pipename C2와 Guardrails를 설정하고 Save로 리스너를 저장합니다](../../assets/red-team-foundations/screenshots/smb-listener.png)
+
+출처: [Fortra — SMB Beacon](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-smb.htm).
+
+| 항목 | 설명용 선택·입력 | 확인할 의미 |
+| --- | --- | --- |
+| Name | lab-smb-01 | 다른 리스너와 구별할 이름 |
+| Channel | Beacon SMB | HTTP나 TCP와 구별할 채널 |
+| Template | 현재 실습 버전의 기본값 확인 | 이미지에는 Beacon (MSVC)로 표시 |
+| Pipename (C2) | lab_demo_pipe | 실습용으로 정한 파이프 이름. 기존 사용 이름과 충돌하지 않는지 확인 |
+| Guardrails → … | 실습 대상 조건을 검토 | 앞 강의와 같은 대상 조건 창 |
+| Save | 목록 저장과 오류 확인 | 아직 Windows에서 파이프가 만들어졌다는 뜻은 아님 |
+
+1. 먼저 이름과 Channel을 선택합니다.
+2. Pipename 칸을 확인합니다. 공식 이미지의 msagent_f3는 예시 값이며 반드시 사용할 이름이 아닙니다.
+3. 조건을 검토하고 Save를 누른 뒤 Listeners 목록에서 항목을 확인합니다.
+4. 나중에 실제 에이전트가 실행된 실습에서만 파이프 생성 주체와 부모 연결을 확인합니다.
+
+여기까지는 **정의와 저장**입니다. 이 창의 Save가 원격 호스트의 방화벽·SMB 접근 권한까지 준비하는 것은 아닙니다. 파이프 이름을 등록했다는 사실, 실제 단말에 파이프가 생겼다는 사실, 부모가 연결했다는 사실을 나눠 기록합니다.
+
 ## 5. TCP Beacon에서는 대기 위치를 먼저 찾습니다
 
 TCP 계열은 부모 Beacon과의 통신에 TCP 소켓을 사용합니다. 공식 기본 리스너 설명에서 이는 연결을 기다리는 **bind payload**입니다. 여기서 bind는 소켓을 특정 주소·포트에 연결해 대기 지점을 마련한다는 의미입니다. 리스너의 포트 값은 단말에서 실행되는 해당 Beacon의 대기 지점과 연결됩니다.
@@ -59,6 +83,28 @@ TCP 계열은 부모 Beacon과의 통신에 TCP 소켓을 사용합니다. 공�
 `0.0.0.0`은 접속 상대에게 그대로 전달하는 일반 원격 목적지 주소로 읽지 않습니다. 대기 설정의 의미입니다. `127.0.0.1` 역시 다른 컴퓨터의 루프백을 가리킬 때 사용하는 주소가 아닙니다. 어느 호스트에서 숫자를 읽고 있는지 먼저 확인합니다.
 
 루프백에서 대기한다고 자동으로 권한 상승이 생기는 것도 아닙니다. 대기 주소는 접근 범위를 설명하고, 권한 상승은 실제 실행 문맥과 권한 변화로 입증합니다. 다른 호스트가 접속할 수 있는 구성이더라도 그것만으로 내부 이동이 완료되었다고 보고하지 않습니다.
+
+### 실제 화면 7: TCP의 포트와 localhost 체크박스
+
+**Cobalt Strike → Listeners → Add → Channel: Beacon TCP**를 선택합니다. 아래 공식 화면의 **Port (C2)**는 단말의 TCP Beacon이 연결을 기다릴 포트이고, 그 아래 **Bind to localhost only**가 대기 범위를 바꿉니다.
+
+![공식 Beacon TCP 설정 화면. Port C2 아래의 Bind to localhost only 체크박스를 함께 읽습니다](../../assets/red-team-foundations/screenshots/tcp-listener.png)
+
+출처: [Fortra — TCP Beacon](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/listener-infrastructure_beacon-tcp.htm).
+
+| 화면 항목 | 예시 | 값이 적용되는 위치 |
+| --- | --- | --- |
+| Name | lab-tcp-local | 리스너 목록에서 구별할 이름 |
+| Channel | Beacon TCP | 단말의 TCP P2P 구성 |
+| Port (C2) | 4444 | 실제 실행한 대상 단말 쪽 대기 포트 |
+| Bind to localhost only 체크 | 같은 단말 안의 통신을 전제로 검토 | 해당 단말의 127.0.0.1에서 대기 |
+| Bind to localhost only 미체크 | 다른 실습 호스트의 접근이 필요한 경우 범위 검토 | IPv4 인터페이스의 대기 범위. 방화벽 허용은 별도 |
+| Guardrails → … | 실습 대상 조건 | 생성물의 실행 조건 검토 |
+| Save | 구성 저장 | Team Server 관리 포트 변경이 아님 |
+
+먼저 이번 연습이 같은 호스트 안의 연결인지 다른 실습 호스트 사이 연결인지 정하고 체크박스를 읽습니다. 예를 들어 다른 Windows 호스트에서 접속해야 하는데 localhost only를 켜면, 그 호스트의 127.0.0.1은 접속 대상의 루프백이 아니므로 기대한 경로가 되지 않습니다.
+
+반대로 연결이 안 된다고 체크를 무조건 해제하면 의도한 대기 범위를 바꿉니다. **값 선택 → Save → 목록 확인 → 실제 단말에서 대기 주소·포트 확인 → 부모 연결 확인**을 구별합니다. 이 강의는 앞의 설정 화면을 읽는 설명이며 실제 소켓이나 연결을 생성한 결과를 제시하지 않습니다.
 
 ## 6. 링크 등록·통신 가능·프로세스 수명을 나눕니다
 
@@ -74,9 +120,25 @@ SMB와 TCP 에이전트는 실행만 되었을 때 부모와 아직 연결되지
 
 표는 사용자·호스트·PID·아키텍처·마지막 통신 같은 속성을 비교하기 좋습니다. 그래프는 어느 세션이 어떤 경로에 의존하는지 파악하기 좋습니다. 그래프가 더 단순하게 보인다고 표의 세부 정보가 불필요해지는 것은 아닙니다.
 
-기존 화면 설명에서는 HTTP/S의 녹색 점선, DNS의 노란색 점선, SMB의 노란색 실선, TCP의 녹색 실선 같은 표기를 만날 수 있습니다. 이것은 제품 화면의 범례로 읽어야 합니다. 색상·테마·버전이나 설정이 다를 수 있으므로 색만으로 프로토콜을 확정하지 말고 실제 범례와 세션 정보를 확인합니다.
+현재 공식 안내서의 Pivot Graph 설명은 HTTP/S를 녹색 점선, DNS를 노란색 점선으로 설명합니다. P2P 링크는 주황색 화살표가 named pipe, 파란색 화살표가 TCP이며 SSH도 주황색을 사용합니다. 끊어진 링크는 별도 색으로 표시합니다. 과거 자료의 다른 색 범례와 섞지 말고, 실제 버전의 범례와 세션 정보를 함께 읽습니다.
 
 이 강의의 그림은 색 구분에만 의존하지 않고 노드와 링크의 뜻을 글자로 표시합니다. 그래프의 자동 배치 방향도 네트워크 인바운드·아웃바운드를 뜻하지 않습니다. 노드가 왼쪽에 있다고 패킷이 반드시 왼쪽에서 시작하는 것은 아닙니다.
+
+### 실제 화면 8: Sessions Table에서 Pivot Graph로 바꿉니다
+
+상단 **Cobalt Strike → Visualization**에서 **Pivot Graph**를 선택하거나, 툴바의 그래프 보기 버튼을 사용합니다. 표로 돌아갈 때에는 같은 위치에서 **Sessions Table**을 선택합니다. 아래는 공식 안내서의 실제 그래프 예시입니다.
+
+![공식 Pivot Graph 예시. 방화벽 아이콘과 외부 경로, Beacon 사이의 중계 화살표를 분리해 읽습니다](../../assets/red-team-foundations/screenshots/pivot-graph.png)
+
+출처: [Fortra — Session and Target Visualizations](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_session-target-visualizations.htm). 이 예시의 자산 이름·PID·권한은 이 과정에서 관측한 값이 아닙니다.
+
+1. Sessions Table에서 읽었던 호스트 이름과 PID가 그래프에서 어느 노드인지 찾습니다.
+2. 방화벽 아이콘으로 이어지는 외부 경로와, 다른 Beacon으로 이어지는 내부 링크를 나눕니다.
+3. 노드를 한 번 선택한 뒤 오른쪽 클릭하면 해당 세션의 메뉴를 엽니다. 선택한 호스트가 의도한 대상인지 먼저 확인합니다.
+4. 배치가 복잡하면 **노드가 선택되지 않은 빈 배경을 오른쪽 클릭**해 레이아웃 메뉴를 엽니다. 노드 우클릭과 다른 메뉴입니다.
+5. 보기 확대는 Ctrl+Plus, 축소는 Ctrl+Minus, 원래 확대는 Ctrl+0으로 확인할 수 있습니다. 표시 배치를 바꾼 것이 연결을 새로 만든 것은 아닙니다.
+
+빈 배경 메뉴의 **Unlinked → Hide / Show**는 연결되지 않은 세션의 표시 여부입니다. Hide는 화면에서 숨기는 기능이므로 에이전트 종료나 링크 삭제와 같은 조치로 보고하면 안 됩니다. 실제 정리 여부는 수명 증거로 확인합니다.
 
 ## 8. 방어 관측을 경계·내부·단말로 연결합니다
 

@@ -87,6 +87,61 @@ stage를 가져오는 호스트와 이후 작업 통신 호스트는 같을 수�
 
 코드 서명도 실행 파일의 안전성을 자동으로 증명하지는 않습니다. 서명이 검증되면 서명자와 서명 이후 무결성 등에 관한 근거가 되지만 실제 기능의 정당성은 별도 분석 대상입니다. 반대로 서명이 없다는 사실만으로 특정 공격 도구라고 판정하지 않습니다.
 
+### 실제 화면 9: Stageless Payload Generator의 입력 위치
+
+상단 **Payloads → Stageless Payload Generator**를 선택합니다. 아래 창은 **본체를 포함한 원시 출력 등을 고르는 생성 창**입니다. 리스너를 만드는 New Listener 창과 다릅니다. 첫 행의 **Listener → …**에서 앞서 저장한 리스너를 고르는 것이 두 창을 연결하는 지점입니다.
+
+![공식 Payload Generator Stageless 화면. Listener 선택 후 Output·Exit Function·System Call·아키텍처를 구별합니다](../../assets/red-team-foundations/screenshots/stageless-generator.png)
+
+출처: [Fortra — Payload Generator (Stageless)](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_user-driven-attack-packages.htm). 아래 설명은 공식 UI를 읽는 연습이며 실행 생성물을 이 사이트에서 제공하지 않습니다.
+
+| 위→아래 항목 | 입문 실습에서 읽을 선택 | 생성물에 미치는 의미 |
+| --- | --- | --- |
+| Listener → … | 목록에서 lab-http-01 등 의도한 항목 선택 | 생성물의 통신 설정 출처 |
+| Guardrails → … | 리스너 기본값과 최종 조건 대조 | 생성 시 바뀔 수 있는 실행 대상 조건 |
+| Output | Raw와 C·C# 등 표현을 구별 | 원시 바이트와 언어별 배열 표현. 곧바로 Windows EXE가 되는 것은 아님 |
+| Exit Function | 자신의 독립 실습 프로세스 수명을 기준으로 검토 | Process와 Thread는 종료 범위가 다름 |
+| System Call | 첫 읽기 예제는 None의 의미 확인 | 호출 경로 선택이며 성공·우회 보장 항목이 아님 |
+| HTTP Library | 선택 리스너에서 활성화될 때 해당 값 확인 | wininet·winhttp 등 사용 구현. 화면에서 비활성이면 임의로 바꿀 수 없음 |
+| DNS Comm Mode | DNS 채널과 관련될 때 확인 | HTTP 리스너 설정과 같은 항목이 아님 |
+| x64: Use x64 payload | 대상 프로세스의 아키텍처에 맞춰 검토 | OS 이름만 보고 결정하지 않음 |
+| Malleable Override | 기본 비교에서는 No Override 확인 | 별도 override 적용 여부. 이미지의 다른 예시를 무조건 복사하지 않음 |
+| Payload Store의 Name | lab-http-raw-x64처럼 구별할 이름 | 서버에 보관하는 생성물의 이름 |
+| Hide this item | 저장 항목의 표시 상태 확인 | 단말에서 숨겨 실행한다는 뜻이 아님 |
+| 아래 Generate | 최종 설정으로 생성하는 동작 | 대상에서 실행하거나 세션을 만드는 동작과 별개 |
+
+1. **Listener의 …**를 먼저 열어 이름·채널을 확인하고 선택합니다.
+2. Output을 읽습니다. Raw를 골랐다면 결과는 EXE가 아니라 원시 데이터라는 점을 확인합니다.
+3. 대상 프로세스 아키텍처와 x64 선택, Exit Function, System Call을 각각 검토합니다.
+4. 활성·비활성 항목을 확인하고 Guardrails와 Malleable Override의 최종 적용값을 확인합니다.
+5. 생성물 구별 이름을 정하고 Generate 단계로 진행한 경우에는 저장된 파일과 서버 보관 항목을 구분해 기록합니다.
+
+**리스너 이름이 선택된 것과 올바른 설정이 들어간 것은 같은 확인이 아닙니다.** 같은 이름이라도 어느 Team Server의 항목인지, 어떤 채널과 옵션인지 확인하세요. 생성한 파일이 생겼다는 사실로 단말 실행 성공을 보고하지 않습니다.
+
+### 실제 화면 10: Windows Stageless Payload는 포장 형식을 고릅니다
+
+상단 **Payloads → Windows Stageless Payload**를 선택하면 아래의 **Windows Executable (Stageless)** 창을 엽니다. 메뉴 이름과 창 제목이 조금 다르다는 점을 기억하면 다른 대화상자를 찾느라 헤매는 일을 줄일 수 있습니다.
+
+![공식 Windows Executable Stageless 창. Output Windows EXE·HTTP Library·x64·Sign·Malleable Override와 Payload Store를 확인합니다](../../assets/red-team-foundations/screenshots/windows-stageless.png)
+
+출처: [Fortra — Windows Stageless Payload](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_user-driven-attack-packages.htm). 공식 예시의 리스너 HTTP·override demo.mpo·저장 이름은 자신의 실습 설정을 뜻하지 않습니다.
+
+| 이 창에서 확인할 위치 | 읽는 방법 |
+| --- | --- |
+| Listener → … | 앞서 정의한 리스너를 선택. 이름만 같다는 이유로 서버 출처를 생략하지 않음 |
+| Output 드롭다운 | Windows EXE, Windows Service EXE, Windows DLL 등 포장 형식을 구별 |
+| Exit Function | 독립 실행 프로세스와 기존 프로세스의 수명 영향을 구별 |
+| HTTP Library | 선택된 HTTP 통신 구현을 확인. 프록시 동작 문제를 볼 때도 어떤 구현인지 기록 |
+| x64 | 생성물 아키텍처를 대상 실행 문맥과 대조 |
+| Sign | 선택 가능 여부와 해당 출력 형식·서명 설정 확인. 회색 표시는 현재 상태에서 비활성 |
+| Malleable Override | 실제로 적용할 override가 있는지 확인. 그림의 demo.mpo가 없다는 것이 오류는 아님 |
+| Payload Store Name·Options | 파일명과 별도로 보관 항목의 이름·표시 설정 구별 |
+| Generate | 생성과 저장 단계. 전달·실행은 아직 별도 작업 |
+
+Raw 출력이 필요한데 이 창에서 Windows EXE를 선택했다면 결과물을 다르게 요청한 것입니다. 서비스용 실행 파일도 일반 실행 파일과 서비스 계약이 다르므로, “EXE 확장자니까 같다”라고 바꿔 사용하지 않습니다. 저장 후에는 생성물의 형식·아키텍처·해시·옵션과 서버 출처를 함께 기록합니다.
+
+여러 변형을 비교하는 별도 메뉴는 **Payloads → Windows Stageless Generate All Payloads**입니다. 한 생성물의 확인과 모든 변형의 확인을 구분해야 합니다. 새 옵션을 이해하지 못한 상태에서 전체 생성을 하는 것보다, 먼저 한 리스너·한 형식의 최종 설정을 정확히 읽는 것이 이번 장의 연습입니다.
+
 ## 8. Exit Function과 System Call 설정을 해석합니다
 
 **Exit Function**은 종료할 때 프로세스 전체와 해당 스레드 중 어느 범위의 수명에 영향을 줄지와 연결됩니다. `ExitProcess`는 호출 프로세스 종료, `ExitThread`는 호출 스레드 종료를 의미합니다. 이미 업무를 수행 중인 프로세스 안에 다른 코드가 함께 있는 경우에는 종료 범위 차이가 특히 중요합니다.

@@ -49,7 +49,13 @@
     ],
     "format": "full",
     "authorization": "2026-11-03 사용자 요청: 4장 계속 부탁합니다",
-    "verification_scope": "공식 4.13 안내서·변경 이력 대조. 가상 이벤트 Python 예제만 실제 실행, 제품·Windows·네트워크는 미실행."
+    "verification_scope": "공식 4.13 안내서·변경 이력 대조. 가상 이벤트 Python 예제만 실제 실행, 제품·Windows·네트워크는 미실행.",
+    "ui_revision": {
+      "date": "2026-11-03",
+      "official_screenshots": 13,
+      "scope": "공식 화면·메뉴 경로·필드별 값·클릭 순서·저장/결과 확인 보강",
+      "verification": "화면 출처·원본·렌더링 확인. 실제 제품·에이전트·네트워크 실행은 수행하지 않음."
+    }
   },
   "navigation": {
     "chapter_titles": "textbook originals",

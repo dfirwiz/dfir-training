@@ -23,6 +23,28 @@
 
 이전 화면 설명에서 관리자 문맥을 표시하는 색이나 별표를 만날 수 있습니다. 그것만으로 SYSTEM 계정이라고 확정할 수는 없습니다. Windows의 high integrity와 SYSTEM 수준은 구분해야 하며, 화면 아이콘은 토큰의 모든 필드를 대신하지 않습니다. 실제 버전의 표시 의미와 대상 문맥을 확인합니다.
 
+### 실제 화면 11: Sessions Table을 여는 위치와 열 읽기
+
+상단 **Cobalt Strike → Visualization → Sessions Table**을 선택합니다. 툴바의 세션 표 보기 버튼으로 전환할 수도 있습니다. 다음은 공식 문서의 실제 표 예시입니다. 이 이미지에 나오는 호스트·사용자·PID는 이 강의의 실행 결과가 아닙니다.
+
+![공식 Sessions Table. external·internal·listener·user·computer·process·pid·arch·last 열을 함께 읽습니다](../../assets/red-team-foundations/screenshots/sessions-table.png)
+
+출처: [Fortra — Session and Target Visualizations](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_session-target-visualizations.htm). 넓은 표이므로 모바일에서는 화면 안을 가로로 스크롤하거나 이미지를 눌러 원본을 확인하세요.
+
+화면에서 한 행을 읽는 순서를 정해 보겠습니다. **computer → process·pid → user·arch → listener → last → 주소** 순으로 보면 “어느 실행 문맥을 보고 있는가”를 먼저 확인할 수 있습니다. external만 보고 행을 고르면 중계 주소가 같은 여러 세션을 잘못 선택할 수 있습니다.
+
+| 실제 화면 위치 | 확인 행동 | 확인 뒤 기록할 것 |
+| --- | --- | --- |
+| computer 열 | 의도한 실습 단말의 행을 찾음 | 호스트 이름과 서버·세션 출처 |
+| process·pid 열 | 실행 프로세스와 번호를 대조 | PID가 재사용될 수 있으므로 생성 시각 등 별도 정보 |
+| user·arch 열 | 사용자 문맥과 에이전트 아키텍처 확인 | 관리자·SYSTEM·OS 비트 수를 과도하게 추정하지 않음 |
+| listener 열 | 어느 외부 통신 경로인지 읽음 | P2P의 바로 앞 부모는 그래프로 추가 확인 |
+| last 열 | 마지막 통신으로부터의 경과 확인 | 화면을 본 시각과 실제 로그 시각 구별 |
+| 행을 한 번 선택 | 선택 강조가 의도한 행에 있는지 확인 | 여러 행 선택 여부도 확인 |
+| 선택 행 오른쪽 클릭 | 해당 세션 메뉴 열기 | 아래 Interact가 어느 세션에 적용되는지 확인 |
+
+열 머리글을 이용한 정렬과 선택 행은 별개입니다. 표 정렬 순서를 바꾸었다고 작업 대상이 자동으로 올바르게 정해지는 것은 아닙니다. 여러 세션을 선택한 상태의 메뉴 동작은 여러 대상에 적용될 수 있으므로 현재 선택 상태를 읽어야 합니다.
+
 ## 3. 주소·리스너·last·sleep에는 기준점이 있습니다
 
 주소 필드에는 값이 어디에서 온 것인지가 중요합니다. `internal`은 단말 쪽 내부 주소 정보이고, `external`은 HTTP 계열에서 서버 측이 통신을 보며 얻은 외부 주소일 수 있습니다. NAT·조직 프록시·훈련 중계 구조가 있으면 이것을 단말의 유일한 공인 IP로 단정할 수 없습니다.
@@ -54,6 +76,26 @@ beacon> getuid
 도움말·메모·대기열 관리처럼 모든 콘솔 입력이 단말 작업을 만들지는 않습니다. `getuid`의 경우도 결과를 보기 전에는 “현재 사용자가 확인되었다”라고 기록하지 않습니다. 토큰 가장 상태와 작업 시점에 따라 정적 세션 메타데이터와 다른 문맥을 설명할 수 있어 필드와 출력의 시점을 구별해야 합니다.
 
 가상 출력이 `LAB\learner`라면 그 작업이 반환한 사용자 식별 결과라고 읽습니다. 관리자 권한이나 다른 사용자로의 접근이 확인되었다는 뜻을 덧붙이지 않습니다. 단순 조회의 결과를 권한 상승 성공 보고로 바꾸지 않는 것이 기본입니다.
+
+### 실제 화면 12: Interact를 누른 뒤 어디에 입력하나요?
+
+**세션 행 오른쪽 클릭 → Interact**로 콘솔을 엽니다. 제품에 따라 행 더블 클릭으로 상호작용 창을 여는 흐름도 있지만, 여기서는 메뉴 이름을 확인할 수 있는 경로로 설명합니다.
+
+![공식 Beacon Console. 위쪽은 입력·작업·결과 기록, 가운데 상태줄, 맨 아래 beacon 프롬프트는 새 입력 위치입니다](../../assets/red-team-foundations/screenshots/beacon-console.png)
+
+출처: [Fortra — The Beacon Console](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_main.htm). 이미지에 이미 표시된 pwd·getuid·sleep 입력과 결과는 공식 예시이며 이 과정에서 수행한 작업이 아닙니다.
+
+| 화면의 위치 | 읽거나 사용하는 방법 |
+| --- | --- |
+| 위쪽 탭 제목 | 어느 세션 콘솔인지 확인. 여러 콘솔을 열었으면 활성 탭을 다시 확인 |
+| 검은 출력 영역 | 이전 입력, Tasked 같은 등록 기록, check-in·결과를 구별 |
+| 출력과 입력 사이 상태줄 | 호스트·사용자·PID·마지막 통신 등 현재 문맥 확인 |
+| 맨 아래 beacon 프롬프트 | 새 명령을 입력하는 위치. 위쪽의 오래된 로그 줄에 입력하는 것이 아님 |
+| Enter | 입력을 제출. 명령 종류에 따라 로컬 표시 또는 단말 작업 등록으로 이어짐 |
+
+처음 연습은 아래쪽 입력줄에서 `help`와 `help getuid`로 명령의 의미를 확인하는 흐름으로 읽습니다. 자신의 승인된 실습에서 `getuid`를 수행했다면 **입력 접수 → 전달 기록 → 사용자 출력**을 구별해 확인합니다. 이 페이지는 실제 에이전트를 실행하지 않았으므로 새 실행 결과를 만들어 제시하지 않습니다.
+
+공식 이미지에서는 입력 후 **Tasked beacon to get userid**, 그다음 통신과 사용자 결과가 보입니다. 이 순서를 화면 위치와 연결해 보세요. 프롬프트가 다시 보인다는 이유만으로 모든 작업이 끝났다고 보지 말고, 무엇을 요청했고 어떤 작업의 결과가 왔는지 확인해야 합니다.
 
 ## 5. 작업 등록·전달·출력·완료를 연결합니다
 
@@ -88,6 +130,29 @@ beacon> getuid
 | canceled | 어느 시점에서 무엇을 취소했나요? | 과거 변경이 모두 복구되었다는 단정 |
 
 여기서 상태 이름은 개념 비교를 위한 일반 표기입니다. 아래 Python 연습도 이 표의 단순한 모델을 사용합니다. 실제 Cobalt Strike의 모든 내부 상태·API 필드·취소 구현을 재현하지는 않습니다.
+
+### 실제 화면 13: Jobs와 All Jobs는 어디서 여나요?
+
+특정 세션의 작업 창은 **세션 행 또는 열린 콘솔 오른쪽 클릭 → Jobs**로 엽니다. 전체 세션을 보는 창은 상단 **View → All Jobs**입니다. 아래 공식 예시는 Jobs 탭의 위치와 열을 보여 줍니다. 이미지 자체의 예시 날짜는 이전 버전의 자료일 수 있으며 현재 사이트에서 실행한 결과가 아닙니다.
+
+![공식 Job Browser의 Jobs 탭. Name·ID·Status·Hide Output·Description·Start Time·End Time 열을 확인합니다](../../assets/red-team-foundations/screenshots/job-browser.png)
+
+출처: [Fortra — Job Browser](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/job%20browser.htm).
+
+| 열·기능 | 화면에서 확인할 내용 | 구별할 점 |
+| --- | --- | --- |
+| Name·ID | 어떤 작업 항목인지 식별 | 이 ID를 모든 로그의 task ID와 자동으로 같은 것으로 보지 않음 |
+| Status | registered·completed 등 표시된 상태 | 등록 표시와 완료 표시가 다름. 실제 버전의 의미 확인 |
+| Description | 작업의 종류 설명 | 이름만 보고 상세 실행·성공을 확정하지 않음 |
+| Start Time·End Time | 해당 항목의 표시 시각 | 시간대와 시간 의미를 확인. CPU 실행 시간으로 단정하지 않음 |
+| Interact | 해당 작업의 출력 콘솔 열기 | Beacon 콘솔 전체와 특정 작업 출력의 문맥 구별 |
+| Name | 작업에 알아보기 쉬운 이름 지정 | 시스템 실행 파일 이름을 바꾸는 기능이 아님 |
+| Hide/Show Output | 콘솔에 해당 출력이 보이는 방식 | 작업 중단·로그 삭제와 다름 |
+| Kill | 실행 중 작업에 대한 종료 동작 | Beacon 프로세스 전체 종료·모든 변경 복구와 다름 |
+
+Jobs는 단순히 아직 보내지 않은 콘솔 입력을 나열하는 대기열 화면과 같은 개념이 아닙니다. 어떤 작업이 이 브라우저에 나타나는지와 상태·취소의 의미를 버전에서 확인해야 합니다. 위 표의 Kill을 누르는 것을 “모든 queued 입력 지우기”로 안내하면 잘못된 효과를 기대하게 됩니다.
+
+상태를 확인할 때는 **해당 세션의 Jobs 선택 → 작업 항목·ID 대조 → Interact로 출력 확인 → 시작·종료 시각과 서버 기록 대조** 순서로 읽습니다. 결과 숨기기·이름 변경 같은 화면 관리와 단말의 실행 수명 변경은 별도로 기록합니다.
 
 ## 7. 오프라인 가상 기록 실습
 

@@ -36,3 +36,11 @@
 .diagram-scroll:focus-visible,.table-wrap:focus-visible,pre:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:460px){.course-diagram{padding:8px}.note-layout{padding-left:15px;padding-right:15px}.note-header h1{overflow-wrap:anywhere}.navbtn{font-size:12px;padding:9px 12px}.brand{font-size:16px;gap:8px}}
 @media print{.diagram-scroll{overflow:visible}.course-diagram img{width:100%;max-width:100%}}
+
+.course-screenshot{max-width:100%;background:#111e2d}
+.course-screenshot .screenshot-original{display:block;width:max-content;margin:0 auto;max-width:none}
+.course-screenshot .screenshot-original img{margin:0}
+.course-screenshot .screenshot-original:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
+
+.ui-screen-nav{border-color:#3a8276;background:#112a30}
+.note .ui-screen-nav p{font-size:13px;margin:14px 0 0;color:#a9cac3}
