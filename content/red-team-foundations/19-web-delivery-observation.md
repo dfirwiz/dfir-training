@@ -2,7 +2,7 @@
 
 웹 페이지를 본 뒤 다운로드 폴더에 파일이 생겼습니다. 네트워크에서 그 파일을 직접 내려받았을 수도 있고, 브라우저가 이미 받은 데이터를 조합해 파일을 만들었을 수도 있습니다. 두 경우의 최종 파일이 같아 보여도 네트워크와 단말에서 연결해야 할 증거는 다릅니다.
 
-이번 강의는 HTML·SVG를 이용한 전달의 원리와 관측, Cobalt Strike의 **Host File** 화면을 다룹니다. 설정 예시는 격리 실습망의 단순한 안내문 `readme.txt`를 가정합니다. 실행 파일·매크로·자동 다운로드 페이지·입력 수집 페이지를 만들거나 전송하지 않습니다. 실제 웹 서버나 제품 기능을 실행한 결과도 아닙니다.
+이번 강의는 **Cobalt Strike 접속 → Host File → Sites → Web Log → Clone Site**의 실제 설정 위치를 먼저 찾고, HTML·SVG 전달 원리와 관측을 연결합니다. 설정 예시는 격리 실습망의 단순한 안내문 `readme.txt`를 가정합니다. 실행 파일·매크로·자동 다운로드 페이지·입력 수집 페이지를 만들거나 전송하지 않습니다. 실제 웹 서버나 제품 기능을 실행한 결과도 아닙니다.
 
 앞의 장에서 배운 구분을 한 번 더 적용해 보세요. 호스팅 설정, URL 접근, 브라우저의 파일 저장, 파일 실행, C2 세션 생성은 각각 다른 사건입니다. 마지막 사건을 보았다는 이유로 앞의 모든 전달 단계를 추측으로 채우지도 않습니다.
 
@@ -54,53 +54,133 @@ MDN은 SVG를 이미지로 사용할 때 스크립트 등 일부 기능이 제�
 
 TLS로 암호화된 통신의 내용 가시성과 엔드포인트 관측도 구별해야 합니다. MIME이 `text/html`이라는 사실만으로 내부 데이터가 안전하거나 보안 제품이 볼 수 없다고 말하지 않습니다. 저장 전·후 관측을 함께 확인해야 합니다.
 
-## 6. 실제 Host File 화면의 입력 위치
+## 6. 화면 실습 1: Host File에서 무엇을 입력할까요?
+
+이제 실제 Cobalt Strike 창을 기준으로 따라 읽겠습니다. 준비물은 **자신이 관리하는 격리 실습망의 Team Server와 Client**, 그리고 `TRAINING_ONLY` 한 줄이 든 `readme.txt`입니다. 아래 값은 설명을 위해 정한 가정이며 실제 제품에서 실행·접속한 결과가 아닙니다. 이미 Client에 접속돼 있다면 바로 Host File 단계부터 읽습니다.
+
+### 설정 전 확인: Client 접속 창의 Host와 Port
+
+![Fortra 공식 Client 접속 창의 Host·Port·User·Password·Connect 위치이며 관리 접속 포트와 파일 호스팅 포트는 서로 다른 설정](../../assets/red-team-foundations/screenshots/client-connect.png)
+
+출처는 [Fortra Client 시작 안내](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/welcome_starting-cs-client.htm)입니다. 앞 장에서 사용한 공개 공식 화면을 설정 준비용으로 다시 배치했습니다. 공식 삽화의 값은 이 강의의 실습 값과 다릅니다.
+
+| 접속 창에서 볼 칸 | 이 실습의 가정 | 확인할 이유 |
+| --- | --- | --- |
+| Host | 192.168.56.10 | Client가 접속할 자신의 Team Server |
+| Port | 50050 | Team Server 관리 접속 포트이며 아래 웹 포트 8081과 다름 |
+| User | 자신에게 발급된 운영자 이름 | 다른 운영자의 이름을 임의로 사용하지 않음 |
+| Password | 해당 Team Server의 발급된 값 | 강의에서 비밀번호를 정하거나 공개하지 않음 |
+| Connect | 입력 후 접속 | 접속 성공 뒤 주 메뉴가 표시되는지 확인 |
+
+새 연결이면 서버 지문을 검증하는 단계도 해당 환경의 기준과 대조합니다. 접속 오류가 나면 웹 호스팅 포트부터 바꾸지 말고 이 창의 Host·관리 Port·계정과 서버 상태를 확인합니다.
 
 ### 실제 화면 20: Site Management → Host File
 
-![Fortra 공식 Host File 창의 File·Local URI·Local Host·Local Port·Mime Type·Enable SSL·Launch 위치이며 원본의 1.1.1.1은 실습 주소가 아님](../../assets/red-team-foundations/screenshots/ch5-host-file.png)
+![Fortra 공식 Host File 실제 창의 File·Local URI·Local Host·Local Port·Mime Type·Enable SSL·Launch 위치](../../assets/red-team-foundations/screenshots/ch5-host-file.png)
 
-출처는 [Fortra Hosting Files](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_hosting-files.htm)입니다. 공식 원본은 `simple.html`, `1.1.1.1`, 포트 `80`, MIME `automatic` 예시입니다. 이 값들을 실제 대상으로 사용하지 않습니다. 아래의 사설 주소와 텍스트 파일은 **별도로 가정한 격리 실습망 예시**이며 실행하지 않았습니다.
+출처는 [Fortra Hosting Files](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_hosting-files.htm)입니다. 원본의 `simple.html`, `1.1.1.1`, 포트 `80`, MIME `automatic`은 공식 예시입니다. **이 그림은 입력 위치를 찾는 데 사용하고, 실제 연습 값은 바로 아래 표를 봅니다.** 작은 창은 확대해 표시했으며 누르면 원본을 볼 수 있습니다.
 
-제품에서 **Site Management → Host File**을 열면 파일과 웹 경로를 지정하는 창이 나옵니다. 로컬 파일 경로와 웹 URI는 다른 칸입니다. 파일 경로를 URL 칸에 그대로 넣는 실수를 피하려면 두 기준을 먼저 구별하세요.
+**클릭 1:** 상단 메뉴에서 **Site Management → Host File**을 엽니다. Client 접속 창과 다른 별도 대화상자입니다. 여기서는 웹으로 제공할 파일과 주소를 정합니다.
 
-| 화면 항목 | 의미 | 무해한 격리 실습 가정 |
+**클릭 2:** 맨 위 **File** 줄 오른쪽의 파일 선택 버튼을 누릅니다. 자신의 로컬 `readme.txt`를 선택하고 File 칸에 선택한 경로가 들어왔는지 확인합니다. `Local URI`에 로컬 경로를 넣지 않습니다.
+
+**입력 3~6:** 그 아래 **Local URI → Local Host → Local Port → Mime Type** 순서로 다음 값을 대조합니다. 칸마다 기준이 달라 같은 경로나 포트 하나를 반복 입력하는 작업이 아닙니다.
+
+| 화면의 위치 | 칸 이름 | 설명용 입력값 | 이 칸의 뜻 |
+| --- | --- | --- | --- |
+| 첫 줄 | File | 자신이 선택한 readme.txt의 로컬 전체 경로 | 호스팅할 원본 파일 |
+| 둘째 줄 | Local URI | /training/readme.txt | 웹 요청에 쓰일 경로, `/`로 시작 |
+| 셋째 줄 | Local Host | 192.168.56.10 | 이 격리망에서 사용할 서버 주소 |
+| 넷째 줄 | Local Port | 8081 | 텍스트 파일을 제공할 웹 서비스 포트 |
+| 다섯째 줄 | Mime Type | text/plain | 브라우저에 알릴 콘텐츠 형식 |
+| 입력란 아래 | Enable SSL | 이 가정에서는 선택하지 않음 | HTTP 예시이며 HTTPS로 안내하지 않음 |
+| 창 하단 | Launch | 위 값을 모두 대조한 뒤 누르는 버튼 | 파일 호스팅을 시작하는 별도 동작 |
+
+**확인 7:** `Enable SSL` 선택 상태와 포트가 맞는지 다시 확인합니다. TLS를 쓰는 별도 환경에서는 인증서·제품 프로필·주소 일치 등의 준비가 필요합니다. 체크 하나로 올바른 HTTPS가 완성되지는 않습니다.
+
+**클릭 8:** 표의 가정에 맞춘 환경에서 **Launch**를 누른 뒤 다음 절의 Sites 목록으로 갑니다. 호스팅 시작은 파일을 실행하는 동작이 아닙니다. 이 강의에서는 버튼을 실제 누르거나 리소스를 등록하지 않았습니다.
+
+로컬 파일의 위치, 웹의 URI, Team Server 관리 포트, 호스팅 포트를 구별해 보세요. 이 실습의 웹 주소는 문자열로 조합하면 `http://192.168.56.10:8081/training/readme.txt`입니다. 접속을 확인한 링크가 아니라 입력값의 관계를 보여 주는 예시입니다.
+
+## 7. 화면 실습 2: Sites와 Web Log에서 결과를 확인합니다
+
+### Sites 목록: 어떤 행과 버튼을 볼까요?
+
+**Site Management → Manage**에서 Sites 관리 목록을 확인합니다. 오래된 공식 웹 서비스 문서에는 **View → Web Drive-by → Manage** 경로도 남아 있습니다. 자신의 설치 버전에서 웹 리소스 관리 창을 열어 확인하며, 구형 메뉴를 현재 화면의 새 캡처라고 가정하지 않습니다.
+
+현재 확인한 공개 공식 자료에는 Sites 목록의 적합한 실제 사진이 없어, 아래는 **화면에서 읽을 항목을 정리한 표**입니다. 실제 화면처럼 꾸민 그림은 사용하지 않습니다.
+
+| Sites에서 읽을 항목 | 이 연습에서 대조할 내용 | 다음 동작 |
 | --- | --- | --- |
-| File | 호스팅할 원본 파일을 선택 | 로컬의 readme.txt, 본문은 TRAINING_ONLY |
-| Local URI | 웹 서버가 노출할 경로 | /training/readme.txt |
-| Local Host | 안내할 URL의 호스트 정보 | 192.168.56.10 |
-| Local Port | 이 웹 리소스의 서비스 포트 | 8081 |
-| Mime Type | 응답의 콘텐츠 형식 | text/plain |
-| Enable SSL | TLS 사용과 관련된 선택 | 이 가정에서는 미선택이며 HTTPS라고 표시하지 않음 |
-| Launch | 지정한 리소스의 호스팅 시작 | 창의 설정 확인 후 수행하는 별도 동작 |
+| URI | /training/readme.txt | 다른 리소스 행과 혼동하지 않기 |
+| Host | 192.168.56.10 | 호스팅 창에 입력한 주소와 비교 |
+| Port | 8081 | Client의 관리 포트 50050과 구별 |
+| Type·Description | 선택한 파일을 제공하는 리소스인지 | 파일·웹 리소스와 다른 종류의 행을 구별 |
+| Copy URL | 선택한 행의 URL 복사 | 붙여 넣은 문자열의 주소·포트·경로를 다시 확인 |
+| Kill | 선택한 웹 리소스 중지 | Client 종료나 Beacon 종료와 다른 동작 |
 
-사설 주소라고 자동으로 실습용 장비가 되는 것은 아닙니다. 실제 사용 시에는 자신에게 허용된 격리망과 일치해야 합니다. `Local Host` 문자열을 적는 행위만으로 DNS·라우팅·방화벽·인증서가 준비되지는 않습니다. `Enable SSL`도 적절한 인증서와 제품 설정이 전제되며 체크 하나로 모든 환경의 HTTPS가 완성되는 것은 아닙니다.
+**클릭 순서:** 먼저 `URI`가 정확히 일치하는 행을 선택합니다. 다음으로 **Copy URL**을 누르고, 자신이 허용한 격리망의 브라우저 주소창에 붙여 넣어 문자열을 확인합니다. 주소가 맞는 환경에서 요청했을 때 `TRAINING_ONLY` 내용이 표시되는지를 확인하는 흐름입니다. 이 조회는 웹 페이지의 입력 폼이나 계정을 사용하지 않습니다.
 
-## 7. 저장 후 어디에서 확인할까요?
+등록 행이 없으면 먼저 Host File의 선택 파일과 Launch 결과를 확인합니다. 행은 있지만 브라우저 접근이 안 되면 Host·Port·URI·라우팅·방화벽·서비스 충돌을 나누어 봅니다. 제품의 웹 요청 처리 정책 때문에 클라이언트 종류에 따라 응답이 달라질 수도 있어, 명령줄 도구의 404 하나만으로 리소스 등록 실패라고 확정하지 않습니다.
 
-설정이 실행된 환경에서는 **Site Management → Manage**에서 호스팅 리소스 목록을 확인하는 흐름입니다. 대상 행의 호스트·포트·경로가 의도한 텍스트 파일과 연결되는지 읽고, 해당 리소스의 **Copy URL**이 제공되면 표시 URL을 비교합니다. 실제 이 게시 과정에서 리소스를 등록하거나 URL에 접속하지 않았습니다.
+### 실제 화면 21: View → Web Log의 메뉴 위치
+
+![Cobalt Strike 공식 구버전 View 메뉴의 Web Log 항목과 Cobalt Strike Web Server Log 설명 화살표이며 로그 본문 탭의 사진은 아님](../../assets/red-team-foundations/screenshots/ch5-cs-web-log.png)
+
+출처는 [Cobalt Strike 공식 기능 안내](https://www.cobaltstrike.com/blog/map-of-cobalt-strike-features-for-armitage-users)입니다. 이 사진은 과거 버전의 실제 메뉴이며 색상 화살표도 공식 원본에 포함돼 있습니다. 현재 4.13을 새로 실행한 사진이 아니고, **Web Log 탭 안의 실제 접속 결과**를 보여 주는 사진도 아닙니다. 여기서는 ‘어느 메뉴를 여는가’를 확인합니다.
+
+**클릭 순서:** 상단 **View**를 연 뒤 **Web Log**를 선택합니다. 열린 로그에서 방금 요청한 시각과 `/training/readme.txt` 경로를 찾고, 요청 주체·메서드·응답 정보를 함께 읽습니다. 로그의 표현·추가 정보는 제품 버전과 설정에 따라 달라질 수 있습니다.
+
+| 확인할 정보 | 묻는 질문 |
+| --- | --- |
+| 요청 시각 | 자신이 보낸 요청의 시각과 맞나요? |
+| 요청 경로·메서드 | /training/readme.txt를 요청했나요? |
+| 원격 주소·User-Agent 등 | 어떤 클라이언트의 요청인가요? 프록시가 있나요? |
+| 응답·처리 정보 | 원하는 리소스가 처리됐나요? 오류와 구별했나요? |
+| 브라우저 본문 | TRAINING_ONLY 내용까지 확인했나요? |
+
+다음은 화면 필드를 이해하기 위한 **가상 요약**입니다. 실제 Web Log에서 복사한 결과나 현재 제품의 정확한 출력 서식이 아닙니다.
+
+```text
+요청 시각: 사용자가 직접 기록한 확인 시각
+요청 경로: /training/readme.txt
+요청 주체: 자신의 격리 실습 클라이언트
+브라우저 내용: TRAINING_ONLY
+판단: 텍스트 제공 확인. 파일 실행·Beacon 세션 생성은 이 결과와 별도.
+```
 
 ![로컬 파일·호스팅 리소스·브라우저 요청·저장 결과를 연결하고 C2 리스너 설정과 분리한 관계](../../assets/red-team-foundations/19-hosting-route.svg)
 
-격리 실습 가정을 문자열로 조합하면 `http://192.168.56.10:8081/training/readme.txt`입니다. 이는 접속을 확인한 링크가 아니라 항목들이 어떻게 URL을 구성하는지 보여 주는 예입니다. Host File의 8081과 앞 장의 Client 관리 포트·C2 리스너 포트를 혼동하지 않습니다.
+**정리할 때:** Sites로 돌아가 실습 URI의 행을 다시 확인한 뒤 해당 리소스의 **Kill**을 사용합니다. 이후 새 요청에서 그 리소스가 더 이상 제공되지 않는지 확인합니다. 원래 파일 자체를 지우거나 Team Server 프로세스를 종료하는 것과는 다릅니다. 같은 서버의 다른 리소스 상태도 개별적으로 확인합니다. 이 정리 절차 역시 실제 수행한 결과가 아닙니다.
 
-| 확인할 단계 | 성공을 설명할 최소 근거 |
-| --- | --- |
-| 리소스 등록 | 관리 목록에 의도한 경로·파일이 있음 |
-| HTTP 응답 | 허용된 클라이언트의 요청과 상태·본문을 확인 |
-| 내용 일치 | 본문이 TRAINING_ONLY이고 예상 MIME인지 확인 |
-| 파일 저장 | 클라이언트에서 실제 저장한 파일과 연결 |
-| 코드 실행 | 텍스트 호스팅과 별도이며 이 예제에서는 수행하지 않음 |
+## 8. 화면 실습 3: Clone Site의 칸을 구별합니다
 
-목록에 행이 있는 것과 클라이언트가 접근할 수 있는 것은 다릅니다. 접근 실패를 해석할 때에는 호스트·포트·경로·라우팅·서비스 충돌·정책을 나누어 확인합니다. 이 예제는 다운로드한 텍스트를 실행하도록 구성하지 않습니다.
+### 실제 화면 22: Site Management → Clone Site
 
-## 8. Site Clone과 파일 호스팅을 구별합니다
+**아래 공식 삽화는 과거 외부 사이트 예시와 입력 기록이 선택된 상태를 담고 있습니다. 그대로 따라 넣는 권장값이 아닙니다.** 이 강의의 예시는 자신이 소유한 정적 안내 페이지, 빈 Attack/Embed, 입력 기록 미선택 상태입니다.
 
-Site Clone은 페이지를 복제해 제공하는 기능이고 Host File은 지정한 리소스를 제공하는 기능입니다. 둘은 같은 메뉴 영역에 있어도 목적과 입력이 다릅니다. 페이지가 비슷하게 보인다는 사실, 파일이 전달됐다는 사실, 코드가 실행됐다는 사실은 따로 검증합니다.
+![Fortra 공식 Clone Site 실제 창의 Clone URL·Local URI·Local Host·Local Port·Attack·Log keystrokes·Clone 버튼 위치이며 과거 삽화의 주소와 체크 상태는 이 실습의 권장값이 아님](../../assets/red-team-foundations/screenshots/ch5-cs-clone-site.png)
 
-공식 Clone Site 설명에서 **Clone URL**은 원본 페이지, **Local URI·Host·Port**는 제공할 페이지 주소, 리소스 지정 칸(일부 공식 삽화의 **Attack**, 안내서 본문의 **Embed**)은 연결할 리소스, **Log keystrokes**는 입력 기록과 관련된 선택 항목입니다. 이 강의는 각 항목의 의미를 구별하며 복제·자동 전달·입력 수집 설정을 수행하지 않습니다. 격리 실습의 안내문 전달은 앞 절의 Host File만으로 역할을 확인할 수 있습니다.
+출처는 [Fortra Clone a Site](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_clone-a-site.htm)입니다. 현재 안내서에 남은 구형 삽화에는 `Attack`으로 표시되지만 본문은 `Embed`라는 용어도 사용합니다. 안내서가 설명하는 SSL 항목은 이 삽화에는 보이지 않으므로 없는 체크박스 위치를 만들어 설명하지 않습니다.
 
-현대 브라우저의 자동 다운로드·프레임·보안 정책도 고려해야 합니다. 오래된 화면 설명의 ‘자동으로 다운로드된다’를 모든 브라우저에서 관측한 결과처럼 적지 않습니다. 페이지 전달을 확인했어도 다운로드 차단이나 사용자 동작 요구로 다음 단계가 달라질 수 있습니다.
+**먼저 구별할 것:** Host File의 File은 로컬 파일이고, Clone Site의 **Clone URL**은 복제할 원본 페이지 주소입니다. 원본 페이지와 새로 제공할 주소도 다른 칸입니다. 자신이 운영하는 안내 페이지를 이미 격리망에 준비한 경우를 가정하겠습니다.
+
+| 화면의 위치 | 항목 | 자체 정적 안내 페이지 예시 | 설정의 목적 |
+| --- | --- | --- | --- |
+| 첫 입력란 | Clone URL | http://192.168.56.20:8000/training/index.html | 자신이 운영하는 원본 안내 페이지 |
+| 둘째 입력란 | Local URI | /training/page/ | 새로 제공할 페이지 경로 |
+| 셋째 입력란 | Local Host | 192.168.56.10 | 복제 페이지를 제공할 실습 서버 주소 |
+| 넷째 입력란 | Local Port | 8081 | 웹 제공 포트이며 리소스 경로를 구별 |
+| 다섯째 입력란 | Attack 또는 Embed | 비워 둠 | 안내 페이지 표시만 확인 |
+| 그 오른쪽 | ... | 이 안내문 실습에서는 선택하지 않음 | 다른 리소스를 연결하는 선택 버튼 |
+| 입력란 아래 | Log keystrokes on cloned site | 선택하지 않음 | 입력 수집 없이 페이지 표시만 확인 |
+| 창 하단 | Clone | 위 값을 대조한 뒤 사용 | 원본 페이지와 새 호스팅 주소를 연결 |
+
+**클릭·확인 순서:** **Site Management → Clone Site**를 열고 원본 **Clone URL**과 새 **Local URI·Host·Port**를 먼저 대조합니다. **Attack/Embed가 비어 있고 입력 기록이 선택되지 않았는지** 확인한 뒤 Clone을 사용하는 흐름입니다. 같은 포트의 기존 `/training/readme.txt`와 `/training/page/`는 서로 다른 웹 리소스입니다. 원본 페이지를 준비하거나 복제 동작을 실제 수행하지 않았습니다.
+
+설정 후에는 **Sites → 해당 페이지 URI 선택 → URL 확인 → 자신의 브라우저에서 안내문 표시 확인 → Web Log에서 같은 요청 확인** 순서로 이어집니다. 원본 페이지에 로그인·입력 폼·스크립트·자동 다운로드 동작이 없는 정적 안내문을 가정하며, 확인할 결과는 페이지 표시와 요청 관계입니다.
+
+Site Clone은 페이지를 복제해 제공하는 기능이고 Host File은 지정한 파일 리소스를 제공하는 기능입니다. 페이지가 비슷하게 보인다는 사실, 파일이 전달됐다는 사실, 코드가 실행됐다는 사실은 별도로 검증합니다. 현대 브라우저의 다운로드·프레임·보안 정책 때문에 과거 설명의 자동 동작을 모든 환경에서 보장할 수도 없습니다.
 
 ## 9. 가상 사례를 최종 조사 메모로 바꿉니다
 
@@ -151,6 +231,7 @@ Site Clone은 페이지를 복제해 제공하는 기능이고 Host File은 지�
 - [Microsoft HTML smuggling 원 연구](https://www.microsoft.com/en-us/security/blog/2021/11/11/html-smuggling-surges-highly-evasive-loader-technique-increasingly-used-in-banking-malware-targeted-attacks/): 브라우저 내부 조립 전달의 역사적 관측.
 - [MDN Blob](https://developer.mozilla.org/en-US/docs/Web/API/Blob), [blob URL](https://developer.mozilla.org/en-US/docs/Web/URI/Reference/Schemes/blob), [SVG as an image](https://developer.mozilla.org/en-US/docs/Web/SVG/Guides/SVG_as_an_image): 데이터 표현과 처리 문맥.
 - [Microsoft Edge Network 도구](https://learn.microsoft.com/en-us/microsoft-edge/devtools/network/): 요청·응답·호출 주체 확인.
+- [Fortra 웹 서비스 관리](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_cs-web-services.htm), [공식 View 메뉴 안내](https://www.cobaltstrike.com/blog/map-of-cobalt-strike-features-for-armitage-users): 리소스 관리·Web Log 경로와 구버전 메뉴 주의.
 - [Fortra Hosting Files](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_hosting-files.htm), [Website Cloning](https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_clone-a-site.htm): 메뉴와 기능의 구별. 화면·실제 버전에 따른 차이는 확인해야 합니다.
 
 5장에서는 전달·포장·트리거·실행 내용·표시 자료를 나누고, 로딩·설치·출처·브라우저·단말의 증거를 연결했습니다. 실제 사건을 읽을 때도 ‘어디까지 직접 확인했는가’를 질문하면서 같은 방법을 적용해 보세요.

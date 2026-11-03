@@ -276,18 +276,19 @@
     {
       "id": 19,
       "slug": "19-web-delivery-observation",
-      "title": "웹 전달과 호스팅: 브라우저 처리·저장·실행을 구별하기",
-      "short_title": "HTML·SVG·Host File·관측",
-      "description": "HTML·SVG의 처리 문맥과 네트워크·단말 증거를 연결하고 공식 Host File 화면을 무해한 텍스트 가정으로 상세히 읽습니다.",
+      "title": "Cobalt Strike 화면 실습: Host File·사이트 관리·Clone Site·Web Log",
+      "short_title": "Cobalt Strike 화면 설정·호스팅·확인",
+      "description": "실제 Cobalt Strike 창에서 파일 선택·URL·포트·MIME·사이트 관리·복제 옵션·접속 기록을 차례로 읽고 격리 실습 예시와 확인 지점을 연결합니다.",
       "status": "published",
       "sections": 11,
       "review_questions": 8,
-      "figures": 4,
+      "figures": 7,
       "unit": 5,
       "format": "full",
       "updated": "2026-11-03",
       "lesson_number": 6,
-      "screenshots": 1
+      "screenshots": 4,
+      "ui_revision": "20261103-ch5-cs-ui"
     }
   ],
   "chapters": [
@@ -314,7 +315,8 @@
     {
       "id": 5,
       "title": "Initial Access",
-      "title_ko": "최초 접근"
+      "title_ko": "최초 접근",
+      "practice_entry": "19-web-delivery-observation"
     }
   ]
 }

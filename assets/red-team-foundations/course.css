@@ -43,3 +43,16 @@
 
 .ui-screen-nav{border-color:#3a8276;background:#112a30}
 .note .ui-screen-nav p{font-size:13px;margin:14px 0 0;color:#a9cac3}
+
+/* Chapter-five product walkthrough: keep original vendor pixels unchanged. */
+.cs-practice-start{border:2px solid #65d9c1;background:#102e34}
+.note .cs-practice-start>strong{font-size:20px;color:#baf8e8}
+.note .cs-practice-start p{font-size:15px;line-height:1.85}
+.cs-practice-links{display:flex;flex-wrap:wrap;gap:12px}
+.cs-practice-links a{display:inline-block;padding:10px 14px;border:1px solid #559990;border-radius:8px;background:#173b43}
+.cs-setting-screen .screenshot-original img{min-width:640px}
+.cs-setting-screen{border-color:#4c938a}
+.note .cs-practice-start~section h3[id^="screen-"]{scroll-margin-top:30px}
+@media print{.cs-setting-screen .screenshot-original img{min-width:0}}
+
+html:has(.cs-practice-start){scroll-behavior:auto}

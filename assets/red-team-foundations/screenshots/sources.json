@@ -246,5 +246,59 @@
     "ui_version_caveat": "Official documentation illustration may depict an older UI; menus and fields can differ by product version, locale, operating system, and policy. Not a newly executed lab capture.",
     "notes": "Unchanged publicly available vendor documentation screenshot; not a private textbook screenshot.",
     "menu_path": "Office desktop app > File > Options > Trust Center > Trust Center Settings > Protected View; inspect current options and use Cancel."
+  },
+  {
+    "file": "ch5-cs-clone-site.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/init-access_clone-a-site.htm",
+    "source_image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/attacks_clone-site.png",
+    "width": 405,
+    "height": 297,
+    "size_bytes": 19793,
+    "sha256": "0a3456474b80d583c975be9c501ecb3281a1ecd143162faf9b56169490c7bdc8",
+    "retrieved_on": "2026-11-03",
+    "modified": false,
+    "menu_path": "Site Management > Clone Site",
+    "ui_version_caveat": "The current 4.13 documentation retains a historical dialog illustration; the screenshot shows Attack but prose calls it Embed. It does not show the Enable SSL option described by the text. Do not infer current UI defaults from this image.",
+    "notes": "Public original contains third-party gmail example and a lookalike host, with Log keystrokes on cloned site checked. These are historical illustrative values, not settings to reproduce. Hypothetical prose must use an owned static training page, empty Attack/Embed, and unchecked Log keystrokes. No clone operation performed.",
+    "visually_inspected": true,
+    "visible_controls": [
+      "Clone URL",
+      "Local URI",
+      "Local Host",
+      "Local Port",
+      "Attack",
+      "...",
+      "Log keystrokes on cloned site",
+      "Clone",
+      "Help"
+    ]
+  },
+  {
+    "file": "ch5-cs-web-log.png",
+    "source_page": "https://www.cobaltstrike.com/blog/map-of-cobalt-strike-features-for-armitage-users",
+    "source_image_url": "https://www.cobaltstrike.com/app/uploads/2023/01/menu_view.png",
+    "width": 749,
+    "height": 345,
+    "size_bytes": 53522,
+    "sha256": "9180a4f1156bc718dc34fd4fbb03b82b04e3032a39237d4466c8801506709078",
+    "retrieved_on": "2026-11-03",
+    "modified": false,
+    "visually_inspected": true,
+    "kind": "actual legacy View menu screenshot, not Web Log tab content",
+    "menu_path": "View > Web Log",
+    "visible_controls": [
+      "Console",
+      "Applications",
+      "Beacons",
+      "Credentials",
+      "Downloads",
+      "Jobs",
+      "Loot",
+      "Script Console",
+      "Web Log",
+      "Reporting"
+    ],
+    "ui_version_caveat": "Historical official blog illustration, approximately 2014 era; not a newly captured current4.13 UI. The /2023/01/ asset URL is a republished path and not evidence of product version. Existing colored arrows and labels are in the unchanged official original.",
+    "notes": "Unchanged public official legacy View menu illustration; shows Web Log entry location only, not the resulting log tab or current UI defaults."
   }
 ]
