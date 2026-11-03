@@ -1,4 +1,4 @@
-.toc ol{list-style:none;padding-left:0}
+.toc ol,.toc ul{list-style:none;padding-left:0}
 .course-cards{display:grid;gap:20px}
 .course-cards .note-card{display:block}
 .course-diagram{max-width:740px;margin:30px auto;padding:14px;overflow:hidden}
