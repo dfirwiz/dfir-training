@@ -14,9 +14,15 @@
     10,
     11,
     12,
-    13
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
   ],
-  "published_unit": "1~4단원 공개: 2단원은 핵심 요약, 나머지는 상세 강의",
+  "published_unit": "1~5단원 공개: 2단원만 핵심 요약, 나머지는 상세 강의",
   "next_scope": null,
   "next_lesson_status": "awaiting_user_request",
   "workflow": "Publish only user-requested lessons. Preserve reviewed prose, examples, tables, diagrams and immediate review explanations.",
@@ -71,8 +77,26 @@
       "1": 3,
       "2": 1,
       "3": 4,
-      "4": 5
+      "4": 5,
+      "5": 6
     },
     "updated": "2026-11-03"
+  },
+  "unit_5": {
+    "status": "published",
+    "lesson_ids": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19
+    ],
+    "format": "full",
+    "authorization": "2026-11-03 사용자 요청: 지금까지 지시사항을 참고해 5장 업데이트",
+    "diagrams": 18,
+    "official_screenshots": 7,
+    "review_questions": 48,
+    "verification_scope": "원본 전체와 공식 문서 대조. Python 합성 출처 정보 해석 실제 실행. Windows·Office·ProcMon·Cobalt Strike·메일 전송·패키지 실행은 미수행."
   }
 }

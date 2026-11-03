@@ -1,6 +1,6 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. TTP·활동 계획·법과 준수, PE·Windows 실행 기초와 Cobalt Strike의 구성·통신·페이로드·세션 기록을 배웁니다.",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. TTP·활동 계획·법과 준수, Windows 실행 기초·Cobalt Strike 구성과 최초 접근의 전달·로딩·출처·실행 증거를 배웁니다.",
   "updated": "2026-11-03",
   "lessons": [
     {
@@ -192,6 +192,102 @@
       "updated": "2026-11-03",
       "lesson_number": 5,
       "screenshots": 3
+    },
+    {
+      "id": 14,
+      "slug": "14-initial-access-chain",
+      "title": "최초 접근의 구성 요소: 전달·포장·트리거·실행을 구별하기",
+      "short_title": "최초 접근·구성 요소·조사 연결",
+      "description": "피싱의 다섯 역할과 시간 순서를 나누고 파일 도착·실행·통신을 각각의 증거로 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 3,
+      "unit": 5,
+      "format": "full",
+      "updated": "2026-11-03",
+      "lesson_number": 1,
+      "screenshots": 0
+    },
+    {
+      "id": 15,
+      "slug": "15-dll-managed-loading",
+      "title": "DLL·.NET 로딩: 실패한 탐색과 실제 적재를 구별하기",
+      "short_title": "DLL·.NET 로딩·ProcMon 화면",
+      "description": "ProcMon 공식 화면 3개와 필터 입력 위치로 모듈 탐색·적재를 읽고 DLL 검색·WinSxS·관리 런타임을 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 5,
+      "format": "full",
+      "updated": "2026-11-03",
+      "lesson_number": 2,
+      "screenshots": 3
+    },
+    {
+      "id": 16,
+      "slug": "16-installers-addins-signatures",
+      "title": "MSI·Excel 추가 기능·서명: 설치 동작과 신뢰 판단 읽기",
+      "short_title": "MSI·Excel·서명·보안 센터",
+      "description": "설치 작업·Excel 추가 기능·Protected View·서명과 평판의 차이를 공식 화면과 읽기 전용 조회로 배웁니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 5,
+      "format": "full",
+      "updated": "2026-11-03",
+      "lesson_number": 3,
+      "screenshots": 2
+    },
+    {
+      "id": 17,
+      "slug": "17-triggers-shortcuts-console",
+      "title": "배치·바로가기·MSC: 클릭과 실제 실행 경로 연결하기",
+      "short_title": "트리거·LNK·MSC·실행 문맥",
+      "description": "파일 형식·대상·인자·작업 폴더와 실행 문맥을 나누고 기존 바로가기의 메타데이터를 읽는 방법을 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 3,
+      "unit": 5,
+      "format": "full",
+      "updated": "2026-11-03",
+      "lesson_number": 4,
+      "screenshots": 0
+    },
+    {
+      "id": 18,
+      "slug": "18-containers-motw-provenance",
+      "title": "컨테이너·MotW: 파일 본문과 출처 정보를 따로 읽기",
+      "short_title": "컨테이너·MotW·Python 실습",
+      "description": "실제 파일 속성 화면, 스트림 조회 예제와 직접 실행한 Python 합성 자료 실습으로 출처·실행·안전 판단을 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 5,
+      "format": "full",
+      "updated": "2026-11-03",
+      "lesson_number": 5,
+      "screenshots": 1
+    },
+    {
+      "id": 19,
+      "slug": "19-web-delivery-observation",
+      "title": "웹 전달과 호스팅: 브라우저 처리·저장·실행을 구별하기",
+      "short_title": "HTML·SVG·Host File·관측",
+      "description": "HTML·SVG의 처리 문맥과 네트워크·단말 증거를 연결하고 공식 Host File 화면을 무해한 텍스트 가정으로 상세히 읽습니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 5,
+      "format": "full",
+      "updated": "2026-11-03",
+      "lesson_number": 6,
+      "screenshots": 1
     }
   ],
   "chapters": [
@@ -214,6 +310,11 @@
       "id": 4,
       "title": "Cobalt Strike Primer",
       "title_ko": "Cobalt Strike 입문"
+    },
+    {
+      "id": 5,
+      "title": "Initial Access",
+      "title_ko": "최초 접근"
     }
   ]
 }

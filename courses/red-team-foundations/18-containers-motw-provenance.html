@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="실제 파일 속성 화면, 스트림 조회 예제와 직접 실행한 Python 합성 자료 실습으로 출처·실행·안전 판단을 구별합니다."><title>컨테이너·MotW: 파일 본문과 출처 정보를 따로 읽기 | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/18-containers-motw-provenance.html"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css?v=20261103-ui-guide"></head>
+<body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout"><aside class="course-sidebar"><details class="course-menu" open><summary>레드팀 기초 · 과정 목차</summary><a class="course-overview" href="index.html">과정 소개와 학습 순서</a><nav class="course-chapters" aria-label="장별 강의 목차"><details class="course-day course-chapter"><summary><span><span class="chapter-number">1장</span> <span lang="en">Getting Started</span></span></summary><ol class="chapter-lessons"><li><a href="01-purpose-ttp-evidence.html"><span class="num">1강</span><span>레드팀의 목적·TTP·증거 해석</span></a></li><li><a href="02-intelligence-attack-lifecycle.html"><span class="num">2강</span><span>위협 인텔리전스와 공격 생명주기</span></a></li><li><a href="03-engagement-opsec-records.html"><span class="num">3강</span><span>활동 계획·ROE·OPSEC·작업 기록</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">2장</span> <span lang="en">Law &amp; Compliance</span></span></summary><ol class="chapter-lessons"><li><a href="04-law-compliance.html"><span class="num">1강</span><span>법과 준수 원칙 · 핵심 요약</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">3장</span> <span lang="en">Malware Essentials</span></span></summary><ol class="chapter-lessons"><li><a href="05-pe-file-memory.html"><span class="num">1강</span><span>PE 파일 구조·RVA·읽기 전용 실습</span></a></li><li><a href="06-process-memory-security.html"><span class="num">2강</span><span>프로세스·메모리·접근 토큰</span></a></li><li><a href="07-injection-evidence.html"><span class="num">3강</span><span>코드 주입의 원리와 증거 해석</span></a></li><li><a href="08-csharp-native-interop.html"><span class="num">4강</span><span>C# P/Invoke·인코딩·오류 처리</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">4장</span> <span lang="en">Cobalt Strike Primer</span></span></summary><ol class="chapter-lessons"><li><a href="09-c2-components.html"><span class="num">1강</span><span>C2 구성 요소·다중 서버·기록</span></a></li><li><a href="10-http-dns-listeners.html"><span class="num">2강</span><span>HTTP·DNS·리스너 설정 해석</span></a></li><li><a href="11-peer-links.html"><span class="num">3강</span><span>SMB·TCP·P2P 연결과 수명</span></a></li><li><a href="12-payload-loading.html"><span class="num">4강</span><span>페이로드·로더·staging·종료</span></a></li><li><a href="13-sessions-task-evidence.html"><span class="num">5강</span><span>세션·작업 상태·가상 로그 실습</span></a></li></ol></details><details class="course-day course-chapter" open><summary><span><span class="chapter-number">5장</span> <span lang="en">Initial Access</span></span></summary><ol class="chapter-lessons"><li><a href="14-initial-access-chain.html"><span class="num">1강</span><span>최초 접근·구성 요소·조사 연결</span></a></li><li><a href="15-dll-managed-loading.html"><span class="num">2강</span><span>DLL·.NET 로딩·ProcMon 화면</span></a></li><li><a href="16-installers-addins-signatures.html"><span class="num">3강</span><span>MSI·Excel·서명·보안 센터</span></a></li><li><a href="17-triggers-shortcuts-console.html"><span class="num">4강</span><span>트리거·LNK·MSC·실행 문맥</span></a></li><li><a href="18-containers-motw-provenance.html" aria-current="page"><span class="num">5강</span><span>컨테이너·MotW·Python 실습</span></a></li><li><a href="19-web-delivery-observation.html"><span class="num">6강</span><span>HTML·SVG·Host File·관측</span></a></li></ol></details></nav></details></aside><main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a> / <a href="index.html#chapter-5">5장 · Initial Access</a></p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / CHAPTER 05 / LESSON 05</div><h1>컨테이너·MotW: 파일 본문과 출처 정보를 따로 읽기</h1><p class="description">실제 파일 속성 화면, 스트림 조회 예제와 직접 실행한 Python 합성 자료 실습으로 출처·실행·안전 판단을 구별합니다.</p><div class="meta"><span>5장 5강 · 8개의 복습과 해설</span><span>업데이트 2026-11-03</span></div></header><nav class="toc ui-screen-nav" aria-label="실제 설정 화면 바로가기"><strong>공식 화면으로 따라보기</strong><ul class="toc-list" role="list"><li><a href="#screen-19">실제 화면 19: 파일 Properties의 Security 영역</a></li></ul><p>메뉴 경로 → 화면의 입력 위치 → 예시 값 → 저장 후 확인을 순서대로 읽습니다.</p></nav><nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list"><li><a href="#section-1">1. 포장을 풀면 파일의 출처도 그대로 남을까요?</a></li><li><a href="#section-2">2. 파일 본문과 출처 정보는 다른 층입니다</a></li><li><a href="#section-3">3. 실제 파일 속성의 어느 부분을 확인할까요?</a></li><li><a href="#section-4">4. Zone.Identifier를 PowerShell로 읽습니다</a></li><li><a href="#section-5">5. ZoneId는 영역 값이지 감염 점수가 아닙니다</a></li><li><a href="#section-6">6. 추출·마운트·복사를 같은 작업으로 취급하지 않습니다</a></li><li><a href="#section-7">7. 실제 실행한 합성 자료 해석 실습</a></li><li><a href="#section-8">8. 출력 일부를 한 줄씩 해석합니다</a></li><li><a href="#section-9">9. 출처·실행·판정을 서로 다른 질문으로 남깁니다</a></li><li><a href="#section-10">10. 복습과 바로 읽는 해설</a></li><li><a href="#section-11">11. 공식 근거와 다음 학습</a></li></ul></nav><section id="section-1"><h2>1. 포장을 풀면 파일의 출처도 그대로 남을까요?</h2>
+<p>웹에서 받은 ZIP에는 경고가 보였는데 안의 PDF에는 같은 표시가 보이지 않습니다. 그러면 PDF는 안전해진 것일까요? 아닙니다. 포장 형식, 복사·추출 프로그램, 파일 시스템과 정책이 출처 정보 처리에 영향을 줄 수 있습니다. 출처 표시가 없다는 사실과 내용이 안전하다는 판단은 다릅니다.</p>
+<p><strong>컨테이너(container)</strong>는 여러 구성 요소를 묶는 포장을 설명합니다. ZIP 같은 압축 파일, ISO·IMG 같은 디스크 이미지, 설치 패키지는 처리 방식이 다르지만 구성 요소를 묶는 역할을 할 수 있습니다. 안에 어떤 내용이 있고 사용자가 어느 항목과 상호작용했는지를 분리해 봅니다.</p>
+<p>이번 강의는 포장을 만들거나 보호 표시를 제거하는 실습이 아닙니다. 출처 정보가 어디에 있고 어떻게 읽으며 무엇을 결론낼 수 있는지 배웁니다. Python 합성 자료 해석은 실제 실행했고, Windows의 스트림 조회·추출·마운트는 수행하지 않았습니다.</p>
+</section>
+<section id="section-2"><h2>2. 파일 본문과 출처 정보는 다른 층입니다</h2>
+<p><strong>Mark of the Web(MotW)</strong>는 인터넷 등 특정 출처에서 온 파일임을 표시하는 정보와 관련된 Windows 보안 개념입니다. 파일에서는 흔히 <code>Zone.Identifier</code>라는 별도 데이터 스트림을 통해 볼 수 있습니다. 프로그램과 전달 경로가 관련 정보를 기록하고 소비하는 방식도 함께 확인해야 합니다.</p>
+<figure id="figure-1" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/18-provenance-layers.svg" width="720" height="635" alt="파일 본문과 SHA256, 별도 Zone.Identifier의 출처 정보, 실제 실행 기록이 서로 다른 층인 관계" loading="lazy"></div><figcaption>파일 본문과 SHA256, 별도 Zone.Identifier의 출처 정보, 실제 실행 기록이 서로 다른 층인 관계 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>그림에서 파일 본문의 SHA256과 출처 정보는 다른 갈래입니다. 본문이 같은 두 파일의 해시가 같더라도, 한쪽에 Zone.Identifier가 있고 다른 쪽에는 없을 수 있습니다. 파일 본문 해시 하나로 별도 메타데이터까지 같다고 말할 수 없는 이유입니다.</p>
+<p>출처 정보는 악성코드 판별 결과가 아닙니다. 인터넷에서 받은 정상 문서도 Internet 영역일 수 있고, 악성 내용에 출처 정보가 없을 수도 있습니다. 또한 현재 저장된 문자열이 과거의 전달 경로를 변경 불가능하게 증명하는 인증서인 것도 아닙니다.</p>
+</section>
+<section id="section-3"><h2>3. 실제 파일 속성의 어느 부분을 확인할까요?</h2>
+<h3 id="screen-19">실제 화면 19: 파일 Properties의 Security 영역</h3>
+<figure id="figure-2" class="diagram course-diagram course-screenshot"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 설정 화면"><a class="screenshot-original" href="../../assets/red-team-foundations/screenshots/ch5-motw-properties.png" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: Microsoft 공식 DOCM 파일 Properties의 General 탭 하단 Security 안내와 선택되지 않은 Unblock 칸이며 강조 테두리도 공식 원본의 일부"><img src="../../assets/red-team-foundations/screenshots/ch5-motw-properties.png" width="395" height="508" alt="Microsoft 공식 DOCM 파일 Properties의 General 탭 하단 Security 안내와 선택되지 않은 Unblock 칸이며 강조 테두리도 공식 원본의 일부" loading="lazy"></a></div><figcaption>Microsoft 공식 DOCM 파일 Properties의 General 탭 하단 Security 안내와 선택되지 않은 Unblock 칸이며 강조 테두리도 공식 원본의 일부 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다. 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>출처는 <a href="https://learn.microsoft.com/en-us/microsoft-365-apps/security/internet-macros-blocked">Microsoft의 인터넷 매크로 차단 안내</a>입니다. 화면은 공식 문서의 DOCM 예시이며, 이 강의에서 내려받아 확인한 파일이 아닙니다. 빨간 테두리는 원본에 포함되어 있습니다.</p>
+<p>승인된 파일 사본의 <strong>우클릭 → 속성(Properties) → 일반(General)</strong>을 엽니다. 아래 <strong>보안(Security)</strong> 안내에 다른 컴퓨터에서 온 파일이라는 설명과 <strong>차단 해제(Unblock)</strong> 칸이 있는지 읽습니다. 체크하거나 적용하지 않고 현재 상태를 기록한 뒤 <strong>취소(Cancel)</strong>로 닫습니다. 조사 중 출처 정보를 바꾸면 비교해야 할 원래 상태가 달라지기 때문입니다.</p>
+<p>이 영역이 보이지 않아도 ‘인터넷에서 오지 않았다’고 확정할 수 없습니다. 파일 시스템·전달 프로그램·복사 경로·기존 처리 이력·정책에 따라 다를 수 있습니다. UI 표시와 스트림 조회 결과를 실제 환경 문맥에 연결해야 합니다.</p>
+</section>
+<section id="section-4"><h2>4. Zone.Identifier를 PowerShell로 읽습니다</h2>
+<p>다음은 Windows에서 기존 분석 사본을 조회하는 미실행 예제입니다. 파이프 뒤에 파일 쓰기나 실행 명령을 연결하지 않습니다.</p>
+<pre tabindex="0" aria-label="powershell 예제"><code class="language-powershell">Get-Item -LiteralPath &#x27;C:\Lab\review\training-note.txt&#x27; -Stream &#x27;*&#x27;
+
+try {
+    Get-Content -LiteralPath &#x27;C:\Lab\review\training-note.txt&#x27; `
+        -Stream Zone.Identifier -ErrorAction Stop
+}
+catch {
+    $_.Exception.Message
+}</code></pre>
+<p>첫 줄의 <code>-Stream &#x27;*&#x27;</code>는 해당 파일에서 공급자가 보여 주는 스트림 목록을 조회합니다. 둘째 조회의 <code>-Stream Zone.Identifier</code>는 그 이름의 스트림 내용을 읽습니다. 줄 끝의 백틱은 PowerShell에서 명령을 다음 줄로 이어 적기 위해 사용했습니다. <code>-ErrorAction Stop</code>은 실패를 catch에서 다루기 위한 설정이지 보호 표시를 바꾸는 옵션이 아닙니다.</p>
+<p>오류가 나면 메시지와 원인을 기록합니다. ‘스트림 없음’뿐 아니라 권한·경로·파일 시스템·공급자 지원 문제일 수 있어 모든 실패를 “MotW 없음”으로 바꾸지 않습니다. 아래는 형식을 이해하기 위한 가상 텍스트이며 실제 파일에서 읽은 출력이 아닙니다.</p>
+<pre tabindex="0" aria-label="ini 예제"><code class="language-ini">[ZoneTransfer]
+ZoneId=3
+HostUrl=https://training.example/note.txt</code></pre>
+<p><code>HostUrl</code> 같은 값은 존재 여부와 해석에 도움이 되지만 모든 파일에 반드시 기록되는 필드가 아닙니다. 실제 URL에는 사용자 식별 정보나 토큰이 포함될 수 있으므로 공개 강의나 일반 보고서에 그대로 붙이지 않습니다. 이 예제의 <code>.example</code> 도메인은 설명용이며 접속하지 않습니다.</p>
+</section>
+<section id="section-5"><h2>5. ZoneId는 영역 값이지 감염 점수가 아닙니다</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">ZoneId</th>
+<th scope="col">영역 이름</th>
+<th scope="col">해석할 때의 핵심</th>
+</tr></thead><tbody>
+<tr><td>0</td><td>Local Machine</td><td>로컬 영역 분류이지 안전 보증이 아닙니다</td></tr>
+<tr><td>1</td><td>Local Intranet</td><td>인트라넷 영역이며 실제 정책을 확인합니다</td></tr>
+<tr><td>2</td><td>Trusted Sites</td><td>신뢰 영역 설정과 연결되며 코드 안전 판정은 아닙니다</td></tr>
+<tr><td>3</td><td>Internet</td><td>인터넷 영역으로 분류된 출처 정보입니다</td></tr>
+<tr><td>4</td><td>Restricted Sites</td><td>제한 영역 분류입니다</td></tr>
+</tbody></table></div>
+<p>숫자가 높다고 악성 확률이 높아지는 점수표가 아닙니다. 값이 없거나 형식이 잘못됐거나 예상 범위를 벗어나면 ‘확인 불가’나 ‘형식 오류’로 남깁니다. <code>ZoneId=0</code>으로 추측해 채우지 않습니다.</p>
+<p>파일 출처의 영역, Office의 신뢰 위치, 인증서 서명, 실제 코드 실행은 별개입니다. 각 기능이 같은 값을 소비하거나 영향을 줄 수 있어도 결과를 하나의 “신뢰됨”으로 합치면 중요한 조건을 놓칩니다.</p>
+</section>
+<section id="section-6"><h2>6. 추출·마운트·복사를 같은 작업으로 취급하지 않습니다</h2>
+<p>ZIP을 푸는 것, 디스크 이미지를 마운트해 보는 것, 다른 드라이브로 복사하는 것은 처리 경로가 다릅니다. 출처 정보의 전달 여부를 비교하려면 Windows 빌드, 추출 프로그램과 버전, 저장 파일 시스템, 원본 다운로드 프로그램, 실제 경로를 기록합니다.</p>
+<figure id="figure-3" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/18-transfer-context.svg" width="720" height="650" alt="같은 원본 컨테이너가 서로 다른 처리 경로를 거쳐 본문은 같고 출처 정보는 다를 수 있는 두 사본으로 이어지는 비교" loading="lazy"></div><figcaption>같은 원본 컨테이너가 서로 다른 처리 경로를 거쳐 본문은 같고 출처 정보는 다를 수 있는 두 사본으로 이어지는 비교 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>그림은 차이가 날 수 있는 관계를 나타내며 특정 형식이 언제나 MotW를 없앤다는 뜻이 아닙니다. <strong>‘ISO면 무조건 출처 표시가 사라진다’ 같은 고정 결론은 사용하지 않습니다.</strong> 패치·도구·소비 프로그램에 따라 결과가 달라질 수 있기 때문입니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">비교 시점</th>
+<th scope="col">기록할 것</th>
+</tr></thead><tbody>
+<tr><td>원본 수신 직후</td><td>파일 본문 해시·출처 스트림·다운로드 문맥</td></tr>
+<tr><td>추출·마운트 후</td><td>도구·버전·처리 방식·내부 파일의 식별 정보</td></tr>
+<tr><td>사본 확보 후</td><td>복사 목적지 파일 시스템·스트림 보존 여부</td></tr>
+<tr><td>실행 조사 시점</td><td>현재 상태와 당시 실행·정책 기록의 연결</td></tr>
+</tbody></table></div>
+<p>별도 제공된 실제 압축·이미지 파일과 Windows 실습 환경은 없으므로 특정 추출 도구의 결과표를 측정한 것처럼 만들지 않습니다. 실습 자료가 없을 때 일반 원리를 설명하는 것과 결과를 확인했다고 주장하는 것은 다릅니다.</p>
+</section>
+<section id="section-7"><h2>7. 실제 실행한 합성 자료 해석 실습</h2>
+<p>이 강의는 <a href="../../assets/red-team-foundations/initial_access_review.py">읽기 전용 출처 정보 해석기</a>를 제공합니다. Python 3.10 이상에서 외부 패키지 없이 실행할 수 있습니다. Windows 스트림을 수집하거나 파일을 추출·실행하는 도구가 아닙니다.</p>
+<pre tabindex="0" aria-label="bash 예제"><code class="language-bash">python3 initial_access_review.py --demo</code></pre>
+<p>이 명령은 제작 과정에서 Linux Python으로 <strong>실제 실행했습니다</strong>. 메모리 안의 합성 문구와 네 가지 메타데이터 사례를 해석합니다. 네트워크 요청은 0, 실행한 대상 파일도 0입니다. 모든 사례의 본문은 같은 <code>TRAINING_ONLY</code> 문구이고 본문 SHA256도 같습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">합성 사례</th>
+<th scope="col">실제 확인한 해석 결과</th>
+<th scope="col">그 결과로 주장하지 않는 것</th>
+</tr></thead><tbody>
+<tr><td>internet</td><td>state=present, zone_id=3, zone=Internet</td><td>감염 또는 실행 완료</td></tr>
+<tr><td>metadata-missing</td><td>state=missing, zone_id=null</td><td>안전 또는 로컬 출처 확정</td></tr>
+<tr><td>invalid-zone</td><td>state=invalid, zone_id=null</td><td>없는 값을 0으로 보정</td></tr>
+<tr><td>intranet</td><td>state=present, zone_id=1, zone=Intranet</td><td>조직이 내용까지 승인함</td></tr>
+</tbody></table></div>
+<p>모든 사례의 <code>execution_proven</code>은 <code>false</code>, <code>maliciousness</code>는 <code>undetermined</code>입니다. 이것은 악성 여부를 검사해 안전하다고 판정한 결과가 아니라, 입력 형식만으로는 실행과 악성을 입증하지 않는다는 도구의 범위 표시입니다.</p>
+</section>
+<section id="section-8"><h2>8. 출력 일부를 한 줄씩 해석합니다</h2>
+<p>실제로 실행한 합성 Internet 사례의 핵심 필드는 다음과 같습니다. 본문 해시는 출력에 함께 포함되지만 여기서는 관련 부분만 보여 줍니다.</p>
+<pre tabindex="0" aria-label="json 예제"><code class="language-json">{
+  &quot;state&quot;: &quot;present&quot;,
+  &quot;zone_id&quot;: 3,
+  &quot;zone&quot;: &quot;Internet&quot;,
+  &quot;host_url_present&quot;: true,
+  &quot;execution_proven&quot;: false,
+  &quot;maliciousness&quot;: &quot;undetermined&quot;
+}</code></pre>
+<p><code>state</code>는 해석 가능한 영역 값의 존재 상태입니다. <code>host_url_present</code>는 해당 키에 값이 있다는 뜻이며 URL에 접속하거나 진위를 검증했다는 뜻이 아닙니다. 도구는 URL 문자열 자체를 결과에 반복 출력하지 않습니다.</p>
+<p>이미 텍스트로 내보낸 승인 자료는 <code>python3 initial_access_review.py --zone-text zone-copy.txt</code>처럼 읽을 수 있습니다. 이 명령은 사용자 파일에서 실행하지 않았습니다. 입력은 UTF-8 텍스트이고 최대 65,536바이트로 제한합니다. 크기 초과·읽기 실패·인코딩 오류는 오류로 처리하며, 불완전한 입력을 안전한 값으로 채우지 않습니다. 이 도구는 Windows의 모든 ADS·정책·파일 특성을 구현한 검증기가 아닙니다.</p>
+</section>
+<section id="section-9"><h2>9. 출처·실행·판정을 서로 다른 질문으로 남깁니다</h2>
+<figure id="figure-4" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/18-conclusion-axes.svg" width="720" height="580" alt="출처 정보가 있는지·실제 실행됐는지·악성으로 판단할 근거가 있는지를 독립적으로 확인하는 세 질문" loading="lazy"></div><figcaption>출처 정보가 있는지·실제 실행됐는지·악성으로 판단할 근거가 있는지를 독립적으로 확인하는 세 질문 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>첫 질문에 답했다고 나머지 두 질문이 자동으로 해결되지 않습니다. MotW가 없으면 수집 경로·보존 여부를 확인하고, 실행이 의심되면 프로세스·파일·모듈·통신을 연결합니다. 악성 여부는 내용·출처·행위·업무 맥락 등 더 넓은 근거가 필요합니다.</p>
+<p>조건을 바꿔 같은 본문 파일 두 개의 ZoneId가 다르다고 해 보겠습니다. 그 관측은 메타데이터 차이를 보여 줍니다. 어떤 도구가 언제 바꿨는지와 그 차이가 실제 보안 판단에 어떤 영향을 주었는지는 별도 확인합니다. 결과만 보고 누군가 의도적으로 보호를 우회했다고 동기를 붙이지 않습니다.</p>
+</section>
+<section id="section-10"><h2>10. 복습과 바로 읽는 해설</h2>
+<h3>복습 1. MotW가 없으면 파일이 안전한가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 메타데이터 부재와 내용 안전성은 다른 판단입니다. 전달·복사·수집 경로와 파일 시스템 지원을 확인합니다.</p>
+<h3>복습 2. 본문 SHA256이 같으면 출처 정보도 같나요?</h3>
+<p><strong>해설:</strong> 일반적인 본문 해시는 별도 스트림까지 동일하다고 보장하지 않습니다. 원본과 사본의 출처 정보를 따로 확인해야 합니다.</p>
+<h3>복습 3. ZoneId=3은 감염을 뜻하나요?</h3>
+<p><strong>해설:</strong> 인터넷 영역 분류입니다. 악성 여부·실행 여부·피해 결과는 그 값만으로 입증되지 않습니다.</p>
+<h3>복습 4. 스트림 조회 실패는 언제나 스트림 없음인가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 권한·경로·공급자·파일 시스템 문제일 수 있습니다. 오류 원인과 조회 범위를 기록합니다.</p>
+<h3>복습 5. ISO나 ZIP의 MotW 전달 결과를 형식만으로 고정할 수 있나요?</h3>
+<p><strong>해설:</strong> 없습니다. Windows 빌드·패치·처리 도구·파일 시스템·프로그램에 따라 다를 수 있어 실제 조건을 기록해야 합니다.</p>
+<h3>복습 6. Properties의 Unblock을 눌러서 확인해야 하나요?</h3>
+<p><strong>해설:</strong> 이 조회에서는 현재 표시를 읽고 변경하지 않습니다. 출처 표시를 바꾸면 조사 중 비교해야 할 원래 상태가 달라질 수 있습니다.</p>
+<h3>복습 7. 합성 실습의 missing과 invalid는 무엇이 다른가요?</h3>
+<p><strong>해설:</strong> missing은 입력 메타데이터가 없는 사례, invalid는 제공된 텍스트에서 유효한 영역 값을 해석하지 못한 사례입니다. 둘 다 안전 판정으로 바꾸지 않습니다.</p>
+<h3>복습 8. 실제 검증 범위는 어디까지인가요?</h3>
+<p><strong>해설:</strong> Python으로 메모리 안의 합성 문구·네 가지 메타데이터를 해석했습니다. Windows 스트림 수집·추출·마운트·코드 실행이나 실제 사건 판정까지 검증한 것이 아닙니다.</p>
+</section>
+<section id="section-11"><h2>11. 공식 근거와 다음 학습</h2>
+<p>공식 자료 확인일은 <strong>2026년 11월 3일</strong>입니다. 공식 화면 외의 사례와 도구는 독립 제작했습니다.</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/microsoft-365-apps/security/internet-macros-blocked">Microsoft 인터넷 매크로 차단과 MotW</a>: 출처 영역과 파일 속성의 의미.</li>
+<li><a href="https://learn.microsoft.com/en-us/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537175%28v%3Dvs.85%29">URLZONE</a>: 영역 값 정의.</li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-item">Get-Item</a>, <a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.management/get-content">Get-Content</a>: Windows 스트림 조회 계약.</li>
+</ul>
+<p>다음 강의에서는 웹 응답으로 받은 바이트와 브라우저 안에서 조립된 파일을 구별하고, Cobalt Strike의 파일 호스팅 화면을 무해한 텍스트 예시로 읽습니다.</p>
+</section><nav class="pager" aria-label="강의 이동"><a href="index.html">← 과정 전체 목차</a><a href="17-triggers-shortcuts-console.html">← 5장 4강 · 트리거·LNK·MSC·실행 문맥</a><a href="19-web-delivery-observation.html">5장 6강 · HTML·SVG·Host File·관측 →</a></nav></main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>
