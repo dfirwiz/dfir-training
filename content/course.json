@@ -300,13 +300,14 @@
       ],
       "status": "published",
       "updated": "2026-11-01",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "existing_detailed_lesson_retained"
     },
     {
       "id": 24,
       "slug": "24-filter-evidence",
       "title": "필터를 만들고 사건의 증거를 묶는 방법",
-      "description": "메뉴·자동 완성·선택 필드에서 필터를 만들고, 문맥을 보존하며 관련 패킷을 내보냅니다.",
+      "description": "저장 필터·표현식·자동 완성·분석 필드부터 Mark·내보내기까지 차근차근 익히고, 표시 필터 실습 네 문제와 추가 문제를 풀어봅니다.",
       "day": 2,
       "day_lesson": 2,
       "printed_pages": [
@@ -315,7 +316,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 90,
+      "editorial_status": "revised"
     },
     {
       "id": 25,
@@ -330,7 +332,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 26,
@@ -345,7 +348,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 27,
@@ -360,7 +364,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 28,
@@ -375,7 +380,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 29,
@@ -390,7 +396,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 30,
@@ -405,7 +412,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 31,
@@ -420,7 +428,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 65
+      "minutes": 65,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 32,
@@ -435,7 +444,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 33,
@@ -450,7 +460,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 34,
@@ -465,7 +476,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 35,
@@ -480,7 +492,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 36,
@@ -495,7 +508,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 37,
@@ -510,7 +524,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 65
+      "minutes": 65,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 38,
@@ -525,7 +540,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55
+      "minutes": 55,
+      "editorial_status": "revision_pending"
     },
     {
       "id": 39,
@@ -540,7 +556,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 90
+      "minutes": 90,
+      "editorial_status": "revision_pending"
     }
   ]
 }
