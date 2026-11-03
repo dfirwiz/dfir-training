@@ -1,4 +1,4 @@
-"""Build the independent network security course; preserve reviewed prose."""
+"""Build the day-based blue-team course; preserve published lecture prose."""
 from pathlib import Path
 from html import escape
 import re, json
@@ -9,7 +9,8 @@ from network_security_dns_lab_diagrams import build_lesson05
 from network_security_http_diagrams import build_lesson06
 
 ROOT = Path(__file__).resolve().parents[1]
-TITLE = '네트워크 보안 분석: 통신 원리부터 침해 조사까지'
+from blue_team_course_menu import sidebar_menu, overview_body, home_card, MENU_CSS
+TITLE = '블루팀 필수 지식: 보안 운영과 분석'
 OUT = ROOT/'courses/network-security'
 ASSETS = ROOT/'assets/network-security'
 OUT.mkdir(parents=True, exist_ok=True)
@@ -115,33 +116,33 @@ def render(md, expected_mermaid=0):
     return '\n'.join(out),toc
 
 course=json.loads((ROOT/'content/network-security/course.json').read_text(encoding='utf-8'))
+lessons_by_id={item['id']:item for item in course['lessons']}
+for day in course['days']:
+    day['lessons']=[lessons_by_id[key] for key in day['lesson_ids']]
 
 def page(title,description,body,lesson=False):
     links=''.join(f'<li><a href="#{a}">{inline(t)}</a></li>' for a,t in toc) if lesson else ''
-    rows=['<li><a href="index.html">과정 소개와 학습 순서</a></li>']
-    for item in course['lessons']:
-        label=f'<span class="num">{item["id"]:02d}</span>{escape(item["title"])}'
-        if item['status']=='published':
-            current=' aria-current="page"' if item['id']==lesson else ''
-            rows.append(f'<li><a href="{item["slug"]}.html"{current}>{label}</a></li>')
-        else:rows.append(f'<li><span class="upcoming">{label} · 준비 중</span></li>')
-    sidebar='<aside class="course-sidebar"><details open><summary>네트워크 보안 분석 · 과정 목차</summary><ol>'+''.join(rows)+'</ol></details></aside>'
-    pager='<nav class="pager"><a href="index.html">← 과정 전체 목차</a>'
+    sidebar=sidebar_menu(course,lesson)
     selected=next((item for item in course['lessons'] if item['id']==lesson),None)
+    pager='<nav class="pager" aria-label="강의 이동"><a href="index.html">← 날짜별 전체 목차</a>'
     if selected:
-        index=course['lessons'].index(selected)
-        if index:
-            previous=course['lessons'][index-1]
-            pager+=f'<a href="{previous["slug"]}.html">← {previous["id"]}강 · {escape(previous.get("short_title",previous["title"]))}</a>'
-        if index+1<len(course['lessons']):
-            following=course['lessons'][index+1]
-            if following['status']=='published':pager+=f'<a href="{following["slug"]}.html">{following["id"]}강 · {escape(following.get("short_title",following["title"]))} →</a>'
-            else:pager+=f'<span class="pending">다음 강의 · {escape(following["title"])} · 준비 중</span>'
-    else:pager+='<a href="01-network-architecture.html">1강부터 읽기 →</a>'
+        day=next(d for d in course['days'] if d['id']==selected['day'])
+        items=day['lessons']; index=items.index(selected)
+        if index and items[index-1]['status']=='published':
+            previous=items[index-1]
+            pager+=f'<a href="{previous["slug"]}.html">← {day["label"]} {previous["number"]}강 · {escape(previous.get("short_title",previous["title"]))}</a>'
+        if index+1<len(items):
+            following=items[index+1]
+            if following['status']=='published':
+                pager+=f'<a href="{following["slug"]}.html">{day["label"]} {following["number"]}강 · {escape(following.get("short_title",following["title"]))} →</a>'
+            else:
+                pager+='<span class="pending">다음 업데이트 · 첫째 날 1강부터 순서대로 준비합니다.</span>'
+    else:
+        pager+='<a href="#day-1">첫째 날 학습 계획 보기 →</a>'
     pager+='</nav>'
     contents='<nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list">'+links+'</ul></nav>' if lesson else ''
     filename=selected['slug']+'.html' if selected else 'index.html'
-    return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/network-security/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/network-security/course.css"></head><body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">네트워크 보안 분석</a></p><header class="note-header"><div class="eyebrow">NETWORK SECURITY / {f'LESSON {int(lesson):02d}' if lesson else 'COURSE 02'}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{str(int(lesson))+'강 · '+escape(selected.get('short_title',selected['title'])) if selected else '초보자를 위한 독립 과정'}</span><span>업데이트 2026-11-02</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
+    return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/network-security/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/network-security/course.css?v=20261103-blue-team-menu"></head><body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">블루팀 필수 지식</a></p><header class="note-header"><div class="eyebrow">BLUE TEAM / {f'DAY {selected["day"]:02d} · LESSON {selected["number"]:02d}' if selected else 'COURSE 02'}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{escape(day['label'])+' '+str(selected['number'])+'강 · '+escape(selected.get('short_title',selected['title'])) if selected else '보안 운영·분석을 시작하는 독자를 위한 과정'}</span><span>업데이트 {course["updated"]}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
 
 for item in course['lessons']:
     if item['status']!='published':continue
@@ -149,11 +150,11 @@ for item in course['lessons']:
     body,toc=render(md,4 if item['id']==1 else 0)
     (OUT/f'{item["slug"]}.html').write_text(page(item['title'],item['description'],body,item['id']),encoding='utf-8')
 
-overview='''<section id="start"><h2>통신의 원리에서 조사 판단까지</h2><p>의심스러운 통신을 발견했을 때, 어느 기록을 확인하고 어디까지 결론을 내릴 수 있을까요? 이 과정에서는 상황과 문제에서 출발해 생활 속 비유, 실제 기술의 동작, 작은 예제, 조건을 바꾼 사례, 조사에서의 해석 순서로 배웁니다.</p><p>이전에 네트워크를 배웠다고 가정하지 않습니다. 용어를 처음 사용할 때 의미를 설명하고, 패킷에서 관측한 사실과 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다.</p><div class="callout"><strong>현재 공개된 강의: 1~6강</strong><p>네트워크 구조부터 순서대로 연재합니다. 각 강의에는 본문 설명, 필요한 표와 그림, 최신 보충의 근거, 바로 읽을 수 있는 복습 해설을 포함합니다.</p></div></section><section id="lessons"><h2>강의 목차</h2><a class="note-card live" style="display:block" href="01-network-architecture.html"><span class="number">LESSON 01 / 공개</span><h3>네트워크 구조: 통신이 지나가는 길과 증거가 남는 위치</h3><p>라우터·보안 구역·스위치·TAP과 미러링·방화벽·제로 트러스트를 조사에 연결합니다. 그림 4개와 복습 질문·해설 10개를 함께 읽습니다.</p><span class="read">1강 읽기 ↗</span></a><a class="note-card live" style="display:block;margin-top:20px" href="02-traffic-capture-analysis.html"><span class="number">LESSON 02 / 공개</span><h3>트래픽 수집과 분석 — 요약 기록에서 패킷 증거까지</h3><p>세 종류의 수집 자료, 플로와 샘플링, 메타데이터, 저장 용량, 표시 필터와 요청·응답을 연결합니다. 그림 3개, 명령·필터 예제, 복습 12문항과 해설을 함께 읽습니다.</p><span class="read">2강 읽기 ↗</span></a><a class="note-card live" style="display:block;margin-top:20px" href="03-understanding-dns.html"><span class="number">LESSON 03 / 공개</span><h3>DNS의 동작 원리 — 이름에서 주소로, 응답에서 증거로</h3><p>조회 경로와 캐시, 주소·별칭·메일·서비스 레코드, 질문·응답 짝짓기와 관측 한계를 배웁니다. 그림 4개, 자체 패킷 연습, 복습 14문항과 해설을 포함합니다.</p><span class="read">3강 읽기 ↗</span></a><a class="note-card live" style="display:block;margin-top:20px" href="04-dns-analysis-attacks.html"><span class="number">LESSON 04 / 공개</span><h3>DNS 분석과 공격 징후 — 조회 기록에서 조사 판단까지</h3><p>로그 수집 위치, 도메인 보강, 비인가 DNS, 터널링, 유사 문자와 암호화 DNS를 조사 판단에 연결합니다. 그림 5개, 종합 가상 사례, 복습 18문항과 해설을 포함합니다.</p><span class="read">4강 읽기 ↗</span></a><a class="note-card live" style="display:block;margin-top:20px" href="05-dns-investigation-practice.html"><span class="number">LESSON 05 / 공개</span><h3>DNS 분석 실습 — 질문·응답에서 조사 기록까지</h3><p>자체 PCAP과 보조 로그를 내려받아 질문·응답, 재시도, 빈 답, 비인가 경로와 TCP 전환을 분석합니다. 그림 4개, 실습 해설, 복습 16문항을 포함합니다.</p><span class="read">5강 읽기 ↗</span></a><a class="note-card live" style="display:block;margin-top:20px" href="06-understanding-http.html"><span class="number">LESSON 06 / 공개</span><h3>HTTP의 동작 원리 — 웹 요청과 응답 읽기</h3><p>URL, 메서드, 헤더·상태, 쿠키·캐시·압축을 이해하고 HTTP/2·3의 스트림과 관측 한계로 이어갑니다. 그림 5개, 자체 요청·응답 풀이, 복습 20문항과 해설을 포함합니다.</p><span class="read">6강 읽기 ↗</span></a><h3>이어서 배울 범위</h3><ol><li>HTTP·HTTPS 분석과 공격 징후</li><li>웹 통신 실습 연결</li><li>SMTP와 이메일 통신</li><li>추가 네트워크 프로토콜</li><li>이메일 실습과 종합 복습</li></ol><p>뒤의 범위는 준비 중입니다. 필요한 배경과 예외를 생략하지 않도록 학습 범위에 따라 회차를 더 나눌 수 있습니다.</p></section><section id="evidence"><h2>예제와 분석 결과의 구분</h2><p>1~4강의 주소·구성·조사 사례는 설명을 위해 만든 문서용 자체 예제입니다. 실제 네트워크 수집본의 분석 결과가 아닙니다. 5강은 자체 합성 PCAP과 가상 보조 기록을 제공하며, 파일 해석에서 확인한 결과와 가상 맥락·실행하지 않은 절차를 구분합니다. 6강의 HTTP 메시지는 자체 가상 예제이며 로컬 계산 결과와 실제 통신 분석을 구별합니다.</p></section>'''
-(OUT/'index.html').write_text(page(TITLE,'네트워크를 처음 배우는 독자를 위한 한국어 강의. 통신 구조와 프로토콜의 원리를 패킷 분석과 보안 조사에 연결합니다.',overview),encoding='utf-8')
-(ASSETS/'course.css').write_text('.toc ol,.toc ul{list-style:none;padding-left:0}.course-diagram{max-width:440px;margin:30px auto;padding:12px}.course-diagram img{display:block;width:100%;height:auto;min-width:0}.calculation{font-family:Inter,sans-serif;padding:20px;border:1px solid #426c7c;border-radius:10px}.note .table-wrap{max-width:100%}.note .course-diagram figcaption{font-size:13px}.note hr{border:0;border-top:1px solid #32445b;margin:35px 0}@media(max-width:460px){.course-diagram{padding:4px}.note-layout{padding-left:15px;padding-right:15px}}',encoding='utf-8')
+overview=overview_body(course)
+(OUT/'index.html').write_text(page(TITLE,'블루팀이 갖춰야 할 보안 운영과 분석의 필수 지식. 첫째 날부터 네트워크, 단말·로그·파일, 조사, 탐지 개선과 자동화까지 날짜별로 배웁니다.',overview),encoding='utf-8')
+(ASSETS/'course.css').write_text('.toc ol,.toc ul{list-style:none;padding-left:0}.course-diagram{max-width:440px;margin:30px auto;padding:12px}.course-diagram img{display:block;width:100%;height:auto;min-width:0}.calculation{font-family:Inter,sans-serif;padding:20px;border:1px solid #426c7c;border-radius:10px}.note .table-wrap{max-width:100%}.note .course-diagram figcaption{font-size:13px}.note hr{border:0;border-top:1px solid #32445b;margin:35px 0}@media(max-width:460px){.course-diagram{padding:4px}.note-layout{padding-left:15px;padding-right:15px}}'+MENU_CSS,encoding='utf-8')
 
-card='''<!-- NETWORK-SECURITY:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 두 번째 코스 · 6강까지 공개</span><h3>네트워크 보안 분석:<br>통신 원리부터 침해 조사까지</h3><p>네트워크 구조와 관측 위치에서 시작해 DNS·웹·이메일의 동작을 이해하고, 패킷과 로그를 근거로 조사하는 방법을 배웁니다. 친근한 해설, 실제로 보이는 도식, 조건을 바꾼 사례와 복습 해설을 함께 제공합니다.</p><div class="tags"><span class="tag">네트워크 구조</span><span class="tag">패킷 분석</span><span class="tag">보안 조사</span><span class="tag">DNS · HTTP · SMTP</span></div><div class="actions"><a class="primary" href="courses/network-security/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/network-security/01-network-architecture.html">1강 읽기</a></div></div><div class="outline"><div class="lesson"><b>01</b> 네트워크 구조와 증거의 위치 · 공개</div><a class="lesson" href="courses/network-security/02-traffic-capture-analysis.html"><b>02</b> 트래픽 수집과 분석 · 공개 ↗</a><a class="lesson" href="courses/network-security/03-understanding-dns.html"><b>03</b> DNS의 동작 원리 · 공개 ↗</a><a class="lesson" href="courses/network-security/04-dns-analysis-attacks.html"><b>04</b> DNS 분석과 공격 징후 · 공개 ↗</a><a class="lesson" href="courses/network-security/05-dns-investigation-practice.html"><b>05</b> DNS 분석 실습 · 자료 내려받기 ↗</a><a class="lesson" href="courses/network-security/06-understanding-http.html"><b>06</b> HTTP의 동작 원리 · 공개 ↗</a><div class="lesson"><b>→</b> 웹 분석 · 이메일</div></div></div><!-- NETWORK-SECURITY:END -->'''
+card=home_card(course)
 home=ROOT/'index.html';text=home.read_text(encoding='utf-8')
 if '<!-- NETWORK-SECURITY:START -->' in text:text=re.sub(r'<!-- NETWORK-SECURITY:START -->.*?<!-- NETWORK-SECURITY:END -->',card,text,flags=re.S)
 else:
@@ -161,4 +162,4 @@ else:
     old=m.group();new=old[:-len('</div></section>')]+card+'</div></section>';assert old.endswith('</div></section>');text=text[:m.start()]+new+text[m.end():]
 text=text.replace('<strong>01</strong><small>첫 번째 학습 트랙</small>','<strong>02</strong><small>독립적인 학습 과정</small>')
 home.write_text(text,encoding='utf-8')
-print('Built course catalog, six complete lessons, twenty-five SVG diagrams and home course card.')
+print('Built blue team day-based catalog, six preserved lessons and home course card.')

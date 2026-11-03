@@ -1,1 +1,20 @@
 .toc ol,.toc ul{list-style:none;padding-left:0}.course-diagram{max-width:440px;margin:30px auto;padding:12px}.course-diagram img{display:block;width:100%;height:auto;min-width:0}.calculation{font-family:Inter,sans-serif;padding:20px;border:1px solid #426c7c;border-radius:10px}.note .table-wrap{max-width:100%}.note .course-diagram figcaption{font-size:13px}.note hr{border:0;border-top:1px solid #32445b;margin:35px 0}@media(max-width:460px){.course-diagram{padding:4px}.note-layout{padding-left:15px;padding-right:15px}}
+/* Blue-team course menu: scoped to its own stylesheet. */
+.course-sidebar .course-overview{margin-bottom:12px}
+.course-sidebar .lesson-state{display:block;font-size:11px;color:#9baec5;margin-top:3px}
+.course-sidebar .course-days{overflow-wrap:anywhere}
+.course-sidebar .course-day .num{min-width:1.5em}
+.day-jump{display:flex;flex-wrap:wrap;gap:10px;margin:28px 0}
+.day-jump a{border:1px solid #426c7c;border-radius:8px;padding:10px 15px;color:#9cf0d9}
+.day-jump a:hover{background:#153a36}
+.day-kicker{font:500 12px Inter,sans-serif;color:#9cf0d9}
+.note .day-heading h2{margin-top:12px;margin-bottom:12px}
+.note .day-lessons{list-style:none;padding:0;display:grid;gap:10px}
+.note .day-lessons li{margin:0}
+.note .day-lesson{display:grid;grid-template-columns:28px minmax(0,1fr) auto;gap:12px;align-items:start;padding:17px 18px;border:1px solid #32445b;border-radius:10px;background:#101d2c;text-decoration:none!important}
+.note .day-lesson-number{font:500 13px/1.9 'JetBrains Mono',monospace;color:#9cf0d9}
+.note .day-lesson-title{font-size:15px;color:#dbe7f6;line-height:1.8;overflow-wrap:anywhere}
+.note .day-lesson-state{font-size:12px;line-height:2.2;white-space:nowrap;color:#9cf0d9}
+.note .day-lesson.live:hover{border-color:#78e3c5;background:#15302e}
+.note .day-lesson.planned .day-lesson-state{color:#9baec5}
+@media(max-width:600px){.note .day-lesson{grid-template-columns:25px minmax(0,1fr);gap:5px 10px;padding:14px}.note .day-lesson-state{grid-column:2;white-space:normal}.day-jump a{padding:9px 12px}.course-sidebar .course-days{max-height:360px;overflow-y:auto}}

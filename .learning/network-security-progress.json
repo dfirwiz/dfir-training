@@ -1,6 +1,6 @@
 {
   "course": "network-security",
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "completed_lessons": [
     1,
     2,
@@ -21,10 +21,26 @@
     ]
   },
   "next_scope": {
-    "topic": "HTTP(S) Analysis and Attacks",
-    "printed_start": 108,
-    "pdf_start": 110
+    "day": 1,
+    "lesson": 1,
+    "topic": "블루팀의 역할과 방어자의 사고방식",
+    "volume": 1,
+    "status": "planned"
   },
-  "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content.",
-  "build": "python scripts/build_network_security.py"
+  "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons.",
+  "build": "python scripts/build_network_security.py",
+  "title": "블루팀 필수 지식: 보안 운영과 분석",
+  "completed_by_day": {
+    "1": [],
+    "2": [
+      1,
+      2,
+      3,
+      4,
+      5,
+      6
+    ]
+  },
+  "menu_reorganized": true,
+  "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course."
 }
