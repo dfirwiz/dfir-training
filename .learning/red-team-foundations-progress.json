@@ -50,5 +50,16 @@
     "format": "full",
     "authorization": "2026-11-03 사용자 요청: 4장 계속 부탁합니다",
     "verification_scope": "공식 4.13 안내서·변경 이력 대조. 가상 이벤트 Python 예제만 실제 실행, 제품·Windows·네트워크는 미실행."
+  },
+  "navigation": {
+    "chapter_titles": "textbook originals",
+    "lesson_numbering": "restart at 1 in each chapter",
+    "chapter_lesson_counts": {
+      "1": 3,
+      "2": 1,
+      "3": 4,
+      "4": 5
+    },
+    "updated": "2026-11-03"
   }
 }

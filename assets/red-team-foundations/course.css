@@ -16,6 +16,23 @@
 .course-sidebar .course-menu>summary{font-weight:700;color:var(--accent);line-height:1.7}
 .course-sidebar ol{margin-top:12px}
 .course-sidebar a{align-items:flex-start}
+.course-sidebar .course-overview{margin-bottom:16px}
+.course-sidebar .course-chapters{display:grid;gap:10px}
+.course-sidebar .course-chapter{margin:0}
+.course-sidebar .course-chapter>summary{gap:8px}
+.course-sidebar .chapter-number{display:inline-block;color:var(--accent);margin-right:5px;white-space:nowrap}
+.course-sidebar .chapter-lessons a{gap:9px}
+.course-sidebar .chapter-lessons .num{flex:0 0 29px;white-space:nowrap;line-height:1.8}
+.note .course-unit{margin-top:36px;padding-top:24px;border-top:1px solid var(--border)}
+.note .course-unit>h3{font-size:22px;color:var(--accent);margin:0 0 5px;line-height:1.5}
+.note .chapter-description{margin:0 0 20px;font-size:14px;color:var(--muted)}
+.note .course-cards .note-card h4{font-size:21px;line-height:1.55;margin:12px 0;color:var(--text);letter-spacing:-.4px}
+.chapter-outline{gap:22px}
+.home-course-chapter{display:grid;gap:8px;min-width:0}
+.home-course-chapter h4{margin:0 0 3px;font-size:15px;line-height:1.6;color:var(--accent);overflow-wrap:anywhere}
+.home-course-chapter .lesson{gap:10px;align-items:flex-start}
+.home-course-chapter .lesson b{flex:0 0 27px;white-space:nowrap;line-height:1.8}
+.home-course-chapter .lesson span{min-width:0;overflow-wrap:anywhere}
 .diagram-scroll:focus-visible,.table-wrap:focus-visible,pre:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:460px){.course-diagram{padding:8px}.note-layout{padding-left:15px;padding-right:15px}.note-header h1{overflow-wrap:anywhere}.navbtn{font-size:12px;padding:9px 12px}.brand{font-size:16px;gap:8px}}
 @media print{.diagram-scroll{overflow:visible}.course-diagram img{width:100%;max-width:100%}}

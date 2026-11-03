@@ -11,7 +11,9 @@
       "description": "보안 장비가 있는데도 훈련이 필요한 이유부터 목표 설정, TTP, 공격자 모방과 시뮬레이션, 패킷·단말 증거의 해석까지 연결합니다.",
       "status": "published",
       "sections": 9,
-      "review_questions": 5
+      "review_questions": 5,
+      "unit": 1,
+      "lesson_number": 1
     },
     {
       "id": 2,
@@ -21,7 +23,9 @@
       "description": "IOC와 TTP, STIX·TAXII, Cyber Kill Chain과 내부 이동의 반복을 배우고, 문서 접근과 유출을 증거로 구분합니다.",
       "status": "published",
       "sections": 11,
-      "review_questions": 6
+      "review_questions": 6,
+      "unit": 1,
+      "lesson_number": 2
     },
     {
       "id": 3,
@@ -31,7 +35,9 @@
       "description": "목표와 활동 경계를 정하고, 관측 가능성과 운영 영향을 구분하며, 실행 시각·PowerShell 기록·실습 준비·복구를 연결합니다.",
       "status": "published",
       "sections": 13,
-      "review_questions": 7
+      "review_questions": 7,
+      "unit": 1,
+      "lesson_number": 3
     },
     {
       "id": 4,
@@ -44,7 +50,8 @@
       "review_questions": 3,
       "figures": 0,
       "unit": 2,
-      "format": "summary"
+      "format": "summary",
+      "lesson_number": 1
     },
     {
       "id": 5,
@@ -57,7 +64,8 @@
       "review_questions": 8,
       "figures": 2,
       "unit": 3,
-      "format": "full"
+      "format": "full",
+      "lesson_number": 1
     },
     {
       "id": 6,
@@ -70,7 +78,8 @@
       "review_questions": 8,
       "figures": 2,
       "unit": 3,
-      "format": "full"
+      "format": "full",
+      "lesson_number": 2
     },
     {
       "id": 7,
@@ -83,7 +92,8 @@
       "review_questions": 8,
       "figures": 2,
       "unit": 3,
-      "format": "full"
+      "format": "full",
+      "lesson_number": 3
     },
     {
       "id": 8,
@@ -96,7 +106,8 @@
       "review_questions": 8,
       "figures": 2,
       "unit": 3,
-      "format": "full"
+      "format": "full",
+      "lesson_number": 4
     },
     {
       "id": 9,
@@ -110,7 +121,8 @@
       "figures": 2,
       "unit": 4,
       "format": "full",
-      "updated": "2026-11-03"
+      "updated": "2026-11-03",
+      "lesson_number": 1
     },
     {
       "id": 10,
@@ -124,7 +136,8 @@
       "figures": 2,
       "unit": 4,
       "format": "full",
-      "updated": "2026-11-03"
+      "updated": "2026-11-03",
+      "lesson_number": 2
     },
     {
       "id": 11,
@@ -138,7 +151,8 @@
       "figures": 2,
       "unit": 4,
       "format": "full",
-      "updated": "2026-11-03"
+      "updated": "2026-11-03",
+      "lesson_number": 3
     },
     {
       "id": 12,
@@ -152,7 +166,8 @@
       "figures": 2,
       "unit": 4,
       "format": "full",
-      "updated": "2026-11-03"
+      "updated": "2026-11-03",
+      "lesson_number": 4
     },
     {
       "id": 13,
@@ -166,7 +181,30 @@
       "figures": 2,
       "unit": 4,
       "format": "full",
-      "updated": "2026-11-03"
+      "updated": "2026-11-03",
+      "lesson_number": 5
+    }
+  ],
+  "chapters": [
+    {
+      "id": 1,
+      "title": "Getting Started",
+      "title_ko": "시작하기"
+    },
+    {
+      "id": 2,
+      "title": "Law & Compliance",
+      "title_ko": "법과 준수 원칙"
+    },
+    {
+      "id": 3,
+      "title": "Malware Essentials",
+      "title_ko": "악성코드 기초"
+    },
+    {
+      "id": 4,
+      "title": "Cobalt Strike Primer",
+      "title_ko": "Cobalt Strike 입문"
     }
   ]
 }
