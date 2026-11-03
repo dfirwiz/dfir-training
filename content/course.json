@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "lessons": [
     {
       "id": 1,
@@ -284,8 +284,8 @@
       "printed_pages": [],
       "source_type": "supplementary_practice",
       "status": "published",
-      "updated": "2026-11-02",
-      "minutes": 120
+      "updated": "2026-11-03",
+      "minutes": 130
     },
     {
       "id": 23,
