@@ -323,7 +323,7 @@
       "id": 25,
       "slug": "25-bpf-offset-mask",
       "title": "BPF의 기준점과 비트 마스크",
-      "description": "헤더의 시작점·바이트 길이를 고정하고, 한 바이트 안의 작은 필드를 분리해 읽습니다.",
+      "description": "헤더 기준점과 바이트 길이부터 비트 AND·IHL 마스크·TCP 플래그 정확 일치까지, 반례와 계산 및 워크북 첫 두 문제로 익힙니다.",
       "day": 2,
       "day_lesson": 3,
       "printed_pages": [
@@ -332,8 +332,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "minutes": 90,
+      "editorial_status": "revised"
     },
     {
       "id": 26,

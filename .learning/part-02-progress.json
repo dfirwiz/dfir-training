@@ -1,22 +1,24 @@
 {
   "part": "02",
   "status": "editorial_revision_in_progress",
-  "publication_mode": "one_lesson_per_user_requested_update",
+  "publication_mode": "hourly_one_lesson_detailed_revision",
   "completed_lesson_ids": [
     23,
-    24
+    24,
+    25
   ],
   "completed_day_lessons": [
     1,
-    2
+    2,
+    3
   ],
-  "completed_printed_through": 30,
-  "completed_pdf_through": 32,
-  "next_lesson_id": 25,
-  "next_printed_page": 31,
+  "completed_printed_through": 45,
+  "completed_pdf_through": 47,
+  "next_lesson_id": 26,
+  "next_printed_page": 46,
   "updated": "2026-11-03",
-  "scope": "User requested day-one depth, divided into lessons and updated slowly one lesson at a time. Only day-two lesson 2 revised in this run. No recurring automation or hourly schedule inferred.",
-  "review": ".learning/reviews/day-two-02-revision-20261103.md",
+  "scope": "User explicitly authorized hourly sequential detailed revision and publication. This run revises day-two lesson 3 only; next is lesson 4. Initial abbreviated publication is not detailed coverage completion.",
+  "review": ".learning/reviews/day-two-03-revision-20261103.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -54,10 +56,10 @@
       23
     ],
     "completed_lesson_ids": [
-      24
+      24,
+      25
     ],
     "pending_lesson_ids": [
-      25,
       26,
       27,
       28,
@@ -73,9 +75,27 @@
       38,
       39
     ],
-    "next_lesson_id": 25,
-    "next_day_lesson": 3,
-    "last_review": ".learning/reviews/day-two-02-revision-20261103.md",
-    "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage."
+    "next_lesson_id": 26,
+    "next_day_lesson": 4,
+    "last_review": ".learning/reviews/day-two-03-revision-20261103.md",
+    "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
+    "automation_id": "automation",
+    "cadence": "hourly_one_lesson",
+    "last_published_lesson_id": 25,
+    "workbook_coverage": {
+      "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
+      "2.2": {
+        "preparation_and_exercises_1_2": "detailed_explanations_and_bytes_checked_in_lesson25_not_libpcap_engine_execution",
+        "exercises_3_4_and_two_extra_problems": "pending_lesson26"
+      }
+    },
+    "remaining_render_review": [
+      {
+        "lesson_id": 25,
+        "status": "screenshot_capture_unavailable",
+        "completed": "desktop_and_mobile_rendered_DOM_geometry_and_svg_text_bounds",
+        "action": "retry_visual_capture_when_browser_capture_recovers_without_rewriting_completed_content"
+      }
+    ]
   }
 }
