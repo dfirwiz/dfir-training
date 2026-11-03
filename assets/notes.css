@@ -12,3 +12,31 @@
 .course-sidebar .course-day>summary:hover{background:#152b37}
 .course-sidebar .course-day>ol{padding:6px;margin:0;max-height:none;overflow:visible}
 .course-sidebar .course-day li:last-child{margin-bottom:0}
+/* Reading links: persistent cues without changing navigation or lesson cards. */
+.note :is(section, .references) a[href]:not(.note-card) {
+  color: #6de1e7;
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: #6de1e78c;
+  text-underline-offset: 5px;
+  text-decoration-skip-ink: auto;
+}
+.note :is(section, .references) a[href]:not(.note-card) code {
+  color: inherit;
+}
+.note :is(section, .references) a[href]:not(.note-card):is(:hover, :focus-visible) {
+  color: #b6fcff;
+  text-decoration-color: currentColor;
+}
+.note :is(section, .references) a:is([href^="https://"], [href^="http://"], [href^="//"]):not(.note-card)::after {
+  content: "\00a0\2197";
+  display: inline-block;
+  font-size: .85em;
+  text-decoration: none;
+}
+@media print {
+  .note :is(section, .references) a[href]:not(.note-card) {
+    color: black;
+    text-decoration-color: currentColor;
+  }
+}
