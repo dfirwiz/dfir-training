@@ -8,14 +8,20 @@
       "day": 1,
       "number": 1,
       "title": "블루팀의 역할과 방어자의 사고방식",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-01-blue-team-mindset",
+      "short_title": "블루팀의 역할과 사고방식",
+      "description": "첫째 날 1강. 업무 보호의 목적에서 시작해 사람·절차·기술, 위험 우선순위, 사실·가설·결론을 차근차근 연결합니다."
     },
     {
       "id": "d1-02",
       "day": 1,
       "number": 2,
       "title": "안전한 실습 환경과 준비",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-02-safe-lab",
+      "short_title": "안전한 실습 환경",
+      "description": "첫째 날 2강. VM의 경계와 연결·공유·복원·시간·해시를 이해하고, 직접 확인한 무해한 파일 실험과 미실행 절차를 구분합니다."
     },
     {
       "id": "d1-03",
@@ -594,6 +600,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-01",
+  "next_lesson": "d1-03",
   "planning_note": "준비 중인 강의는 상세 집필 때 배경과 예외를 충분히 설명할 수 있도록 더 나눌 수 있습니다. 여섯째 날은 독립적인 종합 실습을 별도로 준비합니다."
 }

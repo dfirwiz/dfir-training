@@ -9,6 +9,7 @@ from network_security_dns_lab_diagrams import build_lesson05
 from network_security_http_diagrams import build_lesson06
 
 ROOT = Path(__file__).resolve().parents[1]
+from blue_team_day01_diagrams import build_day01
 from blue_team_course_menu import sidebar_menu, overview_body, home_card, MENU_CSS
 TITLE = '블루팀 필수 지식: 보안 운영과 분석'
 OUT = ROOT/'courses/network-security'
@@ -48,6 +49,7 @@ build_lesson03(ASSETS)
 build_lesson04(ASSETS)
 build_lesson05(ASSETS)
 build_lesson06(ASSETS)
+build_day01(ASSETS)
 
 def inline(s):
     s=escape(s)
@@ -136,13 +138,13 @@ def page(title,description,body,lesson=False):
             if following['status']=='published':
                 pager+=f'<a href="{following["slug"]}.html">{day["label"]} {following["number"]}강 · {escape(following.get("short_title",following["title"]))} →</a>'
             else:
-                pager+='<span class="pending">다음 업데이트 · 첫째 날 1강부터 순서대로 준비합니다.</span>'
+                pager+=f'<span class="pending">다음 강의 · {escape(following['title'])} · 준비 중</span>'
     else:
         pager+='<a href="#day-1">첫째 날 학습 계획 보기 →</a>'
     pager+='</nav>'
     contents='<nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list">'+links+'</ul></nav>' if lesson else ''
     filename=selected['slug']+'.html' if selected else 'index.html'
-    return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/network-security/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/network-security/course.css?v=20261103-blue-team-menu"></head><body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">블루팀 필수 지식</a></p><header class="note-header"><div class="eyebrow">BLUE TEAM / {f'DAY {selected["day"]:02d} · LESSON {selected["number"]:02d}' if selected else 'COURSE 02'}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{escape(day['label'])+' '+str(selected['number'])+'강 · '+escape(selected.get('short_title',selected['title'])) if selected else '보안 운영·분석을 시작하는 독자를 위한 과정'}</span><span>업데이트 {course["updated"]}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
+    return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/network-security/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/network-security/course.css?v=20261103-day01-batch01"></head><body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">블루팀 필수 지식</a></p><header class="note-header"><div class="eyebrow">BLUE TEAM / {f'DAY {selected["day"]:02d} · LESSON {selected["number"]:02d}' if selected else 'COURSE 02'}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{escape(day['label'])+' '+str(selected['number'])+'강 · '+escape(selected.get('short_title',selected['title'])) if selected else '보안 운영·분석을 시작하는 독자를 위한 과정'}</span><span>업데이트 {course["updated"]}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
 
 for item in course['lessons']:
     if item['status']!='published':continue
@@ -162,4 +164,4 @@ else:
     old=m.group();new=old[:-len('</div></section>')]+card+'</div></section>';assert old.endswith('</div></section>');text=text[:m.start()]+new+text[m.end():]
 text=text.replace('<strong>01</strong><small>첫 번째 학습 트랙</small>','<strong>02</strong><small>독립적인 학습 과정</small>')
 home.write_text(text,encoding='utf-8')
-print('Built blue team day-based catalog, six preserved lessons and home course card.')
+print('Built blue team catalog and',sum(item['status']=='published' for item in course['lessons']),'published lessons.')

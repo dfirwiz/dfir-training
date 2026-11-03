@@ -42,5 +42,15 @@
     ]
   },
   "menu_reorganized": true,
-  "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course."
+  "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      1,
+      2
+    ],
+    "state": "publication_pending",
+    "verification": "Content drafted; static checks and deployment not complete."
+  },
+  "automation_id": "automation-2"
 }
