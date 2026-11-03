@@ -339,7 +339,7 @@
       "id": 26,
       "slug": "26-bpf-three-tests",
       "title": "정확히 같음·모두 포함·하나라도 포함",
-      "description": "세 종류의 플래그 조건을 진리표로 구별하고, ECN과 가변 헤더에서 필터가 놓치는 것을 점검합니다.",
+      "description": "정확·모두·하나라도의 차이와 교재 답안 오류를 반례로 검산하고, TCP 가변 헤더·종료/PSH 필터·DNS와 주소 마스크 실습을 단계별로 풉니다.",
       "day": 2,
       "day_lesson": 4,
       "printed_pages": [
@@ -348,8 +348,8 @@
       ],
       "status": "published",
       "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "minutes": 110,
+      "editorial_status": "revised"
     },
     {
       "id": 27,

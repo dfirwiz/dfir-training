@@ -17,7 +17,7 @@
   "next_lesson_id": 26,
   "next_printed_page": 46,
   "updated": "2026-11-03",
-  "scope": "User explicitly authorized hourly sequential detailed revision and publication. This run revises day-two lesson 3 only; next is lesson 4. Initial abbreviated publication is not detailed coverage completion.",
+  "scope": "Day-two lesson4 detailed manuscript and static/byte checks prepared. HTTPS browser access confirmed in the user-authorized resume; publish content then complete desktop/mobile rendered review before advancing completion.",
   "review": ".learning/reviews/day-two-03-revision-20261103.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
@@ -96,6 +96,18 @@
         "completed": "desktop_and_mobile_rendered_DOM_geometry_and_svg_text_bounds",
         "action": "retry_visual_capture_when_browser_capture_recovers_without_rewriting_completed_content"
       }
-    ]
+    ],
+    "active_lesson": {
+      "lesson_id": 26,
+      "day_lesson": 4,
+      "status": "publication_pending_render_review",
+      "source_revision": "written_and_mapped",
+      "static_validation": "passed",
+      "publication": "content_prepared_for_main; completion_waits_for_deployment_and_https_render_review",
+      "base_main": "986d2ace376acd2082eb83fd8c9b1210f9cfba2d",
+      "review": ".learning/reviews/day-two-04-revision-20261103.md",
+      "blocker": null,
+      "resume": "Preserve local manuscript; integrate latest main; review rendered desktop/mobile; publish with expected head; verify deployment and live page; only then advance completion to lesson26."
+    }
   }
 }
