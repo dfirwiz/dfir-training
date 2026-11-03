@@ -1,6 +1,6 @@
 {
   "course": "red-team-foundations",
-  "updated": "2026-11-02",
+  "updated": "2026-11-03",
   "completed_lessons": [
     1,
     2,
@@ -9,9 +9,14 @@
     5,
     6,
     7,
-    8
+    8,
+    9,
+    10,
+    11,
+    12,
+    13
   ],
-  "published_unit": "첫 단원 전체, 두 번째 단원 핵심 요약 및 세 번째 단원 상세 강의",
+  "published_unit": "1~4단원 공개: 2단원은 핵심 요약, 나머지는 상세 강의",
   "next_scope": null,
   "next_lesson_status": "awaiting_user_request",
   "workflow": "Publish only user-requested lessons. Preserve reviewed prose, examples, tables, diagrams and immediate review explanations.",
@@ -32,5 +37,18 @@
     ],
     "format": "full",
     "authorization": "2026-11-02 사용자 요청: 2장은 다른 챗에서 업데이트했으므로 3장을 정상적으로 직접 게시"
+  },
+  "unit_4": {
+    "status": "published",
+    "lesson_ids": [
+      9,
+      10,
+      11,
+      12,
+      13
+    ],
+    "format": "full",
+    "authorization": "2026-11-03 사용자 요청: 4장 계속 부탁합니다",
+    "verification_scope": "공식 4.13 안내서·변경 이력 대조. 가상 이벤트 Python 예제만 실제 실행, 제품·Windows·네트워크는 미실행."
   }
 }

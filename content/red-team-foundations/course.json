@@ -1,7 +1,7 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. TTP·위협 정보·활동 계획·법과 준수 원칙에서 PE 파일, 프로세스·메모리·권한, 코드 주입과 C# P/Invoke까지 배웁니다.",
-  "updated": "2026-11-02",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. TTP·활동 계획·법과 준수, PE·Windows 실행 기초와 Cobalt Strike의 구성·통신·페이로드·세션 기록을 배웁니다.",
+  "updated": "2026-11-03",
   "lessons": [
     {
       "id": 1,
@@ -97,6 +97,76 @@
       "figures": 2,
       "unit": 3,
       "format": "full"
+    },
+    {
+      "id": 9,
+      "slug": "09-c2-components",
+      "title": "Cobalt Strike의 세 구성 요소: 에이전트·서버·운영 화면 연결하기",
+      "short_title": "C2 구성 요소·다중 서버·기록",
+      "description": "Beacon·Team Server·Client의 역할, 다중 서버 출처, 리스너와 실행 형식, 작업 전달과 관측 범위를 가상 사례로 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 4,
+      "format": "full",
+      "updated": "2026-11-03"
+    },
+    {
+      "id": 10,
+      "slug": "10-http-dns-listeners",
+      "title": "HTTP·HTTPS·DNS 리스너: 목적지·포트·재시도·관측 경로 읽기",
+      "short_title": "HTTP·DNS·리스너 설정 해석",
+      "description": "프록시와 중계, C2·Bind 포트, 호스트 순환과 연속 실패, DNS 위임·리졸버·DoH·Guardrails를 구체적인 예로 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 4,
+      "format": "full",
+      "updated": "2026-11-03"
+    },
+    {
+      "id": 11,
+      "slug": "11-peer-links",
+      "title": "SMB·TCP 내부 중계: 세션 연결과 프로세스 수명을 구별하기",
+      "short_title": "SMB·TCP·P2P 연결과 수명",
+      "description": "이름 있는 파이프와 TCP 소켓, 부모·자식 Beacon과 프로세스 관계, 분기·직렬 그래프, 링크 해제와 종료를 비교합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 4,
+      "format": "full",
+      "updated": "2026-11-03"
+    },
+    {
+      "id": 12,
+      "slug": "12-payload-loading",
+      "title": "페이로드와 로더: staged·stageless·출력 형식을 단계별로 읽기",
+      "short_title": "페이로드·로더·staging·종료",
+      "description": "PE와 reflective loader, 앞에 붙는 로더, 본체 전달·보호 경계, 출력 형식·아키텍처·종료 설정과 생성물 기록을 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 4,
+      "format": "full",
+      "updated": "2026-11-03"
+    },
+    {
+      "id": 13,
+      "slug": "13-sessions-task-evidence",
+      "title": "세션과 작업 기록: 입력·전달·결과·완료를 증거로 연결하기",
+      "short_title": "세션·작업 상태·가상 로그 실습",
+      "description": "세션 표의 주소·사용자·프로세스·시간을 읽고, 작업 식별자로 결과를 연결합니다. 실행 검증한 오프라인 가상 이벤트 실습을 포함합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 2,
+      "unit": 4,
+      "format": "full",
+      "updated": "2026-11-03"
     }
   ]
 }
