@@ -36,7 +36,14 @@
       8
     ],
     "format": "full",
-    "authorization": "2026-11-02 사용자 요청: 2장은 다른 챗에서 업데이트했으므로 3장을 정상적으로 직접 게시"
+    "authorization": "2026-11-02 사용자 요청: 2장은 다른 챗에서 업데이트했으므로 3장을 정상적으로 직접 게시",
+    "diagram_revision": {
+      "date": "2026-11-03",
+      "added_diagrams": 12,
+      "total_diagrams": 20,
+      "scope": "원본 교재 대조 후 1~4강에 독립 개념도 3개씩과 그림 해설 추가",
+      "verification_scope": "개념 관계·계산·SVG·브라우저 표시 검증. Windows·주입·C# 실행은 하지 않음."
+    }
   },
   "unit_4": {
     "status": "published",

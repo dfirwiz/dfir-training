@@ -62,10 +62,11 @@
       "status": "published",
       "sections": 11,
       "review_questions": 8,
-      "figures": 2,
+      "figures": 5,
       "unit": 3,
       "format": "full",
-      "lesson_number": 1
+      "lesson_number": 1,
+      "updated": "2026-11-03"
     },
     {
       "id": 6,
@@ -76,10 +77,11 @@
       "status": "published",
       "sections": 11,
       "review_questions": 8,
-      "figures": 2,
+      "figures": 5,
       "unit": 3,
       "format": "full",
-      "lesson_number": 2
+      "lesson_number": 2,
+      "updated": "2026-11-03"
     },
     {
       "id": 7,
@@ -90,10 +92,11 @@
       "status": "published",
       "sections": 11,
       "review_questions": 8,
-      "figures": 2,
+      "figures": 5,
       "unit": 3,
       "format": "full",
-      "lesson_number": 3
+      "lesson_number": 3,
+      "updated": "2026-11-03"
     },
     {
       "id": 8,
@@ -104,10 +107,11 @@
       "status": "published",
       "sections": 11,
       "review_questions": 8,
-      "figures": 2,
+      "figures": 5,
       "unit": 3,
       "format": "full",
-      "lesson_number": 4
+      "lesson_number": 4,
+      "updated": "2026-11-03"
     },
     {
       "id": 9,

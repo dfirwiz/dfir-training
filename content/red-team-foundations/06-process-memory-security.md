@@ -59,6 +59,18 @@ PID는 재사용될 수 있습니다. 오전에 PID 4200이었던 프로그램�
 
 `VirtualAlloc`의 예약·커밋과 `VirtualProtect`의 보호 변경, `VirtualFree`의 해제는 서로 다른 작업입니다. 보호를 바꾸었다고 그 이전 바이트가 실행되었다는 뜻은 아닙니다. API 결과와 실제 메모리 상태, 실행 증거를 구별합니다.
 
+### 그림으로 확인: 주소 숫자가 같아도 같은 메모리는 아닙니다
+
+![같은 실행 파일로 만든 프로세스 A와 B가 각자의 주소 변환을 사용하므로 같은 가상 주소가 서로 다른 물리 페이지로 연결될 수 있는 관계](../../assets/red-team-foundations/06-address-isolation.svg)
+
+같은 아파트 동의 ‘101호’와 다른 동의 ‘101호’를 떠올려 보세요. 호수만 같다고 같은 집은 아닙니다. 프로세스의 가상 주소도 **어느 프로세스의 주소인가**라는 문맥이 필요합니다. 그림은 두 페이지가 RAM에 상주하며 독립적으로 매핑된 경우를 가정합니다. 실제로는 파일 매핑 등으로 물리 페이지를 공유하거나 페이지가 RAM에 상주하지 않을 수도 있습니다. 따라서 숫자 일치만으로 공유를 확정하거나 모든 페이지가 항상 별개라고 단정하지 않습니다.
+
+### 그림으로 확인: 예약과 커밋은 서로 다른 상태입니다
+
+![Free에서 예약과 커밋으로 이어지고 디커밋은 Reserved로 돌아오며 예약 해제는 Free로 돌아오는 대표적인 가상 메모리 상태 관계](../../assets/red-team-foundations/06-page-state.svg)
+
+가운데를 내려가면 주소 범위를 확보한 뒤 저장소 보장을 확보하는 관계입니다. 오른쪽 되돌림은 **디커밋 후에도 예약은 남는다**는 뜻이고, 왼쪽 되돌림은 예약한 주소 범위를 놓아주는 관계입니다. 맨 바깥 화살표처럼 예약과 커밋을 한 번에 요청할 수도 있습니다. 이는 대표 상태의 관계를 단순화한 그림이며 모든 호출 조건을 그린 것은 아닙니다. 읽기·쓰기·실행 가능 여부는 현재 보호 설정도 확인해야 하고, 커밋만으로 모든 페이지의 RAM 상주를 확정할 수는 없습니다.
+
 ## 5. 가상 할당·힙·파일 매핑을 구별합니다
 
 메모리를 다루는 API는 하나가 아닙니다. 크고 직접적인 주소 범위를 관리할 때와 작은 객체를 반복 생성할 때, 파일 내용을 메모리에서 다룰 때에는 접근 방식이 달라집니다. 분석 중 “메모리를 할당했다”는 문장을 만나면 어떤 종류인지 한 단계 더 풀어 보세요.
@@ -84,6 +96,12 @@ PID는 재사용될 수 있습니다. 오전에 PID 4200이었던 프로그램�
 대상 객체의 **DACL(Discretionary Access Control List)**은 허용·거부를 설명하는 접근 제어 항목들의 목록입니다. 개념적으로는 “어떤 문맥이 어떤 권한을 요청했으며 대상 정책이 이를 허용하는가”를 묻습니다. 실제 접근 검사에는 객체 종류와 특권·무결성 등 추가 규칙이 적용되므로, 그림을 커널 동작의 완전한 구현으로 읽지는 마세요.
 
 비슷하게 들리는 용어도 구별해야 합니다. 빈 DACL은 항목이 없는 DACL이어서 접근을 허용할 항목이 없습니다. NULL DACL은 DACL 자체가 없는 경우로, 일반적인 DACL 검사에서 광범위한 접근 허용을 의미합니다. 이름에 “없다”가 들어간다는 이유로 두 설정을 같은 보안 상태라고 생각하면 위험합니다.
+
+### 그림으로 확인: 같은 프로세스의 스레드도 적용 문맥이 다를 수 있습니다
+
+![프로세스 P의 기본 토큰은 사용자 A로 유지되고 스레드 1은 A 문맥을 사용하지만 가장 중인 스레드 2의 해당 접근은 B 문맥을 적용하는 가상 예](../../assets/red-team-foundations/06-token-context.svg)
+
+그림의 두 갈래는 시간 순서가 아니라 **같은 프로세스 안의 두 스레드**입니다. 왼쪽은 가장 토큰이 없어 기본 문맥을 사용하는 경우, 오른쪽은 다른 사용자를 가장하는 경우입니다. 한 스레드가 B를 가장한다고 프로세스의 기본 토큰과 다른 모든 스레드가 B로 바뀌지는 않습니다. 객체 접근에서는 적용 토큰의 내용과 요청 권한, 대상의 보안 규칙을 함께 확인합니다. 가장 수준과 API별 규칙에 따라 제약이 있으며, 새 프로세스 생성까지 이 그림의 규칙으로 판단해서는 안 됩니다.
 
 ## 7. 특권이 있다는 것과 활성화되었다는 것은 다릅니다
 
@@ -169,8 +187,9 @@ API 반환: 0이 아님
 
 ## 11. 공식 근거와 다음 학습
 
-공식 자료 확인일은 **2026년 11월 2일**입니다. 이 강의는 API의 개념과 해석 기준을 설명하며 Windows에서의 직접 실행 결과를 제시하지 않습니다.
+공식 자료 확인일은 **2026년 11월 2일**입니다. 개념도 보강에 사용한 관련 Microsoft 문서는 **2026년 11월 3일**에 추가 대조했습니다. 이 강의는 API의 개념과 해석 기준을 설명하며 Windows에서의 직접 실행 결과를 제시하지 않습니다.
 
+- [가상 주소 공간](https://learn.microsoft.com/en-us/windows/win32/memory/virtual-address-space), [페이지 상태](https://learn.microsoft.com/en-us/windows/win32/memory/page-state): 프로세스별 주소 변환과 예약·커밋·디커밋 관계.
 - [프로세스와 스레드 개요](https://learn.microsoft.com/en-us/windows/win32/procthread/about-processes-and-threads), [가상 메모리](https://learn.microsoft.com/en-us/windows/win32/memory/virtual-memory).
 - [VirtualAlloc](https://learn.microsoft.com/en-us/windows/win32/api/memoryapi/nf-memoryapi-virtualalloc), [메모리 보호 상수](https://learn.microsoft.com/en-us/windows/win32/memory/memory-protection-constants).
 - [CreateProcessW](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-createprocessw), [OpenProcess](https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess).

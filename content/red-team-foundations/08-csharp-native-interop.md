@@ -6,6 +6,12 @@ C# 프로그램은 .NET이 제공하는 관리 환경에서 실행됩니다. Win
 
 이 강의는 프로세스를 변경하는 코드 대신 **현재 PID 조회와 로컬 파일 속성 조회**로 호출 계약을 읽는 법을 설명합니다. C# 코드는 Windows에서 실행하지 않은 교육용 예제입니다. 실제 PID나 파일 속성값을 실행 결과인 것처럼 제시하지 않습니다. 앞 강의의 Python 합성 데이터 검사만 별도로 실제 검증한 범위입니다.
 
+### 그림으로 확인: C# 선언은 두 표현을 이어 주는 약속입니다
+
+![C# 관리 코드의 인자가 P/Invoke 마샬링 경계에서 Windows 네이티브 표현에 맞춰지고 네이티브 결과를 C#에서 계약대로 해석하는 관계](../../assets/red-team-foundations/08-marshalling-boundary.svg)
+
+왼쪽 위의 C# 값이 가운데 경계를 거쳐 오른쪽 네이티브 함수의 계약과 만납니다. 결과는 아래쪽에서 다시 C#의 해석으로 연결됩니다. 마샬링은 단순히 함수 이름을 번역하는 일이 아닙니다. 문자열을 어떤 인코딩으로 전달할지, 숫자가 몇 바이트인지, 출력값을 어디에 담을지, 메모리를 언제까지 유지할지 맞추는 일입니다. 자료형에 따라 복사나 변환 없이 전달되는 경우도 있어 모든 값이 같은 방식으로 변환된다고 생각하지는 마세요.
+
 ## 2. 선언을 함수의 계약서로 읽습니다
 
 전통적인 P/Invoke에서는 `DllImport` 특성으로 DLL과 진입 함수를 지정하고 `static extern` 메서드를 선언합니다. `extern`은 메서드 본문이 C# 파일 안에 없다는 뜻입니다. 런타임이 선언을 바탕으로 외부 함수를 호출합니다.
@@ -41,6 +47,12 @@ C# 프로그램은 .NET이 제공하는 관리 환경에서 실행됩니다. Win
 `IntPtr`라고 선언했다고 모든 핸들의 수명을 자동 관리하지는 않습니다. 수명을 소유하는 자원은 적절한 `SafeHandle`을 사용하는 방식이 유용합니다. 반대로 단순 숫자 식별자인 PID는 핸들이 아니며 `CloseHandle`로 닫을 대상도 아닙니다.
 
 구조체를 넘길 때는 필드 순서와 정렬도 맞아야 합니다. C#의 `[StructLayout(LayoutKind.Sequential)]`은 순차 배치를 지정하지만, 임의의 `Pack = 1`이 항상 답은 아닙니다. 네이티브 구조체의 정렬과 포인터 크기를 확인하고 `Marshal.SizeOf` 등으로 대상 환경의 크기를 검증합니다. 이 강의는 실제 구조체 호출을 실행하지 않았으므로 특정 크기의 실측 결과를 꾸며 제시하지 않습니다.
+
+### 그림으로 확인: 포인터가 커지면 구조체 배치도 달라집니다
+
+![DWORD tag 뒤에 포인터 ptr을 둔 가상 구조체에서 32비트는 8바이트이고 64비트는 정렬용 패딩을 포함해 16바이트가 되는 기본 정렬 계산 예](../../assets/red-team-foundations/08-structure-alignment.svg)
+
+여기서는 Windows x86·x64의 통상적인 기본 정렬과 별도의 Pack 지정이 없는 구조를 가정했습니다. 왼쪽과 오른쪽 모두 `DWORD`는 4바이트입니다. 오른쪽에서는 포인터가 8바이트이고 그 시작을 8바이트 경계에 맞추기 위해 중간에 4바이트의 빈 간격인 **패딩(padding)**이 들어갑니다. 그래서 필드 크기를 무조건 더하는 방법으로는 구조체 크기와 오프셋을 놓칠 수 있습니다. 이 숫자는 가정에 따른 계산이며 실제 실행에서 측정한 값이 아닙니다. 다른 구조체의 배치는 해당 정의·정렬·플랫폼으로 다시 확인해야 합니다.
 
 ## 4. A는 항상 UTF-8이라는 뜻이 아닙니다
 
@@ -81,6 +93,12 @@ DWORD GetFileAttributesW(LPCWSTR lpFileName);
 `LPCWSTR`는 읽기 전용 와이드 문자열 포인터라는 의미로 풀어 읽을 수 있습니다. 여기서 W 문자열 계약에 맞춰 C# 문자열을 전달합니다. `GetFileAttributesW`는 파일 내용을 읽는 함수가 아니라 속성 비트를 조회하는 함수입니다. 실패하면 `INVALID_FILE_ATTRIBUTES`, 즉 `0xFFFFFFFF`를 반환합니다.
 
 반환값이 `0`이 아닌지로만 성공을 판단하면 실패값 `0xFFFFFFFF`도 성공으로 오해할 수 있습니다. 반대로 모든 API에서 음수를 실패로 검사하는 방식도 부호 없는 반환형에는 맞지 않습니다. 성공 기준과 오류 조회 조건은 각각의 공식 문서에서 읽어야 합니다.
+
+### 그림으로 확인: 반환 자료형보다 실패 규칙을 먼저 봅니다
+
+![GetFileAttributesW의 uint 반환값을 0xFFFFFFFF와 비교해 실패일 때만 보존된 오류를 즉시 읽고 성공이면 속성 비트를 해석하는 분기](../../assets/red-team-foundations/08-return-branch.svg)
+
+중앙의 질문은 ‘0이 아닌가요?’가 아니라 **‘이 API가 정한 실패값인가요?’**입니다. `0xFFFFFFFF`는 0이 아니어도 이 함수에서는 실패입니다. 실패 경로에서 본문의 `SetLastError = true`와 .NET 6 이상 예제에 맞춰 보존된 오류를 즉시 읽습니다. 성공 경로에서는 반환된 속성 비트를 해석하며, 남아 있던 과거 오류값을 이번 실패의 증거로 쓰지 않습니다. 다른 API에는 다른 실패 규칙이 있으므로 이 상수를 모든 호출에 복사하지 마세요.
 
 ## 6. C# 예제를 한 줄씩 해석합니다
 
@@ -209,8 +227,9 @@ PE 분석은 디스크 구조를 설명하고, 프로세스·토큰 분석은 �
 
 ## 11. 공식 근거와 검증 범위
 
-공식 자료 확인일은 **2026년 11월 2일**입니다. C#·Windows 예제는 미실행이며 인코딩 수치는 규칙을 설명하기 위한 계산입니다. 실제 테스트를 마친 Python 합성 헤더 실습과 구별합니다.
+공식 자료 확인일은 **2026년 11월 2일**입니다. 개념도 보강에 사용한 관련 Microsoft 문서는 **2026년 11월 3일**에 추가 대조했습니다. C#·Windows 예제는 미실행이며 인코딩 수치는 규칙을 설명하기 위한 계산입니다. 실제 테스트를 마친 Python 합성 헤더 실습과 구별합니다.
 
+- [Windows 자료형](https://learn.microsoft.com/en-us/windows/win32/winprog/windows-data-types), [형식 마샬링](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/type-marshalling): 고정 크기·포인터·관리 및 네이티브 표현의 경계.
 - [P/Invoke와 문자 집합](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/charset): 플랫폼별 Ansi·Unicode 규칙.
 - [네이티브 상호 운용 권장 사항](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/best-practices): 형식 대응과 수명·마샬링 고려사항.
 - [P/Invoke 소스 생성](https://learn.microsoft.com/en-us/dotnet/standard/native-interop/pinvoke-source-generation): LibraryImport의 조건과 사용 방식.
