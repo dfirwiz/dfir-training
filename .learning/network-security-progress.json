@@ -10,28 +10,38 @@
     6
   ],
   "source_scope": {
-    "volume": 2,
+    "volume": 1,
     "printed_pages": [
-      89,
-      106
+      6,
+      19
     ],
     "pdf_pages": [
-      91,
-      108
-    ]
+      8,
+      21
+    ],
+    "workbook_vm_scope": "Original workbook and VM unavailable in inspected locations; independent preparation lesson and benign local hash experiment only."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 1,
-    "topic": "블루팀의 역할과 방어자의 사고방식",
+    "lesson": 3,
+    "topic": "SOC의 역할과 사람·업무·기술",
     "volume": 1,
-    "status": "planned"
+    "printed_start": 20,
+    "pdf_start": 22,
+    "status": "planned",
+    "batch_lessons": [
+      3,
+      4
+    ]
   },
-  "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons.",
+  "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
   "title": "블루팀 필수 지식: 보안 운영과 분석",
   "completed_by_day": {
-    "1": [],
+    "1": [
+      1,
+      2
+    ],
     "2": [
       1,
       2,
@@ -43,14 +53,20 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "155c1e7842cd580dc3ec02fa05b223bf4fb76352",
     "day": 1,
     "lessons": [
       1,
       2
     ],
-    "state": "publication_pending",
-    "verification": "Content drafted; static checks and deployment not complete."
-  },
-  "automation_id": "automation-2"
+    "deployment": "success",
+    "public_files_checked": 18,
+    "public_content_match": true,
+    "browser_visual_qa": "unavailable: computer-use initialization kernel path failure",
+    "new_figures": 6,
+    "new_review_questions": 28
+  }
 }
