@@ -12,30 +12,29 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      86,
-      107
+      108,
+      120
     ],
     "pdf_pages": [
-      88,
-      109
+      110,
+      122
     ],
-    "workbook_vm_scope": "Incident-management concept module and pointer to external Exercise1.1 covered. Original separate workbook/wiki/VM not obtained in inspected locations. Executed only independent case-record checks, toy score and time arithmetic."
+    "workbook_vm_scope": "Threat-intelligence concepts and TIP/feed/sharing scope verified. MISP detailed module121-131 remains next; original external workbook/wiki/VM not obtained in inspected locations. Executed independent typed/time comparison, feed metrics and latency examples only."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 11,
-    "lesson_id": "d1-09",
-    "topic": "위협 정보의 의미와 활용",
+    "lesson": 13,
+    "lesson_id": "d1-10b",
+    "topic": "MISP의 자료 모델과 정보 공유",
     "volume": 1,
-    "printed_start": 108,
-    "pdf_start": 110,
-    "content_printed_start": 109,
+    "printed_start": 121,
+    "pdf_start": 123,
     "status": "planned",
     "batch_lessons": [
-      11,
-      12
+      13,
+      14
     ],
-    "numbering_note": "Printed108 is module roadmap; threat-intelligence explanatory content begins109. Keep course.json day/number and next_lesson authoritative."
+    "numbering_note": "Added separate MISP module13 for depth; original external-workbook practice d1-11 is now display14 at printed132/PDF134. Preserve published IDs and URLs."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -51,7 +50,9 @@
       7,
       8,
       9,
-      10
+      10,
+      11,
+      12
     ],
     "2": [
       1,
@@ -64,7 +65,10 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "e884fcacb69eb8b2472b520a33ab69ceab4d69db",
     "day": 1,
     "lessons": [
       11,
@@ -74,35 +78,15 @@
       "d1-09",
       "d1-10"
     ],
-    "status": "validated_awaiting_publication",
-    "source_printed": [
-      108,
-      120
-    ],
-    "scope": "11: intelligence/context and decisions. 12: TIP requirements, feeds and safe sharing. MISP model121-131 is a new separate lesson13 before original practice."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "3c61d9c5f974eb2ff75db587f6ef8cf761e60f87",
-    "day": 1,
-    "lessons": [
-      9,
-      10
-    ],
-    "lesson_ids": [
-      "d1-07",
-      "d1-08"
-    ],
     "deployment": "success",
-    "actions_run": 41823331590,
-    "public_files_checked": 30,
+    "actions_run": 41827343923,
+    "public_files_checked": 28,
     "public_content_match": true,
-    "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure",
-    "product_execution": "TheHive/Cortex not installed or executed; independent synthetic JSON exercise only",
-    "official_source_limit": "CISA NCISS official web/PDF returned403; historical concepts and own calculation clearly labeled, no current official scoring claimed",
+    "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure; static SVG renders and font bounds inspected",
+    "product_execution": "No TIP/MISP/OpenCTI/feed/API/DNS/PCAP/endpoint/attack/block/external sharing executed; independent inline synthetic Python only",
     "new_figures": 6,
     "new_review_questions": 24,
-    "synthetic_calculations": "Python3.12.14: weighted20/min6/max30 =>58.33; timeline25/8/50/42/75min. Start/status-only/malformed inputs return2, reviewed input returns0; input case stays in_progress.",
+    "synthetic_calculations": "Python3.12.14: typed/value/time records and exact end boundary; feed A60/75/45-70%, B75/40/30-90%; latency15/10/5 total30min.",
     "execution_environment": "local; cloud migration setup still not created or verified"
   },
   "completed_lesson_ids_day1": [
@@ -115,6 +99,8 @@
     "d1-06",
     "d1-06b",
     "d1-07",
-    "d1-08"
+    "d1-08",
+    "d1-09",
+    "d1-10"
   ]
 }
