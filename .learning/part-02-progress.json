@@ -18,8 +18,8 @@
   "completed_pdf_through": 60,
   "next_lesson_id": 27,
   "next_printed_page": 59,
-  "updated": "2026-11-03",
-  "scope": "Day-two lesson4 detailed source/workbook revision published; desktop/mobile HTTPS rendered review and deployment verified. Next is day-two lesson5, internal ID27. Remaining thirteen lessons are abbreviated drafts awaiting detailed revision.",
+  "updated": "2026-11-04",
+  "scope": "Lesson5 prepared manuscript resumed by user authorization. HTTPS browser and screenshots now available; completed IDs stay unchanged until actual deployment and desktop/mobile verification.",
   "review": ".learning/reviews/day-two-04-revision-20261103.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
@@ -92,7 +92,22 @@
       }
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 27,
+      "day_lesson": 5,
+      "status": "publication_pending_render_review",
+      "source_revision": "written_and_mapped",
+      "static_validation": "passed",
+      "publication": "preparing_content_commit",
+      "base_main": "f58759f70af4add837a5f7e91ee42c56532121db",
+      "review": ".learning/reviews/day-two-05-revision-20261103.md",
+      "blocker": null,
+      "first_observed_utc": "2026-11-03T12:08:24.458Z",
+      "resume": "Preserve local manuscript and backup hash; read latest main; do not reauthor. When HTTPS browser access is available, set lesson27 editorial_status=revised, build, publish approved content using expected head, verify deployment and desktop/mobile live render, then advance to lesson28.",
+      "latest_remote_seen": "3fb0c4bd6104ba7f728e55baade041e3b9bac277",
+      "last_browser_check_utc": "2026-11-04T10:15:50.461Z",
+      "requires_latest_main_integration_before_build": false
+    },
     "last_publication": {
       "lesson_id": 26,
       "content_commit": "0967003f19b3ebf391edd7a1dd153348c082e0e7",

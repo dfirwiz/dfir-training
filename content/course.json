@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "lessons": [
     {
       "id": 1,
@@ -355,7 +355,7 @@
       "id": 27,
       "slug": "27-tcp-sequence-ack",
       "title": "TCP의 두 방향과 순서·확인 번호",
-      "description": "포트·연결 식별자·바이트 순서를 연결하고 ACK를 계산해 실제 수신 범위를 읽습니다.",
+      "description": "한 연결의 두 방향·포트·바이트 위치에서 출발해 SEQ/ACK와 순환을 계산하고, 실제 저장 파일의 시작 교환·재시도·충돌 겹침을 검산합니다.",
       "day": 2,
       "day_lesson": 5,
       "printed_pages": [
@@ -363,9 +363,9 @@
         69
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-04",
+      "minutes": 110,
+      "editorial_status": "revised"
     },
     {
       "id": 28,
