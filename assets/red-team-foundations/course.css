@@ -44,7 +44,7 @@
 .ui-screen-nav{border-color:#3a8276;background:#112a30}
 .note .ui-screen-nav p{font-size:13px;margin:14px 0 0;color:#a9cac3}
 
-/* Chapter-five product walkthrough: keep original vendor pixels unchanged. */
+/* Product walkthroughs: preserve original vendor pixels; enlarge small fields. */
 .cs-practice-start{border:2px solid #65d9c1;background:#102e34}
 .note .cs-practice-start>strong{font-size:20px;color:#baf8e8}
 .note .cs-practice-start p{font-size:15px;line-height:1.85}

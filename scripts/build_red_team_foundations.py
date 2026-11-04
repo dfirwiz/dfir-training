@@ -12,6 +12,7 @@ from red_team_windows_concept_diagrams import build_windows_concept_diagrams
 from red_team_c2_diagrams import build_c2_diagrams
 from red_team_initial_access_diagrams_part1 import build_initial_access_diagrams_part1
 from red_team_initial_access_diagrams_part2 import build_initial_access_diagrams_part2
+from red_team_persistence_diagrams import build_persistence_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'content/red-team-foundations'
@@ -115,6 +116,27 @@ def build_diagrams():
     build_c2_diagrams(ASSETS, diagram)
     build_initial_access_diagrams_part1(ASSETS, diagram)
     build_initial_access_diagrams_part2(ASSETS, diagram)
+    build_persistence_diagrams(ASSETS, diagram)
+
+
+def jpeg_dimensions(data):
+    assert data[:2] == b'\xff\xd8'
+    i = 2
+    while i < len(data):
+        assert data[i] == 255
+        while data[i] == 255:
+            i += 1
+        marker = data[i]
+        i += 1
+        if marker in (1, 0xd8, 0xd9) or 0xd0 <= marker <= 0xd7:
+            continue
+        size = int.from_bytes(data[i:i+2], 'big')
+        assert size >= 2
+        if marker in (0xc0, 0xc1, 0xc2, 0xc3, 0xc5, 0xc6, 0xc7, 0xc9, 0xca, 0xcb, 0xcd, 0xce, 0xcf):
+            height, width = struct.unpack('>HH', data[i+3:i+7])
+            return width, height
+        i += size
+    raise ValueError('JPEG has no supported frame header')
 
 
 def render(md, reserve_images=False):
@@ -159,11 +181,14 @@ def render(md, reserve_images=False):
             assert src.startswith('../../assets/red-team-foundations/')
             asset = (OUT / src).resolve()
             assert asset.is_file()
-            screenshot = asset.suffix == '.png'
+            screenshot = asset.suffix in ('.png', '.jpg', '.jpeg')
             if screenshot:
                 data = asset.read_bytes()
-                assert data[:8] == b'\x89PNG\r\n\x1a\n'
-                width, height = struct.unpack('>II', data[16:24])
+                if asset.suffix == '.png':
+                    assert data[:8] == b'\x89PNG\r\n\x1a\n'
+                    width, height = struct.unpack('>II', data[16:24])
+                else:
+                    width, height = jpeg_dimensions(data)
             else:
                 assert asset.suffix == '.svg'
                 dimensions = re.search(r'width="(\d+)" height="(\d+)"', asset.read_text(encoding='utf-8'))
@@ -174,7 +199,7 @@ def render(md, reserve_images=False):
             if screenshot:
                 image = f'<a class="screenshot-original" href="{escape(src)}" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: {escape(alt, quote=True)}">{image}</a>'
             extra_class = ' course-screenshot' if screenshot else ''
-            if screenshot and (asset.name == 'ch5-host-file.png' or asset.name.startswith('ch5-cs-')):
+            if screenshot and (asset.name == 'ch5-host-file.png' or asset.name.startswith(('ch5-cs-', 'ch6-'))):
                 extra_class += ' cs-setting-screen'
             kind = '설정 화면' if screenshot else '다이어그램'
             hint = ' 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다.' if screenshot else ''
@@ -261,7 +286,11 @@ def page(course, title, description, body, toc, selected=None):
     if screens:
         screen_nav = '<nav class="toc ui-screen-nav" aria-label="실제 설정 화면 바로가기"><strong>공식 화면으로 따라보기</strong><ul class="toc-list" role="list">' + ''.join(f'<li><a href="#{anchor}">{text}</a></li>' for anchor, text in screens) + '</ul><p>메뉴 경로 → 화면의 입력 위치 → 예시 값 → 저장 후 확인을 순서대로 읽습니다.</p></nav>'
         contents = screen_nav + contents
-    if selected and selected.get('ui_revision'):
+    if selected and selected.get('practice'):
+        guide = selected['practice']
+        links = ''.join(f'<a href="#{escape(anchor)}">{escape(label)}</a>' for anchor, label in guide['links'])
+        contents = f'<nav class="cs-practice-start toc" aria-label="画面実習"><strong>{escape(guide["title"])}</strong><p>{escape(guide["description"])}</p><div class="cs-practice-links">{links}</div></nav>'.replace('画面実習', '화면 실습 시작') + contents
+    elif selected and selected.get('ui_revision'):
         practice = '<nav class="cs-practice-start toc" aria-label="Cobalt Strike 화면 실습 시작"><strong>Cobalt Strike에서 무엇을 설정할까요?</strong><p>① Host File의 입력 칸 → ② Sites에서 등록 확인 → ③ 자체 안내 페이지 복제 옵션 → ④ Web Log에서 요청 확인 순서로 읽습니다.</p><div class="cs-practice-links"><a href="#screen-20">1. Host File 입력부터 보기</a><a href="#section-7">2. Sites·접속 확인 보기</a><a href="#section-8">3. Clone Site 옵션 보기</a></div><p>앞의 1~5강은 Windows·Office·파일 분석을 다룹니다. Cobalt Strike의 실제 설정 흐름은 이 6강에서 이어집니다.</p></nav>'
         contents = practice + contents
     pager = '<nav class="pager" aria-label="강의 이동"><a href="index.html">← 과정 전체 목차</a>'
@@ -286,7 +315,7 @@ def page(course, title, description, body, toc, selected=None):
         chapter = next(item for item in groups if item['id'] == selected['unit'])
         chapter_crumb = f' / <a href="index.html#chapter-{chapter["id"]}">{escape(chapter_label(chapter))}</a>'
     updated = (selected or course).get('updated', '2026-11-02')
-    css_version = (selected or {}).get('ui_revision', '20261103-ui-guide')
+    css_version = (selected or {}).get('ui_revision', '20261104-persistence')
     return f'''<!doctype html>
 <html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="{ORIGIN}courses/red-team-foundations/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css?v={css_version}"></head>
 <body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a>{chapter_crumb}</p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / {label}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{meta}</span><span>업데이트 {updated}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
@@ -314,13 +343,16 @@ def main():
         lesson_cards = ''.join(f'<a class="note-card live" href="{item["slug"]}.html"><span class="number">{item["lesson_number"]}강 / 공개</span><h4>{escape(item["title"])}</h4><p>{escape(item["description"])}</p><span class="read">{item["review_questions"]}개의 복습과 해설 · {lesson_label(item)} 읽기 ↗</span></a>' for item in chapter['lessons'])
         practice_entry = ''
         if chapter.get('practice_entry'):
-            practice_entry = f'<div class="callout"><strong>Cobalt Strike 설정 화면을 찾으시나요?</strong><p><a href="{chapter["practice_entry"]}.html">5장 6강 · 실제 제품 화면과 입력 순서로 바로 이동 →</a></p><p>Host File·사이트 관리·Clone Site·Web Log의 화면 위치와 확인 지점을 이어 봅니다.</p></div>'
+            target = next(item for item in chapter['lessons'] if item['slug'] == chapter['practice_entry'])
+            practice_label = chapter.get('practice_label', 'Cobalt Strike 설정 화면을 찾으시나요?')
+            practice_description = chapter.get('practice_description', 'Host File·사이트 관리·Clone Site·Web Log의 화면 위치와 확인 지점을 이어 봅니다.')
+            practice_entry = f'<div class="callout"><strong>{escape(practice_label)}</strong><p><a href="{target["slug"]}.html">{lesson_label(target)} · 실제 제품 화면과 입력 순서로 바로 이동 →</a></p><p>{escape(practice_description)}</p></div>'
         cards.append(f'<section class="course-unit" id="chapter-{chapter["id"]}"><h3>{escape(chapter_label(chapter))}</h3><p class="chapter-description">{escape(chapter["title_ko"])} · {len(chapter["lessons"])}개 강의</p>' + practice_entry + '<div class="course-cards">' + lesson_cards + '</div></section>')
     cards = ''.join(cards)
     svg_count = len(list(ASSETS.glob('*.svg')))
-    screenshot_count = len({src for item in course['lessons'] for src in re.findall(r'!\[[^\]]*\]\(([^)]+\.png)\)', (SOURCE / f'{item["slug"]}.md').read_text(encoding='utf-8'))})
+    screenshot_count = len({src for item in course['lessons'] for src in re.findall(r'!\[[^\]]*\]\(([^)]+\.(?:png|jpe?g))\)', (SOURCE / f'{item["slug"]}.md').read_text(encoding='utf-8'))})
     review_count = sum(item['review_questions'] for item in course['lessons'])
-    intro = f'<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 1~{len(groups)}장 · 총 {len(course["lessons"])}개 강의</strong><p>1장·3장·4장·5장은 상세 강의로 제공합니다. 2장은 법과 준수 원칙의 핵심 요약입니다. 각 장의 강의 번호는 1강부터 시작합니다. 3장에서는 PE 파일 구조, 프로세스·메모리·권한, 코드 주입의 증거, C# P/Invoke를 배웁니다. 4장에서는 Cobalt Strike의 구성 요소, HTTP·DNS와 SMB·TCP 경로, 페이로드·로더, 세션과 작업 기록을 배웁니다. 5장에서는 최초 접근의 구성 요소, DLL·.NET 로딩, MSI·Excel·서명, 실행 트리거, 컨테이너·MotW, HTML·SVG 전달과 파일 호스팅을 배웁니다. 비교표, SVG 다이어그램 {svg_count}개와 공식 제품 화면 {screenshot_count}개, 바로 읽는 복습 질문과 해설 {review_count}개, 읽기 전용 PE 검사기와 가상 이벤트 실습을 제공합니다.</p></div></section><section id="lessons"><h2>강의 목차</h2>' + cards + '</section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 3장 1강의 Python 합성 헤더 읽기와 4장 5강의 가상 이벤트 상태 계산, 5장 5강의 합성 출처 정보 해석은 실제 실행하여 검증했습니다. Windows API·C#·필터·PowerShell·Cobalt Strike 예제는 실제 대상 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료는 각 강의에 표시한 확인일을 기준으로 하며 최신 추가 장은 2026년 11월 3일에 대조했습니다. 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
+    intro = f'<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 1~{len(groups)}장 · 총 {len(course["lessons"])}개 강의</strong><p>1장·3장·4장·5장·6장은 상세 강의로 제공합니다. 2장은 법과 준수 원칙의 핵심 요약입니다. 각 장의 강의 번호는 1강부터 시작합니다. 3장에서는 PE 파일 구조, 프로세스·메모리·권한, 코드 주입의 증거, C# P/Invoke를 배웁니다. 4장에서는 Cobalt Strike의 구성 요소, HTTP·DNS와 SMB·TCP 경로, 페이로드·로더, 세션과 작업 기록을 배웁니다. 5장에서는 최초 접근의 구성 요소, DLL·.NET 로딩, MSI·Excel·서명, 실행 트리거, 컨테이너·MotW, HTML·SVG 전달과 파일 호스팅을 배웁니다. 6장에서는 Run·시작 폴더, 로그온 스크립트·PowerShell 프로필, 예약 작업, COM 등록과 재실행 증거를 배웁니다. 비교표, SVG 다이어그램 {svg_count}개와 공식 제품 화면 {screenshot_count}개, 바로 읽는 복습 질문과 해설 {review_count}개, 읽기 전용 PE·작업 XML 검사기와 가상 이벤트 실습을 제공합니다.</p></div></section><section id="lessons"><h2>강의 목차</h2>' + cards + '</section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 3장 1강의 Python 합성 헤더 읽기와 4장 5강의 가상 이벤트 상태 계산, 5장 5강의 합성 출처 정보 해석과 6장 6강의 합성 작업 XML 분석은 실제 실행하여 검증했습니다. Windows API·C#·필터·PowerShell·Cobalt Strike 예제는 실제 대상 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료는 각 강의에 표시한 확인일을 기준으로 하며 최신 추가 장은 2026년 11월 4일에 대조했습니다. 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
     (OUT / 'index.html').write_text(page(course, TITLE, course['description'], intro, []), encoding='utf-8')
     home = ROOT / 'index.html'
     home_original = home.read_bytes()
@@ -330,7 +362,7 @@ def main():
     for chapter in chapter_groups(course):
         links = ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["lesson_number"]}강</b><span>{escape(item["short_title"])}</span></a>' for item in chapter['lessons'])
         home_groups.append(f'<div class="home-course-chapter"><h4>{escape(chapter_label(chapter))}</h4>' + links + '</div>')
-    card = f'<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · {len(groups)}개 장 · {len(course["lessons"])}개 강의</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 법과 준수 원칙, PE 파일과 Windows 실행 기초를 배우고 Cobalt Strike의 구성 요소·통신 경로·페이로드·세션과 작업 기록까지 연결합니다. 최초 접근의 전달·로딩·트리거·파일 출처와 웹 호스팅도 상세히 배웁니다. 가상 조사 사례와 공식 제품 화면, 설정 순서·비교표·다이어그램·복습 해설과 읽기 전용 예제를 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1장 1강 읽기</a></div></div><div class="outline chapter-outline">' + ''.join(home_groups) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
+    card = f'<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · {len(groups)}개 장 · {len(course["lessons"])}개 강의</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 법과 준수 원칙, PE 파일과 Windows 실행 기초를 배우고 Cobalt Strike의 구성 요소·통신 경로·페이로드·세션과 작업 기록까지 연결합니다. 최초 접근의 전달·로딩·트리거·파일 출처와 웹 호스팅, 지속성의 사용자 범위·자동 실행 조건·예약 작업·COM 증거도 상세히 배웁니다. 가상 조사 사례와 공식 제품 화면, 설정 순서·비교표·다이어그램·복습 해설과 읽기 전용 예제를 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1장 1강 읽기</a></div></div><div class="outline chapter-outline">' + ''.join(home_groups) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
     if '<!-- RED-TEAM-FOUNDATIONS:START -->' in text:
         text = re.sub(r'<!-- RED-TEAM-FOUNDATIONS:START -->.*?<!-- RED-TEAM-FOUNDATIONS:END -->', card, text, flags=re.S)
     else:
@@ -338,7 +370,7 @@ def main():
         assert text.count(marker) == 1
         text = text.replace(marker, marker + card)
     text = text.replace('<strong>02</strong><small>독립적인 학습 과정</small>', '<strong>03</strong><small>독립적인 학습 과정</small>')
-    chapter_css = '<link rel="stylesheet" href="assets/red-team-foundations/course.css?v=20261103-ui-guide">'
+    chapter_css = '<link rel="stylesheet" href="assets/red-team-foundations/course.css?v=20261104-persistence">'
     text = re.sub(r'<link rel="stylesheet" href="assets/red-team-foundations/course\.css(?:\?[^"]*)?">', chapter_css, text)
     if chapter_css not in text:
         text = text.replace('</head>', chapter_css + '</head>', 1)

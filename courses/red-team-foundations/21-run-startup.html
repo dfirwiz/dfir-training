@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="실제 Autoruns·콘솔 화면과 레지스트리·바로가기 필드 안내로 로그인 조건, 일회 처리, 실행 확인과 복구를 연결합니다."><title>Run·RunOnce·시작 폴더: 로그인 자동 실행의 위치와 수명 | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/21-run-startup.html"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css?v=20261104-persistence"></head>
+<body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout"><aside class="course-sidebar"><details class="course-menu" open><summary>레드팀 기초 · 과정 목차</summary><a class="course-overview" href="index.html">과정 소개와 학습 순서</a><nav class="course-chapters" aria-label="장별 강의 목차"><details class="course-day course-chapter"><summary><span><span class="chapter-number">1장</span> <span lang="en">Getting Started</span></span></summary><ol class="chapter-lessons"><li><a href="01-purpose-ttp-evidence.html"><span class="num">1강</span><span>레드팀의 목적·TTP·증거 해석</span></a></li><li><a href="02-intelligence-attack-lifecycle.html"><span class="num">2강</span><span>위협 인텔리전스와 공격 생명주기</span></a></li><li><a href="03-engagement-opsec-records.html"><span class="num">3강</span><span>활동 계획·ROE·OPSEC·작업 기록</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">2장</span> <span lang="en">Law &amp; Compliance</span></span></summary><ol class="chapter-lessons"><li><a href="04-law-compliance.html"><span class="num">1강</span><span>법과 준수 원칙 · 핵심 요약</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">3장</span> <span lang="en">Malware Essentials</span></span></summary><ol class="chapter-lessons"><li><a href="05-pe-file-memory.html"><span class="num">1강</span><span>PE 파일 구조·RVA·읽기 전용 실습</span></a></li><li><a href="06-process-memory-security.html"><span class="num">2강</span><span>프로세스·메모리·접근 토큰</span></a></li><li><a href="07-injection-evidence.html"><span class="num">3강</span><span>코드 주입의 원리와 증거 해석</span></a></li><li><a href="08-csharp-native-interop.html"><span class="num">4강</span><span>C# P/Invoke·인코딩·오류 처리</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">4장</span> <span lang="en">Cobalt Strike Primer</span></span></summary><ol class="chapter-lessons"><li><a href="09-c2-components.html"><span class="num">1강</span><span>C2 구성 요소·다중 서버·기록</span></a></li><li><a href="10-http-dns-listeners.html"><span class="num">2강</span><span>HTTP·DNS·리스너 설정 해석</span></a></li><li><a href="11-peer-links.html"><span class="num">3강</span><span>SMB·TCP·P2P 연결과 수명</span></a></li><li><a href="12-payload-loading.html"><span class="num">4강</span><span>페이로드·로더·staging·종료</span></a></li><li><a href="13-sessions-task-evidence.html"><span class="num">5강</span><span>세션·작업 상태·가상 로그 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">5장</span> <span lang="en">Initial Access</span></span></summary><ol class="chapter-lessons"><li><a href="14-initial-access-chain.html"><span class="num">1강</span><span>최초 접근·구성 요소·조사 연결</span></a></li><li><a href="15-dll-managed-loading.html"><span class="num">2강</span><span>DLL·.NET 로딩·ProcMon 화면</span></a></li><li><a href="16-installers-addins-signatures.html"><span class="num">3강</span><span>MSI·Excel·서명·보안 센터</span></a></li><li><a href="17-triggers-shortcuts-console.html"><span class="num">4강</span><span>트리거·LNK·MSC·실행 문맥</span></a></li><li><a href="18-containers-motw-provenance.html"><span class="num">5강</span><span>컨테이너·MotW·Python 실습</span></a></li><li><a href="19-web-delivery-observation.html"><span class="num">6강</span><span>Cobalt Strike 화면 설정·호스팅·확인</span></a></li></ol></details><details class="course-day course-chapter" open><summary><span><span class="chapter-number">6장</span> <span lang="en">Persistence</span></span></summary><ol class="chapter-lessons"><li><a href="20-persistence-state-context.html"><span class="num">1강</span><span>지속성·사용자·Cobalt Strike 콘솔</span></a></li><li><a href="21-run-startup.html" aria-current="page"><span class="num">2강</span><span>Run·Startup·Autoruns 화면</span></a></li><li><a href="22-logon-powershell-profiles.html"><span class="num">3강</span><span>로그온·PowerShell 프로필</span></a></li><li><a href="23-scheduled-tasks-ui.html"><span class="num">4강</span><span>예약 작업 화면·설정·실행 증거</span></a></li><li><a href="24-com-registration-evidence.html"><span class="num">5강</span><span>COM·HKCR·ProcMon 화면</span></a></li><li><a href="25-persistence-investigation-review.html"><span class="num">6강</span><span>조사 시간표·Python XML 실습</span></a></li></ol></details></nav></details></aside><main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a> / <a href="index.html#chapter-6">6장 · Persistence</a></p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / CHAPTER 06 / LESSON 02</div><h1>Run·RunOnce·시작 폴더: 로그인 자동 실행의 위치와 수명</h1><p class="description">실제 Autoruns·콘솔 화면과 레지스트리·바로가기 필드 안내로 로그인 조건, 일회 처리, 실행 확인과 복구를 연결합니다.</p><div class="meta"><span>6장 2강 · 8개의 복습과 해설</span><span>업데이트 2026-11-04</span></div></header><nav class="cs-practice-start toc" aria-label="화면 실습 시작"><strong>화면·설정·확인 순서로 읽기</strong><p>실제 공식 원본과 학습 예시값을 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.</p><div class="cs-practice-links"><a href="#screen-32">1. Autoruns 위치</a><a href="#screen-33">2. Cobalt Strike 조회</a><a href="#section-5">3. 메모장 학습 설정</a></div></nav><nav class="toc ui-screen-nav" aria-label="실제 설정 화면 바로가기"><strong>공식 화면으로 따라보기</strong><ul class="toc-list" role="list"><li><a href="#screen-32">실제 화면 32: Autoruns에서 등록 위치 찾기</a></li><li><a href="#screen-33">실제 화면 33: Cobalt Strike에서 Run 조회하기</a></li></ul><p>메뉴 경로 → 화면의 입력 위치 → 예시 값 → 저장 후 확인을 순서대로 읽습니다.</p></nav><nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list"><li><a href="#section-1">1. 로그인하면 앱이 열리는 두 가지 길</a></li><li><a href="#section-2">2. Run·RunOnce의 경로와 수명</a></li><li><a href="#section-3">3. Autoruns에서 등록 위치 찾기</a></li><li><a href="#section-4">4. Cobalt Strike에서 Run 조회하기</a></li><li><a href="#section-5">5. Windows 레지스트리에서 어떤 칸을 설정하나요?</a></li><li><a href="#section-6">6. 시작 폴더와 바로가기는 어디에 있나요?</a></li><li><a href="#section-7">7. 로그인 뒤 무엇을 확인하나요?</a></li><li><a href="#section-8">8. 정리는 파일 삭제와 다릅니다</a></li><li><a href="#section-9">9. 조건을 바꾸어 생각해 보기</a></li><li><a href="#section-10">10. 복습과 바로 읽는 해설</a></li><li><a href="#section-11">11. 공식 자료와 적용 범위</a></li></ul></nav><section id="section-1"><h2>1. 로그인하면 앱이 열리는 두 가지 길</h2>
+<p>컴퓨터를 켠 뒤 메신저나 동기화 앱이 자동으로 열리는 경험이 있을 것입니다. Windows는 앱마다 사람이 아이콘을 누르지 않아도 실행하도록 여러 등록 위치를 제공합니다. 그중 <strong>레지스트리 Run 계열</strong>과 <strong>시작 폴더(Startup)</strong>는 사용자 로그인과 연결된 대표적인 위치입니다. 공격자도 같은 기능을 이용할 수 있으므로 정상 배포 기준과 실제 실행을 함께 살펴야 합니다.</p>
+<p>두 기능을 출근 안내판에 비유해 봅시다. Run은 매번 출근할 때 읽는 안내, RunOnce는 한 번 처리할 일을 적은 메모, Startup은 출근 때 열어 보는 파일 묶음과 비슷합니다. 다만 실제 Windows에서는 실행 시점이 지연되거나 정책과 사용자 상태의 영향을 받을 수 있습니다. 비유를 정확한 실행 시간 보장으로 받아들이지 않습니다.</p>
+<p>이번 강의는 어디를 조회하고 각 값에서 무엇을 읽는지 먼저 배운 뒤, 격리 VM에서 메모장만 여는 학습 설정을 설명합니다. Cobalt Strike는 읽기 전용 레지스트리 조회에 연결합니다. 제품·Windows 예제는 직접 실행한 결과가 아닙니다.</p>
+</section>
+<section id="section-2"><h2>2. Run·RunOnce의 경로와 수명</h2>
+<pre tabindex="0" aria-label="text 예제"><code class="language-text">HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce
+HKLM\Software\Microsoft\Windows\CurrentVersion\Run
+HKLM\Software\Microsoft\Windows\CurrentVersion\RunOnce</code></pre>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">항목</th>
+<th scope="col">기본 의미</th>
+<th scope="col">조사할 때의 주의</th>
+</tr></thead><tbody>
+<tr><td>HKCU Run</td><td>해당 사용자 로그온마다 실행 요청</td><td>HKCU 사용자·정책·사용 상태 확인</td></tr>
+<tr><td>HKCU RunOnce</td><td>일회 로그온 실행 요청</td><td>계정·OS별 처리 조건과 값 삭제 시점 확인</td></tr>
+<tr><td>HKLM Run</td><td>컴퓨터 범위의 로그온 자동 실행</td><td>값 쓰기 권한과 실행 계정은 별도</td></tr>
+<tr><td>HKLM RunOnce</td><td>컴퓨터 범위의 일회 처리</td><td>Microsoft는 재부팅 뒤 관리자 그룹 로그온 조건을 명시</td></tr>
+</tbody></table></div>
+<p>키(key)는 폴더에 비슷한 등록 위치이고 그 아래 값(value)은 이름·유형·데이터를 가진 항목입니다. 값 이름은 표시용 설명일 수 있으며 실제 실행 명령은 데이터에 있습니다. 키 하나에 여러 값이 있어도 그 실행 순서가 보장되지는 않습니다.</p>
+<p>RunOnce는 기본적으로 명령 실행 <strong>전</strong> 값이 삭제될 수 있습니다. 따라서 값이 사라졌다고 프로그램이 끝까지 성공했다고 말할 수 없습니다. 삭제 시점에 영향을 주는 접두사와 안전 모드 예외도 있지만, 이 강의는 기본 상태와 실제 관측을 먼저 구분합니다. Microsoft의 현재 Windows 10 문제 해결 문서는 <strong>HKCU도 포함한 RunOnce·RunOnceEx가 표준 사용자에서 실행되지 않는 제한</strong>과 Administrator·Split Token 계정의 처리 조건을 명시합니다. HKCU라는 이유만으로 모든 표준 사용자 환경에서 동작한다고 가르치지 않으며, 적용 OS·계정·정책에서 실제 실행을 검증해야 합니다.</p>
+<figure id="figure-1" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/21-run-once.svg" width="720" height="635" alt="Run의 반복 요청과 RunOnce의 기본 일회 처리 및 삭제 시점 비교" loading="eager" style="width:720px;aspect-ratio:720/635"></div><figcaption>Run의 반복 요청과 RunOnce의 기본 일회 처리 및 삭제 시점 비교 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>이 그림은 수명 비교입니다. 특정 로그인 직후 모든 항목이 같은 초에 실행된다거나 값 삭제가 완료 이벤트라는 뜻이 아닙니다.</p>
+</section>
+<section id="section-3"><h2>3. Autoruns에서 등록 위치 찾기</h2>
+<h3 id="screen-32">실제 화면 32: Autoruns에서 등록 위치 찾기</h3>
+<figure id="figure-2" class="diagram course-diagram course-screenshot cs-setting-screen"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 설정 화면"><a class="screenshot-original" href="../../assets/red-team-foundations/screenshots/ch6-autoruns-main.jpg" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: 공식 도구 작성자의 2017년 Autoruns 실제 메인 화면 — Everything 선택, Logon 탭 위치와 숨김 상태 표시"><img src="../../assets/red-team-foundations/screenshots/ch6-autoruns-main.jpg" width="600" height="441" alt="공식 도구 작성자의 2017년 Autoruns 실제 메인 화면 — Everything 선택, Logon 탭 위치와 숨김 상태 표시" loading="eager" style="width:600px;aspect-ratio:600/441"></a></div><figcaption>공식 도구 작성자의 2017년 Autoruns 실제 메인 화면 — Everything 선택, Logon 탭 위치와 숨김 상태 표시 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다. 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>출처: <a href="https://www.microsoftpressstore.com/articles/article.aspx?p=2762082">Microsoft Press 공개 샘플 — Autoruns</a>, Mark Russinovich·Aaron Margosis, 2017년 2월 17일. 원본 JPEG를 변경하지 않았습니다. <strong>Everything이 선택된 과거 화면</strong>이며 Logon 선택 결과 사진이 아닙니다. 하단에는 Windows Entries Hidden이 보입니다. 현행 공식 문서의 v14.3 화면을 새로 캡처했다고 설명하지 않습니다.</p>
+<ol>
+<li>허가된 컴퓨터에서 Autoruns를 열고 사용자 선택과 표시 필터 상태를 기록합니다. 화면에 없는 항목을 곧바로 없다고 판정하지 않습니다.</li>
+<li>위쪽 <strong>Logon</strong> 탭을 눌러 로그온 관련 항목으로 좁힙니다. 위 원본은 이 클릭 뒤의 결과가 아니라 탭의 위치를 보여 줍니다.</li>
+<li>왼쪽 Autorun Entry와 등록 위치 행을 읽고 오른쪽 Image Path를 비교합니다. Publisher·Description은 참고 정보이며 서명 검증 여부도 별도로 봅니다.</li>
+<li>해당 항목을 선택해 <strong>Entry → Jump to Entry</strong>로 레지스트리나 파일 위치를 확인합니다. 메뉴 표현은 버전별로 확인합니다.</li>
+<li>체크박스와 Delete는 설정을 바꿀 수 있습니다. 현재 상태를 읽는 단계에서는 그대로 둡니다. 표시 필터 변경과 자동 실행 비활성화를 혼동하지 않습니다.</li>
+</ol>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">화면 요소</th>
+<th scope="col">읽을 내용</th>
+<th scope="col">실수하기 쉬운 점</th>
+</tr></thead><tbody>
+<tr><td>Logon 탭</td><td>로그온 범주의 항목</td><td>Everything 원본을 Logon 결과라고 부르기</td></tr>
+<tr><td>위치 구분 행</td><td>Run·Startup 등의 저장 위치</td><td>앱 이름만 기록하고 위치 생략</td></tr>
+<tr><td>Image Path</td><td>실제 실행 대상</td><td>표시 이름을 실행 파일명으로 간주</td></tr>
+<tr><td>하단 상태·Options</td><td>숨김·필터 상태</td><td>숨겨진 Windows 항목을 부재로 판정</td></tr>
+<tr><td>항목 체크박스</td><td>활성 상태 변경 가능</td><td>읽기 중 무심코 해제</td></tr>
+</tbody></table></div>
+</section>
+<section id="section-4"><h2>4. Cobalt Strike에서 Run 조회하기</h2>
+<h3 id="screen-33">실제 화면 33: Cobalt Strike에서 Run 조회하기</h3>
+<figure id="figure-3" class="diagram course-diagram course-screenshot"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 설정 화면"><a class="screenshot-original" href="../../assets/red-team-foundations/screenshots/beacon-console.png" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: 공식 Beacon Console — 입력 줄에서 조회하고 위 출력에서 대상 경로를 확인하는 배치"><img src="../../assets/red-team-foundations/screenshots/beacon-console.png" width="654" height="288" alt="공식 Beacon Console — 입력 줄에서 조회하고 위 출력에서 대상 경로를 확인하는 배치" loading="eager" style="width:654px;aspect-ratio:654/288"></a></div><figcaption>공식 Beacon Console — 입력 줄에서 조회하고 위 출력에서 대상 경로를 확인하는 배치 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다. 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>출처: <a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_main.htm">Fortra Beacon Console</a>. 원본의 기존 명령과 결과는 공식 예시입니다. 아래 Run 조회를 수행한 사진은 아닙니다.</p>
+<p>세션 우클릭 → <strong>Interact</strong> → 아래 <code>beacon&gt;</code> 입력 줄 → <code>help reg</code> → 조회 한 줄 → 위쪽 반환 출력 순서입니다. 선택한 세션의 사용자와 레지스트리 뷰를 먼저 적습니다. 이 읽기 전용 예제는 설정 저장 버튼을 누르는 흐름이 아닙니다.</p>
+<pre tabindex="0" aria-label="text 예제"><code class="language-text">reg query x64 HKCU\Software\Microsoft\Windows\CurrentVersion\Run
+reg query x64 HKCU\Software\Microsoft\Windows\CurrentVersion\RunOnce</code></pre>
+<p>출력에서 값 이름·유형·데이터를 따로 옮겨 적습니다. 명령이 지원되지 않으면 사용자 정의 명령이 필요한지, 기본 <code>reg</code> 도움말과 문법이 맞는지 확인합니다. <code>reg.exe query</code>는 Windows 프로그램의 별도 문법이며 위 명령과 섞지 않습니다. 응답 대기·접근 거부·찾기 실패를 구별합니다.</p>
+<p>가상의 출력 <code>TrainingNote / REG_SZ / C:\Windows\System32\notepad.exe</code>는 구조를 읽는 예일 뿐입니다. 이 값만으로 메모장이 실행됐거나 새 원격 세션이 생겼다고 결론 내리지 않습니다.</p>
+</section>
+<section id="section-5"><h2>5. Windows 레지스트리에서 어떤 칸을 설정하나요?</h2>
+<p>이 절은 <strong>소유한 격리 VM에서 현재 사용자 메모장 자동 실행만</strong> 가정한 미실행 절차입니다. 실제 레지스트리 편집기 설정창 사진은 확보하지 못했으므로 아래 표를 캡처처럼 제시하지 않습니다. 앞의 Autoruns·콘솔 원본과 아래 필드 설명은 성격이 다릅니다.</p>
+<ol>
+<li>시작 메뉴에서 레지스트리 편집기를 열고 주소 표시줄에 <code>HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run</code>을 입력합니다.</li>
+<li>오른쪽에 같은 학습 이름이 없는지 확인하고 변경 전 상태를 기록합니다. 기존 업무 항목을 덮어쓰지 않습니다.</li>
+<li>오른쪽 빈 곳 → 새로 만들기 → <strong>문자열 값</strong>을 선택하고 이름을 <code>TrainingNote</code>로 둡니다.</li>
+<li>새 값을 더블클릭하고 <strong>값 데이터</strong>에 <code>C:\Windows\System32\notepad.exe</code>를 입력합니다. 실제 Windows 설치 경로가 다르면 그 VM에서 메모장 위치를 먼저 확인합니다.</li>
+<li>확인을 누른 뒤 같은 위치를 다시 조회합니다. 이것은 값 저장 확인입니다. 다음 로그인의 실행 여부는 별도입니다.</li>
+</ol>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">필드</th>
+<th scope="col">예시값</th>
+<th scope="col">선택 이유</th>
+</tr></thead><tbody>
+<tr><td>루트와 키</td><td>현재 사용자 Run</td><td>계정 범위를 좁히기 위함</td></tr>
+<tr><td>값 이름</td><td>TrainingNote</td><td>학습 항목임을 분명하게 표시</td></tr>
+<tr><td>값 유형</td><td>REG_SZ</td><td>이 예는 환경변수 없는 고정 경로</td></tr>
+<tr><td>값 데이터</td><td>확인한 메모장 전체 경로</td><td>정상 프로그램만 사용하고 네트워크 실행 없음</td></tr>
+<tr><td>저장</td><td>확인(OK)</td><td>창을 닫기 전 데이터 재확인</td></tr>
+</tbody></table></div>
+<p>REG_EXPAND_SZ는 환경변수 확장이 필요한 문자열에 사용됩니다. <code>%LOCALAPPDATA%</code> 같은 문자열을 봤다면 어느 사용자의 환경에서 확장되는지 확인합니다. 공백이 있는 실행 경로는 따옴표와 인수 경계를 구별해야 합니다. 이름을 Update로 위장하거나 원격 실행 파일로 바꾸는 작업은 이 예제에 필요하지 않습니다.</p>
+</section>
+<section id="section-6"><h2>6. 시작 폴더와 바로가기는 어디에 있나요?</h2>
+<p>현재 사용자 시작 폴더의 일반적인 위치는 다음과 같습니다. 사용자 폴더의 실제 이동·리디렉션 가능성이 있으므로 환경의 실제 경로를 확인합니다.</p>
+<pre tabindex="0" aria-label="text 예제"><code class="language-text">%APPDATA%\Microsoft\Windows\Start Menu\Programs\Startup</code></pre>
+<p>Windows 실행 대화상자에서 <code>shell:startup</code>을 열면 현재 사용자 시작 폴더를 확인할 수 있습니다. <code>shell:common startup</code>은 공통 시작 폴더로 범위가 다릅니다. 두 위치의 경로와 권한을 혼동하지 않습니다. 파일 탐색기와 바로가기 속성의 실제 사진은 이 강의에 확보하지 못했습니다.</p>
+<p>무해한 별도 실습에서는 현재 사용자 시작 폴더 → 새로 만들기 → 바로 가기 → 확인한 메모장 경로 → 학습 이름 <code>TrainingNote</code> → 마침 순서로 등록할 수 있습니다. Run 예와 동시에 등록하면 메모장이 어느 경로로 실행됐는지 혼동되므로 한 번에 한 조건만 검증하고 정리합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">바로가기 속성</th>
+<th scope="col">읽을 내용</th>
+<th scope="col">이유</th>
+</tr></thead><tbody>
+<tr><td>대상(Target)</td><td>프로그램 경로와 뒤의 인수</td><td>실제 실행을 결정</td></tr>
+<tr><td>시작 위치(Start in)</td><td>작업 폴더</td><td>상대 경로 해석에 영향</td></tr>
+<tr><td>파일 종류</td><td>LNK인지 실행 파일인지</td><td>표시 이름·아이콘으로 판별 불가</td></tr>
+<tr><td>실제 대상 파일</td><td>경로·해시·서명·권한</td><td>링크 존재와 대상 존재 구별</td></tr>
+</tbody></table></div>
+<figure id="figure-4" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/21-startup.svg" width="720" height="635" alt="시작 폴더의 실행 파일과 바로가기 대상·인수를 구별하는 개념도" loading="eager" style="width:720px;aspect-ratio:720/635"></div><figcaption>시작 폴더의 실행 파일과 바로가기 대상·인수를 구별하는 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+</section>
+<section id="section-7"><h2>7. 로그인 뒤 무엇을 확인하나요?</h2>
+<p>가상의 실습에서 저장 뒤 같은 사용자가 로그오프·로그인했다고 해 봅시다. 메모장이 열렸다면 프로세스 경로·사용자·시각을 설정과 연결합니다. 단순히 재부팅했어도 해당 사용자가 로그인하지 않았다면 같은 트리거를 검증한 것이 아닙니다. Windows가 시작 항목을 지연할 수도 있으므로 즉시 창이 없다는 사실만으로 실패라 단정하지 않습니다.</p>
+<p>설정은 있는데 실행이 없다면 대상 파일 존재, 사용자 범위, 시작 앱 비활성화 상태, 정책, 경로·따옴표, 접근 권한을 확인합니다. RunOnce에서는 값이 이미 사라졌을 가능성과 계정별 처리 조건을 같이 검토합니다. 확인을 위해 기존 업무 설정을 임의로 바꾸지 않습니다.</p>
+<p>프로세스가 실행돼도 등록값 때문에 실행됐는지는 별도입니다. 사용자가 직접 메모장을 열었거나 다른 작업이 실행했을 수 있습니다. 타임라인·명령줄·실행 주체·로그인 시각을 대조하고 인과관계가 불확실하면 그대로 적습니다.</p>
+</section>
+<section id="section-8"><h2>8. 정리는 파일 삭제와 다릅니다</h2>
+<p>Run 값 제거는 재실행 요청을 제거하는 것이고 프로그램 제거는 아닙니다. Startup의 LNK를 지우는 것도 대상 실행 파일 삭제와 다릅니다. 반대로 대상 파일만 삭제하면 깨진 자동 실행 구성이 남을 수 있습니다.</p>
+<figure id="figure-5" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/21-restore.svg" width="720" height="635" alt="설정 복원과 이미 실행된 프로세스 정리를 나누는 개념도" loading="eager" style="width:720px;aspect-ratio:720/635"></div><figcaption>설정 복원과 이미 실행된 프로세스 정리를 나누는 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>실습 정리는 자신이 만든 정확한 <code>TrainingNote</code> 값 또는 바로가기만 대상으로 합니다. 기존 항목을 수정했다면 원래 데이터·유형으로 복원해야 하므로 사전 기록이 필요합니다. 관련 프로세스를 확인하고 다음 로그인에서 새 실행이 없음을 관측합니다. 정책으로 다시 생성되는 항목이라면 로컬 삭제만 반복하지 말고 관리 주체와 원인을 조사합니다.</p>
+</section>
+<section id="section-9"><h2>9. 조건을 바꾸어 생각해 보기</h2>
+<p>같은 메모장 경로라도 A사용자의 HKCU와 B사용자의 HKCU는 다릅니다. 같은 값 이름이어도 데이터가 달라지면 대상 프로그램이 달라집니다. 같은 LNK라도 Target 뒤에 인수가 붙거나 Start in이 다르면 동작이 달라질 수 있습니다.</p>
+<p>조사 사례를 <code>항목 이름 → 악성</code>으로 줄이지 말고 <code>어느 사용자의 어느 위치 → 어떤 전체 명령 → 언제 바뀜 → 실제로 무엇이 실행됨 → 정상 변경 근거</code>로 써 보세요. RunOnce 값 부재를 완료로, Autoruns 필터로 숨은 항목을 부재로, 설정 삭제를 프로세스 종료로 오해하는 세 가지를 특히 주의합니다.</p>
+</section>
+<section id="section-10"><h2>10. 복습과 바로 읽는 해설</h2>
+<h3>복습 1. Run은 시스템 부팅만 하면 즉시 실행되나요?</h3>
+<p><strong>해설:</strong> 대표적인 조건은 사용자 로그온이며 즉시 실행 시각도 보장되지 않습니다. 부팅·로그온·실행을 나누어 확인합니다.</p>
+<h3>복습 2. RunOnce 값이 사라졌으면 성공인가요?</h3>
+<p><strong>해설:</strong> 기본은 실행 전에 삭제될 수 있습니다. 프로그램 실행·완료는 다른 증거가 필요합니다.</p>
+<h3>복습 3. 값 이름과 값 데이터 중 실제 대상을 정하는 것은?</h3>
+<p><strong>해설:</strong> 데이터의 명령줄입니다. 이름과 설명만으로 프로그램을 판단하지 않습니다.</p>
+<h3>복습 4. 공식 Autoruns 사진은 Logon 선택 결과인가요?</h3>
+<p><strong>해설:</strong> Everything 선택의 2017년 원본입니다. Logon 탭 위치와 숨김 상태를 읽는 데 사용합니다.</p>
+<h3>복습 5. Autoruns 체크박스를 조회 중 해제해도 되나요?</h3>
+<p><strong>해설:</strong> 자동 실행 구성을 바꿀 수 있습니다. 읽기 전용 조사 단계에서는 유지합니다.</p>
+<h3>복습 6. 시작 폴더 LNK를 지우면 대상 EXE도 지워지나요?</h3>
+<p><strong>해설:</strong> 별도 파일입니다. 바로가기 제거와 대상 프로그램 제거를 구별합니다.</p>
+<h3>복습 7. 왜 Run과 Startup 실습을 동시에 하지 않나요?</h3>
+<p><strong>해설:</strong> 같은 앱이 열리면 원인을 구분하기 어렵습니다. 한 조건씩 등록·관측·정리합니다.</p>
+<h3>복습 8. 값을 지웠는데 프로세스가 남았습니다. 모순인가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 재실행 설정과 이미 실행 중인 프로세스는 수명이 다릅니다.</p>
+</section>
+<section id="section-11"><h2>11. 공식 자료와 적용 범위</h2>
+<p>확인일: <strong>2026년 11월 4일</strong>. 실제 제품·레지스트리·로그인 예제는 미실행입니다. 공식 이미지의 화면 버전과 실습 가정을 구별했습니다.</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/setupapi/run-and-runonce-registry-keys">Microsoft Run and RunOnce</a>: 수명·삭제·지연·계정 조건.</li>
+<li><a href="https://learn.microsoft.com/en-us/troubleshoot/windows-client/shell-experience/standard-user-cannot-run-commnad-via-runonce">Microsoft 표준 사용자 RunOnce 제한</a>: OS·계정별 해석 주의.</li>
+<li><a href="https://support.microsoft.com/en-us/windows/configure-startup-applications-in-windows-115a420a-0bff-4a6f-90e0-1934c844e473">Microsoft 시작 앱 구성</a>: 시작 폴더와 사용자·공통 범위.</li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/autoruns">Microsoft Sysinternals Autoruns</a>: 도구·표시·탐색 기능.</li>
+<li><a href="https://www.microsoftpressstore.com/articles/article.aspx?p=2762082">Microsoft Press 실제 Autoruns 예시</a>: 역사적 원본 화면.</li>
+<li><a href="https://attack.mitre.org/techniques/T1547/001/">MITRE T1547.001</a>: Run 키와 시작 폴더의 악용 분류.</li>
+</ul>
+</section><nav class="pager" aria-label="강의 이동"><a href="index.html">← 과정 전체 목차</a><a href="20-persistence-state-context.html">← 6장 1강 · 지속성·사용자·Cobalt Strike 콘솔</a><a href="22-logon-powershell-profiles.html">6장 3강 · 로그온·PowerShell 프로필 →</a></nav></main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>
