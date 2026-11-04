@@ -106,10 +106,10 @@
       "lesson_id": 28,
       "day_lesson": 6,
       "status": "publication_pending",
-      "body_sha256": "4bc8c969331b90e0997c06858fb7ccc99cfc56f592b3804c4354f49d7eaae6fa",
+      "body_sha256": "b644998266adc0bfe9b29e922d95a2816ddeb31dcc6d3fce8eebaba8f7efa0e6",
       "review": ".learning/reviews/day-two-06-revision-20261104.md",
       "base_main": "fb0f8957314e106801e5c2cec7b28f0f64a5e069",
-      "publication": "not_started",
+      "publication": "93320d5a1d7129ea459ae682ffafa454a968703b; desktop reviewed; mobile SVG readability fix pending",
       "browser_preflight": "public_HTTPS_and_screenshot_passed_in_user_resume; heartbeat_preflight_was_disabled"
     },
     "last_publication": {
