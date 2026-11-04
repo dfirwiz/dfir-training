@@ -476,5 +476,16 @@
     ],
     "ui_version_caveat": "4.13-specific interpreter lint command, current guide September 2026. Official pre-existing successful lint result, not our test.",
     "privacy_check": "No real user input history, keystroke or clipboard contents. Public developer lab sample only."
+  },
+  {
+    "file": "ch8-elevate.png",
+    "width": 376,
+    "height": 187,
+    "bytes": 11637,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/priv-escl_elevate.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_privilege-escalation.htm",
+    "sha256": "95506d9720f4c5fa68c445bfd113c4b4d876b320611af667430a3d578072c040",
+    "retrieved_on": "2026-11-05",
+    "modified": false
   }
 ]

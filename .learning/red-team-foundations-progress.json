@@ -40,7 +40,7 @@
   ],
   "published_unit": "1~7장 및 8장1~4강 공개: 2장만 핵심 요약",
   "next_scope": "8장5~6강 (전역 ID36~37): DLL 검색·소프트웨어 취약점 및 UAC·무결성·승격 결과 검증",
-  "next_lesson_status": "ready",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -248,6 +248,21 @@
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/35-service-file-registry-permissions.html"
       ],
       "public_verification": "2강·목차·SVG6·다운로드2·공식사진3 HTTP200/SHA256일치. 공개 브라우저2강의11절·8복습·화면바로가기·강의이동·데스크톱폭 확인."
+    },
+    "batch_5_6": {
+      "date": "2026-11-05",
+      "lesson_ids": [
+        36,
+        37
+      ],
+      "publication_status": "prepared_awaiting_public_verification",
+      "source_scope_reviewed": "entire chapter re-read from connected uploaded source; no private text/images/identifiers published",
+      "diagrams": 6,
+      "official_image_occurrences": 5,
+      "new_official_images": 1,
+      "review_questions": 16,
+      "verification_scope": "37-lesson build passed; original 35 markdown and body sections preserved; links/images/anchors and SVG inspected; actual products and Windows procedures not executed",
+      "verification_limits": "local browser binary unavailable; public browser render verification pending; no mobile viewport render yet"
     }
   }
 }

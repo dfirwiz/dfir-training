@@ -1,6 +1,6 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. Windows·Cobalt Strike·최초 접근·지속성에서 접근 후 조회·관측·작업·실행 문맥까지 실제 화면과 상세 설명으로 연결합니다. 권한 상승 장에서는 계정·토큰·사용자 권한과 서비스 구성·접근 규칙을 읽습니다.",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 상세 강의. Windows·Cobalt Strike·최초 접근·지속성·접근 후 작업·권한 상승의 조건과 결과를 실제 공식 화면과 연결합니다.",
   "updated": "2026-11-05",
   "lessons": [
     {
@@ -838,6 +838,76 @@
           [
             "section-8",
             "3. 사례와 연습"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 36,
+      "slug": "36-dll-search-software-vulnerabilities",
+      "title": "DLL 검색과 소프트웨어 취약점: 로드 경로와 입력 신뢰 경계",
+      "short_title": "DLL 검색과 소프트웨어 취약점",
+      "description": "DLL 로더 조건·실제 ProcMon 필터·로드 증거를 비교하고 높은 권한의 파서와 BinaryFormatter 버전 차이를 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 8,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 5,
+      "screenshots": 2,
+      "ui_revision": "20261105-final-privilege",
+      "practice": {
+        "title": "실제 화면과 미실행 확인 절차",
+        "description": "공식 원본·학습 가정값·수행하지 않은 동작을 구별하며 입력 위치와 검증 근거를 연결합니다.",
+        "links": [
+          [
+            "screen-65",
+            "1. 실제 조사 화면"
+          ],
+          [
+            "screen-66",
+            "2. 다음 화면과 확인 지점"
+          ],
+          [
+            "section-9",
+            "3. 판정과 재검증"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 37,
+      "slug": "37-uac-integrity-elevation-validation",
+      "title": "UAC·무결성·승격 결과 검증: 관리자 표시에서 실제 토큰까지",
+      "short_title": "UAC·무결성·승격 결과 검증",
+      "description": "UAC·MIC·DACL과 분리 토큰을 비교하고 공식 Console·Elevate·Sessions 화면에서 요청과 결과의 검증 지점을 읽습니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 8,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 6,
+      "screenshots": 3,
+      "ui_revision": "20261105-final-privilege",
+      "practice": {
+        "title": "실제 화면과 미실행 확인 절차",
+        "description": "공식 원본·학습 가정값·수행하지 않은 동작을 구별하며 입력 위치와 검증 근거를 연결합니다.",
+        "links": [
+          [
+            "screen-67",
+            "1. 실제 조사 화면"
+          ],
+          [
+            "screen-68",
+            "2. 다음 화면과 확인 지점"
+          ],
+          [
+            "section-9",
+            "3. 판정과 재검증"
           ]
         ]
       }
