@@ -107,55 +107,68 @@
       "id": "d1-09",
       "day": 1,
       "number": 11,
-      "title": "위협 정보의 의미와 활용",
-      "status": "planned"
+      "title": "위협 정보의 원리와 맥락 있는 판단",
+      "status": "published",
+      "slug": "day-01-11-threat-intelligence-context",
+      "short_title": "위협 정보와 맥락",
+      "description": "첫째 날11강. 정보 요구·위협·관측값의 맥락과 출처를 연결하고, 자체 유형·값·시간 비교로 조사 판단을 연습합니다."
     },
     {
       "id": "d1-10",
       "day": 1,
       "number": 12,
-      "title": "위협 정보 플랫폼과 정보 공유",
+      "title": "위협 정보 플랫폼·피드와 안전한 공유",
+      "status": "published",
+      "slug": "day-01-12-platform-feeds-sharing",
+      "short_title": "플랫폼·피드·안전한 공유",
+      "description": "첫째 날12강. 플랫폼의 저장·조회·교환과 피드 품질·지연·갱신, 디팽과TLP2.0의 안전한 공유 범위를 배웁니다."
+    },
+    {
+      "id": "d1-10b",
+      "day": 1,
+      "number": 13,
+      "title": "MISP의 자료 모델과 정보 공유",
       "status": "planned"
     },
     {
       "id": "d1-11",
       "day": 1,
-      "number": 13,
+      "number": 14,
       "title": "위협 정보 활용 실습",
       "status": "planned"
     },
     {
       "id": "d1-12",
       "day": 1,
-      "number": 14,
+      "number": 15,
       "title": "SIEM의 원리와 로그의 연결",
       "status": "planned"
     },
     {
       "id": "d1-13",
       "day": 1,
-      "number": 15,
+      "number": 16,
       "title": "자동화의 역할과 사람의 판단",
       "status": "planned"
     },
     {
       "id": "d1-14",
       "day": 1,
-      "number": 16,
+      "number": 17,
       "title": "공격자의 목적과 행동 이해",
       "status": "planned"
     },
     {
       "id": "d1-15",
       "day": 1,
-      "number": 17,
+      "number": 18,
       "title": "첫째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d1-16",
       "day": 1,
-      "number": 18,
+      "number": 19,
       "title": "로그 검색과 SIEM 실습",
       "status": "planned"
     },
@@ -542,6 +555,7 @@
         "d1-08",
         "d1-09",
         "d1-10",
+        "d1-10b",
         "d1-11",
         "d1-12",
         "d1-13",
@@ -640,6 +654,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-09",
-  "planning_note": "첫째 날 9·10강에서 사건 관리 개념과 TheHive·자체 기록 실습까지 다룹니다. 다음은 11강 위협 정보의 의미입니다. 회차는 깊이를 유지하며 추가 분할할 수 있습니다."
+  "next_lesson": "d1-10b",
+  "planning_note": "위협 정보 모듈은11강 원리·맥락,12강 플랫폼·피드·안전한 공유,13강 MISP 자료 모델로 나눕니다. 자체 활용 실습은14강으로 이어지며 기존 공개 번호·URL·본문은 보존합니다."
 }

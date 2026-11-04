@@ -64,7 +64,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      11,
+      12
+    ],
+    "lesson_ids": [
+      "d1-09",
+      "d1-10"
+    ],
+    "status": "validated_awaiting_publication",
+    "source_printed": [
+      108,
+      120
+    ],
+    "scope": "11: intelligence/context and decisions. 12: TIP requirements, feeds and safe sharing. MISP model121-131 is a new separate lesson13 before original practice."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "3c61d9c5f974eb2ff75db587f6ef8cf761e60f87",
