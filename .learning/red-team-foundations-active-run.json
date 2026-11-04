@@ -1,0 +1,11 @@
+{
+  "scope": [
+    36,
+    37
+  ],
+  "status": "in_progress",
+  "owner": "scheduled-20261105-0911",
+  "started_at": "2026-11-04T22:11:09Z",
+  "expires_at": "2026-11-05T00:00:00Z",
+  "next": "Complete source-reviewed lessons, build and visual verification before publication"
+}
