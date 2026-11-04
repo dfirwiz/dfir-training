@@ -12,29 +12,29 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      46,
-      68
+      69,
+      85
     ],
     "pdf_pages": [
-      48,
-      70
+      71,
+      87
     ],
-    "workbook_vm_scope": "Defensible network concepts split into two detailed lessons; no original workbook/VM available; only synthetic correlation and capacity calculations executed."
+    "workbook_vm_scope": "Complete event/alert module split into event flow and detection interpretation; original separate workbook/VM not available in inspected locations; only synthetic record processing and detection-rate calculations executed."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 7,
-    "lesson_id": "d1-06",
-    "topic": "이벤트·경보·이상 징후·사건 구분",
+    "lesson": 9,
+    "lesson_id": "d1-07",
+    "topic": "사건 기록과 처리 흐름",
     "volume": 1,
-    "printed_start": 69,
-    "pdf_start": 71,
+    "printed_start": 86,
+    "pdf_start": 88,
     "status": "planned",
     "batch_lessons": [
-      7,
-      8
+      9,
+      10
     ],
-    "numbering_note": "Internal ID d1-06 is now display lesson7. Use course.json day order/number, not ID suffix. New display lesson6 has ID d1-05b."
+    "numbering_note": "Display8 has new ID d1-06b. ID d1-07 is display9; select by course.json number/day order, not ID suffix."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -46,7 +46,9 @@
       3,
       4,
       5,
-      6
+      6,
+      7,
+      8
     ],
     "2": [
       1,
@@ -59,7 +61,10 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "ce76ba9b7a686b1fa42c02ff5f86720fa1dd3562",
     "day": 1,
     "lessons": [
       7,
@@ -69,34 +74,15 @@
       "d1-06",
       "d1-06b"
     ],
-    "status": "validated_awaiting_publication",
-    "source_printed": [
-      69,
-      85
-    ],
-    "started": "2026-11-04T10:12:50Z",
-    "split_note": "Event flow and triage in7; detection types and interpretation in8; incident management moves to9. Cloud migration is not complete; this run remains local."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "402e052f0b2ea0c7b13dd7b2c7ce3544fd7e13c9",
-    "day": 1,
-    "lessons": [
-      5,
-      6
-    ],
-    "lesson_ids": [
-      "d1-05",
-      "d1-05b"
-    ],
     "deployment": "success",
-    "actions_run": 41807163378,
-    "public_files_checked": 22,
+    "actions_run": 41816968854,
+    "public_files_checked": 24,
     "public_content_match": true,
     "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure",
     "new_figures": 6,
-    "new_review_questions": 28,
-    "synthetic_calculations": "Python3.12.14: PID-only2 vs host/execution1; UTC09:00:06; 17.28GB/day=16.09GiB/day; 7days120.96GB."
+    "new_review_questions": 24,
+    "synthetic_calculations": "Python3.12.14: received3/unique2; missing verdict unknown. A116 alerts/13.79% precision/80% recall/1% FPR; B32/37.5%/60%/0.2%.",
+    "execution_environment": "local; cloud migration prepared but not yet created or tested"
   },
   "completed_lesson_ids_day1": [
     "d1-01",
@@ -104,6 +90,8 @@
     "d1-03",
     "d1-04",
     "d1-05",
-    "d1-05b"
+    "d1-05b",
+    "d1-06",
+    "d1-06b"
   ]
 }
