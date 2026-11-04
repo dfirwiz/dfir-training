@@ -1,7 +1,7 @@
 {
   "title": "블루팀 필수 지식: 보안 운영과 분석",
   "slug": "network-security",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "lessons": [
     {
       "id": "d1-01",
@@ -28,14 +28,20 @@
       "day": 1,
       "number": 3,
       "title": "SOC의 역할과 사람·업무·기술",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-03-soc-roles-mission",
+      "short_title": "SOC의 임무와 역할",
+      "description": "첫째 날 3강. 업무 목표에서 운영 범위·권한·위험 판단을 정하고, 역할·단계별 조직·공동 조사와 인계를 연결합니다."
     },
     {
       "id": "d1-04",
       "day": 1,
       "number": 4,
       "title": "SOC 운영 흐름과 분석가의 협업",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-04-soc-workflow",
+      "short_title": "SOC 운영 흐름과 협업",
+      "description": "첫째 날 4강. 수집·탐지·분류·조사·대응의 입력과 결과를 읽고, 관측 한계·운영 문서·자체 CSV 지표 계산을 연결합니다."
     },
     {
       "id": "d1-05",
@@ -600,6 +606,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-03",
+  "next_lesson": "d1-05",
   "planning_note": "준비 중인 강의는 상세 집필 때 배경과 예외를 충분히 설명할 수 있도록 더 나눌 수 있습니다. 여섯째 날은 독립적인 종합 실습을 별도로 준비합니다."
 }

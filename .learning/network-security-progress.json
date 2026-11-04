@@ -53,7 +53,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      3,
+      4
+    ],
+    "state": "publication_pending",
+    "source_printed_pages": [
+      20,
+      45
+    ],
+    "source_pdf_pages": [
+      22,
+      47
+    ],
+    "verification": "Source coverage, content, HTML, SVG, and synthetic CSV checks passed; browser visual QA unavailable; deployment pending."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "155c1e7842cd580dc3ec02fa05b223bf4fb76352",
