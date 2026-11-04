@@ -1,6 +1,6 @@
 {
   "course": "network-security",
-  "updated": "2026-11-03",
+  "updated": "2026-11-04",
   "completed_lessons": [
     1,
     2,
@@ -12,26 +12,26 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      6,
-      19
+      20,
+      45
     ],
     "pdf_pages": [
-      8,
-      21
+      22,
+      47
     ],
-    "workbook_vm_scope": "Original workbook and VM unavailable in inspected locations; independent preparation lesson and benign local hash experiment only."
+    "workbook_vm_scope": "SOC overview concepts; original workbook and VM availability unchanged. Only synthetic CSV calculation executed."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 3,
-    "topic": "SOC의 역할과 사람·업무·기술",
+    "lesson": 5,
+    "topic": "방어하기 쉬운 네트워크와 증거 수집",
     "volume": 1,
-    "printed_start": 20,
-    "pdf_start": 22,
+    "printed_start": 46,
+    "pdf_start": 48,
     "status": "planned",
     "batch_lessons": [
-      3,
-      4
+      5,
+      6
     ]
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
@@ -40,7 +40,9 @@
   "completed_by_day": {
     "1": [
       1,
-      2
+      2,
+      3,
+      4
     ],
     "2": [
       1,
@@ -53,36 +55,22 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "87ffb960985cb039523780bcd7a7321ab2a849eb",
     "day": 1,
     "lessons": [
       3,
       4
     ],
-    "state": "publication_pending",
-    "source_printed_pages": [
-      20,
-      45
-    ],
-    "source_pdf_pages": [
-      22,
-      47
-    ],
-    "verification": "Source coverage, content, HTML, SVG, and synthetic CSV checks passed; browser visual QA unavailable; deployment pending."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "155c1e7842cd580dc3ec02fa05b223bf4fb76352",
-    "day": 1,
-    "lessons": [
-      1,
-      2
-    ],
     "deployment": "success",
-    "public_files_checked": 18,
+    "actions_run": 41799649581,
+    "public_files_checked": 20,
     "public_content_match": true,
-    "browser_visual_qa": "unavailable: computer-use initialization kernel path failure",
+    "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure",
     "new_figures": 6,
-    "new_review_questions": 28
+    "new_review_questions": 28,
+    "synthetic_calculations": "Python3.12.14: 00:35 -> 5/4/80.0; 00:30 -> 4/3/75.0; mean6.5min, E05wait27min, E03collection13min/total18min."
   }
 }
