@@ -55,7 +55,28 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      5,
+      6
+    ],
+    "state": "publication_pending",
+    "source_printed_pages": [
+      46,
+      68
+    ],
+    "source_pdf_pages": [
+      48,
+      70
+    ],
+    "split_note": "Split defensible-network module into network/endpoint visibility and cloud/centralization for depth; original events topic moves to lesson7.",
+    "verification": "Content/source coverage, HTML, SVG, synthetic correlation/capacity checks passed; browser unavailable; publication pending.",
+    "new_lesson_ids": [
+      "d1-05",
+      "d1-05b"
+    ]
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "87ffb960985cb039523780bcd7a7321ab2a849eb",
