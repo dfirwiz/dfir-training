@@ -1,7 +1,7 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. Windows·Cobalt Strike·최초 접근·지속성에서 접근 후 조회·관측·작업·실행 문맥까지 실제 화면과 상세 설명으로 연결합니다.",
-  "updated": "2026-11-04",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. Windows·Cobalt Strike·최초 접근·지속성에서 접근 후 조회·관측·작업·실행 문맥까지 실제 화면과 상세 설명으로 연결합니다. 권한 상승 장에서는 계정·토큰·사용자 권한과 서비스 구성·접근 규칙을 읽습니다.",
+  "updated": "2026-11-05",
   "lessons": [
     {
       "id": 1,
@@ -709,6 +709,68 @@
           ]
         ]
       }
+    },
+    {
+      "id": 32,
+      "slug": "32-accounts-tokens-rights",
+      "title": "Windows 계정·토큰·사용자 권한: 이름과 실제 실행 문맥 구별하기",
+      "short_title": "계정·토큰·사용자 권한",
+      "description": "서비스 계정의 로컬·네트워크 문맥, 그룹 속성·특권 상태와 실제 Cobalt Strike 콘솔의 조회 위치를 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 8,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "ui_revision": "20261105-privilege",
+      "practice": {
+        "title": "실제 콘솔·조회 절차 바로 보기",
+        "description": "공식 실제 사진과 미실행 조회 예시를 구별하며 입력 위치·가정값·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-59",
+            "1. 실제 콘솔 입력 위치"
+          ],
+          [
+            "section-7",
+            "2. 조회값·결과 해석"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 33,
+      "slug": "33-service-configuration-evidence",
+      "title": "서비스 구성과 접근 권한: 실행 경로·계정·객체별 증거 읽기",
+      "short_title": "서비스 구성·접근 권한의 증거",
+      "description": "서비스 이름·구성·상태와 서비스 객체·파일·폴더·레지스트리 ACL을 구별하고 읽기 전용 조사 절차를 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 8,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "ui_revision": "20261105-privilege",
+      "practice": {
+        "title": "실제 콘솔·조회 절차 바로 보기",
+        "description": "공식 실제 사진과 미실행 조회 예시를 구별하며 입력 위치·가정값·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-60",
+            "1. 실제 콘솔 입력 위치"
+          ],
+          [
+            "section-6",
+            "2. 조회값·결과 해석"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -753,6 +815,14 @@
       "practice_entry": "27-file-browser-downloads",
       "practice_label": "실제 Cobalt Strike 화면부터 따라보기",
       "practice_description": "File Browser의 메뉴·경로·Refresh·전송을 시작으로 Process Browser·Jobs·Desktop·Interpreter·Listener 참조 화면을 각 강의에서 연결합니다."
+    },
+    {
+      "id": 8,
+      "title": "Privilege Escalation",
+      "title_ko": "권한 상승: 계정·토큰과 서비스 증거",
+      "practice_entry": "32-accounts-tokens-rights",
+      "practice_label": "실제 콘솔과 조회 순서부터 보기",
+      "practice_description": "8장 1~2강 공개. 계정·토큰·사용자 권한과 서비스 구성·객체별 ACL을 읽으며 나머지 강의는 순서대로 추가합니다."
     }
   ]
 }

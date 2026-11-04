@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="서비스 이름·구성·상태와 서비스 객체·파일·폴더·레지스트리 ACL을 구별하고 읽기 전용 조사 절차를 설명합니다."><title>서비스 구성과 접근 권한: 실행 경로·계정·객체별 증거 읽기 | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/33-service-configuration-evidence.html"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css?v=20261105-privilege"></head>
+<body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout"><aside class="course-sidebar"><details class="course-menu" open><summary>레드팀 기초 · 과정 목차</summary><a class="course-overview" href="index.html">과정 소개와 학습 순서</a><nav class="course-chapters" aria-label="장별 강의 목차"><details class="course-day course-chapter"><summary><span><span class="chapter-number">1장</span> <span lang="en">Getting Started</span></span></summary><ol class="chapter-lessons"><li><a href="01-purpose-ttp-evidence.html"><span class="num">1강</span><span>레드팀의 목적·TTP·증거 해석</span></a></li><li><a href="02-intelligence-attack-lifecycle.html"><span class="num">2강</span><span>위협 인텔리전스와 공격 생명주기</span></a></li><li><a href="03-engagement-opsec-records.html"><span class="num">3강</span><span>활동 계획·ROE·OPSEC·작업 기록</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">2장</span> <span lang="en">Law &amp; Compliance</span></span></summary><ol class="chapter-lessons"><li><a href="04-law-compliance.html"><span class="num">1강</span><span>법과 준수 원칙 · 핵심 요약</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">3장</span> <span lang="en">Malware Essentials</span></span></summary><ol class="chapter-lessons"><li><a href="05-pe-file-memory.html"><span class="num">1강</span><span>PE 파일 구조·RVA·읽기 전용 실습</span></a></li><li><a href="06-process-memory-security.html"><span class="num">2강</span><span>프로세스·메모리·접근 토큰</span></a></li><li><a href="07-injection-evidence.html"><span class="num">3강</span><span>코드 주입의 원리와 증거 해석</span></a></li><li><a href="08-csharp-native-interop.html"><span class="num">4강</span><span>C# P/Invoke·인코딩·오류 처리</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">4장</span> <span lang="en">Cobalt Strike Primer</span></span></summary><ol class="chapter-lessons"><li><a href="09-c2-components.html"><span class="num">1강</span><span>C2 구성 요소·다중 서버·기록</span></a></li><li><a href="10-http-dns-listeners.html"><span class="num">2강</span><span>HTTP·DNS·리스너 설정 해석</span></a></li><li><a href="11-peer-links.html"><span class="num">3강</span><span>SMB·TCP·P2P 연결과 수명</span></a></li><li><a href="12-payload-loading.html"><span class="num">4강</span><span>페이로드·로더·staging·종료</span></a></li><li><a href="13-sessions-task-evidence.html"><span class="num">5강</span><span>세션·작업 상태·가상 로그 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">5장</span> <span lang="en">Initial Access</span></span></summary><ol class="chapter-lessons"><li><a href="14-initial-access-chain.html"><span class="num">1강</span><span>최초 접근·구성 요소·조사 연결</span></a></li><li><a href="15-dll-managed-loading.html"><span class="num">2강</span><span>DLL·.NET 로딩·ProcMon 화면</span></a></li><li><a href="16-installers-addins-signatures.html"><span class="num">3강</span><span>MSI·Excel·서명·보안 센터</span></a></li><li><a href="17-triggers-shortcuts-console.html"><span class="num">4강</span><span>트리거·LNK·MSC·실행 문맥</span></a></li><li><a href="18-containers-motw-provenance.html"><span class="num">5강</span><span>컨테이너·MotW·Python 실습</span></a></li><li><a href="19-web-delivery-observation.html"><span class="num">6강</span><span>Cobalt Strike 화면 설정·호스팅·확인</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">6장</span> <span lang="en">Persistence</span></span></summary><ol class="chapter-lessons"><li><a href="20-persistence-state-context.html"><span class="num">1강</span><span>지속성·사용자·Cobalt Strike 콘솔</span></a></li><li><a href="21-run-startup.html"><span class="num">2강</span><span>Run·Startup·Autoruns 화면</span></a></li><li><a href="22-logon-powershell-profiles.html"><span class="num">3강</span><span>로그온·PowerShell 프로필</span></a></li><li><a href="23-scheduled-tasks-ui.html"><span class="num">4강</span><span>예약 작업 화면·설정·실행 증거</span></a></li><li><a href="24-com-registration-evidence.html"><span class="num">5강</span><span>COM·HKCR·ProcMon 화면</span></a></li><li><a href="25-persistence-investigation-review.html"><span class="num">6강</span><span>조사 시간표·Python XML 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">7장</span> <span lang="en">Post-Exploitation</span></span></summary><ol class="chapter-lessons"><li><a href="26-postex-command-behavior.html"><span class="num">1강</span><span>상황 파악·명령 동작·도움말</span></a></li><li><a href="27-file-browser-downloads.html"><span class="num">2강</span><span>파일 화면·캐시·전송·Sync Files</span></a></li><li><a href="28-process-registry-context.html"><span class="num">3강</span><span>프로세스 화면·식별자·reg 조회</span></a></li><li><a href="29-observation-jobs-desktop.html"><span class="num">4강</span><span>화면·Desktop·Jobs·중지 확인</span></a></li><li><a href="30-execution-engines-extensions.html"><span class="num">5강</span><span>실행 엔진·확장·Interpreter 화면</span></a></li><li><a href="31-session-passing-workflow-review.html"><span class="num">6강</span><span>세션 전달·상태·Python 실습</span></a></li></ol></details><details class="course-day course-chapter" open><summary><span><span class="chapter-number">8장</span> <span lang="en">Privilege Escalation</span></span></summary><ol class="chapter-lessons"><li><a href="32-accounts-tokens-rights.html"><span class="num">1강</span><span>계정·토큰·사용자 권한</span></a></li><li><a href="33-service-configuration-evidence.html" aria-current="page"><span class="num">2강</span><span>서비스 구성·접근 권한의 증거</span></a></li></ol></details></nav></details></aside><main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a> / <a href="index.html#chapter-8">8장 · Privilege Escalation</a></p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / CHAPTER 08 / LESSON 02</div><h1>서비스 구성과 접근 권한: 실행 경로·계정·객체별 증거 읽기</h1><p class="description">서비스 이름·구성·상태와 서비스 객체·파일·폴더·레지스트리 ACL을 구별하고 읽기 전용 조사 절차를 설명합니다.</p><div class="meta"><span>8장 2강 · 8개의 복습과 해설</span><span>업데이트 2026-11-05</span></div></header><nav class="cs-practice-start toc" aria-label="화면 실습 시작"><strong>실제 콘솔·조회 절차 바로 보기</strong><p>공식 실제 사진과 미실행 조회 예시를 구별하며 입력 위치·가정값·결과 확인을 연결합니다.</p><div class="cs-practice-links"><a href="#screen-60">1. 실제 콘솔 입력 위치</a><a href="#section-6">2. 조회값·결과 해석</a></div></nav><nav class="toc ui-screen-nav" aria-label="실제 설정 화면 바로가기"><strong>공식 화면으로 따라보기</strong><ul class="toc-list" role="list"><li><a href="#screen-60">실제 화면 60: 서비스 조회를 입력하는 위치</a></li></ul><p>메뉴 경로 → 화면의 입력 위치 → 예시 값 → 저장 후 확인을 순서대로 읽습니다.</p></nav><nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list"><li><a href="#section-1">1. 서비스가 SYSTEM이면 취약한 것일까요?</a></li><li><a href="#section-2">2. 서비스의 네 가지 식별 정보를 연결하기</a></li><li><a href="#section-3">3. 실제 Cobalt Strike 콘솔에서 도움말부터 열기</a></li><li><a href="#section-4">4. Windows 관리 화면에서 읽고 닫기</a></li><li><a href="#section-5">5. 서비스 권한은 네 종류의 객체에서 봅니다</a></li><li><a href="#section-6">6. 파일과 레지스트리 ACL의 읽기 전용 예시</a></li><li><a href="#section-7">7. 위험 가설에는 조건의 연결이 필요합니다</a></li><li><a href="#section-8">8. 조건을 바꾸어 읽는 세 가지 사례</a></li><li><a href="#section-9">9. 기록·오류·정리 기준</a></li><li><a href="#section-10">10. 복습과 즉시 해설</a></li><li><a href="#section-11">11. 공식 근거와 다음 범위</a></li></ul></nav><section id="section-1"><h2>1. 서비스가 SYSTEM이면 취약한 것일까요?</h2>
+<p>건물 관리실이 강한 열쇠를 가지고 있다는 사실만으로 보안 사고가 발생하지는 않습니다. 누가 관리실에 작업 지시를 넣을 수 있는지, 어떤 파일을 읽어 실행하는지, 작업이 언제 시작되는지를 함께 살펴야 합니다. Windows 서비스도 같습니다. <strong>강한 실행 계정</strong>과 <strong>낮은 권한 사용자가 바꿀 수 있는 입력</strong> 사이의 연결이 핵심 질문입니다.</p>
+<p>서비스는 Service Control Manager(SCM)가 관리하는 실행 단위입니다. 한 프로세스가 여러 서비스를 호스팅할 수도 있어 서비스 이름과 프로세스 이름이 일대일이라고 가정하지 않습니다. 실행 파일 경로 하나만 복사해 “취약”이라고 표시하면 실제 서비스 구조와 권한을 놓칩니다.</p>
+<p>이 강의는 <code>TrainingReport</code>라는 가상의 사전 준비된 서비스에 대한 읽기 전용 조사를 설명합니다. 서비스 생성·중지·재시작·실행 파일 교체·시작 계정 변경은 수행하지 않습니다. Windows·Cobalt Strike에서도 아래 절차를 실제 실행하지 않았습니다. 개념도와 사례 표는 독립 작성한 학습 자료이며 실제 진단 결과가 아닙니다.</p>
+</section>
+<section id="section-2"><h2>2. 서비스의 네 가지 식별 정보를 연결하기</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">정보</th>
+<th scope="col">예시 가정</th>
+<th scope="col">필요한 이유</th>
+</tr></thead><tbody>
+<tr><td>서비스 이름</td><td>TrainingReport</td><td>SCM 조회의 식별 키</td></tr>
+<tr><td>표시 이름</td><td>Training Report Service</td><td>관리 콘솔에서 읽기 쉬운 표시</td></tr>
+<tr><td>실행 경로와 인수</td><td>C:\Lab\TrainingOnly\report.exe</td><td>실행 대상과 인수 구별</td></tr>
+<tr><td>실행 계정·상태·PID</td><td>별도 확인</td><td>구성과 현재 실행 연결</td></tr>
+</tbody></table></div>
+<p>표시 이름이 비슷하다고 같은 서비스가 아닙니다. 호스트와 서비스 이름을 먼저 고정합니다. 현재 PID는 프로세스 시작 시각과 묶어서 기록하고, 중지된 서비스에는 실행 PID가 없을 수 있음을 인정합니다. 서비스가 공유 프로세스에서 실행되면 같은 PID 아래 다른 서비스가 있을 수 있습니다.</p>
+<p>시작 계정은 구성에서 의도한 문맥입니다. 현재 프로세스의 토큰과 항상 동일하다고 단정하지 않습니다. 실행 도중 구성 변경, 서비스의 가장, 제한된 서비스 토큰 같은 조건이 있을 수 있습니다. <code>구성상 LocalSystem</code>과 <code>이 시각 프로세스에서 확인한 토큰</code>을 별도 줄로 기록합니다.</p>
+<figure id="figure-1" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/33-service-state.svg" width="760" height="635" alt="SCM 구성과 실행 상태를 나누어 연결하는 독립 개념도" loading="eager" style="width:760px;aspect-ratio:760/635"></div><figcaption>SCM 구성과 실행 상태를 나누어 연결하는 독립 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>왼쪽은 서비스가 어떻게 시작되도록 설정되었는지, 오른쪽은 지금 무엇이 실행 중인지에 관한 증거입니다. 화살표는 비교 관계이며 현재 상태가 과거의 모든 실행을 입증하지는 않습니다.</p>
+</section>
+<section id="section-3"><h2>3. 실제 Cobalt Strike 콘솔에서 도움말부터 열기</h2>
+<h3 id="screen-60">실제 화면 60: 서비스 조회를 입력하는 위치</h3>
+<figure id="figure-2" class="diagram course-diagram course-screenshot"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 설정 화면"><a class="screenshot-original" href="../../assets/red-team-foundations/screenshots/beacon-console.png" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: 공식 Beacon Console — 명령 입력 줄과 결과 영역의 실제 위치"><img src="../../assets/red-team-foundations/screenshots/beacon-console.png" width="654" height="288" alt="공식 Beacon Console — 명령 입력 줄과 결과 영역의 실제 위치" loading="eager" style="width:654px;aspect-ratio:654/288"></a></div><figcaption>공식 Beacon Console — 명령 입력 줄과 결과 영역의 실제 위치 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다. 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>출처: <a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_main.htm">Fortra Beacon Console</a>. 공식 공개 원본을 재사용했습니다. 사진 속 출력은 제작사의 예시이고 이번 서비스 조사 결과가 아닙니다. 현행 문서 확인일은 2026-11-05이며 과거 UI 사진과 설치 버전의 메뉴 차이를 확인해야 합니다.</p>
+<ol>
+<li>Sessions 표에서 승인된 VM의 한 행 선택 → 우클릭 → <strong>Interact</strong>를 누릅니다. 콘솔의 호스트·PID를 확인합니다. 여러 세션 동시 선택을 피합니다.</li>
+<li>하단 입력 칸에 <code>help run</code>을 입력하고 Enter를 눌러 설치 버전의 실행·출력 계약을 읽습니다. 도움말 확인에는 별도 저장 버튼이 없습니다.</li>
+<li>아래 읽기 전용 예시를 한 줄씩 입력하는 상황을 가정합니다. <code>run sc.exe query TrainingReport</code>는 상태, <code>run sc.exe qc TrainingReport</code>는 구성이라는 질문 차이를 먼저 기록합니다.</li>
+<li>Enter 뒤 작업 요청과 결과 수신을 나누어 확인합니다. 대상 응답 간격·연결 장애로 결과가 늦으면 미응답으로 남깁니다. 입력 줄이 비었다는 사실을 성공으로 표시하지 않습니다.</li>
+</ol>
+<pre tabindex="0" aria-label="text 예제"><code class="language-text">help run
+run sc.exe query TrainingReport
+run sc.exe qc TrainingReport
+run sc.exe sdshow TrainingReport</code></pre>
+<p><code>TrainingReport</code>는 이 강의의 가정값으로 기존 업무 서비스 이름이 아닙니다. 해당 이름의 서비스가 없으면 조회 실패가 정상입니다. <code>query</code>는 상태, <code>qc</code>는 설정, <code>sdshow</code>는 서비스 객체 보안 설명자를 읽는 서로 다른 요청입니다. 이번 과정에서는 모두 미실행입니다. 위 입력 이후의 실제 응답 사진은 확보하지 못했으며 가상 성공 로그도 만들지 않았습니다.</p>
+<p>과거 자료의 <code>sc_enum</code> 등을 모든 설치의 기본 명령으로 가정하지 않습니다. 확장 스크립트·BOF·버전에 따라 기능과 인자가 다를 수 있습니다. 도움말에 없는 명령은 “미지원 또는 확장 미확인”으로 남기고 이름만 비슷한 다른 기능을 실행하지 않습니다.</p>
+</section>
+<section id="section-4"><h2>4. Windows 관리 화면에서 읽고 닫기</h2>
+<p>실제 Services 속성창의 공식 사진은 이번 강의에서 확보하지 못했습니다. 이 절은 <strong>미실행 메뉴 안내</strong>이며 앞 콘솔 그림을 Services 창 사진으로 대신하지 않습니다.</p>
+<p>Windows의 실행 창에서 <code>services.msc</code> 입력 → 서비스 목록에서 사전 준비한 표시 이름 선택 → 속성 → <strong>일반</strong> 탭 순서로 읽습니다. 서비스 이름, 실행 파일 경로, 시작 유형, 서비스 상태를 기록합니다. <strong>로그온</strong> 탭에서는 어떤 계정 문맥을 사용하도록 되어 있는지 읽되 암호 칸은 입력하지 않습니다. <strong>종속성</strong> 탭에서는 관계를 확인하고 <strong>취소</strong>로 닫습니다.</p>
+<p>여기서는 입력값을 저장하지 않으므로 <strong>적용·시작·중지</strong>를 누를 이유가 없습니다. 목록이 보인다는 사실과 속성 조회·상태 변경 권한은 다릅니다. GUI 접근이 거부되면 명령줄 결과와 시각·대상이 같은지 확인하고 확인 불가 범위를 기록합니다.</p>
+<p>실행 파일 경로에 인수가 붙는 경우 실행 파일과 인수를 구별합니다. 공유 호스트 서비스라면 경로가 공용 호스트를 가리킬 수 있으므로 구현 DLL 등 별도 구성을 확인해야 합니다. 인수까지 모두 파일 경로로 취급해 ACL 조회에 넣으면 존재하지 않는 파일을 조사하게 됩니다.</p>
+</section>
+<section id="section-5"><h2>5. 서비스 권한은 네 종류의 객체에서 봅니다</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">조사 객체</th>
+<th scope="col">권한이 제어하는 작업</th>
+<th scope="col">다른 객체와 혼동하면 생기는 오류</th>
+</tr></thead><tbody>
+<tr><td>서비스 객체</td><td>구성 조회·변경·시작·중지</td><td>파일 쓰기를 서비스 중지 권한으로 오인</td></tr>
+<tr><td>서비스 실행 파일</td><td>파일 읽기·수정 등</td><td>읽기 허용을 교체 가능으로 오인</td></tr>
+<tr><td>부모 디렉터리</td><td>자식 생성·삭제 등</td><td>파일 ACL만 보고 교체 경로 누락</td></tr>
+<tr><td>서비스 레지스트리 키</td><td>값·하위 키 조회·수정</td><td>키 읽기를 SCM 구성 변경 권한으로 오인</td></tr>
+</tbody></table></div>
+<p>서비스 객체의 <code>SERVICE_QUERY_CONFIG</code>와 <code>SERVICE_CHANGE_CONFIG</code>, <code>SERVICE_START</code>와 <code>SERVICE_STOP</code>은 각각 다른 권한입니다. 조회할 수 있다고 중지·변경할 수 있다는 뜻이 아닙니다. 따라서 동작을 시험해 권한을 확인하려고 업무 서비스를 재시작하지 않습니다.</p>
+<p>서비스 파일은 파일 객체 규칙을 따릅니다. 레지스트리 키도 별도 보안 설명자를 가집니다. SCM을 통한 변경과 레지스트리 직접 변경은 같은 API 경로가 아니며 관측·반영 시점도 별도입니다. 접근 규칙이 약하다는 증거를 찾았더라도 실제 구성 반영이나 실행 성공까지 입증했다고 쓰지 않습니다.</p>
+<figure id="figure-3" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/33-permission-objects.svg" width="760" height="635" alt="서비스 객체·파일·디렉터리·레지스트리의 접근 규칙을 구별하는 독립 개념도" loading="eager" style="width:760px;aspect-ratio:760/635"></div><figcaption>서비스 객체·파일·디렉터리·레지스트리의 접근 규칙을 구별하는 독립 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>이 그림은 하나의 서비스 주변에 있는 별도 객체를 비교합니다. 가운데 서비스 이름을 기준으로 연결하되 서로 다른 보안 설명자를 하나의 ACL처럼 합치지 않습니다. 파일 객체와 서비스 객체의 권한 이름도 다릅니다.</p>
+</section>
+<section id="section-6"><h2>6. 파일과 레지스트리 ACL의 읽기 전용 예시</h2>
+<p>승인된 로컬 VM의 일반 PowerShell에서 확인하는 미실행 예시입니다. 이름과 경로는 가정값입니다. 원격 대상 목록을 입력하지 않습니다.</p>
+<pre tabindex="0" aria-label="powershell 예제"><code class="language-powershell">Get-CimInstance Win32_Service -Filter &quot;Name=&#x27;TrainingReport&#x27;&quot; |
+    Select-Object Name, DisplayName, StartName, State, ProcessId, PathName
+icacls.exe &#x27;C:\Lab\TrainingOnly\report.exe&#x27;
+icacls.exe &#x27;C:\Lab\TrainingOnly&#x27;
+Get-Acl -LiteralPath &#x27;HKLM:\SYSTEM\CurrentControlSet\Services\TrainingReport&#x27; |
+    Format-List Owner, AccessToString, Sddl</code></pre>
+<p><code>Get-CimInstance</code>는 이 예시에서 로컬 서비스 구성 한 건만 조회합니다. <code>Get-WmiObject</code>는 Windows PowerShell의 과거 예시와 구별하고, PowerShell 7에서 같은 가용성을 가정하지 않습니다. <code>wmic</code>도 최신 Windows에 항상 설치되어 있다고 보장하지 않습니다.</p>
+<p><code>icacls</code>에 경로만 주는 예시는 DACL 표시를 위한 것입니다. 권한을 수정하는 옵션은 포함하지 않았습니다. <code>F</code>·<code>M</code>·<code>RX</code>와 상속 표시 <code>(I)</code>, 자식 전파 <code>(OI)</code>·<code>(CI)</code>를 구별합니다. 한 ACE의 문자만으로 유효 권한 전체를 계산하지 말고 주체의 그룹·거부 항목·상속·소유자·경로 구성요소를 함께 봅니다. 과거 <code>cacls</code>의 <code>C</code>와 <code>icacls</code>의 <code>M</code>을 같은 출력 표기로 복사하지 않습니다.</p>
+<p>레지스트리 조회는 선택한 키의 소유자·허용 항목을 읽습니다. 키의 <code>ReadKey</code>와 값 변경 권한은 다릅니다. 사용자가 가진 다른 그룹의 허용·거부도 확인합니다. 소유자 이름이 보인다는 사실을 현재 사용자의 변경 성공으로 기록하지 않습니다.</p>
+</section>
+<section id="section-7"><h2>7. 위험 가설에는 조건의 연결이 필요합니다</h2>
+<p>서비스 위험을 설명할 때는 <strong>변경 가능성 → 실제로 읽는 경로 → 실행 계정 → 실행 조건 → 관측 결과</strong>를 연결합니다. 여기서 하나라도 확인되지 않았다면 그 칸을 비워 두고 다음 조사 질문을 씁니다. 제품 이름이나 경로의 공백만으로 전체 연결이 성립하지 않습니다.</p>
+<p>가상 서비스의 실행 파일이 모든 사용자에게 읽기 가능하더라도 쓰기·교체가 불가능하면 파일 수정 가설을 지지하지 않습니다. 반대로 부모 폴더에서 자식 파일의 삭제·생성을 허용한다면 파일 자체의 수정 허용만 조사해서는 부족할 수 있습니다. 실제 교체를 시도하지 않고 접근 규칙을 분석하고 미확인 제약을 남깁니다.</p>
+<p>높은 권한 프로세스가 어떤 파일을 실제로 읽는지, 절대 경로·서명 확인·로딩 정책 등의 조건이 있는지도 중요합니다. 파일이 존재하는 것과 로딩되는 것은 다른 증거입니다. 다음 경로 검색 강의에서는 이 연결을 더 상세히 다룹니다.</p>
+<figure id="figure-4" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/33-risk-evidence.svg" width="760" height="635" alt="변경 가능성에서 실행 검증으로 이어지되 미확인 조건을 남기는 독립 개념도" loading="eager" style="width:760px;aspect-ratio:760/635"></div><figcaption>변경 가능성에서 실행 검증으로 이어지되 미확인 조건을 남기는 독립 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>위 질문에서 변경과 실행의 두 가지 증거로 분기합니다. 아래 결론에 도달하려면 양쪽이 모두 필요합니다. 이번 강의는 실행 시험을 하지 않으므로 가설과 미확인 조건까지만 기록합니다.</p>
+</section>
+<section id="section-8"><h2>8. 조건을 바꾸어 읽는 세 가지 사례</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">가상 사례</th>
+<th scope="col">관측한 사실</th>
+<th scope="col">아직 말할 수 없는 것</th>
+<th scope="col">다음 읽기 전용 확인</th>
+</tr></thead><tbody>
+<tr><td>A</td><td>실행 계정 LocalSystem, 파일 RX</td><td>사용자 파일 교체 가능</td><td>부모 ACL·유효 주체</td></tr>
+<tr><td>B</td><td>폴더에 특정 그룹 Modify</td><td>서비스가 그 파일을 실행</td><td>경로·인수·구현·시간</td></tr>
+<tr><td>C</td><td>서비스 구성 조회 가능</td><td>구성 변경·중지 가능</td><td>서비스 객체 보안 설명자</td></tr>
+</tbody></table></div>
+<p>A에서 계정만 보면 우선순위를 높일 수 있지만 취약하다고 확정할 수는 없습니다. B에서 같은 이름의 오래된 파일을 발견했다면 실제 서비스 구성과 연결되는지도 먼저 확인해야 합니다. C의 조회 성공은 읽기 권한의 증거이며 변경 API 성공의 증거가 아닙니다.</p>
+<p>추가 사례로 서비스가 중지 상태라면 과거 실행 기록과 현재 구성을 구별합니다. 시작 유형이 자동이어도 실행 실패나 지연·트리거 등의 조건이 있을 수 있습니다. 운영 영향을 확인하지 않은 재시작은 진단 방법으로 사용하지 않습니다. 조회만으로 결론을 내릴 수 없으면 “조건 미확인”이 정확한 결과입니다.</p>
+</section>
+<section id="section-9"><h2>9. 기록·오류·정리 기준</h2>
+<p>한 서비스의 조사 기록에는 호스트, 수집 시각, 서비스 이름과 표시 이름, 구성상 시작 계정, 실행 경로 원문, 현재 상태와 PID, 객체별 ACL, 조회 오류를 분리합니다. 경로 원문은 보관하되 공개 예시에서는 실제 업무 경로와 계정을 노출하지 않습니다. 원본 자료와 해석 문장을 같은 칸에 섞지 않습니다.</p>
+<p><code>Access denied</code>는 선택한 요청에 필요한 접근이 허용되지 않았다는 관측입니다. 서비스 부재 오류와 구별하며, 빈 출력은 명령·필터·수집 도구의 가용성부터 확인합니다. 서로 다른 시각에 수집한 구성과 PID를 하나의 스냅샷으로 쓰지 않습니다.</p>
+<p>이 강의의 정리는 조회 탭과 임시 메모를 승인된 보관 기준에 맞게 관리하는 것입니다. 서비스나 파일을 변경하지 않았으므로 되돌릴 변경은 없습니다. 실제 제품을 실행한 결과와 Python으로 만든 사례 표를 혼동하지 않으며, 다음 강의에서도 구성 취약점 설명과 실제 공격 수행을 구별합니다.</p>
+</section>
+<section id="section-10"><h2>10. 복습과 즉시 해설</h2>
+<h3>복습 1. SYSTEM 서비스를 찾으면 권한 상승 성공인가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 낮은 권한 주체의 변경 가능성, 실제 실행 경로, 실행 조건, 결과를 연결해야 합니다. 높은 계정만으로 취약점이나 성공을 확정할 수 없습니다.</p>
+<h3>복습 2. 표시 이름을 sc.exe 인수로 쓰면 되나요?</h3>
+<p><strong>해설:</strong> 서비스 이름을 확인해야 합니다. 표시 이름과 SCM 식별 키는 다를 수 있어 잘못된 대상을 조회하거나 부재 오류가 날 수 있습니다.</p>
+<h3>복습 3. qc와 query는 같은가요?</h3>
+<p><strong>해설:</strong> qc는 구성, query는 상태라는 질문이 다릅니다. 현재 실행과 다음 시작에 사용할 설정을 분리해 기록합니다.</p>
+<h3>복습 4. 구성 조회가 되면 서비스 중지도 되나요?</h3>
+<p><strong>해설:</strong> 권한이 다릅니다. 조회·변경·시작·중지는 각각의 허가를 확인하며 변경 작업을 직접 시험하지 않습니다.</p>
+<h3>복습 5. 파일에 RX가 있으면 수정 가능한가요?</h3>
+<p><strong>해설:</strong> 읽기·실행과 수정은 다릅니다. 다른 ACE와 부모 디렉터리 규칙도 분석하되 RX 자체를 교체 권한으로 해석하지 않습니다.</p>
+<h3>복습 6. 파일 ACL 하나면 서비스 권한을 모두 알 수 있나요?</h3>
+<p><strong>해설:</strong> 서비스 객체·파일·부모 폴더·레지스트리 키는 별도 객체입니다. 각각의 접근 규칙을 확인해야 합니다.</p>
+<h3>복습 7. 서비스 경로에 공백이 있으면 취약한가요?</h3>
+<p><strong>해설:</strong> 공백만으로 부족합니다. 따옴표·실제 호출 방식·후보 경로의 변경 가능성·실행 문맥을 확인해야 합니다. 다음 강의에서 이 조건을 분리합니다.</p>
+<h3>복습 8. 명령 예시는 실제 실행 기록인가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 공식 콘솔 사진은 입력 위치 설명이고, Windows 조회 명령과 TrainingReport 사례는 미실행 학습 예시입니다. 서비스 변경·취약점 실행은 수행하지 않았습니다.</p>
+</section>
+<section id="section-11"><h2>11. 공식 근거와 다음 범위</h2>
+<p>확인일: <strong>2026-11-05</strong>. 서비스·토큰 관련 설명은 Microsoft의 객체별 API 계약, 명령 동작은 현행 Fortra 안내서와 대조했습니다. 버전에 따라 사용 가능한 명령·확장·관리 도구가 다릅니다. 다음은 PATH 환경 변수, 프로세스 생성 API의 검색 조건, 따옴표 없는 경로의 판정입니다.</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/services/service-configuration">Microsoft Service Configuration</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/services/service-security-and-access-rights">Microsoft Service Security and Access Rights</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/services/querying-a-service-s-configuration">Microsoft Querying a Service Configuration</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/sc-query">Microsoft Sc.exe query</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/icacls">Microsoft icacls</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/cimcmdlets/get-ciminstance">Microsoft Get-CimInstance</a></li>
+<li><a href="https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.security/get-acl">Microsoft Get-Acl</a></li>
+<li><a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_running-commands.htm">Fortra Running Commands</a></li>
+</ul>
+</section><nav class="pager" aria-label="강의 이동"><a href="index.html">← 과정 전체 목차</a><a href="32-accounts-tokens-rights.html">← 8장 1강 · 계정·토큰·사용자 권한</a><span class="pending">다음 강의는 게시 후 안내합니다</span></nav></main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>
