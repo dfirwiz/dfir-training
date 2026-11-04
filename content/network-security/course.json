@@ -87,15 +87,21 @@
       "id": "d1-07",
       "day": 1,
       "number": 9,
-      "title": "사건 기록과 처리 흐름",
-      "status": "planned"
+      "title": "사건 기록·플레이북·분류와 운영 지표",
+      "status": "published",
+      "slug": "day-01-09-case-records-playbooks",
+      "short_title": "사건 기록과 플레이북",
+      "description": "첫째 날 9강. 사건 관리의 입력·작업·플레이북·종결·분류를 연결하고, 자체 가중 점수와 시간 지표를 해석합니다."
     },
     {
       "id": "d1-08",
       "day": 1,
       "number": 10,
-      "title": "사건 관리 도구 실습",
-      "status": "planned"
+      "title": "TheHive와 사건 기록 실습",
+      "status": "published",
+      "slug": "day-01-10-thehive-case-practice",
+      "short_title": "TheHive와 사건 기록 실습",
+      "description": "첫째 날 10강. 케이스·작업·관측값과 현재 종결 조건을 이해하고, 내려받는 자체 JSON 기록으로 근거와 빈칸을 점검합니다."
     },
     {
       "id": "d1-09",
@@ -634,6 +640,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-07",
-  "planning_note": "경보 모듈은 첫째 날 7강(이벤트·흐름·분류)과 8강(탐지 조건·해석)으로 나눴습니다. 사건 기록과 처리 흐름은 9강부터 이어집니다. 준비 중 범위는 깊이를 유지하며 더 나눌 수 있습니다."
+  "next_lesson": "d1-09",
+  "planning_note": "첫째 날 9·10강에서 사건 관리 개념과 TheHive·자체 기록 실습까지 다룹니다. 다음은 11강 위협 정보의 의미입니다. 회차는 깊이를 유지하며 추가 분할할 수 있습니다."
 }

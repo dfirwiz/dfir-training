@@ -1,0 +1,96 @@
+{
+  "format": "blue-team-training-case-v1",
+  "fictional": true,
+  "case_id": "LAB-CASE-01",
+  "title": "새 단말 인증의 승인 여부 확인",
+  "owner": "analyst-a",
+  "status": "in_progress",
+  "scope": "2026-11-04 09:00–09:30 UTC, analyst-a, WS-LAB-01, portal.example의 제시된 인증 한 건",
+  "evidence": [
+    {
+      "id": "E1",
+      "source": "가상 인증 기록",
+      "timestamp": "2026-11-04T09:10:00+00:00",
+      "account": "analyst-a",
+      "device": "WS-LAB-01",
+      "src_ip": "192.0.2.10",
+      "service": "portal.example",
+      "outcome": "success",
+      "note": "자체 학습용으로 만든 기록. 새 단말 표시가 승인 여부까지 설명하지는 않음."
+    },
+    {
+      "id": "E2",
+      "source": "가상 변경 승인 기록",
+      "account": "analyst-a",
+      "device": "WS-LAB-01",
+      "service": "portal.example",
+      "approved_window": "2026-11-04T09:00:00+00:00 / 2026-11-04T09:30:00+00:00",
+      "purpose": "승인된 시험 단말 로그인",
+      "note": "실제 승인이나 외부 연락이 아닌 자체 가상 정답 자료."
+    },
+    {
+      "id": "E3",
+      "source": "가상 훈련 참고 문서",
+      "domain": "reference.example",
+      "assessment": "의심 활동과 연관되었다고 설정한 가상 정보",
+      "note": "이 환경에서 발견된 기록이 아님. 실제 악성 도메인이 아님."
+    }
+  ],
+  "observables": [
+    {
+      "id": "O1",
+      "type": "domain",
+      "value": "portal.example",
+      "ioc": false,
+      "sighted": true,
+      "evidence_refs": [
+        "E1"
+      ],
+      "rationale": "제시된 인증 기록의 서비스 이름으로 관측. 악성으로 판단한 근거 없음."
+    },
+    {
+      "id": "O2",
+      "type": "domain",
+      "value": "reference.example",
+      "ioc": true,
+      "sighted": false,
+      "evidence_refs": [
+        "E3"
+      ],
+      "rationale": "가상 외부 참고 정보의 의심 단서이며 제공된 환경에서 관측하지 않음. 실제 악성 아님."
+    }
+  ],
+  "playbook_version": "training-auth-review-v1",
+  "tasks": [
+    {
+      "id": "T1",
+      "owner": "analyst-a",
+      "required": true,
+      "status": "completed",
+      "question": "표시된 인증이 제시된 원본과 일치하는가?",
+      "result": "E1에서 대상 계정·단말·서비스와 성공 결과를 확인한 가상 학습 기록.",
+      "evidence_refs": [
+        "E1"
+      ]
+    },
+    {
+      "id": "T2",
+      "owner": "analyst-b",
+      "required": true,
+      "status": "in_progress",
+      "question": "제시된 승인 자료와 계정·단말·시각·서비스가 일치하는가?",
+      "result": "",
+      "evidence_refs": []
+    },
+    {
+      "id": "T3",
+      "owner": "analyst-a",
+      "required": false,
+      "status": "not_applicable",
+      "question": "실제 계정·단말 조치가 필요한가?",
+      "result": "이 실습은 가상 기록 검토이며 실제 변경·전송·차단은 수행하지 않음.",
+      "evidence_refs": []
+    }
+  ],
+  "summary": ""
+}

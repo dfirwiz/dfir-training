@@ -61,7 +61,24 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      9,
+      10
+    ],
+    "lesson_ids": [
+      "d1-07",
+      "d1-08"
+    ],
+    "status": "validated_awaiting_publication",
+    "source_printed": [
+      86,
+      107
+    ],
+    "started": "2026-11-04T11:09:21Z",
+    "scope": "Incident documentation, playbooks and classification; TheHive concepts and independent safe local case exercise, original workbook/VM not obtained."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "ce76ba9b7a686b1fa42c02ff5f86720fa1dd3562",

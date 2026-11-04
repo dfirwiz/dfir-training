@@ -13,6 +13,7 @@ from blue_team_day01_diagrams import build_day01
 from blue_team_soc_diagrams import build_soc
 from blue_team_visibility_diagrams import build_visibility
 from blue_team_alert_diagrams import build_alerts
+from blue_team_case_diagrams import build_cases
 from blue_team_course_menu import sidebar_menu, overview_body, home_card, MENU_CSS
 TITLE = '블루팀 필수 지식: 보안 운영과 분석'
 OUT = ROOT/'courses/network-security'
@@ -56,12 +57,13 @@ build_day01(ASSETS)
 build_soc(ASSETS)
 build_visibility(ASSETS)
 build_alerts(ASSETS)
+build_cases(ASSETS)
 
 def inline(s):
     s=escape(s)
     s=re.sub(r'`([^`]+)`',r'<code>\1</code>',s)
     s=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',s)
-    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/lab05/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
+    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
     return s
 
 def render(md, expected_mermaid=0):
@@ -150,7 +152,7 @@ def page(title,description,body,lesson=False):
     pager+='</nav>'
     contents='<nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list">'+links+'</ul></nav>' if lesson else ''
     filename=selected['slug']+'.html' if selected else 'index.html'
-    return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/network-security/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/network-security/course.css?v=20261104-day01-batch04"></head><body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">블루팀 필수 지식</a></p><header class="note-header"><div class="eyebrow">BLUE TEAM / {f'DAY {selected["day"]:02d} · LESSON {selected["number"]:02d}' if selected else 'COURSE 02'}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{escape(day['label'])+' '+str(selected['number'])+'강 · '+escape(selected.get('short_title',selected['title'])) if selected else '보안 운영·분석을 시작하는 독자를 위한 과정'}</span><span>업데이트 {course["updated"]}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
+    return f'''<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="{escape(description)}"><title>{escape(title)} | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/network-security/{filename}"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/network-security/course.css?v=20261104-day01-batch05"></head><body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">블루팀 필수 지식</a></p><header class="note-header"><div class="eyebrow">BLUE TEAM / {f'DAY {selected["day"]:02d} · LESSON {selected["number"]:02d}' if selected else 'COURSE 02'}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{escape(day['label'])+' '+str(selected['number'])+'강 · '+escape(selected.get('short_title',selected['title'])) if selected else '보안 운영·분석을 시작하는 독자를 위한 과정'}</span><span>업데이트 {course["updated"]}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
 
 for item in course['lessons']:
     if item['status']!='published':continue
