@@ -67,76 +67,89 @@
       "id": "d1-06",
       "day": 1,
       "number": 7,
-      "title": "이벤트·경보·이상 징후·사건 구분",
-      "status": "planned"
+      "title": "이벤트·경보·사건과 분류 대기열",
+      "status": "published",
+      "slug": "day-01-07-events-alerts-triage",
+      "short_title": "이벤트·경보와 분류 흐름",
+      "description": "첫째 날 7강. 활동·기록·경보·사건을 나누고, 생성 경로·동작 해석·수집 범위·대기열의 우선순위를 연결합니다."
+    },
+    {
+      "id": "d1-06b",
+      "day": 1,
+      "number": 8,
+      "title": "시그니처·이상 탐지와 경보의 해석",
+      "status": "published",
+      "slug": "day-01-08-signatures-anomalies",
+      "short_title": "탐지 조건과 경보 해석",
+      "description": "첫째 날 8강. 특징 일치와 기준선·임계값을 이해하고, 자체 성능 계산·원본 검증·정보 보강을 조사 판단에 연결합니다."
     },
     {
       "id": "d1-07",
       "day": 1,
-      "number": 8,
+      "number": 9,
       "title": "사건 기록과 처리 흐름",
       "status": "planned"
     },
     {
       "id": "d1-08",
       "day": 1,
-      "number": 9,
+      "number": 10,
       "title": "사건 관리 도구 실습",
       "status": "planned"
     },
     {
       "id": "d1-09",
       "day": 1,
-      "number": 10,
+      "number": 11,
       "title": "위협 정보의 의미와 활용",
       "status": "planned"
     },
     {
       "id": "d1-10",
       "day": 1,
-      "number": 11,
+      "number": 12,
       "title": "위협 정보 플랫폼과 정보 공유",
       "status": "planned"
     },
     {
       "id": "d1-11",
       "day": 1,
-      "number": 12,
+      "number": 13,
       "title": "위협 정보 활용 실습",
       "status": "planned"
     },
     {
       "id": "d1-12",
       "day": 1,
-      "number": 13,
+      "number": 14,
       "title": "SIEM의 원리와 로그의 연결",
       "status": "planned"
     },
     {
       "id": "d1-13",
       "day": 1,
-      "number": 14,
+      "number": 15,
       "title": "자동화의 역할과 사람의 판단",
       "status": "planned"
     },
     {
       "id": "d1-14",
       "day": 1,
-      "number": 15,
+      "number": 16,
       "title": "공격자의 목적과 행동 이해",
       "status": "planned"
     },
     {
       "id": "d1-15",
       "day": 1,
-      "number": 16,
+      "number": 17,
       "title": "첫째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d1-16",
       "day": 1,
-      "number": 17,
+      "number": 18,
       "title": "로그 검색과 SIEM 실습",
       "status": "planned"
     },
@@ -518,6 +531,7 @@
         "d1-05",
         "d1-05b",
         "d1-06",
+        "d1-06b",
         "d1-07",
         "d1-08",
         "d1-09",
@@ -620,6 +634,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-06",
-  "planning_note": "첫째 날 네트워크 관측 범위는 5·6강으로 나눴으며 이벤트·경보·사건은 7강부터 이어집니다. 준비 중 범위는 상세 집필 때 더 나눌 수 있고, 여섯째 날은 독립 종합 실습을 별도로 준비합니다."
+  "next_lesson": "d1-07",
+  "planning_note": "경보 모듈은 첫째 날 7강(이벤트·흐름·분류)과 8강(탐지 조건·해석)으로 나눴습니다. 사건 기록과 처리 흐름은 9강부터 이어집니다. 준비 중 범위는 깊이를 유지하며 더 나눌 수 있습니다."
 }

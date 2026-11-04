@@ -59,7 +59,24 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      7,
+      8
+    ],
+    "lesson_ids": [
+      "d1-06",
+      "d1-06b"
+    ],
+    "status": "validated_awaiting_publication",
+    "source_printed": [
+      69,
+      85
+    ],
+    "started": "2026-11-04T10:12:50Z",
+    "split_note": "Event flow and triage in7; detection types and interpretation in8; incident management moves to9. Cloud migration is not complete; this run remains local."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "402e052f0b2ea0c7b13dd7b2c7ce3544fd7e13c9",
