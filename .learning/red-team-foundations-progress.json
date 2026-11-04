@@ -35,9 +35,9 @@
     31
   ],
   "published_unit": "1~7단원 공개: 2단원만 핵심 요약, 나머지는 상세 강의",
-  "next_scope": null,
-  "next_lesson_status": "awaiting_user_request",
-  "workflow": "Publish only user-requested lessons. Preserve reviewed prose, examples, tables, diagrams and immediate review explanations.",
+  "next_scope": "8장 1~2강 (전역 ID 32~33)",
+  "next_lesson_status": "in_progress",
+  "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
     "status": "published",
@@ -167,5 +167,51 @@
     "review_questions": 48,
     "verification_scope": "원본 전체 범위와 Fortra4.13·Microsoft·Python공식문서 대조. 합성JSON상태계산 6demo와27개 입력/전이/범위검사, 공개sample실제실행. 제품·대상·세션생성·파일전송·키입력·클립보드·화면수집·Interpreter/lint미실행.",
     "ui_scope": "공식실제FileBrowser·ProcessBrowser·Desktop·Interpreter·lint5개신규원본. Sessions·Console·Jobs·HTTPListener재사용. Downloads·Screenshots·Help그룹사진미확보명시. 필드·메뉴·가정값·버전·확인·중지·보관을분리."
+  },
+  "active_run": {
+    "scope": [
+      32,
+      33
+    ],
+    "started_at": "2026-11-04T13:13:09.883Z",
+    "lease_expires_at": "2026-11-04T14:03:09.883Z"
+  },
+  "unit_8": {
+    "status": "planned",
+    "title": "Privilege Escalation",
+    "source_scope_reviewed": "entire chapter; private source content and identifiers excluded",
+    "plan": [
+      {
+        "id": 32,
+        "lesson_number": 1,
+        "title": "계정·토큰·사용자 권한"
+      },
+      {
+        "id": 33,
+        "lesson_number": 2,
+        "title": "서비스 구성과 접근 권한의 증거"
+      },
+      {
+        "id": 34,
+        "lesson_number": 3,
+        "title": "PATH·API 검색 순서·따옴표 없는 경로"
+      },
+      {
+        "id": 35,
+        "lesson_number": 4,
+        "title": "서비스 파일·레지스트리 권한"
+      },
+      {
+        "id": 36,
+        "lesson_number": 5,
+        "title": "DLL 검색과 소프트웨어 취약점"
+      },
+      {
+        "id": 37,
+        "lesson_number": 6,
+        "title": "UAC·무결성·승격 결과 검증"
+      }
+    ],
+    "lesson_ids": []
   }
 }
