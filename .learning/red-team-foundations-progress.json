@@ -32,11 +32,13 @@
     28,
     29,
     30,
-    31
+    31,
+    32,
+    33
   ],
-  "published_unit": "1~7단원 공개: 2단원만 핵심 요약, 나머지는 상세 강의",
-  "next_scope": "8장 1~2강 (전역 ID 32~33)",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~7장 및 8장1~2강 공개: 2장만 핵심 요약",
+  "next_scope": "8장3~4강 (전역 ID 34~35): PATH/API 검색·따옴표 없는 경로 및 서비스 파일/레지스트리 권한",
+  "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -92,9 +94,10 @@
       "4": 5,
       "5": 6,
       "6": 6,
-      "7": 6
+      "7": 6,
+      "8": 2
     },
-    "updated": "2026-11-04"
+    "updated": "2026-11-05"
   },
   "unit_5": {
     "status": "published",
@@ -168,16 +171,8 @@
     "verification_scope": "원본 전체 범위와 Fortra4.13·Microsoft·Python공식문서 대조. 합성JSON상태계산 6demo와27개 입력/전이/범위검사, 공개sample실제실행. 제품·대상·세션생성·파일전송·키입력·클립보드·화면수집·Interpreter/lint미실행.",
     "ui_scope": "공식실제FileBrowser·ProcessBrowser·Desktop·Interpreter·lint5개신규원본. Sessions·Console·Jobs·HTTPListener재사용. Downloads·Screenshots·Help그룹사진미확보명시. 필드·메뉴·가정값·버전·확인·중지·보관을분리."
   },
-  "active_run": {
-    "scope": [
-      32,
-      33
-    ],
-    "started_at": "2026-11-04T13:13:09.883Z",
-    "lease_expires_at": "2026-11-04T14:54:54.568921+00:00"
-  },
   "unit_8": {
-    "status": "partially_published_pending_verification",
+    "status": "partially_published",
     "title": "Privilege Escalation",
     "source_scope_reviewed": "entire chapter; private source content and identifiers excluded",
     "plan": [
@@ -212,11 +207,29 @@
         "title": "UAC·무결성·승격 결과 검증"
       }
     ],
-    "lesson_ids": [],
-    "pending_verification_lesson_ids": [
+    "lesson_ids": [
       32,
       33
     ],
-    "verification_scope": "공식 문서 대조·33강 앵커/이미지/빌드·기존31강 본문/홈 다른 영역 보존·SVG XML·반응형 CSS 검사 통과. 브라우저 공개 확인 대기. Windows·제품·서비스 명령 미실행."
+    "verification_scope": "빌드·구문·33강 앵커/이미지·기존31강 본문 및 홈 타영역 동일·SVG XML 통과. 공개2강·SVG6·공식사진2·기존다운로드2 HTTP200/SHA256일치. 공개 브라우저2강 문서/그림/화면/앵커/이동과 데스크톱 가로 넘침 없음 확인. Windows·제품·명령·서비스/토큰변경 미실행.",
+    "remaining_lesson_ids": [
+      34,
+      35,
+      36,
+      37
+    ],
+    "diagrams": 6,
+    "review_questions": 16,
+    "official_image_occurrences": 3,
+    "publication": {
+      "commit": "aac9f2ca8e31a52a0d78dad4ad849085965cb406",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41896968988",
+      "deployment_status": "success",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/32-accounts-tokens-rights.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/33-service-configuration-evidence.html"
+      ]
+    },
+    "verification_limits": "모바일 내부스크롤 CSS 규칙 검토; 실제 모바일 viewport/실기기 렌더링은 미검증. 정책/Services 속성 실제사진 미확보 명시."
   }
 }
