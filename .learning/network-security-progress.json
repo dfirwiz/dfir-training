@@ -12,29 +12,30 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      69,
-      85
+      86,
+      107
     ],
     "pdf_pages": [
-      71,
-      87
+      88,
+      109
     ],
-    "workbook_vm_scope": "Complete event/alert module split into event flow and detection interpretation; original separate workbook/VM not available in inspected locations; only synthetic record processing and detection-rate calculations executed."
+    "workbook_vm_scope": "Incident-management concept module and pointer to external Exercise1.1 covered. Original separate workbook/wiki/VM not obtained in inspected locations. Executed only independent case-record checks, toy score and time arithmetic."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 9,
-    "lesson_id": "d1-07",
-    "topic": "사건 기록과 처리 흐름",
+    "lesson": 11,
+    "lesson_id": "d1-09",
+    "topic": "위협 정보의 의미와 활용",
     "volume": 1,
-    "printed_start": 86,
-    "pdf_start": 88,
+    "printed_start": 108,
+    "pdf_start": 110,
+    "content_printed_start": 109,
     "status": "planned",
     "batch_lessons": [
-      9,
-      10
+      11,
+      12
     ],
-    "numbering_note": "Display8 has new ID d1-06b. ID d1-07 is display9; select by course.json number/day order, not ID suffix."
+    "numbering_note": "Printed108 is module roadmap; threat-intelligence explanatory content begins109. Keep course.json day/number and next_lesson authoritative."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -48,7 +49,9 @@
       5,
       6,
       7,
-      8
+      8,
+      9,
+      10
     ],
     "2": [
       1,
@@ -61,7 +64,10 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "3c61d9c5f974eb2ff75db587f6ef8cf761e60f87",
     "day": 1,
     "lessons": [
       9,
@@ -71,35 +77,17 @@
       "d1-07",
       "d1-08"
     ],
-    "status": "validated_awaiting_publication",
-    "source_printed": [
-      86,
-      107
-    ],
-    "started": "2026-11-04T11:09:21Z",
-    "scope": "Incident documentation, playbooks and classification; TheHive concepts and independent safe local case exercise, original workbook/VM not obtained."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "ce76ba9b7a686b1fa42c02ff5f86720fa1dd3562",
-    "day": 1,
-    "lessons": [
-      7,
-      8
-    ],
-    "lesson_ids": [
-      "d1-06",
-      "d1-06b"
-    ],
     "deployment": "success",
-    "actions_run": 41816968854,
-    "public_files_checked": 24,
+    "actions_run": 41823331590,
+    "public_files_checked": 30,
     "public_content_match": true,
     "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure",
+    "product_execution": "TheHive/Cortex not installed or executed; independent synthetic JSON exercise only",
+    "official_source_limit": "CISA NCISS official web/PDF returned403; historical concepts and own calculation clearly labeled, no current official scoring claimed",
     "new_figures": 6,
     "new_review_questions": 24,
-    "synthetic_calculations": "Python3.12.14: received3/unique2; missing verdict unknown. A116 alerts/13.79% precision/80% recall/1% FPR; B32/37.5%/60%/0.2%.",
-    "execution_environment": "local; cloud migration prepared but not yet created or tested"
+    "synthetic_calculations": "Python3.12.14: weighted20/min6/max30 =>58.33; timeline25/8/50/42/75min. Start/status-only/malformed inputs return2, reviewed input returns0; input case stays in_progress.",
+    "execution_environment": "local; cloud migration setup still not created or verified"
   },
   "completed_lesson_ids_day1": [
     "d1-01",
@@ -109,6 +97,8 @@
     "d1-05",
     "d1-05b",
     "d1-06",
-    "d1-06b"
+    "d1-06b",
+    "d1-07",
+    "d1-08"
   ]
 }
