@@ -237,8 +237,17 @@
       "date": "2026-11-05",
       "authorization": "사용자: 다음 진행하세요. 기존 자동 진행·게시 승인 유지.",
       "verification_scope": "35강 빌드·내부링크/앵커2545·기존33강본문/홈타영역보존·SVG XML·합성81상태/9오류입력검사 통과. 브라우저 새2강·사진/그림·상단앵커·데스크톱 폭 확인. Windows·제품·서비스 변경 미실행.",
-      "publication_status": "validated_ready",
-      "verification_limits": "실제 모바일 viewport/실기기 표시 미검증. 환경변수/레지스트리 권한창 사진 미확보를 본문에 명시."
+      "publication_status": "published_verified",
+      "verification_limits": "실제 모바일 viewport/실기기 표시 미검증. 환경변수/레지스트리 권한창 사진 미확보를 본문에 명시.",
+      "commit": "1d2ca261224921a839e7d7dd25a58afa946a62c6",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41918687992",
+      "deployment_status": "success",
+      "public_files_verified": 14,
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/34-path-search-unquoted.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/35-service-file-registry-permissions.html"
+      ],
+      "public_verification": "2강·목차·SVG6·다운로드2·공식사진3 HTTP200/SHA256일치. 공개 브라우저2강의11절·8복습·화면바로가기·강의이동·데스크톱폭 확인."
     }
   }
 }
