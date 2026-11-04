@@ -21,7 +21,7 @@
   "next_lesson_id": 28,
   "next_printed_page": 70,
   "updated": "2026-11-04",
-  "scope": "Day-two lesson5 detailed manuscript resumed, published, deployment and actual desktop/mobile HTTPS review verified. Next: day-two lesson6/internal ID28. Remaining12 lessons stay abbreviated drafts awaiting detailed revision.",
+  "scope": "Day-two lesson6 detailed manuscript and source/workbook mapping prepared; static checks then main publication and actual HTTPS desktop/mobile review pending. Completed lessons unchanged.",
   "review": ".learning/reviews/day-two-05-revision-20261103.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
@@ -99,8 +99,19 @@
         "other_requirements": "exercise1_checksum, exercise4_crafted_fields, exercise5_responses, URG_extra_and_final_lab_audit_pending_followup"
       }
     },
-    "remaining_render_review": [],
-    "active_lesson": null,
+    "remaining_render_review": [
+      28
+    ],
+    "active_lesson": {
+      "lesson_id": 28,
+      "day_lesson": 6,
+      "status": "publication_pending",
+      "body_sha256": "4bc8c969331b90e0997c06858fb7ccc99cfc56f592b3804c4354f49d7eaae6fa",
+      "review": ".learning/reviews/day-two-06-revision-20261104.md",
+      "base_main": "fb0f8957314e106801e5c2cec7b28f0f64a5e069",
+      "publication": "not_started",
+      "browser_preflight": "public_HTTPS_and_screenshot_passed_in_user_resume; heartbeat_preflight_was_disabled"
+    },
     "last_publication": {
       "lesson_id": 27,
       "content_commit": "e8fd7c36b8f7e82157541854b31c41e2f5cbc17f",

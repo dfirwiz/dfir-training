@@ -371,7 +371,7 @@
       "id": 28,
       "slug": "28-tcp-flags-handshake",
       "title": "TCP 플래그와 연결 시작을 읽는 순서",
-      "description": "SYN·ACK·PSH·ECN의 의미를 나누고 세 번의 교환에서 양방향 상태가 어떻게 만들어지는지 읽습니다.",
+      "description": "플래그·시작 상태에서 출발해 Classic ECN과 AccECN을 구별하고, 네 번 교환·16바이트 경계·URG 스트림 위치를 단계별로 검산합니다.",
       "day": 2,
       "day_lesson": 6,
       "printed_pages": [
@@ -379,9 +379,9 @@
         76
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-04",
+      "minutes": 115,
+      "editorial_status": "revised"
     },
     {
       "id": 29,
