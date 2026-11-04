@@ -13,6 +13,7 @@ from red_team_c2_diagrams import build_c2_diagrams
 from red_team_initial_access_diagrams_part1 import build_initial_access_diagrams_part1
 from red_team_initial_access_diagrams_part2 import build_initial_access_diagrams_part2
 from red_team_persistence_diagrams import build_persistence_diagrams
+from red_team_postex_diagrams import build_postex_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'content/red-team-foundations'
@@ -117,6 +118,7 @@ def build_diagrams():
     build_initial_access_diagrams_part1(ASSETS, diagram)
     build_initial_access_diagrams_part2(ASSETS, diagram)
     build_persistence_diagrams(ASSETS, diagram)
+    build_postex_diagrams(ASSETS, diagram)
 
 
 def jpeg_dimensions(data):
@@ -201,6 +203,8 @@ def render(md, reserve_images=False):
             extra_class = ' course-screenshot' if screenshot else ''
             if screenshot and (asset.name == 'ch5-host-file.png' or asset.name.startswith(('ch5-cs-', 'ch6-'))):
                 extra_class += ' cs-setting-screen'
+            if asset.name == 'ch7-interpreter.png':
+                extra_class += ' editor-screen'
             kind = '설정 화면' if screenshot else '다이어그램'
             hint = ' 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다.' if screenshot else ''
             out.append(f'<figure id="figure-{counts['figures']+1}" class="diagram course-diagram{extra_class}"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 {kind}">{image}</div><figcaption>{escape(alt)}{hint} 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>')
@@ -352,7 +356,7 @@ def main():
     svg_count = len(list(ASSETS.glob('*.svg')))
     screenshot_count = len({src for item in course['lessons'] for src in re.findall(r'!\[[^\]]*\]\(([^)]+\.(?:png|jpe?g))\)', (SOURCE / f'{item["slug"]}.md').read_text(encoding='utf-8'))})
     review_count = sum(item['review_questions'] for item in course['lessons'])
-    intro = f'<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 1~{len(groups)}장 · 총 {len(course["lessons"])}개 강의</strong><p>1장·3장·4장·5장·6장은 상세 강의로 제공합니다. 2장은 법과 준수 원칙의 핵심 요약입니다. 각 장의 강의 번호는 1강부터 시작합니다. 3장에서는 PE 파일 구조, 프로세스·메모리·권한, 코드 주입의 증거, C# P/Invoke를 배웁니다. 4장에서는 Cobalt Strike의 구성 요소, HTTP·DNS와 SMB·TCP 경로, 페이로드·로더, 세션과 작업 기록을 배웁니다. 5장에서는 최초 접근의 구성 요소, DLL·.NET 로딩, MSI·Excel·서명, 실행 트리거, 컨테이너·MotW, HTML·SVG 전달과 파일 호스팅을 배웁니다. 6장에서는 Run·시작 폴더, 로그온 스크립트·PowerShell 프로필, 예약 작업, COM 등록과 재실행 증거를 배웁니다. 비교표, SVG 다이어그램 {svg_count}개와 공식 제품 화면 {screenshot_count}개, 바로 읽는 복습 질문과 해설 {review_count}개, 읽기 전용 PE·작업 XML 검사기와 가상 이벤트 실습을 제공합니다.</p></div></section><section id="lessons"><h2>강의 목차</h2>' + cards + '</section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 3장 1강의 Python 합성 헤더 읽기와 4장 5강의 가상 이벤트 상태 계산, 5장 5강의 합성 출처 정보 해석과 6장 6강의 합성 작업 XML 분석은 실제 실행하여 검증했습니다. Windows API·C#·필터·PowerShell·Cobalt Strike 예제는 실제 대상 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료는 각 강의에 표시한 확인일을 기준으로 하며 최신 추가 장은 2026년 11월 4일에 대조했습니다. 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
+    intro = f'<section id="start"><h2>공격자의 행동을 이해하고 방어를 검증합니다</h2><p>보안 장비가 있다는 사실과 실제 공격을 발견하고 대응할 수 있다는 사실은 다릅니다. 이 과정은 그 차이에서 시작해 공격 행동을 설명하는 언어, 위협 정보와 조사 증거, 활동 계획과 기록을 차근차근 연결합니다.</p><p>소방 훈련·여행 지도·시설 점검의 비유에서 출발해 실제 기술과 판단 기준을 설명합니다. 용어를 처음 사용할 때 뜻을 풀고, 작은 예제에서 조건을 바꾼 사례로 발전시킵니다.</p><div class="callout"><strong>현재 공개: 1~{len(groups)}장 · 총 {len(course["lessons"])}개 강의</strong><p>1장·3장·4장·5장·6장·7장은 상세 강의로 제공합니다. 2장은 법과 준수 원칙의 핵심 요약입니다. 각 장의 강의 번호는 1강부터 시작합니다. 3장에서는 PE 파일 구조, 프로세스·메모리·권한, 코드 주입의 증거, C# P/Invoke를 배웁니다. 4장에서는 Cobalt Strike의 구성 요소, HTTP·DNS와 SMB·TCP 경로, 페이로드·로더, 세션과 작업 기록을 배웁니다. 5장에서는 최초 접근의 구성 요소, DLL·.NET 로딩, MSI·Excel·서명, 실행 트리거, 컨테이너·MotW, HTML·SVG 전달과 파일 호스팅을 배웁니다. 6장에서는 Run·시작 폴더, 로그온 스크립트·PowerShell 프로필, 예약 작업, COM 등록과 재실행 증거를 배웁니다. 7장에서는 접근 후 상황 파악, 파일·프로세스·레지스트리 조회, 관측과 장기 작업, 실행 엔진·확장, 세션 전달과 작업 상태를 실제 화면으로 배웁니다. 비교표, SVG 다이어그램 {svg_count}개와 공식 제품 화면 {screenshot_count}개, 바로 읽는 복습 질문과 해설 {review_count}개, 읽기 전용 PE·작업 XML 검사기와 가상 이벤트 실습을 제공합니다.</p></div></section><section id="lessons"><h2>강의 목차</h2>' + cards + '</section><section id="evidence"><h2>예제와 증거를 구분합니다</h2><p>이 과정의 시나리오·주소·시간표는 독립적으로 작성한 가상 예제입니다. 3장 1강의 Python 합성 헤더 읽기와 4장 5강의 가상 이벤트 상태 계산, 5장 5강의 합성 출처 정보 해석과 6장 6강의 합성 작업 XML 분석 및 7장 6강의 합성 작업·전송 상태 계산은 실제 실행하여 검증했습니다. Windows API·C#·필터·PowerShell·Cobalt Strike 예제는 실제 대상 환경에서 실행한 결과로 제시하지 않습니다. 별도 패킷 캡처나 온라인 실습 환경은 이 과정에 포함되지 않습니다.</p><p>관측 사실, 그 사실이 지지하는 가설, 추가 증거가 필요한 결론을 구분합니다. 공식 자료는 각 강의에 표시한 확인일을 기준으로 하며 최신 추가 장은 2026년 11월 4일에 대조했습니다. 적용 버전과 관측 한계를 각 강의에서 설명합니다.</p></section>'
     (OUT / 'index.html').write_text(page(course, TITLE, course['description'], intro, []), encoding='utf-8')
     home = ROOT / 'index.html'
     home_original = home.read_bytes()
@@ -362,7 +366,7 @@ def main():
     for chapter in chapter_groups(course):
         links = ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["lesson_number"]}강</b><span>{escape(item["short_title"])}</span></a>' for item in chapter['lessons'])
         home_groups.append(f'<div class="home-course-chapter"><h4>{escape(chapter_label(chapter))}</h4>' + links + '</div>')
-    card = f'<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · {len(groups)}개 장 · {len(course["lessons"])}개 강의</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 법과 준수 원칙, PE 파일과 Windows 실행 기초를 배우고 Cobalt Strike의 구성 요소·통신 경로·페이로드·세션과 작업 기록까지 연결합니다. 최초 접근의 전달·로딩·트리거·파일 출처와 웹 호스팅, 지속성의 사용자 범위·자동 실행 조건·예약 작업·COM 증거도 상세히 배웁니다. 가상 조사 사례와 공식 제품 화면, 설정 순서·비교표·다이어그램·복습 해설과 읽기 전용 예제를 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1장 1강 읽기</a></div></div><div class="outline chapter-outline">' + ''.join(home_groups) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
+    card = f'<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · {len(groups)}개 장 · {len(course["lessons"])}개 강의</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 법과 준수 원칙, PE 파일과 Windows 실행 기초를 배우고 Cobalt Strike의 구성 요소·통신 경로·페이로드·세션과 작업 기록까지 연결합니다. 최초 접근의 전달·로딩·트리거·파일 출처와 웹 호스팅, 지속성의 사용자 범위·자동 실행 조건·예약 작업·COM 증거도 상세히 배웁니다. 접근 후 파일·프로세스 조회, 작업 관리·실행 엔진·세션 전달은 실제 Cobalt Strike 화면과 연결합니다. 가상 조사 사례와 공식 제품 화면, 설정 순서·비교표·다이어그램·복습 해설과 읽기 전용 예제를 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1장 1강 읽기</a></div></div><div class="outline chapter-outline">' + ''.join(home_groups) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
     if '<!-- RED-TEAM-FOUNDATIONS:START -->' in text:
         text = re.sub(r'<!-- RED-TEAM-FOUNDATIONS:START -->.*?<!-- RED-TEAM-FOUNDATIONS:END -->', card, text, flags=re.S)
     else:

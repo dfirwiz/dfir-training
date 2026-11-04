@@ -26,9 +26,15 @@
     22,
     23,
     24,
-    25
+    25,
+    26,
+    27,
+    28,
+    29,
+    30,
+    31
   ],
-  "published_unit": "1~6단원 공개: 2단원만 핵심 요약, 나머지는 상세 강의",
+  "published_unit": "1~7단원 공개: 2단원만 핵심 요약, 나머지는 상세 강의",
   "next_scope": null,
   "next_lesson_status": "awaiting_user_request",
   "workflow": "Publish only user-requested lessons. Preserve reviewed prose, examples, tables, diagrams and immediate review explanations.",
@@ -85,7 +91,8 @@
       "3": 4,
       "4": 5,
       "5": 6,
-      "6": 6
+      "6": 6,
+      "7": 6
     },
     "updated": "2026-11-04"
   },
@@ -141,5 +148,24 @@
     "review_questions": 48,
     "verification_scope": "원본 범위와 Microsoft·MITRE·Fortra4.13 대조. 합성 작업 XML Python 파서와 입력 경계만 실제 실행. Windows·제품·에이전트·등록·로그인·COM 변경 미실행.",
     "ui_scope": "실제 Sessions·Beacon Console·Autoruns·TaskScheduler4화면·ProcMon3화면을 원본 상태와 설정 예시값 구별하여 설명. 미확보한 regedit·프로필·로그온선택후 사진은 구체적으로 명시."
+  },
+  "unit_7": {
+    "status": "published",
+    "lesson_ids": [
+      26,
+      27,
+      28,
+      29,
+      30,
+      31
+    ],
+    "format": "full",
+    "authorization": "2026-11-04 사용자 요청: 다음 장 계속",
+    "diagrams": 18,
+    "new_official_images": 5,
+    "official_image_occurrences": 15,
+    "review_questions": 48,
+    "verification_scope": "원본 전체 범위와 Fortra4.13·Microsoft·Python공식문서 대조. 합성JSON상태계산 6demo와27개 입력/전이/범위검사, 공개sample실제실행. 제품·대상·세션생성·파일전송·키입력·클립보드·화면수집·Interpreter/lint미실행.",
+    "ui_scope": "공식실제FileBrowser·ProcessBrowser·Desktop·Interpreter·lint5개신규원본. Sessions·Console·Jobs·HTTPListener재사용. Downloads·Screenshots·Help그룹사진미확보명시. 필드·메뉴·가정값·버전·확인·중지·보관을분리."
   }
 }

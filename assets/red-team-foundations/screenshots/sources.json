@@ -382,5 +382,99 @@
     "menu_path": "Autoruns > Logon tab to inspect logon entries; source screenshot itself has Everything selected. Entry > Jump to Entry navigates to the registered location; preserve checkbox states and do not use Delete during read-only inspection.",
     "ui_version_caveat": "Historical 2017 public sample, not the current v14.3 UI capture. Current official Autoruns page v14.3 dated June17 2026 shows a video instead of a static image.",
     "notes": "Actual main window with Everything selected; Logon tab is visible. Do not describe this as a Logon-filtered result. Visible columns are Autorun Entry, Description, Publisher, Image Path, and Timestamp. Bottom status says Windows Entries Hidden, so this example already applies a display filter. Registry location rows and example entries are public author examples. Checkboxes modify configuration if changed; displayed colors are not reader measurements."
+  },
+  {
+    "file": "ch7-file-browser.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_file-browser.htm",
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/beacon_file-browser.png",
+    "width": 1176,
+    "height": 505,
+    "bytes": 270385,
+    "sha256": "6b176fff8710070f9d1138b5a14f48871e99815ea93b3f50ff73d72ddeecf04f",
+    "retrieved_on": "2026-11-04",
+    "modified": false,
+    "notes": [
+      "Open: session right-click → Explore → File Browser, or file_browser.",
+      "Actual image: Files host@PID tab; left drive/folder tree; top path; Name, Size, Modified columns; Upload..., Make Directory, List Drives, Refresh, Help buttons.",
+      "Parent folder icon is left of path. Right-click Download/Delete is documented but its popup is not open in this screenshot.",
+      "Colored folders are cached; grey folders not cached. Refresh requests new listing. Existing list is not necessarily current."
+    ],
+    "ui_version_caveat": "Current 4.13 September 2026 page retains a legacy UI screenshot with 2018–2019 sample timestamps. It is not a fresh 4.13 capture.",
+    "privacy_check": "Public official demonstration account JIM.STEVENS and private lab IP visible; only filenames and metadata, no document contents/keystrokes/secrets."
+  },
+  {
+    "file": "ch7-process-browser.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_process-browser.htm",
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/process-browser_main.png",
+    "width": 1177,
+    "height": 504,
+    "bytes": 332008,
+    "sha256": "9ff3e23c8dfa23ac68685606718613ee2f2ad202785fa747bbdb7e7a2084e492",
+    "retrieved_on": "2026-11-04",
+    "modified": false,
+    "notes": [
+      "Current documentation path: session right-click → Explore → Show Processes; command process_browser. Older UI/materials may call it Process List.",
+      "Actual image: process tree on left; PID, PPID, Name, Arch, Session, User on right; yellow current Beacon process 6768 powershell.exe. Blue explorer.exe is selection, not current Beacon.",
+      "Visible buttons: Kill, Refresh, Inject, Log Keystrokes, Screenshot, Steal Token, Help. Read-only inspection does not require action buttons except Refresh.",
+      "Process list is returned state at observation time; do not infer elevated token rights solely from User column."
+    ],
+    "ui_version_caveat": "Current 4.13 September 2026 page retains a legacy process-browser UI. Do not call this a new 4.13 screenshot.",
+    "privacy_check": "Public official lab account CORP\\jim.stevens and private lab IP visible; no process-memory or keystroke data."
+  },
+  {
+    "file": "ch7-desktop.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_desktop-control.htm",
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/desktop-control.png",
+    "width": 853,
+    "height": 556,
+    "bytes": 329986,
+    "sha256": "9d2ea0d76fb6dec3de29bd1a0e09b0b1df1ca7e5504826415dd1d9c8b48e529a",
+    "retrieved_on": "2026-11-04",
+    "modified": false,
+    "notes": [
+      "Current documentation: session right-click → Explore → Desktop (VNC). Viewer is an active VNC feature, not a static screenshot browser.",
+      "Image shows Solitaire, Calculator, Internet Explorer about:blank; no real personal document contents.",
+      "Bottom controls documented left-to-right: Refresh, View only, Decrease Zoom, Increase Zoom, 100%, Fit Tab, Ctrl+Escape, lock Ctrl, lock Alt.",
+      "Current guide says View only is selected by default. Do not infer historical screenshot button state as a present-session setting or our execution."
+    ],
+    "ui_version_caveat": "Very old screenshot showing Windows XP and legacy Desktop 3 tab; current 4.13 documentation describes tab Desktop HOST@PID. Historical UI locations only.",
+    "privacy_check": "No visible private text/credentials/keystrokes. Historical sample desktop only."
+  },
+  {
+    "file": "ch7-interpreter.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_beacon-interpreter.htm",
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/beacon-interpreter_script_editor.png",
+    "width": 1707,
+    "height": 1322,
+    "bytes": 217609,
+    "sha256": "e909bd7e48f0a0ad3c17f74a100493ee3353445145efd2ff15b126a7f6f3ab9a",
+    "retrieved_on": "2026-11-04",
+    "modified": false,
+    "notes": [
+      "Actual window: Sessions left, Beacon console lower left, docked Beacon Interpreter Script Editor right; script1.c tab; Arguments Type/Value table; Output pane.",
+      "Hello world source and official existing console output visible. No sensitive input or clipboard data.",
+      "Documented entry: right-click Sessions Beacon or Beacon console tab to open Beacon Menu, then access interpreter editor. Page prose does not spell exact submenu label.",
+      "Bottom icon strip includes green play triangle and magnifier; exact tooltip labels are not visible or documented in extracted prose, so do not invent menu/button labels."
+    ],
+    "ui_version_caveat": "4.13-specific interpreter editor, current guide September 2026. Image shows official developer Hello world demonstration, not our execution.",
+    "privacy_check": "Public developer demo user csdev, host name and private lab IP; no secrets."
+  },
+  {
+    "file": "ch7-interpreter-lint.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/post-exploitation_beacon-interpreter.htm",
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/beacon-interpreter_beacon-interpreter-lint_cmd.png",
+    "width": 1706,
+    "height": 540,
+    "bytes": 212444,
+    "sha256": "adbb5a30ef765c590191f6b4456971a05021ce908a52face5fb18512ecf63a19",
+    "retrieved_on": "2026-11-04",
+    "modified": false,
+    "notes": [
+      "Actual console shows help beacon-interpreter-lint, command syntax and existing lint success output.",
+      "Lint compiles and validates syntax/includes without sending script code to Beacon; this is different from beacon-interpreter VM execution.",
+      "Displayed /home/csdev/cobalt-strike/scripts/default_test.c is official sample path, not this course file or local tested path."
+    ],
+    "ui_version_caveat": "4.13-specific interpreter lint command, current guide September 2026. Official pre-existing successful lint result, not our test.",
+    "privacy_check": "No real user input history, keystroke or clipboard contents. Public developer lab sample only."
   }
 ]

@@ -56,3 +56,7 @@
 @media print{.cs-setting-screen .screenshot-original img{min-width:0}}
 
 html:has(.cs-practice-start){scroll-behavior:auto}
+
+/* The official full-width editor image opens on its right-hand editor pane. */
+.editor-screen .diagram-scroll{direction:rtl}
+.editor-screen .screenshot-original{direction:ltr}

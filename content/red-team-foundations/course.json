@@ -1,6 +1,6 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
-  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. TTP·Windows 실행·Cobalt Strike·최초 접근에서 사용자 자동 실행과 지속성의 실제 화면·설정·관측까지 연결합니다.",
+  "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 강의. Windows·Cobalt Strike·최초 접근·지속성에서 접근 후 조회·관측·작업·실행 문맥까지 실제 화면과 상세 설명으로 연결합니다.",
   "updated": "2026-11-04",
   "lessons": [
     {
@@ -499,6 +499,216 @@
           ]
         ]
       }
+    },
+    {
+      "id": 26,
+      "slug": "26-postex-command-behavior",
+      "title": "접근 후 상황 파악과 명령 동작: API·BOF·프로세스·작업 상태",
+      "short_title": "상황 파악·명령 동작·도움말",
+      "description": "실제 Sessions·콘솔에서 대상과 기본/확장 도움말을 읽고 실행 경계·안정성·출력·완료를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 7,
+      "format": "full",
+      "updated": "2026-11-04",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "ui_revision": "20261104-postex",
+      "practice": {
+        "title": "실제 화면·입력·확인 순서로 읽기",
+        "description": "공식 원본의 기존 예시와 미실행 학습 절차를 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-44",
+            "1. 대상·입력 위치"
+          ],
+          [
+            "section-4",
+            "2. 도움말 구분"
+          ],
+          [
+            "section-8",
+            "3. 작업 상태"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 27,
+      "slug": "27-file-browser-downloads",
+      "title": "File Browser와 파일 전송: 경로·캐시·Team Server·Client 동기화",
+      "short_title": "파일 화면·캐시·전송·Sync Files",
+      "description": "실제 File Browser에서 조회·Refresh·학습 파일 선택을 배우고 다운로드·서버 수신·Client 저장·해시 확인을 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 7,
+      "format": "full",
+      "updated": "2026-11-04",
+      "lesson_number": 2,
+      "screenshots": 2,
+      "ui_revision": "20261104-postex",
+      "practice": {
+        "title": "실제 화면·입력·확인 순서로 읽기",
+        "description": "공식 원본의 기존 예시와 미실행 학습 절차를 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-46",
+            "1. 실제 File Browser"
+          ],
+          [
+            "section-5",
+            "2. 학습 파일 전송"
+          ],
+          [
+            "section-6",
+            "3. Client 동기화"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 28,
+      "slug": "28-process-registry-context",
+      "title": "Process Browser와 레지스트리: PID·사용자·뷰·정책을 읽는 순서",
+      "short_title": "프로세스 화면·식별자·reg 조회",
+      "description": "실제 프로세스 표와 콘솔에서 사용자·PID·부모·아키텍처·레지스트리 키와 값을 읽고 관측 한계를 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 7,
+      "format": "full",
+      "updated": "2026-11-04",
+      "lesson_number": 3,
+      "screenshots": 3,
+      "ui_revision": "20261104-postex",
+      "practice": {
+        "title": "실제 화면·입력·확인 순서로 읽기",
+        "description": "공식 원본의 기존 예시와 미실행 학습 절차를 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-48",
+            "1. Process Browser"
+          ],
+          [
+            "screen-49",
+            "2. ps·사용자 조회"
+          ],
+          [
+            "screen-50",
+            "3. 레지스트리 조회"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 29,
+      "slug": "29-observation-jobs-desktop",
+      "title": "화면·입력·Desktop 관측과 장기 작업: Jobs·출력·중지·연결 수명",
+      "short_title": "화면·Desktop·Jobs·중지 확인",
+      "description": "공식 콘솔·Jobs·역사적 Desktop 화면으로 관측 자료와 범위, 장기 작업·중지·보관·보기와 제어를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 7,
+      "format": "full",
+      "updated": "2026-11-04",
+      "lesson_number": 4,
+      "screenshots": 3,
+      "ui_revision": "20261104-postex",
+      "practice": {
+        "title": "실제 화면·입력·확인 순서로 읽기",
+        "description": "공식 원본의 기존 예시와 미실행 학습 절차를 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-51",
+            "1. 기능 도움말"
+          ],
+          [
+            "screen-52",
+            "2. Jobs·작업 수명"
+          ],
+          [
+            "screen-53",
+            "3. Desktop 화면"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 30,
+      "slug": "30-execution-engines-extensions",
+      "title": "명령 실행 엔진과 확장: shell·run·PowerShell·.NET·BOF·Interpreter",
+      "short_title": "실행 엔진·확장·Interpreter 화면",
+      "description": "실제 콘솔과 4.13 Interpreter·lint 화면에서 프로그램·런타임·객체·검사와 실행의 경계를 읽습니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 7,
+      "format": "full",
+      "updated": "2026-11-04",
+      "lesson_number": 5,
+      "screenshots": 3,
+      "ui_revision": "20261104-postex",
+      "practice": {
+        "title": "실제 화면·입력·확인 순서로 읽기",
+        "description": "공식 원본의 기존 예시와 미실행 학습 절차를 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-54",
+            "1. shell·run"
+          ],
+          [
+            "screen-55",
+            "2. Interpreter 편집"
+          ],
+          [
+            "screen-56",
+            "3. lint 검사 구별"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 31,
+      "slug": "31-session-passing-workflow-review",
+      "title": "세션 전달과 조사 종합: Listener·식별자·작업·파일 전송 상태 실습",
+      "short_title": "세션 전달·상태·Python 실습",
+      "description": "실제 Sessions·Listener 참조 화면, 오류 267 해석과 검증한 Python 합성 이벤트로 연결·작업·전송 상태를 분리합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 7,
+      "format": "full",
+      "updated": "2026-11-04",
+      "lesson_number": 6,
+      "screenshots": 2,
+      "ui_revision": "20261104-postex",
+      "practice": {
+        "title": "실제 화면·입력·확인 순서로 읽기",
+        "description": "공식 원본의 기존 예시와 미실행 학습 절차를 구별하며 메뉴·입력 위치·설정 의미·결과 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-57",
+            "1. 세션 행 비교"
+          ],
+          [
+            "screen-58",
+            "2. Listener 참조"
+          ],
+          [
+            "section-7",
+            "3. 합성 이벤트 실습"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -535,6 +745,14 @@
       "practice_entry": "23-scheduled-tasks-ui",
       "practice_label": "실제 설정 화면부터 따라보기",
       "practice_description": "General → Triggers → Actions → 정의 조회 → History 순서로 읽고 Cobalt Strike 콘솔의 입력 위치와 결과 확인을 연결합니다."
+    },
+    {
+      "id": 7,
+      "title": "Post-Exploitation",
+      "title_ko": "접근 후 활동: 상황 파악·조회·실행 문맥",
+      "practice_entry": "27-file-browser-downloads",
+      "practice_label": "실제 Cobalt Strike 화면부터 따라보기",
+      "practice_description": "File Browser의 메뉴·경로·Refresh·전송을 시작으로 Process Browser·Jobs·Desktop·Interpreter·Listener 참조 화면을 각 강의에서 연결합니다."
     }
   ]
 }

@@ -1,0 +1,21 @@
+[
+  {
+    "event": "session_seen",
+    "session": "S-A"
+  },
+  {
+    "event": "task_queued",
+    "session": "S-A",
+    "task": "T-1"
+  },
+  {
+    "event": "task_delivered",
+    "session": "S-A",
+    "task": "T-1"
+  },
+  {
+    "event": "task_output",
+    "session": "S-A",
+    "task": "T-1"
+  }
+]
