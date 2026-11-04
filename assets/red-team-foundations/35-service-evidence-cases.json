@@ -1,0 +1,6 @@
+[
+  {"id":"A","file_change":false,"key_set_value":false,"higher_context":true,"input_linked":true},
+  {"id":"B","file_change":true,"key_set_value":false,"higher_context":true,"input_linked":null},
+  {"id":"C","file_change":false,"key_set_value":true,"higher_context":true,"input_linked":true},
+  {"id":"D","file_change":true,"key_set_value":false,"higher_context":false,"input_linked":true}
+]

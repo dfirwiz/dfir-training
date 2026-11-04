@@ -771,6 +771,76 @@
           ]
         ]
       }
+    },
+    {
+      "id": 34,
+      "slug": "34-path-search-unquoted",
+      "title": "PATH·API 검색 순서·따옴표 없는 경로: 실제로 어떤 파일을 찾을까요?",
+      "short_title": "PATH·검색 순서·따옴표 없는 경로",
+      "description": "프로세스 환경·API 호출·문자열 경계를 나누고 실제 콘솔과 ProcMon 필터에서 조회·증거 확인 순서를 읽습니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 8,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 3,
+      "screenshots": 2,
+      "ui_revision": "20261105-path-acl",
+      "practice": {
+        "title": "실제 콘솔·조사 화면부터 따라보기",
+        "description": "공식 실제 사진과 미실행 조회 예시를 구별하며 메뉴·입력 위치·가정값·확인 지점을 연결합니다.",
+        "links": [
+          [
+            "screen-61",
+            "1. 실제 콘솔 입력 위치"
+          ],
+          [
+            "screen-62",
+            "2. ProcMon 확인 화면"
+          ],
+          [
+            "section-8",
+            "3. 사례와 연습"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 35,
+      "slug": "35-service-file-registry-permissions",
+      "title": "서비스 파일·레지스트리 권한: 변경 가능성과 실행 증거 구별하기",
+      "short_title": "서비스 파일·레지스트리 권한",
+      "description": "파일·부모 폴더·키·SCM의 권한을 비교하고 실제 콘솔·ProcMon 안내와 합성 사실표 Python 연습으로 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 8,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 4,
+      "screenshots": 2,
+      "ui_revision": "20261105-path-acl",
+      "practice": {
+        "title": "실제 콘솔·조사 화면부터 따라보기",
+        "description": "공식 실제 사진과 미실행 조회 예시를 구별하며 메뉴·입력 위치·가정값·확인 지점을 연결합니다.",
+        "links": [
+          [
+            "screen-63",
+            "1. 실제 콘솔 입력 위치"
+          ],
+          [
+            "screen-64",
+            "2. ProcMon 확인 화면"
+          ],
+          [
+            "section-8",
+            "3. 사례와 연습"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -822,7 +892,7 @@
       "title_ko": "권한 상승: 계정·토큰과 서비스 증거",
       "practice_entry": "32-accounts-tokens-rights",
       "practice_label": "실제 콘솔과 조회 순서부터 보기",
-      "practice_description": "8장 1~2강 공개. 계정·토큰·사용자 권한과 서비스 구성·객체별 ACL을 읽으며 나머지 강의는 순서대로 추가합니다."
+      "practice_description": "8장 1~4강 공개. 계정·토큰·서비스 구성에서 PATH·경로 해석·파일과 레지스트리 권한까지 실제 콘솔과 조사 화면으로 연결합니다."
     }
   ]
 }

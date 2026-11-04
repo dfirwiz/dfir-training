@@ -34,10 +34,12 @@
     30,
     31,
     32,
-    33
+    33,
+    34,
+    35
   ],
-  "published_unit": "1~7장 및 8장1~2강 공개: 2장만 핵심 요약",
-  "next_scope": "8장3~4강 (전역 ID 34~35): PATH/API 검색·따옴표 없는 경로 및 서비스 파일/레지스트리 권한",
+  "published_unit": "1~7장 및 8장1~4강 공개: 2장만 핵심 요약",
+  "next_scope": "8장5~6강 (전역 ID36~37): DLL 검색·소프트웨어 취약점 및 UAC·무결성·승격 결과 검증",
   "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
@@ -95,7 +97,7 @@
       "5": 6,
       "6": 6,
       "7": 6,
-      "8": 2
+      "8": 4
     },
     "updated": "2026-11-05"
   },
@@ -209,18 +211,18 @@
     ],
     "lesson_ids": [
       32,
-      33
+      33,
+      34,
+      35
     ],
     "verification_scope": "빌드·구문·33강 앵커/이미지·기존31강 본문 및 홈 타영역 동일·SVG XML 통과. 공개2강·SVG6·공식사진2·기존다운로드2 HTTP200/SHA256일치. 공개 브라우저2강 문서/그림/화면/앵커/이동과 데스크톱 가로 넘침 없음 확인. Windows·제품·명령·서비스/토큰변경 미실행.",
     "remaining_lesson_ids": [
-      34,
-      35,
       36,
       37
     ],
-    "diagrams": 6,
-    "review_questions": 16,
-    "official_image_occurrences": 3,
+    "diagrams": 12,
+    "review_questions": 32,
+    "official_image_occurrences": 7,
     "publication": {
       "commit": "aac9f2ca8e31a52a0d78dad4ad849085965cb406",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41896968988",
@@ -230,6 +232,13 @@
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/33-service-configuration-evidence.html"
       ]
     },
-    "verification_limits": "모바일 내부스크롤 CSS 규칙 검토; 실제 모바일 viewport/실기기 렌더링은 미검증. 정책/Services 속성 실제사진 미확보 명시."
+    "verification_limits": "모바일 내부스크롤 CSS 규칙 검토; 실제 모바일 viewport/실기기 렌더링은 미검증. 정책/Services 속성 실제사진 미확보 명시.",
+    "batch_3_4": {
+      "date": "2026-11-05",
+      "authorization": "사용자: 다음 진행하세요. 기존 자동 진행·게시 승인 유지.",
+      "verification_scope": "35강 빌드·내부링크/앵커2545·기존33강본문/홈타영역보존·SVG XML·합성81상태/9오류입력검사 통과. 브라우저 새2강·사진/그림·상단앵커·데스크톱 폭 확인. Windows·제품·서비스 변경 미실행.",
+      "publication_status": "validated_ready",
+      "verification_limits": "실제 모바일 viewport/실기기 표시 미검증. 환경변수/레지스트리 권한창 사진 미확보를 본문에 명시."
+    }
   }
 }

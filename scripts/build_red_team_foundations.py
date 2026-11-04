@@ -14,7 +14,7 @@ from red_team_initial_access_diagrams_part1 import build_initial_access_diagrams
 from red_team_initial_access_diagrams_part2 import build_initial_access_diagrams_part2
 from red_team_persistence_diagrams import build_persistence_diagrams
 from red_team_postex_diagrams import build_postex_diagrams
-from red_team_privilege_diagrams import build_privilege_diagrams
+from red_team_privilege_diagrams import build_privilege_diagrams, build_privilege_path_diagrams
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / 'content/red-team-foundations'
@@ -121,6 +121,7 @@ def build_diagrams():
     build_persistence_diagrams(ASSETS, diagram)
     build_postex_diagrams(ASSETS, diagram)
     build_privilege_diagrams(ASSETS, diagram)
+    build_privilege_path_diagrams(ASSETS, diagram)
 
 
 def jpeg_dimensions(data):
