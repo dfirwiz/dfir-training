@@ -7,22 +7,24 @@
     24,
     25,
     26,
-    27
+    27,
+    28
   ],
   "completed_day_lessons": [
     1,
     2,
     3,
     4,
-    5
+    5,
+    6
   ],
-  "completed_printed_through": 69,
-  "completed_pdf_through": 71,
-  "next_lesson_id": 28,
-  "next_printed_page": 70,
+  "completed_printed_through": 76,
+  "completed_pdf_through": 78,
+  "next_lesson_id": 29,
+  "next_printed_page": 77,
   "updated": "2026-11-04",
-  "scope": "Day-two lesson6 detailed manuscript and source/workbook mapping prepared; static checks then main publication and actual HTTPS desktop/mobile review pending. Completed lessons unchanged.",
-  "review": ".learning/reviews/day-two-05-revision-20261103.md",
+  "scope": "Day-two lesson6 revised, published and verified in actual desktop/mobile HTTPS views. Next: day-two lesson7/internalID29. Remaining11 lessons stay abbreviated drafts awaiting detailed revision.",
+  "review": ".learning/reviews/day-two-06-revision-20261104.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -63,10 +65,10 @@
       24,
       25,
       26,
-      27
+      27,
+      28
     ],
     "pending_lesson_ids": [
-      28,
       29,
       30,
       31,
@@ -79,13 +81,13 @@
       38,
       39
     ],
-    "next_lesson_id": 28,
-    "next_day_lesson": 6,
-    "last_review": ".learning/reviews/day-two-05-revision-20261103.md",
+    "next_lesson_id": 29,
+    "next_day_lesson": 7,
+    "last_review": ".learning/reviews/day-two-06-revision-20261104.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "automation_id": "automation",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 27,
+    "last_published_lesson_id": 28,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -94,32 +96,23 @@
       },
       "2.3": {
         "exercise3": "detailed_retry_vs_new_attempt_explanation_and_stored_bytes_checked_in_lesson27; no_endpoint_or_filter_engine_execution",
-        "exercise2": "raw_sequence_length_payload_conflict_checked_in_lesson27; SYN_data_acceptance_options_and_sensor_endpoint_behavior_remain_followup",
+        "exercise2": "raw_sequence_payload_conflict_checked_lesson27; SYN_data_and_negotiation_context_explained_lesson28; actual_sensor_endpoint_acceptance_unverified",
         "exercise6": "opening_three_frames_only_checked_in_lesson27; reset_checksum_and_reassembly_pending_lessons29_30",
-        "other_requirements": "exercise1_checksum, exercise4_crafted_fields, exercise5_responses, URG_extra_and_final_lab_audit_pending_followup"
+        "other_requirements": "exercise1_checksum, exercise4_crafted_fields, exercise5_responses, URG_extra_and_final_lab_audit_pending_followup",
+        "exercise4": "flags_0x3f_and_stored_fields_checked_lesson28; checksum_window_MSS_response_and_acceptance_pending_followup",
+        "urgent_extra": "SEQ_pointer_and_two_segment_stream_positions_checked_lesson28; ordinary_OOB_reads_OS_options_and_sensor_reassembly_not_executed"
       }
     },
-    "remaining_render_review": [
-      28
-    ],
-    "active_lesson": {
-      "lesson_id": 28,
-      "day_lesson": 6,
-      "status": "publication_pending",
-      "body_sha256": "b644998266adc0bfe9b29e922d95a2816ddeb31dcc6d3fce8eebaba8f7efa0e6",
-      "review": ".learning/reviews/day-two-06-revision-20261104.md",
-      "base_main": "fb0f8957314e106801e5c2cec7b28f0f64a5e069",
-      "publication": "93320d5a1d7129ea459ae682ffafa454a968703b; desktop reviewed; mobile SVG readability fix pending",
-      "browser_preflight": "public_HTTPS_and_screenshot_passed_in_user_resume; heartbeat_preflight_was_disabled"
-    },
+    "remaining_render_review": [],
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 27,
-      "content_commit": "e8fd7c36b8f7e82157541854b31c41e2f5cbc17f",
-      "workflow_run": 41814797376,
+      "lesson_id": 28,
+      "content_commit": "473418a029abb090821706a5677a524bdd9d5870",
+      "workflow_run": 41823488594,
       "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/27-tcp-sequence-ack.html",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/28-tcp-flags-handshake.html",
       "render_review": "desktop1280_mobile390x844_screenshots_DOM_geometry_and_actual_inner_scroll_verified",
-      "verified_at": "2026-11-04T10:36:23.350Z"
+      "verified_at": "2026-11-04T11:48:38.652526+00:00"
     }
   }
 }
