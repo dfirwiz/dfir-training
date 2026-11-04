@@ -3,9 +3,9 @@
     36,
     37
   ],
-  "status": "publishing",
   "owner": "scheduled-20261105-0911",
-  "started_at": "2026-11-04T22:11:09Z",
-  "expires_at": "2026-11-05T00:00:00Z",
-  "next": "Publish prepared lessons then verify public HTML/assets/downloads and browser display before marking completed"
+  "status": "completed",
+  "completed_on": "2026-11-05",
+  "commit": "99663b8fb94c27e66ce3e0b0271ccdf3011874d9",
+  "next_scope": "9장 Elevated Persistence; ID38부터; active reservation released"
 }

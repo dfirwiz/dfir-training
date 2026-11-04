@@ -36,11 +36,13 @@
     32,
     33,
     34,
-    35
+    35,
+    36,
+    37
   ],
-  "published_unit": "1~7장 및 8장1~4강 공개: 2장만 핵심 요약",
-  "next_scope": "8장5~6강 (전역 ID36~37): DLL 검색·소프트웨어 취약점 및 UAC·무결성·승격 결과 검증",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~8장 완료: 전역 ID1~37. 2장만 핵심 요약",
+  "next_scope": "9장 Elevated Persistence 1~2강부터 (전역 ID38~): 업로드 원본 전체를 새로 읽고 상세 분할 계획 저장 후 진행",
+  "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -97,7 +99,7 @@
       "5": 6,
       "6": 6,
       "7": 6,
-      "8": 4
+      "8": 6
     },
     "updated": "2026-11-05"
   },
@@ -174,7 +176,7 @@
     "ui_scope": "공식실제FileBrowser·ProcessBrowser·Desktop·Interpreter·lint5개신규원본. Sessions·Console·Jobs·HTTPListener재사용. Downloads·Screenshots·Help그룹사진미확보명시. 필드·메뉴·가정값·버전·확인·중지·보관을분리."
   },
   "unit_8": {
-    "status": "partially_published",
+    "status": "published",
     "title": "Privilege Escalation",
     "source_scope_reviewed": "entire chapter; private source content and identifiers excluded",
     "plan": [
@@ -213,16 +215,15 @@
       32,
       33,
       34,
-      35
-    ],
-    "verification_scope": "빌드·구문·33강 앵커/이미지·기존31강 본문 및 홈 타영역 동일·SVG XML 통과. 공개2강·SVG6·공식사진2·기존다운로드2 HTTP200/SHA256일치. 공개 브라우저2강 문서/그림/화면/앵커/이동과 데스크톱 가로 넘침 없음 확인. Windows·제품·명령·서비스/토큰변경 미실행.",
-    "remaining_lesson_ids": [
+      35,
       36,
       37
     ],
-    "diagrams": 12,
-    "review_questions": 32,
-    "official_image_occurrences": 7,
+    "verification_scope": "빌드·구문·33강 앵커/이미지·기존31강 본문 및 홈 타영역 동일·SVG XML 통과. 공개2강·SVG6·공식사진2·기존다운로드2 HTTP200/SHA256일치. 공개 브라우저2강 문서/그림/화면/앵커/이동과 데스크톱 가로 넘침 없음 확인. Windows·제품·명령·서비스/토큰변경 미실행.",
+    "remaining_lesson_ids": [],
+    "diagrams": 18,
+    "review_questions": 48,
+    "official_image_occurrences": 12,
     "publication": {
       "commit": "aac9f2ca8e31a52a0d78dad4ad849085965cb406",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41896968988",
@@ -255,14 +256,22 @@
         36,
         37
       ],
-      "publication_status": "prepared_awaiting_public_verification",
+      "publication_status": "published_verified",
       "source_scope_reviewed": "entire chapter re-read from connected uploaded source; no private text/images/identifiers published",
       "diagrams": 6,
       "official_image_occurrences": 5,
       "new_official_images": 1,
       "review_questions": 16,
-      "verification_scope": "37-lesson build passed; original 35 markdown and body sections preserved; links/images/anchors and SVG inspected; actual products and Windows procedures not executed",
-      "verification_limits": "local browser binary unavailable; public browser render verification pending; no mobile viewport render yet"
+      "verification_scope": "37강 빌드·구문·링크/앵커/이미지2658·기존35강markdown/본문·홈타영역보존·SVG6 검증. 공개22파일 HTTP200/SHA256일치(강의2·목차/홈2·SVG6·사진5·다운로드7). 공개브라우저 두 강의11절·8복습·모든이미지·화면바로가기/스크롤위치·5→6강이동·데스크톱가로넘침없음 확인. 실제Windows/제품/승격/파일배치/파서 실행 미수행.",
+      "verification_limits": "모바일 내부스크롤 CSS·포커스·래퍼 확인. 실제 모바일 viewport/실기기 렌더링은 미검증. 신규 필터 적용결과·whoami결과·runasadmin전용창·승격완료 사진 미확보는 본문에 명시.",
+      "commit": "99663b8fb94c27e66ce3e0b0271ccdf3011874d9",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41924661665",
+      "deployment_status": "success",
+      "public_files_verified": 22,
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/36-dll-search-software-vulnerabilities.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/37-uac-integrity-elevation-validation.html"
+      ]
     }
   }
 }
