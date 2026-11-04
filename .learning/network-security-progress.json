@@ -12,27 +12,29 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      20,
-      45
+      46,
+      68
     ],
     "pdf_pages": [
-      22,
-      47
+      48,
+      70
     ],
-    "workbook_vm_scope": "SOC overview concepts; original workbook and VM availability unchanged. Only synthetic CSV calculation executed."
+    "workbook_vm_scope": "Defensible network concepts split into two detailed lessons; no original workbook/VM available; only synthetic correlation and capacity calculations executed."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 5,
-    "topic": "방어하기 쉬운 네트워크와 증거 수집",
+    "lesson": 7,
+    "lesson_id": "d1-06",
+    "topic": "이벤트·경보·이상 징후·사건 구분",
     "volume": 1,
-    "printed_start": 46,
-    "pdf_start": 48,
+    "printed_start": 69,
+    "pdf_start": 71,
     "status": "planned",
     "batch_lessons": [
-      5,
-      6
-    ]
+      7,
+      8
+    ],
+    "numbering_note": "Internal ID d1-06 is now display lesson7. Use course.json day order/number, not ID suffix. New display lesson6 has ID d1-05b."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -42,7 +44,9 @@
       1,
       2,
       3,
-      4
+      4,
+      5,
+      6
     ],
     "2": [
       1,
@@ -55,43 +59,34 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "402e052f0b2ea0c7b13dd7b2c7ce3544fd7e13c9",
     "day": 1,
     "lessons": [
       5,
       6
     ],
-    "state": "publication_pending",
-    "source_printed_pages": [
-      46,
-      68
-    ],
-    "source_pdf_pages": [
-      48,
-      70
-    ],
-    "split_note": "Split defensible-network module into network/endpoint visibility and cloud/centralization for depth; original events topic moves to lesson7.",
-    "verification": "Content/source coverage, HTML, SVG, synthetic correlation/capacity checks passed; browser unavailable; publication pending.",
-    "new_lesson_ids": [
+    "lesson_ids": [
       "d1-05",
       "d1-05b"
-    ]
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "87ffb960985cb039523780bcd7a7321ab2a849eb",
-    "day": 1,
-    "lessons": [
-      3,
-      4
     ],
     "deployment": "success",
-    "actions_run": 41799649581,
-    "public_files_checked": 20,
+    "actions_run": 41807163378,
+    "public_files_checked": 22,
     "public_content_match": true,
     "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure",
     "new_figures": 6,
     "new_review_questions": 28,
-    "synthetic_calculations": "Python3.12.14: 00:35 -> 5/4/80.0; 00:30 -> 4/3/75.0; mean6.5min, E05wait27min, E03collection13min/total18min."
-  }
+    "synthetic_calculations": "Python3.12.14: PID-only2 vs host/execution1; UTC09:00:06; 17.28GB/day=16.09GiB/day; 7days120.96GB."
+  },
+  "completed_lesson_ids_day1": [
+    "d1-01",
+    "d1-02",
+    "d1-03",
+    "d1-04",
+    "d1-05",
+    "d1-05b"
+  ]
 }
