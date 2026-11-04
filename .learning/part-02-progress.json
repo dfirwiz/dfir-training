@@ -6,21 +6,23 @@
     23,
     24,
     25,
-    26
+    26,
+    27
   ],
   "completed_day_lessons": [
     1,
     2,
     3,
-    4
+    4,
+    5
   ],
-  "completed_printed_through": 58,
-  "completed_pdf_through": 60,
-  "next_lesson_id": 27,
-  "next_printed_page": 59,
+  "completed_printed_through": 69,
+  "completed_pdf_through": 71,
+  "next_lesson_id": 28,
+  "next_printed_page": 70,
   "updated": "2026-11-04",
-  "scope": "Lesson5 prepared manuscript resumed by user authorization. HTTPS browser and screenshots now available; completed IDs stay unchanged until actual deployment and desktop/mobile verification.",
-  "review": ".learning/reviews/day-two-04-revision-20261103.md",
+  "scope": "Day-two lesson5 detailed manuscript resumed, published, deployment and actual desktop/mobile HTTPS review verified. Next: day-two lesson6/internal ID28. Remaining12 lessons stay abbreviated drafts awaiting detailed revision.",
+  "review": ".learning/reviews/day-two-05-revision-20261103.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -60,10 +62,10 @@
     "completed_lesson_ids": [
       24,
       25,
-      26
+      26,
+      27
     ],
     "pending_lesson_ids": [
-      27,
       28,
       29,
       30,
@@ -77,46 +79,36 @@
       38,
       39
     ],
-    "next_lesson_id": 27,
-    "next_day_lesson": 5,
-    "last_review": ".learning/reviews/day-two-04-revision-20261103.md",
+    "next_lesson_id": 28,
+    "next_day_lesson": 6,
+    "last_review": ".learning/reviews/day-two-05-revision-20261103.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "automation_id": "automation",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 26,
+    "last_published_lesson_id": 27,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
         "preparation_and_exercises_1_2": "detailed_explanations_and_bytes_checked_in_lesson25_not_libpcap_engine_execution",
         "exercises_3_4_and_two_extra_problems": "detailed_explanations_and_bytes_checked_in_lesson26_not_libpcap_engine_or_VM_execution"
+      },
+      "2.3": {
+        "exercise3": "detailed_retry_vs_new_attempt_explanation_and_stored_bytes_checked_in_lesson27; no_endpoint_or_filter_engine_execution",
+        "exercise2": "raw_sequence_length_payload_conflict_checked_in_lesson27; SYN_data_acceptance_options_and_sensor_endpoint_behavior_remain_followup",
+        "exercise6": "opening_three_frames_only_checked_in_lesson27; reset_checksum_and_reassembly_pending_lessons29_30",
+        "other_requirements": "exercise1_checksum, exercise4_crafted_fields, exercise5_responses, URG_extra_and_final_lab_audit_pending_followup"
       }
     },
     "remaining_render_review": [],
-    "active_lesson": {
-      "lesson_id": 27,
-      "day_lesson": 5,
-      "status": "publication_pending_render_review",
-      "source_revision": "written_and_mapped",
-      "static_validation": "passed",
-      "publication": "preparing_content_commit",
-      "base_main": "f58759f70af4add837a5f7e91ee42c56532121db",
-      "review": ".learning/reviews/day-two-05-revision-20261103.md",
-      "blocker": null,
-      "first_observed_utc": "2026-11-03T12:08:24.458Z",
-      "resume": "Preserve local manuscript and backup hash; read latest main; do not reauthor. When HTTPS browser access is available, set lesson27 editorial_status=revised, build, publish approved content using expected head, verify deployment and desktop/mobile live render, then advance to lesson28.",
-      "latest_remote_seen": "3fb0c4bd6104ba7f728e55baade041e3b9bac277",
-      "last_browser_check_utc": "2026-11-04T10:15:50.461Z",
-      "requires_latest_main_integration_before_build": false
-    },
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 26,
-      "content_commit": "0967003f19b3ebf391edd7a1dd153348c082e0e7",
-      "workflow_run": 41631150208,
+      "lesson_id": 27,
+      "content_commit": "e8fd7c36b8f7e82157541854b31c41e2f5cbc17f",
+      "workflow_run": 41814797376,
       "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/26-bpf-three-tests.html",
-      "render_review": "desktop1280_mobile390_screenshots_and_DOM_geometry_verified",
-      "lesson25_render_review": "previous_pending_screenshots_completed_in_this_resume",
-      "verified_at": "2026-11-03T11:58:03.471Z"
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/27-tcp-sequence-ack.html",
+      "render_review": "desktop1280_mobile390x844_screenshots_DOM_geometry_and_actual_inner_scroll_verified",
+      "verified_at": "2026-11-04T10:36:23.350Z"
     }
   }
 }
