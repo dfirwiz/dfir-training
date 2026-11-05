@@ -53,11 +53,13 @@
     49,
     50,
     51,
-    52
+    52,
+    53,
+    54
   ],
-  "published_unit": "1~11장과 12장 1~2강 공개: 2장만 핵심 요약",
-  "next_scope": "12장 Discovery 3~4강 (ID53~54): LDAP 일치 규칙·플래그·중첩 그룹 및 DC 검색 비용과 1644 감사 증거",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~11장과 12장 1~4강 공개: 2장만 핵심 요약",
+  "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -118,7 +120,7 @@
       "9": 2,
       "10": 6,
       "11": 5,
-      "12": 2
+      "12": 4
     },
     "updated": "2026-11-05"
   },
@@ -585,11 +587,11 @@
     ],
     "lesson_ids": [
       51,
-      52
+      52,
+      53,
+      54
     ],
     "remaining_lesson_ids": [
-      53,
-      54,
       55,
       56
     ],
@@ -617,16 +619,16 @@
       "deployment_status": "success",
       "public_files_verified": 24
     },
-    "diagrams": 6,
-    "official_image_occurrences": 4,
-    "review_questions": 16,
+    "diagrams": 12,
+    "official_image_occurrences": 8,
+    "review_questions": 32,
     "batch_3_4": {
       "date": "2026-11-05",
       "lesson_ids": [
         53,
         54
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "unique_official_images": 3,
@@ -637,7 +639,12 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/53-ldap-matching-rules-nested-groups.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/54-ldap-query-cost-event-1644.html"
-      ]
+      ],
+      "status": "published_verified",
+      "commit": "68b244eefed89b759843f2d5c0ebf094e106abe3",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42027961646",
+      "deployment_status": "success",
+      "public_files_verified": 24
     }
   }
 }

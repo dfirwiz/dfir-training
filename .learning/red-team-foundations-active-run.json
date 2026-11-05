@@ -4,8 +4,8 @@
     54
   ],
   "owner": "scheduled-20261105-1212",
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-05T12:17:01Z",
-  "expires_at": "2026-11-05T13:07:00Z",
-  "next_scope": "12장 3~4강 공개 배포 확인 후 완료 처리. 다음은 12장 5~6강."
+  "completed_at": "2026-11-05T12:34:01Z",
+  "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거"
 }
