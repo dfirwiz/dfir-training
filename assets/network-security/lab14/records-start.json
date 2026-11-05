@@ -1,0 +1,71 @@
+{
+  "schema": "training-cti-v1",
+  "events": [
+    {
+      "id": "E1",
+      "date": "2026-11-01",
+      "title": "Synthetic report A",
+      "source": "https://reports.example/notes/training-a",
+      "review_state": "pending",
+      "distribution": "organisation-only",
+      "tlp": "TLP:AMBER+STRICT",
+      "attributes": [
+        {
+          "id": "A1",
+          "type": "sha256",
+          "value": "19fb78b143afba673bd5b59aacee55c99907c85864d5560c44f4dde648a120e9",
+          "category": "Payload delivery",
+          "role": "file-candidate",
+          "to_ids": true,
+          "seen_locally": false,
+          "review_state": "reviewed",
+          "comment": "Synthetic report A describes classroom file; no real malware or local observation."
+        },
+        {
+          "id": "A2",
+          "type": "domain",
+          "value": "files.example",
+          "category": "Network activity",
+          "role": "role-unconfirmed",
+          "to_ids": false,
+          "seen_locally": false,
+          "review_state": "reviewed",
+          "comment": "Mentioned in synthetic report; role and validity period unconfirmed."
+        },
+        {
+          "id": "A3",
+          "type": "link",
+          "value": "https://reports.example/notes/training-a",
+          "category": "Network activity",
+          "role": "network-target",
+          "to_ids": true,
+          "seen_locally": false,
+          "review_state": "pending",
+          "comment": ""
+        }
+      ]
+    },
+    {
+      "id": "E2",
+      "date": "2026-11-02",
+      "title": "Synthetic report B",
+      "source": "https://reports.example/notes/training-b",
+      "review_state": "reviewed",
+      "distribution": "organisation-only",
+      "tlp": "TLP:AMBER+STRICT",
+      "attributes": [
+        {
+          "id": "B1",
+          "type": "sha256",
+          "value": "19fb78b143afba673bd5b59aacee55c99907c85864d5560c44f4dde648a120e9",
+          "category": "Payload delivery",
+          "role": "file-candidate",
+          "to_ids": true,
+          "seen_locally": false,
+          "review_state": "reviewed",
+          "comment": "Synthetic report B reuses classroom fixture bytes. Actor/campaign unknown."
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+자체 가상 보고서 / 제품·원본 실습 자료 아님
+보고서 A: 2026-11-01, 참고 주소 https://reports.example/notes/training-a
+문서 파일 이름을 delivery-note.txt라고 불렀다고 가정한다.
+보고서 B: 2026-11-02, 참고 주소 https://reports.example/notes/training-b
+다른 파일 이름 reference-copy.txt로 같은 바이트를 기술했다고 가정한다.
+SHA-256: 19fb78b143afba673bd5b59aacee55c99907c85864d5560c44f4dde648a120e9
+해시는 함께 제공한 무해한 fixture.txt의 실제 바이트로 계산했다.
+files.example은 A에 언급됐지만 악성 역할과 기간은 확인되지 않았다.
+두 보고서의 독립성·실제 행위자·캠페인·우리 환경 관측은 미확인이다.
+이 자료에서는 외부 공유를 허용하지 않는다. TLP:AMBER+STRICT와 조직 내부 범위를 유지한다.
+수정 과제: 시작 기록의 E1 검토 상태와 A3 참고 링크의 역할·범주·to_ids를 검토하라.
+완료본은 독립 검토의 참조 답안이며 실제 제품 게시나 진실 검증을 뜻하지 않는다.

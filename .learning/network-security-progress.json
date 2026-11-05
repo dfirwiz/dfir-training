@@ -1,6 +1,6 @@
 {
   "course": "network-security",
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "completed_lessons": [
     1,
     2,
@@ -65,7 +65,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      13,
+      14
+    ],
+    "lesson_ids": [
+      "d1-10b",
+      "d1-11"
+    ],
+    "status": "validated_awaiting_publication",
+    "source_printed": [
+      121,
+      133
+    ],
+    "scope": "MISP data model/workflow plus independent local record-review exercise; original external workbook not accessed"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "e884fcacb69eb8b2472b520a33ab69ceab4d69db",

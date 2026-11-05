@@ -1,2 +1,3 @@
 # Preserve exact bytes for downloadable lab files and their SHA-256 manifest.
 assets/network-security/lab05/* -text
+assets/network-security/lab14/* text eol=lf

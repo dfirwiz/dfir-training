@@ -1,7 +1,7 @@
 {
   "title": "블루팀 필수 지식: 보안 운영과 분석",
   "slug": "network-security",
-  "updated": "2026-11-04",
+  "updated": "2026-11-05",
   "lessons": [
     {
       "id": "d1-01",
@@ -128,14 +128,20 @@
       "day": 1,
       "number": 13,
       "title": "MISP의 자료 모델과 정보 공유",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-13-misp-data-sharing",
+      "short_title": "MISP 자료 모델과 공유",
+      "description": "첫째 날 13강. 이벤트·속성·객체·분류·관측 보고와 상관관계를 이해하고, 검토·배포·동기화의 조건을 연결합니다."
     },
     {
       "id": "d1-11",
       "day": 1,
       "number": 14,
-      "title": "위협 정보 활용 실습",
-      "status": "planned"
+      "title": "위협 정보 기록 검토와 상관관계 실습",
+      "status": "published",
+      "slug": "day-01-14-intelligence-record-practice",
+      "short_title": "위협 정보 기록 검토 실습",
+      "description": "첫째 날 14강. 자체 가상 보고서를 구조화하고 로컬 Python으로 검토·해시 상관관계·탐지 후보를 확인하며 사실과 권한의 한계를 구분합니다."
     },
     {
       "id": "d1-12",
@@ -654,6 +660,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-10b",
+  "next_lesson": "d1-12",
   "planning_note": "위협 정보 모듈은11강 원리·맥락,12강 플랫폼·피드·안전한 공유,13강 MISP 자료 모델로 나눕니다. 자체 활용 실습은14강으로 이어지며 기존 공개 번호·URL·본문은 보존합니다."
 }
