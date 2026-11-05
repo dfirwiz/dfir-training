@@ -51,11 +51,13 @@
     47,
     48,
     49,
-    50
+    50,
+    51,
+    52
   ],
-  "published_unit": "1~11장 공개: 2장만 핵심 요약",
-  "next_scope": "12장 Discovery 1~2강 (ID51~52): AD 객체·디렉터리 연결 및 LDAP 검색 범위·필터·반환 속성",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~11장과 12장 1~2강 공개: 2장만 핵심 요약",
+  "next_scope": "12장 Discovery 3~4강 (ID53~54): LDAP 일치 규칙·플래그·중첩 그룹 및 DC 검색 비용과 1644 감사 증거",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -115,7 +117,8 @@
       "8": 6,
       "9": 2,
       "10": 6,
-      "11": 5
+      "11": 5,
+      "12": 2
     },
     "updated": "2026-11-05"
   },
@@ -545,7 +548,7 @@
     "publication_status": "published_verified"
   },
   "unit_12": {
-    "status": "planned",
+    "status": "partially_published",
     "title": "Discovery",
     "source_scope_reviewed": "entire uploaded chapter; private source text, screenshots and identifiers excluded",
     "plan": [
@@ -580,10 +583,11 @@
         "title": "GPO·SYSVOL·Restricted Groups·WMI 적용 증거"
       }
     ],
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       51,
-      52,
+      52
+    ],
+    "remaining_lesson_ids": [
       53,
       54,
       55,
@@ -595,7 +599,7 @@
         51,
         52
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "unique_official_images": 3,
@@ -606,7 +610,15 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/51-discovery-directory-objects-connections.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/52-ldap-search-filters-attributes.html"
-      ]
-    }
+      ],
+      "status": "published_verified",
+      "commit": "cc1e762517b4d36643ba842067f806ed9ae615be",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42019508724",
+      "deployment_status": "success",
+      "public_files_verified": 24
+    },
+    "diagrams": 6,
+    "official_image_occurrences": 4,
+    "review_questions": 16
   }
 }
