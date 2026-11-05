@@ -4,8 +4,8 @@
     58
   ],
   "owner": "scheduled-20261105-1408",
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-05T14:10:53Z",
-  "expires_at": "2026-11-05T15:04:00Z",
-  "next_scope": "13장 1~2강 공개 배포 확인 후 완료 처리. 다음은 13장 3~4강."
+  "completed_at": "2026-11-05T14:25:18Z",
+  "next_scope": "13장 Lateral Movement 3~4강 (ID59~60): PsExec 계열과 서비스 제어 관리자 증거 및 확장 등록과 기존 서비스 변경의 검증"
 }
