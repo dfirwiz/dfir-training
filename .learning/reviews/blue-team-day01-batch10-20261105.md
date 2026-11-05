@@ -59,3 +59,8 @@ HTML28구조/중복ID/내부앵커/상대링크/실제다운로드href/6일메�
 SVG6 XML·한국어폰트경계검사[]·정적렌더접촉시트 output/network-security/adversary-contact-sheet.png 시각검토. 400폭·읽는방향/제목/범례·확률아닌칸/중첩비전이성설명. 표·코드내부스크롤/CSS기존디자인보존. CUA브라우저목록재확인[]로실제브라우저/모바일미검증,우회없음.
 
 배포와공개40파일(HTML28/CSS/course.json/SVG6/실습4)의응답·내용일치확인후에만완료진도를갱신한다. 이원고시점은게시대기이며완료로간주하지않는다.
+
+
+## 게시 완료 확인
+
+배포커밋6ddc1a3f2ed227703ad5f5d52662e54bb5f8eeb4; Pages실행42004526214 success. 공개40파일(HTML28/CSS/course.json/SVG6/실습4) 전부HTTP200·LF정규화내용일치확인후첫째날1~20완료/active_batch해제/다음21사례범위를기록했다. 최신main a4f7ad55b3ee52eedd6e53c74d7287dfbb58fda1까지다른과정후속변경을통합했고홈페이지충돌은최신원격의다른내용보존후자체카드만재생성했다. 통합후구조/링크/기존24본문/홈밖내용검증재통과. 최신main부모+expected_sha+force=false사용. 실제브라우저/모바일/원본VM/PCAP는미검증이다.
