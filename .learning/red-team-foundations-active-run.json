@@ -1,11 +1,7 @@
 {
-  "scope": [
-    36,
-    37
-  ],
-  "owner": "scheduled-20261105-0911",
-  "status": "completed",
-  "completed_on": "2026-11-05",
-  "commit": "99663b8fb94c27e66ce3e0b0271ccdf3011874d9",
-  "next_scope": "9장 Elevated Persistence; ID38부터; active reservation released"
+  "scope": [38, 39],
+  "owner": "scheduled-20261105-1120",
+  "status": "built_verified_pending_publish",
+  "updated_on": "2026-11-05",
+  "next_scope": "10장 Credential Access; ID40부터; publication verification required before release"
 }

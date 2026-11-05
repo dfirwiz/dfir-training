@@ -38,11 +38,13 @@
     34,
     35,
     36,
-    37
+    37,
+    38,
+    39
   ],
-  "published_unit": "1~8장 완료: 전역 ID1~37. 2장만 핵심 요약",
-  "next_scope": "9장 Elevated Persistence 1~2강부터 (전역 ID38~): 업로드 원본 전체를 새로 읽고 상세 분할 계획 저장 후 진행",
-  "next_lesson_status": "ready",
+  "published_unit": "1~9장 완료: 전역 ID1~39. 2장만 핵심 요약",
+  "next_scope": "10장 Credential Access: 업로드 원본 전체를 새로 읽고 상세 분할 계획 저장 후 전역 ID40부터 진행",
+  "next_lesson_status": "ready_after_publication_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -99,7 +101,8 @@
       "5": 6,
       "6": 6,
       "7": 6,
-      "8": 6
+      "8": 6,
+      "9": 2
     },
     "updated": "2026-11-05"
   },
@@ -273,5 +276,30 @@
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/37-uac-integrity-elevation-validation.html"
       ]
     }
+  },
+  "unit_9": {
+    "status": "built_verified_pending_publish",
+    "title": "Elevated Persistence",
+    "source_scope_reviewed": "entire connected uploaded chapter; private source text, images, identifiers and restricted course name excluded",
+    "plan": [
+      {
+        "id": 38,
+        "lesson_number": 1,
+        "title": "SYSTEM 예약 작업 지속성: 등록·부팅·실행 증거 연결하기"
+      },
+      {
+        "id": 39,
+        "lesson_number": 2,
+        "title": "SYSTEM 서비스 지속성: SCM 구성에서 재부팅 후 프로세스까지"
+      }
+    ],
+    "lesson_ids": [38, 39],
+    "remaining_lesson_ids": [],
+    "diagrams": 6,
+    "official_image_occurrences": 5,
+    "review_questions": 16,
+    "verification_scope": "39강 빌드·JSON·강의ID연속성·11절/8복습·내부링크/앵커·이미지·SVG XML·git diff 검사 통과. 공개 배포와 실제 페이지 검증 대기.",
+    "verification_limits": "Windows·Cobalt Strike·작업/서비스 생성·파일배치·부팅/재부팅·SYSTEM 실행·자격증명/보호기능 변경 미수행. SYSTEM 작업 완성 화면·최신 Services 속성·서비스 생성/실행 결과 사진 미확보를 본문에 명시.",
+    "publication_status": "pending"
   }
 }

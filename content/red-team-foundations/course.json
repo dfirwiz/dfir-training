@@ -911,6 +911,59 @@
           ]
         ]
       }
+    },
+    {
+      "id": 38,
+      "slug": "38-system-scheduled-task-evidence",
+      "title": "SYSTEM 예약 작업 지속성: 등록·부팅·실행 증거 연결하기",
+      "short_title": "SYSTEM 예약 작업·부팅 증거",
+      "description": "BootTrigger·Principal·Action·Settings를 실제 Task Scheduler와 Beacon Console 화면에서 읽고 등록·트리거·프로세스·결과를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 7,
+      "unit": 9,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 1,
+      "screenshots": 4,
+      "ui_revision": "20261105-elevated-persistence",
+      "practice": {
+        "title": "실제 화면과 읽기 전용 검증 순서",
+        "description": "공식 실제 사진과 미실행 절차를 구별하며 계정·트리거·동작·결과를 연결합니다.",
+        "links": [
+          ["screen-69", "1. General 실행 계정"],
+          ["screen-70", "2. Trigger와 Action"],
+          ["screen-72", "3. Beacon 조회 위치"],
+          ["section-6", "4. 등록부터 완료까지 검증"]
+        ]
+      }
+    },
+    {
+      "id": 39,
+      "slug": "39-system-service-persistence-evidence",
+      "title": "SYSTEM 서비스 지속성: SCM 구성에서 재부팅 후 프로세스까지",
+      "short_title": "SYSTEM 서비스·SCM·실행 검증",
+      "description": "서비스 이름·자동 시작·계정·바이너리 계약을 나누고 실제 Beacon Console에서 구성과 상태 조회 위치, 이벤트와 프로세스 검증을 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 9,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "ui_revision": "20261105-elevated-persistence",
+      "practice": {
+        "title": "실제 콘솔과 서비스 상태 검증 순서",
+        "description": "구성·상태·서비스 계정·프로세스와 자동 시작을 분리해 읽습니다.",
+        "links": [
+          ["screen-73", "1. Beacon 조회 위치"],
+          ["section-4", "2. Services 화면에서 읽을 값"],
+          ["section-5", "3. 단계별 실행 검증"]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -962,7 +1015,15 @@
       "title_ko": "권한 상승: 계정·토큰과 서비스 증거",
       "practice_entry": "32-accounts-tokens-rights",
       "practice_label": "실제 콘솔과 조회 순서부터 보기",
-      "practice_description": "8장 1~4강 공개. 계정·토큰·서비스 구성에서 PATH·경로 해석·파일과 레지스트리 권한까지 실제 콘솔과 조사 화면으로 연결합니다."
+      "practice_description": "계정·토큰·서비스 구성에서 PATH·로더·UAC 결과까지 실제 콘솔과 조사 화면으로 연결합니다."
+    },
+    {
+      "id": 9,
+      "title": "Elevated Persistence",
+      "title_ko": "높은 권한의 지속성: 예약 작업과 서비스",
+      "practice_entry": "38-system-scheduled-task-evidence",
+      "practice_label": "실제 화면과 읽기 전용 검증부터 보기",
+      "practice_description": "SYSTEM 예약 작업과 자동 시작 서비스를 등록 구성·트리거·계정·프로세스·재부팅 증거로 나누어 확인합니다."
     }
   ]
 }
