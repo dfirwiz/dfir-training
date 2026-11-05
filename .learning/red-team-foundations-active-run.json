@@ -3,8 +3,8 @@
     50
   ],
   "owner": "scheduled-20261105-1009",
-  "status": "in_progress",
-  "started_at": "2026-11-05T10:10:37Z",
-  "expires_at": "2026-11-05T11:07:00Z",
-  "next_scope": "11장 5강 공개 배포 확인 후 완료 처리. 다음 장은 12장 Discovery."
+  "status": "completed",
+  "completed_on": "2026-11-05",
+  "commit": "707019bcaabdd504dd7a9d77bf1727b6c2939234",
+  "next_scope": "12장 Discovery: 연결된 원본 전체를 확인해 장의 상세 강의 분할 계획을 저장한 뒤 미완료 강의 최대 2개 작성·검증·게시."
 }
