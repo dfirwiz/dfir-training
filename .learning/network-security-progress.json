@@ -72,7 +72,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      19,
+      20
+    ],
+    "lesson_ids": [
+      "d1-14",
+      "d1-14b"
+    ],
+    "status": "source_review_and_drafting",
+    "source_printed": [
+      152,
+      160
+    ],
+    "scope": "Actor goals/types153-156 and targeting/opportunistic behavior/naming157-160; cases161-167 remain next21"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "e9d2ac173bda7a5ba0b359b06d9264c7bf708882",

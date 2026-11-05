@@ -188,19 +188,39 @@
       "day": 1,
       "number": 19,
       "title": "공격자의 목적과 행동 이해",
+      "status": "published",
+      "slug": "day-01-19-adversary-goals-roles",
+      "short_title": "공격자의 목적과 역할",
+      "description": "첫째 날19강. 국가 연계·금전·이념·위탁·내부자라는 분석 관점을 구분하고, 실제 관측·목적 가설·업무 영향을 연결합니다."
+    },
+    {
+      "id": "d1-14b",
+      "day": 1,
+      "number": 20,
+      "title": "기회형·표적형 공격과 위협 그룹 이름 해석",
+      "status": "published",
+      "slug": "day-01-20-targeting-actor-names",
+      "short_title": "공격 방식과 그룹 이름",
+      "description": "첫째 날20강. 기회형·표적형과 피해 범위를 분리하고, 현재 이름 체계·출처별 군집·관련 이름의 중첩을 자체 자료로 검토합니다."
+    },
+    {
+      "id": "d1-14c",
+      "day": 1,
+      "number": 21,
+      "title": "사례로 살펴보는 공격 흐름과 방어",
       "status": "planned"
     },
     {
       "id": "d1-15",
       "day": 1,
-      "number": 20,
+      "number": 22,
       "title": "첫째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d1-16",
       "day": 1,
-      "number": 21,
+      "number": 23,
       "title": "로그 검색과 SIEM 실습",
       "status": "planned"
     },
@@ -594,6 +614,8 @@
         "d1-13",
         "d1-13b",
         "d1-14",
+        "d1-14b",
+        "d1-14c",
         "d1-15",
         "d1-16"
       ]
@@ -688,6 +710,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-14",
+  "next_lesson": "d1-14c",
   "planning_note": "위협 정보 모듈은11강 원리·맥락,12강 플랫폼·피드·안전한 공유,13강 MISP 자료 모델로 나눕니다. 자체 활용 실습은14강으로 이어지며 기존 공개 번호·URL·본문은 보존합니다."
 }

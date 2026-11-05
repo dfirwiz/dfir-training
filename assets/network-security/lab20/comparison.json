@@ -1,0 +1,55 @@
+{
+  "schema": "training-names-v1",
+  "records": [
+    {
+      "record_id": "A-2022",
+      "publisher": "Research-A",
+      "tracking_id": "A17",
+      "label": "Training Cedar",
+      "entity_type": "activity_cluster",
+      "as_of": "2022-06-01",
+      "report": "https://reports.example/a-2022"
+    },
+    {
+      "record_id": "A-2026",
+      "publisher": "Research-A",
+      "tracking_id": "A17",
+      "label": "Training Birch",
+      "entity_type": "activity_cluster",
+      "as_of": "2026-08-01",
+      "report": "https://reports.example/a-2026"
+    },
+    {
+      "record_id": "B-2026",
+      "publisher": "Research-B",
+      "tracking_id": "B09",
+      "label": "Training Lark",
+      "entity_type": "activity_cluster",
+      "as_of": "2026-08-02",
+      "report": "https://reports.example/b-2026"
+    },
+    {
+      "record_id": "C-2026",
+      "publisher": "Research-C",
+      "tracking_id": "C03",
+      "label": "Training Lark",
+      "entity_type": "activity_cluster",
+      "as_of": "2026-08-03",
+      "report": "https://reports.example/c-2026"
+    }
+  ],
+  "relations": [
+    {
+      "from": "A-2022",
+      "to": "A-2026",
+      "kind": "same_source_rename",
+      "basis": "Fictional source memo says A17 was renamed; not a real-world claim"
+    },
+    {
+      "from": "A-2026",
+      "to": "B-2026",
+      "kind": "reported_overlap",
+      "basis": "Fictional report states partial activity overlap; exact identity not established"
+    }
+  ]
+}
