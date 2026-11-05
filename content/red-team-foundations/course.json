@@ -1433,6 +1433,74 @@
           ]
         ]
       }
+    },
+    {
+      "id": 53,
+      "slug": "53-ldap-matching-rules-nested-groups",
+      "title": "LDAP 일치 규칙·플래그·중첩 그룹",
+      "short_title": "LDAP 일치 규칙·플래그·중첩 그룹",
+      "description": "계정 정수의 비트 마스크, 링크의 방향과 전이 규칙, 기본 그룹과 서비스 권한의 증거를 분리합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 12,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 3,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 검색 조건과 증거 확인",
+        "description": "계정 정수의 비트 마스크, 링크의 방향과 전이 규칙, 기본 그룹과 서비스 권한의 증거를 분리합니다.",
+        "links": [
+          [
+            "screen-101",
+            "Beacon Console 도움말"
+          ],
+          [
+            "screen-102",
+            "LDP 단일 객체 조건 판정"
+          ],
+          [
+            "section-8",
+            "조건 변경과 권한의 증거"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 54,
+      "slug": "54-ldap-query-cost-event-1644",
+      "title": "DC 검색 비용과 1644 감사 증거",
+      "short_title": "DC 검색 비용과 1644 감사 증거",
+      "description": "방문·반환·시간·반복을 비교하고 Windows Server의 확장 이벤트 1644를 다른 조사 근거와 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 12,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 4,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 검색 조건과 증거 확인",
+        "description": "방문·반환·시간·반복을 비교하고 Windows Server의 확장 이벤트 1644를 다른 조사 근거와 연결합니다.",
+        "links": [
+          [
+            "screen-103",
+            "Beacon Console 도움말"
+          ],
+          [
+            "screen-104",
+            "Microsoft 확장 1644"
+          ],
+          [
+            "section-8",
+            "클라이언트와 서버 증거 대조"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1595,7 +1663,7 @@
       "title_ko": "환경과 디렉터리의 관측",
       "practice_entry": "51-discovery-directory-objects-connections",
       "practice_label": "실제 화면에서 조회 주체와 결과를 구별합니다",
-      "practice_description": "Cobalt Strike의 세션과 콘솔, LDP의 검색 결과를 독립적인 증거로 읽습니다.",
+      "practice_description": "Cobalt Strike의 세션과 콘솔, LDP의 검색 결과, DC의 확장 1644 진단을 독립적인 증거로 읽습니다.",
       "practice_links": [
         [
           "51-discovery-directory-objects-connections",
@@ -1616,6 +1684,26 @@
           "52-ldap-search-filters-attributes",
           "screen-100",
           "2강 · LDP 검색 결과"
+        ],
+        [
+          "53-ldap-matching-rules-nested-groups",
+          "screen-101",
+          "3강 · Beacon Console 도움말"
+        ],
+        [
+          "53-ldap-matching-rules-nested-groups",
+          "screen-102",
+          "3강 · LDP 단일 객체 조건 판정"
+        ],
+        [
+          "54-ldap-query-cost-event-1644",
+          "screen-103",
+          "4강 · Beacon Console 도움말"
+        ],
+        [
+          "54-ldap-query-cost-event-1644",
+          "screen-104",
+          "4강 · Microsoft 확장 1644"
         ]
       ]
     }

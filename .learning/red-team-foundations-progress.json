@@ -57,7 +57,7 @@
   ],
   "published_unit": "1~11장과 12장 1~2강 공개: 2장만 핵심 요약",
   "next_scope": "12장 Discovery 3~4강 (ID53~54): LDAP 일치 규칙·플래그·중첩 그룹 및 DC 검색 비용과 1644 감사 증거",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -619,6 +619,25 @@
     },
     "diagrams": 6,
     "official_image_occurrences": 4,
-    "review_questions": 16
+    "review_questions": 16,
+    "batch_3_4": {
+      "date": "2026-11-05",
+      "lesson_ids": [
+        53,
+        54
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "unique_official_images": 3,
+      "new_official_images": 1,
+      "review_questions": 16,
+      "verification_scope": "54강 빌드, 기존 52강 본문과 홈 타영역 보존, 내부 링크·앵커·이미지 5034건, 독립 SVG 6개, 공식 1644 캡처 원본 화소 일치, 공식 출처 13곳 HTTP 응답, 합성 비트·비율·누적 시간 확인, Chromium 1366/390/320px 그림·표·앵커·복습·이동 검증.",
+      "verification_limits": "모바일 폭의 브라우저에서 검증. 실제 모바일 단말·Windows·Cobalt Strike·LDAP 조회 및 감사 구성 변경은 미실행. 실제 확장 도움말·LDP 검색 입력 및 실습 결과·EVTX 열기와 필터 입력 창의 사진 미확보를 본문에 표시.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/53-ldap-matching-rules-nested-groups.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/54-ldap-query-cost-event-1644.html"
+      ]
+    }
   }
 }
