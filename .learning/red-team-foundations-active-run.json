@@ -1,11 +1,11 @@
 {
   "scope": [
-    53,
-    54
+    55,
+    56
   ],
-  "owner": "scheduled-20261105-1212",
-  "status": "completed",
-  "started_at": "2026-11-05T12:17:01Z",
-  "completed_at": "2026-11-05T12:34:01Z",
+  "owner": "scheduled-20261105-1313",
+  "status": "in_progress",
+  "started_at": "2026-11-05T13:15:44Z",
+  "expires_at": "2026-11-05T14:09:00Z",
   "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거"
 }

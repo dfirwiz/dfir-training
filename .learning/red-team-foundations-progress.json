@@ -59,7 +59,7 @@
   ],
   "published_unit": "1~11장과 12장 1~4강 공개: 2장만 핵심 요약",
   "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거",
-  "next_lesson_status": "planned",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
