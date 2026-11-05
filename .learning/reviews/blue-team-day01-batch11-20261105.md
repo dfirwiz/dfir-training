@@ -60,3 +60,8 @@ HTML30구조/중복ID/내부앵커/상대링크/실제다운로드href/6일메�
 SVG6 XML/한국어폰트경계[]·정적접촉시트 output/network-security/case-studies-contact-sheet.png 시각검토. 읽는방향·범례·단위·실측아님표시/400폭/표와코드내부스크롤유지. CUA브라우저목록재확인[]로실제브라우저/모바일미검증,우회없음.
 
 배포와공개42파일(HTML30/CSS/course.json/SVG6/실습4)의HTTP응답·내용일치후에만완료진도를갱신한다. 현재검토원고시점은게시대기다.
+
+
+## 게시완료확인
+
+배포커밋d5f6a84a11b03aef76e8dc0ef395410769650b80; Pages실행42019164471 success. 공개42파일(HTML30/CSS/course.json/SVG6/실습4) 전부HTTP200·LF정규화내용일치확인후첫째날1~22완료/active_batch해제/다음23·24범위를기록했다. 게시전최신main b68e6c7e67bc1645007feb72f15fec2f442cb245의다른과정계획/진행변경을rebase로통합했고충돌없었다. 통합후구조/링크/기존26본문/홈밖내용검증재통과. 최신main부모+expected_sha+force=false사용. 실제브라우저/모바일·원본VM/PCAP·제품/공정은미검증. 집필중도착한중복heartbeat는새배치를시작하지않고이21/22완료에통합했다.

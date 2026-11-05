@@ -12,30 +12,30 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      152,
-      160
+      161,
+      163
     ],
     "pdf_pages": [
-      154,
-      162
+      163,
+      165
     ],
-    "workbook_vm_scope": "Actor goals/types153-156; opportunistic/targeted selection, impact, actor naming157-160 covered. Cases161-167 read ahead only, not completed. Original workbook/wiki/VM not executed; independent fictional lab20 local record comparison14 runs only."
+    "workbook_vm_scope": "Mirai161 and Colonial162-163 completed. Conti164-165 and SolarWinds166-167 read ahead only, not completed. Original workbook/wiki/VM/incident PCAP not executed. Independent fictional time intervals16 runs plus arithmetic only; no product/network/attack/effect execution."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 21,
-    "lesson_id": "d1-14c",
-    "topic": "사례로 살펴보는 공격 흐름과 방어",
+    "lesson": 23,
+    "lesson_id": "d1-14e",
+    "topic": "Conti 사례와 행위 기반 조사; SolarWinds 공급망·신뢰·인증",
     "volume": 1,
-    "printed_start": 161,
-    "pdf_start": 163,
-    "content_printed_start": 161,
+    "printed_start": 164,
+    "pdf_start": 166,
+    "content_printed_start": 164,
     "status": "planned",
     "batch_lessons": [
-      21,
-      22
+      23,
+      24
     ],
-    "numbering_note": "Current first-day plan23: 19=d1-14,20=d1-14b completed; cases21=d1-14c must be further split into two sufficient lessons before review22=d1-15/practice23=d1-16 if needed. Preserve published numbers/IDs/URLs. Read actual cases161-167 and verify historical dates/claims using primary sources; Colonial source2020 needs correction to2021 after verification."
+    "numbering_note": "23=d1-14e Conti164-165;24=d1-14f SolarWinds166 and module summary167. Day1 plan26; review25=d1-15/practice26=d1-16. Source attack instructions are learning material, do not execute. Verify Conti leak date, SolarWinds discovery/publication dates, first-ever GoldenSAML claim and source-qualified actor names using primary sources. Preserve all existing published numbers/IDs/URLs/prose."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -61,7 +61,9 @@
       17,
       18,
       19,
-      20
+      20,
+      21,
+      22
     ],
     "2": [
       1,
@@ -74,7 +76,10 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "d5f6a84a11b03aef76e8dc0ef395410769650b80",
     "day": 1,
     "lessons": [
       21,
@@ -84,36 +89,17 @@
       "d1-14c",
       "d1-14d"
     ],
-    "status": "source_review_and_drafting",
-    "source_printed": [
-      161,
-      163
-    ],
-    "scope": "Mirai161 and Colonial Pipeline162-163. Conti164-165 and SolarWinds166-167 remain next23/24; read ahead only."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "6ddc1a3f2ed227703ad5f5d52662e54bb5f8eeb4",
-    "day": 1,
-    "lessons": [
-      19,
-      20
-    ],
-    "lesson_ids": [
-      "d1-14",
-      "d1-14b"
-    ],
     "deployment": "success",
-    "actions_run": 42004526214,
-    "public_files_checked": 40,
+    "actions_run": 42019164471,
+    "public_files_checked": 42,
     "public_content_match": true,
-    "browser_visual_qa": "unavailable: enabled browser list empty; six static Korean-font SVG renders and contact sheet inspected; actual browser/mobile not tested",
-    "product_execution": "No actual TIP/API/report fetch/account/block/message/VM/PCAP/malware/product/install/purchase. Independent fictional file comparison only.",
+    "browser_visual_qa": "unavailable: enabled browser inventory empty; static Korean-font six SVG renders/contact sheet inspected. Actual browser/mobile not tested.",
+    "product_execution": "No actual IoT/botnet/scan/load/Wireshark/PCAP/VPN/account/MFA/OT/wallet/payment/API/VM/install/purchase. Independent fictional local interval comparison and arithmetic only.",
     "new_figures": 6,
     "new_review_questions": 24,
     "download_files": 4,
-    "synthetic_calculations": "Python3.12.14:14 runs. Default source identity Aold/Anew, direct partial overlap B, label collision C. Ambiguous label two matches/no merge; specific B/old label/absent label and ID/nontransitive chain; seven malformed inputs exit2. Four input files unchanged. No external lookups or real actor attribution.",
-    "official_sources_checked": "2026-11-05; Mandiant APT1 actual2013-02-19, Microsoft2023 weather/current Storm, GTIG2026-07-24 two-word/UNC retained, MITRE group partial overlap/G0007, CrowdStrike2022 explanation/current catalogue, NIST APT, NCSC insiders, Canada ransomware, Google2024 hacktivism. CISA403 not bypassed/read.",
+    "synthetic_calculations": "Python3.12.14 sixteen runs. Default20-second nominal delta/overlap40s/order unresolved; decision/effect120s/strict before with110s margin; +60sec each gives10sec overlap/unresolved; reversed/same/offset/touch/separate1s; eight invalid inputs exit2. Four input files unchanged. Arithmetic200Mbps/25MBps/changed200/shared upper150;63.7/75 about84.9percent units only.",
+    "official_sources_checked": "2026-11-05; DOJ2017 Mirai, CERT-In2016/17 variants/reinfection, Intel471Jan2022 observations and MicrosoftDec2021Log4j observed uptake, WiresharkTCPfield1.0.0–4.6.9 and filter syntax; NISTIR8259A2020. DOE/June2021Senate and House records/DOJ: actualColonial2021, Apr29 earliest evidence not absolute initial, May12restart vsMay13supply announcement, IT/OT distinction,29000miles inspection driving not pipeline length, seizure/privatekey not breakingBitcoin. NIST80063B-4Jul2025 final. Failed paper/vendor/FBI direct paths not claimed read.",
     "execution_environment": "local; cloud migration incomplete"
   },
   "completed_lesson_ids_day1": [
@@ -136,6 +122,8 @@
     "d1-13",
     "d1-13b",
     "d1-14",
-    "d1-14b"
+    "d1-14b",
+    "d1-14c",
+    "d1-14d"
   ]
 }
