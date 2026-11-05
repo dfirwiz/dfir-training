@@ -12,29 +12,30 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      134,
-      145
+      146,
+      151
     ],
     "pdf_pages": [
-      136,
-      147
+      148,
+      153
     ],
-    "workbook_vm_scope": "SIEM pipeline135-138 and use-case/Elastic/Discover/KQL139-145 covered after roadmap134. Original workbook/VM/Elastic data not executed. Independent synthetic9-row local fixed-window calculation14 runs and capacity/time arithmetic only. Automation146+ remains next."
+    "workbook_vm_scope": "Automation/orchestration146-148 and SOC integration/knowledge/code149-151 covered. Original workbook/wiki/VM not executed. Independent offline replay13 runs plus time arithmetic only; no API/product/effect execution."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 17,
-    "lesson_id": "d1-13",
-    "topic": "자동화의 역할과 사람의 판단",
+    "lesson": 19,
+    "lesson_id": "d1-14",
+    "topic": "공격자의 목적과 행동 이해",
     "volume": 1,
-    "printed_start": 146,
-    "pdf_start": 148,
+    "printed_start": 152,
+    "pdf_start": 154,
+    "content_printed_start": 153,
     "status": "planned",
     "batch_lessons": [
-      17,
-      18
+      19,
+      20
     ],
-    "numbering_note": "Added d1-12b as lesson16; automation is17. Read146-151 fully and split further before adversary module153+ if depth requires. Course day-one plan currently20; published numbers/IDs/URLs stable."
+    "numbering_note": "Printed152 is roadmap; adversary content153-167. Read full scope and split for depth before summary/practice. Added18=d1-13b; day1 plan currently21, preserve published numbers/IDs/URLs."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -56,7 +57,9 @@
       13,
       14,
       15,
-      16
+      16,
+      17,
+      18
     ],
     "2": [
       1,
@@ -69,7 +72,10 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "e9d2ac173bda7a5ba0b359b06d9264c7bf708882",
     "day": 1,
     "lessons": [
       17,
@@ -79,37 +85,17 @@
       "d1-13",
       "d1-13b"
     ],
-    "status": "validated_awaiting_publication",
-    "source_printed": [
-      146,
-      151
-    ],
-    "scope": "17:automation/orchestration/practical decisions146-148;18:SOC tool integration/knowledge/code149-151 with own offline workflow replay"
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "781ff99654b5e8be162bcf2940e6676b53b1e2cc",
-    "day": 1,
-    "lessons": [
-      15,
-      16
-    ],
-    "lesson_ids": [
-      "d1-12",
-      "d1-12b"
-    ],
     "deployment": "success",
-    "actions_run": 41988675852,
-    "public_files_checked": 42,
+    "actions_run": 41995964142,
+    "public_files_checked": 38,
     "public_content_match": true,
-    "browser_visual_qa": "unavailable: computer-use initialization succeeded but browser inventory empty; iab unavailable; static6SVG/font bounds inspected",
-    "product_execution": "No Elastic/Kibana/KQL/server/VM/PCAP/real authentication/attack/alert dispatch/block executed. Independent Python fixed-window calculation only.",
+    "browser_visual_qa": "unavailable: enabled browser list empty; six static SVG/font bounds and final tool-exchange render inspected",
+    "product_execution": "No actual SOAR/TheHive/Cortex/MISP/SIEM/API/lookup/VM/PCAP/account/block/email/ticket/install/purchase. Offline fictional result replay and local arithmetic only.",
     "new_figures": 6,
     "new_review_questions": 24,
     "download_files": 4,
-    "repaired_existing_lab14_links": 6,
-    "synthetic_calculations": "Python3.12.14:14 runs;9rows/7inwindow/duplicate1/missingidentity1/selected5/groups3/candidate1(count3); late availability/ingest-time/threshold4 =>0candidates; boundaries3vs4; invalid inputs2; input files unchanged. Capacity69.12GB/64.37GiB/day,30day2.0736TB raw; delay2/478/480seconds.",
-    "official_sources_checked": "2026-11-05; KillChain vendor403 disclosed",
+    "synthetic_calculations": "Python3.12.14:13 runs;4deliveries/5mock attempts/1duplicate plan skipped/2note plans/1pending; max1 gives4attempts/1plan/2pending; resume gives3plans/0pending/6attempts with history; process-local only; input files unchanged. Time14vs9seconds; withqueue74vs69seconds;6.76percent.",
+    "official_sources_checked": "2026-11-05; ASD ACSC2025, TheHive6, NodeRED/n8n licenses, CIRCL/MaxMind/ICANN RDAP, GitHub. Legacy n8n doc URL not found; official support and repository license verified.",
     "execution_environment": "local; cloud migration incomplete"
   },
   "completed_lesson_ids_day1": [
@@ -128,6 +114,8 @@
     "d1-10b",
     "d1-11",
     "d1-12",
-    "d1-12b"
+    "d1-12b",
+    "d1-13",
+    "d1-13b"
   ]
 }
