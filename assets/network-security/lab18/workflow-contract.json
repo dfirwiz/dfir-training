@@ -1,0 +1,40 @@
+{
+  "schema": "classroom-contract-v1",
+  "workflow": "wf-1",
+  "purpose": "Review context and prepare local note plans from fictional results",
+  "inputs": "Supplied synthetic deliveries and mock results; not product API responses",
+  "steps": [
+    "Validate identifiers and context",
+    "Replay at most2 mock outcomes per delivery",
+    "Skip duplicate completed local plans in this invocation",
+    "Keep timeout/permission problems pending",
+    "Prepare note for human review even on no_match"
+  ],
+  "identity": [
+    "tenant",
+    "case_id",
+    "event_id",
+    "workflow_version"
+  ],
+  "no_side_effects": [
+    "No network requests",
+    "No case writes",
+    "No block",
+    "No external messaging",
+    "No credential handling"
+  ],
+  "limits": [
+    "Local in-memory planning keys only",
+    "No persistence across processes",
+    "No global retry budget or real delay",
+    "No exactly-once delivery guarantee",
+    "No actual provider or incident verification"
+  ],
+  "owner": "Classroom blue team",
+  "review_gate": "Evidence, recipient, target scope and authority must be checked outside this toy program",
+  "documentation": [
+    "Keep workflow version and test inputs",
+    "Keep failed attempts and current pending state",
+    "Keep actual action result separately from plan"
+  ]
+}

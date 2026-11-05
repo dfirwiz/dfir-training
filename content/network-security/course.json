@@ -168,26 +168,39 @@
       "day": 1,
       "number": 17,
       "title": "자동화의 역할과 사람의 판단",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-17-automation-human-decisions",
+      "short_title": "자동화와 사람의 판단",
+      "description": "첫째 날17강. 작업 자동화와 오케스트레이션을 구분하고, 실패·재시도·권한·실제 조치의 확인을 포함한 운영 흐름을 상세히 배웁니다."
+    },
+    {
+      "id": "d1-13b",
+      "day": 1,
+      "number": 18,
+      "title": "SOC 도구 연동과 조사 지식의 재사용",
+      "status": "published",
+      "slug": "day-01-18-soc-integration-knowledge",
+      "short_title": "도구 연동과 조사 지식",
+      "description": "첫째 날18강. SIEM·사건 관리·위협 정보·자동화의 자료 연결을 이해하고, 자체 오프라인 재실행과 지식·코드 버전 관리를 연결합니다."
     },
     {
       "id": "d1-14",
       "day": 1,
-      "number": 18,
+      "number": 19,
       "title": "공격자의 목적과 행동 이해",
       "status": "planned"
     },
     {
       "id": "d1-15",
       "day": 1,
-      "number": 19,
+      "number": 20,
       "title": "첫째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d1-16",
       "day": 1,
-      "number": 20,
+      "number": 21,
       "title": "로그 검색과 SIEM 실습",
       "status": "planned"
     },
@@ -579,6 +592,7 @@
         "d1-12",
         "d1-12b",
         "d1-13",
+        "d1-13b",
         "d1-14",
         "d1-15",
         "d1-16"
@@ -674,6 +688,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-13",
+  "next_lesson": "d1-14",
   "planning_note": "위협 정보 모듈은11강 원리·맥락,12강 플랫폼·피드·안전한 공유,13강 MISP 자료 모델로 나눕니다. 자체 활용 실습은14강으로 이어지며 기존 공개 번호·URL·본문은 보존합니다."
 }

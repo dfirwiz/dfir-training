@@ -69,7 +69,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      17,
+      18
+    ],
+    "lesson_ids": [
+      "d1-13",
+      "d1-13b"
+    ],
+    "status": "validated_awaiting_publication",
+    "source_printed": [
+      146,
+      151
+    ],
+    "scope": "17:automation/orchestration/practical decisions146-148;18:SOC tool integration/knowledge/code149-151 with own offline workflow replay"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "781ff99654b5e8be162bcf2940e6676b53b1e2cc",

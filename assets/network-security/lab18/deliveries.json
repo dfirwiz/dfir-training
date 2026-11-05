@@ -1,0 +1,76 @@
+{
+  "schema": "training-workflow-v1",
+  "tenant": "ORG-EXAMPLE",
+  "workflow_version": "wf-1",
+  "external_transfer_allowed": false,
+  "deliveries": [
+    {
+      "delivery_id": "D1",
+      "event_id": "EV1",
+      "case_id": "CASE1",
+      "observable": {
+        "type": "domain",
+        "value": "files.example"
+      },
+      "mock_lookup_results": [
+        {
+          "status": "timeout"
+        },
+        {
+          "status": "ok",
+          "verdict": "suspicious"
+        }
+      ]
+    },
+    {
+      "delivery_id": "D2",
+      "event_id": "EV1",
+      "case_id": "CASE1",
+      "observable": {
+        "type": "domain",
+        "value": "files.example"
+      },
+      "mock_lookup_results": [
+        {
+          "status": "timeout"
+        },
+        {
+          "status": "ok",
+          "verdict": "suspicious"
+        }
+      ]
+    },
+    {
+      "delivery_id": "D3",
+      "event_id": "EV2",
+      "case_id": "CASE2",
+      "observable": {
+        "type": "domain",
+        "value": "relay.example"
+      },
+      "mock_lookup_results": [
+        {
+          "status": "timeout"
+        },
+        {
+          "status": "timeout"
+        }
+      ]
+    },
+    {
+      "delivery_id": "D4",
+      "event_id": "EV3",
+      "case_id": "CASE3",
+      "observable": {
+        "type": "domain",
+        "value": "docs.example"
+      },
+      "mock_lookup_results": [
+        {
+          "status": "ok",
+          "verdict": "no_match"
+        }
+      ]
+    }
+  ]
+}
