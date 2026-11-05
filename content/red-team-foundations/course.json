@@ -1123,6 +1123,74 @@
           ]
         ]
       }
+    },
+    {
+      "id": 44,
+      "slug": "44-kerberos-requests-service-tickets",
+      "title": "Kerberos 요청·AS-REP·서비스 티켓",
+      "short_title": "Kerberos 요청·AS-REP·서비스 티켓",
+      "description": "AS·TGS·AP 교환, 사전 인증 예외와 서비스 계정 위험을 실제 콘솔·4768 화면과 발급 증거로 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 10,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 5,
+      "screenshots": 2,
+      "practice": {
+        "title": "실제 화면과 읽기 전용 증거 확인",
+        "description": "AS·TGS·AP 교환, 사전 인증 예외와 서비스 계정 위험을 실제 콘솔·4768 화면과 발급 증거로 연결합니다.",
+        "links": [
+          [
+            "screen-82",
+            "DC의 4768 필드"
+          ],
+          [
+            "screen-83",
+            "Beacon 콘솔의 계정 문맥"
+          ],
+          [
+            "section-8",
+            "합성 사건 비교"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 45,
+      "slug": "45-kerberos-cache-lifetime-renewal",
+      "title": "티켓 캐시·수명·갱신·증거 종합",
+      "short_title": "티켓 캐시·수명·갱신·증거 종합",
+      "description": "로그온 세션별 캐시와 TGT 시간 필드를 실제 콘솔·정책 화면, 합성 갱신 시간표와 함께 검토합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 10,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 6,
+      "screenshots": 2,
+      "practice": {
+        "title": "실제 화면과 읽기 전용 증거 확인",
+        "description": "로그온 세션별 캐시와 TGT 시간 필드를 실제 콘솔·정책 화면, 합성 갱신 시간표와 함께 검토합니다.",
+        "links": [
+          [
+            "screen-84",
+            "Beacon 콘솔의 캐시 조회"
+          ],
+          [
+            "screen-85",
+            "Kerberos 수명 정책"
+          ],
+          [
+            "section-8",
+            "합성 조사 연습"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1190,7 +1258,29 @@
       "title_ko": "인증 자료: 저장소·보호 경계·사용 증거",
       "practice_entry": "40-browser-credentials-protection",
       "practice_label": "실제 콘솔·Credentials·Windows 저장소 보기",
-      "practice_description": "브라우저 보호와 사용자 저장소를 토큰·로그온 문맥·접근·인증 결과로 나누고 실제 화면에 연결합니다."
+      "practice_description": "브라우저 보호와 사용자 저장소를 토큰·로그온 문맥·접근·인증 결과로 나누고 실제 화면에 연결합니다.",
+      "practice_links": [
+        [
+          "44-kerberos-requests-service-tickets",
+          "screen-82",
+          "5강 · 4768 상세"
+        ],
+        [
+          "44-kerberos-requests-service-tickets",
+          "screen-83",
+          "5강 · Beacon 콘솔"
+        ],
+        [
+          "45-kerberos-cache-lifetime-renewal",
+          "screen-84",
+          "6강 · Beacon 콘솔"
+        ],
+        [
+          "45-kerberos-cache-lifetime-renewal",
+          "screen-85",
+          "6강 · Kerberos 정책"
+        ]
+      ]
     }
   ]
 }

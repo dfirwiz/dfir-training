@@ -48,7 +48,7 @@
   ],
   "published_unit": "1~9장 및 10장1~4강 공개: 2장만 핵심 요약",
   "next_scope": "10장5~6강 (전역 ID44~45): Kerberos 요청·AS-REP·서비스 티켓 및 티켓 캐시·수명·갱신·증거 종합",
-  "next_lesson_status": "ready",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -399,6 +399,24 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/42-lsass-ssp-protection-observation.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/43-sam-lsa-cached-verifiers.html"
+      ]
+    },
+    "batch_5_6": {
+      "date": "2026-11-05",
+      "lesson_ids": [
+        44,
+        45
+      ],
+      "publication_status": "awaiting_public_verification",
+      "source_scope_reviewed": "entire connected uploaded chapter; private source text, images and identifiers excluded",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "new_official_images": 2,
+      "review_questions": 16,
+      "verification_scope": "45강 빌드·기존 43강 본문 및 홈 타영역 보존·내부 링크와 앵커·이미지 3758건·SVG XML·합성 갱신 시각 계산 및 브라우저 1366/390/320px 화면의 내부 스크롤·앵커·이미지·복습·강의 이동 확인. 공개 배포와 다운로드 확인 후 완료 처리.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/44-kerberos-requests-service-tickets.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/45-kerberos-cache-lifetime-renewal.html"
       ]
     }
   }

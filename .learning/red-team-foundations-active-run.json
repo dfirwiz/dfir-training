@@ -7,5 +7,5 @@
   "status": "in_progress",
   "started_at": "2026-11-05T07:18:32Z",
   "expires_at": "2026-11-05T08:09:00Z",
-  "next_scope": "10장 5~6강. AS 교환·서비스 티켓 요청, 로그온 세션별 티켓 캐시·수명·갱신 및 방어 검증. 기존 6강 분할 계획을 이어 작성."
+  "next_scope": "10장 5~6강 배포 후 공개 페이지 및 다운로드 검증. 완료 후 11장 User Impersonation."
 }
