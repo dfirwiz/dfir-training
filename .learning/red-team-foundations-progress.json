@@ -52,7 +52,7 @@
   ],
   "published_unit": "1~10장과 11장 1~2강 공개: 2장만 핵심 요약",
   "next_scope": "11장 3~4강 (전역 ID48~49): Pass the Hash와 NTLM 인증 증거, Pass the Ticket과 Kerberos 문맥 검증. 5강 ID50이 이어짐.",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -495,6 +495,24 @@
     },
     "diagrams": 6,
     "official_image_occurrences": 4,
-    "review_questions": 16
+    "review_questions": 16,
+    "batch_3_4": {
+      "date": "2026-11-05",
+      "lesson_ids": [
+        48,
+        49
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "unique_official_images": 3,
+      "review_questions": 16,
+      "verification_scope": "49강 빌드, 기존 47강 본문·홈 타영역 보존, 내부 링크·앵커·이미지 4303건, SVG 6개 및 실제 렌더링, 공식 이미지 3개와 출처, 브라우저 1366/390/320px 이미지·표/그림 내부 스크롤·앵커·복습·강의 이동 검증.",
+      "verification_limits": "모바일 폭 브라우저 검증. 실제 모바일 단말 및 Windows·Cobalt Strike·해시/티켓·자격 증명·인증·보호/캐시 변경 미실행. Make Token·실제 명령/티켓 반환·4769 상세·필터창 사진 미확보를 본문에 명시.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/48-pass-the-hash-ntlm-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/49-pass-the-ticket-kerberos-context.html"
+      ]
+    }
   }
 }
