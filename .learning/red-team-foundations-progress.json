@@ -49,8 +49,8 @@
     45
   ],
   "published_unit": "1~10장 공개: 2장만 핵심 요약",
-  "next_scope": "11장 User Impersonation: 연결된 원본 전체 확인 후 장의 상세 분할 계획을 저장하고 다음 미완료 강의 최대 2개 진행",
-  "next_lesson_status": "ready",
+  "next_scope": "11장 1~2강 (ID46~47): 로그온 세션·접근 토큰, 스레드 가장과 복원",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -426,5 +426,45 @@
       "public_files_verified": 24,
       "verification_limits": "브라우저 390/320px 화면으로 좁은 뷰포트 검증. 물리 단말·Windows·Cobalt Strike·티켓 발급/갱신·비밀 수집·정책 변경 미수행. 실제 콘솔 반환·일부 Windows 상세 대화상자 사진 미확보는 강의 본문에 명시."
     }
+  },
+  "unit_11": {
+    "status": "planned",
+    "title": "User Impersonation",
+    "source_scope_reviewed": "entire uploaded chapter; private source text, screenshots and identifiers excluded",
+    "plan": [
+      {
+        "id": 46,
+        "lesson_number": 1,
+        "title": "로그온 세션·접근 토큰·로컬과 네트워크 신원"
+      },
+      {
+        "id": 47,
+        "lesson_number": 2,
+        "title": "스레드 가장·토큰 참조·복원 검증"
+      },
+      {
+        "id": 48,
+        "lesson_number": 3,
+        "title": "Pass the Hash와 NTLM 인증 증거"
+      },
+      {
+        "id": 49,
+        "lesson_number": 4,
+        "title": "Pass the Ticket과 Kerberos 문맥 검증"
+      },
+      {
+        "id": 50,
+        "lesson_number": 5,
+        "title": "프로세스 주입과 실행 문맥의 증거 종합"
+      }
+    ],
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      46,
+      47,
+      48,
+      49,
+      50
+    ]
   }
 }
