@@ -12,29 +12,30 @@
   "source_scope": {
     "volume": 1,
     "printed_pages": [
-      108,
-      120
+      121,
+      133
     ],
     "pdf_pages": [
-      110,
-      122
+      123,
+      135
     ],
-    "workbook_vm_scope": "Threat-intelligence concepts and TIP/feed/sharing scope verified. MISP detailed module121-131 remains next; original external workbook/wiki/VM not obtained in inspected locations. Executed independent typed/time comparison, feed metrics and latency examples only."
+    "workbook_vm_scope": "MISP concepts/model/sharing121-131 and external-workbook pointer132-133 covered. Original separate workbook/wiki/VM exercise not accessed or completed. Independent local synthetic report/JSON/harmless file review with11 program runs and exact byte hash only."
   },
   "next_scope": {
     "day": 1,
-    "lesson": 13,
-    "lesson_id": "d1-10b",
-    "topic": "MISP의 자료 모델과 정보 공유",
+    "lesson": 15,
+    "lesson_id": "d1-12",
+    "topic": "SIEM의 원리와 로그의 연결",
     "volume": 1,
-    "printed_start": 121,
-    "pdf_start": 123,
+    "printed_start": 134,
+    "pdf_start": 136,
+    "content_printed_start": 135,
     "status": "planned",
     "batch_lessons": [
-      13,
-      14
+      15,
+      16
     ],
-    "numbering_note": "Added separate MISP module13 for depth; original external-workbook practice d1-11 is now display14 at printed132/PDF134. Preserve published IDs and URLs."
+    "numbering_note": "Printed134 is roadmap; SIEM content starts135/PDF137. Read source and split further for depth before advancing to automation. course.json ID/number authoritative."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -52,7 +53,9 @@
       9,
       10,
       11,
-      12
+      12,
+      13,
+      14
     ],
     "2": [
       1,
@@ -65,7 +68,10 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "57991e40967d60d5a1925a5be66423a45d66043f",
     "day": 1,
     "lessons": [
       13,
@@ -75,35 +81,19 @@
       "d1-10b",
       "d1-11"
     ],
-    "status": "validated_awaiting_publication",
-    "source_printed": [
-      121,
-      133
-    ],
-    "scope": "MISP data model/workflow plus independent local record-review exercise; original external workbook not accessed"
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "e884fcacb69eb8b2472b520a33ab69ceab4d69db",
-    "day": 1,
-    "lessons": [
-      11,
-      12
-    ],
-    "lesson_ids": [
-      "d1-09",
-      "d1-10"
-    ],
     "deployment": "success",
-    "actions_run": 41827343923,
-    "public_files_checked": 28,
+    "actions_run": 41979704169,
+    "public_files_checked": 36,
     "public_content_match": true,
-    "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure; static SVG renders and font bounds inspected",
-    "product_execution": "No TIP/MISP/OpenCTI/feed/API/DNS/PCAP/endpoint/attack/block/external sharing executed; independent inline synthetic Python only",
+    "browser_visual_qa": "unavailable: computer-use initialization kernel-assets path failure; six static SVG renders and font bounds inspected",
+    "product_execution": "No MISP/API/feed/server/VM/PCAP/endpoint/attack/block/email/external sharing executed. Independent training-cti-v1 local exercise only.",
     "new_figures": 6,
     "new_review_questions": 24,
-    "synthetic_calculations": "Python3.12.14: typed/value/time records and exact end boundary; feed A60/75/45-70%, B75/40/30-90%; latency15/10/5 total30min.",
-    "execution_environment": "local; cloud migration setup still not created or verified"
+    "download_files": 6,
+    "synthetic_calculations": "Python3.12.14:11 program runs, start/status-only/malformed/string-bool/missing-key return2; reviewed/correlation/plan0; different-hash no relation, no-candidates0; unverified observation claim passes demonstrating limitation; inputs unchanged.",
+    "fixture_sha256": "19fb78b143afba673bd5b59aacee55c99907c85864d5560c44f4dde648a120e9",
+    "official_sources_checked": "2026-11-04; publication resumed2026-11-05",
+    "execution_environment": "local; cloud migration still incomplete"
   },
   "completed_lesson_ids_day1": [
     "d1-01",
@@ -117,6 +107,8 @@
     "d1-07",
     "d1-08",
     "d1-09",
-    "d1-10"
+    "d1-10",
+    "d1-10b",
+    "d1-11"
   ]
 }
