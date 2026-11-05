@@ -54,7 +54,7 @@
   ],
   "published_unit": "1~10장과 11장 1~4강 공개: 2장만 핵심 요약",
   "next_scope": "11장 5강 (전역 ID50): 프로세스 주입과 실행 문맥의 증거 종합. 11장의 마지막 미완료 강의.",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -520,6 +520,22 @@
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42001792037",
       "deployment_status": "success",
       "public_files_verified": 24
+    },
+    "batch_5": {
+      "date": "2026-11-05",
+      "lesson_ids": [
+        50
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 3,
+      "official_image_occurrences": 3,
+      "unique_official_images": 3,
+      "review_questions": 8,
+      "verification_scope": "50강 빌드, 기존 49강 본문과 홈 타영역 보존, 내부 링크·앵커·이미지 4449건, 독립 SVG 3개 및 실제 렌더링, 공식 이미지 원본 3개 해시, 1366/390/320px 브라우저 이미지·표/그림 내부 스크롤·앵커·복습·강의 이동 검증.",
+      "verification_limits": "브라우저 모바일 폭 검증. 실제 모바일 기기, Windows·Cobalt Strike 조회, 주입·메모리·비밀 수집·세션 생성·외부 인증·보호 설정 변경 미실행. 옵션 창·실행 후 화면·사례 결과 사진 미확보를 본문에 명시.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/50-process-injection-execution-evidence.html"
+      ]
     }
   }
 }

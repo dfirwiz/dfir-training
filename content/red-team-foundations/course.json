@@ -1327,6 +1327,44 @@
           ]
         ]
       }
+    },
+    {
+      "id": 50,
+      "slug": "50-process-injection-execution-evidence",
+      "title": "프로세스 주입과 실행 문맥의 증거 종합",
+      "short_title": "프로세스 주입과 실행 문맥의 증거 종합",
+      "description": "프로세스 접근·실행·체크인과 토큰·원격 인증을 실제 Cobalt Strike 화면과 합성 단말 기록으로 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 11,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 5,
+      "screenshots": 3,
+      "practice": {
+        "title": "실제 화면에서 조회·반환·체크인 구별",
+        "description": "프로세스 접근·실행·체크인과 토큰·원격 인증을 실제 Cobalt Strike 화면과 합성 단말 기록으로 구별합니다.",
+        "links": [
+          [
+            "screen-94",
+            "Process Browser 행 선택"
+          ],
+          [
+            "screen-95",
+            "콘솔에서 목록 조회"
+          ],
+          [
+            "screen-96",
+            "세션 체크인 비교"
+          ],
+          [
+            "section-8",
+            "Sysmon 증거 대조"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1465,6 +1503,21 @@
           "49-pass-the-ticket-kerberos-context",
           "screen-93",
           "4강 · Event Viewer 4768"
+        ],
+        [
+          "50-process-injection-execution-evidence",
+          "screen-94",
+          "5강 · Process Browser"
+        ],
+        [
+          "50-process-injection-execution-evidence",
+          "screen-95",
+          "5강 · 콘솔 목록 조회"
+        ],
+        [
+          "50-process-injection-execution-evidence",
+          "screen-96",
+          "5강 · 세션 체크인"
         ]
       ]
     }
