@@ -1365,6 +1365,74 @@
           ]
         ]
       }
+    },
+    {
+      "id": 51,
+      "slug": "51-discovery-directory-objects-connections",
+      "title": "Discovery의 관측 범위·AD 객체·디렉터리 연결",
+      "short_title": "Discovery의 관측 범위·AD 객체·디렉터리 연결",
+      "description": "AD 객체와 식별자, LDAP·LDAPS·GC·ADWS, 실행 신원과 서버 인증의 증거를 실제 화면으로 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 12,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 디렉터리 조회 읽기",
+        "description": "AD 객체와 식별자, LDAP·LDAPS·GC·ADWS, 실행 신원과 서버 인증의 증거를 실제 화면으로 구별합니다.",
+        "links": [
+          [
+            "screen-97",
+            "세션 목록"
+          ],
+          [
+            "screen-98",
+            "콘솔 사용자 조회"
+          ],
+          [
+            "section-5",
+            "연결 방식 비교"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 52,
+      "slug": "52-ldap-search-filters-attributes",
+      "title": "LDAP 검색 범위·필터·반환 속성",
+      "short_title": "LDAP 검색 범위·필터·반환 속성",
+      "description": "Base DN·Scope·필터·속성을 구별하고 단일 합성 객체의 조회 및 결과 해석을 공식 콘솔과 LDP 화면으로 살펴봅니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 12,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 2,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 디렉터리 조회 읽기",
+        "description": "Base DN·Scope·필터·속성을 구별하고 단일 합성 객체의 조회 및 결과 해석을 공식 콘솔과 LDP 화면으로 살펴봅니다.",
+        "links": [
+          [
+            "screen-99",
+            "Beacon의 확장 입력 위치"
+          ],
+          [
+            "screen-100",
+            "LDP 검색 결과"
+          ],
+          [
+            "section-8",
+            "0건과 누락 판단"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1518,6 +1586,36 @@
           "50-process-injection-execution-evidence",
           "screen-96",
           "5강 · 세션 체크인"
+        ]
+      ]
+    },
+    {
+      "id": 12,
+      "title": "Discovery",
+      "title_ko": "환경과 디렉터리의 관측",
+      "practice_entry": "51-discovery-directory-objects-connections",
+      "practice_label": "실제 화면에서 조회 주체와 결과를 구별합니다",
+      "practice_description": "Cobalt Strike의 세션과 콘솔, LDP의 검색 결과를 독립적인 증거로 읽습니다.",
+      "practice_links": [
+        [
+          "51-discovery-directory-objects-connections",
+          "screen-97",
+          "1강 · 세션 목록"
+        ],
+        [
+          "51-discovery-directory-objects-connections",
+          "screen-98",
+          "1강 · SID 조회"
+        ],
+        [
+          "52-ldap-search-filters-attributes",
+          "screen-99",
+          "2강 · Beacon Console"
+        ],
+        [
+          "52-ldap-search-filters-attributes",
+          "screen-100",
+          "2강 · LDP 검색 결과"
         ]
       ]
     }

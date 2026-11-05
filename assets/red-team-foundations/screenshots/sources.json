@@ -509,5 +509,19 @@
     "sha256": "9254605a4184fb752f4a4f47d62af9bad7f13861e60d378ca2c2d44beef20f3e",
     "retrieved_on": "2026-11-05",
     "modified": false
+  },
+  {
+    "file": "ch12-ldp-query.png",
+    "width": 914,
+    "height": 629,
+    "bytes": 30398,
+    "image_url": "https://learn.microsoft.com/en-us/entra/identity/domain-services/media/tutorial-configure-ldaps/ldp-query.png",
+    "source_page": "https://learn.microsoft.com/en-us/entra/identity/domain-services/tutorial-configure-ldaps",
+    "sha256": "4bcd513ac7589c07194504db0d57447138cff32187f61f97eeeda957dd8514ea",
+    "retrieved_on": "2026-11-05",
+    "modified": false,
+    "notes": [
+      "Microsoft 공식 LDP 검색 결과 예시. 검색 입력 대화상자나 강의 예제의 실행 결과는 아님."
+    ]
   }
 ]
