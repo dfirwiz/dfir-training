@@ -1,8 +1,10 @@
 {
-  "scope": [38, 39],
-  "owner": "scheduled-20261105-1120",
-  "status": "completed",
-  "completed_on": "2026-11-05",
-  "commit": "9ad57f89a87fbe034026ce52229cb19c28398d79",
-  "next_scope": "10장 Credential Access; ID40부터; active reservation released"
+  "scope": [
+    40,
+    41
+  ],
+  "owner": "manual-next-20261105",
+  "status": "in_progress",
+  "started_on": "2026-11-05",
+  "next_scope": "10장1~2강 작성·검증·게시; 중복 작업은 이 범위를 건너뛴다"
 }
