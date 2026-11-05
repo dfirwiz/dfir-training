@@ -50,7 +50,7 @@
   ],
   "published_unit": "1~10장 공개: 2장만 핵심 요약",
   "next_scope": "11장 1~2강 (ID46~47): 로그온 세션·접근 토큰, 스레드 가장과 복원",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -465,6 +465,24 @@
       48,
       49,
       50
-    ]
+    ],
+    "batch_1_2": {
+      "date": "2026-11-05",
+      "lesson_ids": [
+        46,
+        47
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "unique_official_images": 3,
+      "review_questions": 16,
+      "verification_scope": "47강 빌드, 기존 45강 본문·홈 타영역 보존, 내부 링크·앵커·이미지 4027건, SVG 6개, 공식 화면 원본 3개 해시, 브라우저 1366/390/320px 이미지·스크롤·앵커·복습·강의 이동 확인.",
+      "verification_limits": "모바일 폭 브라우저 검증. 실제 모바일 단말 및 Windows·Cobalt Strike·토큰/인증·보호 변경 미수행. 전환 후 사용자 열·실제 조회 반환·Token Store 전용 결과 화면 미확보를 본문에 명시.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/46-logon-sessions-token-identity.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/47-thread-impersonation-token-lifecycle.html"
+      ]
+    }
   }
 }

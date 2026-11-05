@@ -1191,6 +1191,74 @@
           ]
         ]
       }
+    },
+    {
+      "id": 46,
+      "slug": "46-logon-sessions-token-identity",
+      "title": "로그온 세션·접근 토큰·로컬과 네트워크 신원",
+      "short_title": "로그온 세션·접근 토큰·로컬과 네트워크 신원",
+      "description": "SID와 LUID, 로컬 실행과 아웃바운드 신원을 실제 세션 목록·콘솔 및 합성 감사 로그로 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 11,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "practice": {
+        "title": "실제 제품 화면과 관측 범위",
+        "description": "SID와 LUID, 로컬 실행과 아웃바운드 신원을 실제 세션 목록·콘솔 및 합성 감사 로그로 구별합니다.",
+        "links": [
+          [
+            "screen-86",
+            "세션 행 선택"
+          ],
+          [
+            "screen-87",
+            "콘솔 입력·사용자 SID"
+          ],
+          [
+            "section-8",
+            "출발지와 대상의 기록"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 47,
+      "slug": "47-thread-impersonation-token-lifecycle",
+      "title": "스레드 가장·토큰 참조·복원 검증",
+      "short_title": "스레드 가장·토큰 참조·복원 검증",
+      "description": "스레드의 유효 토큰, 저장된 참조와 복원을 실제 Process Browser·Beacon Console 및 가상 사건으로 비교합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 11,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 2,
+      "screenshots": 2,
+      "practice": {
+        "title": "실제 제품 화면과 관측 범위",
+        "description": "스레드의 유효 토큰, 저장된 참조와 복원을 실제 Process Browser·Beacon Console 및 가상 사건으로 비교합니다.",
+        "links": [
+          [
+            "screen-88",
+            "Process Browser 조회"
+          ],
+          [
+            "screen-89",
+            "콘솔의 저장 목록·현재 문맥"
+          ],
+          [
+            "section-7",
+            "복원 및 참조 구별"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1279,6 +1347,36 @@
           "45-kerberos-cache-lifetime-renewal",
           "screen-85",
           "6강 · Kerberos 정책"
+        ]
+      ]
+    },
+    {
+      "id": 11,
+      "title": "User Impersonation",
+      "title_ko": "사용자 가장과 인증 문맥",
+      "practice_entry": "46-logon-sessions-token-identity",
+      "practice_label": "실제 화면에서 신원과 문맥 확인하기",
+      "practice_description": "세션 행과 프로세스 조회, 콘솔의 현재 사용자 및 저장 목록을 별도 관측으로 봅니다.",
+      "practice_links": [
+        [
+          "46-logon-sessions-token-identity",
+          "screen-86",
+          "1강 · 세션 목록"
+        ],
+        [
+          "46-logon-sessions-token-identity",
+          "screen-87",
+          "1강 · SID 조회"
+        ],
+        [
+          "47-thread-impersonation-token-lifecycle",
+          "screen-88",
+          "2강 · Process Browser"
+        ],
+        [
+          "47-thread-impersonation-token-lifecycle",
+          "screen-89",
+          "2강 · Token Store 조회"
         ]
       ]
     }
