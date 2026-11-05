@@ -4,8 +4,8 @@
     47
   ],
   "owner": "scheduled-20261105-0814",
-  "status": "in_progress",
-  "started_at": "2026-11-05T08:16:04Z",
-  "expires_at": "2026-11-05T09:10:00Z",
-  "next_scope": "11장 1~2강 공개 배포 검증 후 완료 기록, 다음 3~4강."
+  "status": "completed",
+  "completed_on": "2026-11-05",
+  "commit": "769c61f35e3b8c5c6a49c1c7a3f2b03a19a44904",
+  "next_scope": "11장 3~4강 (전역 ID48~49): Pass the Hash와 NTLM 인증 증거, Pass the Ticket과 Kerberos 문맥 검증. 5강 ID50이 이어짐."
 }

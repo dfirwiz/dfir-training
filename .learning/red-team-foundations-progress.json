@@ -46,11 +46,13 @@
     42,
     43,
     44,
-    45
+    45,
+    46,
+    47
   ],
-  "published_unit": "1~10장 공개: 2장만 핵심 요약",
-  "next_scope": "11장 1~2강 (ID46~47): 로그온 세션·접근 토큰, 스레드 가장과 복원",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~10장과 11장 1~2강 공개: 2장만 핵심 요약",
+  "next_scope": "11장 3~4강 (전역 ID48~49): Pass the Hash와 NTLM 인증 증거, Pass the Ticket과 Kerberos 문맥 검증. 5강 ID50이 이어짐.",
+  "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -109,7 +111,8 @@
       "7": 6,
       "8": 6,
       "9": 2,
-      "10": 6
+      "10": 6,
+      "11": 2
     },
     "updated": "2026-11-05"
   },
@@ -428,7 +431,7 @@
     }
   },
   "unit_11": {
-    "status": "planned",
+    "status": "partially_published",
     "title": "User Impersonation",
     "source_scope_reviewed": "entire uploaded chapter; private source text, screenshots and identifiers excluded",
     "plan": [
@@ -458,10 +461,11 @@
         "title": "프로세스 주입과 실행 문맥의 증거 종합"
       }
     ],
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       46,
-      47,
+      47
+    ],
+    "remaining_lesson_ids": [
       48,
       49,
       50
@@ -472,17 +476,25 @@
         46,
         47
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "unique_official_images": 3,
       "review_questions": 16,
-      "verification_scope": "47강 빌드, 기존 45강 본문·홈 타영역 보존, 내부 링크·앵커·이미지 4027건, SVG 6개, 공식 화면 원본 3개 해시, 브라우저 1366/390/320px 이미지·스크롤·앵커·복습·강의 이동 확인.",
+      "verification_scope": "47강 빌드, 기존 45강 본문·홈 타영역 보존, 내부 링크·앵커·이미지 4027건, SVG 6개, 공식 화면 원본 3개 해시, 브라우저 1366/390/320px 이미지·스크롤·앵커·복습·강의 이동 확인. 공개 강의·목차·홈·이전 강의·그림·CSS·기존 다운로드 24개 HTTP 200 및 검증본과 바이트 일치.",
       "verification_limits": "모바일 폭 브라우저 검증. 실제 모바일 단말 및 Windows·Cobalt Strike·토큰/인증·보호 변경 미수행. 전환 후 사용자 열·실제 조회 반환·Token Store 전용 결과 화면 미확보를 본문에 명시.",
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/46-logon-sessions-token-identity.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/47-thread-impersonation-token-lifecycle.html"
-      ]
-    }
+      ],
+      "status": "published_verified",
+      "commit": "769c61f35e3b8c5c6a49c1c7a3f2b03a19a44904",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41994482366",
+      "deployment_status": "success",
+      "public_files_verified": 24
+    },
+    "diagrams": 6,
+    "official_image_occurrences": 4,
+    "review_questions": 16
   }
 }
