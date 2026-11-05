@@ -7,5 +7,5 @@
   "status": "in_progress",
   "started_at": "2026-11-05T13:15:44Z",
   "expires_at": "2026-11-05T14:09:00Z",
-  "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거"
+  "next_scope": "12장 5~6강 공개 배포 확인 후 Discovery 완료 처리. 다음은 13장 Lateral Movement 원본 검토와 강의 계획."
 }

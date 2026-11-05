@@ -119,3 +119,7 @@ Python합성JSON상태계산과예제입력만실행하고 실제제품·대상�
 ## 12장 3~4강 — 2026년 11월 5일
 
 Discovery 원본 전체를 새로 대조하고 기존 6강 계획의 ID53~54를 작성한다. 계정 정수의 비트 마스크와 LDAP 일치 규칙, 직접·전이 링크와 기본 그룹, 검색 방문·반환·시간·반복과 1644 기록 조건을 각 11절·복습과 즉시 해설 8개·독립 SVG 3개로 설명한다. Fortra 공식 Beacon Console, Microsoft 공식 LDP와 Windows Server 2012 R2의 확장 1644 화면을 4회 배치한다. 원본 GIF를 동일 화소의 PNG로 변환했다. 공식 예제, 합성 입력, 실제 제품에서 미실행한 조회와 로그 열기 절차를 분리한다. 확장 도움말 응답·LDP 검색 대화상자와 이번 결과·EVTX 열기와 필터 입력창 사진은 미확보를 명시한다. 방문 수와 반환 수를 혼동하거나 이벤트 부재를 활동 부재로 일반화하지 않는다. 다음은 12장 5~6강 그래프의 출처·누락과 GPO·SYSVOL·Restricted Groups·WMI 적용 증거다.
+
+## 12장 5~6강 — 2026년 11월 6일
+
+Discovery 원본 전체를 새로 대조해 마지막 ID55~56을 각 11절·복습과 즉시 해설 8개·독립 SVG 3개로 작성한다. SharpHound 수집과 BOFHound 변환, BloodHound의 처리·그래프 표시를 구별하고 공백을 미수집·변환·처리·질의 조건으로 나눈다. GPO 링크, SYSVOL의 버전과 Restricted Groups 두 방향, 보안·WMI 조건, 단말 보고와 로컬 그룹의 시점을 분리한다. Fortra Beacon Console과 Microsoft LDP를 재사용하고 SpecterOps 공식 File Ingest·Cypher 화면과 Microsoft 이벤트 5312 원본을 새로 배치한다. 메뉴·입력·예시·실행/저장·확인, 공식 시연과 합성 입력의 차이, 입력창 및 결과 사진 미확보를 명시한다. Windows·제품·LDAP/SYSVOL 접근·로그 변환·가져오기·정책 변경 미실행. 다음은 13장 Lateral Movement 원본 전체 검토와 상세 분할 계획이다.

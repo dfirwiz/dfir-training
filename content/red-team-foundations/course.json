@@ -1501,6 +1501,78 @@
           ]
         ]
       }
+    },
+    {
+      "id": 55,
+      "slug": "55-bloodhound-bofhound-graph-evidence",
+      "title": "BloodHound·BOFHound와 그래프의 출처·누락",
+      "short_title": "BloodHound·BOFHound와 그래프의 출처·누락",
+      "description": "수집·변환·가져오기·표시를 분리하고 그래프의 관계와 관측 범위를 확인합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 12,
+      "format": "full",
+      "updated": "2026-11-06",
+      "lesson_number": 5,
+      "screenshots": 3,
+      "practice": {
+        "title": "실제 화면에서 그래프와 정책 증거 확인",
+        "description": "수집·변환·가져오기·표시를 분리하고 그래프의 관계와 관측 범위를 확인합니다.",
+        "links": [
+          [
+            "screen-105",
+            "Beacon Console 도움말"
+          ],
+          [
+            "screen-106",
+            "BloodHound File Ingest"
+          ],
+          [
+            "screen-107",
+            "BloodHound Cypher"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 56,
+      "slug": "56-gpo-sysvol-application-evidence",
+      "title": "GPO·SYSVOL·Restricted Groups·WMI 적용 증거",
+      "short_title": "GPO·SYSVOL·Restricted Groups·WMI 적용 증거",
+      "description": "정책 링크와 파일, 보안·WMI 조건 및 단말 처리·현재 상태를 각각 검증합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 12,
+      "format": "full",
+      "updated": "2026-11-06",
+      "lesson_number": 6,
+      "screenshots": 3,
+      "practice": {
+        "title": "실제 화면에서 그래프와 정책 증거 확인",
+        "description": "정책 링크와 파일, 보안·WMI 조건 및 단말 처리·현재 상태를 각각 검증합니다.",
+        "links": [
+          [
+            "screen-108",
+            "Beacon Console 도움말"
+          ],
+          [
+            "screen-109",
+            "LDP GPO 참조"
+          ],
+          [
+            "screen-110",
+            "Windows 정책 이벤트 5312"
+          ],
+          [
+            "section-8",
+            "Group Policy Results"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1663,7 +1735,7 @@
       "title_ko": "환경과 디렉터리의 관측",
       "practice_entry": "51-discovery-directory-objects-connections",
       "practice_label": "실제 화면에서 조회 주체와 결과를 구별합니다",
-      "practice_description": "Cobalt Strike의 세션과 콘솔, LDP의 검색 결과, DC의 확장 1644 진단을 독립적인 증거로 읽습니다.",
+      "practice_description": "Cobalt Strike와 LDP, DC 진단, BloodHound의 가져오기·검색, 단말 정책 이벤트의 증거를 대조합니다.",
       "practice_links": [
         [
           "51-discovery-directory-objects-connections",
@@ -1704,6 +1776,36 @@
           "54-ldap-query-cost-event-1644",
           "screen-104",
           "4강 · Microsoft 확장 1644"
+        ],
+        [
+          "55-bloodhound-bofhound-graph-evidence",
+          "screen-105",
+          "5강 · Beacon Console 도움말"
+        ],
+        [
+          "55-bloodhound-bofhound-graph-evidence",
+          "screen-106",
+          "5강 · BloodHound File Ingest"
+        ],
+        [
+          "55-bloodhound-bofhound-graph-evidence",
+          "screen-107",
+          "5강 · BloodHound Cypher"
+        ],
+        [
+          "56-gpo-sysvol-application-evidence",
+          "screen-108",
+          "6강 · Beacon Console 도움말"
+        ],
+        [
+          "56-gpo-sysvol-application-evidence",
+          "screen-109",
+          "6강 · LDP GPO 참조"
+        ],
+        [
+          "56-gpo-sysvol-application-evidence",
+          "screen-110",
+          "6강 · Windows 정책 이벤트 5312"
         ]
       ]
     }

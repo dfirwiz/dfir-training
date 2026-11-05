@@ -1,6 +1,6 @@
 {
   "course": "red-team-foundations",
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "completed_lessons": [
     1,
     2,
@@ -59,7 +59,7 @@
   ],
   "published_unit": "1~11장과 12장 1~4강 공개: 2장만 핵심 요약",
   "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -645,6 +645,25 @@
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42027961646",
       "deployment_status": "success",
       "public_files_verified": 24
+    },
+    "batch_5_6": {
+      "date": "2026-11-06",
+      "lesson_ids": [
+        55,
+        56
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 6,
+      "unique_official_images": 5,
+      "new_official_images": 3,
+      "review_questions": 16,
+      "verification_scope": "56강 빌드, 기존 54강 본문과 홈 타영역 보존, 내부 링크·앵커·이미지 5348건, 독립 SVG 6개, 공식 화면 3개 원본 및 출처 대조, 외부 자료 링크 확인, Chromium 1366/390/320px 그림·표·앵커·복습·이동 검증.",
+      "verification_limits": "브라우저 모바일 폭 검증. 실제 모바일 단말, Windows·Cobalt Strike·LDAP·SYSVOL 조회, BOFHound 변환, BloodHound 적재·질의, 정책 변경 미실행. 입력·실행 사진 미확보 구간은 강의에 표시.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/55-bloodhound-bofhound-graph-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/56-gpo-sysvol-application-evidence.html"
+      ]
     }
   }
 }
