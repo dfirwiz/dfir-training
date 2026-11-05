@@ -54,7 +54,7 @@
   ],
   "published_unit": "1~10장과 11장 1~4강 공개: 2장만 핵심 요약",
   "next_scope": "11장 5강 (전역 ID50): 프로세스 주입과 실행 문맥의 증거 종합. 11장의 마지막 미완료 강의.",
-  "next_lesson_status": "ready",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {

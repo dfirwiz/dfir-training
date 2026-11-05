@@ -1,11 +1,10 @@
 {
   "scope": [
-    48,
-    49
+    50
   ],
-  "owner": "scheduled-20261105-0907",
-  "status": "completed",
-  "completed_on": "2026-11-05",
-  "commit": "e1635a3f941d73843962630e80b6e72b3d97434b",
+  "owner": "scheduled-20261105-1009",
+  "status": "in_progress",
+  "started_at": "2026-11-05T10:10:37Z",
+  "expires_at": "2026-11-05T11:07:00Z",
   "next_scope": "11장 5강 (전역 ID50): 프로세스 주입과 실행 문맥의 증거 종합. 11장의 마지막 미완료 강의."
 }
