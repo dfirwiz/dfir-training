@@ -123,3 +123,7 @@ Discovery 원본 전체를 새로 대조하고 기존 6강 계획의 ID53~54를 
 ## 12장 5~6강 — 2026년 11월 6일
 
 Discovery 원본 전체를 새로 대조해 마지막 ID55~56을 각 11절·복습과 즉시 해설 8개·독립 SVG 3개로 작성한다. SharpHound 수집과 BOFHound 변환, BloodHound의 처리·그래프 표시를 구별하고 공백을 미수집·변환·처리·질의 조건으로 나눈다. GPO 링크, SYSVOL의 버전과 Restricted Groups 두 방향, 보안·WMI 조건, 단말 보고와 로컬 그룹의 시점을 분리한다. Fortra Beacon Console과 Microsoft LDP를 재사용하고 SpecterOps 공식 File Ingest·Cypher 화면과 Microsoft 이벤트 5312 원본을 새로 배치한다. 메뉴·입력·예시·실행/저장·확인, 공식 시연과 합성 입력의 차이, 입력창 및 결과 사진 미확보를 명시한다. Windows·제품·LDAP/SYSVOL 접근·로그 변환·가져오기·정책 변경 미실행. 다음은 13장 Lateral Movement 원본 전체 검토와 상세 분할 계획이다.
+
+## 13장 1~2강 — 2026년 11월 6일
+
+연결된 원본 장 전체를 새로 읽고 Lateral Movement를 여섯 강으로 나눈다. ID57~58은 횡적 이동의 도달성·인증·인가·실행·새 세션과 WinRM의 전송 보호·엔드포인트·두 번째 홉을 각 11절, 복습과 즉시 해설 8개, 독립 SVG 3개로 설명한다. Fortra 공식 Beacon Console·Sessions Table과 Microsoft 공식 이벤트 4624 화면을 4회 배치한다. Fortra 4.13의 인수 없는 등록 목록 확인과 실제 작업을 분리하고, Microsoft의 유형 2 캡처를 유형 3의 실행 증거로 사용하지 않는다. 화면·메뉴·가상값·실행/저장 여부·확인 위치를 연결하며 미확보한 실제 출력과 필터 입력창을 표시한다. Windows·제품·연결·파일 전달·원격 실행·새 세션·자격 증명·위임/보호 변경 미실행. 다음은 13장 3~4강의 PsExec 계열·SCM과 확장 등록·기존 서비스 변경 증거다.

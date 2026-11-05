@@ -61,7 +61,7 @@
   ],
   "published_unit": "1~12장 공개: 2장만 핵심 요약",
   "next_scope": "13장 Lateral Movement 1~2강 (ID57~58): 횡적 이동 단계·작업 증거 및 WinRM 통신·인증·실행 증거",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -717,6 +717,25 @@
       60,
       61,
       62
-    ]
+    ],
+    "batch_1_2": {
+      "date": "2026-11-06",
+      "lesson_ids": [
+        57,
+        58
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "unique_official_images": 3,
+      "new_official_images": 1,
+      "review_questions": 16,
+      "verification_scope": "58강 빌드, 기존 56강 본문과 홈페이지 타영역 보존, 내부 링크·앵커·이미지 5661건, 독립 SVG 6개, 공식 출처 링크 12개 및 신규 이벤트 4624 캡처 확인, Chromium 1366/390/320px 그림·표·앵커·복습·이동 검증.",
+      "verification_limits": "브라우저 모바일 폭에서 검증. 실제 모바일 단말, Windows·Cobalt Strike·네트워크 접속·원격 실행·파일 전달·위임 및 보호 설정 변경은 미실행. 콘솔 모듈 출력, 새 세션, 로그 필터 대화상자와 합성 사례 결과 사진 미확보.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/57-lateral-movement-task-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/58-winrm-authentication-execution-evidence.html"
+      ]
+    }
   }
 }

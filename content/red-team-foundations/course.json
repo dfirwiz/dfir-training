@@ -1573,6 +1573,74 @@
           ]
         ]
       }
+    },
+    {
+      "id": 57,
+      "slug": "57-lateral-movement-task-evidence",
+      "title": "횡적 이동의 단계와 Cobalt Strike 작업 증거",
+      "short_title": "횡적 이동의 단계와 Cobalt Strike 작업 증거",
+      "description": "도달성·인증·인가·원격 실행·새 세션을 나누고 제품의 두 작업 유형을 비교합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 13,
+      "format": "full",
+      "updated": "2026-11-06",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "practice": {
+        "title": "실제 화면에서 작업과 대상 증거 확인",
+        "description": "도달성·인증·인가·원격 실행·새 세션을 나누고 제품의 두 작업 유형을 비교합니다.",
+        "links": [
+          [
+            "screen-111",
+            "Beacon Console 모듈 목록"
+          ],
+          [
+            "screen-112",
+            "Sessions 호스트·체크인"
+          ],
+          [
+            "section-8",
+            "작업과 대상 증거 대조"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 58,
+      "slug": "58-winrm-authentication-execution-evidence",
+      "title": "WinRM의 통신·인증·실행 증거",
+      "short_title": "WinRM의 통신·인증·실행 증거",
+      "description": "WinRM의 리스너·인증·엔드포인트·실행과 후속 서비스 인증을 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 13,
+      "format": "full",
+      "updated": "2026-11-06",
+      "lesson_number": 2,
+      "screenshots": 2,
+      "practice": {
+        "title": "실제 화면에서 작업과 대상 증거 확인",
+        "description": "WinRM의 리스너·인증·엔드포인트·실행과 후속 서비스 인증을 구별합니다.",
+        "links": [
+          [
+            "screen-113",
+            "Beacon Console WinRM 방법"
+          ],
+          [
+            "screen-114",
+            "이벤트 뷰어 4624"
+          ],
+          [
+            "section-8",
+            "조건별 실패 지점"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1806,6 +1874,36 @@
           "56-gpo-sysvol-application-evidence",
           "screen-110",
           "6강 · Windows 정책 이벤트 5312"
+        ]
+      ]
+    },
+    {
+      "id": 13,
+      "title": "Lateral Movement",
+      "title_ko": "횡적 이동의 경계와 증거",
+      "practice_entry": "57-lateral-movement-task-evidence",
+      "practice_label": "실제 화면으로 작업·세션·로그온 대조",
+      "practice_description": "Fortra Beacon Console·Sessions와 Microsoft 이벤트 뷰어에서 작업 등록, 연결, 대상 로그온의 차이를 확인합니다.",
+      "practice_links": [
+        [
+          "57-lateral-movement-task-evidence",
+          "screen-111",
+          "1강 · Beacon Console 모듈 목록"
+        ],
+        [
+          "57-lateral-movement-task-evidence",
+          "screen-112",
+          "1강 · Sessions 호스트·체크인"
+        ],
+        [
+          "58-winrm-authentication-execution-evidence",
+          "screen-113",
+          "2강 · Beacon Console WinRM 방법"
+        ],
+        [
+          "58-winrm-authentication-execution-evidence",
+          "screen-114",
+          "2강 · 이벤트 뷰어 4624"
         ]
       ]
     }
