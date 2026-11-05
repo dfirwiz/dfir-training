@@ -55,11 +55,13 @@
     51,
     52,
     53,
-    54
+    54,
+    55,
+    56
   ],
-  "published_unit": "1~11장과 12장 1~4강 공개: 2장만 핵심 요약",
-  "next_scope": "12장 Discovery 5~6강 (ID55~56): BloodHound·BOFHound와 그래프의 출처·누락, GPO·SYSVOL·Restricted Groups·WMI 적용 증거",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~12장 공개: 2장만 핵심 요약",
+  "next_scope": "13장 Lateral Movement 원본 전체 검토 및 상세 분할 계획. 전역 ID57부터.",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -120,9 +122,9 @@
       "9": 2,
       "10": 6,
       "11": 5,
-      "12": 4
+      "12": 6
     },
-    "updated": "2026-11-05"
+    "updated": "2026-11-06"
   },
   "unit_5": {
     "status": "published",
@@ -550,7 +552,7 @@
     "publication_status": "published_verified"
   },
   "unit_12": {
-    "status": "partially_published",
+    "status": "published",
     "title": "Discovery",
     "source_scope_reviewed": "entire uploaded chapter; private source text, screenshots and identifiers excluded",
     "plan": [
@@ -589,12 +591,11 @@
       51,
       52,
       53,
-      54
-    ],
-    "remaining_lesson_ids": [
+      54,
       55,
       56
     ],
+    "remaining_lesson_ids": [],
     "batch_1_2": {
       "date": "2026-11-05",
       "lesson_ids": [
@@ -619,9 +620,9 @@
       "deployment_status": "success",
       "public_files_verified": 24
     },
-    "diagrams": 12,
-    "official_image_occurrences": 8,
-    "review_questions": 32,
+    "diagrams": 18,
+    "official_image_occurrences": 14,
+    "review_questions": 48,
     "batch_3_4": {
       "date": "2026-11-05",
       "lesson_ids": [
@@ -652,7 +653,7 @@
         55,
         56
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 6,
       "unique_official_images": 5,
@@ -663,7 +664,13 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/55-bloodhound-bofhound-graph-evidence.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/56-gpo-sysvol-application-evidence.html"
-      ]
-    }
+      ],
+      "status": "published_verified",
+      "commit": "9d1fd3e1b02d13fb27c33aed176000e74572503a",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42036374590",
+      "deployment_status": "success",
+      "public_files_verified": 27
+    },
+    "publication_status": "published_verified"
   }
 }
