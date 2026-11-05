@@ -1,0 +1,10 @@
+{
+  "schema": "training-time-v1",
+  "notice": "Entirely fictional. Not Colonial Pipeline records or a product API schema.",
+  "events": [
+    {"id":"vpn","source":"gateway.example","kind":"session_record","event_time":"2026-11-01T09:00:00Z","uncertainty_seconds":30},
+    {"id":"endpoint","source":"host.example","kind":"file_alert","event_time":"2026-11-01T09:00:20Z","uncertainty_seconds":30},
+    {"id":"decision","source":"case.example","kind":"pause_decision","event_time":"2026-11-01T09:05:00Z","uncertainty_seconds":5},
+    {"id":"paused","source":"operation.example","kind":"pause_observed","event_time":"2026-11-01T09:07:00Z","uncertainty_seconds":5}
+  ]
+}

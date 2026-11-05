@@ -74,7 +74,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      21,
+      22
+    ],
+    "lesson_ids": [
+      "d1-14c",
+      "d1-14d"
+    ],
+    "status": "source_review_and_drafting",
+    "source_printed": [
+      161,
+      163
+    ],
+    "scope": "Mirai161 and Colonial Pipeline162-163. Conti164-165 and SolarWinds166-167 remain next23/24; read ahead only."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "6ddc1a3f2ed227703ad5f5d52662e54bb5f8eeb4",
