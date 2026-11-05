@@ -44,11 +44,13 @@
     40,
     41,
     42,
-    43
+    43,
+    44,
+    45
   ],
-  "published_unit": "1~9장 및 10장1~4강 공개: 2장만 핵심 요약",
-  "next_scope": "10장5~6강 (전역 ID44~45): Kerberos 요청·AS-REP·서비스 티켓 및 티켓 캐시·수명·갱신·증거 종합",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~10장 공개: 2장만 핵심 요약",
+  "next_scope": "11장 User Impersonation: 연결된 원본 전체 확인 후 장의 상세 분할 계획을 저장하고 다음 미완료 강의 최대 2개 진행",
+  "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -107,7 +109,7 @@
       "7": 6,
       "8": 6,
       "9": 2,
-      "10": 4
+      "10": 6
     },
     "updated": "2026-11-05"
   },
@@ -318,7 +320,7 @@
     ]
   },
   "unit_10": {
-    "status": "partially_published",
+    "status": "published",
     "title": "Credential Access",
     "source_scope_reviewed": "entire uploaded chapter; independent explanations; private text/images/identifiers excluded",
     "plan": [
@@ -357,19 +359,18 @@
       40,
       41,
       42,
-      43
-    ],
-    "remaining_lesson_ids": [
+      43,
       44,
       45
     ],
-    "verification_scope": "41강 빌드·JSON·각11절/8복습·최종내부링크/앵커/이미지3126·기존39강본문/홈타영역보존·SVG XML·git diff 검사 통과. Pages성공 후 공개22파일 HTTP200/SHA256일치. 공개브라우저2강 각11절/8복습·이미지12회로드·화면앵커74/75/77·강의이동·즉시해설표시·1363px데스크톱가로넘침없음 확인. 독립SVG원본의문자/상자/화살표실표시확인.",
-    "diagrams": 12,
-    "official_image_occurrences": 8,
-    "new_official_images": 2,
-    "review_questions": 32,
+    "remaining_lesson_ids": [],
+    "verification_scope": "10장 1~6강 빌드·게시·공개 검증 완료. 개별 배치의 검증·제약·URL은 각 기록 참조.",
+    "diagrams": 18,
+    "official_image_occurrences": 12,
+    "new_official_images": 4,
+    "review_questions": 48,
     "publication_status": "published_verified",
-    "verification_limits": "Windows·Cobalt Strike·실제사용자저장소·비밀수집·키·복구·복호화·인증·정책변경 미실행. Add/Chrome설정·Windows항목펼침 실제사진 미확보. 모바일내부스크롤CSS는유지; 실제모바일viewport/실기기미검증. 기존5장6강 HTML은이전게시본유지(해당한페이지사이드바의최신장미표시).",
+    "verification_limits": "실제 Windows·Cobalt Strike 절차는 미실행. 이번 5~6강은 브라우저의 데스크톱 및 모바일 폭으로 검증했으며 실제 모바일 기기는 사용하지 않음.",
     "commit": "727a9118ae12519f91198aa9b197a8819ab92959",
     "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41945564547",
     "deployment_status": "success",
@@ -407,17 +408,23 @@
         44,
         45
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "source_scope_reviewed": "entire connected uploaded chapter; private source text, images and identifiers excluded",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "new_official_images": 2,
       "review_questions": 16,
-      "verification_scope": "45강 빌드·기존 43강 본문 및 홈 타영역 보존·내부 링크와 앵커·이미지 3758건·SVG XML·합성 갱신 시각 계산 및 브라우저 1366/390/320px 화면의 내부 스크롤·앵커·이미지·복습·강의 이동 확인. 공개 배포와 다운로드 확인 후 완료 처리.",
+      "verification_scope": "45강 빌드·기존 43강 본문 및 홈 타영역 보존·내부 링크와 앵커·이미지 3758건·SVG XML·합성 갱신 시각 계산 및 브라우저 1366/390/320px 화면의 내부 스크롤·앵커·이미지·복습·강의 이동 확인. 공개 강의·홈·목차·이전 강의·SVG·공식 사진·CSS·기존 다운로드 24개 HTTP 200 및 검증본과 바이트 일치. SVG 6개 실제 렌더링 확인.",
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/44-kerberos-requests-service-tickets.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/45-kerberos-cache-lifetime-renewal.html"
-      ]
+      ],
+      "status": "published_verified",
+      "commit": "ed8a22d3a9ea109bad2171a2dfceade0a918ba82",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41987986233",
+      "deployment_status": "success",
+      "public_files_verified": 24,
+      "verification_limits": "브라우저 390/320px 화면으로 좁은 뷰포트 검증. 물리 단말·Windows·Cobalt Strike·티켓 발급/갱신·비밀 수집·정책 변경 미수행. 실제 콘솔 반환·일부 Windows 상세 대화상자 사진 미확보는 강의 본문에 명시."
     }
   }
 }
