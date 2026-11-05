@@ -63,7 +63,7 @@
   ],
   "published_unit": "1~12장과 13장 1~2강 공개: 2장만 핵심 요약",
   "next_scope": "13장 Lateral Movement 3~4강 (ID59~60): PsExec 계열과 서비스 제어 관리자 증거 및 확장 등록과 기존 서비스 변경의 검증",
-  "next_lesson_status": "planned",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
