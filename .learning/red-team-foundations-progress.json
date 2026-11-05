@@ -44,7 +44,7 @@
   ],
   "published_unit": "1~9장 완료: 전역 ID1~39. 2장만 핵심 요약",
   "next_scope": "10장 Credential Access: 업로드 원본 전체를 새로 읽고 상세 분할 계획 저장 후 전역 ID40부터 진행",
-  "next_lesson_status": "ready_after_publication_verification",
+  "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -278,7 +278,7 @@
     }
   },
   "unit_9": {
-    "status": "built_verified_pending_publish",
+    "status": "published",
     "title": "Elevated Persistence",
     "source_scope_reviewed": "entire connected uploaded chapter; private source text, images, identifiers and restricted course name excluded",
     "plan": [
@@ -298,8 +298,15 @@
     "diagrams": 6,
     "official_image_occurrences": 5,
     "review_questions": 16,
-    "verification_scope": "39강 빌드·JSON·강의ID연속성·11절/8복습·내부링크/앵커·이미지·SVG XML·git diff 검사 통과. 공개 배포와 실제 페이지 검증 대기.",
-    "verification_limits": "Windows·Cobalt Strike·작업/서비스 생성·파일배치·부팅/재부팅·SYSTEM 실행·자격증명/보호기능 변경 미수행. SYSTEM 작업 완성 화면·최신 Services 속성·서비스 생성/실행 결과 사진 미확보를 본문에 명시.",
-    "publication_status": "pending"
+    "verification_scope": "39강 빌드·JSON·강의ID연속성·11절/8복습·내부링크/앵커·이미지·SVG XML·git diff 검사 통과. Pages 성공 후 공개 브라우저에서 두 강의 11절·8복습·이미지11개 로드·화면 바로가기·8장→9장→2강 이동·데스크톱 가로 넘침 없음 확인.",
+    "verification_limits": "Windows·Cobalt Strike·작업/서비스 생성·파일배치·부팅/재부팅·SYSTEM 실행·자격증명/보호기능 변경 미수행. SYSTEM 작업 완성 화면·최신 Services 속성·서비스 생성/실행 결과 사진 미확보를 본문에 명시. 기존 5장 6강 생성 HTML은 보호 검사로 재업로드하지 않고 기존 공개본을 보존하여 해당 한 페이지의 사이드바에는 9장이 아직 표시되지 않음; 과정 목차·새 강의·8장 마지막 강의의 이동은 정상.",
+    "publication_status": "published_verified",
+    "commit": "9ad57f89a87fbe034026ce52229cb19c28398d79",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41943221615",
+    "deployment_status": "success",
+    "urls": [
+      "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/38-system-scheduled-task-evidence.html",
+      "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/39-system-service-persistence-evidence.html"
+    ]
   }
 }
