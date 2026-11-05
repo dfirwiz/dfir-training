@@ -487,5 +487,27 @@
     "sha256": "95506d9720f4c5fa68c445bfd113c4b4d876b320611af667430a3d578072c040",
     "retrieved_on": "2026-11-05",
     "modified": false
+  },
+  {
+    "file": "ch10-credentials.png",
+    "width": 1147,
+    "height": 261,
+    "bytes": 120031,
+    "image_url": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/images/credentials.png",
+    "source_page": "https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/data-mgmnt_credentials.htm",
+    "sha256": "b00673dd38fc77cc6c3e1b0d4a786c83c99e686ecea6dde6aac59f6d2a7c9e80",
+    "retrieved_on": "2026-11-05",
+    "modified": false
+  },
+  {
+    "file": "ch10-windows-credential-manager.png",
+    "width": 484,
+    "height": 273,
+    "bytes": 40058,
+    "image_url": "https://support.microsoft.com/en-us/windows/media/credential-manager-in-windows.png",
+    "source_page": "https://support.microsoft.com/en-us/windows/security/credential-manager-in-windows",
+    "sha256": "9254605a4184fb752f4a4f47d62af9bad7f13861e60d378ca2c2d44beef20f3e",
+    "retrieved_on": "2026-11-05",
+    "modified": false
   }
 ]

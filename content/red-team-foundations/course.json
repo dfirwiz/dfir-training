@@ -932,10 +932,22 @@
         "title": "실제 화면과 읽기 전용 검증 순서",
         "description": "공식 실제 사진과 미실행 절차를 구별하며 계정·트리거·동작·결과를 연결합니다.",
         "links": [
-          ["screen-69", "1. General 실행 계정"],
-          ["screen-70", "2. Trigger와 Action"],
-          ["screen-72", "3. Beacon 조회 위치"],
-          ["section-6", "4. 등록부터 완료까지 검증"]
+          [
+            "screen-69",
+            "1. General 실행 계정"
+          ],
+          [
+            "screen-70",
+            "2. Trigger와 Action"
+          ],
+          [
+            "screen-72",
+            "3. Beacon 조회 위치"
+          ],
+          [
+            "section-6",
+            "4. 등록부터 완료까지 검증"
+          ]
         ]
       }
     },
@@ -959,9 +971,88 @@
         "title": "실제 콘솔과 서비스 상태 검증 순서",
         "description": "구성·상태·서비스 계정·프로세스와 자동 시작을 분리해 읽습니다.",
         "links": [
-          ["screen-73", "1. Beacon 조회 위치"],
-          ["section-4", "2. Services 화면에서 읽을 값"],
-          ["section-5", "3. 단계별 실행 검증"]
+          [
+            "screen-73",
+            "1. Beacon 조회 위치"
+          ],
+          [
+            "section-4",
+            "2. Services 화면에서 읽을 값"
+          ],
+          [
+            "section-5",
+            "3. 단계별 실행 검증"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 40,
+      "slug": "40-browser-credentials-protection",
+      "title": "브라우저 인증 자료와 보호 경계: DPAPI·앱 결합 암호화·접근 증거",
+      "short_title": "브라우저 저장 정보·DPAPI·앱 결합 보호",
+      "description": "브라우저 비밀번호·쿠키·티켓을 구별하고 최신 보호 조건을 실제 Beacon Console·Credentials·ProcMon 화면과 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 10,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 1,
+      "screenshots": 3,
+      "ui_revision": "20261105-credentials",
+      "practice": {
+        "title": "실제 화면과 문맥 확인부터 보기",
+        "description": "공식 실제 화면·가상 기록값·미실행 절차를 구별하고 입력 위치·설정 상태·완료 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-74",
+            "1. 첫 실제 화면"
+          ],
+          [
+            "screen-75",
+            "2. 다음 화면과 입력 위치"
+          ],
+          [
+            "screen-76",
+            "3. 확인·기록 절차"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 41,
+      "slug": "41-windows-credential-manager-context",
+      "title": "Windows Credential Manager: 저장 항목·로그온 문맥·도구 기록 구별하기",
+      "short_title": "Credential Manager·로그온 문맥",
+      "description": "실제 Windows·Beacon Console·Credentials 화면으로 목록 조회·가상 기록값·DPAPI 복구 조건과 인증 결과의 차이를 읽습니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 6,
+      "unit": 10,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 2,
+      "screenshots": 3,
+      "ui_revision": "20261105-credentials",
+      "practice": {
+        "title": "실제 화면과 문맥 확인부터 보기",
+        "description": "공식 실제 화면·가상 기록값·미실행 절차를 구별하고 입력 위치·설정 상태·완료 확인을 연결합니다.",
+        "links": [
+          [
+            "screen-77",
+            "1. 첫 실제 화면"
+          ],
+          [
+            "screen-78",
+            "2. 다음 화면과 입력 위치"
+          ],
+          [
+            "screen-79",
+            "3. 확인·기록 절차"
+          ]
         ]
       }
     }
@@ -1024,6 +1115,14 @@
       "practice_entry": "38-system-scheduled-task-evidence",
       "practice_label": "실제 화면과 읽기 전용 검증부터 보기",
       "practice_description": "SYSTEM 예약 작업과 자동 시작 서비스를 등록 구성·트리거·계정·프로세스·재부팅 증거로 나누어 확인합니다."
+    },
+    {
+      "id": 10,
+      "title": "Credential Access",
+      "title_ko": "인증 자료: 저장소·보호 경계·사용 증거",
+      "practice_entry": "40-browser-credentials-protection",
+      "practice_label": "실제 콘솔·Credentials·Windows 저장소 보기",
+      "practice_description": "브라우저 보호와 사용자 저장소를 토큰·로그온 문맥·접근·인증 결과로 나누고 실제 화면에 연결합니다."
     }
   ]
 }

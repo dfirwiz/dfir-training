@@ -293,7 +293,10 @@
         "title": "SYSTEM 서비스 지속성: SCM 구성에서 재부팅 후 프로세스까지"
       }
     ],
-    "lesson_ids": [38, 39],
+    "lesson_ids": [
+      38,
+      39
+    ],
     "remaining_lesson_ids": [],
     "diagrams": 6,
     "official_image_occurrences": 5,
@@ -308,5 +311,58 @@
       "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/38-system-scheduled-task-evidence.html",
       "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/39-system-service-persistence-evidence.html"
     ]
+  },
+  "unit_10": {
+    "status": "prepared",
+    "title": "Credential Access",
+    "source_scope_reviewed": "entire uploaded chapter; independent explanations; private text/images/identifiers excluded",
+    "plan": [
+      {
+        "id": 40,
+        "lesson_number": 1,
+        "title": "브라우저 인증 자료·DPAPI·앱 결합 보호"
+      },
+      {
+        "id": 41,
+        "lesson_number": 2,
+        "title": "Windows Credential Manager·로그온 문맥"
+      },
+      {
+        "id": 42,
+        "lesson_number": 3,
+        "title": "LSASS·SSP·보호와 접근 관측"
+      },
+      {
+        "id": 43,
+        "lesson_number": 4,
+        "title": "SAM·LSA Secrets·캐시 로그온 검증자"
+      },
+      {
+        "id": 44,
+        "lesson_number": 5,
+        "title": "Kerberos 요청·AS-REP·서비스 티켓"
+      },
+      {
+        "id": 45,
+        "lesson_number": 6,
+        "title": "티켓 캐시·수명·갱신·증거 종합"
+      }
+    ],
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      40,
+      41,
+      42,
+      43,
+      44,
+      45
+    ],
+    "verification_scope": "41강 빌드·내부링크/앵커/이미지3130·기존39강본문/홈타영역보존·SVG XML·각11절/8복습 검사 통과.",
+    "diagrams": 6,
+    "official_image_occurrences": 6,
+    "new_official_images": 2,
+    "review_questions": 16,
+    "publication_status": "awaiting_public_verification",
+    "verification_limits": "Windows·Cobalt Strike·사용자 저장소·키·복구·복호화·인증·정책변경 미실행. Add/Chrome설정 실사진 미확보. 실제 모바일 viewport 미검증. 기존5장6강 HTML은 이전 게시본 유지(해당 페이지의 사이드바 최신 장 미표시)."
   }
 }
