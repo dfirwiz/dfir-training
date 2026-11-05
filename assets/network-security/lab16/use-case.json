@@ -1,0 +1,77 @@
+{
+  "schema": "classroom-use-case-v1",
+  "id": "UC-AUTH-01",
+  "version": 1,
+  "owner": "Classroom blue team",
+  "name": "Repeated authentication failures for one identity and source",
+  "problem": "Prioritise investigation of repeated failed sign-ins; no automatic compromise verdict",
+  "business_goal": "Protect access to service accounts and interactive accounts",
+  "requirements": {
+    "fields": [
+      "@timestamp",
+      "event.ingested",
+      "event.dataset",
+      "event.id",
+      "event.category",
+      "event.outcome",
+      "host.name",
+      "user.domain",
+      "user.name",
+      "source.ip"
+    ],
+    "clock": "timezone-aware; UTC in exercise",
+    "window": "fixed [09:00,09:05) UTC on2026-11-05",
+    "group_by": [
+      "host.name",
+      "user.domain",
+      "user.name",
+      "source.ip"
+    ],
+    "dedup": [
+      "event.dataset",
+      "host.name",
+      "event.id"
+    ],
+    "threshold": 3
+  },
+  "primary_data": "Synthetic authentication records",
+  "secondary_data": [
+    "Identity-provider audit",
+    "Endpoint process/account records",
+    "Firewall/proxy/server records"
+  ],
+  "analysis": [
+    "Check parsing/duplicates/late arrival",
+    "Confirm account, source role and authorised activity",
+    "Search related success and actions without assuming causation"
+  ],
+  "false_positive_review": [
+    "User typing errors",
+    "Service account stale credential",
+    "Authorised testing",
+    "Shared NAT source"
+  ],
+  "references": [
+    "https://www.elastic.co/docs/reference/query-languages/kql"
+  ],
+  "classification": {
+    "behaviour": "Repeated failed sign-ins; no automatic actor mapping",
+    "framework": "Map only after validating the observed behaviour; technique label alone is not coverage",
+    "compliance": "Local requirement and retention decision must be documented separately"
+  },
+  "regression": [
+    "Late event",
+    "Duplicate",
+    "Missing identity",
+    "Fixed-window boundary",
+    "Changed host/user",
+    "Malformed input"
+  ],
+  "response": "Create review candidate and preserve facts; no automatic block",
+  "limitations": [
+    "Not a sliding window",
+    "Not KQL or Elastic rule execution",
+    "No alert scheduler/lookback/connector test",
+    "No proof of attack or success"
+  ]
+}

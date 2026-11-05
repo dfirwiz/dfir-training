@@ -68,7 +68,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      15,
+      16
+    ],
+    "lesson_ids": [
+      "d1-12",
+      "d1-12b"
+    ],
+    "status": "validated_awaiting_publication",
+    "source_printed": [
+      134,
+      145
+    ],
+    "scope": "SIEM pipeline135-138 and use-case/Elastic/KQL139-145; automation146+ becomes next17 for depth"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "57991e40967d60d5a1925a5be66423a45d66043f",

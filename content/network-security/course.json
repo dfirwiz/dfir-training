@@ -148,33 +148,46 @@
       "day": 1,
       "number": 15,
       "title": "SIEM의 원리와 로그의 연결",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-15-siem-data-pipeline",
+      "short_title": "SIEM과 로그 처리",
+      "description": "첫째 날15강. 로그 수집·파싱·정규화·보강·색인과 검색을 연결하고, 시간·수집 품질·저장량·관측 한계를 상세히 살펴봅니다."
+    },
+    {
+      "id": "d1-12b",
+      "day": 1,
+      "number": 16,
+      "title": "탐지 사용 사례와 KQL 검색 검증",
+      "status": "published",
+      "slug": "day-01-16-use-cases-kql-validation",
+      "short_title": "사용 사례와 KQL 검증",
+      "description": "첫째 날16강. 탐지 사용 사례를 문서화하고 KQL의 조건·시간·자료형을 이해하며, 자체 로그로 중복·지연·집계와 판단의 한계를 검증합니다."
     },
     {
       "id": "d1-13",
       "day": 1,
-      "number": 16,
+      "number": 17,
       "title": "자동화의 역할과 사람의 판단",
       "status": "planned"
     },
     {
       "id": "d1-14",
       "day": 1,
-      "number": 17,
+      "number": 18,
       "title": "공격자의 목적과 행동 이해",
       "status": "planned"
     },
     {
       "id": "d1-15",
       "day": 1,
-      "number": 18,
+      "number": 19,
       "title": "첫째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d1-16",
       "day": 1,
-      "number": 19,
+      "number": 20,
       "title": "로그 검색과 SIEM 실습",
       "status": "planned"
     },
@@ -564,6 +577,7 @@
         "d1-10b",
         "d1-11",
         "d1-12",
+        "d1-12b",
         "d1-13",
         "d1-14",
         "d1-15",
@@ -660,6 +674,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-12",
+  "next_lesson": "d1-13",
   "planning_note": "위협 정보 모듈은11강 원리·맥락,12강 플랫폼·피드·안전한 공유,13강 MISP 자료 모델로 나눕니다. 자체 활용 실습은14강으로 이어지며 기존 공개 번호·URL·본문은 보존합니다."
 }

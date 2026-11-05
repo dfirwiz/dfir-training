@@ -16,6 +16,7 @@ from blue_team_alert_diagrams import build_alerts
 from blue_team_case_diagrams import build_cases
 from blue_team_cti_diagrams import build_cti
 from blue_team_misp_diagrams import build_misp
+from blue_team_siem_diagrams import build_siem
 from blue_team_course_menu import sidebar_menu, overview_body, home_card, MENU_CSS
 TITLE = '블루팀 필수 지식: 보안 운영과 분석'
 OUT = ROOT/'courses/network-security'
@@ -62,12 +63,18 @@ build_alerts(ASSETS)
 build_cases(ASSETS)
 build_cti(ASSETS)
 build_misp(ASSETS)
+build_siem(ASSETS)
 
 def inline(s):
     s=escape(s)
-    s=re.sub(r'`([^`]+)`',r'<code>\1</code>',s)
+    code=[]
+    def protect(match):
+        code.append(match.group(1))
+        return '\x00'+str(len(code)-1)+'\x00'
+    s=re.sub(r'`([^`]+)`',protect,s)
     s=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',s)
-    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
+    s=re.sub(r'\x00(\d+)\x00',lambda m:'<code>'+code[int(m.group(1))]+'</code>',s)
+    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10|lab14|lab16)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
     return s
 
 def render(md, expected_mermaid=0):
