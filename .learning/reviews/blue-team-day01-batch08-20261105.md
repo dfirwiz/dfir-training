@@ -56,4 +56,5 @@ Python3.12.14, tmp/day1-siem-check/actual-check.json. lab16 네 파일 logs.json
 - 다운로드 렌더 허용 경로가 lab05/10만 지원해 이전14강의6개 다운로드가 Markdown 텍스트로 남아 있던 문제를 확인했다. lab14/16 지원을 추가해 실제 클릭 가능한 링크로 수정했다.14강 설명·예제·해설 문장은 그대로이며6개 링크의 HTML표현만 변환. 기존20개 중19개 강의본문HTML 완전일치,14강은 해당 변환만 일치 확인했다. 과정 밖 홈페이지도 일치.
 - HTML24개 구조·중복ID·내부 앵커·상대링크·다운로드존재/실제href·6일 목차·첫째날1~20순서·ID번호 검증. 모든새SVG XML·한국어글꼴경계[]·정적렌더 접촉시트 output/network-security/siem-contact-sheet.png 시각 확인. 표/코드 내부 스크롤·가변400폭그림 CSS 유지.
 - 이번 CUA 초기화는 성공했지만 브라우저 목록이 비어 있고 iab 생성이 “Browser is not available: iab”로 실패했다. 우회하지 않았으며 실제 브라우저/모바일 화면은 미검증. 이전 kernel-assets 오류와 이번 제한을 구별한다.
-- 배포와 공개 응답·내용 일치 확인 대기. 검증 뒤에만 완료 진도를 갱신한다.
+- 배포 커밋781ff99654b5e8be162bcf2940e6676b53b1e2cc, Pages 실행41988675852 success. 공개42파일(HTML24·CSS·course.json·새SVG6·lab16의4파일·복구한lab14의6파일) 전부HTTP200 및 LF정규화 내용 일치. lab14 fixture 바이트·기존SHA256도 확인. 그 뒤에만 첫째날1~16 완료와 다음17/18을 기록했다.
+- 게시 전 최신 다른 과정 커밋fadab5efa95d6cae14248a8a13097a085bb366ce의 후속3커밋을 통합했다. 홈페이지는 최신 원격의 과정 밖 내용을 보존하고 이 과정 카드만 재생성했다. 통합 후 구조·링크·다운로드href·기존본문 검증을 다시 통과했다. 최신main을 부모로 expected_sha/force=false 조건을 사용했다.
