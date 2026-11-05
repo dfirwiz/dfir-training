@@ -52,7 +52,7 @@
   ],
   "published_unit": "1~10장과 11장 1~2강 공개: 2장만 핵심 요약",
   "next_scope": "11장 3~4강 (전역 ID48~49): Pass the Hash와 NTLM 인증 증거, Pass the Ticket과 Kerberos 문맥 검증. 5강 ID50이 이어짐.",
-  "next_lesson_status": "ready",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
