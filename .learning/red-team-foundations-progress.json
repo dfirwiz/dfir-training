@@ -40,10 +40,12 @@
     36,
     37,
     38,
-    39
+    39,
+    40,
+    41
   ],
-  "published_unit": "1~9장 완료: 전역 ID1~39. 2장만 핵심 요약",
-  "next_scope": "10장 Credential Access: 업로드 원본 전체를 새로 읽고 상세 분할 계획 저장 후 전역 ID40부터 진행",
+  "published_unit": "1~9장 및 10장1~2강 공개: 2장만 핵심 요약",
+  "next_scope": "10장3~4강 (전역 ID42~43): LSASS·SSP·보호와 접근 관측 및 SAM·LSA Secrets·캐시 로그온 검증자",
   "next_lesson_status": "ready",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
@@ -102,7 +104,8 @@
       "6": 6,
       "7": 6,
       "8": 6,
-      "9": 2
+      "9": 2,
+      "10": 2
     },
     "updated": "2026-11-05"
   },
@@ -313,7 +316,7 @@
     ]
   },
   "unit_10": {
-    "status": "prepared",
+    "status": "partially_published",
     "title": "Credential Access",
     "source_scope_reviewed": "entire uploaded chapter; independent explanations; private text/images/identifiers excluded",
     "plan": [
@@ -348,21 +351,30 @@
         "title": "티켓 캐시·수명·갱신·증거 종합"
       }
     ],
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       40,
-      41,
+      41
+    ],
+    "remaining_lesson_ids": [
       42,
       43,
       44,
       45
     ],
-    "verification_scope": "41강 빌드·내부링크/앵커/이미지3130·기존39강본문/홈타영역보존·SVG XML·각11절/8복습 검사 통과.",
+    "verification_scope": "41강 빌드·JSON·각11절/8복습·최종내부링크/앵커/이미지3126·기존39강본문/홈타영역보존·SVG XML·git diff 검사 통과. Pages성공 후 공개22파일 HTTP200/SHA256일치. 공개브라우저2강 각11절/8복습·이미지12회로드·화면앵커74/75/77·강의이동·즉시해설표시·1363px데스크톱가로넘침없음 확인. 독립SVG원본의문자/상자/화살표실표시확인.",
     "diagrams": 6,
     "official_image_occurrences": 6,
     "new_official_images": 2,
     "review_questions": 16,
-    "publication_status": "awaiting_public_verification",
-    "verification_limits": "Windows·Cobalt Strike·사용자 저장소·키·복구·복호화·인증·정책변경 미실행. Add/Chrome설정 실사진 미확보. 실제 모바일 viewport 미검증. 기존5장6강 HTML은 이전 게시본 유지(해당 페이지의 사이드바 최신 장 미표시)."
+    "publication_status": "published_verified",
+    "verification_limits": "Windows·Cobalt Strike·실제사용자저장소·비밀수집·키·복구·복호화·인증·정책변경 미실행. Add/Chrome설정·Windows항목펼침 실제사진 미확보. 모바일내부스크롤CSS는유지; 실제모바일viewport/실기기미검증. 기존5장6강 HTML은이전게시본유지(해당한페이지사이드바의최신장미표시).",
+    "commit": "727a9118ae12519f91198aa9b197a8819ab92959",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/41945564547",
+    "deployment_status": "success",
+    "public_files_verified": 22,
+    "urls": [
+      "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/40-browser-credentials-protection.html",
+      "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/41-windows-credential-manager-context.html"
+    ]
   }
 }

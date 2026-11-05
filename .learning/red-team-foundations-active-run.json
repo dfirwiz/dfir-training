@@ -4,7 +4,8 @@
     41
   ],
   "owner": "manual-next-20261105",
-  "status": "in_progress",
-  "started_on": "2026-11-05",
-  "next_scope": "10장1~2강 작성·검증·게시; 중복 작업은 이 범위를 건너뛴다"
+  "status": "completed",
+  "completed_on": "2026-11-05",
+  "commit": "727a9118ae12519f91198aa9b197a8819ab92959",
+  "next_scope": "10장3~4강; ID42~43; active reservation released"
 }
