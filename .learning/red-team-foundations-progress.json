@@ -46,7 +46,7 @@
   ],
   "published_unit": "1~9장 및 10장1~2강 공개: 2장만 핵심 요약",
   "next_scope": "10장3~4강 (전역 ID42~43): LSASS·SSP·보호와 접근 관측 및 SAM·LSA Secrets·캐시 로그온 검증자",
-  "next_lesson_status": "ready",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -375,6 +375,15 @@
     "urls": [
       "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/40-browser-credentials-protection.html",
       "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/41-windows-credential-manager-context.html"
-    ]
+    ],
+    "batch_3_4": {
+      "lesson_ids": [
+        42,
+        43
+      ],
+      "status": "draft_validation",
+      "source_scope_reviewed": "entire connected uploaded chapter re-read; private text and images excluded",
+      "next_steps": "build, source/link/image/mobile checks, publish, verify live pages/downloads"
+    }
   }
 }

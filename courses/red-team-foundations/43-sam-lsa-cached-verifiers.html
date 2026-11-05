@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="로컬 계정·시스템 비밀·오프라인 검증자의 차이를 실제 콘솔 정책 조회와 조건별 증거 해석으로 설명합니다."><title>SAM·LSA Secrets·캐시 로그온 검증자 | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/43-sam-lsa-cached-verifiers.html"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css?v=20261104-persistence"></head>
+<body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout"><aside class="course-sidebar"><details class="course-menu" open><summary>레드팀 기초 · 과정 목차</summary><a class="course-overview" href="index.html">과정 소개와 학습 순서</a><nav class="course-chapters" aria-label="장별 강의 목차"><details class="course-day course-chapter"><summary><span><span class="chapter-number">1장</span> <span lang="en">Getting Started</span></span></summary><ol class="chapter-lessons"><li><a href="01-purpose-ttp-evidence.html"><span class="num">1강</span><span>레드팀의 목적·TTP·증거 해석</span></a></li><li><a href="02-intelligence-attack-lifecycle.html"><span class="num">2강</span><span>위협 인텔리전스와 공격 생명주기</span></a></li><li><a href="03-engagement-opsec-records.html"><span class="num">3강</span><span>활동 계획·ROE·OPSEC·작업 기록</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">2장</span> <span lang="en">Law &amp; Compliance</span></span></summary><ol class="chapter-lessons"><li><a href="04-law-compliance.html"><span class="num">1강</span><span>법과 준수 원칙 · 핵심 요약</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">3장</span> <span lang="en">Malware Essentials</span></span></summary><ol class="chapter-lessons"><li><a href="05-pe-file-memory.html"><span class="num">1강</span><span>PE 파일 구조·RVA·읽기 전용 실습</span></a></li><li><a href="06-process-memory-security.html"><span class="num">2강</span><span>프로세스·메모리·접근 토큰</span></a></li><li><a href="07-injection-evidence.html"><span class="num">3강</span><span>코드 주입의 원리와 증거 해석</span></a></li><li><a href="08-csharp-native-interop.html"><span class="num">4강</span><span>C# P/Invoke·인코딩·오류 처리</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">4장</span> <span lang="en">Cobalt Strike Primer</span></span></summary><ol class="chapter-lessons"><li><a href="09-c2-components.html"><span class="num">1강</span><span>C2 구성 요소·다중 서버·기록</span></a></li><li><a href="10-http-dns-listeners.html"><span class="num">2강</span><span>HTTP·DNS·리스너 설정 해석</span></a></li><li><a href="11-peer-links.html"><span class="num">3강</span><span>SMB·TCP·P2P 연결과 수명</span></a></li><li><a href="12-payload-loading.html"><span class="num">4강</span><span>페이로드·로더·staging·종료</span></a></li><li><a href="13-sessions-task-evidence.html"><span class="num">5강</span><span>세션·작업 상태·가상 로그 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">5장</span> <span lang="en">Initial Access</span></span></summary><ol class="chapter-lessons"><li><a href="14-initial-access-chain.html"><span class="num">1강</span><span>최초 접근·구성 요소·조사 연결</span></a></li><li><a href="15-dll-managed-loading.html"><span class="num">2강</span><span>DLL·.NET 로딩·ProcMon 화면</span></a></li><li><a href="16-installers-addins-signatures.html"><span class="num">3강</span><span>MSI·Excel·서명·보안 센터</span></a></li><li><a href="17-triggers-shortcuts-console.html"><span class="num">4강</span><span>트리거·LNK·MSC·실행 문맥</span></a></li><li><a href="18-containers-motw-provenance.html"><span class="num">5강</span><span>컨테이너·MotW·Python 실습</span></a></li><li><a href="19-web-delivery-observation.html"><span class="num">6강</span><span>Cobalt Strike 화면 설정·호스팅·확인</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">6장</span> <span lang="en">Persistence</span></span></summary><ol class="chapter-lessons"><li><a href="20-persistence-state-context.html"><span class="num">1강</span><span>지속성·사용자·Cobalt Strike 콘솔</span></a></li><li><a href="21-run-startup.html"><span class="num">2강</span><span>Run·Startup·Autoruns 화면</span></a></li><li><a href="22-logon-powershell-profiles.html"><span class="num">3강</span><span>로그온·PowerShell 프로필</span></a></li><li><a href="23-scheduled-tasks-ui.html"><span class="num">4강</span><span>예약 작업 화면·설정·실행 증거</span></a></li><li><a href="24-com-registration-evidence.html"><span class="num">5강</span><span>COM·HKCR·ProcMon 화면</span></a></li><li><a href="25-persistence-investigation-review.html"><span class="num">6강</span><span>조사 시간표·Python XML 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">7장</span> <span lang="en">Post-Exploitation</span></span></summary><ol class="chapter-lessons"><li><a href="26-postex-command-behavior.html"><span class="num">1강</span><span>상황 파악·명령 동작·도움말</span></a></li><li><a href="27-file-browser-downloads.html"><span class="num">2강</span><span>파일 화면·캐시·전송·Sync Files</span></a></li><li><a href="28-process-registry-context.html"><span class="num">3강</span><span>프로세스 화면·식별자·reg 조회</span></a></li><li><a href="29-observation-jobs-desktop.html"><span class="num">4강</span><span>화면·Desktop·Jobs·중지 확인</span></a></li><li><a href="30-execution-engines-extensions.html"><span class="num">5강</span><span>실행 엔진·확장·Interpreter 화면</span></a></li><li><a href="31-session-passing-workflow-review.html"><span class="num">6강</span><span>세션 전달·상태·Python 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">8장</span> <span lang="en">Privilege Escalation</span></span></summary><ol class="chapter-lessons"><li><a href="32-accounts-tokens-rights.html"><span class="num">1강</span><span>계정·토큰·사용자 권한</span></a></li><li><a href="33-service-configuration-evidence.html"><span class="num">2강</span><span>서비스 구성·접근 권한의 증거</span></a></li><li><a href="34-path-search-unquoted.html"><span class="num">3강</span><span>PATH·검색 순서·따옴표 없는 경로</span></a></li><li><a href="35-service-file-registry-permissions.html"><span class="num">4강</span><span>서비스 파일·레지스트리 권한</span></a></li><li><a href="36-dll-search-software-vulnerabilities.html"><span class="num">5강</span><span>DLL 검색과 소프트웨어 취약점</span></a></li><li><a href="37-uac-integrity-elevation-validation.html"><span class="num">6강</span><span>UAC·무결성·승격 결과 검증</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">9장</span> <span lang="en">Elevated Persistence</span></span></summary><ol class="chapter-lessons"><li><a href="38-system-scheduled-task-evidence.html"><span class="num">1강</span><span>SYSTEM 예약 작업·부팅 증거</span></a></li><li><a href="39-system-service-persistence-evidence.html"><span class="num">2강</span><span>SYSTEM 서비스·SCM·실행 검증</span></a></li></ol></details><details class="course-day course-chapter" open><summary><span><span class="chapter-number">10장</span> <span lang="en">Credential Access</span></span></summary><ol class="chapter-lessons"><li><a href="40-browser-credentials-protection.html"><span class="num">1강</span><span>브라우저 저장 정보·DPAPI·앱 결합 보호</span></a></li><li><a href="41-windows-credential-manager-context.html"><span class="num">2강</span><span>Credential Manager·로그온 문맥</span></a></li><li><a href="42-lsass-ssp-protection-observation.html"><span class="num">3강</span><span>LSASS·SSP·보호와 접근 관측</span></a></li><li><a href="43-sam-lsa-cached-verifiers.html" aria-current="page"><span class="num">4강</span><span>SAM·LSA Secrets·캐시 로그온 검증자</span></a></li></ol></details></nav></details></aside><main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a> / <a href="index.html#chapter-10">10장 · Credential Access</a></p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / CHAPTER 10 / LESSON 04</div><h1>SAM·LSA Secrets·캐시 로그온 검증자</h1><p class="description">로컬 계정·시스템 비밀·오프라인 검증자의 차이를 실제 콘솔 정책 조회와 조건별 증거 해석으로 설명합니다.</p><div class="meta"><span>10장 4강 · 8개의 복습과 해설</span><span>업데이트 2026-11-05</span></div></header><nav class="cs-practice-start toc" aria-label="화면 실습 시작"><strong>실제 콘솔·조회·증거 확인</strong><p>공식 화면과 미실행 조회 절차, 보호 및 자료별 증거 경계를 연결합니다.</p><div class="cs-practice-links"><a href="#screen-81">콘솔 입력·반환 위치</a><a href="#section-7">정책·관측 해석</a><a href="#section-8">합성 사건 비교</a></div></nav><nav class="toc ui-screen-nav" aria-label="실제 설정 화면 바로가기"><strong>공식 화면으로 따라보기</strong><ul class="toc-list" role="list"><li><a href="#screen-81">실제 화면 81: Beacon Console의 입력·반환을 정책 조회에 연결</a></li></ul><p>메뉴 경로 → 화면의 입력 위치 → 예시 값 → 저장 후 확인을 순서대로 읽습니다.</p></nav><nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list"><li><a href="#section-1">1. 저장 위치보다 먼저 자료의 목적을 묻습니다</a></li><li><a href="#section-2">2. SAM은 로컬 계정 범위에서 읽습니다</a></li><li><a href="#section-3">3. 다른 단말로의 영향은 조건을 연결해야 합니다</a></li><li><a href="#section-4">4. LSA Secrets는 하나의 동일한 비밀번호 목록이 아닙니다</a></li><li><a href="#section-5">5. 캐시된 도메인 로그온은 오프라인 사용성을 위한 기능입니다</a></li><li><a href="#section-6">6. 실제 콘솔에서 정책 값을 읽는 위치와 이유</a></li><li><a href="#section-7">7. 정책 값·실제 캐시·실제 로그온을 분리합니다</a></li><li><a href="#section-8">8. 저장소 접근 경보는 어떤 증거와 연결할까요?</a></li><li><a href="#section-9">9. 조건별 대응과 보고 문장을 연습합니다</a></li><li><a href="#section-10">10. 복습과 즉시 해설</a></li><li><a href="#section-11">11. 공식 근거와 적용 범위</a></li></ul></nav><section id="section-1"><h2>1. 저장 위치보다 먼저 자료의 목적을 묻습니다</h2>
+<p>한 단말에서 로컬 계정, 서비스 계정, 과거 도메인 로그온 정보가 모두 보인다고 가정하겠습니다. 세 종류를 모두 “비밀번호 캐시”로 부르면 어떤 계정이 영향을 받았는지와 어떤 대응이 필요한지 설명할 수 없습니다. 이번 강의에서는 <strong>SAM·LSA Secrets·캐시된 도메인 로그온 검증자</strong>를 목적·주체·사용 가능성으로 나눕니다.</p>
+<p>SAM은 주로 해당 호스트의 로컬 계정 정보를 관리합니다. LSA Secrets는 시스템의 여러 보안 기능에 필요한 비밀을 저장하는 영역입니다. 캐시된 도메인 로그온 검증자는 DC에 연결하지 못할 때 이전 사용자의 로컬 로그온을 검증하기 위한 자료입니다. 어느 하나를 관측했다고 나머지 전체를 확보했다고 쓰지 않습니다.</p>
+<p><code>LAB-WS01</code>, <code>LAB-WS02</code>, <code>training.example</code>, <code>student01</code>은 합성 이름입니다. 본문은 비밀 추출·레지스트리 하이브 내보내기·복호화·암호 추측·원격 인증을 수행하지 않습니다. 실제 Windows·Cobalt Strike 조회 역시 <strong>미실행 절차</strong>입니다.</p>
+<figure id="figure-1" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/43-store-purpose.svg" width="900" height="625" alt="로컬 계정·시스템 비밀·오프라인 검증자를 나누는 개념도" loading="lazy"></div><figcaption>로컬 계정·시스템 비밀·오프라인 검증자를 나누는 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>그림의 두 갈래는 서로 다른 자료의 목적을 비교합니다. 아래 판단에서는 계정 범위와 사용할 수 있는 상황을 함께 적습니다. “저장돼 있다”는 공통점만으로 동일한 비밀이나 같은 인증 능력으로 취급하지 않습니다.</p>
+</section>
+<section id="section-2"><h2>2. SAM은 로컬 계정 범위에서 읽습니다</h2>
+<p>일반 워크스테이션의 SAM을 생각할 때 중심 질문은 “이 호스트의 어떤 로컬 계정인가?”입니다. 로컬 계정과 도메인 계정은 표시 이름이 같아도 다른 보안 주체입니다. SAM 관련 보호 자료와 SYSTEM 하이브가 함께 언급되는 기술 설명도 두 하이브에 모든 도메인 비밀번호가 저장된다는 의미가 아닙니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">관측</th>
+<th scope="col">알 수 있는 것</th>
+<th scope="col">추가로 필요한 조건</th>
+</tr></thead><tbody>
+<tr><td><code>LAB-WS01\Administrator</code></td><td>호스트 로컬 계정 이름</td><td>전체 SID·활성 상태·실제 권한</td></tr>
+<tr><td>RID 500</td><td>해당 계정 영역의 기본 관리자 식별 단서</td><td>SID 앞부분과 로컬·도메인 범위</td></tr>
+<tr><td>같은 계정 이름 두 개</td><td>표시 이름이 같음</td><td>실제 동일 주체인지 SID 대조</td></tr>
+<tr><td>로컬 계정 관련 해시 자료</td><td>특정 자료형 후보</td><td>현재 비밀·계정 상태·인증 정책</td></tr>
+</tbody></table></div>
+<p>RID는 SID의 마지막 부분입니다. 로컬 기본 관리자와 도메인 기본 관리자는 모두 끝 번호가 500일 수 있으므로 마지막 숫자만으로 동일 계정이라고 판단하면 안 됩니다. 기본 관리자 이름이 바뀌어도 RID의 의미가 사라지는 것은 아닙니다. 반대로 이름만 Administrator라고 해서 반드시 기본 관리자 계정은 아닙니다.</p>
+</section>
+<section id="section-3"><h2>3. 다른 단말로의 영향은 조건을 연결해야 합니다</h2>
+<p>A와 B 단말에 같은 로컬 이름이 있다는 사실만으로 A의 침해가 B의 로그인 성공으로 이어지지는 않습니다. 비밀번호 재사용, 계정 활성·잠금, 네트워크 로그온 권한, 원격 접근 정책과 서비스 조건 등 여러 요소가 필요합니다. 권한 상승과 원격 인증도 서로 다른 사건입니다.</p>
+<p>가상 사례에서 LAB-WS01은 로컬 관리자의 비밀번호를 장기간 공유하고 LAB-WS02는 장치마다 고유한 비밀번호를 관리한다고 합시다. 위험도는 달라지지만 이를 검증하려고 실제 비밀번호를 비교하거나 로그인을 시도할 필요는 없습니다. 승인된 관리 시스템의 적용 상태·교체 이력·장치 범위와 정책 증거로 검토할 수 있습니다.</p>
+<p>Windows LAPS 같은 관리 기능을 논의할 때도 “정책 배포됨”과 “대상 계정에 실제 적용·교체됨”을 나눕니다. 계정의 실제 비밀값을 보고서에 붙이는 대신 대상 장치·정책 적용·변경 시각과 미확인 범위를 기록합니다. 이 강의에서는 LAPS 비밀번호 조회나 정책 변경을 하지 않았습니다.</p>
+</section>
+<section id="section-4"><h2>4. LSA Secrets는 하나의 동일한 비밀번호 목록이 아닙니다</h2>
+<p>LSA Secrets는 여러 종류의 비밀이 관계되는 보호 저장 영역입니다. 서비스용 계정 자료나 컴퓨터 계정 관련 자료 등이 포함될 수 있지만 모든 단말에 같은 항목이 있고 같은 형식으로 출력된다고 보장하지 않습니다. 서비스의 로그온 방식과 계정 유형이 바뀌면 필요한 자료와 관리 책임도 바뀝니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">구분</th>
+<th scope="col">의미</th>
+<th scope="col">잘못된 일반화</th>
+</tr></thead><tbody>
+<tr><td>로컬 서비스 계정</td><td>해당 호스트 범위의 계정</td><td>같은 이름이면 도메인 계정</td></tr>
+<tr><td>일반 도메인 서비스 계정</td><td>도메인이 관리하는 신원</td><td>모든 서비스가 같은 비밀 사용</td></tr>
+<tr><td>가상 계정·관리 서비스 계정</td><td>OS·도메인의 관리 모델과 연결</td><td>서비스는 항상 수동 평문 비밀번호 필요</td></tr>
+<tr><td>컴퓨터 계정</td><td>도메인에 가입한 장치의 신원</td><td>사람이 로그인하는 관리자와 동일</td></tr>
+<tr><td>LSA Secrets 영역</td><td>기능별 비밀 저장</td><td>한 항목 존재가 전체 사용자 비밀번호 획득</td></tr>
+</tbody></table></div>
+<p><code>HKLM\SECURITY\Policy\Secrets</code>는 저장 위치를 설명하는 식별 정보입니다. 여기서 값을 내보내거나 보호 자료를 모으는 절차는 제공하지 않습니다. 암호화돼 있다는 사실만으로 단말 관리자 침해에도 안전하다고 단정할 수 없고, SYSTEM 권한이라는 사실만으로 모든 도구·자료·보호 조건에서 성공한다고 단정할 수도 없습니다.</p>
+</section>
+<section id="section-5"><h2>5. 캐시된 도메인 로그온은 오프라인 사용성을 위한 기능입니다</h2>
+<p>출장 중 노트북이 DC에 연결하지 못해도 이전 사용자가 바탕 화면에 들어갈 수 있는 이유 중 하나가 캐시된 도메인 로그온입니다. 로컬에 남는 검증자를 이용해 입력을 확인하는 구조이며 DC가 그 순간 새 인증을 해 준 것과 다릅니다.</p>
+<figure id="figure-2" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/43-offline-network.svg" width="900" height="625" alt="오프라인 로컬 로그온과 네트워크 도메인 인증을 구별하는 개념도" loading="lazy"></div><figcaption>오프라인 로컬 로그온과 네트워크 도메인 인증을 구별하는 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>왼쪽은 로컬 검증의 결과이고 오른쪽은 별도 네트워크 인증입니다. 아래에서 “바탕 화면 접근 성공”과 “도메인 서비스 접근 성공”을 다른 결과로 기록합니다. 네트워크 자원이 익명 접근 등 다른 조건을 허용하는 예외도 있으므로 모든 네트워크 통신이 불가능하다는 의미는 아닙니다.</p>
+<p>현대 Windows의 DCC2 / MS-Cache v2는 NT 해시와 같은 용도로 직접 제출하는 네트워크 인증 자료가 아닙니다. 캐시 검증자가 있다고 즉시 pass-the-hash가 가능하다고 설명하지 않습니다. 오프라인 추측 위험은 별도로 존재하지만 계산 비용과 실제 성공은 비밀번호·형식·조건에 따라 다르며 고정된 시간이나 성능을 보장하지 않습니다.</p>
+</section>
+<section id="section-6"><h2>6. 실제 콘솔에서 정책 값을 읽는 위치와 이유</h2>
+<h3 id="screen-81">실제 화면 81: Beacon Console의 입력·반환을 정책 조회에 연결</h3>
+<figure id="figure-3" class="diagram course-diagram course-screenshot"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 설정 화면"><a class="screenshot-original" href="../../assets/red-team-foundations/screenshots/beacon-console.png" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: Fortra 공식 Beacon Console — 입력 줄과 결과 영역의 실제 위치"><img src="../../assets/red-team-foundations/screenshots/beacon-console.png" width="654" height="288" alt="Fortra 공식 Beacon Console — 입력 줄과 결과 영역의 실제 위치" loading="lazy"></a></div><figcaption>Fortra 공식 Beacon Console — 입력 줄과 결과 영역의 실제 위치 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다. 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>출처: <a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_consoles.htm">Fortra Consoles</a>, 확인일 2026-11-05. 문서 표시는 4.13이며 공식 삽화는 과거 UI일 수 있습니다. 사진 속 결과는 아래 조회를 수행한 출력이 아닙니다. 이 사진은 레지스트리 편집 창도 아닙니다.</p>
+<ol>
+<li><strong>Sessions → 승인된 실습 세션 → 우클릭 → Interact</strong>를 엽니다. 호스트와 현재 사용자가 계획과 맞는지 확인합니다.</li>
+<li>하단 입력 칸에서 <code>help run</code>을 먼저 확인합니다. 다음 명령은 비밀 내용이 아닌 캐시 정책 값 하나를 읽는 미실행 예시입니다.</li>
+</ol>
+<pre tabindex="0" aria-label="text 예제"><code class="language-text">run reg.exe query &quot;HKLM\SOFTWARE\Microsoft\Windows NT\CurrentVersion\Winlogon&quot; /v CachedLogonsCount</code></pre>
+<ol>
+<li><code>/v CachedLogonsCount</code>를 지정하는 이유는 해당 값으로 조회 범위를 제한하기 위해서입니다. 값 이름은 복수형 <strong>Logons</strong>입니다. 비슷한 단수형으로 입력해 값이 없다고 결론 내리지 않습니다.</li>
+<li>Enter로 제출한 뒤 반환 영역의 값 이름·형식·데이터·오류를 읽습니다. 예를 들어 <code>REG_SZ</code>와 <code>10</code>은 설명용 가정이며 현재 호스트의 실제 출력이 아닙니다.</li>
+<li>조회에는 저장 버튼이 없습니다. <code>add</code>, <code>delete</code>, <code>save</code> 같은 변경·내보내기 동작을 수행하지 않습니다. 빈 출력·값 없음·접근 거부·반환 지연을 구별하고 시각·호스트·토큰·조회 결과를 기록합니다.</li>
+</ol>
+<p>설정값 조회 성공은 실제 캐시 항목 수·사용자 명단·비밀 획득 성공이 아닙니다. 레지스트리 편집 화면과 실제 조회 반환 사진은 확보하지 못했습니다. 설명표를 실제 Windows 설정창으로 재구성하지 않았습니다.</p>
+</section>
+<section id="section-7"><h2>7. 정책 값·실제 캐시·실제 로그온을 분리합니다</h2>
+<p><code>CachedLogonsCount</code>는 캐시 동작의 정책을 이해하기 위한 단서입니다. Microsoft 지원 문서의 허용 범위는 0~50이며 0은 캐시 비활성 의미입니다. 기본값 안내에는 OS 예외가 있으므로 실제 적용 정책을 우선합니다. <code>10</code>을 “현재 캐시 파일 열 개” 또는 “오늘 로그인 시도 열 번”으로 읽지 않습니다.</p>
+<p>정책 UI를 조회하려면 <strong>로컬 보안 정책 → 로컬 정책 → 보안 옵션 → 대화형 로그온: 도메인 컨트롤러를 사용할 수 없는 경우 캐시할 이전 로그온 수</strong>를 찾아 현재 설명과 값을 읽습니다. 관리 방식·에디션·언어에 따라 표시가 다를 수 있습니다. 창을 열었다면 변경·적용하지 않고 닫는 조회를 가정합니다. 적용 정책은 도메인 관리 기록과도 대조해야 합니다.</p>
+<p>클라우드·도메인에서 비밀번호가 바뀌어도 오프라인 로컬 검증자가 즉시 갱신됐다고 가정하지 않습니다. 네트워크 상태, 최근 온라인 로그온과 동기화 조건을 확인합니다. 이 동작을 시험하려고 네트워크를 끊거나 실제 사용자 비밀번호를 바꾸는 작업은 수행하지 않았습니다. 정책 설명·실제 동작 검증·교체 확인을 각각 미실행 또는 확인 상태로 구분합니다.</p>
+</section>
+<section id="section-8"><h2>8. 저장소 접근 경보는 어떤 증거와 연결할까요?</h2>
+<figure id="figure-4" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/43-observation-response.svg" width="900" height="625" alt="정책 조회·저장소 접근·인증 사용의 증거를 나누는 개념도" loading="lazy"></div><figcaption>정책 조회·저장소 접근·인증 사용의 증거를 나누는 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>그림의 왼쪽은 설정과 저장소이고 오른쪽은 접근 행동과 후속 사용입니다. 아래 결론을 쓸 때 두 경로가 같은 호스트·시각·주체를 가리키는지 확인합니다. 정책 조회 한 번과 비밀 저장소 추출을 같은 사건으로 분류하지 않습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">관측 유형</th>
+<th scope="col">조사 의미</th>
+<th scope="col">한계와 다음 증거</th>
+</tr></thead><tbody>
+<tr><td>승인된 정책 값 조회</td><td>관리·진단 행위일 수 있음</td><td>작업 승인·부모 프로세스·조회 대상 확인</td></tr>
+<tr><td>민감 저장소에 대한 비정상 접근</td><td>비밀 노출 가능성 조사</td><td>감사 설정·주체·실제 접근 종류 확인</td></tr>
+<tr><td>관련 파일 생성·외부 전송</td><td>후속 행위 연계</td><td>파일 생성 주체·종류·목적지·시간 확인</td></tr>
+<tr><td>다른 기기의 인증 이상</td><td>계정 영향 가능성</td><td>동일 이름·시간만으로 인과관계 확정 금지</td></tr>
+<tr><td>접근 로그 없음</td><td>해당 수집에서 미관측</td><td>감사·필터·전송·보존 범위 검토</td></tr>
+</tbody></table></div>
+<p>Sysmon의 레지스트리 이벤트 12~14는 생성·삭제·값 설정·이름 변경 등을 설명합니다. 모든 레지스트리 읽기를 기록하는 로그가 아닙니다. 민감 키 읽기를 조사할 때 이벤트 13만 검색해 미관측을 안전으로 판정하지 않습니다. 보안 감사 이벤트 역시 정책·객체 감사·권한 조건을 확인한 뒤 사용해야 합니다. 로그를 만들기 위해 실제 비밀을 읽지 않고 승인된 기존 자료로 관측 범위를 평가합니다.</p>
+</section>
+<section id="section-9"><h2>9. 조건별 대응과 보고 문장을 연습합니다</h2>
+<p>사례 A는 로컬 관리자 관련 자료 노출 가능성입니다. 장치별 비밀번호 관리 여부와 같은 비밀 재사용 범위가 중요합니다. 사례 B는 서비스 계정 관련 자료입니다. 서비스 의존성과 계정 권한·교체 절차를 함께 검토해야 합니다. 사례 C는 오프라인 검증자입니다. 네트워크 인증에 직접 제출 가능한 자료와 구별하면서 추측 위험과 로컬 로그온 정책을 평가합니다.</p>
+<p>Credential Guard가 실행 중이라는 사실도 SAM·AD 데이터베이스나 모든 별도 저장소를 보호한다는 보장은 아닙니다. 반대로 오프라인 검증자가 있다는 이유로 Credential Guard가 고장 났다고 판단하지 않습니다. 보호 목적과 자료 종류를 맞춰야 합니다.</p>
+<p>보고 예시는 “LAB-WS01의 캐시 정책 조회에서 설정값을 확인했다. 실제 캐시 사용자·검증자 내용·비밀번호·원격 사용은 확인하지 않았다”입니다. 침해 대응에서는 원시 비밀을 공유하지 않고 계정 범위·증거 보존·교체와 업무 검증을 조율합니다. 파일 삭제만으로 계정 비밀이 폐기되거나 모든 사본이 사라지는 것은 아닙니다. 이번 강의에서는 교체·삭제·격리도 수행하지 않았습니다.</p>
+</section>
+<section id="section-10"><h2>10. 복습과 즉시 해설</h2>
+<h3>복습 1. SAM에 모든 도메인 계정의 비밀번호가 있나요?</h3>
+<p><strong>해설:</strong> 일반 워크스테이션의 SAM은 로컬 계정 범위로 이해합니다. 도메인 계정 데이터베이스와 구별해야 합니다.</p>
+<h3>복습 2. RID 500 두 개면 같은 계정인가요?</h3>
+<p><strong>해설:</strong> SID의 계정 영역이 다를 수 있습니다. 전체 SID와 로컬·도메인 범위를 대조합니다.</p>
+<h3>복습 3. 같은 로컬 이름이면 다른 단말 로그인도 성공하나요?</h3>
+<p><strong>해설:</strong> 이름만으로는 알 수 없습니다. 비밀 재사용·활성 상태·권한·인증 정책과 서비스 조건이 필요합니다.</p>
+<h3>복습 4. 모든 서비스는 LSA Secrets에 수동 비밀번호를 저장하나요?</h3>
+<p><strong>해설:</strong> 아닙니다. 서비스 계정 유형과 관리 방식이 다릅니다. 실제 서비스 로그온 문맥을 확인합니다.</p>
+<h3>복습 5. DCC2를 NT 해시처럼 원격 인증에 바로 쓰나요?</h3>
+<p><strong>해설:</strong> 캐시된 로컬 로그온 검증자입니다. 직접 네트워크 인증에 제출 가능한 NT 해시와 구별합니다.</p>
+<h3>복습 6. CachedLogonsCount가 10이면 실제 캐시가 열 개인가요?</h3>
+<p><strong>해설:</strong> 정책 값이지 현재 내용의 직접 관측이 아닙니다. 값의 존재·실제 캐시·사용 결과는 별도입니다.</p>
+<h3>복습 7. Sysmon 이벤트 13이 없으면 비밀 키 읽기도 없었나요?</h3>
+<p><strong>해설:</strong> 이벤트 13은 값 설정 기록입니다. 모든 읽기를 기록하지 않으므로 감사 범위와 다른 증거가 필요합니다.</p>
+<h3>복습 8. Credential Guard가 실행되면 SAM도 자동 보호되나요?</h3>
+<p><strong>해설:</strong> 보호 범위가 다릅니다. 자료 종류별로 기능의 적용 범위를 확인하고 보호 상태와 노출 결론을 분리합니다.</p>
+</section>
+<section id="section-11"><h2>11. 공식 근거와 적용 범위</h2>
+<p>확인일 <strong>2026-11-05</strong>. 독립 SVG 3개와 공식 실제 콘솔 사진 1회를 제공합니다. 실제 정책창·레지스트리 조회 결과·캐시 동작 사진은 미확보입니다. Windows·제품·비밀 읽기·내보내기·추출·암호 추측·보호 변경·로그인·대응은 실행하지 않았습니다. 합성 사례는 실제 결과가 아닙니다.</p>
+<ul>
+<li><a href="https://attack.mitre.org/techniques/T1003/002/">MITRE SAM: T1003.002</a></li>
+<li><a href="https://attack.mitre.org/techniques/T1003/004/">MITRE LSA Secrets: T1003.004</a></li>
+<li><a href="https://attack.mitre.org/techniques/T1003/005/">MITRE Cached Domain Credentials: T1003.005</a></li>
+<li><a href="https://learn.microsoft.com/en-us/troubleshoot/windows-server/user-profiles-and-logon/cached-domain-logon-information">Microsoft 캐시된 도메인 로그온 정보</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/how-it-works">Microsoft Credential Guard 구조와 보호 한계</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/">Microsoft Credential Guard와 SAM 보호 범위</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows-server/administration/windows-commands/reg-query">Microsoft reg query</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows-server/identity/laps/laps-overview">Microsoft Windows LAPS</a></li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Microsoft Sysmon</a></li>
+<li><a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_consoles.htm">Fortra Consoles</a></li>
+</ul>
+</section><nav class="pager" aria-label="강의 이동"><a href="index.html">← 과정 전체 목차</a><a href="42-lsass-ssp-protection-observation.html">← 10장 3강 · LSASS·SSP·보호와 접근 관측</a><span class="pending">다음 강의는 게시 후 안내합니다</span></nav></main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>

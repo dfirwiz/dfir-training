@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#090e18"><meta name="description" content="인증 패키지·토큰·PPL·VBS 경계를 나누고 실제 콘솔 조회 위치와 Sysmon 접근 증거를 연결합니다."><title>LSASS·SSP·보호와 접근 관측 | DFIR Training</title><link rel="canonical" href="https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/42-lsass-ssp-protection-observation.html"><link rel="preconnect" href="https://cdn.jsdelivr.net"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;family=JetBrains+Mono:wght@400;500;600&amp;display=swap" rel="stylesheet"><link rel="stylesheet" href="../../assets/site.css"><link rel="stylesheet" href="../../assets/notes.css?v=20261103-toc-all"><link rel="stylesheet" href="../../assets/red-team-foundations/course.css?v=20261104-persistence"></head>
+<body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout"><aside class="course-sidebar"><details class="course-menu" open><summary>레드팀 기초 · 과정 목차</summary><a class="course-overview" href="index.html">과정 소개와 학습 순서</a><nav class="course-chapters" aria-label="장별 강의 목차"><details class="course-day course-chapter"><summary><span><span class="chapter-number">1장</span> <span lang="en">Getting Started</span></span></summary><ol class="chapter-lessons"><li><a href="01-purpose-ttp-evidence.html"><span class="num">1강</span><span>레드팀의 목적·TTP·증거 해석</span></a></li><li><a href="02-intelligence-attack-lifecycle.html"><span class="num">2강</span><span>위협 인텔리전스와 공격 생명주기</span></a></li><li><a href="03-engagement-opsec-records.html"><span class="num">3강</span><span>활동 계획·ROE·OPSEC·작업 기록</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">2장</span> <span lang="en">Law &amp; Compliance</span></span></summary><ol class="chapter-lessons"><li><a href="04-law-compliance.html"><span class="num">1강</span><span>법과 준수 원칙 · 핵심 요약</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">3장</span> <span lang="en">Malware Essentials</span></span></summary><ol class="chapter-lessons"><li><a href="05-pe-file-memory.html"><span class="num">1강</span><span>PE 파일 구조·RVA·읽기 전용 실습</span></a></li><li><a href="06-process-memory-security.html"><span class="num">2강</span><span>프로세스·메모리·접근 토큰</span></a></li><li><a href="07-injection-evidence.html"><span class="num">3강</span><span>코드 주입의 원리와 증거 해석</span></a></li><li><a href="08-csharp-native-interop.html"><span class="num">4강</span><span>C# P/Invoke·인코딩·오류 처리</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">4장</span> <span lang="en">Cobalt Strike Primer</span></span></summary><ol class="chapter-lessons"><li><a href="09-c2-components.html"><span class="num">1강</span><span>C2 구성 요소·다중 서버·기록</span></a></li><li><a href="10-http-dns-listeners.html"><span class="num">2강</span><span>HTTP·DNS·리스너 설정 해석</span></a></li><li><a href="11-peer-links.html"><span class="num">3강</span><span>SMB·TCP·P2P 연결과 수명</span></a></li><li><a href="12-payload-loading.html"><span class="num">4강</span><span>페이로드·로더·staging·종료</span></a></li><li><a href="13-sessions-task-evidence.html"><span class="num">5강</span><span>세션·작업 상태·가상 로그 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">5장</span> <span lang="en">Initial Access</span></span></summary><ol class="chapter-lessons"><li><a href="14-initial-access-chain.html"><span class="num">1강</span><span>최초 접근·구성 요소·조사 연결</span></a></li><li><a href="15-dll-managed-loading.html"><span class="num">2강</span><span>DLL·.NET 로딩·ProcMon 화면</span></a></li><li><a href="16-installers-addins-signatures.html"><span class="num">3강</span><span>MSI·Excel·서명·보안 센터</span></a></li><li><a href="17-triggers-shortcuts-console.html"><span class="num">4강</span><span>트리거·LNK·MSC·실행 문맥</span></a></li><li><a href="18-containers-motw-provenance.html"><span class="num">5강</span><span>컨테이너·MotW·Python 실습</span></a></li><li><a href="19-web-delivery-observation.html"><span class="num">6강</span><span>Cobalt Strike 화면 설정·호스팅·확인</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">6장</span> <span lang="en">Persistence</span></span></summary><ol class="chapter-lessons"><li><a href="20-persistence-state-context.html"><span class="num">1강</span><span>지속성·사용자·Cobalt Strike 콘솔</span></a></li><li><a href="21-run-startup.html"><span class="num">2강</span><span>Run·Startup·Autoruns 화면</span></a></li><li><a href="22-logon-powershell-profiles.html"><span class="num">3강</span><span>로그온·PowerShell 프로필</span></a></li><li><a href="23-scheduled-tasks-ui.html"><span class="num">4강</span><span>예약 작업 화면·설정·실행 증거</span></a></li><li><a href="24-com-registration-evidence.html"><span class="num">5강</span><span>COM·HKCR·ProcMon 화면</span></a></li><li><a href="25-persistence-investigation-review.html"><span class="num">6강</span><span>조사 시간표·Python XML 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">7장</span> <span lang="en">Post-Exploitation</span></span></summary><ol class="chapter-lessons"><li><a href="26-postex-command-behavior.html"><span class="num">1강</span><span>상황 파악·명령 동작·도움말</span></a></li><li><a href="27-file-browser-downloads.html"><span class="num">2강</span><span>파일 화면·캐시·전송·Sync Files</span></a></li><li><a href="28-process-registry-context.html"><span class="num">3강</span><span>프로세스 화면·식별자·reg 조회</span></a></li><li><a href="29-observation-jobs-desktop.html"><span class="num">4강</span><span>화면·Desktop·Jobs·중지 확인</span></a></li><li><a href="30-execution-engines-extensions.html"><span class="num">5강</span><span>실행 엔진·확장·Interpreter 화면</span></a></li><li><a href="31-session-passing-workflow-review.html"><span class="num">6강</span><span>세션 전달·상태·Python 실습</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">8장</span> <span lang="en">Privilege Escalation</span></span></summary><ol class="chapter-lessons"><li><a href="32-accounts-tokens-rights.html"><span class="num">1강</span><span>계정·토큰·사용자 권한</span></a></li><li><a href="33-service-configuration-evidence.html"><span class="num">2강</span><span>서비스 구성·접근 권한의 증거</span></a></li><li><a href="34-path-search-unquoted.html"><span class="num">3강</span><span>PATH·검색 순서·따옴표 없는 경로</span></a></li><li><a href="35-service-file-registry-permissions.html"><span class="num">4강</span><span>서비스 파일·레지스트리 권한</span></a></li><li><a href="36-dll-search-software-vulnerabilities.html"><span class="num">5강</span><span>DLL 검색과 소프트웨어 취약점</span></a></li><li><a href="37-uac-integrity-elevation-validation.html"><span class="num">6강</span><span>UAC·무결성·승격 결과 검증</span></a></li></ol></details><details class="course-day course-chapter"><summary><span><span class="chapter-number">9장</span> <span lang="en">Elevated Persistence</span></span></summary><ol class="chapter-lessons"><li><a href="38-system-scheduled-task-evidence.html"><span class="num">1강</span><span>SYSTEM 예약 작업·부팅 증거</span></a></li><li><a href="39-system-service-persistence-evidence.html"><span class="num">2강</span><span>SYSTEM 서비스·SCM·실행 검증</span></a></li></ol></details><details class="course-day course-chapter" open><summary><span><span class="chapter-number">10장</span> <span lang="en">Credential Access</span></span></summary><ol class="chapter-lessons"><li><a href="40-browser-credentials-protection.html"><span class="num">1강</span><span>브라우저 저장 정보·DPAPI·앱 결합 보호</span></a></li><li><a href="41-windows-credential-manager-context.html"><span class="num">2강</span><span>Credential Manager·로그온 문맥</span></a></li><li><a href="42-lsass-ssp-protection-observation.html" aria-current="page"><span class="num">3강</span><span>LSASS·SSP·보호와 접근 관측</span></a></li><li><a href="43-sam-lsa-cached-verifiers.html"><span class="num">4강</span><span>SAM·LSA Secrets·캐시 로그온 검증자</span></a></li></ol></details></nav></details></aside><main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a> / <a href="index.html#chapter-10">10장 · Credential Access</a></p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / CHAPTER 10 / LESSON 03</div><h1>LSASS·SSP·보호와 접근 관측</h1><p class="description">인증 패키지·토큰·PPL·VBS 경계를 나누고 실제 콘솔 조회 위치와 Sysmon 접근 증거를 연결합니다.</p><div class="meta"><span>10장 3강 · 8개의 복습과 해설</span><span>업데이트 2026-11-05</span></div></header><nav class="cs-practice-start toc" aria-label="화면 실습 시작"><strong>실제 콘솔·조회·증거 확인</strong><p>공식 화면과 미실행 조회 절차, 보호 및 자료별 증거 경계를 연결합니다.</p><div class="cs-practice-links"><a href="#screen-80">콘솔 입력·반환 위치</a><a href="#section-7">정책·관측 해석</a><a href="#section-8">합성 사건 비교</a></div></nav><nav class="toc ui-screen-nav" aria-label="실제 설정 화면 바로가기"><strong>공식 화면으로 따라보기</strong><ul class="toc-list" role="list"><li><a href="#screen-80">실제 화면 80: Beacon Console의 입력 줄과 반환 영역</a></li></ul><p>메뉴 경로 → 화면의 입력 위치 → 예시 값 → 저장 후 확인을 순서대로 읽습니다.</p></nav><nav class="toc" aria-label="이 강의의 목차"><strong>이 강의에서 배우는 내용</strong><ul class="toc-list" role="list"><li><a href="#section-1">1. LSASS가 보인다는 사실과 비밀을 읽었다는 결론 사이</a></li><li><a href="#section-2">2. SSPI·SSP·인증 패키지는 어떤 관계일까요?</a></li><li><a href="#section-3">3. NT 해시·Kerberos 키·티켓·평문을 혼동하지 않습니다</a></li><li><a href="#section-4">4. SYSTEM·PPL·Credential Guard는 서로 다른 경계입니다</a></li><li><a href="#section-5">5. 보호 상태는 설정과 실행 증거를 함께 읽습니다</a></li><li><a href="#section-6">6. 실제 Cobalt Strike 화면에서 조회 명령을 입력하는 위치</a></li><li><a href="#section-7">7. Sysmon ProcessAccess에서 무엇을 읽을까요?</a></li><li><a href="#section-8">8. 합성 사건에서 경보와 결론을 연결합니다</a></li><li><a href="#section-9">9. 조건이 바뀌면 결론도 바뀝니다</a></li><li><a href="#section-10">10. 복습과 즉시 해설</a></li><li><a href="#section-11">11. 공식 근거와 적용 범위</a></li></ul></nav><section id="section-1"><h2>1. LSASS가 보인다는 사실과 비밀을 읽었다는 결론 사이</h2>
+<p>SOC에서 “어떤 프로세스가 lsass.exe에 접근했다”는 경보를 받았다고 가정하겠습니다. 바로 비밀번호 유출로 보고하면 정상 진단 도구를 침해로 오판할 수 있고, SYSTEM 계정의 동작이라는 이유로 무시하면 중요한 초기 단서를 놓칠 수 있습니다. 먼저 <strong>인증 기능·프로세스 접근·실제 자료 획득·자료 사용</strong>을 분리해야 합니다.</p>
+<p>LSA는 인증과 로컬 보안 정책을 담당하는 Windows 보안 구성 요소이며 LSASS는 그 기능을 수행하는 핵심 프로세스입니다. 로그인 처리에 참여한다고 해서 모든 사용자의 평문 비밀번호가 언제나 같은 형식으로 남는 것은 아닙니다. OS 빌드, 로그온 방식, 인증 패키지, 보호 상태와 세션 수명이 결과를 바꿉니다. 이번 강의는 그 조건과 증거를 읽는 방법을 설명합니다.</p>
+<p><code>LAB-WS01</code>, <code>student01</code>, <code>training.example</code>은 합성 이름입니다. 실제 메모리·키·비밀번호·티켓을 수집하지 않았고 보호 기능을 변경하지 않았습니다. 아래 Windows·Cobalt Strike 절차는 <strong>미실행 조회 안내</strong>이며 사진 속 공식 출력은 이번 작업 결과가 아닙니다.</p>
+<figure id="figure-1" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/42-auth-boundaries.svg" width="900" height="625" alt="LSA의 역할과 인증 자료 접근을 구별하는 독립 개념도" loading="lazy"></div><figcaption>LSA의 역할과 인증 자료 접근을 구별하는 독립 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>그림은 위의 인증 요청을 두 관점으로 나눕니다. 왼쪽의 정상 인증 역할을 이해한 뒤 오른쪽의 접근 증거를 대조합니다. 정상 기능이 존재한다는 사실에서 탈취 성공으로 건너뛰지 않습니다.</p>
+</section>
+<section id="section-2"><h2>2. SSPI·SSP·인증 패키지는 어떤 관계일까요?</h2>
+<p>앱마다 Kerberos와 NTLM을 직접 구현한다면 설정과 오류 처리가 복잡해질 것입니다. SSPI는 앱이 보안 공급자 기능을 이용하도록 제공하는 인터페이스입니다. 공급자는 프로토콜의 실제 처리를 맡고, 인증 패키지는 LSA의 로그온 검증에 참여합니다. 일부 구성 요소는 양쪽 역할을 함께 제공하지만 세 용어를 모두 같은 것으로 쓰지는 않습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">용어·구성 요소</th>
+<th scope="col">중심 역할</th>
+<th scope="col">조사할 때의 질문</th>
+</tr></thead><tbody>
+<tr><td>SSPI</td><td>앱과 보안 공급자 사이 호출 계약</td><td>어느 앱이 어떤 인증 문맥을 요청했나?</td></tr>
+<tr><td>Negotiate</td><td>조건에 맞는 인증 방식 협상</td><td>협상 결과가 Kerberos인가 NTLM인가?</td></tr>
+<tr><td>Kerberos</td><td>티켓 기반 인증</td><td>사용자·서비스·도메인·수명이 무엇인가?</td></tr>
+<tr><td>NTLM</td><td>질의·응답 기반 인증</td><td>로컬·도메인 계정과 실제 검증 주체는 누구인가?</td></tr>
+<tr><td>Schannel</td><td>TLS 등의 보안 통신</td><td>인증서와 연결 조건이 무엇인가?</td></tr>
+<tr><td>CredSSP</td><td>자격증명 위임을 포함하는 인증 구조</td><td>위임과 원격 세션 조건이 무엇인가?</td></tr>
+</tbody></table></div>
+<p>공급자 이름이 로그에 나타났다는 사실은 평문 저장의 증거가 아닙니다. DLL이 적재된 위치와 해당 기능 호출, 실제 로그온 결과도 구별합니다. 과거 도구가 특정 패키지 이름 아래 값을 출력했다는 사례를 현재 모든 시스템의 메모리 배치로 일반화하지 않습니다.</p>
+</section>
+<section id="section-3"><h2>3. NT 해시·Kerberos 키·티켓·평문을 혼동하지 않습니다</h2>
+<p>같은 계정과 관련돼 있어도 자료형과 사용 조건이 다릅니다. NT 해시는 NTLM 관련 비밀번호 유도 값이고, Kerberos 장기 키는 암호 유형·계정 조건에 따라 구분됩니다. 티켓은 발급 주체·대상·기간을 가진 별도 자료입니다. 해시나 키를 단순히 “암호화한 비밀번호”라 부르면 역방향 복호화가 가능한 값처럼 오해하기 쉽습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">관측 표현</th>
+<th scope="col">뜻할 수 있는 것</th>
+<th scope="col">단독으로 보장하지 않는 것</th>
+</tr></thead><tbody>
+<tr><td>사용자·SID·로그온 ID</td><td>세션과 신원 단서</td><td>평문 또는 키 획득</td></tr>
+<tr><td>NT 해시 형식 값</td><td>해당 형식으로 해석된 자료</td><td>현행 인증 허용·계정 활성</td></tr>
+<tr><td>Kerberos 키 표시</td><td>특정 암호 유형의 키 후보</td><td>글자 수만으로 유형 확정</td></tr>
+<tr><td>티켓</td><td>특정 서비스·수명과 연결된 발급 자료</td><td>모든 서비스 무기한 접근</td></tr>
+<tr><td>Password가 null</td><td>해당 출력에서 평문을 제시하지 않음</td><td>호스트 전체에 비밀이 전혀 없음</td></tr>
+</tbody></table></div>
+<p>표시 라벨이 잘못되거나 도구 버전이 오래되면 문자열 길이만으로 알고리즘을 확정해서는 안 됩니다. 파서·암호 유형 메타데이터·자료 출처를 대조합니다. 보고서에는 원시 비밀을 붙이는 대신 종류·관련 계정·수집 여부·보호 상태와 검증 범위를 적습니다. 비밀을 획득한 적이 없다면 “탈취됨”이라는 표현을 쓰지 않습니다.</p>
+</section>
+<section id="section-4"><h2>4. SYSTEM·PPL·Credential Guard는 서로 다른 경계입니다</h2>
+<p>SYSTEM은 로컬 보안 문맥이고, PPL은 보호 프로세스에 대한 접근 및 코드 적재 조건과 관련됩니다. Credential Guard는 VBS를 이용해 지원되는 비밀을 일반 OS에서 분리합니다. 서로 보완하지만 같은 스위치가 아닙니다. 따라서 SYSTEM 이름 한 줄로 LSASS 메모리와 격리된 모든 비밀에 접근할 수 있다고 설명하지 않습니다.</p>
+<figure id="figure-2" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/42-protection-layers.svg" width="900" height="625" alt="토큰 권한·보호 프로세스·VBS 경계를 나누는 개념도" loading="lazy"></div><figcaption>토큰 권한·보호 프로세스·VBS 경계를 나누는 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>위에서 내려오는 요청은 토큰만 보는 경로와 보호·격리 상태를 보는 경로로 갈라집니다. 아래 결론은 두 조건을 함께 확인한 뒤 작성합니다. 화살표는 우회 절차가 아니라 확인해야 할 관계입니다.</p>
+<p>보호가 켜진 환경에서는 과거 예제가 실패할 수 있습니다. 실패를 해결하려고 보안을 끄는 대신 실제 빌드·보호 실행 상태·요청 권한·제품 오류를 기록합니다. Credential Guard가 보호하지 않는 자료도 있으므로 “켜져 있으니 모든 인증 자료는 안전”이라는 결론 역시 성립하지 않습니다. 로컬 계정 자료, 서비스 티켓과 별도 앱 저장소 등은 해당 보호 범위를 다시 확인해야 합니다.</p>
+</section>
+<section id="section-5"><h2>5. 보호 상태는 설정과 실행 증거를 함께 읽습니다</h2>
+<p>Windows의 <strong>이벤트 뷰어 → Windows 로그 → 시스템 → 현재 로그 필터링</strong>에서 공급자와 이벤트 ID를 선택해 부팅 시점의 WinInit 기록을 읽을 수 있습니다. Microsoft 문서는 LSA 보호 확인에 WinInit 이벤트 12를 안내합니다. ID가 같아도 공급자가 다르면 의미가 다르므로 공급자·시각·메시지를 함께 확인합니다.</p>
+<p>Credential Guard는 <strong>시스템 정보 / msinfo32 → 시스템 요약 → 가상화 기반 보안 서비스 실행 중</strong> 등의 실제 상태와 관리 기록을 대조합니다. “구성됨”과 “실행 중”은 다른 상태입니다. 부팅 시점·기능 요건·적용 정책을 맞추고, 원격 관리 기록이 오래된 상태인지도 확인합니다. 이 절차는 조회만 가정하며 저장·적용·재부팅은 수행하지 않았습니다.</p>
+<p>LSA 플러그인 문제는 <strong>응용 프로그램 및 서비스 로그 → Microsoft → Windows → CodeIntegrity → Operational</strong>에서 볼 수 있습니다. 감사 이벤트와 실제 차단 이벤트의 의미를 섞지 않습니다. 감사에서 허용된 적재가 곧 보호 모드 차단 성공은 아닙니다. UI와 로그의 실제 사진은 이번 강의에서 확보하지 못했으므로 이 문단은 메뉴 안내이며 캡처 재현이 아닙니다.</p>
+</section>
+<section id="section-6"><h2>6. 실제 Cobalt Strike 화면에서 조회 명령을 입력하는 위치</h2>
+<h3 id="screen-80">실제 화면 80: Beacon Console의 입력 줄과 반환 영역</h3>
+<figure id="figure-3" class="diagram course-diagram course-screenshot"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 설정 화면"><a class="screenshot-original" href="../../assets/red-team-foundations/screenshots/beacon-console.png" target="_blank" rel="noopener noreferrer" aria-label="원본 설정 화면 크게 보기: Fortra 공식 Beacon Console — 아래 입력 줄과 위 반환 기록"><img src="../../assets/red-team-foundations/screenshots/beacon-console.png" width="654" height="288" alt="Fortra 공식 Beacon Console — 아래 입력 줄과 위 반환 기록" loading="lazy"></a></div><figcaption>Fortra 공식 Beacon Console — 아래 입력 줄과 위 반환 기록 화면을 누르면 원본 이미지를 새 탭에서 볼 수 있습니다. 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>출처: <a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_consoles.htm">Fortra Consoles</a>, 확인일 2026-11-05. 현행 안내서 표시는 4.13이지만 삽화에는 과거 UI가 포함될 수 있습니다. 공식 사진의 명령과 출력은 다음 조회의 실행 결과가 아닙니다.</p>
+<ol>
+<li><strong>Sessions → 승인된 교육 세션 선택 → 우클릭 → Interact</strong>로 엽니다. 호스트·사용자·PID를 확인합니다. 이번 작업에서는 실제 연결을 하지 않았습니다.</li>
+<li>하단 입력 칸에서 <code>help run</code>을 확인합니다. 입력 예시 <code>run whoami.exe /user</code>는 현재 사용자 SID를 읽기 위한 값입니다. <code>run whoami.exe /priv</code>는 현재 토큰의 특권과 활성 상태를 읽는 예시입니다.</li>
+<li>Enter로 제출하면 위 반환 영역에서 결과·오류·전달 지연을 구별합니다. 별도 Save 버튼은 필요 없습니다. 명령 접수와 반환 완료를 같은 상태로 기록하지 않습니다.</li>
+<li>SID·특권·조회 시각을 교육 기록에 적습니다. 특권 이름이 보이더라도 Enabled와 Disabled를 구별하고, 그 결과를 PPL·VBS 상태 확인으로 대신하지 않습니다.</li>
+</ol>
+<p><code>run</code>은 대상 프로세스를 실행할 수 있습니다. 위 예시는 미실행이며 메모리 접근·덤프·비밀 수집 명령은 포함하지 않습니다. 현재 토큰의 사실을 확인하는 절차이지, 토큰을 바꾸거나 보호를 해제하는 절차가 아닙니다. 조회 결과가 없으면 Help와 세션 상태·실제 오류를 확인하고 출력 없는 상태를 성공으로 기록하지 않습니다.</p>
+</section>
+<section id="section-7"><h2>7. Sysmon ProcessAccess에서 무엇을 읽을까요?</h2>
+<p>Sysmon 이벤트 10은 다른 프로세스를 여는 동작의 조사 단서입니다. 수집 설정과 필터에 따라 관측 범위가 달라지고 정상 보안·진단 도구도 이벤트를 만들 수 있습니다. 이벤트가 있다는 사실과 메모리 내용 추출을 분리합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">필드</th>
+<th scope="col">읽는 이유</th>
+<th scope="col">피할 오해</th>
+</tr></thead><tbody>
+<tr><td>SourceImage·SourceProcessGUID</td><td>요청한 프로세스·실행 인스턴스 연결</td><td>이름이 정상 파일이면 항상 안전</td></tr>
+<tr><td>TargetImage·TargetProcessGUID</td><td>실제 접근 대상 연결</td><td>lsass라는 문자열만으로 대상 확정</td></tr>
+<tr><td>GrantedAccess</td><td>부여된 프로세스 접근 권한 해석</td><td>권한 보유를 실제 모든 바이트 읽기로 해석</td></tr>
+<tr><td>CallTrace</td><td>호출 경로의 추가 조사 단서</td><td>UNKNOWN이면 무조건 악성</td></tr>
+<tr><td>UtcTime·호스트</td><td>시간·시스템 범위 연결</td><td>현지 시각과 UTC를 그대로 비교</td></tr>
+</tbody></table></div>
+<p>가상 값 <code>0x1010</code>에는 <code>0x1000</code>과 <code>0x0010</code> 비트가 포함됩니다. Windows 정의로 각각 제한된 정보 질의와 프로세스 메모리 읽기 권한을 나타냅니다. 이것은 <strong>해당 권한 조합의 해석</strong>이며 덤프 파일 생성·평문 복구·외부 인증 성공을 증명하지 않습니다. 모든 도구가 이 값만 사용한다거나 이것이 유일한 최소 조합이라고 쓰지 않습니다.</p>
+</section>
+<section id="section-8"><h2>8. 합성 사건에서 경보와 결론을 연결합니다</h2>
+<figure id="figure-4" class="diagram course-diagram"><div class="diagram-scroll" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 다이어그램"><img src="../../assets/red-team-foundations/42-evidence-chain.svg" width="900" height="625" alt="접근·출력·후속 사용 증거를 연결하는 조사 개념도" loading="lazy"></div><figcaption>접근·출력·후속 사용 증거를 연결하는 조사 개념도 좁은 화면에서는 그림 안을 가로로 스크롤하세요.</figcaption></figure>
+<p>왼쪽의 접근 이벤트와 오른쪽의 후속 기록은 같은 사건인지 연결해야 합니다. 프로세스 ID는 재사용될 수 있으므로 GUID·시작 시각·부모 프로세스·호스트를 함께 맞춥니다. 연결선이 있다는 이유만으로 인과관계가 자동 확정되는 것은 아닙니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가로로 스크롤할 수 있는 비교표"><table><thead><tr>
+<th scope="col">합성 사건</th>
+<th scope="col">지금 확인한 사실</th>
+<th scope="col">다음 확인</th>
+</tr></thead><tbody>
+<tr><td>승인된 진단 앱이 LSASS 접근</td><td>접근 관측 존재</td><td>배포 기록·서명·정상 작업과 비교</td></tr>
+<tr><td>사용자 임시 경로의 낯선 앱 접근</td><td>위험도가 높은 단서</td><td>실행 계보·EDR 경보·관련 출력 조사</td></tr>
+<tr><td>접근 후 새로운 파일 생성</td><td>시간적 연관</td><td>생성 주체·파일 종류·승인된 분석 결과</td></tr>
+<tr><td>직후 다른 호스트 인증</td><td>인증 기록 존재</td><td>주체·세션·계정과 접근 사건의 연결</td></tr>
+<tr><td>이벤트 10이 없음</td><td>해당 검색에서 미관측</td><td>필터·서비스 상태·보존·전송 범위</td></tr>
+</tbody></table></div>
+<p>파일 내용에 실제 비밀이 있는지 확인하려고 임의로 열거나 공유하지 않습니다. 승인된 사고 대응 절차에서 필요한 최소 메타데이터와 분석 결과만 활용합니다. 이 강의의 합성 표에는 실제 비밀이나 실행 출력이 없습니다.</p>
+</section>
+<section id="section-9"><h2>9. 조건이 바뀌면 결론도 바뀝니다</h2>
+<p>같은 도구 이름이라도 A 단말은 보호가 실행 중이고 B 단말은 구성만 되어 있을 수 있습니다. 같은 접근 마스크라도 A는 승인된 진단 시간에, B는 낯선 부모 프로세스에서 발생할 수 있습니다. 서로 다른 조건을 지운 채 성공률이나 위험도를 비교하면 안 됩니다.</p>
+<p>보고는 “무엇을 확인했나 → 어떤 조건이었나 → 무엇이 미확인인가 → 다음 증거는 무엇인가” 순서로 작성합니다. 예를 들어 “LAB-WS01에서 미승인 프로세스의 LSASS 접근이 관측되었고 메모리 읽기 권한 비트가 포함됐다. 자료 추출·전송·인증 사용은 미확인”은 관측과 결론의 범위가 맞습니다.</p>
+<p>침해가 확인되면 계정·호스트 범위와 업무 영향을 정해 격리·비밀 교체·세션 대응을 조율합니다. 프로세스 하나 종료나 비밀번호 한 번 변경으로 모든 이미 발급된 자료와 사본이 없어졌다고 단정하지 않습니다. 이번 강의에서는 이러한 대응 작업도 실행하지 않았습니다.</p>
+</section>
+<section id="section-10"><h2>10. 복습과 즉시 해설</h2>
+<h3>복습 1. LSASS는 모든 비밀번호의 평문 보관함인가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 인증 기능과 저장 형태를 구별해야 합니다. 패키지·로그온 방식·버전·보호 상태·세션에 따라 존재하는 자료가 다릅니다.</p>
+<h3>복습 2. SSPI와 SSP는 같은 것인가요?</h3>
+<p><strong>해설:</strong> SSPI는 호출 인터페이스이고 SSP는 보안 공급자입니다. 인증 패키지와 역할이 겹칠 수 있어도 용어를 모두 같은 대상으로 쓰지 않습니다.</p>
+<h3>복습 3. SYSTEM이면 PPL과 VBS도 자동 통과하나요?</h3>
+<p><strong>해설:</strong> 아닙니다. 토큰 문맥·보호 프로세스·격리 경계는 별도 조건입니다. 실제 실행 상태까지 대조합니다.</p>
+<h3>복습 4. Credential Guard 구성됨이면 실행 중인가요?</h3>
+<p><strong>해설:</strong> 같은 상태가 아닙니다. 실제 시스템 상태와 부팅 기록·요건·정책을 함께 확인해야 합니다.</p>
+<h3>복습 5. 0x1010은 비밀번호 유출 확정인가요?</h3>
+<p><strong>해설:</strong> 특정 프로세스 접근 권한 비트를 뜻합니다. 실제 읽기·자료 해석·전송·사용 성공은 추가 증거가 필요합니다.</p>
+<h3>복습 6. CallTrace의 UNKNOWN은 악성 확정인가요?</h3>
+<p><strong>해설:</strong> 아닙니다. 기호 해석과 메모리 위치 등의 추가 맥락이 필요합니다. 정상 기준선과 실행 계보를 대조합니다.</p>
+<h3>복습 7. 이벤트 10이 없으면 접근이 없었나요?</h3>
+<p><strong>해설:</strong> 관측 범위부터 확인합니다. 필터 제외·보존 만료·수집 중단·다른 접근 방식 등이 결론에 영향을 줍니다.</p>
+<h3>복습 8. 공식 콘솔 사진이 이번 실행 결과인가요?</h3>
+<p><strong>해설:</strong> 제작사 예시입니다. 본문의 조회 절차는 미실행이며 실제 토큰·보호 상태·비밀 획득을 확인한 결과가 아닙니다.</p>
+</section>
+<section id="section-11"><h2>11. 공식 근거와 적용 범위</h2>
+<p>확인일 <strong>2026-11-05</strong>. 독립 SVG 3개와 공개 공식 콘솔 사진 1회를 제공합니다. Windows 보호 상태·이벤트 뷰어 필터·조회 후 실제 출력 사진은 미확보입니다. 실제 Windows·Cobalt Strike·메모리·비밀 수집·보호 변경·인증·대응은 수행하지 않았습니다.</p>
+<ul>
+<li><a href="https://learn.microsoft.com/en-us/windows-server/security/windows-authentication/windows-authentication-architecture">Microsoft Windows 인증 아키텍처</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/secauthn/lsa-authentication-model">Microsoft LSA 인증 모델</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights">Microsoft 프로세스 접근 권한</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows-server/security/credentials-protection-and-management/configuring-additional-lsa-protection">Microsoft 추가 LSA 보호와 실행 확인</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/how-it-works">Microsoft Credential Guard 구조와 한계</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/security/identity-protection/credential-guard/configure">Microsoft Credential Guard 실행 확인</a></li>
+<li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Microsoft Sysmon 이벤트 정의</a></li>
+<li><a href="https://hstechdocs.helpsystems.com/manuals/cobaltstrike/current/userguide/content/topics/ui_consoles.htm">Fortra Consoles</a></li>
+</ul>
+</section><nav class="pager" aria-label="강의 이동"><a href="index.html">← 과정 전체 목차</a><a href="41-windows-credential-manager-context.html">← 10장 2강 · Credential Manager·로그온 문맥</a><a href="43-sam-lsa-cached-verifiers.html">10장 4강 · SAM·LSA Secrets·캐시 로그온 검증자 →</a></nav></main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>

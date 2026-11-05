@@ -1055,6 +1055,74 @@
           ]
         ]
       }
+    },
+    {
+      "id": 42,
+      "slug": "42-lsass-ssp-protection-observation",
+      "title": "LSASS·SSP·보호와 접근 관측",
+      "short_title": "LSASS·SSP·보호와 접근 관측",
+      "description": "인증 패키지·토큰·PPL·VBS 경계를 나누고 실제 콘솔 조회 위치와 Sysmon 접근 증거를 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 10,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 3,
+      "screenshots": 1,
+      "practice": {
+        "title": "실제 콘솔·조회·증거 확인",
+        "description": "공식 화면과 미실행 조회 절차, 보호 및 자료별 증거 경계를 연결합니다.",
+        "links": [
+          [
+            "screen-80",
+            "콘솔 입력·반환 위치"
+          ],
+          [
+            "section-7",
+            "정책·관측 해석"
+          ],
+          [
+            "section-8",
+            "합성 사건 비교"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 43,
+      "slug": "43-sam-lsa-cached-verifiers",
+      "title": "SAM·LSA Secrets·캐시 로그온 검증자",
+      "short_title": "SAM·LSA Secrets·캐시 로그온 검증자",
+      "description": "로컬 계정·시스템 비밀·오프라인 검증자의 차이를 실제 콘솔 정책 조회와 조건별 증거 해석으로 설명합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 10,
+      "format": "full",
+      "updated": "2026-11-05",
+      "lesson_number": 4,
+      "screenshots": 1,
+      "practice": {
+        "title": "실제 콘솔·조회·증거 확인",
+        "description": "공식 화면과 미실행 조회 절차, 보호 및 자료별 증거 경계를 연결합니다.",
+        "links": [
+          [
+            "screen-81",
+            "콘솔 입력·반환 위치"
+          ],
+          [
+            "section-7",
+            "정책·관측 해석"
+          ],
+          [
+            "section-8",
+            "합성 사건 비교"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
