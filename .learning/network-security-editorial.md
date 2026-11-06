@@ -110,3 +110,8 @@ Original volume2 printed124–136/PDF126–138 reopened completely. HTTPattackfl
 ## 2026-11-06 day2 batch03 — displayed11/12
 
 Original137–149/PDF139–151actuallyreopened.137–138onlyseparateworkbookpointer;11explicitindependentHTTP/HTTPSpracticeusingoldharmlessPCAP+separatefictionalreports,nooriginalworkbookcompletionclaim.12coversSMTPdelivery/commands/envelopevsmessage/Received/trust/timezones139–149. SplitonlyunpublishedSMTP:13=d2-09b150–155SPF,14=d2-09c156–160DKIMDMARC;followingplans15–17. Preservepublishednumbers/IDs/URLs/prose.25localconditionruns/6originalSVG/4tables/30immediateQ&A,36oldbodiespreserved. CurrentOutlookclassic/new/webmenu,SMTPUTF8/STARTTLS/portroles/NullMX/case/Receivedprovenancecorrections. FreshIABavailable,desktop/mobile390pxQAinprogress;recordactualchecksandlimits. Reviewblue-team-day02-batch03-20261106.md. Wholecourseunfinished,localautomationactive;deployment/publicproofbeforeprogresscomplete.
+
+
+## 2026-11-07 day2 batch04 — displayed13/14
+
+Original150–160/PDF152–162all11pagesactuallyread;13=d2-09b150–155senderclaims/SPF/headers;14=d2-09c156–160DKIM/alignment/DMARC/summary. Preserve38oldbodies/IDs/URLs/numbersandcompactred-teamhomepage. Sixoriginal400pxSVG/3tables/26immediateQ&A/35localconditionruns;noDNS/SMTP/cryptographicverification/originalworkbook. CurrentDMARCRFC9989May2026replaces7489/9091;report9990/9991,TreeWalk/pctremoved/t;implementationsmaydiffer. Freeze38oldshownupdateNov6datesratherthanrelabelingoldproseNov7. BrowserunavailablefreshWorksettingsinventory;staticKoreanfontbounds[]/contactsheetonly. Reviewblue-team-day02-batch04-20261107.md. Nextstartsoriginal161/PDF163additionalprotocols;readandsplitunpublishedscopefordepth. Deployment/publicproofbeforecompletion;wholecourseunfinished/automationlocalactive.

@@ -1,0 +1,125 @@
+{
+  "schema": "training-auth-alignment-v1",
+  "external_actions_allowed": false,
+  "alignment_mode": "strict",
+  "signature_field_claims": {
+    "d": "sender.example",
+    "s": "nov2026",
+    "h": [
+      "from",
+      "to",
+      "subject",
+      "date"
+    ],
+    "c": "relaxed/relaxed",
+    "a": "rsa-sha256",
+    "bh": "training-placeholder",
+    "b": "training-placeholder"
+  },
+  "cases": [
+    {
+      "id": "A",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "vendor.example",
+        "result": "pass"
+      },
+      "dkim": [
+        {
+          "domain": "vendor.example",
+          "result": "pass"
+        }
+      ],
+      "results_trusted_in_fixture": true
+    },
+    {
+      "id": "B",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "sender.example",
+        "result": "fail"
+      },
+      "dkim": [
+        {
+          "domain": "sender.example",
+          "result": "pass"
+        }
+      ],
+      "results_trusted_in_fixture": true
+    },
+    {
+      "id": "C",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "sender.example",
+        "result": "pass"
+      },
+      "dkim": [],
+      "results_trusted_in_fixture": true
+    },
+    {
+      "id": "D",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "sender.example",
+        "result": "fail"
+      },
+      "dkim": [
+        {
+          "domain": "sender.example",
+          "result": "fail"
+        }
+      ],
+      "results_trusted_in_fixture": true
+    },
+    {
+      "id": "E",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "vendor.example",
+        "result": "pass"
+      },
+      "dkim": [
+        {
+          "domain": "vendor.example",
+          "result": "pass"
+        },
+        {
+          "domain": "sender.example",
+          "result": "pass"
+        }
+      ],
+      "results_trusted_in_fixture": true
+    },
+    {
+      "id": "F",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "sender.example",
+        "result": "pass"
+      },
+      "dkim": [
+        {
+          "domain": "sender.example",
+          "result": "pass"
+        }
+      ],
+      "results_trusted_in_fixture": false
+    },
+    {
+      "id": "G",
+      "author_domain": "sender.example",
+      "spf": {
+        "domain": "mail.sender.example",
+        "result": "pass"
+      },
+      "dkim": [
+        {
+          "domain": "mail.sender.example",
+          "result": "pass"
+        }
+      ],
+      "results_trusted_in_fixture": true
+    }
+  ]
+}

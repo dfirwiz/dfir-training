@@ -1,0 +1,70 @@
+{
+  "schema": "training-spf-subset-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "id": "S1",
+      "client_ip": "192.0.2.25",
+      "record": "v=spf1 ip4:192.0.2.0/24 -all",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S2",
+      "client_ip": "198.51.100.25",
+      "record": "v=spf1 ip4:192.0.2.0/24 -all",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S3",
+      "client_ip": "198.51.100.25",
+      "record": "v=spf1 ip4:192.0.2.0/24 ~all",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S4",
+      "client_ip": "198.51.100.25",
+      "record": "v=spf1 ?all",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S5",
+      "client_ip": "198.51.100.25",
+      "record": null,
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S6",
+      "client_ip": "198.51.100.25",
+      "record": "v=spf1 ip4:192.0.2.0/24",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S7",
+      "client_ip": "192.0.2.25",
+      "record": "v=spf1 -ip4:192.0.2.0/24 +all",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    },
+    {
+      "id": "S8",
+      "client_ip": "2001:db8::25",
+      "record": "v=spf1 ip6:2001:db8::/32 -all",
+      "identity_scope": "mailfrom",
+      "checked_domain": "sender.example",
+      "display_from_domain": "sender.example"
+    }
+  ]
+}

@@ -1,6 +1,6 @@
 {
   "course": "network-security",
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "completed_lessons": [
     1,
     2,
@@ -91,7 +91,29 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 2,
+    "lessons": [
+      13,
+      14
+    ],
+    "lesson_ids": [
+      "d2-09b",
+      "d2-09c"
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      150,
+      160
+    ],
+    "source_pdf": [
+      152,
+      162
+    ],
+    "review": ".learning/reviews/blue-team-day02-batch04-20261107.md",
+    "scope": "Alloriginal150-160actuallyreopened;156-160separatereread aftercombinedtruncation. Preservehomepagecompactredoverviewa5abf41 andall38publishedlessons. OnlyindependentlocalfictionalSPFsubset/strictalignmentconditions; noSMTP/DNS/DKIMverification/originalworkbook.",
+    "validation": "42HTML/38priorbodies+compacthomepreserved;6SVGfontbounds[]/35localruns/6inputsunchanged;browserdisabled;noactualDNS/SMTP/crypto."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "9f932891aec7d287fe4d79c7932a69a645c2efa4",

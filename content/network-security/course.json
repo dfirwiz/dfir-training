@@ -1,7 +1,7 @@
 {
   "title": "블루팀 필수 지식: 보안 운영과 분석",
   "slug": "network-security",
-  "updated": "2026-11-06",
+  "updated": "2026-11-07",
   "lessons": [
     {
       "id": "d1-01",
@@ -11,7 +11,8 @@
       "status": "published",
       "slug": "day-01-01-blue-team-mindset",
       "short_title": "블루팀의 역할과 사고방식",
-      "description": "첫째 날 1강. 업무 보호의 목적에서 시작해 사람·절차·기술, 위험 우선순위, 사실·가설·결론을 차근차근 연결합니다."
+      "description": "첫째 날 1강. 업무 보호의 목적에서 시작해 사람·절차·기술, 위험 우선순위, 사실·가설·결론을 차근차근 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-02",
@@ -21,7 +22,8 @@
       "status": "published",
       "slug": "day-01-02-safe-lab",
       "short_title": "안전한 실습 환경",
-      "description": "첫째 날 2강. VM의 경계와 연결·공유·복원·시간·해시를 이해하고, 직접 확인한 무해한 파일 실험과 미실행 절차를 구분합니다."
+      "description": "첫째 날 2강. VM의 경계와 연결·공유·복원·시간·해시를 이해하고, 직접 확인한 무해한 파일 실험과 미실행 절차를 구분합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-03",
@@ -31,7 +33,8 @@
       "status": "published",
       "slug": "day-01-03-soc-roles-mission",
       "short_title": "SOC의 임무와 역할",
-      "description": "첫째 날 3강. 업무 목표에서 운영 범위·권한·위험 판단을 정하고, 역할·단계별 조직·공동 조사와 인계를 연결합니다."
+      "description": "첫째 날 3강. 업무 목표에서 운영 범위·권한·위험 판단을 정하고, 역할·단계별 조직·공동 조사와 인계를 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-04",
@@ -41,7 +44,8 @@
       "status": "published",
       "slug": "day-01-04-soc-workflow",
       "short_title": "SOC 운영 흐름과 협업",
-      "description": "첫째 날 4강. 수집·탐지·분류·조사·대응의 입력과 결과를 읽고, 관측 한계·운영 문서·자체 CSV 지표 계산을 연결합니다."
+      "description": "첫째 날 4강. 수집·탐지·분류·조사·대응의 입력과 결과를 읽고, 관측 한계·운영 문서·자체 CSV 지표 계산을 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-05",
@@ -51,7 +55,8 @@
       "status": "published",
       "slug": "day-01-05-network-endpoint-visibility",
       "short_title": "네트워크·단말 관측",
-      "description": "첫째 날 5강. 방어 가능한 환경의 조건과 네트워크·단말·애플리케이션의 관측 위치·수집 조건·실행 식별을 배웁니다."
+      "description": "첫째 날 5강. 방어 가능한 환경의 조건과 네트워크·단말·애플리케이션의 관측 위치·수집 조건·실행 식별을 배웁니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-05b",
@@ -61,7 +66,8 @@
       "status": "published",
       "slug": "day-01-06-cloud-log-centralization",
       "short_title": "클라우드 관측과 로그 중앙화",
-      "description": "첫째 날 6강. 클라우드의 관리·자료·실행 기록과 중앙 검색·변환을 이해하고, 자체 기록의 실행 식별과 용량 계산을 확인합니다."
+      "description": "첫째 날 6강. 클라우드의 관리·자료·실행 기록과 중앙 검색·변환을 이해하고, 자체 기록의 실행 식별과 용량 계산을 확인합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-06",
@@ -71,7 +77,8 @@
       "status": "published",
       "slug": "day-01-07-events-alerts-triage",
       "short_title": "이벤트·경보와 분류 흐름",
-      "description": "첫째 날 7강. 활동·기록·경보·사건을 나누고, 생성 경로·동작 해석·수집 범위·대기열의 우선순위를 연결합니다."
+      "description": "첫째 날 7강. 활동·기록·경보·사건을 나누고, 생성 경로·동작 해석·수집 범위·대기열의 우선순위를 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-06b",
@@ -81,7 +88,8 @@
       "status": "published",
       "slug": "day-01-08-signatures-anomalies",
       "short_title": "탐지 조건과 경보 해석",
-      "description": "첫째 날 8강. 특징 일치와 기준선·임계값을 이해하고, 자체 성능 계산·원본 검증·정보 보강을 조사 판단에 연결합니다."
+      "description": "첫째 날 8강. 특징 일치와 기준선·임계값을 이해하고, 자체 성능 계산·원본 검증·정보 보강을 조사 판단에 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-07",
@@ -91,7 +99,8 @@
       "status": "published",
       "slug": "day-01-09-case-records-playbooks",
       "short_title": "사건 기록과 플레이북",
-      "description": "첫째 날 9강. 사건 관리의 입력·작업·플레이북·종결·분류를 연결하고, 자체 가중 점수와 시간 지표를 해석합니다."
+      "description": "첫째 날 9강. 사건 관리의 입력·작업·플레이북·종결·분류를 연결하고, 자체 가중 점수와 시간 지표를 해석합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-08",
@@ -101,7 +110,8 @@
       "status": "published",
       "slug": "day-01-10-thehive-case-practice",
       "short_title": "TheHive와 사건 기록 실습",
-      "description": "첫째 날 10강. 케이스·작업·관측값과 현재 종결 조건을 이해하고, 내려받는 자체 JSON 기록으로 근거와 빈칸을 점검합니다."
+      "description": "첫째 날 10강. 케이스·작업·관측값과 현재 종결 조건을 이해하고, 내려받는 자체 JSON 기록으로 근거와 빈칸을 점검합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-09",
@@ -111,7 +121,8 @@
       "status": "published",
       "slug": "day-01-11-threat-intelligence-context",
       "short_title": "위협 정보와 맥락",
-      "description": "첫째 날11강. 정보 요구·위협·관측값의 맥락과 출처를 연결하고, 자체 유형·값·시간 비교로 조사 판단을 연습합니다."
+      "description": "첫째 날11강. 정보 요구·위협·관측값의 맥락과 출처를 연결하고, 자체 유형·값·시간 비교로 조사 판단을 연습합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-10",
@@ -121,7 +132,8 @@
       "status": "published",
       "slug": "day-01-12-platform-feeds-sharing",
       "short_title": "플랫폼·피드·안전한 공유",
-      "description": "첫째 날12강. 플랫폼의 저장·조회·교환과 피드 품질·지연·갱신, 디팽과TLP2.0의 안전한 공유 범위를 배웁니다."
+      "description": "첫째 날12강. 플랫폼의 저장·조회·교환과 피드 품질·지연·갱신, 디팽과TLP2.0의 안전한 공유 범위를 배웁니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-10b",
@@ -131,7 +143,8 @@
       "status": "published",
       "slug": "day-01-13-misp-data-sharing",
       "short_title": "MISP 자료 모델과 공유",
-      "description": "첫째 날 13강. 이벤트·속성·객체·분류·관측 보고와 상관관계를 이해하고, 검토·배포·동기화의 조건을 연결합니다."
+      "description": "첫째 날 13강. 이벤트·속성·객체·분류·관측 보고와 상관관계를 이해하고, 검토·배포·동기화의 조건을 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-11",
@@ -141,7 +154,8 @@
       "status": "published",
       "slug": "day-01-14-intelligence-record-practice",
       "short_title": "위협 정보 기록 검토 실습",
-      "description": "첫째 날 14강. 자체 가상 보고서를 구조화하고 로컬 Python으로 검토·해시 상관관계·탐지 후보를 확인하며 사실과 권한의 한계를 구분합니다."
+      "description": "첫째 날 14강. 자체 가상 보고서를 구조화하고 로컬 Python으로 검토·해시 상관관계·탐지 후보를 확인하며 사실과 권한의 한계를 구분합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-12",
@@ -151,7 +165,8 @@
       "status": "published",
       "slug": "day-01-15-siem-data-pipeline",
       "short_title": "SIEM과 로그 처리",
-      "description": "첫째 날15강. 로그 수집·파싱·정규화·보강·색인과 검색을 연결하고, 시간·수집 품질·저장량·관측 한계를 상세히 살펴봅니다."
+      "description": "첫째 날15강. 로그 수집·파싱·정규화·보강·색인과 검색을 연결하고, 시간·수집 품질·저장량·관측 한계를 상세히 살펴봅니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-12b",
@@ -161,7 +176,8 @@
       "status": "published",
       "slug": "day-01-16-use-cases-kql-validation",
       "short_title": "사용 사례와 KQL 검증",
-      "description": "첫째 날16강. 탐지 사용 사례를 문서화하고 KQL의 조건·시간·자료형을 이해하며, 자체 로그로 중복·지연·집계와 판단의 한계를 검증합니다."
+      "description": "첫째 날16강. 탐지 사용 사례를 문서화하고 KQL의 조건·시간·자료형을 이해하며, 자체 로그로 중복·지연·집계와 판단의 한계를 검증합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-13",
@@ -171,7 +187,8 @@
       "status": "published",
       "slug": "day-01-17-automation-human-decisions",
       "short_title": "자동화와 사람의 판단",
-      "description": "첫째 날17강. 작업 자동화와 오케스트레이션을 구분하고, 실패·재시도·권한·실제 조치의 확인을 포함한 운영 흐름을 상세히 배웁니다."
+      "description": "첫째 날17강. 작업 자동화와 오케스트레이션을 구분하고, 실패·재시도·권한·실제 조치의 확인을 포함한 운영 흐름을 상세히 배웁니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-13b",
@@ -181,7 +198,8 @@
       "status": "published",
       "slug": "day-01-18-soc-integration-knowledge",
       "short_title": "도구 연동과 조사 지식",
-      "description": "첫째 날18강. SIEM·사건 관리·위협 정보·자동화의 자료 연결을 이해하고, 자체 오프라인 재실행과 지식·코드 버전 관리를 연결합니다."
+      "description": "첫째 날18강. SIEM·사건 관리·위협 정보·자동화의 자료 연결을 이해하고, 자체 오프라인 재실행과 지식·코드 버전 관리를 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-14",
@@ -191,7 +209,8 @@
       "status": "published",
       "slug": "day-01-19-adversary-goals-roles",
       "short_title": "공격자의 목적과 역할",
-      "description": "첫째 날19강. 국가 연계·금전·이념·위탁·내부자라는 분석 관점을 구분하고, 실제 관측·목적 가설·업무 영향을 연결합니다."
+      "description": "첫째 날19강. 국가 연계·금전·이념·위탁·내부자라는 분석 관점을 구분하고, 실제 관측·목적 가설·업무 영향을 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-14b",
@@ -201,7 +220,8 @@
       "status": "published",
       "slug": "day-01-20-targeting-actor-names",
       "short_title": "공격 방식과 그룹 이름",
-      "description": "첫째 날20강. 기회형·표적형과 피해 범위를 분리하고, 현재 이름 체계·출처별 군집·관련 이름의 중첩을 자체 자료로 검토합니다."
+      "description": "첫째 날20강. 기회형·표적형과 피해 범위를 분리하고, 현재 이름 체계·출처별 군집·관련 이름의 중첩을 자체 자료로 검토합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-14c",
@@ -211,7 +231,8 @@
       "status": "published",
       "short_title": "IoT 봇넷과 패킷 관측",
       "slug": "day-01-21-mirai-iot-observation",
-      "description": "첫째 날 21강. 작은 장치가 분산된 공격 자원이 되는 원리와 스캔·제어·피해 관측을 구분하고 필터와 합산 계산을 해석합니다."
+      "description": "첫째 날 21강. 작은 장치가 분산된 공격 자원이 되는 원리와 스캔·제어·피해 관측을 구분하고 필터와 합산 계산을 해석합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-14d",
@@ -221,7 +242,8 @@
       "short_title": "계정과 업무 중단의 증거",
       "status": "published",
       "slug": "day-01-22-colonial-pipeline-evidence",
-      "description": "첫째 날 22강. 2021년 사건의 공개 근거를 대조하며 인증·IT/OT·복구 상태를 분리하고 자체 시간 불확실성 예제를 확인합니다."
+      "description": "첫째 날 22강. 2021년 사건의 공개 근거를 대조하며 인증·IT/OT·복구 상태를 분리하고 자체 시간 불확실성 예제를 확인합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-14e",
@@ -231,7 +253,8 @@
       "short_title": "Conti와 행위의 증거",
       "status": "published",
       "slug": "day-01-23-conti-behavior-evidence",
-      "description": "첫째 날 23강. 과거 유출 자료를 실행 지시와 구별하고 탐색·자격 증명·원격 관리·반출·방어 약화의 증거를 연결합니다."
+      "description": "첫째 날 23강. 과거 유출 자료를 실행 지시와 구별하고 탐색·자격 증명·원격 관리·반출·방어 약화의 증거를 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-14f",
@@ -241,7 +264,8 @@
       "short_title": "공급망과 인증 신뢰",
       "status": "published",
       "slug": "day-01-24-solarwinds-trust-identity",
-      "description": "첫째 날 24강. 업데이트·후속 활동·서명과 신뢰를 나누어 읽고 가상 메타데이터 검사로 판단의 한계를 확인합니다."
+      "description": "첫째 날 24강. 업데이트·후속 활동·서명과 신뢰를 나누어 읽고 가상 메타데이터 검사로 판단의 한계를 확인합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-15",
@@ -251,7 +275,8 @@
       "status": "published",
       "slug": "day-01-25-operations-evidence-review",
       "short_title": "업무·증거·판단 종합 복습",
-      "description": "첫째 날 25강. 보호할 업무에서 관측·분류·기록·위협 정보·자동화·복구까지 하나의 가상 조사로 연결하며 판단의 근거를 복습합니다."
+      "description": "첫째 날 25강. 보호할 업무에서 관측·분류·기록·위협 정보·자동화·복구까지 하나의 가상 조사로 연결하며 판단의 근거를 복습합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d1-16",
@@ -261,7 +286,8 @@
       "status": "published",
       "slug": "day-01-26-integrated-log-investigation",
       "short_title": "로그 검색·조사 종합 실습",
-      "description": "첫째 날 26강. 자체 가상 로그를 실제 로컬 SQL로 검색하며 중복·도착 지연·시간 필드·집계와 사건 판단을 구분합니다."
+      "description": "첫째 날 26강. 자체 가상 로그를 실제 로컬 SQL로 검색하며 중복·도착 지연·시간 필드·집계와 사건 판단을 구분합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": 1,
@@ -271,7 +297,8 @@
       "description": "1강. 네트워크 경로와 접근 정책을 이해하고 라우터·스위치·방화벽에서 찾을 증거와 관측 한계를 연결합니다.",
       "short_title": "네트워크 구조",
       "day": 2,
-      "number": 1
+      "number": 1,
+      "updated": "2026-11-06"
     },
     {
       "id": 2,
@@ -281,7 +308,8 @@
       "description": "2강. 플로·애플리케이션 메타데이터·패킷 원본을 비교하고 TShark·Zeek·Wireshark를 조사에 연결합니다.",
       "short_title": "트래픽 수집과 분석",
       "day": 2,
-      "number": 2
+      "number": 2,
+      "updated": "2026-11-06"
     },
     {
       "id": 3,
@@ -291,7 +319,8 @@
       "description": "3강. DNS의 조회 경로·캐시·주요 레코드를 이해하고 질문과 응답을 패킷 증거와 연결합니다.",
       "short_title": "DNS의 동작 원리",
       "day": 2,
-      "number": 3
+      "number": 3,
+      "updated": "2026-11-06"
     },
     {
       "id": 4,
@@ -301,7 +330,8 @@
       "short_title": "DNS 분석과 공격 징후",
       "description": "4강. 수집 위치·도메인 보강·비인가 DNS·터널링·유사 문자·암호화 DNS를 근거 중심의 조사로 연결합니다.",
       "day": 2,
-      "number": 4
+      "number": 4,
+      "updated": "2026-11-06"
     },
     {
       "id": 5,
@@ -311,7 +341,8 @@
       "short_title": "DNS 분석 실습",
       "description": "5강. 내려받는 자체 PCAP·CSV로 질문과 응답, 재시도·빈 답·TCP 전환을 읽고 근거 있는 조사 기록을 작성합니다.",
       "day": 2,
-      "number": 5
+      "number": 5,
+      "updated": "2026-11-06"
     },
     {
       "id": 6,
@@ -321,7 +352,8 @@
       "short_title": "HTTP의 동작 원리",
       "description": "6강. URL·메서드·요청·응답·헤더·상태 코드에서 HTTP/2·3까지, 웹 통신의 구조를 근거 중심으로 읽습니다.",
       "day": 2,
-      "number": 6
+      "number": 6,
+      "updated": "2026-11-06"
     },
     {
       "id": 7,
@@ -331,7 +363,8 @@
       "day": 2,
       "number": 7,
       "short_title": "URL 평판과 요청 헤더 조사",
-      "description": "둘째 날 7강. 외부 조회의 공개 범위, 화면·샌드박스의 한계, User-Agent와 쿠키를 근거와 조사 질문으로 연결합니다."
+      "description": "둘째 날 7강. 외부 조회의 공개 범위, 화면·샌드박스의 한계, User-Agent와 쿠키를 근거와 조사 질문으로 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d2-07b",
@@ -341,7 +374,8 @@
       "short_title": "인코딩·파일·반복 통신",
       "slug": "08-http-content-patterns",
       "description": "둘째 날 8강. Base64의 비트와 길이, 자체 PCAP의 본문 복원, 반복 통신과 직접 주소 요청의 해석을 연결합니다.",
-      "status": "published"
+      "status": "published",
+      "updated": "2026-11-06"
     },
     {
       "id": "d2-07c",
@@ -351,7 +385,8 @@
       "status": "published",
       "slug": "09-http-attack-flow-evidence",
       "short_title": "HTTP 공격 흐름과 침해 판단",
-      "description": "둘째 날 9강. 리디렉션·익스플로잇·파일 전달·정상 위장 사례를 독립 증거와 실제 침해 성공의 질문으로 연결합니다."
+      "description": "둘째 날 9강. 리디렉션·익스플로잇·파일 전달·정상 위장 사례를 독립 증거와 실제 침해 성공의 질문으로 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d2-07d",
@@ -361,7 +396,8 @@
       "status": "published",
       "slug": "10-https-tls-visibility",
       "short_title": "TLS·인증서·지문 관측",
-      "description": "둘째 날 10강. 암호화 경계·TLS 판본·인증서·ECH와 지문을 이해하고 수동 관측과 능동 조회·도구 계산을 구별합니다."
+      "description": "둘째 날 10강. 암호화 경계·TLS 판본·인증서·ECH와 지문을 이해하고 수동 관측과 능동 조회·도구 계산을 구별합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": 8,
@@ -371,7 +407,8 @@
       "status": "published",
       "short_title": "HTTP·HTTPS 독립 조사 실습",
       "slug": "11-http-https-investigation-practice",
-      "description": "둘째 날 11강. 무해한 자체 PCAP와 별도 가상 보고를 대조해 본문 복원·해시·시간·암호화의 관측 한계를 조사 메모로 연결합니다."
+      "description": "둘째 날 11강. 무해한 자체 PCAP와 별도 가상 보고를 대조해 본문 복원·해시·시간·암호화의 관측 한계를 조사 메모로 연결합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": 9,
@@ -381,21 +418,30 @@
       "status": "published",
       "short_title": "SMTP 전달과 Received 추적",
       "slug": "12-smtp-delivery-received-trace",
-      "description": "둘째 날 12강. 제출·중계·열람과 봉투·메시지를 나누고, 자체 이메일의 시간·전달 경로·신뢰 경계를 확인합니다."
+      "description": "둘째 날 12강. 제출·중계·열람과 봉투·메시지를 나누고, 자체 이메일의 시간·전달 경로·신뢰 경계를 확인합니다.",
+      "updated": "2026-11-06"
     },
     {
       "id": "d2-09b",
       "day": 2,
       "number": 13,
-      "title": "이메일 발신 주장과 SPF의 검증 범위",
-      "status": "planned"
+      "title": "이메일 발신 주장과 SPF: 허용된 경로와 표시 이름 구별하기",
+      "status": "published",
+      "short_title": "발신 주장·SPF와 결과 해석",
+      "slug": "13-email-sender-spf-evidence",
+      "description": "둘째 날 13강. SMTP 인증·봉투·표시 발신자를 나누고 SPF 정책의 순서·결과·오류·전달과 헤더 신뢰를 연결합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": "d2-09c",
       "day": 2,
       "number": 14,
-      "title": "DKIM·DMARC와 이메일 인증 결과 해석",
-      "status": "planned"
+      "title": "DKIM·DMARC: 서명·도메인 정렬과 메일 조사",
+      "status": "published",
+      "short_title": "DKIM·DMARC와 도메인 정렬",
+      "slug": "14-dkim-dmarc-alignment",
+      "description": "둘째 날 14강. 서명 필드·키 선택·내용 변형·도메인 정렬을 이해하고 현재 DMARC 표준과 가상 조건 계산을 조사에 적용합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": 10,
@@ -809,6 +855,6 @@
       ]
     }
   ],
-  "next_lesson": "d2-09b",
-  "planning_note": "둘째 날 공개1~12의번호·ID·URL·본문을보존합니다. SMTP범위를12강139~149/13강150~155/14강156~160으로나눕니다. 다음13=d2-09b는발신주장·위조·SPF,14=d2-09c는DKIM·DMARC·요약입니다. 원본별도워크북수행은미확인이며11강은독립실습입니다."
+  "next_lesson": 10,
+  "planning_note": "둘째 날1~14강의번호·ID·URL·본문을보존합니다. 다음15강ID10은2권161쪽부터추가네트워크프로토콜이며,실제범위를읽고필요하면미공개범위만세분합니다. 원본별도워크북·실제SMTP인증·제품검증수행을가정하지않습니다."
 }
