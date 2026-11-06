@@ -100,3 +100,8 @@ TheHive의 과거 무료 공개 소스 소개와 현재 Community/상용 라이�
 얕게요약하지않도록나머지124~129는새9강d2-07c(리디렉션/공격흐름),130~136은새10강d2-07d(TLS관측)로분할하고원래실습ID8은11강으로옮깁니다. 기존미공개SMTP부터도3씩옮겨둘째날계획15강입니다. 게시된번호는바꾸지않습니다. 실제원문107~138은읽었지만완료범위는이번107~123만입니다.
 
 현행보충은URL도메인평가의범위/새스캔과기존조회/Unlisted와Private/UA축소·고정값/쿠키암호화층/Base64패딩·엄격성/현재HTTP2객체내보내기구현/루트POST정상API를구별합니다. 자체8파일실습은무해한텍스트PCAP와별도CSV이며원본실습·Wireshark·실제공격실행이아닙니다.
+
+
+## 2026-11-06 day2 batch02 — displayed9/10
+
+Original volume2 printed124–136/PDF126–138 reopened completely. HTTPattackflow/serverattempt/delivery/camouflage in9; TLSvisibility/certificates/proxy/keys/ECH/fingerprints in10. CurrentTLS1.3RFC9846July2026 and ECHRFC9849March2026 explicitly correct historical references. IndependentfictionalJSONonly; nooriginalattackcommands/liveprobe/keycollection/decrypt/workbookexecution. Six400pxoriginalSVG,2comparison tables,30immediateQ&A,22localconditionchecks;34oldbodies preserved. Original137–138exercise NEXT11=numericID8; SMTP139+ afterwards, splitunpublishedscope ifnecessary. No renumbering or URLchanges. Review blue-team-day02-batch02-20261106.md; do not markcompletedbeforedeployment/publicproof. Courseunfinished,automationlocalactive.

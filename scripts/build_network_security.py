@@ -23,6 +23,7 @@ from blue_team_case_study_diagrams import build_case_studies
 from blue_team_trust_diagrams import build_trust
 from blue_team_review_diagrams import build_review
 from blue_team_http_analysis_diagrams import build_http_analysis
+from blue_team_tls_diagrams import build_tls_evidence
 from blue_team_course_menu import sidebar_menu, overview_body, home_card, MENU_CSS
 TITLE = '블루팀 필수 지식: 보안 운영과 분석'
 OUT = ROOT/'courses/network-security'
@@ -76,6 +77,7 @@ build_case_studies(ASSETS)
 build_trust(ASSETS)
 build_review(ASSETS)
 build_http_analysis(ASSETS)
+build_tls_evidence(ASSETS)
 
 def inline(s):
     s=escape(s)
@@ -86,7 +88,7 @@ def inline(s):
     s=re.sub(r'`([^`]+)`',protect,s)
     s=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',s)
     s=re.sub(r'\x00(\d+)\x00',lambda m:'<code>'+code[int(m.group(1))]+'</code>',s)
-    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10|lab14|lab16|lab18|lab20|lab22|lab24|lab26|day02-lab08)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
+    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10|lab14|lab16|lab18|lab20|lab22|lab24|lab26|day02-lab08|day02-lab10)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
     return s
 
 def render(md, expected_mermaid=0):

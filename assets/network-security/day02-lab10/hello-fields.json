@@ -1,0 +1,106 @@
+{
+  "schema": "training-hello-fields-v1",
+  "notice": "Fictional selected field lists; not captured ClientHello",
+  "external_actions_allowed": false,
+  "records": [
+    {
+      "id": "H1",
+      "claimed_app": "Approved training client",
+      "legacy_version": 771,
+      "ciphers": [
+        4865,
+        4866
+      ],
+      "extensions": [
+        0,
+        10,
+        11,
+        13,
+        43,
+        51
+      ],
+      "groups": [
+        29,
+        23
+      ],
+      "point_formats": [
+        0
+      ]
+    },
+    {
+      "id": "H2",
+      "claimed_app": "Unknown training process",
+      "legacy_version": 771,
+      "ciphers": [
+        4865,
+        4866
+      ],
+      "extensions": [
+        0,
+        10,
+        11,
+        13,
+        43,
+        51
+      ],
+      "groups": [
+        29,
+        23
+      ],
+      "point_formats": [
+        0
+      ]
+    },
+    {
+      "id": "H3",
+      "claimed_app": "Changed extension order",
+      "legacy_version": 771,
+      "ciphers": [
+        4865,
+        4866
+      ],
+      "extensions": [
+        0,
+        11,
+        10,
+        13,
+        43,
+        51
+      ],
+      "groups": [
+        29,
+        23
+      ],
+      "point_formats": [
+        0
+      ]
+    },
+    {
+      "id": "H4",
+      "claimed_app": "GREASE added",
+      "legacy_version": 771,
+      "ciphers": [
+        2570,
+        4865,
+        4866
+      ],
+      "extensions": [
+        0,
+        2570,
+        10,
+        11,
+        13,
+        43,
+        51
+      ],
+      "groups": [
+        2570,
+        29,
+        23
+      ],
+      "point_formats": [
+        0
+      ]
+    }
+  ]
+}

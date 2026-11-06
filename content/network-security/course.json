@@ -347,15 +347,21 @@
       "id": "d2-07c",
       "day": 2,
       "number": 9,
-      "title": "HTTP 공격 흐름: 리디렉션과 침해 판단",
-      "status": "planned"
+      "title": "HTTP 공격 흐름: 이동·전달·실행을 나누어 읽기",
+      "status": "published",
+      "slug": "09-http-attack-flow-evidence",
+      "short_title": "HTTP 공격 흐름과 침해 판단",
+      "description": "둘째 날 9강. 리디렉션·익스플로잇·파일 전달·정상 위장 사례를 독립 증거와 실제 침해 성공의 질문으로 연결합니다."
     },
     {
       "id": "d2-07d",
       "day": 2,
       "number": 10,
-      "title": "HTTPS 관측: TLS·인증서·지문과 한계",
-      "status": "planned"
+      "title": "HTTPS 관측: TLS·인증서·지문과 판단의 한계",
+      "status": "published",
+      "slug": "10-https-tls-visibility",
+      "short_title": "TLS·인증서·지문 관측",
+      "description": "둘째 날 10강. 암호화 경계·TLS 판본·인증서·ECH와 지문을 이해하고 수동 관측과 능동 조회·도구 계산을 구별합니다."
     },
     {
       "id": 8,
@@ -781,6 +787,6 @@
       ]
     }
   ],
-  "next_lesson": "d2-07c",
-  "planning_note": "둘째 날 기존1~6의번호·URL·본문을보존합니다. 원문107~136의분석모듈을7~10강으로세분하고,실습은11강부터이어갑니다. 공개번호는날마다1부터셉니다."
+  "next_lesson": 8,
+  "planning_note": "둘째 날 기존1~8강을보존하며HTTP분석을9강/HTTPS관측을10강으로연결했습니다. 다음11강ID8은별도워크북안내와연결한독립HTTP·HTTPS실습입니다. 원본실습수행완료를가정하지않습니다."
 }

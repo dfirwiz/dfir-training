@@ -1,0 +1,58 @@
+{
+  "schema": "training-web-evidence-v1",
+  "external_actions_allowed": false,
+  "notice": "Fictional assertions only, not original cases or packet extraction",
+  "records": [
+    {
+      "id": "R1",
+      "request_url": "https://landing.example/start",
+      "status": 302,
+      "location": "/next?item=training",
+      "next_request_url": null,
+      "endpoint_execution": "unknown"
+    },
+    {
+      "id": "R2",
+      "request_url": "https://landing.example/start",
+      "status": 302,
+      "location": "/next?item=training",
+      "next_request_url": "https://landing.example/next?item=training",
+      "endpoint_execution": "unknown"
+    },
+    {
+      "id": "R3",
+      "request_url": "https://landing.example/start",
+      "status": 302,
+      "location": "/next?item=training",
+      "next_request_url": "https://other.example/next?item=training",
+      "endpoint_execution": "unknown"
+    },
+    {
+      "id": "F1",
+      "request_url": "https://files.example/note.txt",
+      "status": 200,
+      "declared_body_bytes": 35,
+      "observed_body_bytes": 35,
+      "endpoint_execution": "unknown",
+      "note": "Fictional assertion, not measured endpoint evidence"
+    },
+    {
+      "id": "F2",
+      "request_url": "https://files.example/note.txt",
+      "status": 200,
+      "declared_body_bytes": 35,
+      "observed_body_bytes": 10,
+      "endpoint_execution": "unknown",
+      "note": "Fictional assertion, not measured endpoint evidence"
+    },
+    {
+      "id": "F3",
+      "request_url": "https://files.example/note.txt",
+      "status": 200,
+      "declared_body_bytes": 35,
+      "observed_body_bytes": 35,
+      "endpoint_execution": "reported",
+      "note": "Fictional assertion, not measured endpoint evidence"
+    }
+  ]
+}

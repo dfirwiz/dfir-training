@@ -83,7 +83,24 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 2,
+    "lessons": [
+      9,
+      10
+    ],
+    "lesson_ids": [
+      "d2-07c",
+      "d2-07d"
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      124,
+      136
+    ],
+    "scope": "Actual original124-136 reopened. Attackchain and TLS/certificates/fingerprints with officialcurrentcorrections. Local fictional metadata examples only, no sourceattackcommands/liveprobe/TLSdecryption/originalworkbook.",
+    "review": ".learning/reviews/blue-team-day02-batch02-20261106.md"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "07ab315a03e72e865739c7b2872ff45fb2bf7f95",
