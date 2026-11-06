@@ -247,15 +247,21 @@
       "id": "d1-15",
       "day": 1,
       "number": 25,
-      "title": "첫째 날 종합 복습",
-      "status": "planned"
+      "title": "첫째 날 종합 복습: 업무·증거·판단 연결",
+      "status": "published",
+      "slug": "day-01-25-operations-evidence-review",
+      "short_title": "업무·증거·판단 종합 복습",
+      "description": "첫째 날 25강. 보호할 업무에서 관측·분류·기록·위협 정보·자동화·복구까지 하나의 가상 조사로 연결하며 판단의 근거를 복습합니다."
     },
     {
       "id": "d1-16",
       "day": 1,
       "number": 26,
-      "title": "로그 검색과 SIEM 실습",
-      "status": "planned"
+      "title": "종합 실습: 여러 로그에서 조사 기록까지",
+      "status": "published",
+      "slug": "day-01-26-integrated-log-investigation",
+      "short_title": "로그 검색·조사 종합 실습",
+      "description": "첫째 날 26강. 자체 가상 로그를 실제 로컬 SQL로 검색하며 중복·도착 지연·시간 필드·집계와 사건 판단을 구분합니다."
     },
     {
       "id": 1,
@@ -746,6 +752,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-15",
-  "planning_note": "첫째 날 사례 모듈은21강 Mirai,22강 Colonial Pipeline,23강 Conti,24강 SolarWinds로 세분화합니다. 기존 공개 번호·ID·URL·본문은 유지하며 복습/종합실습은25/26강입니다."
+  "next_lesson": 7,
+  "planning_note": "첫째 날은26강까지 구성합니다. 둘째 날 기존1~6의번호·URL·본문을보존하고,다음집필전에2권원문과기존학습대응을점검해가장앞선미완료범위를선택합니다."
 }

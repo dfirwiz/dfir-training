@@ -77,7 +77,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      25,
+      26
+    ],
+    "lesson_ids": [
+      "d1-15",
+      "d1-16"
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      168,
+      172
+    ],
+    "scope": "Volume1 actual174PDFpages/printed1-172: final summary168-170 and separateworkbook exercise171-172; review earlier1-167 mappings, not falsely assume volume ends167. Independent combined log lab, no originalVM/workbook execution."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "e8cde84bb6b1ae018d408544c4ee4b9b7fbad7e8",
