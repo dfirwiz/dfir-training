@@ -469,27 +469,49 @@
       "id": "d2-10c",
       "day": 2,
       "number": 17,
-      "title": "SSH·RDP·PowerShell 원격 관리",
+      "title": "SSH: 연결 방향과 터널 안의 통신 구별하기",
+      "short_title": "SSH·채널·터널과 관측",
+      "slug": "17-ssh-channel-direction-evidence",
+      "description": "둘째 날 17강. SSH의 서버·사용자 인증과 채널, 로컬·원격 포워딩의 방향을 나누고 가상 경로 계산을 실제 조사 질문으로 연결합니다.",
+      "status": "published",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d2-10c-rdp",
+      "day": 2,
+      "number": 18,
+      "title": "RDP·VNC: 원격 화면 접속과 사용자 행위의 증거",
+      "short_title": "RDP·VNC와 세션 증거",
+      "slug": "18-rdp-vnc-session-evidence",
+      "description": "둘째 날 18강. 연결·인증·원격 세션·후속 행위를 구별하고 가상 로그의 연결 조건과 현재 원격 화면 보호를 확인합니다.",
+      "status": "published",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d2-10c-winrm",
+      "day": 2,
+      "number": 19,
+      "title": "PowerShell 원격 관리와 WinRM",
       "status": "planned"
     },
     {
       "id": "d2-10d",
       "day": 2,
-      "number": 18,
+      "number": 20,
       "title": "파일 전송·ICMP·원격 도구와 통신 기준",
       "status": "planned"
     },
     {
       "id": 11,
       "day": 2,
-      "number": 19,
+      "number": 21,
       "title": "둘째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": 12,
       "day": 2,
-      "number": 20,
+      "number": 22,
       "title": "SMTP와 이메일 분석 실습",
       "status": "planned"
     },
@@ -812,6 +834,8 @@
         10,
         "d2-10b",
         "d2-10c",
+        "d2-10c-rdp",
+        "d2-10c-winrm",
         "d2-10d",
         11,
         12
@@ -887,6 +911,6 @@
       ]
     }
   ],
-  "next_lesson": "d2-10c",
-  "planning_note": "둘째날공개1~16의번호·ID·URL·본문을보존합니다. 추가프로토콜을깊이에맞춰분할:15DHCP161~165,16SMB166~168;다음17SSH등169~172,18FTP등173~176은다시원문확인후필요시미공개만세분.19종합정리/20이메일별도실습안내잠정. 원본워크북·실제인증·침해재현수행을가정하지않습니다."
+  "next_lesson": "d2-10c-winrm",
+  "planning_note": "둘째날공개1~18의번호·ID·URL·본문·날짜를보존합니다.17SSH169~170/18RDP·VNC171로깊이에맞춰분할했습니다.다음19WinRM172,20FTP·ICMP·원격도구173~176은원문을다시열고필요하면미공개만세분합니다.21종합정리/22이메일워크북안내잠정.원본워크북·실제원격접속수행을가정하지않습니다."
 }

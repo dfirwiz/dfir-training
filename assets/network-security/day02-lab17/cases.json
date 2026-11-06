@@ -1,0 +1,86 @@
+{
+  "schema": "training-ssh-route-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "ssh_client": "192.0.2.25",
+      "ssh_server": "198.51.100.10",
+      "ssh_port": 22,
+      "approved_in_fixture": false,
+      "forwarding_permitted_in_fixture": true,
+      "target_reachable_in_fixture": true,
+      "id": "S1",
+      "mode": "local",
+      "bind": "127.0.0.1",
+      "listen_port": 8443,
+      "target": "203.0.113.20",
+      "target_port": 443
+    },
+    {
+      "ssh_client": "192.0.2.25",
+      "ssh_server": "198.51.100.10",
+      "ssh_port": 22,
+      "approved_in_fixture": false,
+      "forwarding_permitted_in_fixture": true,
+      "target_reachable_in_fixture": true,
+      "id": "S2",
+      "mode": "remote",
+      "bind": "127.0.0.1",
+      "listen_port": 13389,
+      "target": "192.0.2.40",
+      "target_port": 3389
+    },
+    {
+      "ssh_client": "192.0.2.25",
+      "ssh_server": "198.51.100.10",
+      "ssh_port": 22,
+      "approved_in_fixture": false,
+      "forwarding_permitted_in_fixture": true,
+      "target_reachable_in_fixture": true,
+      "id": "S3",
+      "mode": "remote",
+      "bind": "0.0.0.0",
+      "listen_port": 13389,
+      "target": "192.0.2.40",
+      "target_port": 3389
+    },
+    {
+      "ssh_client": "192.0.2.25",
+      "ssh_server": "198.51.100.10",
+      "ssh_port": 22,
+      "approved_in_fixture": false,
+      "forwarding_permitted_in_fixture": true,
+      "target_reachable_in_fixture": true,
+      "id": "S4",
+      "mode": "unknown"
+    },
+    {
+      "ssh_client": "192.0.2.25",
+      "ssh_server": "198.51.100.10",
+      "ssh_port": 22,
+      "approved_in_fixture": false,
+      "forwarding_permitted_in_fixture": true,
+      "target_reachable_in_fixture": true,
+      "id": "S5",
+      "mode": "remote",
+      "bind": "127.0.0.1",
+      "listen_port": 13389,
+      "target": "127.0.0.1",
+      "target_port": 3389
+    },
+    {
+      "ssh_client": "192.0.2.25",
+      "ssh_server": "198.51.100.10",
+      "ssh_port": 22,
+      "approved_in_fixture": false,
+      "forwarding_permitted_in_fixture": false,
+      "target_reachable_in_fixture": true,
+      "id": "S6",
+      "mode": "local",
+      "bind": "127.0.0.1",
+      "listen_port": 8443,
+      "target": "203.0.113.20",
+      "target_port": 443
+    }
+  ]
+}

@@ -1,0 +1,10 @@
+둘째날18강 자체 가상 세션 주장입니다. 실제RDP캡처·Windows EVTX·원본워크북이 아닙니다.
+이폴더에서 python compare_sessions.py cases.json (Python3표준라이브러리)
+프로그램은JSON만읽고출력합니다.RDP/VNC접속·인증·설정변경·화면기록·키입력·실제이벤트수집을수행하지않습니다.
+4624/type10/session_kind=rdp가정과같은target/logon_id/user/session_name의4778/4779가정을시간순서대로비교합니다.
+session_kind는가상작성자의가정이며이벤트번호를실제RDP로식별하는검증이아닙니다.4778/4779는RDP외상황에도생길수있습니다.
+event/time/target등은자체정규화필드입니다.Windows원본스키마의보편파서가아닙니다.flow의IP와실제target·사용자를대응시키지도않습니다.
+간격은두가상기록사이의초수일뿐사용자가실제로작업한시간·로그오프·현재세션상태가아닙니다.매칭된역순입력은정렬해숨기지않고오류2로중단합니다.
+같은전환이연속반복되는입력도도구지원밖오류2입니다.실제중복로그·복잡한세션상태기계를구현하지않았다는뜻이며실제로그가거짓이거나공격이라는판정이아닙니다.
+루프백source가정은터널가능성을생각하는단서이며실제최초출발지나공격의증명이아닙니다.approved값도실제업무승인검증이아닙니다.
+actual_rdp_verified/actual_windows_event_verified는false/사용자·행위·현재상태unverified/사건unresolved/외부행동0입니다.종료0은조건계산완료,2는입력/도구지원범위오류입니다.

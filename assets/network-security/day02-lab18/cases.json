@@ -1,0 +1,197 @@
+{
+  "schema": "training-rdp-session-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "flow": {
+        "source": "198.51.100.10",
+        "destination": "192.0.2.40",
+        "destination_port": 3389
+      },
+      "approved_in_fixture": false,
+      "transitions": [],
+      "id": "P1"
+    },
+    {
+      "flow": {
+        "source": "198.51.100.10",
+        "destination": "192.0.2.40",
+        "destination_port": 3389
+      },
+      "approved_in_fixture": false,
+      "transitions": [],
+      "id": "P2",
+      "auth": {
+        "event": 4624,
+        "logon_type": 3,
+        "session_kind": "rdp",
+        "target": "desktop-a",
+        "logon_id": "0x81",
+        "user": "user-a",
+        "session_name": "RDP-Tcp#4",
+        "time": "2026-11-07T09:00:00Z",
+        "source": "198.51.100.10"
+      }
+    },
+    {
+      "flow": {
+        "source": "198.51.100.10",
+        "destination": "192.0.2.40",
+        "destination_port": 3389
+      },
+      "approved_in_fixture": false,
+      "transitions": [
+        {
+          "event": 4779,
+          "session_kind": "rdp",
+          "target": "desktop-a",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:05:00Z"
+        },
+        {
+          "event": 4778,
+          "session_kind": "rdp",
+          "target": "desktop-a",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:10:00Z"
+        }
+      ],
+      "id": "P3",
+      "auth": {
+        "event": 4624,
+        "logon_type": 10,
+        "session_kind": "rdp",
+        "target": "desktop-a",
+        "logon_id": "0x81",
+        "user": "user-a",
+        "session_name": "RDP-Tcp#4",
+        "time": "2026-11-07T09:00:00Z",
+        "source": "198.51.100.10"
+      }
+    },
+    {
+      "flow": {
+        "source": "198.51.100.10",
+        "destination": "192.0.2.40",
+        "destination_port": 3389
+      },
+      "approved_in_fixture": false,
+      "transitions": [
+        {
+          "event": 4779,
+          "session_kind": "rdp",
+          "target": "desktop-b",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:05:00Z"
+        },
+        {
+          "event": 4778,
+          "session_kind": "rdp",
+          "target": "desktop-b",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:10:00Z"
+        }
+      ],
+      "id": "P4",
+      "auth": {
+        "event": 4624,
+        "logon_type": 10,
+        "session_kind": "rdp",
+        "target": "desktop-a",
+        "logon_id": "0x81",
+        "user": "user-a",
+        "session_name": "RDP-Tcp#4",
+        "time": "2026-11-07T09:00:00Z",
+        "source": "198.51.100.10"
+      }
+    },
+    {
+      "flow": {
+        "source": "198.51.100.10",
+        "destination": "192.0.2.40",
+        "destination_port": 3389
+      },
+      "approved_in_fixture": false,
+      "transitions": [
+        {
+          "event": 4779,
+          "session_kind": "rdp",
+          "target": "desktop-a",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:05:00Z"
+        },
+        {
+          "event": 4778,
+          "session_kind": "rdp",
+          "target": "desktop-a",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:10:00Z"
+        }
+      ],
+      "id": "P5",
+      "auth": {
+        "event": 4624,
+        "logon_type": 10,
+        "session_kind": "rdp",
+        "target": "desktop-a",
+        "logon_id": "0x81",
+        "user": "user-a",
+        "session_name": "RDP-Tcp#4",
+        "time": "2026-11-07T09:00:00Z",
+        "source": "127.0.0.1"
+      }
+    },
+    {
+      "flow": {
+        "source": "198.51.100.10",
+        "destination": "192.0.2.40",
+        "destination_port": 3389
+      },
+      "approved_in_fixture": true,
+      "transitions": [
+        {
+          "event": 4779,
+          "session_kind": "rdp",
+          "target": "desktop-a",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:05:00Z"
+        },
+        {
+          "event": 4778,
+          "session_kind": "rdp",
+          "target": "desktop-a",
+          "logon_id": "0x81",
+          "user": "user-a",
+          "session_name": "RDP-Tcp#4",
+          "time": "2026-11-07T09:10:00Z"
+        }
+      ],
+      "id": "P6",
+      "auth": {
+        "event": 4624,
+        "logon_type": 10,
+        "session_kind": "rdp",
+        "target": "desktop-a",
+        "logon_id": "0x81",
+        "user": "user-a",
+        "session_name": "RDP-Tcp#4",
+        "time": "2026-11-07T09:00:00Z",
+        "source": "198.51.100.10"
+      }
+    }
+  ]
+}
