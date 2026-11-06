@@ -7,3 +7,6 @@ assets/network-security/lab20/* text eol=lf
 assets/network-security/lab22/* text eol=lf
 assets/network-security/lab24/* text eol=lf
 assets/network-security/lab26/* text eol=lf
+assets/network-security/day02-lab08/* text eol=lf
+assets/network-security/day02-lab08/*.pcap -text
+assets/network-security/day02-lab08/expected-note.txt -text

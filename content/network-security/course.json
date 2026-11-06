@@ -325,44 +325,70 @@
     },
     {
       "id": 7,
-      "slug": "07-http-analysis-attacks",
-      "title": "HTTP·HTTPS 분석과 공격 징후",
-      "status": "planned",
+      "slug": "07-http-triage-headers",
+      "title": "HTTP 조사: URL 평판과 요청 헤더의 단서",
+      "status": "published",
       "day": 2,
-      "number": 7
+      "number": 7,
+      "short_title": "URL 평판과 요청 헤더 조사",
+      "description": "둘째 날 7강. 외부 조회의 공개 범위, 화면·샌드박스의 한계, User-Agent와 쿠키를 근거와 조사 질문으로 연결합니다."
+    },
+    {
+      "id": "d2-07b",
+      "day": 2,
+      "number": 8,
+      "title": "HTTP 내용 분석: 인코딩·파일·반복 통신",
+      "short_title": "인코딩·파일·반복 통신",
+      "slug": "08-http-content-patterns",
+      "description": "둘째 날 8강. Base64의 비트와 길이, 자체 PCAP의 본문 복원, 반복 통신과 직접 주소 요청의 해석을 연결합니다.",
+      "status": "published"
+    },
+    {
+      "id": "d2-07c",
+      "day": 2,
+      "number": 9,
+      "title": "HTTP 공격 흐름: 리디렉션과 침해 판단",
+      "status": "planned"
+    },
+    {
+      "id": "d2-07d",
+      "day": 2,
+      "number": 10,
+      "title": "HTTPS 관측: TLS·인증서·지문과 한계",
+      "status": "planned"
     },
     {
       "id": 8,
       "day": 2,
-      "number": 8,
+      "number": 11,
       "title": "HTTP·HTTPS 분석 실습",
       "status": "planned"
     },
     {
       "id": 9,
       "day": 2,
-      "number": 9,
+      "number": 12,
       "title": "SMTP와 이메일 통신",
       "status": "planned"
     },
     {
       "id": 10,
       "day": 2,
-      "number": 10,
+      "number": 13,
       "title": "추가 네트워크 프로토콜",
       "status": "planned"
     },
     {
       "id": 11,
       "day": 2,
-      "number": 11,
+      "number": 14,
       "title": "둘째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": 12,
       "day": 2,
-      "number": 12,
+      "number": 15,
       "title": "SMTP와 이메일 분석 실습",
       "status": "planned"
     },
@@ -675,6 +701,9 @@
         5,
         6,
         7,
+        "d2-07b",
+        "d2-07c",
+        "d2-07d",
         8,
         9,
         10,
@@ -752,6 +781,6 @@
       ]
     }
   ],
-  "next_lesson": 7,
-  "planning_note": "첫째 날은26강까지 구성합니다. 둘째 날 기존1~6의번호·URL·본문을보존하고,다음집필전에2권원문과기존학습대응을점검해가장앞선미완료범위를선택합니다."
+  "next_lesson": "d2-07c",
+  "planning_note": "둘째 날 기존1~6의번호·URL·본문을보존합니다. 원문107~136의분석모듈을7~10강으로세분하고,실습은11강부터이어갑니다. 공개번호는날마다1부터셉니다."
 }

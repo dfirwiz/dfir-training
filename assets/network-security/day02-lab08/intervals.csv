@@ -1,0 +1,21 @@
+source,id,group,seconds,context
+sensor-1,A0,A,0,unknown process
+sensor-1,A1,A,60,unknown process
+sensor-1,A2,A,120,unknown process
+sensor-1,A3,A,180,unknown process
+sensor-1,A4,A,240,unknown process
+sensor-1,B0,B,0,claimed scheduled job; verify approval
+sensor-1,B1,B,60,claimed scheduled job; verify approval
+sensor-1,B2,B,120,claimed scheduled job; verify approval
+sensor-1,B3,B,180,claimed scheduled job; verify approval
+sensor-1,B4,B,240,claimed scheduled job; verify approval
+sensor-1,C0,C,0,variable interval
+sensor-1,C1,C,55,variable interval
+sensor-1,C2,C,120,variable interval
+sensor-1,C3,C,181,variable interval
+sensor-1,C4,C,240,variable interval
+sensor-1,D0,D,0,one event omitted by fixture
+sensor-1,D1,D,60,one event omitted by fixture
+sensor-1,D2,D,180,one event omitted by fixture
+sensor-1,D3,D,240,one event omitted by fixture
+sensor-1,A1,A,60,unknown process
