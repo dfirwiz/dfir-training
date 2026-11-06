@@ -60,3 +60,8 @@ Final build and static validation rerun passed after prose/first-use-term/captio
 ## Publication gate
 
 Content validated locally; remote commit/Actions/public verification pending. Completedday2 stays1–8 until deployment success AND public51resourceHTTP200/contentmatch. If failure preserve this batch and resume, never rewrite completed lessons. After successful publication next displayed11 starts original137–138exercise, then nextunpublished SMTP material. Entirecourse unfinished, automation active/local.
+
+
+## Verified publication result2026-11-06
+
+Publication175fbc6d9a81e329da70b14bac15e9a3f0987c19;Actions42207005049completed/success. Public51resourcesHTTP200/contentmatch (38HTML/CSS/coursejson/6SVG/5textlabfiles). Onlyafterproofprogressadvancedday2display1–10/clearedactivebatch.34previousbodies/otherhomepagecontentpreserved;51sections179paragraphs2tables6SVG30immediateQ&A. Next11original137–138exercisepointer,thenSMTP139+ selectedandsplitasneeded. Originalworkbook/VM/browser/mobileunverified;automationactive/local,wholecourseunfinished.
