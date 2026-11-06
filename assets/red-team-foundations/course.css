@@ -32,6 +32,15 @@
 .home-course-chapter .lesson{gap:10px;align-items:flex-start}
 .home-course-chapter .lesson b{flex:0 0 27px;white-space:nowrap;line-height:1.8}
 .home-course-chapter .lesson span{min-width:0;overflow-wrap:anywhere}
+/* The homepage previews topics; the course page retains every chapter/lesson. */
+.home-red-team>div{min-width:0}
+.home-red-team .home-course-overview{gap:12px;align-content:start}
+.home-red-team .overview-heading{margin:0 0 2px;font-size:14px;color:var(--muted)}
+.home-red-team .overview-topic{display:block;padding:15px 18px;overflow-wrap:anywhere}
+.home-red-team .overview-topic strong{display:block;font-size:15px;line-height:1.6;color:var(--text)}
+.home-red-team .overview-topic span{display:block;margin-top:4px;font-size:13px;line-height:1.6;color:var(--muted)}
+.home-red-team .overview-topic:hover{border-color:var(--accent)}
+.home-red-team .overview-topic:focus-visible{outline:3px solid var(--accent);outline-offset:3px}
 .diagram-scroll:focus-visible,.table-wrap:focus-visible,pre:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:460px){.course-diagram{padding:8px}.note-layout{padding-left:15px;padding-right:15px}.note-header h1{overflow-wrap:anywhere}.navbtn{font-size:12px;padding:9px 12px}.brand{font-size:16px;gap:8px}}
 @media print{.diagram-scroll{overflow:visible}.course-diagram img{width:100%;max-width:100%}}

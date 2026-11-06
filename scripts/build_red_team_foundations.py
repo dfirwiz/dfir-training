@@ -342,6 +342,23 @@ def page(course, title, description, body, toc, selected=None):
 <body><a class="skip" href="#content">본문으로 건너뛰기</a><header class="shell nav"><a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a><nav class="navlinks" aria-label="주요 메뉴"><a href="../../index.html#courses">교육 과정</a><a href="index.html">이 과정 목차</a></nav><a class="navbtn" href="index.html">과정 안내 ↗</a></header><div class="note-layout">{sidebar}<main class="note" id="content"><p class="breadcrumb"><a href="../../index.html#courses">교육 과정</a> / <a href="index.html">레드팀 기초</a>{chapter_crumb}</p><header class="note-header"><div class="eyebrow">RED TEAM FOUNDATIONS / {label}</div><h1>{escape(title)}</h1><p class="description">{escape(description)}</p><div class="meta"><span>{meta}</span><span>업데이트 {updated}</span></div></header>{contents}{body}{pager}</main></div><footer class="note-footer">© 2026 DFIR Training · 관찰한 사실과 추론을 구분하는 학습</footer></body></html>'''
 
 
+def home_card(course):
+    """Keep the landing page brief; the course page owns the full curriculum."""
+    groups = chapter_groups(course)
+    topics = [
+        (1, '기초와 활동 계획', 'TTP · 위협 정보 · ROE · 법과 준수'),
+        (3, 'Windows와 도구 이해', 'PE · 메모리 · Cobalt Strike'),
+        (5, '접근·실행·권한의 이해', '최초 접근 · 지속성 · 실행 문맥'),
+        (10, '내부 환경 조사와 검증', '인증 자료 · 사용자 문맥 · 탐색 · 횡적 이동'),
+    ]
+    available = {chapter['id'] for chapter in groups}
+    overview = ''.join(
+        f'<a class="lesson overview-topic" href="courses/red-team-foundations/index.html#chapter-{chapter}"><strong>{escape(title)}</strong><span>{escape(description)}</span></a>'
+        for chapter, title, description in topics if chapter in available
+    )
+    return f'''<!-- RED-TEAM-FOUNDATIONS:START --><div class="course home-red-team" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · {len(groups)}개 장 · {len(course["lessons"])}개 강의</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 활동 계획과 공격 흐름을 이해하고, Windows·Cobalt Strike의 주요 개념을 조사 증거와 연결합니다. 실제 제품 화면, 단계별 설명, 가상 실습과 복습 해설로 보안 검증의 원리를 배웁니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">전체 목차 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1장 1강 읽기</a></div></div><div class="outline home-course-overview"><h4 class="overview-heading">핵심 학습 주제</h4>{overview}</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'''
+
+
 def main():
     OUT.mkdir(parents=True, exist_ok=True)
     build_diagrams()
@@ -385,11 +402,7 @@ def main():
     home_original = home.read_bytes()
     home_newline = '\r\n' if b'\r\n' in home_original else '\n'
     text = home_original.decode('utf-8').replace('\r\n', '\n')
-    home_groups = []
-    for chapter in chapter_groups(course):
-        links = ''.join(f'<a class="lesson" href="courses/red-team-foundations/{item["slug"]}.html"><b>{item["lesson_number"]}강</b><span>{escape(item["short_title"])}</span></a>' for item in chapter['lessons'])
-        home_groups.append(f'<div class="home-course-chapter"><h4>{escape(chapter_label(chapter))}</h4>' + links + '</div>')
-    card = f'<!-- RED-TEAM-FOUNDATIONS:START --><div class="course" style="margin-top:28px"><div><span class="pill">● 세 번째 코스 · {len(groups)}개 장 · {len(course["lessons"])}개 강의</span><h3>레드팀 기초:<br>공격 이해와 보안 검증</h3><p>레드팀의 목적과 TTP에서 출발해 위협 인텔리전스, 공격 생명주기, ROE·OPSEC과 작업 기록을 배웁니다. 법과 준수 원칙, PE 파일과 Windows 실행 기초를 배우고 Cobalt Strike의 구성 요소·통신 경로·페이로드·세션과 작업 기록까지 연결합니다. 최초 접근의 전달·로딩·트리거·파일 출처와 웹 호스팅, 지속성의 사용자 범위·자동 실행 조건·예약 작업·COM 증거도 상세히 배웁니다. 접근 후 파일·프로세스 조회, 작업 관리·실행 엔진·세션 전달은 실제 Cobalt Strike 화면과 연결합니다. 가상 조사 사례와 공식 제품 화면, 설정 순서·비교표·다이어그램·복습 해설과 읽기 전용 예제를 연결합니다.</p><div class="tags"><span class="tag">TTP · ATT&amp;CK</span><span class="tag">위협 인텔리전스</span><span class="tag">ROE · OPSEC</span><span class="tag">증거 기반 검증</span></div><div class="actions"><a class="primary" href="courses/red-team-foundations/index.html">과정 살펴보기 ↗</a><a class="secondary" href="courses/red-team-foundations/01-purpose-ttp-evidence.html">1장 1강 읽기</a></div></div><div class="outline chapter-outline">' + ''.join(home_groups) + '</div></div><!-- RED-TEAM-FOUNDATIONS:END -->'
+    card = home_card(course)
     if '<!-- RED-TEAM-FOUNDATIONS:START -->' in text:
         text = re.sub(r'<!-- RED-TEAM-FOUNDATIONS:START -->.*?<!-- RED-TEAM-FOUNDATIONS:END -->', card, text, flags=re.S)
     else:
@@ -397,7 +410,7 @@ def main():
         assert text.count(marker) == 1
         text = text.replace(marker, marker + card)
     text = text.replace('<strong>02</strong><small>독립적인 학습 과정</small>', '<strong>03</strong><small>독립적인 학습 과정</small>')
-    chapter_css = '<link rel="stylesheet" href="assets/red-team-foundations/course.css?v=20261104-persistence">'
+    chapter_css = '<link rel="stylesheet" href="assets/red-team-foundations/course.css?v=20261107-home-summary">'
     text = re.sub(r'<link rel="stylesheet" href="assets/red-team-foundations/course\.css(?:\?[^"]*)?">', chapter_css, text)
     if chapter_css not in text:
         text = text.replace('</head>', chapter_css + '</head>', 1)
