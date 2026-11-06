@@ -170,6 +170,8 @@ v=DMARC1; p=none; aspf=s; adkim=s; rua=mailto:dmarc-report@reports.sender.exampl
 python compare_alignment.py cases.json
 ```
 
+14강의 세 파일을 같은 폴더에 두고 그 폴더에서 실행합니다. `python`은 실행기, `compare_alignment.py`는 실행할 프로그램, `cases.json`은 입력 자료의 경로입니다. 13강의 같은 이름 파일과 내용이 다르므로 강의별 폴더를 구별해 사용합니다.
+
 프로그램은 입력된 d·s로 키 조회 이름 문자열을 만들고, 입력된 SPF·DKIM 결과와 하나의 From 도메인으로 엄격 정렬 조건만 비교합니다. 실제 DKIM 서명 검증·SPF 평가·정책 발견·Tree Walk·수신 조치 계산을 수행하지 않습니다.
 
 출력의 키 이름은 `nov2026._domainkey.sender.example`, 선언한 헤더 목록은 from·to·subject·date였습니다. 실제 공개키를 조회하거나 메시지의 해당 헤더를 서명한 결과가 아닙니다. 필드의 역할을 구별하는 로컬 문자열 계산입니다.
