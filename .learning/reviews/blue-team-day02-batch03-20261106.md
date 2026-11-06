@@ -64,3 +64,8 @@ During further11/12checks, CUA returned LocalbrowseruseisdisabledinWorksettings.
 
 
 Final source149crosscheck explicitly addedReceivedfor optional/single-path-notallrecipients/Bccscope to12§19. Sameparagraphcount; sourcecorrespondenceandHTMLrevalidated. Finalpublicationproof must use followup contentcommit, not initialdcd9778.
+
+
+## Verified publication result2026-11-06
+
+Publication9f932891aec7d287fe4d79c7932a69a645c2efa4;Actions42220896658completed/success. Public59resourcesHTTP200/contentmatch:40HTML/CSS/coursejson/6SVG/8newdownloads/3reuseddownloads. OriginalEMLCRLFand2PCAPsexactbytesmatched;othertextLFnormalizedmatched. Onlyafterproofadvancedday2display1–12/clearedactivebatch.36previousbodies/otherhomepagecontentpreserved. Next13original150–155/14original156–160,actuallyreopenandcurrentprimarychecksneeded. Partialbrowserlimitsasabove;originalworkbook/VM/liveSMTP/TLSunverified. Wholecourseunfinished,automationactive/local.
