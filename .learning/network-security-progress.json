@@ -7,30 +7,36 @@
     3,
     4,
     5,
-    6
+    6,
+    7,
+    "d2-07b"
   ],
   "source_scope": {
-    "volume": 1,
+    "volume": 2,
     "printed_pages": [
-      168,
-      172
+      107,
+      123
     ],
     "pdf_pages": [
-      170,
-      174
+      109,
+      125
     ],
-    "workbook_vm_scope": "First-day independent explanatory coverage through printed172 accounted for. Original volume1 has174physicalPDFpages. Final audit combines all per-batch correspondence, full page index, manuscript headings and selected rereads, not a fresh all-page reread. Original separateworkbook/wiki/VM exercises remain unexecuted; lab26 is independent memory SQL."
+    "workbook_vm_scope": "Existing day2source5-106 correspondence audited with original5-30 reread/page-index/prior coverage reviews/current headings/selected source cross-checks; not fresh full reread of31-106. New107-123 complete. Independent harmlessPCAP/encoding/timing only; originalworkbook/wiki/VM unexecuted.124-138 read-ahead only."
   },
   "next_scope": {
     "day": 2,
-    "lesson": 7,
-    "lesson_id": 7,
-    "topic": "기존 둘째 날1~6과2권 원문범위 대응부터 재점검한 뒤 가장 앞선 미완료 범위",
+    "lesson": 9,
+    "lesson_id": "d2-07c",
+    "topic": "HTTP 공격 흐름/리디렉션/침해 판단과 HTTPS 관측",
     "volume": 2,
-    "printed_start": 5,
-    "pdf_start": 7,
-    "status": "coverage_audit_required_before_authoring",
-    "numbering_note": "Preserve published day2old1-6 IDs/numbers/URLs/bodies. TOC read, detailed source5-106/manuscript correspondence audit still required. Planned7 beginsHTTP(S)analysis107/PDF109; choose earliest uncovered range after audit, split only unpublished ranges. Do not repeat first-day25/26 or restart completed scope. Entire course unfinished; automation remains active/local."
+    "printed_start": 124,
+    "pdf_start": 126,
+    "status": "planned",
+    "batch_lessons": [
+      9,
+      10
+    ],
+    "numbering_note": "Next9=d2-07c source124-129 attackflow/cases;10=d2-07d source130-136 TLS/decryption/certificates/fingerprints/summary. Read-ahead not completed, reopen actualsource. Check ApacheLog4j official advisories, attackattempt vs callback/delivery/execution, dynamicDNS normalexceptions; TLS1.2/1.3handshakevisibility, forwardsecrecyandPSKexceptions/currentECH/SANvsCN/selfsigned/JA3-JA3S-JARMactivevs passive. Never execute source attack commands or liveprobe. Original137-138exercise planned11=id8. Preserve allpublishednumbers/IDs/URLs/prose;splitonlyunpublishedrangesifneeded. Entirecourseunfinished,automation active/local."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -70,12 +76,17 @@
       3,
       4,
       5,
-      6
+      6,
+      7,
+      8
     ]
   },
   "menu_reorganized": true,
-  "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": {
+  "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "07ab315a03e72e865739c7b2872ff45fb2bf7f95",
     "day": 2,
     "lessons": [
       7,
@@ -85,37 +96,18 @@
       7,
       "d2-07b"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      107,
-      123
-    ],
-    "scope": "Rechecked prior volume2 scope5-106 correspondence. New107-116 triage/headers/cookies and117-123encoding/files/frequency/IP;124-136read-ahead remainsnext9/10. Originalworkbook/VM unexecuted."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "2a01bb19c6e225ee6e666a1cf2cb1145d8d7035a",
-    "day": 1,
-    "lessons": [
-      25,
-      26
-    ],
-    "lesson_ids": [
-      "d1-15",
-      "d1-16"
-    ],
     "deployment": "success",
-    "actions_run": 42190717428,
-    "public_files_checked": 46,
+    "actions_run": 42199411382,
+    "public_files_checked": 52,
     "public_content_match": true,
-    "browser_visual_qa": "unavailable: fresh CUA browsers[]; Korean-font six SVG static renders/contact sheet inspected. Actualbrowser/mobile untested.",
-    "product_execution": "Only fictional local file reading, SQLite memory query/output; no originalworkbook/wiki/VM/SIEM/Kibana/Elasticsearch/PCAP/network/authattempt/API/casecreation/block/accountchange/message/install/purchase.",
+    "browser_visual_qa": "FreshCUAbrowsers[]; six400pxSVG static Koreanfontrenders/contactsheet inspected,bounds[]. Actualbrowser/mobile untested.",
+    "product_execution": "Ownharmlesspacketgenerationanddpktinterpretation/Base64/CSV only. No livecapture/URLsubmission/sitevisit/originalworkbook/VM/Wireshark/filter/GUIexport/TLSdecrypt/malware/fileexecution/authattempt/API/block/messages/accountchange/install/purchase.",
     "new_figures": 6,
-    "new_review_questions": 24,
-    "download_files": 4,
-    "synthetic_calculations": "Python3.12.14/SQLite3.53.1 eighteen runs; raw12/duplicate1/unique11/selected10/missingidentity1/candidate1 failures3; cutoff09:06candidate0,receivedtime same3 different IDs,threshold4zero,offset/start/end/crosssourceID/detail changes,9invalid exit2. Fourinputs unchanged. SQL matches manuscript. Verdict unresolved/sessionlinks notestablished/externalactions0.",
-    "official_sources_checked": "2026-11-06;NIST80061r3Apr2025/FIRSTTLP2/ASDACSCMay272025/ElasticKQLfilter/ECSstages/Python3.12sqlite3/currentSELECTsyntax. Actualruntime differs from currentdocumentationpatch; no permanentlatest claim.",
-    "execution_environment": "local; cloud migration incomplete"
+    "new_review_questions": 26,
+    "download_files": 8,
+    "synthetic_calculations": "Python3.12.14/dpkt1.9.8 fromexistingtmp/lab-deps;initialdefaultimportfailed,explicitpath succeeded,noinstall.17runs+66Base64lengthroundtrips.8inputsunchanged.FullPCAP3frames checksumsvalid:header108/gzip35/total143,segments118+25,decoded15hashmatch.Missingtail2framesbody10/missing25noinventeddecode.Reorder/exactretransmissionpass;gap/conflict/checksum/length/encodingfail.CSV20/dedup1/unique19,A/Bmean60/Cmean60range10/Dmean80range60;contextnotapproval;allverdictsunresolved/externalactions0.",
+    "official_sources_checked": "2026-11-06;urlscancurrentvisibility/VTprivate/ChromiumUA101+reduction/ChromeUA-CH89/MozillaGeckofixed20100101/WOW64/RFC6265+4648/JPCERT2017ChChesencryption/ESET2017M.E.Doc/WiresharkHTTPfields1.0.0-4.6.9and4.6.9HTTP2exportsource/Python3.12base64+urllib/MITRET1132.001/RITA. Actualruntime3.12.14 vsdocumentationpatch3.12.16 distinguished; no permanentlatestversionclaims.",
+    "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
     "d1-01",
@@ -155,5 +147,24 @@
     "unassigned_technical_ranges": [],
     "independent_course_coverage": "complete_with_documented_original_workbook_execution_limit",
     "original_exercises_completed": false
+  },
+  "completed_lesson_ids_day2": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    "d2-07b"
+  ],
+  "day2_prior_coverage_audit": {
+    "printed_pages": [
+      5,
+      106
+    ],
+    "review": ".learning/reviews/blue-team-day02-batch01-20261106.md",
+    "unassigned_conceptual_ranges_identified": [],
+    "original_workbook_execution_verified": false
   }
 }

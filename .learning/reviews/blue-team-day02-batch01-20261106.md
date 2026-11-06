@@ -70,3 +70,8 @@ SeparateCSV20rows/dedup1/unique19, notPCAP-derived20requests. A/Bgaps60x4,mean60
 Build34published. validate_day02_batch01.py passed36HTMLstructure/IDs/allrelativeassets+anchors/clickabledownloads/sixdaygroups/day1numbers1–26/day2numbers1–15/validnextd2-07c/32oldbodies+otherhomecontent/inlinecoderegressions. New46sections/161paragraphs/2tables/6SVG/26immediateexplainedquestions. Six400pxSVG Koreanfontbounds[], output/network-security/http-analysis-contact-sheet.png inspected; labels/direction/unitreadable. Sourceimagesprivate. Responsiveimage/internaltablecodescrollstructurespreserved. CUA refreshed browsers[]; actualbrowser/mobile untested, no workaround.
 
 Publication/deployment/publiccontentproof pending. Keepactivebatch until verified; don'tstart9/10now. Wholecourseunfinished;automation-2active/local, cloudmigrationincomplete.
+
+
+## Verified publication result2026-11-06
+
+Publication07ab315a03e72e865739c7b2872ff45fb2bf7f95;Actions42199411382completed/success. Public52resourcesHTTP200/contentmatch (36HTML/CSS/coursejson/6SVG/8labfiles). TwoPCAPsandexpectedtext matchedrawbytes;othertextnormalizedLFmatched. Onlyafterproofprogress advancedday2display1–8/clearedactivebatch.32previousbodies/otherhomecontentpreserved. Next9/10source124–136 remainsplanned;originalworkbook/VM/browser/mobile unverified. Automation-2remainsactive/local, wholecourseunfinished.
