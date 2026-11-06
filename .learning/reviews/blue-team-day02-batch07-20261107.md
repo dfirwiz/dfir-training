@@ -53,3 +53,8 @@ FTP: 전체13프레임/226있음/관측15바이트/참조15/일치true. 뒤6바�
 render_management_transfer_figures.py의실제Malgun폰트FONT BOUNDS []와수정후6그림모음육안확인. FTP STOR는제어명령이므로데이터화살표의STOR표시를수정해자료전송으로명확히했다. 방향·캡슐화·질문순서·단위·범례·가상자료한계명시. 신선한CUA목록browsers=[]/Work설정상로컬브라우저사용중지확인. 우회하지않고completion_summary전달. 실제브라우저/모바일레이아웃·Wireshark는미검증.
 
 완료목록은배포Actions성공과공개응답/내용일치뒤에만갱신한다. 실패하면active_batch와원고보존. 다음21ICMP174/22원격도구·통신기준175–176은실제다시열고현재근거로집필한다. 다른자동화변경없음.
+
+
+## Verified publication result 2026-11-07
+
+Publication dc42fb36909d2df7abd9b91c0612795a3dc5a766; Actions 42312498807 completed/success. Public64resourcesHTTP200/contentmatch:48HTML/CSS/coursejson/6SVG/8downloads;PCAP2and15byteexpected-noteexactbytes,othertextLFnormalized. Onlyafterproofadvancedday2display1–20/clearedactivebatch.44previousbodies/datesandcompactredhomepreserved. Next21ICMP174/PDF176,22RMM175–176/PDF177–178;read-aheadnotcompletion/reopenbeforeauthoring. Browserdisabled/staticonly. Actualremoting-FTPserver/authentication/storage/Windowslogs/incidentPCAP/workbook-VMunverified. Wholecourseunfinished/localautomationactive.
