@@ -15,34 +15,40 @@
     8,
     9,
     "d2-09b",
-    "d2-09c"
+    "d2-09c",
+    10,
+    "d2-10b"
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      150,
-      160
+      161,
+      168
     ],
     "pdf_pages": [
-      152,
-      162
+      163,
+      170
     ],
-    "workbook_vm_scope": "All11pagesactuallyread;printed153/156privatePNGviewed,fontwarningscrosschecked.13senderclaims/SPF/headers150-155,14DKIM/DMARC/summary156-160. Own6textfiles/conditioncalculationsonly;nooriginalworkbook/VM/SMTP/DNS/cryptographicverification. Current9989/9990/9991May2026corrections. Nooriginalsourcepublic."
+    "read_ahead_printed_pages": [
+      169,
+      176
+    ],
+    "workbook_vm_scope": "Actuallyread161-176butcompleteonly161-168.15DHCP161-165/16SMB166-168;source165/168privatePNGviewed/fontwarningscrosschecked. Ownoffline4/3framePCAPs/fictionallease-and-SMBclaims;38runs/dpkt4frames. Nooriginalworkbook/VM/liveDHCP/SMB/Windowslogs/remoteexecution. Nooriginalsourcepublic."
   },
   "next_scope": {
     "day": 2,
-    "lesson": 15,
-    "lesson_id": 10,
-    "topic": "추가 네트워크 프로토콜부터 원문 순서대로",
+    "lesson": 17,
+    "lesson_id": "d2-10c",
+    "topic": "SSH부터 원격 관리 통신을 원문 순서대로",
     "volume": 2,
-    "printed_start": 161,
-    "pdf_start": 163,
+    "printed_start": 169,
+    "pdf_start": 171,
     "status": "planned",
     "batch_lessons": [
-      15,
-      16
+      17,
+      18
     ],
-    "numbering_note": "Actuallyopen161+andselecttwoadequatelydetailedlessons. Current15=numericID10additionalprotocols,16=numericID11summary,17=numericID12emailworkbook179-180pointerareprovisional;splitonlyunpublishedscopeifprotocolrange161-176toolarge. Neverrenumberpublished1-14/day1all26orchangeURLs/prose. Originalseparateworkbook/VMcompletionunverified. Preservecompactred-teamhomepage4topics. Wholecourseunfinished/automationlocalactive/cloudmigrationincomplete."
+    "numbering_note": "Read-ahead169-176donebutnotcomplete. Reopenoriginal169-172(SSH/tunnels/RDP/VNC/PowerShellremoting)and173-176(FTP/ICMP/RMM/trafficbaseline)beforewriting. Current17=d2-10c/18=d2-10dprovisional;splitonlyunpublishedscopefortwodetailedlecturesifneeded. SummaryID11now19/emailworkbookID12now20pointer179-180notoriginalexercisecompletion. CorrectoutboundSSHphysicaldirectionvsreversechannel/forwardtargetreachability/currentVNCproductsecurity/WinRMauth-encryption-defaults/ICMPsize-MTUetcwithprimarysources. Preserveallpublishedday2 1-16/day1 1-26IDs/URLs/numbers/prose/dates/compactredhome. Wholecourseunfinished/automationlocalactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -90,12 +96,17 @@
       11,
       12,
       13,
-      14
+      14,
+      15,
+      16
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "aeebc0a7c37123578aa1f84e34838ae94cbb275d",
     "day": 2,
     "lessons": [
       15,
@@ -105,51 +116,23 @@
       10,
       "d2-10b"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      161,
-      168
-    ],
-    "source_pdf": [
-      163,
-      170
-    ],
-    "read_ahead_printed": [
-      169,
-      176
-    ],
-    "review": ".learning/reviews/blue-team-day02-batch05-20261107.md",
-    "scope": "Actuallyread161-176,completeonly161-168thisbatch.DHCP/SMBsplitfordepth;preserveall40publishedbodies/URLs/numbersandcompactredhome.Resumeincompletebatchbeforenewwriting.Nooriginalworkbook/VM/liveDHCP/SMB/remoteexecution.",
-    "validation": "44HTML/40priorbodies+dates/compacthomepreserved;6SVGfontbounds[]/38localruns/9inputsunchanged/dpkt4frames;browserdisabled/noactualserverorWindowsloganalysis."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "fd34b663108203eab0d443c254ea66210b1205b6",
-    "day": 2,
-    "lessons": [
-      13,
-      14
-    ],
-    "lesson_ids": [
-      "d2-09b",
-      "d2-09c"
-    ],
     "deployment": "success",
-    "actions_run": 42294402604,
-    "public_files_checked": 56,
+    "actions_run": 42297657767,
+    "public_files_checked": 61,
     "public_content_match": true,
     "new_figures": 6,
-    "new_review_questions": 26,
-    "download_files": 6,
-    "html_pages_checked": 42,
-    "previous_bodies_preserved": 38,
-    "new_sections": 43,
+    "new_review_questions": 30,
+    "download_files": 9,
+    "binary_download_files": 2,
+    "html_pages_checked": 44,
+    "previous_bodies_preserved": 40,
+    "new_sections": 42,
     "new_paragraphs": 153,
     "new_tables": 3,
-    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;noworkaround. Six400pxSVGstaticMalgunfontbounds[]/contactsheetviewed;existingwidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutnotverified.",
-    "synthetic_calculations": "Python3.12.14standardlibrary;35processruns/6inputSHA256unchanged. SPFsubset8results pass/fail/softfail/neutral/none/neutral/fail/pass;firstmatch/boundaries/IPfamily/Fromchange/unsupportedinputs. Strictalignment7results fail/pass/pass/fail/pass/unverified/fail;multiple-signatures/normalization/strictsubdomain/trust/errorcontracts. AllactualSPF/DKIM/DMARCverificationfalse,incidentunresolved/externalactions0. Neitherprogramimplementsfullprotocol.",
-    "official_sources_checked": "2026-11-07:RFC7208/8601/6376/8301/8463/9989/9990/9991/Microsoftmessageheaders. CurrentDMARC9989May2026replaces7489/9091;DNS Tree Walk/pctremoved/t=y-n/reportingsplit;producttransitionnotassumed. Selectorvsheaders/softfailvsallowed/FromvsMAILFROM/onealignedpassOR/trustboundary/policyvsaction/allpassnotcontentsafe.",
-    "product_execution": "IndependentlocalJSONconditions/metadataonly;noSMTPsend/authentication/DNSlookup-or-change/keygeneration/signing-or-verification/DMARCpolicy-discovery-or-TreeWalk/receiveraction/report/packetanalysis/originalworkbook/VM.",
+    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;noworkaround/completion_summarysent. Six400pxSVGstaticMalgunfontbounds[]/contactsheetviewed;existingwidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutunverified.",
+    "synthetic_calculations": "Python3.12.14stdlib38processruns/9inputSHA256unchanged;existingdpkt1.9.8independent4frames/noinstall. DHCP4/3framePCAPs/checksums/fields/ACKobservation;order/xid/address/checksum/truncation/unsupportedformat/options/retransmissionlimits. LeaseQ1a/Q2b/Q3c/Q4none,overlap/timezone/scope/invalidcontracts. SMBclaimsC1none/C2share/C3service+processcandidate/C4targetmismatch/C5installonly/C6approvalassumption;host-ID-time-imageconditions/invalidinputs. Allincidentunresolved/externalactions0;actualdeviceowner/SMB/Windowslogs/causalexecutionunverified.",
+    "official_sources_checked": "2026-11-07:RFC2131/2132/6842/3046/9724/IEEEidentifierguidance/MicrosoftDHCP;Wiresharkdhcp3.0.0-4.6.9vsbootp1.0.0-2.6.20. MicrosoftSMBoverview/negotiate/dialects/sharedstack/security/signing/QUIC/PsExec/MS17-010/LAPS/auditevents4624-5140-5145-4697/processaudit;Wiresharksmb2 1.0.0-4.6.9. DORAdestinations/selection/lease/mapping/MACrandomization;SMBordinarysharevsadmin/3.1.1/sharedstack/signing-role-and-edition/UDP443/credential-vs-vulnerability/installation-vs-execution. No permanentlatestclaims.",
+    "product_execution": "OnlyofflineoriginalsyntheticDHCPpacketparsing/fictionalleaseintervalandSMBclaimcomparison. Noactualnetworkcapture/serverinteraction/Windowsloganalysis/SMBlogin/PsExec/serviceorprocesscreation/credentialcollection/scans/policychanges/originalworkbook/VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -205,7 +188,9 @@
     8,
     9,
     "d2-09b",
-    "d2-09c"
+    "d2-09c",
+    10,
+    "d2-10b"
   ],
   "day2_prior_coverage_audit": {
     "printed_pages": [

@@ -50,3 +50,8 @@ SMB주장C1인증없음/C2공유조건/C3서비스+프로세스후보/C4다른�
 render_protocol_evidence_figures.py의실제Malgun글꼴경계검사FONT BOUNDS []와6그림모음이미지육안확인. DORA그림은역할방향/브로드캐스트목적지구분,다른도식은조사순서·시간단위·판단한계범례를표시. 현재CUA신선한목록browsers=[]/Work설정상로컬브라우저사용중지. 우회하지않았고completion_summary를보냈다. 실제브라우저·모바일레이아웃은미검증이며정적검증을그것으로표현하지않는다.
 
 실제DHCP/SMB서버·서비스·스캔·PCAP캡처·Windows감사로그분석·원격도구·자격증명수집·정책변경·워크북/VM실행은수행하지않았다. 게시·배포성공·공개HTTP응답/내용일치후에만진도를완료로바꾼다. 전체과정은미완료/자동화로컬유지/클라우드이전미확인/다른자동화변경없음.
+
+
+## Verified publication result 2026-11-07
+
+Publicationaeebc0a7c37123578aa1f84e34838ae94cbb275d;Actions42297657767completed/success. Public61resourcesHTTP200/contentmatch:44HTML/CSS/coursejson/6SVG/9downloads. BothPCAPsexactbytesmatched;othertextLFnormalizedmatched. Onlyafterproofadvancedday2display1–16/clearedactivebatch.40previousbodiesanddates/compactred-teamhomepreserved. Next17startsprinted169/PDF171;169–176read-aheadnotcompletion,reopenandsplitunpublishedscopefordepth. Browserdisabled/staticonly;originalworkbook/VM/liveDHCP/SMB/Windowsloganalysisunverified. Wholecourseunfinished/automationlocalactive.
