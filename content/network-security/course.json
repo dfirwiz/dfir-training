@@ -491,27 +491,49 @@
       "id": "d2-10c-winrm",
       "day": 2,
       "number": 19,
-      "title": "PowerShell 원격 관리와 WinRM",
-      "status": "planned"
+      "title": "PowerShell 원격 관리: 전송·인증·실행의 근거",
+      "status": "published",
+      "short_title": "WinRM·PSRP와 원격 명령",
+      "slug": "19-powershell-remoting-evidence",
+      "description": "둘째 날 19강. 원격 명령의 계층과 WSMan·SSH 전송, 인증·메시지 보호·권한을 구별하고 가상 조건을 조사 근거와 연결합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": "d2-10d",
       "day": 2,
       "number": 20,
-      "title": "파일 전송·ICMP·원격 도구와 통신 기준",
+      "title": "FTP: 제어 연결·데이터 연결과 전송 증거",
+      "status": "published",
+      "short_title": "FTP·전송과 수집의 한계",
+      "slug": "20-ftp-control-data-evidence",
+      "description": "둘째 날 20강. FTP의 제어·데이터 채널과 보안을 이해하고 자체 패킷의 서버 응답·바이트·참조 자료를 구별해 분석합니다.",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d2-10d-icmp",
+      "day": 2,
+      "number": 21,
+      "title": "ICMP: 오류·진단·데이터와 관측 한계",
+      "status": "planned"
+    },
+    {
+      "id": "d2-10d-rmm",
+      "day": 2,
+      "number": 22,
+      "title": "원격 관리 도구와 승인된 통신 기준",
       "status": "planned"
     },
     {
       "id": 11,
       "day": 2,
-      "number": 21,
+      "number": 23,
       "title": "둘째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": 12,
       "day": 2,
-      "number": 22,
+      "number": 24,
       "title": "SMTP와 이메일 분석 실습",
       "status": "planned"
     },
@@ -837,6 +859,8 @@
         "d2-10c-rdp",
         "d2-10c-winrm",
         "d2-10d",
+        "d2-10d-icmp",
+        "d2-10d-rmm",
         11,
         12
       ]
@@ -911,6 +935,6 @@
       ]
     }
   ],
-  "next_lesson": "d2-10c-winrm",
-  "planning_note": "둘째날공개1~18의번호·ID·URL·본문·날짜를보존합니다.17SSH169~170/18RDP·VNC171로깊이에맞춰분할했습니다.다음19WinRM172,20FTP·ICMP·원격도구173~176은원문을다시열고필요하면미공개만세분합니다.21종합정리/22이메일워크북안내잠정.원본워크북·실제원격접속수행을가정하지않습니다."
+  "next_lesson": "d2-10d-icmp",
+  "planning_note": "둘째날공개1~20의번호·ID·URL·본문·날짜를보존합니다.19WinRM172/20FTP173로깊이에맞춰분할했습니다.다음21ICMP174/22원격도구·통신기준175~176은다시원문확인후집필합니다.23종합정리/24이메일별도실습안내잠정.원본워크북·실제원격접속·FTP전송수행을가정하지않습니다."
 }

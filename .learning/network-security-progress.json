@@ -110,7 +110,33 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 2,
+    "lessons": [
+      19,
+      20
+    ],
+    "lesson_ids": [
+      "d2-10c-winrm",
+      "d2-10d"
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      172,
+      173
+    ],
+    "source_pdf": [
+      174,
+      175
+    ],
+    "read_ahead_printed": [
+      174,
+      176
+    ],
+    "review": ".learning/reviews/blue-team-day02-batch07-20261107.md",
+    "scope": "Reopened172-176;completeonly172-173thisbatch.19WinRM/20FTPsplitfordepth;future21ICMP174/22RMM175-176. Preserve44publishedbodies-dates-IDs-URLs-numbersandcompactredhome.NoactualWinRM-SSH-FTP/serverconfiguration/authentication/originalworkbook-VM.",
+    "local_check": "35processruns/8inputsunchanged/dpkt13frames/static48HTML/6SVGfontbounds[];browserdisabled"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "f693b654ef17a8d8cd2c5cb0b4f296e90c201408",

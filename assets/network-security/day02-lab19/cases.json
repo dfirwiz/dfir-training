@@ -1,0 +1,78 @@
+{
+  "schema": "training-remoting-claims-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "peer_identity_checked_in_fixture": true,
+      "trustedhosts_in_fixture": false,
+      "approved_in_fixture": false,
+      "id": "W1",
+      "port": 5985,
+      "transport": "wsman-http",
+      "authentication_claim": "kerberos",
+      "message_protection_claim": "encrypted"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "peer_identity_checked_in_fixture": false,
+      "trustedhosts_in_fixture": false,
+      "approved_in_fixture": false,
+      "id": "W2",
+      "port": 5985,
+      "transport": "wsman-http",
+      "authentication_claim": "basic",
+      "message_protection_claim": "none"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "peer_identity_checked_in_fixture": true,
+      "trustedhosts_in_fixture": false,
+      "approved_in_fixture": false,
+      "id": "W3",
+      "port": 5986,
+      "transport": "wsman-https",
+      "authentication_claim": "basic",
+      "message_protection_claim": "none"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "peer_identity_checked_in_fixture": true,
+      "trustedhosts_in_fixture": false,
+      "approved_in_fixture": false,
+      "id": "W4",
+      "port": 22,
+      "transport": "ssh",
+      "authentication_claim": "publickey",
+      "message_protection_claim": "none"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "peer_identity_checked_in_fixture": false,
+      "trustedhosts_in_fixture": true,
+      "approved_in_fixture": false,
+      "id": "W5",
+      "port": 5985,
+      "transport": "wsman-http",
+      "authentication_claim": "ntlm",
+      "message_protection_claim": "encrypted"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "peer_identity_checked_in_fixture": false,
+      "trustedhosts_in_fixture": false,
+      "approved_in_fixture": false,
+      "id": "W6",
+      "port": 5985,
+      "transport": "unknown",
+      "authentication_claim": "unknown",
+      "message_protection_claim": "unknown"
+    }
+  ]
+}
