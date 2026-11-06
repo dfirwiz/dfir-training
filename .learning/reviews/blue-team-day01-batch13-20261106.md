@@ -60,3 +60,8 @@ scripts/build_network_security.py built32 lessons. validate_day01_batch13.py pas
 After proof, preserve day2old1–6 and audit volume2 source5–106 against existing manuscripts/reviews before choosing earliest missing. Actual volume2 count182; TOC read: architecture5/capture18/DNS31/analysis51/exercise86/HTTP88/HTTP(S)analysis107/exercise137/SMTP139/additional161/summary177/finalexercise179. PlannedID7 corresponds107+, but full prior-content/source audit remains required; no day2 technical range newly completed here. Split planned ranges as needed without renumbering published lessons.
 
 Remote publication/deployment/public verification pending. Automation-2 remains active/local, cloud migration incomplete. No overlapping new batch.
+
+
+## Verified publication result2026-11-06
+
+Publication2a01bb19c6e225ee6e666a1cf2cb1145d8d7035a; Actions42190717428 completed success. Public46resources allHTTP200 and normalizedLF content match (34HTML/CSS/coursejson/6SVG/4labfiles). Only after this proof progress advanced firstday1–26 and cleared active_batch. Thirty prior bodies/otherhomepage preserved. Actualbrowser/mobile remain untested. Next: audit existing second-day1–6 against source, then earliest missing; originalworkbook/VM not executed. Wholecourse unfinished, automation-2 active/local.
