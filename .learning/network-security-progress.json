@@ -87,7 +87,28 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 2,
+    "lessons": [
+      11,
+      12
+    ],
+    "lesson_ids": [
+      8,
+      9
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      137,
+      149
+    ],
+    "source_pdf": [
+      139,
+      151
+    ],
+    "review": ".learning/reviews/blue-team-day02-batch03-20261106.md",
+    "scope": "Original137-149 actually reopened,137-138separateworkbookpointer;11independentHTTPHTTPSexercise,12SMTP139-149. Nooriginalworkbook/VM/liveSMTP/attackcommands. SplitonlyunpublishedSMTP:13SPF150-155/14DKIMDMARC156-160;preservepublished1-10."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "175fbc6d9a81e329da70b14bac15e9a3f0987c19",

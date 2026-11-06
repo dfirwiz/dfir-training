@@ -1,0 +1,8 @@
+{
+  "schema": "training-mail-trace-v1",
+  "external_actions_allowed": false,
+  "boundary_received_index": 1,
+  "expected_by": "edge.receiver.example",
+  "expected_peer_ip": "198.51.100.40",
+  "notice": "Fictional analyst assumption only; no real server provenance verified"
+}

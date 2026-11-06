@@ -12,3 +12,7 @@ assets/network-security/day02-lab08/*.pcap -text
 assets/network-security/day02-lab08/expected-note.txt -text
 
 assets/network-security/day02-lab10/* text eol=lf
+
+assets/network-security/day02-lab11/* text eol=lf
+assets/network-security/day02-lab12/* text eol=lf
+assets/network-security/day02-lab12/message.eml -text

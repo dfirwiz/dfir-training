@@ -1,0 +1,23 @@
+Fictional annotated transcript, never a command file or live connection.
+S: 220 submit.sender.example ESMTP
+C: EHLO client.sender.example
+S: 250-submit.sender.example
+S: 250 SIZE 100000
+C: MAIL FROM:<bounce@mailer.example>
+S: 250 2.1.0 Sender accepted
+C: RCPT TO:<analyst@receiver.example>
+S: 250 2.1.5 Recipient accepted
+C: RCPT TO:<absent@receiver.example>
+S: 550 5.1.1 Recipient unavailable
+C: DATA
+S: 354 Send message, end with a dot on its own line
+C: From: Accounts Team <invoice@sender.example>
+C: To: Analyst <analyst@receiver.example>
+C: Subject: Training message only
+C:
+C: Training message only.
+C: ..A body line beginning with a dot.
+C: .
+S: 250 2.0.0 Queued as SUBMIT42
+C: QUIT
+S: 221 Closing connection

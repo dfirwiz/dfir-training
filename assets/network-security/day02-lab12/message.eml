@@ -1,0 +1,29 @@
+Return-Path: <bounce@mailer.example>
+Received: from edge.receiver.example (edge.receiver.example [203.0.113.10])
+ by store.receiver.example with ESMTP id STORE42;
+ Fri, 06 Nov 2026 10:00:04 +0000
+Received: from outbound.sender.example (outbound.sender.example [198.51.100.40])
+ by edge.receiver.example with ESMTP id EDGE42;
+ Fri, 06 Nov 2026 10:00:01 +0000
+Received: from laptop.sender.example (laptop.sender.example [192.0.2.25])
+ by outbound.sender.example with ESMTPSA id CLAIM42;
+ Fri, 06 Nov 2026 20:59:58 +1100
+From: Accounts Team <invoice@sender.example>
+To: Analyst <analyst@receiver.example>
+Date: Fri, 06 Nov 2026 20:59:57 +1100
+Message-ID: <training-42@sender.example>
+Subject: Training message only
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="MAIL-TRAINING-42"
+
+--MAIL-TRAINING-42
+Content-Type: text/plain; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+Training message only.
+--MAIL-TRAINING-42
+Content-Type: text/html; charset=us-ascii
+Content-Transfer-Encoding: 7bit
+
+<p>Training message only.</p>
+--MAIL-TRAINING-42--

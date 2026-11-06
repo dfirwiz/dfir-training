@@ -367,34 +367,54 @@
       "id": 8,
       "day": 2,
       "number": 11,
-      "title": "HTTP·HTTPS 분석 실습",
-      "status": "planned"
+      "title": "HTTP·HTTPS 조사 실습: 자료를 대조하고 빈칸을 남기기",
+      "status": "published",
+      "short_title": "HTTP·HTTPS 독립 조사 실습",
+      "slug": "11-http-https-investigation-practice",
+      "description": "둘째 날 11강. 무해한 자체 PCAP와 별도 가상 보고를 대조해 본문 복원·해시·시간·암호화의 관측 한계를 조사 메모로 연결합니다."
     },
     {
       "id": 9,
       "day": 2,
       "number": 12,
-      "title": "SMTP와 이메일 통신",
+      "title": "이메일의 전달 원리: SMTP 대화와 Received 추적",
+      "status": "published",
+      "short_title": "SMTP 전달과 Received 추적",
+      "slug": "12-smtp-delivery-received-trace",
+      "description": "둘째 날 12강. 제출·중계·열람과 봉투·메시지를 나누고, 자체 이메일의 시간·전달 경로·신뢰 경계를 확인합니다."
+    },
+    {
+      "id": "d2-09b",
+      "day": 2,
+      "number": 13,
+      "title": "이메일 발신 주장과 SPF의 검증 범위",
+      "status": "planned"
+    },
+    {
+      "id": "d2-09c",
+      "day": 2,
+      "number": 14,
+      "title": "DKIM·DMARC와 이메일 인증 결과 해석",
       "status": "planned"
     },
     {
       "id": 10,
       "day": 2,
-      "number": 13,
+      "number": 15,
       "title": "추가 네트워크 프로토콜",
       "status": "planned"
     },
     {
       "id": 11,
       "day": 2,
-      "number": 14,
+      "number": 16,
       "title": "둘째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": 12,
       "day": 2,
-      "number": 15,
+      "number": 17,
       "title": "SMTP와 이메일 분석 실습",
       "status": "planned"
     },
@@ -712,6 +732,8 @@
         "d2-07d",
         8,
         9,
+        "d2-09b",
+        "d2-09c",
         10,
         11,
         12
@@ -787,6 +809,6 @@
       ]
     }
   ],
-  "next_lesson": 8,
-  "planning_note": "둘째 날 기존1~8강을보존하며HTTP분석을9강/HTTPS관측을10강으로연결했습니다. 다음11강ID8은별도워크북안내와연결한독립HTTP·HTTPS실습입니다. 원본실습수행완료를가정하지않습니다."
+  "next_lesson": "d2-09b",
+  "planning_note": "둘째 날 공개1~12의번호·ID·URL·본문을보존합니다. SMTP범위를12강139~149/13강150~155/14강156~160으로나눕니다. 다음13=d2-09b는발신주장·위조·SPF,14=d2-09c는DKIM·DMARC·요약입니다. 원본별도워크북수행은미확인이며11강은독립실습입니다."
 }

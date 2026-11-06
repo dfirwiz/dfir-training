@@ -105,3 +105,8 @@ TheHive의 과거 무료 공개 소스 소개와 현재 Community/상용 라이�
 ## 2026-11-06 day2 batch02 — displayed9/10
 
 Original volume2 printed124–136/PDF126–138 reopened completely. HTTPattackflow/serverattempt/delivery/camouflage in9; TLSvisibility/certificates/proxy/keys/ECH/fingerprints in10. CurrentTLS1.3RFC9846July2026 and ECHRFC9849March2026 explicitly correct historical references. IndependentfictionalJSONonly; nooriginalattackcommands/liveprobe/keycollection/decrypt/workbookexecution. Six400pxoriginalSVG,2comparison tables,30immediateQ&A,22localconditionchecks;34oldbodies preserved. Original137–138exercise NEXT11=numericID8; SMTP139+ afterwards, splitunpublishedscope ifnecessary. No renumbering or URLchanges. Review blue-team-day02-batch02-20261106.md; do not markcompletedbeforedeployment/publicproof. Courseunfinished,automationlocalactive.
+
+
+## 2026-11-06 day2 batch03 — displayed11/12
+
+Original137–149/PDF139–151actuallyreopened.137–138onlyseparateworkbookpointer;11explicitindependentHTTP/HTTPSpracticeusingoldharmlessPCAP+separatefictionalreports,nooriginalworkbookcompletionclaim.12coversSMTPdelivery/commands/envelopevsmessage/Received/trust/timezones139–149. SplitonlyunpublishedSMTP:13=d2-09b150–155SPF,14=d2-09c156–160DKIMDMARC;followingplans15–17. Preservepublishednumbers/IDs/URLs/prose.25localconditionruns/6originalSVG/4tables/30immediateQ&A,36oldbodiespreserved. CurrentOutlookclassic/new/webmenu,SMTPUTF8/STARTTLS/portroles/NullMX/case/Receivedprovenancecorrections. FreshIABavailable,desktop/mobile390pxQAinprogress;recordactualchecksandlimits. Reviewblue-team-day02-batch03-20261106.md. Wholecourseunfinished,localautomationactive;deployment/publicproofbeforeprogresscomplete.

@@ -1,0 +1,32 @@
+{
+  "schema": "training-web-correlation-v1",
+  "external_actions_allowed": false,
+  "notice": "Separate fictional reports, not packet-extracted endpoint or TLS evidence",
+  "endpoint_reports": [
+    {
+      "id": "E1",
+      "reported_file_sha256": "571143bbfd4e9e23772d8174a1f60be72d69923ed8b4a8c4744081059cd4203f",
+      "time": "2026-11-06T20:00:05+11:00",
+      "execution": "unknown"
+    },
+    {
+      "id": "E2",
+      "reported_file_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+      "time": "2026-11-06T09:00:07+00:00",
+      "execution": "reported"
+    }
+  ],
+  "analyst_reference_time": "2026-11-06T09:00:00+00:00",
+  "tls_observation": {
+    "source": "fictional-network-summary",
+    "client": "192.0.2.25",
+    "server": "203.0.113.80",
+    "port": 443,
+    "tls_version_claim": "1.3",
+    "sni": "updates.example",
+    "ech_status": "unknown",
+    "http_path": null,
+    "http_body": null,
+    "process_identity": null
+  }
+}
