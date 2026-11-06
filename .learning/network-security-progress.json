@@ -76,7 +76,23 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs refer to existing day-two lessons. Use completed_by_day for the reorganized course.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 1,
+    "lessons": [
+      23,
+      24
+    ],
+    "lesson_ids": [
+      "d1-14e",
+      "d1-14f"
+    ],
+    "status": "source_review_and_drafting",
+    "source_printed": [
+      164,
+      167
+    ],
+    "scope": "Conti164-165;SolarWinds166;adversary module summary167. Review25 and integrated practice26 remain pending."
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "d5f6a84a11b03aef76e8dc0ef395410769650b80",

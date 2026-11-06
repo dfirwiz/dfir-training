@@ -1,0 +1,11 @@
+{
+  "schema":"training-claims-v1",
+  "notice":"Entirely fictional; not a SAML token, API schema, signature or authorization result.",
+  "policy":{"issuer":"https://idp.example","audience":"https://app.example"},
+  "records":[
+    {"id":"R1","issuer":"https://idp.example","audience":"https://app.example","not_before":"2026-11-01T10:55:00Z","not_on_or_after":"2026-11-01T11:05:00Z","fixture_signature_ok":true,"scenario_note":"Benign scenario assumed; not verified"},
+    {"id":"R2","issuer":"https://idp.example","audience":"https://other.example","not_before":"2026-11-01T10:55:00Z","not_on_or_after":"2026-11-01T11:05:00Z","fixture_signature_ok":true,"scenario_note":"Wrong audience in this fictional policy"},
+    {"id":"R3","issuer":"https://idp.example","audience":"https://app.example","not_before":"2026-11-01T10:55:00Z","not_on_or_after":"2026-11-01T11:00:00Z","fixture_signature_ok":true,"scenario_note":"End boundary excluded in training window"},
+    {"id":"R4","issuer":"https://idp.example","audience":"https://app.example","not_before":"2026-11-01T10:55:00Z","not_on_or_after":"2026-11-01T11:05:00Z","fixture_signature_ok":true,"scenario_note":"Assume signing authority compromised; this checker cannot assess that scenario"}
+  ]
+}

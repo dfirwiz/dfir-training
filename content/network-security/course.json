@@ -1,7 +1,7 @@
 {
   "title": "블루팀 필수 지식: 보안 운영과 분석",
   "slug": "network-security",
-  "updated": "2026-11-05",
+  "updated": "2026-11-06",
   "lessons": [
     {
       "id": "d1-01",
@@ -227,17 +227,21 @@
       "id": "d1-14e",
       "day": 1,
       "number": 23,
-      "title": "Conti 사례와 행위 기반 조사",
-      "short_title": "Conti와 행위 기반 조사",
-      "status": "planned"
+      "title": "Conti 사례: 도구 이름에서 행위의 증거로",
+      "short_title": "Conti와 행위의 증거",
+      "status": "published",
+      "slug": "day-01-23-conti-behavior-evidence",
+      "description": "첫째 날 23강. 과거 유출 자료를 실행 지시와 구별하고 탐색·자격 증명·원격 관리·반출·방어 약화의 증거를 연결합니다."
     },
     {
       "id": "d1-14f",
       "day": 1,
       "number": 24,
-      "title": "SolarWinds 공급망·신뢰·인증 조사",
+      "title": "SolarWinds: 공급망과 인증 신뢰의 조사",
       "short_title": "공급망과 인증 신뢰",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-01-24-solarwinds-trust-identity",
+      "description": "첫째 날 24강. 업데이트·후속 활동·서명과 신뢰를 나누어 읽고 가상 메타데이터 검사로 판단의 한계를 확인합니다."
     },
     {
       "id": "d1-15",
@@ -742,6 +746,6 @@
       ]
     }
   ],
-  "next_lesson": "d1-14e",
+  "next_lesson": "d1-15",
   "planning_note": "첫째 날 사례 모듈은21강 Mirai,22강 Colonial Pipeline,23강 Conti,24강 SolarWinds로 세분화합니다. 기존 공개 번호·ID·URL·본문은 유지하며 복습/종합실습은25/26강입니다."
 }
