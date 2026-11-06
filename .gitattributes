@@ -19,3 +19,7 @@ assets/network-security/day02-lab12/message.eml -text
 
 assets/network-security/day02-lab13/* text eol=lf
 assets/network-security/day02-lab14/* text eol=lf
+
+assets/network-security/day02-lab15/* text eol=lf
+assets/network-security/day02-lab15/*.pcap -text
+assets/network-security/day02-lab16/* text eol=lf

@@ -447,20 +447,49 @@
       "id": 10,
       "day": 2,
       "number": 15,
-      "title": "추가 네트워크 프로토콜",
+      "title": "DHCP: 사건 시점의 IP 주소를 단말 후보와 연결하기",
+      "status": "published",
+      "slug": "15-dhcp-address-time-evidence",
+      "short_title": "DHCP·임대·단말 식별",
+      "description": "둘째 날 15강. 주소 임대의 흐름과 시간·신원 한계를 이해하고 자체 DHCP 패킷과 가상 임대 기록으로 단말 후보를 확인합니다.",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d2-10b",
+      "day": 2,
+      "number": 16,
+      "title": "SMB: 파일 공유·인증·원격 실행의 증거 구별하기",
+      "status": "published",
+      "slug": "16-smb-access-execution-evidence",
+      "short_title": "SMB·공유·인증과 실행",
+      "description": "둘째 날 16강. SMB 연결·파일 접근·서비스 실행·취약점 가설을 구별하고 가상 네트워크·로그 자료의 증거 범위를 비교합니다.",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d2-10c",
+      "day": 2,
+      "number": 17,
+      "title": "SSH·RDP·PowerShell 원격 관리",
+      "status": "planned"
+    },
+    {
+      "id": "d2-10d",
+      "day": 2,
+      "number": 18,
+      "title": "파일 전송·ICMP·원격 도구와 통신 기준",
       "status": "planned"
     },
     {
       "id": 11,
       "day": 2,
-      "number": 16,
+      "number": 19,
       "title": "둘째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": 12,
       "day": 2,
-      "number": 17,
+      "number": 20,
       "title": "SMTP와 이메일 분석 실습",
       "status": "planned"
     },
@@ -781,6 +810,9 @@
         "d2-09b",
         "d2-09c",
         10,
+        "d2-10b",
+        "d2-10c",
+        "d2-10d",
         11,
         12
       ]
@@ -855,6 +887,6 @@
       ]
     }
   ],
-  "next_lesson": 10,
-  "planning_note": "둘째 날1~14강의번호·ID·URL·본문을보존합니다. 다음15강ID10은2권161쪽부터추가네트워크프로토콜이며,실제범위를읽고필요하면미공개범위만세분합니다. 원본별도워크북·실제SMTP인증·제품검증수행을가정하지않습니다."
+  "next_lesson": "d2-10c",
+  "planning_note": "둘째날공개1~16의번호·ID·URL·본문을보존합니다. 추가프로토콜을깊이에맞춰분할:15DHCP161~165,16SMB166~168;다음17SSH등169~172,18FTP등173~176은다시원문확인후필요시미공개만세분.19종합정리/20이메일별도실습안내잠정. 원본워크북·실제인증·침해재현수행을가정하지않습니다."
 }

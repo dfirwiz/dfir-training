@@ -1,0 +1,176 @@
+{
+  "schema": "training-smb-evidence-claims-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "id": "C1",
+      "flow": {
+        "source": "192.0.2.25",
+        "destination": "198.51.100.20",
+        "destination_port": 445
+      },
+      "approved_in_fixture": false
+    },
+    {
+      "id": "C2",
+      "flow": {
+        "source": "192.0.2.25",
+        "destination": "198.51.100.20",
+        "destination_port": 445
+      },
+      "approved_in_fixture": false,
+      "auth": {
+        "target": "fileserver-a",
+        "event": 4624,
+        "logon_type": 3,
+        "logon_id": "0x71",
+        "time": "2026-11-07T09:30:00Z"
+      },
+      "share": {
+        "target": "fileserver-a",
+        "event": 5140,
+        "logon_id": "0x71",
+        "share": "ADMIN$",
+        "time": "2026-11-07T09:30:04Z"
+      }
+    },
+    {
+      "id": "C3",
+      "flow": {
+        "source": "192.0.2.25",
+        "destination": "198.51.100.20",
+        "destination_port": 445
+      },
+      "approved_in_fixture": false,
+      "auth": {
+        "target": "fileserver-a",
+        "event": 4624,
+        "logon_type": 3,
+        "logon_id": "0x71",
+        "time": "2026-11-07T09:30:00Z"
+      },
+      "share": {
+        "target": "fileserver-a",
+        "event": 5140,
+        "logon_id": "0x71",
+        "share": "ADMIN$",
+        "time": "2026-11-07T09:30:04Z"
+      },
+      "service": {
+        "target": "fileserver-a",
+        "event": 4697,
+        "logon_id": "0x71",
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:06Z"
+      },
+      "process": {
+        "target": "fileserver-a",
+        "event": 4688,
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:08Z"
+      }
+    },
+    {
+      "id": "C4",
+      "flow": {
+        "source": "192.0.2.25",
+        "destination": "198.51.100.20",
+        "destination_port": 445
+      },
+      "approved_in_fixture": false,
+      "auth": {
+        "target": "fileserver-a",
+        "event": 4624,
+        "logon_type": 3,
+        "logon_id": "0x71",
+        "time": "2026-11-07T09:30:00Z"
+      },
+      "share": {
+        "target": "fileserver-a",
+        "event": 5140,
+        "logon_id": "0x71",
+        "share": "ADMIN$",
+        "time": "2026-11-07T09:30:04Z"
+      },
+      "service": {
+        "target": "fileserver-b",
+        "event": 4697,
+        "logon_id": "0x71",
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:06Z"
+      },
+      "process": {
+        "target": "fileserver-a",
+        "event": 4688,
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:08Z"
+      }
+    },
+    {
+      "id": "C5",
+      "flow": {
+        "source": "192.0.2.25",
+        "destination": "198.51.100.20",
+        "destination_port": 445
+      },
+      "approved_in_fixture": false,
+      "auth": {
+        "target": "fileserver-a",
+        "event": 4624,
+        "logon_type": 3,
+        "logon_id": "0x71",
+        "time": "2026-11-07T09:30:00Z"
+      },
+      "share": {
+        "target": "fileserver-a",
+        "event": 5140,
+        "logon_id": "0x71",
+        "share": "ADMIN$",
+        "time": "2026-11-07T09:30:04Z"
+      },
+      "service": {
+        "target": "fileserver-a",
+        "event": 4697,
+        "logon_id": "0x71",
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:06Z"
+      }
+    },
+    {
+      "id": "C6",
+      "flow": {
+        "source": "192.0.2.25",
+        "destination": "198.51.100.20",
+        "destination_port": 445
+      },
+      "approved_in_fixture": true,
+      "auth": {
+        "target": "fileserver-a",
+        "event": 4624,
+        "logon_type": 3,
+        "logon_id": "0x71",
+        "time": "2026-11-07T09:30:00Z"
+      },
+      "share": {
+        "target": "fileserver-a",
+        "event": 5140,
+        "logon_id": "0x71",
+        "share": "ADMIN$",
+        "time": "2026-11-07T09:30:04Z"
+      },
+      "service": {
+        "target": "fileserver-a",
+        "event": 4697,
+        "logon_id": "0x71",
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:06Z"
+      },
+      "process": {
+        "target": "fileserver-a",
+        "event": 4688,
+        "image": "C:/Training/maintenance.exe",
+        "time": "2026-11-07T09:30:08Z"
+      }
+    }
+  ]
+}

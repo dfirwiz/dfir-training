@@ -1,0 +1,14 @@
+{
+  "schema":"training-lease-interval-v1","external_actions_allowed":false,
+  "leases":[
+    {"scope":"office-a","ip":"192.0.2.25","client":"workstation-a","start":"2026-11-07T09:00:03Z","end":"2026-11-07T10:00:03Z"},
+    {"scope":"office-a","ip":"192.0.2.25","client":"workstation-b","start":"2026-11-07T10:00:03Z","end":"2026-11-07T11:00:03Z"},
+    {"scope":"office-b","ip":"192.0.2.25","client":"workstation-c","start":"2026-11-07T09:00:03Z","end":"2026-11-07T11:00:03Z"}
+  ],
+  "queries":[
+    {"id":"Q1","scope":"office-a","ip":"192.0.2.25","time":"2026-11-07T09:30:00Z"},
+    {"id":"Q2","scope":"office-a","ip":"192.0.2.25","time":"2026-11-07T10:00:03Z"},
+    {"id":"Q3","scope":"office-b","ip":"192.0.2.25","time":"2026-11-07T09:30:00Z"},
+    {"id":"Q4","scope":"office-a","ip":"192.0.2.25","time":"2026-11-07T11:00:03Z"}
+  ]
+}
