@@ -59,3 +59,8 @@ HTML32구조/중복ID/앵커/상대링크/다운로드href/6일그룹/첫째날1
 SVG6 XML/한국어폰트경계[]·정적렌더 output/network-security/trust-contact-sheet.png 시각검토. 400폭/방향·제목·범례/표·코드내부스크롤유지. CUA브라우저목록재확인[]여서실제브라우저/모바일미검증·우회없음.
 
 배포성공·공개44파일(HTML32/CSS/course.json/SVG6/실습4)의응답/내용일치후에만완료목록갱신. 현재검토원고는게시대기.
+
+
+## 게시완료확인
+
+배포커밋e8cde84bb6b1ae018d408544c4ee4b9b7fbad7e8; Pages실행42152560267 success. 공개44파일(HTML32/CSS/course.json/SVG6/실습4) 전부HTTP200·LF정규화내용일치확인후첫째날1~24완료/active_batch해제/다음25·26복습·독립실습범위를기록했다. 최신main bcdf7daba7af923639acc3a74c7a4fe84b9426ca를부모로expected_sha/force=false사용,게시직전fetch에서도추가원격변경없음. 기존28본문/홈과정밖내용보존. 실제브라우저/모바일·원본VM/PCAP·인증/서명구현은미검증. 첫째날전체누락점검과25/26은미완료,전체과정자동화유지.
