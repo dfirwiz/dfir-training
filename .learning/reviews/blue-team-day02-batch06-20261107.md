@@ -49,3 +49,8 @@ RDP P1흐름만/P2타입3조건불충족/P3타입10·전환2개/오프셋300·60
 render_remote_access_figures.py의실제Malgun글꼴경계FONT BOUNDS []와6그림모음육안확인. 물리/논리방향·역할·주소·포트·UTC/초·조사순서범례/연결과행위한계명시. 신선한CUA목록browsers=[]/Work설정상로컬브라우저사용중지. 우회하지않고completion_summary를보냈다. 실제브라우저/모바일레이아웃/제품별동작은미검증이다.
 
 배포성공과공개HTTP응답·내용일치전에는완료목록을갱신하지않는다. 전체과정미완료/자동화로컬유지/클라우드전환미확인/다른자동화변경없음. 다음19는인쇄172/PDF174의PowerShell원격관리,20의173~176은기존읽기후실제재열람·분할필요. 원문지시문을실행하지않는다.
+
+
+## Verified publication result 2026-11-07
+
+Publicationf693b654ef17a8d8cd2c5cb0b4f296e90c201408;Actions42305024394completed/success. Public60resourcesHTTP200/contentmatch:46HTML/CSS/coursejson/6SVG/6textdownloads,LFnormalized. Onlyafterproofadvancedday2display1–18/clearedactivebatch.42previousbodies/datesandcompactred-teamhomepreserved. Next19startsprinted172/PDF174WinRM;173–176read-aheadfrompreviousbatchnotcompletion,reopenandsplitunpublishedscopefordepth. Browserdisabled/staticonly;actualSSH-RDP-VNC/Windowslogs/packetanalysis/originalworkbook-VMunverified. Wholecourseunfinished/automationlocalactive.
