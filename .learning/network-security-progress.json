@@ -13,34 +13,36 @@
     "d2-07c",
     "d2-07d",
     8,
-    9
+    9,
+    "d2-09b",
+    "d2-09c"
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      137,
-      149
+      150,
+      160
     ],
     "pdf_pages": [
-      139,
-      151
+      152,
+      162
     ],
-    "workbook_vm_scope": "All13pagesactuallyreopenedandread;137-138is separateworkbookpointer,11independentexerciseusingoldharmlessPCAP+newfictionalreportsnotoriginalworkbookcompletion;12delivery/SMTP/Received139-149. Source142/149privaterendersviewed,fontwarningscrosschecked. Future149-161headingsonlyreadforplan,notfuturecompletion. NoactualSMTP/TLS/VM/originalworkbook."
+    "workbook_vm_scope": "All11pagesactuallyread;printed153/156privatePNGviewed,fontwarningscrosschecked.13senderclaims/SPF/headers150-155,14DKIM/DMARC/summary156-160. Own6textfiles/conditioncalculationsonly;nooriginalworkbook/VM/SMTP/DNS/cryptographicverification. Current9989/9990/9991May2026corrections. Nooriginalsourcepublic."
   },
   "next_scope": {
     "day": 2,
-    "lesson": 13,
-    "lesson_id": "d2-09b",
-    "topic": "이메일 발신 주장·위조와 SPF, 이어서 DKIM·DMARC",
+    "lesson": 15,
+    "lesson_id": 10,
+    "topic": "추가 네트워크 프로토콜부터 원문 순서대로",
     "volume": 2,
-    "printed_start": 150,
-    "pdf_start": 152,
+    "printed_start": 161,
+    "pdf_start": 163,
     "status": "planned",
     "batch_lessons": [
-      13,
-      14
+      15,
+      16
     ],
-    "numbering_note": "Reopenoriginal150-155for13=d2-09b(spoofing/authenticity/SPFresults/trace),156-160for14=d2-09c(DKIM/selectors/envelopevsFrom/DMARC/summary). CurrentRFCs/officialproviderpolicies:7001obsolete→8601, SPFMAILFROM/HELOnotvisibleFrom, DKIMselectorisDNSkeyselectornotwhichfields;DMARCalignment/bothfail/forwarding/none/quarantine/rejectvsreceiverpolicy;allpass≠safe/humanidentity. CheckcurrentDMARCstandardnotassumefixed7489ifupdated. Preserveallpublished1-12IDs/URLs/numbers/prose/day1completed26;splitonlyunpublishedscopeifdepthrequires. Original161+protocolsnextplanned15;original179-180emailworkbookpointerplanned17. Wholecourseunfinished,automationactive/local,cloudmigrationunverified."
+    "numbering_note": "Actuallyopen161+andselecttwoadequatelydetailedlessons. Current15=numericID10additionalprotocols,16=numericID11summary,17=numericID12emailworkbook179-180pointerareprovisional;splitonlyunpublishedscopeifprotocolrange161-176toolarge. Neverrenumberpublished1-14/day1all26orchangeURLs/prose. Originalseparateworkbook/VMcompletionunverified. Preservecompactred-teamhomepage4topics. Wholecourseunfinished/automationlocalactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -86,12 +88,17 @@
       9,
       10,
       11,
-      12
+      12,
+      13,
+      14
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "fd34b663108203eab0d443c254ea66210b1205b6",
     "day": 2,
     "lessons": [
       13,
@@ -101,45 +108,22 @@
       "d2-09b",
       "d2-09c"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      150,
-      160
-    ],
-    "source_pdf": [
-      152,
-      162
-    ],
-    "review": ".learning/reviews/blue-team-day02-batch04-20261107.md",
-    "scope": "Alloriginal150-160actuallyreopened;156-160separatereread aftercombinedtruncation. Preservehomepagecompactredoverviewa5abf41 andall38publishedlessons. OnlyindependentlocalfictionalSPFsubset/strictalignmentconditions; noSMTP/DNS/DKIMverification/originalworkbook.",
-    "validation": "42HTML/38priorbodies+compacthomepreserved;6SVGfontbounds[]/35localruns/6inputsunchanged;browserdisabled;noactualDNS/SMTP/crypto."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "9f932891aec7d287fe4d79c7932a69a645c2efa4",
-    "day": 2,
-    "lessons": [
-      11,
-      12
-    ],
-    "lesson_ids": [
-      8,
-      9
-    ],
     "deployment": "success",
-    "actions_run": 42220896658,
-    "public_files_checked": 59,
+    "actions_run": 42294402604,
+    "public_files_checked": 56,
     "public_content_match": true,
     "new_figures": 6,
-    "new_review_questions": 30,
-    "download_files": 8,
-    "reused_download_files": 3,
-    "html_pages_checked": 40,
-    "previous_bodies_preserved": 36,
-    "browser_visual_qa": "Partial actualCUAIAB:11desktopheader/sidebar and390x844firstSVG(natural400/display335),pagewidth375≤390,table343/580/code343/390-483internalauto. FurtherbrowserusebecamedisabledinWorksettings;12onlynavigationnotvisual,notall6imagesbrowserchecked;no workaround. SixstaticKoreanfontSVGbounds[]andcontactsheetviewed. Temporaryviewportresetunavailableafterinterruption.",
-    "synthetic_calculations": "Python3.12.14/dpkt1.9.8existingtmp/lab-deps,noinstall;25runs,11inputSHA256unchanged(8new+3old). FullHTTP3framesbody35/decode15hash571143bbfd4e9e23772d8174a1f60be72d69923ed8b4a8c4744081059cd4203f;E1reportedhashtrue/E2false;fictionalreferencetimeoffset5/7secondsnotPCAPtime. Missing2framesbody10/short25/hashnullnotfalse. Reportstate/order/timezone/types/contractschecks. ThreeReceivedUTC10:00:04/10:00:01/09:59:58,3+3seconds;boundaryindex1expectedpeer198.51.100.40matchesbutauthority/person/authfalse. Lowerpeer/offset/expectation/index/negative-2/duplicateFrom/unsupportedIPv6checks. MIMEtypesplain/htmlnorender;EMLrawCRLFpreserved. Allincidentunresolved/externalactions0.",
-    "official_sources_checked": "2026-11-06:RFC5321/5322/6409/8314/7505/3207/6531/2045/2046/3848/8601;Microsoftclassic/new/webOutlookheaderpaths,GoogleShoworiginal,PythonBytesParser3.12docs(actual3.12.14vsdoc3.12.16),dpktproject,WiresharkTLSconditions/HTTPfieldshttp.host+http.request.method1.0.0-4.6.9. NoallSMTPASCII/allheaderscaseinsensitive/MAILFROMequalsFrom/bodyalwaysnonempty/250meansread/absolutenonspoofableTCPIP/knownprovidertrustallheadersclaims.",
-    "product_execution": "LocalindependentharmlessHTTPfixtureinterpretation/JSONreportcomparison/EMLparsingonly. No originalworkbook/VM/liveSMTP/send/DNSlookup/URLvisit/authentication/TLS/decrypt/keys/CAinstall/HTMLrender/attachmentexecution/certvalidation/malware/accountchange/purchase.",
+    "new_review_questions": 26,
+    "download_files": 6,
+    "html_pages_checked": 42,
+    "previous_bodies_preserved": 38,
+    "new_sections": 43,
+    "new_paragraphs": 153,
+    "new_tables": 3,
+    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;noworkaround. Six400pxSVGstaticMalgunfontbounds[]/contactsheetviewed;existingwidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutnotverified.",
+    "synthetic_calculations": "Python3.12.14standardlibrary;35processruns/6inputSHA256unchanged. SPFsubset8results pass/fail/softfail/neutral/none/neutral/fail/pass;firstmatch/boundaries/IPfamily/Fromchange/unsupportedinputs. Strictalignment7results fail/pass/pass/fail/pass/unverified/fail;multiple-signatures/normalization/strictsubdomain/trust/errorcontracts. AllactualSPF/DKIM/DMARCverificationfalse,incidentunresolved/externalactions0. Neitherprogramimplementsfullprotocol.",
+    "official_sources_checked": "2026-11-07:RFC7208/8601/6376/8301/8463/9989/9990/9991/Microsoftmessageheaders. CurrentDMARC9989May2026replaces7489/9091;DNS Tree Walk/pctremoved/t=y-n/reportingsplit;producttransitionnotassumed. Selectorvsheaders/softfailvsallowed/FromvsMAILFROM/onealignedpassOR/trustboundary/policyvsaction/allpassnotcontentsafe.",
+    "product_execution": "IndependentlocalJSONconditions/metadataonly;noSMTPsend/authentication/DNSlookup-or-change/keygeneration/signing-or-verification/DMARCpolicy-discovery-or-TreeWalk/receiveraction/report/packetanalysis/originalworkbook/VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -193,7 +177,9 @@
     "d2-07c",
     "d2-07d",
     8,
-    9
+    9,
+    "d2-09b",
+    "d2-09c"
   ],
   "day2_prior_coverage_audit": {
     "printed_pages": [

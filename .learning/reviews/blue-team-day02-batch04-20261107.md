@@ -52,3 +52,8 @@ render_email_auth_figures.py의실제Malgun글꼴폭검사FONT BOUNDS [] 및6그
 
 
 최종 공개 대조 전 13·14강 명령의 실행기/프로그램/입력경로와 강의별동명파일 구별을 설명하고, SPF부분집합의소문자·정규네트워크주소제한을 명시했다. 이 제한으로 실제유효SPF정책오류를단정하지 않는다. 변경된6파일을기준으로35회와전체정적검증을 다시 수행했다.
+
+
+## Verified publication result 2026-11-07
+
+Finalpublicationfd34b663108203eab0d443c254ea66210b1205b6;Actions42294402604completed/success. Initialpublicatione6193e44e5bdc75a63b2d97edeabebebc56f2b36followedbyinvocation/subsetlimitclarification. Public56resourcesHTTP200/contentmatch:42HTML/CSS/coursejson/6SVG/6downloads;LFnormalizedtextmatched. Onlyafterproofadvancedday2display1–14/clearedactivebatch.38oldbodiesandcompactred-teamhomepreserved. Next15startsprinted161/PDF163;readandsplitunpublishedscopeforfullprotocoldepth. Browserdisabled/staticonly,originalworkbook/VM/liveSMTP/DNS/cryptographicverificationunverified. Wholecourseunfinished/automationlocalactive.
