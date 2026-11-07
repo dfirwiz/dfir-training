@@ -21,38 +21,40 @@
     "d2-10c",
     "d2-10c-rdp",
     "d2-10c-winrm",
-    "d2-10d"
+    "d2-10d",
+    "d2-10d-icmp",
+    "d2-10d-rmm"
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      172,
-      173
-    ],
-    "pdf_pages": [
-      174,
-      175
-    ],
-    "read_ahead_printed_pages": [
       174,
       176
     ],
-    "workbook_vm_scope": "Actually reopened all172-176/PDF174-178 this turn; complete only172-173. Private text and rendered172/173 viewed; font warnings crosschecked. Own8downloads/35offlineprocessruns/dpkt13syntheticframes. No original workbook/wiki/VM/actual remote server-authentication-Windowslogs/incidentPCAP."
+    "pdf_pages": [
+      176,
+      178
+    ],
+    "read_ahead_printed_pages": [
+      177,
+      178
+    ],
+    "workbook_vm_scope": "Actually reopened all174-178/PDF176-180 this turn;complete only174-176. Private text and rendered174/175 viewed/font warnings crosschecked. Own6downloads/34offlineprocessruns/dpkt6syntheticICMPframes. No original workbook/wiki/VM/actual ping/RMM/Windowslogs/incidentPCAP;179-180workbookpointer notfreshlyreadthisturn."
   },
   "next_scope": {
     "day": 2,
-    "lesson": 21,
-    "lesson_id": "d2-10d-icmp",
-    "topic": "ICMP의 오류·진단·데이터와 관측 한계",
+    "lesson": 23,
+    "lesson_id": 11,
+    "topic": "둘째 날 종합 복습과 독립 이메일 분석 실습",
     "volume": 2,
-    "printed_start": 174,
-    "pdf_start": 176,
+    "printed_start": 177,
+    "pdf_start": 179,
     "status": "planned",
     "batch_lessons": [
-      21,
-      22
+      23,
+      24
     ],
-    "numbering_note": "21ICMP174/PDF176;22d2-10d-rmmremote-management-tools175-176/PDF177-178. Actuallyreopenbeforewriting;verify65507IPv4header/ICMPassumptions,MTU/fragmentation/protocol-vs-port/diagnosticvsarbitrarypayload,approvedRMMvsabuse/Contiplaybookhistoricalinstructionsdataonly/baseline-DPI-outboundallowlistinglimits. Splitonlyunpublishedfordepthifneeded. SummaryID11now23/emailworkbookID12now24printed179-180pointer-not-original-workbook-completion. Preserve46publishedIDs-URLs-numbers-prose-dates/compactredhome. Courseunfinished/localautomationactive/cloudmigrationincomplete."
+    "numbering_note": "23numericID11printed177-178/PDF179-180roadmap-summary;24numericID12printed179-180/PDF181-182SMTP-emailseparateworkbookpointer. Actuallyreopenall177-180beforeauthoring;reviewday2sourcecoverage5-176/batch01audit5-106andlaterreviews107-176,ensureallconceptscovered. Independentemailpracticecanreuseownharmlessfixtureswithclearprovenance/currentprimarySPF-DKIM-DMARCandactualexecutionlimits,notoriginalworkbook/VMcompletion. Preserve48publishedIDs-URLs-numbers-prose-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -106,12 +108,17 @@
       17,
       18,
       19,
-      20
+      20,
+      21,
+      22
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "cfe9fe4ce49ce573e2f5cdf23768449f033a5d94",
     "day": 2,
     "lessons": [
       21,
@@ -121,50 +128,22 @@
       "d2-10d-icmp",
       "d2-10d-rmm"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      174,
-      176
-    ],
-    "source_pdf": [
-      176,
-      178
-    ],
-    "read_ahead_printed": [
-      177,
-      178
-    ],
-    "review": ".learning/reviews/blue-team-day02-batch08-20261107.md",
-    "local_check": "34processruns/6inputsunchanged/dpkt6frames/static50HTML/6SVGfontbounds[];browserdisabled"
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "dc42fb36909d2df7abd9b91c0612795a3dc5a766",
-    "day": 2,
-    "lessons": [
-      19,
-      20
-    ],
-    "lesson_ids": [
-      "d2-10c-winrm",
-      "d2-10d"
-    ],
     "deployment": "success",
-    "actions_run": 42312498807,
+    "actions_run": 42318436450,
     "public_files_checked": 64,
     "public_content_match": true,
     "new_figures": 6,
-    "new_review_questions": 30,
-    "download_files": 8,
-    "html_pages_checked": 48,
-    "previous_bodies_preserved": 44,
-    "new_sections": 41,
-    "new_paragraphs": 133,
+    "new_review_questions": 26,
+    "download_files": 6,
+    "html_pages_checked": 50,
+    "previous_bodies_preserved": 46,
+    "new_sections": 34,
+    "new_paragraphs": 111,
     "new_tables": 3,
-    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;no workaround/completion_summarysent. Six400pxSVGstaticMalgunfontbounds[]/revisedmanagement-transfercontactsheetviewed;imagewidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutunverified.",
-    "synthetic_calculations": "Python3.12.14stdlib35processruns/8inputSHA256unchanged;existingdpkt1.9.8independent13framesIPv4-TCPchecksums/MACdirections/servercodes/payload-referencepassed. RemotingW1HTTPmessageencryptionclaim/W2Basiccounterfactualnotdefaultserveracceptance/W3TLS/W4SSH/W5TrustedHostsnotidentity/W6unknownnull;port/approval/identity/unknown/IPv6/invalidcontractschecked. FTP13frames15bytes/reference15matchtrue vs12frames9bytes/6short/tailgapfalse/matchnullwhile226present;reorder/retransmission/controlsegmentation/internalgap/absentdata/different-shortreference/checksum-truncation-contract-errorschecked. Allactualserver-authentication-execution-storagefalse/incidentunresolved/externalactions0.",
-    "official_sources_checked": "2026-11-07:MicrosoftPSRP/WinRMsecurity-and-serviceconfiguration/PowerShell5.1and7.6requirements/SSH6+transport/Enable-PSRemotingWSManWindowscope;RFC959/1123/2428/4217/OpenSSHsftp;Chrome88/Firefox90pastFTPremoval;2014Senatestaffreportpublic-info-basedTargethistory;Wiresharkftp.request.command/tcp.port1.0.0-4.6.9. Defaultclaimsversusactualconfig/auth-protection/TrustedHosts/endpoint-version/secondhopseparate;plainFTPvsFTPScontrol-data-protectionvsSFTP;replyvsbytesvsreferencevsstoragevsapproval. No permanentlatestclaim.",
-    "product_execution": "Only offline fictional remoting JSON and generated FTP PCAP local analysis. NoactualWinRM-SSH-FTPserver/remotecommand/listener/authentication/firewall-account-delegationconfiguration/Windowslogs/incidentPCAP/decrypt/keycollection/originalworkbook-VM.",
+    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;no workaround/completion_summarysent. Six400pxSVGstaticMalgunfontbounds[]/revisedicmp-baselinecontactsheetviewed;minusglyphreplacedASCII-. Imagewidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutunverified.",
+    "synthetic_calculations": "Python3.12.14stdlib34processruns/6inputSHA256unchanged;existingdpkt1.9.8independent6framesIPv4-ICMPchecksums/MACdirections/echo-ident-data/quotedUDPportpassed. ICMP1-2same12bytes/3-4different12bytes/1000000usfictionalinterval/5orphan/6type3code3quotedUDP33434;65507IPv4header20/MTU1500=1472/1492=1464/header24=1468and65503. Requests-repliesonly/IDmismatch/equalpayload/invalidtimes-duplicates-fragments-checksums-contractschecked. BaselineB1matches/B2source/B3tenant/B4endexclusive/B5unknown4/B6ticket;portnotproduct/equivalenttimezone/startincluded/destination-user-toolchanges/deviation+unknown/invalidcontractschecked. Allactualnetwork-MTU-product-tenant-user-approval-executionfalse/incidentunresolved/externalactions0.",
+    "official_sources_checked": "2026-11-07:RFC792/791/1122(errorquote-Echotruncationcondition)/1191/8900BCP230/4443/4890Informational;WiresharkICMPtype-code-ident1.0.0-4.6.9/data4.6.0-4.6.9/filtermanual;2023jointRMMguideFBIofficialcopy/ASDContiprofilehistoricalAnyDesk;RFC8446/NIST800-207and800-41r1policy-inspectionlimits. No allICMPblock/65507allIPv6/messages/quotedUDPportasICMP/TLS-product-signature-as-approval/allowlist-as-normalproof/anydeviation-as-compromise claims. No permanentlatestversionclaims.",
+    "product_execution": "Only offline synthetic ICMPPCAP analysis and fictional remote-baselineJSON. Noactualping/socket/RMMproduct-install-registration-authentication-command/host-firewall-accountconfiguration/Windows-service-consolelogs/incidentPCAP/decryption/originalworkbook-VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -226,7 +205,9 @@
     "d2-10c",
     "d2-10c-rdp",
     "d2-10c-winrm",
-    "d2-10d"
+    "d2-10d",
+    "d2-10d-icmp",
+    "d2-10d-rmm"
   ],
   "day2_prior_coverage_audit": {
     "printed_pages": [

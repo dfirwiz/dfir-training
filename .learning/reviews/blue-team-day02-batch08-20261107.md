@@ -49,3 +49,8 @@ ICMP기본6프레임:1→2동일12바이트/3→4다른12바이트/각1000000마
 Malgun폰트실측FONT BOUNDS []와render_icmp_baseline_figures.py모음육안확인. 최초크기그림의수학minus글리프가대체상자로보여ASCII-로고쳐재생성·재확인했다. 제목·방향·유형별다른구조·가정·단위·범례·가상시간한계표시. 신선한CUA목록browsers=[]/Work설정상브라우저사용중지확인,우회없이completion_summary전달. 실제브라우저/모바일화면·Wireshark동작은미검증.
 
 배포Actions성공과공개HTTP200/작성내용일치전에는완료진도를바꾸지않는다. 전체과정미완료/자동화로컬활성/클라우드전환미확인/다른자동화변경없음. 실패시active_batch·원고보존.
+
+
+## Verified publication result 2026-11-07
+
+Publication cfe9fe4ce49ce573e2f5cdf23768449f033a5d94; Actions 42318436450 completed/success. Public64resourcesHTTP200/contentmatch:50HTML/CSS/coursejson/6SVG/6downloads;PCAPexactbytes/othertextLFnormalized. Onlyafterproofadvancedday2display1–22/clearedactivebatch.46previousbodies/datesandcompactredhomepreserved. Next23numericID11printed177–178/PDF179–180summary;24numericID12printed179–180/PDF181–182separateworkbookpointer,actuallyreopenbeforeauthoring/auditday2coverage. Browserdisabled/staticonly. Actualping/RMM/Windows-service-consolelogs/incidentPCAP/workbook-VMunverified. Wholecourseunfinished/localautomationactive.
