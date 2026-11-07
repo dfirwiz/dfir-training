@@ -81,3 +81,8 @@ EML A작성자example.org/SPF보고mailer.example.net/DKIM보고example.org/수�
 render_network_final_figures.py의Malgun폰트실측FONT BOUNDS []/6그림모음실제육안확인. 제목·흐름/질문방향·가상성·정렬범위·보고vs실제결과·단위표시. 신선한CUA목록browsers=[]/Work설정상브라우저사용중지,우회없이completion_summary전달. 실제브라우저/모바일화면·Wireshark·제품동작은미검증.
 
 배포Actions성공과공개HTTP200/작성내용일치후에만둘째날24완료와개념범위점검결과를갱신한다. 다음셋째날1강으로번호를다시시작하며실제3권범위를읽고미공개를필요시세분한다. 전체과정미완료/로컬자동화유지/클라우드전환미확인/다른자동화변경없음.
+
+
+## Verified publication result 2026-11-07
+
+Publication 0433d3c2d61285b68fbc79bae9467fbf8cf9d27c; Actions 42337369104 completed/success. Public68resourcesHTTP200/contentmatch:52HTML/CSS/coursejson/6SVG/8downloads;2EMLexactCRLFbytes/othertextLFnormalized. Onlyafterproofadvancedday2display1–24/clearedactivebatch/recordedconceptualcoverageauditwithoriginalworkbookexecutionlimit.48previousbodies/datesandcompactredhomepreserved. Nextday3display1/2startsvolume3printed5/PDF7;actuallyread5–27andsplitonlyunpublishedfordepthbefore28–52defense. Browserdisabled/staticonly;actualDNS-SMTP-signature-receiver-provenance-useraction/workbook-VMunverified. Wholecourseunfinished/localautomationactive.

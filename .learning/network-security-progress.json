@@ -23,38 +23,36 @@
     "d2-10c-winrm",
     "d2-10d",
     "d2-10d-icmp",
-    "d2-10d-rmm"
+    "d2-10d-rmm",
+    11,
+    12
   ],
   "source_scope": {
     "volume": 2,
     "printed_pages": [
-      174,
-      176
+      177,
+      180
     ],
     "pdf_pages": [
-      176,
-      178
+      179,
+      182
     ],
-    "read_ahead_printed_pages": [
-      177,
-      178
-    ],
-    "workbook_vm_scope": "Actually reopened all174-178/PDF176-180 this turn;complete only174-176. Private text and rendered174/175 viewed/font warnings crosschecked. Own6downloads/34offlineprocessruns/dpkt6syntheticICMPframes. No original workbook/wiki/VM/actual ping/RMM/Windowslogs/incidentPCAP;179-180workbookpointer notfreshlyreadthisturn."
+    "workbook_vm_scope": "Actually reopened all177-180/PDF179-182 this turn;summary178/workbook-pointer180renderedviewed. Finalconceptauditusespriorreviewmappings5-176 and22manuscriptsectioninventoryplusfreshfinal4pages,notfreshfullvolume2reread. Own8downloads/34offlineprocessruns;originalworkbook/wiki/VM/sourcePCAP/actualemail-DNS-signature-receiverlogs unverified. Volume3PDF1-8heading-intropartialpreviewonly-notcompletion."
   },
   "next_scope": {
-    "day": 2,
-    "lesson": 23,
-    "lesson_id": 11,
-    "topic": "둘째 날 종합 복습과 독립 이메일 분석 실습",
-    "volume": 2,
-    "printed_start": 177,
-    "pdf_start": 179,
+    "day": 3,
+    "lesson": 1,
+    "lesson_id": "d3-01",
+    "topic": "단말 중심의 공격 흐름과 네트워크 관측을 연결하기",
+    "volume": 3,
+    "printed_start": 5,
+    "pdf_start": 7,
     "status": "planned",
     "batch_lessons": [
-      23,
-      24
+      1,
+      2
     ],
-    "numbering_note": "23numericID11printed177-178/PDF179-180roadmap-summary;24numericID12printed179-180/PDF181-182SMTP-emailseparateworkbookpointer. Actuallyreopenall177-180beforeauthoring;reviewday2sourcecoverage5-176/batch01audit5-106andlaterreviews107-176,ensureallconceptscovered. Independentemailpracticecanreuseownharmlessfixtureswithclearprovenance/currentprimarySPF-DKIM-DMARCandactualexecutionlimits,notoriginalworkbook/VMcompletion. Preserve48publishedIDs-URLs-numbers-prose-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
+    "numbering_note": "Daychanged:displaystarts1again. Actuallyreadvolume3printed5-27/PDF7-29endpointtacticsbeforedecidinglectureboundaries;splitonlyunpublishedplannedIDsfordepthifneeded,do notcompress5-27plus28-52defenseinto2shallowlectures. Currentd3-02defense28-52isprovisionalandcanmoveonlywhileunpublished. Volume3PDF1-8headingsandfirstintroexcerptpreviewednotfullrange-read;no3rd-daycompletion. Preserve50publishedday1=26/day2=24IDs-URLs-numbers-prose-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -110,12 +108,17 @@
       19,
       20,
       21,
-      22
+      22,
+      23,
+      24
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "0433d3c2d61285b68fbc79bae9467fbf8cf9d27c",
     "day": 2,
     "lessons": [
       23,
@@ -125,47 +128,22 @@
       11,
       12
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      177,
-      180
-    ],
-    "source_pdf": [
-      179,
-      182
-    ],
-    "review": ".learning/reviews/blue-team-day02-batch09-20261107.md",
-    "scope": "Fullfinal4pagesread;coverageauditpreviousreviewsandmanuscriptsectioninventory,notfreshfullvolume2reread. Independentlabsnotoriginalworkbookcompletion.",
-    "local_check": "34processruns/8inputsunchanged/static52HTML/6SVGfontbounds[];day2range5-180assigned;browserdisabled"
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "cfe9fe4ce49ce573e2f5cdf23768449f033a5d94",
-    "day": 2,
-    "lessons": [
-      21,
-      22
-    ],
-    "lesson_ids": [
-      "d2-10d-icmp",
-      "d2-10d-rmm"
-    ],
     "deployment": "success",
-    "actions_run": 42318436450,
-    "public_files_checked": 64,
+    "actions_run": 42337369104,
+    "public_files_checked": 68,
     "public_content_match": true,
     "new_figures": 6,
-    "new_review_questions": 26,
-    "download_files": 6,
-    "html_pages_checked": 50,
-    "previous_bodies_preserved": 46,
+    "new_review_questions": 28,
+    "download_files": 8,
+    "html_pages_checked": 52,
+    "previous_bodies_preserved": 48,
     "new_sections": 34,
-    "new_paragraphs": 111,
+    "new_paragraphs": 113,
     "new_tables": 3,
-    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;no workaround/completion_summarysent. Six400pxSVGstaticMalgunfontbounds[]/revisedicmp-baselinecontactsheetviewed;minusglyphreplacedASCII-. Imagewidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutunverified.",
-    "synthetic_calculations": "Python3.12.14stdlib34processruns/6inputSHA256unchanged;existingdpkt1.9.8independent6framesIPv4-ICMPchecksums/MACdirections/echo-ident-data/quotedUDPportpassed. ICMP1-2same12bytes/3-4different12bytes/1000000usfictionalinterval/5orphan/6type3code3quotedUDP33434;65507IPv4header20/MTU1500=1472/1492=1464/header24=1468and65503. Requests-repliesonly/IDmismatch/equalpayload/invalidtimes-duplicates-fragments-checksums-contractschecked. BaselineB1matches/B2source/B3tenant/B4endexclusive/B5unknown4/B6ticket;portnotproduct/equivalenttimezone/startincluded/destination-user-toolchanges/deviation+unknown/invalidcontractschecked. Allactualnetwork-MTU-product-tenant-user-approval-executionfalse/incidentunresolved/externalactions0.",
-    "official_sources_checked": "2026-11-07:RFC792/791/1122(errorquote-Echotruncationcondition)/1191/8900BCP230/4443/4890Informational;WiresharkICMPtype-code-ident1.0.0-4.6.9/data4.6.0-4.6.9/filtermanual;2023jointRMMguideFBIofficialcopy/ASDContiprofilehistoricalAnyDesk;RFC8446/NIST800-207and800-41r1policy-inspectionlimits. No allICMPblock/65507allIPv6/messages/quotedUDPportasICMP/TLS-product-signature-as-approval/allowlist-as-normalproof/anydeviation-as-compromise claims. No permanentlatestversionclaims.",
-    "product_execution": "Only offline synthetic ICMPPCAP analysis and fictional remote-baselineJSON. Noactualping/socket/RMMproduct-install-registration-authentication-command/host-firewall-accountconfiguration/Windows-service-consolelogs/incidentPCAP/decryption/originalworkbook-VM.",
+    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;no workaround/completion_summarysent. Six400pxSVGstaticMalgunfontbounds[]/network-finalcontactsheetviewed;imagewidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutunverified.",
+    "synthetic_calculations": "Python3.12.14stdlib34processruns/8inputSHA256unchanged;independentrawCRLF-header-count-hash/no-realDKIMsignature/UTC4secondcrosscheck. VisibilityS1-S3narrowkindpresent/S4endpointprocess-S5serverfilewrite-S6fileidentitymissing;latewindow-path-endexclusive/equivalenttimezone/empty/additionalhost-filekinds/invalidcontractschecked;actualstagefalse. MailAauthor-example.org/SPF-mailer.example.net/DKIM-example.org/provenanceclaimtrue->strict-reportcomparisontrue;Bsameid-passbutclaimfalse->null;claimedReceived4sec/attachments0;false-unknown-domain-OR-case-header-index-hash-formatconditionschecked. ActualDNS-DKIM-receiverprovenance-SMTPdelivery-useractionfalse/incidentunresolved/external0.",
+    "official_sources_checked": "2026-11-07:RFC9846July2026replaces8446stillTLS1.3/RFC8484/NIST800-61r3;RFC5321-5322-8601-7208-6376/DMARC9989May2026replaces7489-9091/reports9990-9991;Wiresharkip.addr/smtp.response.code1.0.0-4.6.9/filtermanual. Collection-path-window-kind/record-vs-execution/click-storage-exfiltrationseparate;headerreport-vs-trust-vs-actualcrypto/strictalignmentonlynotfullDMARC/SMTPacceptance-vs-delivery-action. No permanentlatestversionclaims.",
+    "product_execution": "Only offline fictional visibility JSON and2ownEMLs/context parsed. NoactualDNS/SMTP/crypto/signature/receiver-provenanceverification/link-opening/attachments-execution/socket/host-firewall-accountconfiguration/incidentPCAP/mail-serverlogs/originalworkbook-wiki-VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -229,7 +207,9 @@
     "d2-10c-winrm",
     "d2-10d",
     "d2-10d-icmp",
-    "d2-10d-rmm"
+    "d2-10d-rmm",
+    11,
+    12
   ],
   "day2_prior_coverage_audit": {
     "printed_pages": [
@@ -239,5 +219,158 @@
     "review": ".learning/reviews/blue-team-day02-batch01-20261106.md",
     "unassigned_conceptual_ranges_identified": [],
     "original_workbook_execution_verified": false
+  },
+  "day2_final_coverage_audit": {
+    "review": ".learning/reviews/blue-team-day02-batch09-20261107.md",
+    "physical_pdf_pages": 182,
+    "printed_pages": [
+      1,
+      180
+    ],
+    "assigned_technical_range": [
+      5,
+      180
+    ],
+    "assignments": [
+      [
+        5,
+        17,
+        1
+      ],
+      [
+        18,
+        30,
+        2
+      ],
+      [
+        31,
+        50,
+        3
+      ],
+      [
+        51,
+        85,
+        4
+      ],
+      [
+        86,
+        87,
+        5
+      ],
+      [
+        88,
+        106,
+        6
+      ],
+      [
+        107,
+        116,
+        7
+      ],
+      [
+        117,
+        123,
+        8
+      ],
+      [
+        124,
+        129,
+        9
+      ],
+      [
+        130,
+        136,
+        10
+      ],
+      [
+        137,
+        138,
+        11
+      ],
+      [
+        139,
+        149,
+        12
+      ],
+      [
+        150,
+        155,
+        13
+      ],
+      [
+        156,
+        160,
+        14
+      ],
+      [
+        161,
+        165,
+        15
+      ],
+      [
+        166,
+        168,
+        16
+      ],
+      [
+        169,
+        170,
+        17
+      ],
+      [
+        171,
+        171,
+        18
+      ],
+      [
+        172,
+        172,
+        19
+      ],
+      [
+        173,
+        173,
+        20
+      ],
+      [
+        174,
+        174,
+        21
+      ],
+      [
+        175,
+        176,
+        22
+      ],
+      [
+        177,
+        178,
+        23
+      ],
+      [
+        179,
+        180,
+        24
+      ]
+    ],
+    "unassigned_technical_ranges": [],
+    "independent_course_coverage": "complete_with_documented_original_workbook_execution_limit",
+    "original_exercises_completed": false,
+    "audit_method": "Prior detailed review mappings, manuscript section inventory and fresh final177-180 source read; not fresh full volume reread",
+    "front_matter": "Printed1-4cover-toc-roadmap-overviewreferenced;notanunassignedtechnicalmodule",
+    "exercise_pointer_ranges": [
+      [
+        86,
+        87
+      ],
+      [
+        137,
+        138
+      ],
+      [
+        179,
+        180
+      ]
+    ]
   }
 }
