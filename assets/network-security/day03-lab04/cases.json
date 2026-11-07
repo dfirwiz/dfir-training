@@ -1,0 +1,97 @@
+{
+  "schema": "training-credential-evidence-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "id": "C1",
+      "material_type_claim": "none",
+      "evidence_kinds": [
+        "process_access"
+      ],
+      "same_account_link_claim": null,
+      "same_target_link_claim": null,
+      "time_order_link_claim": null
+    },
+    {
+      "id": "C2",
+      "material_type_claim": "nt_hash",
+      "evidence_kinds": [
+        "process_access",
+        "material_report"
+      ],
+      "same_account_link_claim": true,
+      "same_target_link_claim": true,
+      "time_order_link_claim": true
+    },
+    {
+      "id": "C3",
+      "material_type_claim": "nt_hash",
+      "evidence_kinds": [
+        "process_access",
+        "material_report",
+        "authentication_accept",
+        "session_record",
+        "action_result"
+      ],
+      "same_account_link_claim": true,
+      "same_target_link_claim": true,
+      "time_order_link_claim": true
+    },
+    {
+      "id": "C4",
+      "material_type_claim": "nt_hash",
+      "evidence_kinds": [
+        "process_access",
+        "material_report",
+        "authentication_accept",
+        "session_record",
+        "action_result"
+      ],
+      "same_account_link_claim": false,
+      "same_target_link_claim": true,
+      "time_order_link_claim": true
+    },
+    {
+      "id": "C5",
+      "material_type_claim": "tgt",
+      "evidence_kinds": [
+        "process_access",
+        "material_report",
+        "authentication_accept",
+        "session_record",
+        "action_result"
+      ],
+      "same_account_link_claim": true,
+      "same_target_link_claim": null,
+      "time_order_link_claim": true
+    },
+    {
+      "id": "C6",
+      "material_type_claim": "plaintext",
+      "evidence_kinds": [
+        "process_access",
+        "material_report",
+        "authentication_accept",
+        "session_record",
+        "action_result"
+      ],
+      "same_account_link_claim": true,
+      "same_target_link_claim": false,
+      "time_order_link_claim": null
+    },
+    {
+      "id": "C7",
+      "material_type_claim": "cached_logon_verifier",
+      "evidence_kinds": [
+        "process_access",
+        "material_report",
+        "authentication_accept",
+        "session_record",
+        "action_result"
+      ],
+      "same_account_link_claim": true,
+      "same_target_link_claim": true,
+      "time_order_link_claim": true
+    }
+  ]
+}

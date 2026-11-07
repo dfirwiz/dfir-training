@@ -580,96 +580,111 @@
       "day": 3,
       "number": 3,
       "title": "권한 상승: 권한 경계와 구성·커널 조건",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-03-03-privilege-boundaries",
+      "short_title": "권한 경계와 상승 조건",
+      "description": "셋째 날 3강. 높은 권한의 소비 경로·구성 오류·커널 조건을 나누고 가상 조건과 범위 계산을 조사 증거로 해석합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": "d3-01d",
       "day": 3,
       "number": 4,
       "title": "자격 증명 접근: 자료 형태·보호·관측 한계",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-03-04-credential-access-evidence",
+      "short_title": "자격 증명과 접근 증거",
+      "description": "셋째 날 4강. 암호·해시·티켓·캐시 검증값과 보호 범위를 구별하고 접근·추출 주장·인증·후속 행동의 근거를 연결합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": "d3-01e",
       "day": 3,
       "number": 5,
-      "title": "내부 이동·수집·반출과 단말 조사",
+      "title": "내부 이동과 수집: 계정·대상·행위의 연결",
+      "status": "planned"
+    },
+    {
+      "id": "d3-01f",
+      "day": 3,
+      "number": 6,
+      "title": "자료 반출: 준비·암호화·경계 통신의 근거",
       "status": "planned"
     },
     {
       "id": "d3-02",
       "day": 3,
-      "number": 6,
+      "number": 7,
       "title": "단말의 다층 방어와 관측 위치",
       "status": "planned"
     },
     {
       "id": "d3-03",
       "day": 3,
-      "number": 7,
+      "number": 8,
       "title": "Windows 로그가 만들어지는 과정",
       "status": "planned"
     },
     {
       "id": "d3-04",
       "day": 3,
-      "number": 8,
+      "number": 9,
       "title": "Linux 로그가 만들어지는 과정",
       "status": "planned"
     },
     {
       "id": "d3-05",
       "day": 3,
-      "number": 9,
+      "number": 10,
       "title": "중요 이벤트를 맥락과 함께 읽기",
       "status": "planned"
     },
     {
       "id": "d3-06",
       "day": 3,
-      "number": 10,
+      "number": 11,
       "title": "Windows 로그 해석 실습",
       "status": "planned"
     },
     {
       "id": "d3-07",
       "day": 3,
-      "number": 11,
+      "number": 12,
       "title": "로그 수집·파싱·정규화",
       "status": "planned"
     },
     {
       "id": "d3-08",
       "day": 3,
-      "number": 12,
+      "number": 13,
       "title": "로그 보강과 시각화 실습",
       "status": "planned"
     },
     {
       "id": "d3-09",
       "day": 3,
-      "number": 13,
+      "number": 14,
       "title": "파일의 내용과 형식 식별",
       "status": "planned"
     },
     {
       "id": "d3-10",
       "day": 3,
-      "number": 14,
+      "number": 15,
       "title": "의심스러운 파일의 식별과 취급",
       "status": "planned"
     },
     {
       "id": "d3-11",
       "day": 3,
-      "number": 15,
+      "number": 16,
       "title": "셋째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d3-12",
       "day": 3,
-      "number": 16,
+      "number": 17,
       "title": "파일 식별 실습",
       "status": "planned"
     },
@@ -928,6 +943,7 @@
         "d3-01c",
         "d3-01d",
         "d3-01e",
+        "d3-01f",
         "d3-02",
         "d3-03",
         "d3-04",
@@ -991,6 +1007,6 @@
       ]
     }
   ],
-  "next_lesson": "d3-01c",
+  "next_lesson": "d3-01e",
   "planning_note": "첫째날26/둘째날24/셋째날1~2공개내용과번호·ID·URL·날짜를보존합니다.3권5~27전술을충분한깊이로분할:1=5~10/2=11~14/다음3=15~18권한상승/4=19~21자격증명/5=22~27이동·수집·반출/기존방어는6부터잠정.실제읽은범위와원본실습수행을구별합니다."
 }

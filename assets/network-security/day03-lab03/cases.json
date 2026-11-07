@@ -1,0 +1,102 @@
+{
+  "schema": "training-boundary-claims-v1",
+  "external_actions_allowed": false,
+  "paths": [
+    {
+      "id": "P1",
+      "writable_input_claim": true,
+      "privileged_consumer_claim": true,
+      "activation_link_claim": true
+    },
+    {
+      "id": "P2",
+      "writable_input_claim": false,
+      "privileged_consumer_claim": true,
+      "activation_link_claim": true
+    },
+    {
+      "id": "P3",
+      "writable_input_claim": true,
+      "privileged_consumer_claim": false,
+      "activation_link_claim": true
+    },
+    {
+      "id": "P4",
+      "writable_input_claim": true,
+      "privileged_consumer_claim": true,
+      "activation_link_claim": null
+    },
+    {
+      "id": "P5",
+      "writable_input_claim": false,
+      "privileged_consumer_claim": true,
+      "activation_link_claim": null
+    }
+  ],
+  "ranges": [
+    {
+      "id": "R1",
+      "page_bytes": 16,
+      "offset_bytes": 1,
+      "length_bytes": 3,
+      "file_bytes": 40,
+      "read_permission_claim": true
+    },
+    {
+      "id": "R2",
+      "page_bytes": 16,
+      "offset_bytes": 0,
+      "length_bytes": 3,
+      "file_bytes": 40,
+      "read_permission_claim": true
+    },
+    {
+      "id": "R3",
+      "page_bytes": 16,
+      "offset_bytes": 14,
+      "length_bytes": 3,
+      "file_bytes": 40,
+      "read_permission_claim": true
+    },
+    {
+      "id": "R4",
+      "page_bytes": 16,
+      "offset_bytes": 14,
+      "length_bytes": 2,
+      "file_bytes": 40,
+      "read_permission_claim": true
+    },
+    {
+      "id": "R5",
+      "page_bytes": 16,
+      "offset_bytes": 17,
+      "length_bytes": 3,
+      "file_bytes": 19,
+      "read_permission_claim": true
+    },
+    {
+      "id": "R6",
+      "page_bytes": 16,
+      "offset_bytes": 17,
+      "length_bytes": 2,
+      "file_bytes": 40,
+      "read_permission_claim": null
+    },
+    {
+      "id": "R7",
+      "page_bytes": 16,
+      "offset_bytes": 17,
+      "length_bytes": 2,
+      "file_bytes": 40,
+      "read_permission_claim": false
+    },
+    {
+      "id": "R8",
+      "page_bytes": 8192,
+      "offset_bytes": 8191,
+      "length_bytes": 1,
+      "file_bytes": 16384,
+      "read_permission_claim": true
+    }
+  ]
+}
