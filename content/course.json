@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-04",
+  "updated": "2026-11-07",
   "lessons": [
     {
       "id": 1,
@@ -387,7 +387,7 @@
       "id": 29,
       "slug": "29-tcp-close-retries",
       "title": "TCP 종료·재전송·수신 공백 분석",
-      "description": "FIN·RST의 차이와 재전송 후보를 읽고 센서와 종단의 해석이 달라질 수 있는 조건을 점검합니다.",
+      "description": "FIN의 방향별 종료와 RST 수용 조건을 계산하고, 실제 저장 파일의 리셋·체크섬·후속 ACK 및 재시도 간격을 수신 공백과 연결합니다.",
       "day": 2,
       "day_lesson": 7,
       "printed_pages": [
@@ -395,9 +395,9 @@
         85
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-07",
+      "minutes": 115,
+      "editorial_status": "revised"
     },
     {
       "id": 30,

@@ -22,8 +22,8 @@
   "completed_pdf_through": 78,
   "next_lesson_id": 29,
   "next_printed_page": 77,
-  "updated": "2026-11-04",
-  "scope": "Day-two lesson6 revised, published and verified in actual desktop/mobile HTTPS views. Next: day-two lesson7/internalID29. Remaining11 lessons stay abbreviated drafts awaiting detailed revision.",
+  "updated": "2026-11-07",
+  "scope": "Detailed lesson7 prepared; publishing and actual desktop/mobile verification pending. Completed list remains through lesson6.",
   "review": ".learning/reviews/day-two-06-revision-20261104.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
@@ -103,8 +103,21 @@
         "urgent_extra": "SEQ_pointer_and_two_segment_stream_positions_checked_lesson28; ordinary_OOB_reads_OS_options_and_sensor_reassembly_not_executed"
       }
     },
-    "remaining_render_review": [],
-    "active_lesson": null,
+    "remaining_render_review": [
+      29
+    ],
+    "active_lesson": {
+      "lesson_id": 29,
+      "day_lesson": 7,
+      "status": "publication_pending",
+      "body_sha256": "2f9a25b95f9eb1e4524d2cc1eb1423047685471b36b3179d4e499c2979da6c0d",
+      "review": ".learning/reviews/day-two-07-revision-20261104.md",
+      "base_main": "2c7697bdba857db64b243a10b4be92969d9e9347",
+      "publication": "pending",
+      "browser_preflight": "2026-11-07 09:40:37 UTC: succeeded; in-app browser public HTTPS lesson29 opened and actual screenshot observed; existing abbreviated public page only; revised lesson7 desktop/mobile publication review remains pending",
+      "current_rebuild": "passed_2026-11-07_bundle26.1105.12137",
+      "latest_remote_seen": "2c7697bdba857db64b243a10b4be92969d9e9347"
+    },
     "last_publication": {
       "lesson_id": 28,
       "content_commit": "473418a029abb090821706a5677a524bdd9d5870",
