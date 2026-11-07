@@ -8,7 +8,8 @@
     25,
     26,
     27,
-    28
+    28,
+    29
   ],
   "completed_day_lessons": [
     1,
@@ -16,15 +17,16 @@
     3,
     4,
     5,
-    6
+    6,
+    7
   ],
-  "completed_printed_through": 76,
-  "completed_pdf_through": 78,
-  "next_lesson_id": 29,
-  "next_printed_page": 77,
+  "completed_printed_through": 85,
+  "completed_pdf_through": 87,
+  "next_lesson_id": 30,
+  "next_printed_page": 86,
   "updated": "2026-11-07",
-  "scope": "Detailed lesson7 prepared; publishing and actual desktop/mobile verification pending. Completed list remains through lesson6.",
-  "review": ".learning/reviews/day-two-06-revision-20261104.md",
+  "scope": "Day-two lesson7 detailed revision published and verified in actual desktop/mobile HTTPS views. Next: day-two lesson8/internalID30. Remaining10 lessons stay abbreviated drafts awaiting detailed revision.",
+  "review": ".learning/reviews/day-two-07-revision-20261104.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -66,10 +68,10 @@
       25,
       26,
       27,
-      28
+      28,
+      29
     ],
     "pending_lesson_ids": [
-      29,
       30,
       31,
       32,
@@ -81,13 +83,13 @@
       38,
       39
     ],
-    "next_lesson_id": 29,
-    "next_day_lesson": 7,
-    "last_review": ".learning/reviews/day-two-06-revision-20261104.md",
+    "next_lesson_id": 30,
+    "next_day_lesson": 8,
+    "last_review": ".learning/reviews/day-two-07-revision-20261104.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "automation_id": "automation",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 28,
+    "last_published_lesson_id": 29,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -95,37 +97,24 @@
         "exercises_3_4_and_two_extra_problems": "detailed_explanations_and_bytes_checked_in_lesson26_not_libpcap_engine_or_VM_execution"
       },
       "2.3": {
-        "exercise3": "detailed_retry_vs_new_attempt_explanation_and_stored_bytes_checked_in_lesson27; no_endpoint_or_filter_engine_execution",
+        "exercise3": "repeat_vs_new_attempt_fields_checked_lesson27; 3_6_12second_intervals_RTO_calculation_and_capture_limits_explained_and_checked_lesson29; no_endpoint_or_filter_engine_execution",
         "exercise2": "raw_sequence_payload_conflict_checked_lesson27; SYN_data_and_negotiation_context_explained_lesson28; actual_sensor_endpoint_acceptance_unverified",
-        "exercise6": "opening_three_frames_only_checked_in_lesson27; reset_checksum_and_reassembly_pending_lessons29_30",
+        "exercise6": "detailed_RST128_checksum0010_folda795_recomputed587a_and_frames129_134_data_ACK_explained_and_stored_bytes_checked_lesson29; no_VM_endpoint_IDS_or_filter_engine_execution; general_checksum_length_window_followup_lesson30",
         "other_requirements": "exercise1_checksum, exercise4_crafted_fields, exercise5_responses, URG_extra_and_final_lab_audit_pending_followup",
         "exercise4": "flags_0x3f_and_stored_fields_checked_lesson28; checksum_window_MSS_response_and_acceptance_pending_followup",
-        "urgent_extra": "SEQ_pointer_and_two_segment_stream_positions_checked_lesson28; ordinary_OOB_reads_OS_options_and_sensor_reassembly_not_executed"
+        "urgent_extra": "SEQ_pointer_and_two_segment_stream_positions_checked_lesson28; current_standard_and_ordinary_OOB_API_conditions_explained_lesson29; socket_reads_and_sensor_reassembly_not_executed"
       }
     },
-    "remaining_render_review": [
-      29
-    ],
-    "active_lesson": {
-      "lesson_id": 29,
-      "day_lesson": 7,
-      "status": "publication_pending",
-      "body_sha256": "2f9a25b95f9eb1e4524d2cc1eb1423047685471b36b3179d4e499c2979da6c0d",
-      "review": ".learning/reviews/day-two-07-revision-20261104.md",
-      "base_main": "2c7697bdba857db64b243a10b4be92969d9e9347",
-      "publication": "pending",
-      "browser_preflight": "2026-11-07 09:40:37 UTC: succeeded; in-app browser public HTTPS lesson29 opened and actual screenshot observed; existing abbreviated public page only; revised lesson7 desktop/mobile publication review remains pending",
-      "current_rebuild": "passed_2026-11-07_bundle26.1105.12137",
-      "latest_remote_seen": "2c7697bdba857db64b243a10b4be92969d9e9347"
-    },
+    "remaining_render_review": [],
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 28,
-      "content_commit": "473418a029abb090821706a5677a524bdd9d5870",
-      "workflow_run": 41823488594,
+      "lesson_id": 29,
+      "content_commit": "28a906afbbf50966ecd11ad9a509cc4d8ef1d96b",
+      "workflow_run": 42361824107,
       "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/28-tcp-flags-handshake.html",
-      "render_review": "desktop1280_mobile390x844_screenshots_DOM_geometry_and_actual_inner_scroll_verified",
-      "verified_at": "2026-11-04T11:48:38.652526+00:00"
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/29-tcp-close-retries.html",
+      "render_review": "desktop1280_mobile390x844_screenshots_DOM_geometry_actual_inner_scroll_verified",
+      "verified_at": "2026-11-07 10:01:25 UTC"
     }
   }
 }
