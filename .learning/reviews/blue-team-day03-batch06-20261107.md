@@ -54,3 +54,10 @@ check_day03_batch06_examples.py: Python3.12.14표준라이브러리28프로세�
 ## 게시 직전 추가 검증
 
 원격dd06c6f최신main위로로컬백업커밋을rebase했다. index.html한경로충돌을최신원격전체본문에우리NETWORK블록만교체해해결했고나머지5개원격변경파일은그대로보존했다. 재빌드와기존60본문보존/홈페이지NETWORK바깥일치검사를다시통과했다. 실제390x84412강그림3의전체상자·화살표·범례·캡션을확인했고12강3SVG모두로딩됨/335px,viewport기본1280으로복원후414px/page1265px를확인했다. 11강다른그림전수모바일화면을봤다고하지않는다. 정적6SVG전수는별도확인했다.
+
+
+## 게시·배포·공개 검증 완료 · 2026-11-07
+
+Content 019068bd03ee1d1c867aba7f52cba9af092317de; Actions 42363037205 completed/success. 공개80리소스HTTP200/내용일치(64HTML·CSS·course.json·6SVG·8다운로드);두note.txt는정확21LF바이트,다른텍스트는LF정규화비교.87소유경로/native-connectortree b21153baa17c56d9a13f26f74023382ef4360b5e 일치. 최초트리차이는index.html의기존CRLF26개정규화뿐임을확인해커넥터에원바이트문자열을전달하여같은트리로교정했다. 최신main부모dd06c6f/expected_sha/forcefalse. 다른과정6원격경로통합·홈페이지충돌해결·기존60본문날짜보존확인. 공개12강실제브라우저검증과로컬모바일결과: FreshIABavailable/settingsunchanged/noUIbypass. Actualdesktop11firstfigure414px/page1265<=1280.390x84411figure2upper-lower/captionand12fullfigure3viewed;12all3SVGloaded335px/page375<=390/tables580inside343auto/code541inside343auto. Actual11to12pagerclick/title-activeDay3navigation. Viewportreset. Public12title-activeDay3-finalfigureviewedafterdeployment;notallbreakpoints/accessibility/realproducttest. All6staticMalgunfontbounds[]/contactsheetviewed.
+
+배포와80공개검증통과후에만완료day3 1~12/active없음/다음13d3-02g를기록했다. 완료41~45만/46~49선행읽기/50~52미확인. 남은방어를실제읽고추가세분화해야한다.30절132문단3표6SVG32복습·28자체실행이며제품실행없음. 전체과정미완료/자동화유지/클라우드미완료.

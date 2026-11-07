@@ -30,37 +30,37 @@
   "source_scope": {
     "volume": 3,
     "printed_pages": [
-      37,
-      40
+      41,
+      45
     ],
     "pdf_pages": [
-      39,
-      42
+      43,
+      47
     ],
     "actually_read_printed": [
-      37,
-      42
+      41,
+      49
     ],
-    "workbook_vm_scope": "Actuallyreopenedall6pages37–42/PDF39–44;completeonly37–40;41–42read-aheadnotcompletion/43continuationnotread. Printed37–39/PDF39–41privatePopplerPNGviewed/textcrosschecked. Designated5PDFfolder+priorrelated2022-workbookrecords:nooriginalseparateworkbook/wiki/VM/actualFirewall-Security-DefenderEVTX/incidentPCAPacquiredinthoseconfirmedlocations/records. Eightowntextdownloads/32offlinecomparisonruns/twobenign20LFbyterefsnotAVorEICAR. Noactualfirewallquery-networkscan-AVscan-malwareexecution-quarantine."
+    "workbook_vm_scope": "Actuallyread41-46and47-49;completeONLY41-45.46-49read-aheadnotcompletion;50-52truncatednotclaimedread. PrivatePopplerPDF43/47imagesviewed/textcrosschecked. Designated5PDF+SOURCE-MATERIALS/priorworkbookrecords:separateoriginalworkbook-wiki-VM/actualAppControl-FIM-Autoruns-registry-task-processincidentlogs-PCAPnotacquiredinthoseconfirmedlocations. Eightowntextdownloads/28offlinecomparisonruns/two21LFbyterefs;noactualOSpolicy-FIM-Autoruns-registry-task-servicequery/change-or-workbookVM."
   },
   "next_scope": {
     "day": 3,
-    "lesson": 11,
-    "lesson_id": "d3-02e",
-    "topic": "실행 통제와 남은 단말 방어: 실제 원문 범위 확인 후 세분화",
+    "lesson": 13,
+    "lesson_id": "d3-02g",
+    "topic": "관리 작업 환경과 후속 단말 방어: 원문 확인 뒤 추가 세분화",
     "volume": 3,
-    "printed_start": 41,
-    "pdf_start": 43,
+    "printed_start": 46,
+    "pdf_start": 48,
     "status": "planned_requires_source_read_and_subdivision",
     "batch_lessons": [
-      11,
-      12
+      13,
+      14
     ],
     "provisional_printed_range": [
-      41,
+      46,
       52
     ],
-    "numbering_note": "Day3display1–10completeprinted5–40. Next11d3-02efrom41/PDF43. Actuallyreopen41–52including43continuation/applicationcontrol-bypassandfurtherdefense;splitonlyunpublishedforadequatedepthbeforeWindowslogs(currently12plannedwillshift).12ID/endboundariesnotyetfinal/currentday3plan21. Preserve60publishedIDs-URLs-numbers-bodies-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
+    "numbering_note": "Day3display1-12completeprinted5-45. Next13d3-02gstarts46/PDF48;actuallyreopen46-52anddivideONLYUNPUBLISHEDforadequatedepth.46-49read-aheadonly/50-52notread;Windowslogcurrently14plannedwillshiftifsplit. Currentday3plan23. Preserve62publishedIDs-URLs-numbers-bodies-dates/compactredhome/othercourseupdates. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -130,58 +130,42 @@
       7,
       8,
       9,
-      10
+      10,
+      11,
+      12
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
-    "batch": "day03-batch06",
-    "date": "2026-11-07",
-    "lesson_ids": [
-      "d3-02e",
-      "d3-02f"
-    ],
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "019068bd03ee1d1c867aba7f52cba9af092317de",
+    "day": 3,
     "lessons": [
       11,
       12
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      41,
-      45
-    ],
-    "base_sha": "dd06c6f784dc880ac585d7ed3f6f64893ce2f9d5",
-    "review": ".learning/reviews/blue-team-day03-batch06-20261107.md"
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "cc2c4df248be08f0d1ae3ac5c6d39cb8856e85e8",
-    "day": 3,
-    "lessons": [
-      9,
-      10
-    ],
     "lesson_ids": [
-      "d3-02c",
-      "d3-02d"
+      "d3-02e",
+      "d3-02f"
     ],
     "deployment": "success",
-    "actions_run": 42360119605,
-    "public_files_checked": 78,
+    "actions_run": 42363037205,
+    "public_files_checked": 80,
     "public_content_match": true,
     "new_figures": 6,
     "new_review_questions": 32,
     "download_files": 8,
-    "html_pages_checked": 62,
-    "previous_bodies_preserved": 58,
-    "new_sections": 33,
-    "new_paragraphs": 130,
+    "html_pages_checked": 64,
+    "previous_bodies_preserved": 60,
+    "new_sections": 30,
+    "new_paragraphs": 132,
     "new_tables": 3,
-    "browser_visual_qa": "FreshCUAinventorythisbatchreturnedbrowsers[]/LocalbrowserusedisabledinWorksettings. DidnotbypassviaChrome-Edge-nativeapps/otherautomation;completion_summarysentafterobservedunavailability. Nocurrentdesktop-mobile-publicvisualQA. PriorbatchIABavailabledoesnotproveavailabilitynow. StaticexistingCSSwidth100%-overflow-x:auto/tablecodewrappers/6original400x565SVG/Malgunfontbounds[]/contactsheetactuallyviewed;requestdown-responseuparrow/localremoteportsclear. Notactual390pxrender/accessibility/allbreakpointtest.",
-    "synthetic_calculations": "Python3.12.14stdlib32processruns/8inputSHA256unchanged/external0/allactualproductflagsfalse. F1–8scheduleT,F,F,F,F,null,null,F;blockclaimF,T,T,T,T,T,T,null. Sixexactfields+halfopenwindow/start-end-offset-boundaries/unknown-false/invalidcontracts. D7rows1dup6recordIDs5inwindow2knownhashgroups1unknownhashrecord;Generic3Variant1Rare1/actiondetected2quarantined1failed1unknown1. Two20LFbytebenignSHA256different/renamedidenticalbytesmatch/onebyteAtoCmismatch;duplicateconflict-timeunknown-end-excluded-invalidrefschecked. Notactualfirewallengine-scannerauthorization-AVscan/detection-quarantine/incidenttruth.",
-    "official_sources_checked": "2026-11-07:WindowsFirewalloverviewDomainPrivatePublicconditional/defaultinboundunsolicitedblock-outboundallow/productdefaultnotactualpolicy;rulesexplicitallow-defaultblock-explicitblockconflict/noorderedweightedrules;loggingper-profilepath-drop-success-maxsize/local-vscentral;GetNetFirewallProfileActiveStorePSWindowsServer2025viewunexecuted/currentnotincidenthistory;officialpreviousversions5156allowed5157blockedWFPconnectionaudit/fields-versionsnotauth-execution. DefendernextgenlocalcloudML-behavior-heuristicshybrid/behaviorprocess-file-service/AMSIfile-memory-stream-notallRAM;AVcompatibilityWindowsclient-server-onboarding-active-passive/installednotallactive;cloudendpointaugmentation-metadata-vssamples-policycustomerdata;official1116detection1117actionAllowpossible1118failure/OS-eventscope;GetMpThreatDetectionindividualvsGetMpThreatgroupedunexecuted. ProfileguessURLandshort5157failed/canonicaloverviewpreviousversiondocactuallyopened;initialeventfindwrongsections-targetedofficialsearchactuallyread1116-1118. Noactualinstalledversion/permanentlatestclaim.",
-    "product_execution": "OnlyofflineownJSONschedule/time/dedup/groupingandtwobenignreferencebyteSHA256comparisons. NoWindowsFirewallquery/change/portprobe-scan/network/auth/WFP-Security-DefenderEVTX/malware-EICAR-AMSIinvocation/cloudquery-upload/quarantine-restore/protectiondisable/originalworkbook-wiki-VM. Currentbrowserdisablednotbypassed;static-onlylayoutverification.",
+    "browser_visual_qa": "FreshIABavailable/settingsunchanged/noUIbypass. Actualdesktop11firstfigure414px/page1265<=1280.390x84411figure2upper-lower/captionand12fullfigure3viewed;12all3SVGloaded335px/page375<=390/tables580inside343auto/code541inside343auto. Actual11to12pagerclick/title-activeDay3navigation. Viewportreset. Public12title-activeDay3-finalfigureviewedafterdeployment;notallbreakpoints/accessibility/realproducttest. All6staticMalgunfontbounds[]/contactsheetviewed.",
+    "synthetic_calculations": "Python3.12.14stdlib28processruns/8inputsSHA256unchanged/external0/allactualproductflagsfalse. A1-5coverageT,T,T,F,null/hashT,F,F,null,null;passes_this_hash_check/would_block/block_if_model/unresolved/unresolved. Mode/falseunknown/hashnull/empty/invalidcontracts/duplicate/renamedidenticalbytes/LFremovedchecked. Two21LFbyterefsA=a591b00a377c8f495efde1a470f1feff6d10954f3df3abe06ac68365ecffa6ce;B=b25f21e39639bd3a49b24bcada179e8d6c6ebce4e277b0ca545cb1a0310089fe. Changed2(mode1/hash1)/added1/missing_if_complete1/candidateC1-T1-P1one;incompletecollectionmovesabsencetounresolved;host-path-order-timezone-naivetime-empty-invalidreference-type-duplicatechecked. JSONclaimsnotactualfileattributes/taskcausality/securityapproval.",
+    "official_sources_checked": "2026-11-07MicrosoftAppControl-AppLockercomparison/requirements-KB5024351-edition-notlifecycle/filepathusermodenotdriver-runtimewritecheck/events3076audit3077blockwithchannel-scriptMSI-scope;AppleGatekeeperoutsideAppStoreDeveloperIDnotarizationnotguarantee;UbuntuAppArmorresourceprofilescomplain-enforce/notallLinuxthirdparty/SELinuxupstreamMAC;GoogleCWI2017SHA1collisionCPU6500GPU110historicalnotSHA256orsecondpreimageorprivatekey;WazuhcurrentFIMscheduled-realtime-whodata-attributes-frequencyseconds-collectionlimits;MITRETA0003persistence-accountnotallASEPs-fixedcount;SysinternalsAutorunsdocv14.3June17-2026notinstalled/permanentlatest/-a-c-h-s-v[rs]scope-signature-hashquery-filesubmission-distinction. Linksandcheckeddateinbody.",
+    "product_execution": "OnlyownofflineJSONclaimcomparison/referenceSHA256/candidate-linkcalculation. NoAppControl-AppLockerpolicyquery/deploy/change/actualblock/signatureverification/malware-codeinjection-hashcollision/FIMinstalledagent/Autorunsdownload-run/registry-task-servicequery-change/VirusTotalquery-upload/actualincidentPCAP/originalworkbookwikiVM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -421,6 +405,8 @@
     "d3-02",
     "d3-02b",
     "d3-02c",
-    "d3-02d"
+    "d3-02d",
+    "d3-02e",
+    "d3-02f"
   ]
 }
