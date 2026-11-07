@@ -30,44 +30,37 @@
   "source_scope": {
     "volume": 3,
     "printed_pages": [
-      15,
-      21
+      22,
+      27
     ],
     "pdf_pages": [
-      17,
-      23
+      24,
+      29
     ],
     "actually_read_printed": [
-      15,
-      21
+      22,
+      27
     ],
-    "workbook_vm_scope": "Actuallyreopenedall7pages15–21;printed18/PDF20kerneland21/PDF23credentialsprivatelyrenderedviewed. Scopeddesignated5PDFs/related2022PDFfolder/priorworkbookrecords:nooriginalseparateworkbook/wiki/VM/actualWindowsLinuxlogs/incidentPCAPacquired. Sixowntextdownloads/32localcomparisonruns/8handintegercrosschecks;notactualOSpermission-kernelexploit-credentialdump-authentication-execution. Next22–27waspreviousbatchread-aheadonly,notfreshcompletedthisbatch."
+    "workbook_vm_scope": "Actuallyreopenedall6pages22–27;printed25/PDF27and26/PDF28privatePopplerPNGviewed/textcrosschecked. Scopeddesignated5PDFs/related2022PDFfolder/priorworkbookrecords:nooriginalseparateworkbook/wiki/VM/actualremote-endpoint-serverlogs/incidentPCAPacquired. Sevenowntextdownloads/32localcomparisonruns/actualownPython3.12.14zlib1.3.2compression34to41. Noactualremoting-collection-exfiltration/firewallenforcement/7zip/encryption/capture. Previous5–21mappingspreservednotfreshfullreread. Next28/PDF30notcompleted."
   },
   "next_scope": {
     "day": 3,
-    "lesson": 5,
-    "lesson_id": "d3-01e",
-    "topic": "내부 이동과 수집: 계정·대상·행위의 연결",
+    "lesson": 7,
+    "lesson_id": "d3-02",
+    "topic": "엔드포인트 방어: 실제 원문 범위를 확인한 뒤 미공개 회차 세분화",
     "volume": 3,
-    "printed_start": 22,
-    "pdf_start": 24,
-    "status": "planned",
+    "printed_start": 28,
+    "pdf_start": 30,
+    "status": "planned_requires_source_read_and_subdivision",
     "batch_lessons": [
-      5,
-      6
+      7,
+      8
     ],
-    "batch_lesson_ids": [
-      "d3-01e",
-      "d3-01f"
+    "provisional_printed_range": [
+      28,
+      52
     ],
-    "following_lesson": {
-      "lesson": 6,
-      "lesson_id": "d3-01f",
-      "topic": "자료 반출: 준비·암호화·경계 통신의 근거",
-      "printed_start": 24,
-      "pdf_start": 26
-    },
-    "numbering_note": "Day3display1–4completeprinted5–21. Next5printed22–23lateral-collection/6printed24–27exfiltrationactuallyreopen;previousread-aheadnotcompletion. Splitonlyunpublished6d3-01f,olddefense28–52now7d3-02/rest+1;currentday3plan17. Defense28–52mayneedfurtherunpublishedsplitfordepth. Preserve54publishedIDs-URLs-numbers-bodies-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
+    "numbering_note": "Day3display1–6completeprinted5–27. Next7starts28/PDF30. Currentdefense28–52isprovisionalandmustactuallyreadthenadequatelysplitonlyunpublishedfortwonextdefenselecturesbeforenextWindowslogs;8IDandendboundariesnotyetfinal. Currentday3plan17untilsubdivision. Preserve56publishedIDs-URLs-numbers-bodies-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -131,12 +124,17 @@
       1,
       2,
       3,
-      4
+      4,
+      5,
+      6
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "f96474e5795c647537de5940db14e762f2394ed6",
     "day": 3,
     "lessons": [
       5,
@@ -146,46 +144,22 @@
       "d3-01e",
       "d3-01f"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      22,
-      27
-    ],
-    "source_pdf": [
-      24,
-      29
-    ],
-    "review": ".learning/reviews/blue-team-day03-batch03-20261107.md",
-    "scope": "Actuallyreopenedall6pages22–27;printed25–26privatePNGviewed. IndependentJSON/referencebytecomparisononly;noactualremoting/collection/exfiltration."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "d54367975f5b4fe19db9979124de320ff2e59c5e",
-    "day": 3,
-    "lessons": [
-      3,
-      4
-    ],
-    "lesson_ids": [
-      "d3-01c",
-      "d3-01d"
-    ],
     "deployment": "success",
-    "actions_run": 42345925289,
-    "public_files_checked": 70,
+    "actions_run": 42350625982,
+    "public_files_checked": 73,
     "public_content_match": true,
     "new_figures": 6,
     "new_review_questions": 32,
-    "download_files": 6,
-    "html_pages_checked": 56,
-    "previous_bodies_preserved": 52,
-    "new_sections": 39,
-    "new_paragraphs": 135,
-    "new_tables": 4,
-    "browser_visual_qa": "FreshIABavailable. Localdefaultdesktoptitle/activeDay3sidebar/3-to4pagerverified;390x844mobilethirdrangefigureandfourthevidencefigurevisuallyviewed/6newSVGloaded335pxwide/page375<=390/table580inside343auto/mathcode349inside343auto. SixstaticSVGMalgunfontbounds[]/contactsheetviewed;rangeboundarymarkerpreviewcorrected/captionrightwardtop-R4-bottom-R3clarified. Temporaryviewportreset. PublicthirdlessonrangeSVGandfinalrightward/top-bottomcaptionvisuallyverified/all3thirdlessonSVGloaded/desktoppage1265<=1280/completion_summarysent. Notexhaustiveallbreakpoints/accessibility/actualWindowsLinuxproducttest.",
-    "synthetic_calculations": "Python3.12.14stdlib32processruns/6inputSHA256unchanged/external0/allactualflagsfalse/incidentunresolved. PathP1–5T,F,F,null,F;rangeR1–8T,F,F,T,F,null,F,T;manualends4,3,17,16,20,19,19,8192/boundaries16,16,16,16,32,32,32,8192. Claimchanges/boundary-length-file-end-page-size/bool-negative-zero-invalidcontractschecked. CredentialC1–7F,F,T,F,null,F,T/missingkinds/accounttargettime-links/materiallabel-only/invalidkind-duplicate-material-link-empty-contractschecked. C7kindclaimcandidateisnotcacheverifierremotereuse;actualflagsfalse. NotactualACL-token-kernel-page-measurement/secretclassification/credentialextraction-auth-session-action-causality-intent.",
-    "official_sources_checked": "2026-11-07:MSCreateProcessWparameter-quote/DLLapp-search/AMSI-memory-stream;originalPowerSploitarchivedmetadataonly;DirtyPipefinderread-page-boundary-filelength/initialfixed5.16.11-5.15.25-5.10.102notpermanentlatest/RedHatCVE-backport-productcode. MST1003multiOS/Windowsauthhistorical-vs-currentconditional/LSAprotectionWin8.1+andWin11-22H2newinstall-enterprise-HVCI/CGVBS-scope-license-hardware-prioroff-Win11-22H2-Server2025domainnonDC/local-app-service-ticket-input-currentrightslimits/cachedverifiernotremotelypresentable. Sysmon15.22Event10processopennotextraction/PS5.1classic4104vs7.6PowerShellCore/loggingconditional. Ubuntu2pagesinaccessible-notclaimedread. Noactualdeployedversion/currentincident/permanentlatestclaim.",
-    "product_execution": "OnlyofflineownJSONclaimAND/integerinterval/recordkind-linkcomparison. NoPowerUp-PowerSploit-Mimikatzdownload/execution/exploitcode/compiler/pipe/memory/LSASS/SAM/registry/service/task/account/protectionpolicy/reboot/cleanup/network/actualWindowsLinuxeventlogs/incidentPCAP/originalworkbook-wiki-VM.",
+    "download_files": 7,
+    "html_pages_checked": 58,
+    "previous_bodies_preserved": 54,
+    "new_sections": 38,
+    "new_paragraphs": 129,
+    "new_tables": 3,
+    "browser_visual_qa": "FreshIABlocaldesktop5title-Day3sidebar/5to6pager;390x844mobile5request-responsefigureand6policyfigureviewed335px/page375<=390/table580inside343auto/code382inside343auto. All6SVGstaticMalgunfontbounds[]/contactsheetviewed. Publicsixthlessonfirstpathfigureandcaptionactuallyviewed/firstSVGloaded414px/activeDay3sidebar/title/desktop1265<=1280;remaining2lazySVGnotclaimedloaded. Viewportresetbeforepublic/completion_summarysent. Notexhaustiveallbreakpoints/accessibility/actualremoting-collection-exfiltration.",
+    "synthetic_calculations": "Python3.12.14stdlib32processruns/7inputSHA256unchanged/external0/allactualflagsfalse/incidentunresolved. M1–8candidateF,F,T,F,F,null,F,F;account-target-object-copyhost-andownreferencehashlengthcomparisons/changedclaims-reference1byte-CRLF35/invalidcontracts. X1–8allow,no_rule,allow,unknown,allow,allow,unknown,no_rule;B/s100,1,40,100,null,0,40,50;bit/s800,8,320,800,null,0,320,400;nullvs0/exact1over3and8over3/5fieldAND3allowrules/invalidconditions. Actualzlib1.3.2ownASCII-LF34to41;initial42draftcorrectedbeforepublication. Noactual7zip/encryption/splitting/remoteauthentication-filecopy-firewallenforcement-causality-approval-exfiltration.",
+    "official_sources_checked": "2026-11-07:MITRETA0008-TA0009-TA0010/T1074/T1560purposes-notmandatorysequence;MSPsExecv2.44Nov5displaynotinstalled/permanentlatest;MSWMI-DCOM-WinRMrights/providers;OpenSSHofficialssh1login-command-X11notallversions/config;7zformatcompression-AES256capabilitynotexecution;RFC9110default443-proxyCONNECT/notprotocolidentity;TLS1.3RFC9846earlierNov7primarycheckappliednotnewexecution. NISTSP80041r1actuallypolicy4-1/PDF28-andinspection2-11/PDF21/catalog2009dateprinciplenotproductdefault;MSFirewallrulesblock-allow-defaultprecedencenotownmodel. Noactualdeployedversion/currentincident/permanentlatestclaim.",
+    "product_execution": "OnlyownofflineJSONclaim/referencebytescomparison/exactratesandownPythonzlibcompression. NoSSH-SMB-PsExec-PSremoting-WMI/RDP-VNC-X11connection/auth/read/copy/capture/collection/7zipexecution/encryption/splitting/firewall-policychange/enforcement/actualendpoint-server-firewalllogs/incidentPCAP/originalworkbook-wiki-VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -419,6 +393,8 @@
     "d3-01",
     "d3-01b",
     "d3-01c",
-    "d3-01d"
+    "d3-01d",
+    "d3-01e",
+    "d3-01f"
   ]
 }
