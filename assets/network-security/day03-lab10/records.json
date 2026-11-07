@@ -1,0 +1,64 @@
+{
+  "schema": "training-detection-records-v1",
+  "external_actions": false,
+  "start": "2026-11-07T00:00:00Z",
+  "end": "2026-11-07T01:00:00Z",
+  "records": [
+    {
+      "id": "D1",
+      "time": "2026-11-07T00:00:00Z",
+      "sha256_claim": "5724346e3411a70d66b12814df70ef062a060e6bb594dc6a38786d825e57cd6e",
+      "name_claim": "report.txt",
+      "label_claim": "Training.Generic",
+      "action_claim": "detected"
+    },
+    {
+      "id": "D2",
+      "time": "2026-11-07T00:01:00Z",
+      "sha256_claim": "5724346e3411a70d66b12814df70ef062a060e6bb594dc6a38786d825e57cd6e",
+      "name_claim": "renamed.txt",
+      "label_claim": "Training.Variant",
+      "action_claim": "quarantined"
+    },
+    {
+      "id": "D2",
+      "time": "2026-11-07T00:01:00Z",
+      "sha256_claim": "5724346e3411a70d66b12814df70ef062a060e6bb594dc6a38786d825e57cd6e",
+      "name_claim": "renamed.txt",
+      "label_claim": "Training.Variant",
+      "action_claim": "quarantined"
+    },
+    {
+      "id": "D3",
+      "time": "2026-11-07T00:02:00Z",
+      "sha256_claim": "4266dd9887b6a238860e24bf92b49685b13561b49c2ad698f384387b409269ae",
+      "name_claim": "report.txt",
+      "label_claim": "Training.Rare",
+      "action_claim": "failed"
+    },
+    {
+      "id": "D4",
+      "time": "2026-11-07T01:00:00Z",
+      "sha256_claim": "5724346e3411a70d66b12814df70ef062a060e6bb594dc6a38786d825e57cd6e",
+      "name_claim": "report.txt",
+      "label_claim": "Training.Generic",
+      "action_claim": "detected"
+    },
+    {
+      "id": "D5",
+      "time": "2026-11-07T00:30:00Z",
+      "sha256_claim": null,
+      "name_claim": "report.txt",
+      "label_claim": "Training.Generic",
+      "action_claim": "unknown"
+    },
+    {
+      "id": "D6",
+      "time": "2026-11-07T00:40:00Z",
+      "sha256_claim": "5724346e3411a70d66b12814df70ef062a060e6bb594dc6a38786d825e57cd6e",
+      "name_claim": "report.txt",
+      "label_claim": "Training.Generic",
+      "action_claim": "detected"
+    }
+  ]
+}

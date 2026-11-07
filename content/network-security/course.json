@@ -645,76 +645,98 @@
       "id": "d3-02c",
       "day": 3,
       "number": 9,
-      "title": "단말 방화벽과 후속 방어",
+      "title": "단말 방화벽: 통신 방향·규칙·관측 범위",
+      "status": "published",
+      "slug": "day-03-09-host-firewall-evidence",
+      "short_title": "단말 방화벽과 연결 근거",
+      "description": "셋째 날 9강. 내부 경로·로컬과 원격 포트·프로파일·정책·로그를 구별하고 가상 스캔 일정의 일치 조건을 검증합니다.",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d3-02d",
+      "day": 3,
+      "number": 10,
+      "title": "백신 탐지: 파일·행동·조치 결과의 근거",
+      "status": "published",
+      "slug": "day-03-10-antivirus-detection-evidence",
+      "short_title": "백신 탐지와 조치 근거",
+      "description": "셋째 날 10강. 시그니처·행동·메모리 관측과 탐지 표지·지문·희소성·조치 결과를 구별하고 자체 기록과 참조 바이트를 비교합니다.",
+      "updated": "2026-11-07"
+    },
+    {
+      "id": "d3-02e",
+      "day": 3,
+      "number": 11,
+      "title": "실행 통제와 후속 단말 방어",
       "status": "planned"
     },
     {
       "id": "d3-03",
       "day": 3,
-      "number": 10,
+      "number": 12,
       "title": "Windows 로그가 만들어지는 과정",
       "status": "planned"
     },
     {
       "id": "d3-04",
       "day": 3,
-      "number": 11,
+      "number": 13,
       "title": "Linux 로그가 만들어지는 과정",
       "status": "planned"
     },
     {
       "id": "d3-05",
       "day": 3,
-      "number": 12,
+      "number": 14,
       "title": "중요 이벤트를 맥락과 함께 읽기",
       "status": "planned"
     },
     {
       "id": "d3-06",
       "day": 3,
-      "number": 13,
+      "number": 15,
       "title": "Windows 로그 해석 실습",
       "status": "planned"
     },
     {
       "id": "d3-07",
       "day": 3,
-      "number": 14,
+      "number": 16,
       "title": "로그 수집·파싱·정규화",
       "status": "planned"
     },
     {
       "id": "d3-08",
       "day": 3,
-      "number": 15,
+      "number": 17,
       "title": "로그 보강과 시각화 실습",
       "status": "planned"
     },
     {
       "id": "d3-09",
       "day": 3,
-      "number": 16,
+      "number": 18,
       "title": "파일의 내용과 형식 식별",
       "status": "planned"
     },
     {
       "id": "d3-10",
       "day": 3,
-      "number": 17,
+      "number": 19,
       "title": "의심스러운 파일의 식별과 취급",
       "status": "planned"
     },
     {
       "id": "d3-11",
       "day": 3,
-      "number": 18,
+      "number": 20,
       "title": "셋째 날 종합 복습",
       "status": "planned"
     },
     {
       "id": "d3-12",
       "day": 3,
-      "number": 19,
+      "number": 21,
       "title": "파일 식별 실습",
       "status": "planned"
     },
@@ -977,6 +999,8 @@
         "d3-02",
         "d3-02b",
         "d3-02c",
+        "d3-02d",
+        "d3-02e",
         "d3-03",
         "d3-04",
         "d3-05",
@@ -1039,6 +1063,6 @@
       ]
     }
   ],
-  "next_lesson": "d3-02c",
-  "planning_note": "첫째날26/둘째날24/셋째날1~6공개본문·번호·ID·URL·날짜보존.3권28~36실제읽은범위를7=28~32자산·취약점·패치/8=33~36악용완화·격리로분할.미공개9=d3-02c는37~52잔여방어잠정이며다음실제읽기후더세분화.기존Windows로그는10부터잠정.실제자료접근과원본실습수행을구별."
+  "next_lesson": "d3-02e",
+  "planning_note": "첫째날26/둘째날24/셋째날1~8의공개본문·ID·URL·번호·날짜보존.3권37~40실제재독후9=d3-02c37~38단말방화벽/10=d3-02d39~40백신으로분할.11=d3-02e41~52잔여방어잠정/41~42미리읽기만했으며다음실제범위확인후세분화.기존Windows로그는12부터잠정.실제수행과원본실습수행구별."
 }

@@ -1,0 +1,104 @@
+{
+  "schema": "training-connection-schedule-v1",
+  "external_actions": false,
+  "schedule": {
+    "source": "192.0.2.10",
+    "destination": "192.0.2.60",
+    "transport": "TCP",
+    "destination_port": 445,
+    "direction": "inbound",
+    "profile": "Domain",
+    "start": "2026-11-07T00:00:00Z",
+    "end": "2026-11-07T01:00:00Z"
+  },
+  "connections": [
+    {
+      "source": "192.0.2.10",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": "Domain",
+      "id": "F1",
+      "time": "2026-11-07T00:00:00Z",
+      "action_claim": "allow"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": "Domain",
+      "id": "F2",
+      "time": "2026-11-07T00:30:00Z",
+      "action_claim": "block"
+    },
+    {
+      "source": "192.0.2.10",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": "Domain",
+      "id": "F3",
+      "time": "2026-11-07T01:00:00Z",
+      "action_claim": "block"
+    },
+    {
+      "source": "192.0.2.10",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "outbound",
+      "profile": "Domain",
+      "id": "F4",
+      "time": "2026-11-07T00:30:00Z",
+      "action_claim": "block"
+    },
+    {
+      "source": "192.0.2.10",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": "Public",
+      "id": "F5",
+      "time": "2026-11-07T00:30:00Z",
+      "action_claim": "block"
+    },
+    {
+      "source": "192.0.2.10",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": null,
+      "id": "F6",
+      "time": "2026-11-07T00:30:00Z",
+      "action_claim": "block"
+    },
+    {
+      "source": "192.0.2.10",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": "Domain",
+      "id": "F7",
+      "time": null,
+      "action_claim": "block"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "192.0.2.60",
+      "transport": "TCP",
+      "destination_port": 445,
+      "direction": "inbound",
+      "profile": null,
+      "id": "F8",
+      "time": "2026-11-07T00:30:00Z",
+      "action_claim": "unknown"
+    }
+  ]
+}
