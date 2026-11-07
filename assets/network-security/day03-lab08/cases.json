@@ -1,0 +1,78 @@
+{
+  "schema": "training-mitigation-claims-v1",
+  "external_actions": false,
+  "cases": [
+    {
+      "default_state": "on",
+      "system_state": "notset",
+      "app_state": "notset",
+      "supported_claim": true,
+      "running_claim": true,
+      "observed_action_claim": "audited",
+      "id": "G1"
+    },
+    {
+      "default_state": "on",
+      "system_state": "on",
+      "app_state": "off",
+      "supported_claim": true,
+      "running_claim": true,
+      "observed_action_claim": "blocked",
+      "id": "G2"
+    },
+    {
+      "default_state": "off",
+      "system_state": "off",
+      "app_state": "on",
+      "supported_claim": true,
+      "running_claim": true,
+      "observed_action_claim": "blocked",
+      "id": "G3"
+    },
+    {
+      "default_state": "on",
+      "system_state": "on",
+      "app_state": "unknown",
+      "supported_claim": true,
+      "running_claim": true,
+      "observed_action_claim": "none",
+      "id": "G4"
+    },
+    {
+      "default_state": "on",
+      "system_state": "on",
+      "app_state": "notset",
+      "supported_claim": false,
+      "running_claim": true,
+      "observed_action_claim": "unknown",
+      "id": "G5"
+    },
+    {
+      "default_state": "on",
+      "system_state": "on",
+      "app_state": "notset",
+      "supported_claim": true,
+      "running_claim": null,
+      "observed_action_claim": "unknown",
+      "id": "G6"
+    },
+    {
+      "default_state": "off",
+      "system_state": "notset",
+      "app_state": "notset",
+      "supported_claim": true,
+      "running_claim": true,
+      "observed_action_claim": "none",
+      "id": "G7"
+    },
+    {
+      "default_state": "on",
+      "system_state": "on",
+      "app_state": "notset",
+      "supported_claim": null,
+      "running_claim": false,
+      "observed_action_claim": "audited",
+      "id": "G8"
+    }
+  ]
+}

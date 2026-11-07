@@ -1,0 +1,50 @@
+{
+  "schema": "training-patch-claims-v1",
+  "external_actions": false,
+  "as_of": "2026-11-07T01:00:00Z",
+  "max_age_seconds": 86400,
+  "assets": [
+    {
+      "id": "P1",
+      "observed_at": "2026-11-07T00:00:00Z",
+      "install_succeeded_claim": true,
+      "activation_verified_claim": true,
+      "post_check_passed_claim": true
+    },
+    {
+      "id": "P2",
+      "observed_at": "2026-11-07T00:00:00Z",
+      "install_succeeded_claim": true,
+      "activation_verified_claim": false,
+      "post_check_passed_claim": true
+    },
+    {
+      "id": "P3",
+      "observed_at": "2026-11-07T00:00:00Z",
+      "install_succeeded_claim": true,
+      "activation_verified_claim": true,
+      "post_check_passed_claim": null
+    },
+    {
+      "id": "P4",
+      "observed_at": "2026-11-06T01:00:00Z",
+      "install_succeeded_claim": true,
+      "activation_verified_claim": true,
+      "post_check_passed_claim": true
+    },
+    {
+      "id": "P5",
+      "observed_at": "2026-11-07T01:00:00Z",
+      "install_succeeded_claim": true,
+      "activation_verified_claim": true,
+      "post_check_passed_claim": true
+    },
+    {
+      "id": "P6",
+      "observed_at": null,
+      "install_succeeded_claim": true,
+      "activation_verified_claim": true,
+      "post_check_passed_claim": true
+    }
+  ]
+}
