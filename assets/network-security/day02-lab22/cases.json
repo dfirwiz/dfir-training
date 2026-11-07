@@ -1,0 +1,81 @@
+{
+  "schema": "training-remote-baseline-v1",
+  "external_actions_allowed": false,
+  "rule": {
+    "source_network": "192.0.2.0/24",
+    "destination": "198.51.100.20",
+    "start": "2026-11-07T09:00:00+00:00",
+    "end": "2026-11-07T10:00:00+00:00",
+    "tool": "training-support",
+    "tenant": "org-a",
+    "user": "operator-a"
+  },
+  "cases": [
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "port": 443,
+      "time": "2026-11-07T09:30:00+00:00",
+      "tool": "training-support",
+      "tenant": "org-a",
+      "user": "operator-a",
+      "ticket_linked_claim": true,
+      "id": "B1"
+    },
+    {
+      "source": "203.0.113.25",
+      "destination": "198.51.100.20",
+      "port": 443,
+      "time": "2026-11-07T09:30:00+00:00",
+      "tool": "training-support",
+      "tenant": "org-a",
+      "user": "operator-a",
+      "ticket_linked_claim": true,
+      "id": "B2"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "port": 443,
+      "time": "2026-11-07T09:30:00+00:00",
+      "tool": "training-support",
+      "tenant": "org-b",
+      "user": "operator-a",
+      "ticket_linked_claim": true,
+      "id": "B3"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "port": 443,
+      "time": "2026-11-07T10:00:00+00:00",
+      "tool": "training-support",
+      "tenant": "org-a",
+      "user": "operator-a",
+      "ticket_linked_claim": true,
+      "id": "B4"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "port": 443,
+      "time": "2026-11-07T09:30:00+00:00",
+      "tool": null,
+      "tenant": null,
+      "user": null,
+      "ticket_linked_claim": null,
+      "id": "B5"
+    },
+    {
+      "source": "192.0.2.25",
+      "destination": "198.51.100.20",
+      "port": 443,
+      "time": "2026-11-07T09:30:00+00:00",
+      "tool": "training-support",
+      "tenant": "org-a",
+      "user": "operator-a",
+      "ticket_linked_claim": false,
+      "id": "B6"
+    }
+  ]
+}
