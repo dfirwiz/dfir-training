@@ -30,6 +30,7 @@ from blue_team_protocol_evidence_diagrams import build_protocol_evidence
 from blue_team_remote_access_diagrams import build_remote_access
 from blue_team_management_transfer_diagrams import build_management_transfer
 from blue_team_icmp_baseline_diagrams import build_icmp_baseline
+from blue_team_network_final_diagrams import build_network_final
 from blue_team_course_menu import sidebar_menu, overview_body, home_card, MENU_CSS
 TITLE = '블루팀 필수 지식: 보안 운영과 분석'
 OUT = ROOT/'courses/network-security'
@@ -90,6 +91,7 @@ build_protocol_evidence(ASSETS)
 build_remote_access(ASSETS)
 build_management_transfer(ASSETS)
 build_icmp_baseline(ASSETS)
+build_network_final(ASSETS)
 
 def inline(s):
     s=escape(s)
@@ -100,7 +102,7 @@ def inline(s):
     s=re.sub(r'`([^`]+)`',protect,s)
     s=re.sub(r'\*\*([^*]+)\*\*',r'<strong>\1</strong>',s)
     s=re.sub(r'\x00(\d+)\x00',lambda m:'<code>'+code[int(m.group(1))]+'</code>',s)
-    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10|lab14|lab16|lab18|lab20|lab22|lab24|lab26|day02-lab08|day02-lab10|day02-lab11|day02-lab12|day02-lab13|day02-lab14|day02-lab15|day02-lab16|day02-lab17|day02-lab18|day02-lab19|day02-lab20|day02-lab21|day02-lab22)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
+    s=re.sub(r'\[([^\]]+)\]\((https://[^\s)]+|\.\./\.\./assets/network-security/(?:lab05|lab10|lab14|lab16|lab18|lab20|lab22|lab24|lab26|day02-lab08|day02-lab10|day02-lab11|day02-lab12|day02-lab13|day02-lab14|day02-lab15|day02-lab16|day02-lab17|day02-lab18|day02-lab19|day02-lab20|day02-lab21|day02-lab22|day02-lab23|day02-lab24)/[A-Za-z0-9_.-]+)\)',r'<a href="\2">\1</a>',s)
     return s
 
 def render(md, expected_mermaid=0):

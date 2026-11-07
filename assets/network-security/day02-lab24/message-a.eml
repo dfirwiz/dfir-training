@@ -1,0 +1,24 @@
+X-Training-Only: true
+Return-Path: <bounce@mailer.example.net>
+Received: from mx.receiver.example (mx.receiver.example [203.0.113.10])
+ by store.receiver.example with ESMTP id STORE-TRAIN;
+ Sat, 07 Nov 2026 09:00:04 +0000
+Received: from outbound.example.net (outbound.example.net [198.51.100.40])
+ by mx.receiver.example with ESMTP id EDGE-TRAIN;
+ Sat, 07 Nov 2026 20:00:00 +1100
+Authentication-Results: mx.receiver.example;
+ spf=pass smtp.mailfrom=bounce@mailer.example.net;
+ dkim=pass header.d=example.org
+Authentication-Results: outside.example.net;
+ spf=pass smtp.mailfrom=pretend@example.org;
+ dkim=pass header.d=example.org
+From: Training Helpdesk <helpdesk@example.org>
+To: Analyst <analyst@receiver.example>
+Date: Sat, 07 Nov 2026 19:59:57 +1100
+Message-ID: <message-a.eml@training.example>
+Subject: Fictional training notice
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+
+Training notice only. Do not open links.
+https://portal.example.org/training

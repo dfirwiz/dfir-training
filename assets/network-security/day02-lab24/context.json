@@ -1,0 +1,20 @@
+{
+  "schema": "training-email-evidence-v1",
+  "external_actions_allowed": false,
+  "files": {
+    "message-a.eml": {
+      "sha256": "11242ffce3356e6bd6e9c9bc6c54efa332bcd4d6b33cccbd1bc460d3b806993d",
+      "ar_index": 0,
+      "expected_authserv_id": "mx.receiver.example",
+      "receiver_provenance_claim": true,
+      "smtp_data_accepted_claim": true
+    },
+    "message-b.eml": {
+      "sha256": "72e636b4ff5c53d6d7c237540161807c0e570e5c8f3cce72b2cdca5f50168ae2",
+      "ar_index": 0,
+      "expected_authserv_id": "mx.receiver.example",
+      "receiver_provenance_claim": false,
+      "smtp_data_accepted_claim": true
+    }
+  }
+}

@@ -115,7 +115,29 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": null,
+  "active_batch": {
+    "day": 2,
+    "lessons": [
+      23,
+      24
+    ],
+    "lesson_ids": [
+      11,
+      12
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      177,
+      180
+    ],
+    "source_pdf": [
+      179,
+      182
+    ],
+    "review": ".learning/reviews/blue-team-day02-batch09-20261107.md",
+    "scope": "Fullfinal4pagesread;coverageauditpreviousreviewsandmanuscriptsectioninventory,notfreshfullvolume2reread. Independentlabsnotoriginalworkbookcompletion.",
+    "local_check": "34processruns/8inputsunchanged/static52HTML/6SVGfontbounds[];day2range5-180assigned;browserdisabled"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "cfe9fe4ce49ce573e2f5cdf23768449f033a5d94",

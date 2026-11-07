@@ -35,3 +35,7 @@ assets/network-security/day02-lab20/expected-note.txt -text
 assets/network-security/day02-lab21/* text eol=lf
 assets/network-security/day02-lab21/*.pcap -text
 assets/network-security/day02-lab22/* text eol=lf
+
+assets/network-security/day02-lab23/* text eol=lf
+assets/network-security/day02-lab24/* text eol=lf
+assets/network-security/day02-lab24/*.eml -text

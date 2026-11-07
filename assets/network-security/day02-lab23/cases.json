@@ -1,0 +1,133 @@
+{
+  "schema": "training-visibility-v1",
+  "external_actions_allowed": false,
+  "sensors": {
+    "mail": {
+      "path": "mail-edge",
+      "kinds": [
+        "smtp_accept"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    "dns": {
+      "path": "client-resolver",
+      "kinds": [
+        "dns_query"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    "border": {
+      "path": "client-outside",
+      "kinds": [
+        "tls_flow",
+        "outbound_bytes"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    "east": {
+      "path": "client-server",
+      "kinds": [
+        "smb_flow"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    }
+  },
+  "stages": [
+    {
+      "id": "S1",
+      "path": "mail-edge",
+      "required": [
+        "smtp_accept"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    {
+      "id": "S2",
+      "path": "client-resolver",
+      "required": [
+        "dns_query"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    {
+      "id": "S3",
+      "path": "client-outside",
+      "required": [
+        "tls_flow"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    {
+      "id": "S4",
+      "path": "client-server",
+      "required": [
+        "endpoint_process"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    {
+      "id": "S5",
+      "path": "client-server",
+      "required": [
+        "server_file_write"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    },
+    {
+      "id": "S6",
+      "path": "client-outside",
+      "required": [
+        "outbound_bytes",
+        "file_identity"
+      ],
+      "start": "2026-11-07T09:00:00+00:00",
+      "end": "2026-11-07T09:30:00+00:00"
+    }
+  ],
+  "records": [
+    {
+      "id": "R1",
+      "sensor": "mail",
+      "path": "mail-edge",
+      "kind": "smtp_accept",
+      "time": "2026-11-07T09:01:00+00:00"
+    },
+    {
+      "id": "R2",
+      "sensor": "dns",
+      "path": "client-resolver",
+      "kind": "dns_query",
+      "time": "2026-11-07T09:02:00+00:00"
+    },
+    {
+      "id": "R3",
+      "sensor": "border",
+      "path": "client-outside",
+      "kind": "tls_flow",
+      "time": "2026-11-07T09:03:00+00:00"
+    },
+    {
+      "id": "R4",
+      "sensor": "east",
+      "path": "client-server",
+      "kind": "smb_flow",
+      "time": "2026-11-07T09:05:00+00:00"
+    },
+    {
+      "id": "R5",
+      "sensor": "border",
+      "path": "client-outside",
+      "kind": "outbound_bytes",
+      "time": "2026-11-07T09:08:00+00:00"
+    }
+  ]
+}
