@@ -30,48 +30,44 @@
   "source_scope": {
     "volume": 3,
     "printed_pages": [
-      5,
-      14
+      15,
+      21
     ],
     "pdf_pages": [
-      7,
-      16
+      17,
+      23
     ],
     "actually_read_printed": [
-      5,
-      27
-    ],
-    "read_ahead_only_printed": [
       15,
-      27
+      21
     ],
-    "workbook_vm_scope": "Actuallyread5–27/PDF7–29all23pages;25–27rereadaftercombinedoutputtruncation. Printed8/PDF10and12/PDF14privatePNGviewed. Completeonly5–14,not15–27. Scopeddesignated5PDFs/related2022PDFfolder/priorworkbookrecords:originalseparateworkbook/wiki/VM/actualendpointlogs/incidentPCAPnotacquired. Independent6owntextdownloads/32localcomparisonruns,notactualOSpermissions/task-command-persistenceexecution."
+    "workbook_vm_scope": "Actuallyreopenedall7pages15–21;printed18/PDF20kerneland21/PDF23credentialsprivatelyrenderedviewed. Scopeddesignated5PDFs/related2022PDFfolder/priorworkbookrecords:nooriginalseparateworkbook/wiki/VM/actualWindowsLinuxlogs/incidentPCAPacquired. Sixowntextdownloads/32localcomparisonruns/8handintegercrosschecks;notactualOSpermission-kernelexploit-credentialdump-authentication-execution. Next22–27waspreviousbatchread-aheadonly,notfreshcompletedthisbatch."
   },
   "next_scope": {
     "day": 3,
-    "lesson": 3,
-    "lesson_id": "d3-01c",
-    "topic": "권한 상승: 권한 경계와 구성·커널 조건",
+    "lesson": 5,
+    "lesson_id": "d3-01e",
+    "topic": "내부 이동과 수집: 계정·대상·행위의 연결",
     "volume": 3,
-    "printed_start": 15,
-    "pdf_start": 17,
+    "printed_start": 22,
+    "pdf_start": 24,
     "status": "planned",
     "batch_lessons": [
-      3,
-      4
+      5,
+      6
     ],
     "batch_lesson_ids": [
-      "d3-01c",
-      "d3-01d"
+      "d3-01e",
+      "d3-01f"
     ],
     "following_lesson": {
-      "lesson": 4,
-      "lesson_id": "d3-01d",
-      "printed_start": 19,
-      "pdf_start": 21,
-      "topic": "자격 증명 접근: 자료 형태·보호·관측 한계"
+      "lesson": 6,
+      "lesson_id": "d3-01f",
+      "topic": "자료 반출: 준비·암호화·경계 통신의 근거",
+      "printed_start": 24,
+      "pdf_start": 26
     },
-    "numbering_note": "Day3display1/2completeonlyprinted5–14. Next3printed15–18and4printed19–21actuallyreopenwithcurrentprimarysources. Read-ahead15–27notcompletion. Later5printed22–27/6defense28–52provisionalandsplitonlyunpublishedfordepth. Preserve52publishedIDs-URLs-numbers-bodies-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
+    "numbering_note": "Day3display1–4completeprinted5–21. Next5printed22–23lateral-collection/6printed24–27exfiltrationactuallyreopen;previousread-aheadnotcompletion. Splitonlyunpublished6d3-01f,olddefense28–52now7d3-02/rest+1;currentday3plan17. Defense28–52mayneedfurtherunpublishedsplitfordepth. Preserve54publishedIDs-URLs-numbers-bodies-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -133,12 +129,17 @@
     ],
     "3": [
       1,
-      2
+      2,
+      3,
+      4
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "d54367975f5b4fe19db9979124de320ff2e59c5e",
     "day": 3,
     "lessons": [
       3,
@@ -148,46 +149,22 @@
       "d3-01c",
       "d3-01d"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      15,
-      21
-    ],
-    "source_pdf": [
-      17,
-      23
-    ],
-    "review": ".learning/reviews/blue-team-day03-batch02-20261107.md",
-    "scope": "Actuallyreopened7pages15–21;privatekernel20andcredentials23renderedviewed. NooriginalWindowsLinuxVM/credentialdump/privilegeexploitruns."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "95a65f38ca1d2dba3f478f965a0b01974dbd31b6",
-    "day": 3,
-    "lessons": [
-      1,
-      2
-    ],
-    "lesson_ids": [
-      "d3-01",
-      "d3-01b"
-    ],
     "deployment": "success",
-    "actions_run": 42342351466,
-    "public_files_checked": 68,
+    "actions_run": 42345925289,
+    "public_files_checked": 70,
     "public_content_match": true,
     "new_figures": 6,
-    "new_review_questions": 28,
+    "new_review_questions": 32,
     "download_files": 6,
-    "html_pages_checked": 54,
-    "previous_bodies_preserved": 50,
-    "new_sections": 35,
-    "new_paragraphs": 124,
-    "new_tables": 3,
-    "browser_visual_qa": "FreshIABavailable. Localdefaultdesktopand390x844mobiletitle-text-firstfigureandsecondtablevisuallyinspected;pagewidth375<=390/table580inside343overflowauto/code354inside343overflowauto;all3secondlessonlazySVGloadedaftersection15navigation. All6SVGstaticMalgunfontbounds[]/contactsheetviewed. Publicsecondlessonsection9heading-body-startupSVGandactiveDay3sidebarvisuallyverified;desktoppagewidth1265<=1280. Viewportreset/completion_summarysent. Notexhaustiveeverybreakpoint/accessibilitytest.",
-    "synthetic_calculations": "Python3.12.14stdlib32processruns/6inputSHA256unchanged. E1ordinaryusernonzeroallowedclaims/E2adminmembershipnotadditionalpermission/E3serviceread/E4localnotremote/E5nullunknownvsE6emptyfalse;group-label-only/action/request/invalidconditionschecked. T1processonly/T2configonly/T3cfg-trig-proc1candidate/T4otherhostnone/T5discoveryclaimonly/T6othersubjectnone;timezone-late-trigger-missing-kinds-otherpath-invalidcontractschecked. NoactualOSpermissions/token/remoteauthorization/Windowslogs/process-command-task-registry-reboot/causality/attackerintent. Allactualflagsfalse/incidentunresolved/external0.",
-    "official_sources_checked": "2026-11-07:MSaccesscontrol/UACinteractivefilteredtokens/Linuxcapabilities2.2+;MITREv20.1sinceOct13/15Enterprisetactics/TA0005Stealth-TA0112DefenseImpairment/currentvshistorical2022/versionsv20. MSxp_cmdshellver17docviewdefaultdisabled-role-service-proxyconditions/AppControlaudit-enforce-log-alert/Runlogon/tasktrigger-principal;ASD2024LOTLofficialHTMLadvisorybaseline-context. Notactualdeployedversion/supportstatus/currentincident/permanentlatestclaim.",
-    "product_execution": "OnlysixoriginaltextdownloadsofflineJSONcomparison. Noexploit/Meterpreter/SQLcommands/PowerShell/discoverycommand/persistenceinstall/filecleanup/reboot/realACL-token-check/Windowslogs/incidentPCAP/originalworkbook-wiki-VM.",
+    "html_pages_checked": 56,
+    "previous_bodies_preserved": 52,
+    "new_sections": 39,
+    "new_paragraphs": 135,
+    "new_tables": 4,
+    "browser_visual_qa": "FreshIABavailable. Localdefaultdesktoptitle/activeDay3sidebar/3-to4pagerverified;390x844mobilethirdrangefigureandfourthevidencefigurevisuallyviewed/6newSVGloaded335pxwide/page375<=390/table580inside343auto/mathcode349inside343auto. SixstaticSVGMalgunfontbounds[]/contactsheetviewed;rangeboundarymarkerpreviewcorrected/captionrightwardtop-R4-bottom-R3clarified. Temporaryviewportreset. PublicthirdlessonrangeSVGandfinalrightward/top-bottomcaptionvisuallyverified/all3thirdlessonSVGloaded/desktoppage1265<=1280/completion_summarysent. Notexhaustiveallbreakpoints/accessibility/actualWindowsLinuxproducttest.",
+    "synthetic_calculations": "Python3.12.14stdlib32processruns/6inputSHA256unchanged/external0/allactualflagsfalse/incidentunresolved. PathP1–5T,F,F,null,F;rangeR1–8T,F,F,T,F,null,F,T;manualends4,3,17,16,20,19,19,8192/boundaries16,16,16,16,32,32,32,8192. Claimchanges/boundary-length-file-end-page-size/bool-negative-zero-invalidcontractschecked. CredentialC1–7F,F,T,F,null,F,T/missingkinds/accounttargettime-links/materiallabel-only/invalidkind-duplicate-material-link-empty-contractschecked. C7kindclaimcandidateisnotcacheverifierremotereuse;actualflagsfalse. NotactualACL-token-kernel-page-measurement/secretclassification/credentialextraction-auth-session-action-causality-intent.",
+    "official_sources_checked": "2026-11-07:MSCreateProcessWparameter-quote/DLLapp-search/AMSI-memory-stream;originalPowerSploitarchivedmetadataonly;DirtyPipefinderread-page-boundary-filelength/initialfixed5.16.11-5.15.25-5.10.102notpermanentlatest/RedHatCVE-backport-productcode. MST1003multiOS/Windowsauthhistorical-vs-currentconditional/LSAprotectionWin8.1+andWin11-22H2newinstall-enterprise-HVCI/CGVBS-scope-license-hardware-prioroff-Win11-22H2-Server2025domainnonDC/local-app-service-ticket-input-currentrightslimits/cachedverifiernotremotelypresentable. Sysmon15.22Event10processopennotextraction/PS5.1classic4104vs7.6PowerShellCore/loggingconditional. Ubuntu2pagesinaccessible-notclaimedread. Noactualdeployedversion/currentincident/permanentlatestclaim.",
+    "product_execution": "OnlyofflineownJSONclaimAND/integerinterval/recordkind-linkcomparison. NoPowerUp-PowerSploit-Mimikatzdownload/execution/exploitcode/compiler/pipe/memory/LSASS/SAM/registry/service/task/account/protectionpolicy/reboot/cleanup/network/actualWindowsLinuxeventlogs/incidentPCAP/originalworkbook-wiki-VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -419,6 +396,8 @@
   },
   "completed_lesson_ids_day3": [
     "d3-01",
-    "d3-01b"
+    "d3-01b",
+    "d3-01c",
+    "d3-01d"
   ]
 }
