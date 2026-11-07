@@ -1,0 +1,37 @@
+[
+  {
+    "id": "A1",
+    "targeted": true,
+    "policy_applied": true,
+    "mode": "enforce",
+    "sha256": "a591b00a377c8f495efde1a470f1feff6d10954f3df3abe06ac68365ecffa6ce"
+  },
+  {
+    "id": "A2",
+    "targeted": true,
+    "policy_applied": true,
+    "mode": "audit",
+    "sha256": "b25f21e39639bd3a49b24bcada179e8d6c6ebce4e277b0ca545cb1a0310089fe"
+  },
+  {
+    "id": "A3",
+    "targeted": true,
+    "policy_applied": true,
+    "mode": "enforce",
+    "sha256": "b25f21e39639bd3a49b24bcada179e8d6c6ebce4e277b0ca545cb1a0310089fe"
+  },
+  {
+    "id": "A4",
+    "targeted": false,
+    "policy_applied": true,
+    "mode": "enforce",
+    "sha256": "b25f21e39639bd3a49b24bcada179e8d6c6ebce4e277b0ca545cb1a0310089fe"
+  },
+  {
+    "id": "A5",
+    "targeted": true,
+    "policy_applied": null,
+    "mode": "enforce",
+    "sha256": "b25f21e39639bd3a49b24bcada179e8d6c6ebce4e277b0ca545cb1a0310089fe"
+  }
+]

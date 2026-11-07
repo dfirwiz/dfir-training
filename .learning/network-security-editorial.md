@@ -165,3 +165,7 @@ Actuallyreadvolume3printed28–41and42partial;completeonly28–36/PDF30–38;34�
 ## 2026-11-07 day3 batch05 — displayed9/10
 
 Actuallyreopened37–42/PDF39–44;completeonly37–40/41–42read-ahead;37–39privatePNGviewed.9d3-02chostfirewall37–38/10d3-02dAV39–40;newunpublished11d3-02e41–52remainingdefenseprovisional/oldWindows12/rest+2.33sections130paragraphs3tables6original400x565SVG32immediateQ&A/8textdownloads32offlinecomparisonruns8inputhashunchanged. Firewallvantage-directions-localremote-profiles-defaults-explicitrule-vsactualengine/loglocal-central/WFP5156-5157scope/specificscanner6fields+timeagreementnotapproval. AVsignatures-behavior-MLhybrid/AMSI-memorynotinvisible/active-passive-vsinstalled/labels-hash-path-rarity-notproof/detection-action-failure/metadata-vssamplesubmission/customerpolicy;own7rows6IDs5inwindow2hashgroups1unknown/20byteLFrefhashesnotAV/EICAR.58oldbodies-dates-IDs-URLs-numbers/compactredhomepreserved. FreshCUAbrowsersdisabledinWorksettings/noUIbypass/currentmobileonlystaticCSSwrappersSVGfontbounds/contactsheetnotactualbrowserQA. Reviewblue-team-day03-batch05-20261107.md. Actions+78publicproofbeforecompletion;next11from41/PDF43actualread41–52andcontinuation43/furthersplitunpublishedfordepthbeforeWindowslogs. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete.
+
+
+## 2026-11-07 day3 batch06
+11강실행통제41~43/12강FIM지속성44~45로세분화. 13d3-02g는46부터잔여방어실제재독후분량조정;Windows로그14강예정/총23계획. 기존60게시본문날짜IDURL보존. 명령실행모형과실제제품구분/3076vs3077/서명-해시-경로/기준선-관측공백-설정발동실행을상세설명. 검토.learning/reviews/blue-team-day03-batch06-20261107.md. 배포공개게이트이전완료집계금지.

@@ -135,7 +135,25 @@
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": null,
+  "active_batch": {
+    "batch": "day03-batch06",
+    "date": "2026-11-07",
+    "lesson_ids": [
+      "d3-02e",
+      "d3-02f"
+    ],
+    "lessons": [
+      11,
+      12
+    ],
+    "status": "validated_pending_publication",
+    "source_printed": [
+      41,
+      45
+    ],
+    "base_sha": "dd06c6f784dc880ac585d7ed3f6f64893ce2f9d5",
+    "review": ".learning/reviews/blue-team-day03-batch06-20261107.md"
+  },
   "automation_id": "automation-2",
   "last_publication": {
     "commit": "cc2c4df248be08f0d1ae3ac5c6d39cb8856e85e8",

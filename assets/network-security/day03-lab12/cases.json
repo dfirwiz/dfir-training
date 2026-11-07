@@ -1,0 +1,77 @@
+{
+  "collection_complete": true,
+  "before": [
+    {
+      "path": "/srv/www/notice.txt",
+      "content": "A",
+      "owner": "app-owner",
+      "mode": "read-only"
+    },
+    {
+      "path": "/srv/app/settings.txt",
+      "content": "A",
+      "owner": "app-owner",
+      "mode": "read-only"
+    },
+    {
+      "path": "/srv/app/retired-note.txt",
+      "content": "A",
+      "owner": "app-owner",
+      "mode": "read-only"
+    }
+  ],
+  "after": [
+    {
+      "path": "/srv/www/notice.txt",
+      "content": "B",
+      "owner": "app-owner",
+      "mode": "read-only"
+    },
+    {
+      "path": "/srv/app/settings.txt",
+      "content": "A",
+      "owner": "app-owner",
+      "mode": "user-write"
+    },
+    {
+      "path": "/srv/app/new-note.txt",
+      "content": "A",
+      "owner": "app-owner",
+      "mode": "read-only"
+    }
+  ],
+  "configs": [
+    {
+      "id": "C1",
+      "host": "endpoint.example.org",
+      "entry": "K1",
+      "path": "/srv/app/notice-helper",
+      "time": "2026-11-07T00:00:00+00:00"
+    },
+    {
+      "id": "C2",
+      "host": "endpoint.example.org",
+      "entry": "K2",
+      "path": "/srv/app/notice-helper",
+      "time": "2026-11-07T00:00:00+00:00"
+    }
+  ],
+  "triggers": [
+    {
+      "id": "T1",
+      "host": "endpoint.example.org",
+      "entry": "K1",
+      "path": "/srv/app/notice-helper",
+      "time": "2026-11-07T00:05:00+00:00"
+    }
+  ],
+  "processes": [
+    {
+      "id": "P1",
+      "host": "endpoint.example.org",
+      "entry": "K1",
+      "path": "/srv/app/notice-helper",
+      "time": "2026-11-07T00:06:00+00:00"
+    }
+  ]
+}
