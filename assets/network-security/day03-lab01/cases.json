@@ -1,0 +1,105 @@
+{
+  "schema": "training-endpoint-context-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "id": "E1",
+      "context_label": "standard-user",
+      "admin_group_claim": false,
+      "allowed_actions_claim": [
+        "read-user-data",
+        "write-user-data",
+        "connect-internal"
+      ],
+      "requested_actions": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal",
+        "operate-other-host"
+      ]
+    },
+    {
+      "id": "E2",
+      "context_label": "admin-member-filtered-claim",
+      "admin_group_claim": true,
+      "allowed_actions_claim": [
+        "read-user-data",
+        "write-user-data"
+      ],
+      "requested_actions": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal",
+        "operate-other-host"
+      ]
+    },
+    {
+      "id": "E3",
+      "context_label": "restricted-service",
+      "admin_group_claim": false,
+      "allowed_actions_claim": [
+        "read-service-data"
+      ],
+      "requested_actions": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal",
+        "operate-other-host"
+      ]
+    },
+    {
+      "id": "E4",
+      "context_label": "local-admin-scope-claim",
+      "admin_group_claim": true,
+      "allowed_actions_claim": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal"
+      ],
+      "requested_actions": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal",
+        "operate-other-host"
+      ]
+    },
+    {
+      "id": "E5",
+      "context_label": "unknown-context",
+      "admin_group_claim": false,
+      "allowed_actions_claim": null,
+      "requested_actions": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal",
+        "operate-other-host"
+      ]
+    },
+    {
+      "id": "E6",
+      "context_label": "explicit-no-actions",
+      "admin_group_claim": false,
+      "allowed_actions_claim": [],
+      "requested_actions": [
+        "read-user-data",
+        "write-user-data",
+        "read-service-data",
+        "change-machine-config",
+        "connect-internal",
+        "operate-other-host"
+      ]
+    }
+  ]
+}

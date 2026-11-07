@@ -1,0 +1,120 @@
+{
+  "schema": "training-endpoint-activity-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "id": "T1",
+      "records": [
+        {
+          "id": "p1",
+          "kind": "process_start",
+          "time": "2026-11-07T10:00:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        }
+      ]
+    },
+    {
+      "id": "T2",
+      "records": [
+        {
+          "id": "cfg",
+          "kind": "startup_config",
+          "time": "2026-11-07T10:00:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        }
+      ]
+    },
+    {
+      "id": "T3",
+      "records": [
+        {
+          "id": "cfg",
+          "kind": "startup_config",
+          "time": "2026-11-07T10:00:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        },
+        {
+          "id": "trig",
+          "kind": "trigger_event",
+          "time": "2026-11-07T10:05:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        },
+        {
+          "id": "proc",
+          "kind": "process_start",
+          "time": "2026-11-07T10:06:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        }
+      ]
+    },
+    {
+      "id": "T4",
+      "records": [
+        {
+          "id": "cfg",
+          "kind": "startup_config",
+          "time": "2026-11-07T10:00:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        },
+        {
+          "id": "trig",
+          "kind": "trigger_event",
+          "time": "2026-11-07T10:05:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        },
+        {
+          "id": "other-proc",
+          "kind": "process_start",
+          "time": "2026-11-07T10:06:00+00:00",
+          "host": "host-b",
+          "subject": "training-task"
+        }
+      ]
+    },
+    {
+      "id": "T5",
+      "records": [
+        {
+          "id": "d1",
+          "kind": "discovery_command",
+          "time": "2026-11-07T10:00:00+00:00",
+          "host": "host-a",
+          "subject": "account-list-claim"
+        }
+      ]
+    },
+    {
+      "id": "T6",
+      "records": [
+        {
+          "id": "cfg2",
+          "kind": "startup_config",
+          "time": "2026-11-07T10:00:00+00:00",
+          "host": "host-a",
+          "subject": "training-other-startup"
+        },
+        {
+          "id": "trig",
+          "kind": "trigger_event",
+          "time": "2026-11-07T10:05:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        },
+        {
+          "id": "proc",
+          "kind": "process_start",
+          "time": "2026-11-07T10:06:00+00:00",
+          "host": "host-a",
+          "subject": "training-task"
+        }
+      ]
+    }
+  ]
+}
