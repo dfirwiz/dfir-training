@@ -1,0 +1,170 @@
+{
+  "schema": "training-movement-claims-v1",
+  "external_actions_allowed": false,
+  "cases": [
+    {
+      "id": "M1",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": null,
+      "read_claim": null,
+      "local_copy_claim": null
+    },
+    {
+      "id": "M2",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-reader",
+        "target": "192.0.2.60"
+      },
+      "read_claim": null,
+      "local_copy_claim": null
+    },
+    {
+      "id": "M3",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-reader",
+        "target": "192.0.2.60"
+      },
+      "read_claim": {
+        "success": true,
+        "account": "training-reader",
+        "target": "192.0.2.60",
+        "object_id": "training-report-1"
+      },
+      "local_copy_claim": {
+        "host": "192.0.2.25",
+        "source_account": "training-reader",
+        "source_target": "192.0.2.60",
+        "source_object_id": "training-report-1",
+        "sha256_claim": "0e3f3bec3737f08de2c32adb81358126d9a6a6da0d29349fe3dd3acddad58036",
+        "bytes_claim": 34
+      }
+    },
+    {
+      "id": "M4",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-other",
+        "target": "192.0.2.60"
+      },
+      "read_claim": {
+        "success": true,
+        "account": "training-reader",
+        "target": "192.0.2.60",
+        "object_id": "training-report-1"
+      },
+      "local_copy_claim": {
+        "host": "192.0.2.25",
+        "source_account": "training-reader",
+        "source_target": "192.0.2.60",
+        "source_object_id": "training-report-1",
+        "sha256_claim": "0e3f3bec3737f08de2c32adb81358126d9a6a6da0d29349fe3dd3acddad58036",
+        "bytes_claim": 34
+      }
+    },
+    {
+      "id": "M5",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-reader",
+        "target": "192.0.2.60"
+      },
+      "read_claim": {
+        "success": true,
+        "account": "training-reader",
+        "target": "192.0.2.60",
+        "object_id": "training-report-1"
+      },
+      "local_copy_claim": {
+        "host": "192.0.2.25",
+        "source_account": "training-reader",
+        "source_target": "192.0.2.60",
+        "source_object_id": "training-report-1",
+        "sha256_claim": "0000000000000000000000000000000000000000000000000000000000000000",
+        "bytes_claim": 34
+      }
+    },
+    {
+      "id": "M6",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-reader",
+        "target": "192.0.2.60"
+      },
+      "read_claim": {
+        "success": true,
+        "account": "training-reader",
+        "target": "192.0.2.60",
+        "object_id": "training-report-1"
+      },
+      "local_copy_claim": {
+        "host": "192.0.2.25",
+        "source_account": "training-reader",
+        "source_target": "192.0.2.60",
+        "source_object_id": "training-report-1",
+        "sha256_claim": null,
+        "bytes_claim": 34
+      }
+    },
+    {
+      "id": "M7",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-reader",
+        "target": "192.0.2.60"
+      },
+      "read_claim": {
+        "success": true,
+        "account": "training-reader",
+        "target": "192.0.2.60",
+        "object_id": "training-report-1"
+      },
+      "local_copy_claim": {
+        "host": "192.0.2.99",
+        "source_account": "training-reader",
+        "source_target": "192.0.2.60",
+        "source_object_id": "training-report-1",
+        "sha256_claim": "0e3f3bec3737f08de2c32adb81358126d9a6a6da0d29349fe3dd3acddad58036",
+        "bytes_claim": 34
+      }
+    },
+    {
+      "id": "M8",
+      "origin_host": "192.0.2.25",
+      "connection_claim": true,
+      "authentication_claim": {
+        "accepted": true,
+        "account": "training-reader",
+        "target": "192.0.2.60"
+      },
+      "read_claim": {
+        "success": false,
+        "account": "training-reader",
+        "target": "192.0.2.60",
+        "object_id": "training-report-1"
+      },
+      "local_copy_claim": {
+        "host": "192.0.2.25",
+        "source_account": "training-reader",
+        "source_target": "192.0.2.60",
+        "source_object_id": "training-report-1",
+        "sha256_claim": null,
+        "bytes_claim": 34
+      }
+    }
+  ]
+}

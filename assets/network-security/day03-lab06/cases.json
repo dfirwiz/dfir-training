@@ -1,0 +1,111 @@
+{
+  "schema": "training-egress-claims-v1",
+  "external_actions_allowed": false,
+  "default_action_claim": "deny",
+  "accounting_scope": "fictional-captured-layer-count",
+  "allow_rules": [
+    {
+      "source_role": "workstation",
+      "destination": "proxy.example.org",
+      "transport": "tcp",
+      "destination_port": 8080,
+      "application_claim": "http-proxy"
+    },
+    {
+      "source_role": "proxy",
+      "destination": "upload.example.org",
+      "transport": "tcp",
+      "destination_port": 443,
+      "application_claim": "https"
+    },
+    {
+      "source_role": "mail-relay",
+      "destination": "mail.example.net",
+      "transport": "tcp",
+      "destination_port": 25,
+      "application_claim": "smtp"
+    }
+  ],
+  "cases": [
+    {
+      "id": "X1",
+      "source_role": "workstation",
+      "destination": "proxy.example.org",
+      "transport": "tcp",
+      "destination_port": 8080,
+      "application_claim": "http-proxy",
+      "observed_bytes": 1000,
+      "interval_seconds": 10
+    },
+    {
+      "id": "X2",
+      "source_role": "workstation",
+      "destination": "upload.example.org",
+      "transport": "tcp",
+      "destination_port": 443,
+      "application_claim": "https",
+      "observed_bytes": 1000,
+      "interval_seconds": 1000
+    },
+    {
+      "id": "X3",
+      "source_role": "mail-relay",
+      "destination": "mail.example.net",
+      "transport": "tcp",
+      "destination_port": 25,
+      "application_claim": "smtp",
+      "observed_bytes": 40,
+      "interval_seconds": 1
+    },
+    {
+      "id": "X4",
+      "source_role": "proxy",
+      "destination": "upload.example.org",
+      "transport": "tcp",
+      "destination_port": 443,
+      "application_claim": null,
+      "observed_bytes": 1000,
+      "interval_seconds": 10
+    },
+    {
+      "id": "X5",
+      "source_role": "proxy",
+      "destination": "upload.example.org",
+      "transport": "tcp",
+      "destination_port": 443,
+      "application_claim": "https",
+      "observed_bytes": null,
+      "interval_seconds": 10
+    },
+    {
+      "id": "X6",
+      "source_role": "proxy",
+      "destination": "upload.example.org",
+      "transport": "tcp",
+      "destination_port": 443,
+      "application_claim": "https",
+      "observed_bytes": 0,
+      "interval_seconds": 10
+    },
+    {
+      "id": "X7",
+      "source_role": "proxy",
+      "destination": null,
+      "transport": "tcp",
+      "destination_port": 443,
+      "application_claim": "https",
+      "observed_bytes": 80,
+      "interval_seconds": 2
+    },
+    {
+      "id": "X8",
+      "source_role": "workstation",
+      "destination": "mail.example.net",
+      "transport": "tcp",
+      "destination_port": 25,
+      "application_claim": "smtp",
+      "observed_bytes": 100,
+      "interval_seconds": 2
+    }
+  ]
+}

@@ -602,14 +602,22 @@
       "day": 3,
       "number": 5,
       "title": "내부 이동과 수집: 계정·대상·행위의 연결",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-03-05-lateral-movement-collection",
+      "short_title": "내부 이동과 자료 수집",
+      "description": "셋째 날 5강. 연결·인증·원격 기능·자료 읽기·복사본을 나누고 가상 주장과 자체 파일의 지문을 비교합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": "d3-01f",
       "day": 3,
       "number": 6,
       "title": "자료 반출: 준비·암호화·경계 통신의 근거",
-      "status": "planned"
+      "status": "published",
+      "slug": "day-03-06-exfiltration-egress-evidence",
+      "short_title": "자료 반출과 경계 통신",
+      "description": "셋째 날 6강. 반출 준비·암호화·중계 경로·정책 조건과 관측 바이트의 속도를 구별해 조사 근거로 연결합니다.",
+      "updated": "2026-11-07"
     },
     {
       "id": "d3-02",
@@ -1007,6 +1015,6 @@
       ]
     }
   ],
-  "next_lesson": "d3-01e",
+  "next_lesson": "d3-02",
   "planning_note": "첫째날26/둘째날24/셋째날1~2공개내용과번호·ID·URL·날짜를보존합니다.3권5~27전술을충분한깊이로분할:1=5~10/2=11~14/다음3=15~18권한상승/4=19~21자격증명/5=22~27이동·수집·반출/기존방어는6부터잠정.실제읽은범위와원본실습수행을구별합니다."
 }
