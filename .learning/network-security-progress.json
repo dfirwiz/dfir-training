@@ -28,31 +28,50 @@
     12
   ],
   "source_scope": {
-    "volume": 2,
+    "volume": 3,
     "printed_pages": [
-      177,
-      180
+      5,
+      14
     ],
     "pdf_pages": [
-      179,
-      182
+      7,
+      16
     ],
-    "workbook_vm_scope": "Actually reopened all177-180/PDF179-182 this turn;summary178/workbook-pointer180renderedviewed. Finalconceptauditusespriorreviewmappings5-176 and22manuscriptsectioninventoryplusfreshfinal4pages,notfreshfullvolume2reread. Own8downloads/34offlineprocessruns;originalworkbook/wiki/VM/sourcePCAP/actualemail-DNS-signature-receiverlogs unverified. Volume3PDF1-8heading-intropartialpreviewonly-notcompletion."
+    "actually_read_printed": [
+      5,
+      27
+    ],
+    "read_ahead_only_printed": [
+      15,
+      27
+    ],
+    "workbook_vm_scope": "Actuallyread5–27/PDF7–29all23pages;25–27rereadaftercombinedoutputtruncation. Printed8/PDF10and12/PDF14privatePNGviewed. Completeonly5–14,not15–27. Scopeddesignated5PDFs/related2022PDFfolder/priorworkbookrecords:originalseparateworkbook/wiki/VM/actualendpointlogs/incidentPCAPnotacquired. Independent6owntextdownloads/32localcomparisonruns,notactualOSpermissions/task-command-persistenceexecution."
   },
   "next_scope": {
     "day": 3,
-    "lesson": 1,
-    "lesson_id": "d3-01",
-    "topic": "단말 중심의 공격 흐름과 네트워크 관측을 연결하기",
+    "lesson": 3,
+    "lesson_id": "d3-01c",
+    "topic": "권한 상승: 권한 경계와 구성·커널 조건",
     "volume": 3,
-    "printed_start": 5,
-    "pdf_start": 7,
+    "printed_start": 15,
+    "pdf_start": 17,
     "status": "planned",
     "batch_lessons": [
-      1,
-      2
+      3,
+      4
     ],
-    "numbering_note": "Daychanged:displaystarts1again. Actuallyreadvolume3printed5-27/PDF7-29endpointtacticsbeforedecidinglectureboundaries;splitonlyunpublishedplannedIDsfordepthifneeded,do notcompress5-27plus28-52defenseinto2shallowlectures. Currentd3-02defense28-52isprovisionalandcanmoveonlywhileunpublished. Volume3PDF1-8headingsandfirstintroexcerptpreviewednotfullrange-read;no3rd-daycompletion. Preserve50publishedday1=26/day2=24IDs-URLs-numbers-prose-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
+    "batch_lesson_ids": [
+      "d3-01c",
+      "d3-01d"
+    ],
+    "following_lesson": {
+      "lesson": 4,
+      "lesson_id": "d3-01d",
+      "printed_start": 19,
+      "pdf_start": 21,
+      "topic": "자격 증명 접근: 자료 형태·보호·관측 한계"
+    },
+    "numbering_note": "Day3display1/2completeonlyprinted5–14. Next3printed15–18and4printed19–21actuallyreopenwithcurrentprimarysources. Read-ahead15–27notcompletion. Later5printed22–27/6defense28–52provisionalandsplitonlyunpublishedfordepth. Preserve52publishedIDs-URLs-numbers-bodies-dates/compactredhome. Wholecourseunfinished/localautomationactive/cloudmigrationincomplete."
   },
   "workflow": "User authorized direct website authoring and publication without a chat draft from lesson 3 onward. Preserve detailed explanations, examples, diagrams, tables, immediate review explanations and current primary-source supplements. Do not expose third-party course identifiers in public content. User requested menu reorganization first and sequential authoring from day one on 2026-11-03. Do not continue day-two lesson seven before day-one lessons. Hourly heartbeat automation-2 is active: continue the next two lessons per run, resuming unfinished work and preserving depth.",
   "build": "python scripts/build_network_security.py",
@@ -111,11 +130,18 @@
       22,
       23,
       24
+    ],
+    "3": [
+      1,
+      2
     ]
   },
   "menu_reorganized": true,
   "completed_lessons_note": "Legacy numeric IDs are day-two original IDs, not display numbers after splits. New subdivisions use string IDs. Use completed_by_day for displayed numbers.",
-  "active_batch": {
+  "active_batch": null,
+  "automation_id": "automation-2",
+  "last_publication": {
+    "commit": "95a65f38ca1d2dba3f478f965a0b01974dbd31b6",
     "day": 3,
     "lessons": [
       1,
@@ -125,50 +151,22 @@
       "d3-01",
       "d3-01b"
     ],
-    "status": "validated_pending_publication",
-    "source_printed": [
-      5,
-      14
-    ],
-    "source_pdf": [
-      7,
-      16
-    ],
-    "read_ahead_printed": [
-      15,
-      27
-    ],
-    "review": ".learning/reviews/blue-team-day03-batch01-20261107.md",
-    "scope": "Read5-27all23pages;25-27rereadafteroutputtruncation. Completeonly5-14thisbatch;next15-18/19-21. Preserve50publishedbodies-dates."
-  },
-  "automation_id": "automation-2",
-  "last_publication": {
-    "commit": "0433d3c2d61285b68fbc79bae9467fbf8cf9d27c",
-    "day": 2,
-    "lessons": [
-      23,
-      24
-    ],
-    "lesson_ids": [
-      11,
-      12
-    ],
     "deployment": "success",
-    "actions_run": 42337369104,
+    "actions_run": 42342351466,
     "public_files_checked": 68,
     "public_content_match": true,
     "new_figures": 6,
     "new_review_questions": 28,
-    "download_files": 8,
-    "html_pages_checked": 52,
-    "previous_bodies_preserved": 48,
-    "new_sections": 34,
-    "new_paragraphs": 113,
+    "download_files": 6,
+    "html_pages_checked": 54,
+    "previous_bodies_preserved": 50,
+    "new_sections": 35,
+    "new_paragraphs": 124,
     "new_tables": 3,
-    "browser_visual_qa": "FreshCUAinventorybrowsers[]/Worksettingsdisabledlocalbrowseruse;no workaround/completion_summarysent. Six400pxSVGstaticMalgunfontbounds[]/network-finalcontactsheetviewed;imagewidth100%/table-codeinternaloverflowstaticchecked. Actualdesktop/mobilelayoutunverified.",
-    "synthetic_calculations": "Python3.12.14stdlib34processruns/8inputSHA256unchanged;independentrawCRLF-header-count-hash/no-realDKIMsignature/UTC4secondcrosscheck. VisibilityS1-S3narrowkindpresent/S4endpointprocess-S5serverfilewrite-S6fileidentitymissing;latewindow-path-endexclusive/equivalenttimezone/empty/additionalhost-filekinds/invalidcontractschecked;actualstagefalse. MailAauthor-example.org/SPF-mailer.example.net/DKIM-example.org/provenanceclaimtrue->strict-reportcomparisontrue;Bsameid-passbutclaimfalse->null;claimedReceived4sec/attachments0;false-unknown-domain-OR-case-header-index-hash-formatconditionschecked. ActualDNS-DKIM-receiverprovenance-SMTPdelivery-useractionfalse/incidentunresolved/external0.",
-    "official_sources_checked": "2026-11-07:RFC9846July2026replaces8446stillTLS1.3/RFC8484/NIST800-61r3;RFC5321-5322-8601-7208-6376/DMARC9989May2026replaces7489-9091/reports9990-9991;Wiresharkip.addr/smtp.response.code1.0.0-4.6.9/filtermanual. Collection-path-window-kind/record-vs-execution/click-storage-exfiltrationseparate;headerreport-vs-trust-vs-actualcrypto/strictalignmentonlynotfullDMARC/SMTPacceptance-vs-delivery-action. No permanentlatestversionclaims.",
-    "product_execution": "Only offline fictional visibility JSON and2ownEMLs/context parsed. NoactualDNS/SMTP/crypto/signature/receiver-provenanceverification/link-opening/attachments-execution/socket/host-firewall-accountconfiguration/incidentPCAP/mail-serverlogs/originalworkbook-wiki-VM.",
+    "browser_visual_qa": "FreshIABavailable. Localdefaultdesktopand390x844mobiletitle-text-firstfigureandsecondtablevisuallyinspected;pagewidth375<=390/table580inside343overflowauto/code354inside343overflowauto;all3secondlessonlazySVGloadedaftersection15navigation. All6SVGstaticMalgunfontbounds[]/contactsheetviewed. Publicsecondlessonsection9heading-body-startupSVGandactiveDay3sidebarvisuallyverified;desktoppagewidth1265<=1280. Viewportreset/completion_summarysent. Notexhaustiveeverybreakpoint/accessibilitytest.",
+    "synthetic_calculations": "Python3.12.14stdlib32processruns/6inputSHA256unchanged. E1ordinaryusernonzeroallowedclaims/E2adminmembershipnotadditionalpermission/E3serviceread/E4localnotremote/E5nullunknownvsE6emptyfalse;group-label-only/action/request/invalidconditionschecked. T1processonly/T2configonly/T3cfg-trig-proc1candidate/T4otherhostnone/T5discoveryclaimonly/T6othersubjectnone;timezone-late-trigger-missing-kinds-otherpath-invalidcontractschecked. NoactualOSpermissions/token/remoteauthorization/Windowslogs/process-command-task-registry-reboot/causality/attackerintent. Allactualflagsfalse/incidentunresolved/external0.",
+    "official_sources_checked": "2026-11-07:MSaccesscontrol/UACinteractivefilteredtokens/Linuxcapabilities2.2+;MITREv20.1sinceOct13/15Enterprisetactics/TA0005Stealth-TA0112DefenseImpairment/currentvshistorical2022/versionsv20. MSxp_cmdshellver17docviewdefaultdisabled-role-service-proxyconditions/AppControlaudit-enforce-log-alert/Runlogon/tasktrigger-principal;ASD2024LOTLofficialHTMLadvisorybaseline-context. Notactualdeployedversion/supportstatus/currentincident/permanentlatestclaim.",
+    "product_execution": "OnlysixoriginaltextdownloadsofflineJSONcomparison. Noexploit/Meterpreter/SQLcommands/PowerShell/discoverycommand/persistenceinstall/filecleanup/reboot/realACL-token-check/Windowslogs/incidentPCAP/originalworkbook-wiki-VM.",
     "execution_environment": "local;cloudmigrationincomplete"
   },
   "completed_lesson_ids_day1": [
@@ -397,5 +395,9 @@
         180
       ]
     ]
-  }
+  },
+  "completed_lesson_ids_day3": [
+    "d3-01",
+    "d3-01b"
+  ]
 }
