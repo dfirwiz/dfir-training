@@ -4,8 +4,8 @@
     71,
     72
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T10:11:15.341Z",
-  "expires_at": "2026-11-09T11:08:00Z",
-  "next_scope": "15장 5~6강 공개 배포 검증 후 16장 Microsoft SQL Server"
+  "next_scope": "16장 Microsoft SQL Server 원본 전체 검토 및 상세 분할 계획. 전역 ID73부터.",
+  "completed_at": "2026-11-09T10:18:26.163Z"
 }
