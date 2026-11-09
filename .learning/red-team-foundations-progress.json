@@ -66,8 +66,8 @@
     62
   ],
   "published_unit": "1~13장 공개: 2장만 핵심 요약",
-  "next_scope": "14장 Pivoting 1~2강 (ID63~64)",
-  "next_lesson_status": "in_progress",
+  "next_scope": "14장 1~2강 공개 배포 검증 후 ID65~66",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -830,6 +830,22 @@
       64,
       65,
       66
-    ]
+    ],
+    "batch_1_2": {
+      "lesson_ids": [
+        63,
+        64
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "review_questions": 16,
+      "verification_scope": "64강 빌드, HTML 65개·내부 참조 6640건·공식 출처 링크 10개, 기존 본문 62개 및 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차 검증, 즉시 해설 16개.",
+      "verification_limits": "Windows·Linux·Cobalt Strike 설정, 연결, 인증 미실행. 실제 모바일 단말 대신 Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/63-socks-pivot-path-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/64-proxy-client-routing-dns-evidence.html"
+      ]
+    }
   }
 }

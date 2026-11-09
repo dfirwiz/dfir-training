@@ -1,7 +1,7 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
   "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 상세 강의. Windows·Cobalt Strike·최초 접근·지속성·접근 후 작업·권한 상승의 조건과 결과를 실제 공식 화면과 연결합니다.",
-  "updated": "2026-11-05",
+  "updated": "2026-11-09",
   "lessons": [
     {
       "id": 1,
@@ -1761,6 +1761,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 63,
+      "slug": "63-socks-pivot-path-evidence",
+      "title": "피벗 경로와 SOCKS 연결 증거",
+      "short_title": "피벗 경로와 SOCKS 연결 증거",
+      "description": "프런트엔드와 Beacon 작업, 목적지 서비스의 증거를 분리합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 14,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 프록시 경로 확인",
+        "description": "프런트엔드와 Beacon 작업, 목적지 서비스의 증거를 분리합니다.",
+        "links": [
+          [
+            "screen-123",
+            "Pivot Graph 세션 경로"
+          ],
+          [
+            "screen-124",
+            "Beacon Console과 Proxy Pivots"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 64,
+      "slug": "64-proxy-client-routing-dns-evidence",
+      "title": "Windows·Linux 프록시 규칙과 이름 해석",
+      "short_title": "Windows·Linux 프록시 규칙과 이름 해석",
+      "description": "클라이언트 규칙, 이름 해석 위치, 연결 및 서비스 결과를 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 14,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 2,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 프록시 경로 확인",
+        "description": "클라이언트 규칙, 이름 해석 위치, 연결 및 서비스 결과를 대조합니다.",
+        "links": [
+          [
+            "screen-125",
+            "Sessions Table과 등록 목록"
+          ],
+          [
+            "screen-126",
+            "Beacon Console 도움말"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2064,6 +2124,36 @@
           "62-windows-logon-types-second-hop",
           "screen-122",
           "6강 · Windows 이벤트 4624"
+        ]
+      ]
+    },
+    {
+      "id": 14,
+      "title": "Pivoting",
+      "title_ko": "중계 경로와 프록시 검증",
+      "practice_entry": "63-socks-pivot-path-evidence",
+      "practice_label": "실제 화면에서 세션과 프록시 경로 대조",
+      "practice_description": "Fortra Pivot Graph, Sessions Table, Beacon Console을 따라 중계 후보와 확인 지점을 찾습니다.",
+      "practice_links": [
+        [
+          "63-socks-pivot-path-evidence",
+          "screen-123",
+          "1강 · Pivot Graph 세션 경로"
+        ],
+        [
+          "63-socks-pivot-path-evidence",
+          "screen-124",
+          "1강 · Beacon Console과 Proxy Pivots"
+        ],
+        [
+          "64-proxy-client-routing-dns-evidence",
+          "screen-125",
+          "2강 · Sessions Table과 등록 목록"
+        ],
+        [
+          "64-proxy-client-routing-dns-evidence",
+          "screen-126",
+          "2강 · Beacon Console 도움말"
         ]
       ]
     }
