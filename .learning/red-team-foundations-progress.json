@@ -86,8 +86,8 @@
     82
   ],
   "published_unit": "1~17장 공개: 17장 1~4강, 2장만 핵심 요약",
-  "next_scope": "17장 Domain Dominance 5~6강 (ID83~84): Diamond Ticket의 계보 검증과 DPAPI 도메인 백업 키 감사.",
-  "next_lesson_status": "awaiting_public_verification",
+  "next_scope": "17장 5~6강(ID83~84)의 기존 커밋 공개 배포 및 페이지·다운로드 검증부터 재개. 검증과 진도 기록 후 18장 Forest & Domain Trusts 원본 전체 검토와 분할(ID85부터).",
+  "next_lesson_status": "deployment_blocked",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1201,7 +1201,7 @@
         83,
         84
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "deployment_blocked",
       "diagrams": 6,
       "official_image_occurrences": 2,
       "review_questions": 16,
@@ -1210,7 +1210,10 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/83-kerberos-diamond-ticket-lineage.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/84-dpapi-domain-backup-key-audit.html"
-      ]
+      ],
+      "commit": "6b6166d26cfb0a6e0c30930651064218bfb526f1",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42672801121",
+      "deployment_details": "GitHub Pages 빌드와 산출물 업로드는 성공. 전체 실행은 배포 작업 생성 전에 failure로 종료. 실패 작업 재실행 API는 403(This workflow run cannot be retried). 83강 공개 경로 HTTP 404 관측. 근본 원인 미확인."
     }
   }
 }
