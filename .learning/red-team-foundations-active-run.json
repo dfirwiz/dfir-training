@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1708",
+  "owner": "scheduled-20261109-1814",
   "scope": [
-    81,
-    82
+    83,
+    84
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T17:14:03.359Z",
-  "next_scope": "17장 Domain Dominance 5~6강 (ID83~84): Diamond Ticket의 계보 검증과 DPAPI 도메인 백업 키 감사.",
-  "completed_at": "2026-11-09T17:16:05.246Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T18:14:31.628Z",
+  "next_scope": "17장 5~6강 공개 배포 검증 후 18장 Forest & Domain Trusts 원본 검토와 분할",
+  "expires_at": "2026-11-09T19:14:31.628Z"
 }

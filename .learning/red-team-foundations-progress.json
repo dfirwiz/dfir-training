@@ -87,7 +87,7 @@
   ],
   "published_unit": "1~17장 공개: 17장 1~4강, 2장만 핵심 요약",
   "next_scope": "17장 Domain Dominance 5~6강 (ID83~84): Diamond Ticket의 계보 검증과 DPAPI 도메인 백업 키 감사.",
-  "next_lesson_status": "planned",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1195,6 +1195,22 @@
       "commit": "ab21582f8e053dce642e6617d509c2527a6a1e0e",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42662688650",
       "public_files_verified": 23
+    },
+    "batch_5_6": {
+      "lesson_ids": [
+        83,
+        84
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "84강 빌드, HTML 85개·내부 참조 10363건·공식 링크 10개, 기존 본문 82개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 스크롤·앵커·목차와 즉시 해설 16개 검사.",
+      "verification_limits": "제품·티켓·키·데이터 복호화와 정책 변경 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/83-kerberos-diamond-ticket-lineage.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/84-dpapi-domain-backup-key-audit.html"
+      ]
     }
   }
 }

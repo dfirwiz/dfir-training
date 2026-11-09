@@ -2321,6 +2321,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 83,
+      "slug": "83-kerberos-diamond-ticket-lineage",
+      "title": "Diamond Ticket과 Kerberos 티켓 계보 검증",
+      "short_title": "Diamond Ticket과 Kerberos 티켓 계보 검증",
+      "description": "정상 TGT 발급과 후속 요청의 티켓 해시, 실제 자원 사용의 증거를 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 17,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 5,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "정상 TGT 발급과 후속 요청의 티켓 해시, 실제 자원 사용의 증거를 대조합니다.",
+        "links": [
+          [
+            "screen-153",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 84,
+      "slug": "84-dpapi-domain-backup-key-audit",
+      "title": "DPAPI 도메인 백업 키와 복구 감사",
+      "short_title": "DPAPI 도메인 백업 키와 복구 감사",
+      "description": "정상 사용자 복구와 도메인 백업 키 노출의 영향 및 감사 증거를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 17,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 6,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "정상 사용자 복구와 도메인 백업 키 노출의 영향 및 감사 증거를 구별합니다.",
+        "links": [
+          [
+            "screen-154",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2793,7 +2845,7 @@
       "title_ko": "도메인 신뢰와 노출 범위",
       "practice_entry": "79-ad-replication-rights-boundaries",
       "practice_label": "공식 화면에서 관측 문맥 확인",
-      "practice_description": "콘솔의 보고 문맥을 복제 권한과 감사 증거와 구별합니다.",
+      "practice_description": "콘솔의 보고 문맥을 복제 권한, 티켓 계보 및 복구 감사의 증거와 구별합니다.",
       "practice_links": [
         [
           "79-ad-replication-rights-boundaries",
@@ -2814,6 +2866,16 @@
           "82-kerberos-golden-ticket-domain-trust",
           "screen-152",
           "4강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "83-kerberos-diamond-ticket-lineage",
+          "screen-153",
+          "5강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "84-dpapi-domain-backup-key-audit",
+          "screen-154",
+          "6강 · Beacon Console 세션 문맥"
         ]
       ]
     }
