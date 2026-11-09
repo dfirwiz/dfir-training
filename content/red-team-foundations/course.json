@@ -2217,6 +2217,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 79,
+      "slug": "79-ad-replication-rights-boundaries",
+      "title": "Active Directory 복제와 유효 권한",
+      "short_title": "Active Directory 복제와 유효 권한",
+      "description": "정상 복제와 DCSync의 경계, 위임된 유효 권한을 읽습니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 17,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 1,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "정상 복제와 DCSync의 경계, 위임된 유효 권한을 읽습니다.",
+        "links": [
+          [
+            "screen-149",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 80,
+      "slug": "80-ad-dcsync-audit-correlation",
+      "title": "DCSync 감사 상관관계와 노출 판단",
+      "short_title": "DCSync 감사 상관관계와 노출 판단",
+      "description": "디렉터리 접근·로그온·네트워크 기록을 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 17,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "디렉터리 접근·로그온·네트워크 기록을 연결합니다.",
+        "links": [
+          [
+            "screen-150",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2680,6 +2732,26 @@
           "78-sql-service-account-impersonation-evidence",
           "screen-148",
           "6강 · Beacon Console 세션 문맥"
+        ]
+      ]
+    },
+    {
+      "id": 17,
+      "title": "Domain Dominance",
+      "title_ko": "도메인 신뢰와 노출 범위",
+      "practice_entry": "79-ad-replication-rights-boundaries",
+      "practice_label": "공식 화면에서 관측 문맥 확인",
+      "practice_description": "콘솔의 보고 문맥을 복제 권한과 감사 증거와 구별합니다.",
+      "practice_links": [
+        [
+          "79-ad-replication-rights-boundaries",
+          "screen-149",
+          "1강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "80-ad-dcsync-audit-correlation",
+          "screen-150",
+          "2강 · Beacon Console 세션 문맥"
         ]
       ]
     }

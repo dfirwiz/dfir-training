@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1420",
+  "owner": "scheduled-20261109-1519",
   "scope": [
     79,
     80
   ],
-  "status": "blocked",
-  "started_at": "2026-11-09T14:24:27.171Z",
-  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 원격 main 및 원본을 새로 확보한 뒤 본문·그림·빌드·모바일 검증부터 재개.",
-  "stopped_at": "2026-11-09T14:26:04.531Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T15:27:00.330Z",
+  "next_scope": "17장 1~2강 공개 배포 검증 후 ID81~82",
+  "expires_at": "2026-11-09T16:08:00Z"
 }
