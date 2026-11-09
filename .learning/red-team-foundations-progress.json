@@ -83,11 +83,13 @@
     79,
     80,
     81,
-    82
+    82,
+    83,
+    84
   ],
-  "published_unit": "1~17장 공개: 17장 1~4강, 2장만 핵심 요약",
-  "next_scope": "17장 5~6강(ID83~84)의 기존 커밋 공개 배포 및 페이지·다운로드 검증부터 재개. 검증과 진도 기록 후 18장 Forest & Domain Trusts 원본 전체 검토와 분할(ID85부터).",
-  "next_lesson_status": "deployment_blocked",
+  "published_unit": "1~17장 공개: 17장 1~6강, 2장만 핵심 요약",
+  "next_scope": "18장 Forest & Domain Trusts 1~2강(ID85~86). 원본 전체 대조 후 신뢰 방향·TDO와 부모·자식 신뢰의 권한 검증.",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -153,7 +155,7 @@
       "14": 4,
       "15": 6,
       "16": 6,
-      "17": 4
+      "17": 6
     },
     "updated": "2026-11-10"
   },
@@ -1114,18 +1116,17 @@
   },
   "unit_17": {
     "title": "Domain Dominance",
-    "status": "partially_published",
+    "status": "published",
     "source_scope_reviewed": true,
     "lesson_ids": [
       79,
       80,
       81,
-      82
-    ],
-    "remaining_lesson_ids": [
+      82,
       83,
       84
     ],
+    "remaining_lesson_ids": [],
     "planned_lessons": [
       {
         "id": 79,
@@ -1201,7 +1202,7 @@
         83,
         84
       ],
-      "publication_status": "deployment_blocked",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 2,
       "review_questions": 16,
@@ -1212,8 +1213,7 @@
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/84-dpapi-domain-backup-key-audit.html"
       ],
       "commit": "6b6166d26cfb0a6e0c30930651064218bfb526f1",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42672801121",
-      "deployment_details": "GitHub Pages 빌드와 산출물 업로드는 성공. 전체 실행은 배포 작업 생성 전에 failure로 종료. 실패 작업 재실행 API는 403(This workflow run cannot be retried). 83강 공개 경로 HTTP 404 관측. 근본 원인 미확인.",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42681119579",
       "latest_recheck": {
         "date": "2026-11-10",
         "run": "https://github.com/dfirwiz/dfir-training/actions/runs/42673429269",
@@ -1225,8 +1225,17 @@
           "83": 404,
           "84": 404
         }
-      }
-    }
+      },
+      "initial_deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42672801121",
+      "initial_deployment_details": "GitHub Pages 빌드와 산출물 업로드는 성공. 전체 실행은 배포 작업 생성 전에 failure로 종료. 실패 작업 재실행 API는 403(This workflow run cannot be retried). 83강 공개 경로 HTTP 404 관측. 근본 원인 미확인.",
+      "deployed_commit": "fe0d7800eed7bc3a7f25f241ed015999764681f9",
+      "public_files_verified": 21,
+      "verified_at": "2026-11-09T19:15:42Z"
+    },
+    "publication_status": "published_verified",
+    "diagrams": 18,
+    "official_image_occurrences": 6,
+    "review_questions": 48
   },
   "unit_18": {
     "title": "Forest & Domain Trusts",
@@ -1260,7 +1269,6 @@
         "number": 4,
         "scope": "단방향 송신 신뢰, 별도 인증 문맥, 신뢰 계정과 키 노출 범위 및 감사"
       }
-    ],
-    "depends_on": "ID83~84 공개 페이지 및 다운로드 확인"
+    ]
   }
 }

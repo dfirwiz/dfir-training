@@ -4,8 +4,8 @@
     83,
     84
   ],
-  "status": "blocked",
+  "status": "completed",
   "started_at": "2026-11-09T18:14:31.628Z",
-  "next_scope": "17장 5~6강(ID83~84)의 기존 커밋 공개 배포 및 페이지·다운로드 검증부터 재개. 검증과 진도 기록 후 18장 Forest & Domain Trusts 원본 전체 검토와 분할(ID85부터).",
-  "blocked_at": "2026-11-09T18:21:52.369Z"
+  "next_scope": "18장 Forest & Domain Trusts 1~2강(ID85~86). 원본 전체 대조 후 신뢰 방향·TDO와 부모·자식 신뢰의 권한 검증.",
+  "completed_at": "2026-11-09T19:15:42Z"
 }
