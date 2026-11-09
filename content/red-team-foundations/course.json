@@ -2061,6 +2061,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 73,
+      "slug": "73-sql-server-instance-discovery-evidence",
+      "title": "SQL Server 인스턴스 식별과 연결 증거",
+      "short_title": "SQL Server 인스턴스 식별과 연결 증거",
+      "description": "SPN·SQL Browser·엔진 리스너와 로그인 결과를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 16,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 1,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "SPN·SQL Browser·엔진 리스너와 로그인 결과를 구별합니다.",
+        "links": [
+          [
+            "screen-143",
+            "Beacon Console 사용자 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 74,
+      "slug": "74-sql-server-login-role-query-evidence",
+      "title": "SQL Server 로그인·역할과 읽기 전용 조회",
+      "short_title": "SQL Server 로그인·역할과 읽기 전용 조회",
+      "description": "서버 로그인·데이터베이스 사용자·역할과 가시성을 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 16,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "서버 로그인·데이터베이스 사용자·역할과 가시성을 대조합니다.",
+        "links": [
+          [
+            "screen-144",
+            "Beacon Console 사용자 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2484,6 +2536,26 @@
           "72-kerberos-rbcd-directory-audit",
           "screen-142",
           "6강 · DC 이벤트와 변경 감사"
+        ]
+      ]
+    },
+    {
+      "id": 16,
+      "title": "Microsoft SQL Server",
+      "title_ko": "인스턴스 연결과 데이터베이스 권한",
+      "practice_entry": "73-sql-server-instance-discovery-evidence",
+      "practice_label": "공식 화면에서 조회 문맥 확인",
+      "practice_description": "Fortra 콘솔의 보고 문맥을 SQL 연결과 로그인 증거와 구별합니다.",
+      "practice_links": [
+        [
+          "73-sql-server-instance-discovery-evidence",
+          "screen-143",
+          "1강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "74-sql-server-login-role-query-evidence",
+          "screen-144",
+          "2강 · Beacon Console 사용자 문맥"
         ]
       ]
     }

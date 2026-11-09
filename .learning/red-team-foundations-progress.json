@@ -76,8 +76,8 @@
     72
   ],
   "published_unit": "1~15장 공개: 2장만 핵심 요약",
-  "next_scope": "16장 Microsoft SQL Server 1~2강 (ID73~74)",
-  "next_lesson_status": "in_progress",
+  "next_scope": "16장 1~2강 공개 배포 검증 후 ID75~76",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1037,6 +1037,22 @@
         "number": 6,
         "scope": "서비스 계정과 가장 권한의 실행 증거"
       }
-    ]
+    ],
+    "batch_1_2": {
+      "lesson_ids": [
+        73,
+        74
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "74강 빌드, HTML 75개·내부 참조 8422건·공식 링크 9개, 기존 본문 72개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표·코드 스크롤·앵커·목차, 즉시 해설 16개 검사.",
+      "verification_limits": "SQL Server·SSMS·Cobalt Strike·검색·쿼리·로그인·정책 변경 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/73-sql-server-instance-discovery-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/74-sql-server-login-role-query-evidence.html"
+      ]
+    }
   }
 }
