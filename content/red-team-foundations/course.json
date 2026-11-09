@@ -1,7 +1,7 @@
 {
   "title": "레드팀 기초: 공격 이해와 보안 검증",
   "description": "공격 행동을 이해하고 증거로 방어를 검증하는 한국어 상세 강의. Windows·Cobalt Strike·최초 접근·지속성·접근 후 작업·권한 상승의 조건과 결과를 실제 공식 화면과 연결합니다.",
-  "updated": "2026-11-09",
+  "updated": "2026-11-10",
   "lessons": [
     {
       "id": 1,
@@ -2165,6 +2165,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 77,
+      "slug": "77-sql-linked-server-remote-identity",
+      "title": "SQL 연결 서버와 원격 로그인 매핑",
+      "short_title": "SQL 연결 서버와 원격 로그인 매핑",
+      "description": "링크 구성, RPC Out과 분산 데이터 액세스, 원격 권한을 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 16,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 5,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "링크 구성, RPC Out과 분산 데이터 액세스, 원격 권한을 대조합니다.",
+        "links": [
+          [
+            "screen-147",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 78,
+      "slug": "78-sql-service-account-impersonation-evidence",
+      "title": "SQL 서비스 계정과 가장 권한의 실행 증거",
+      "short_title": "SQL 서비스 계정과 가장 권한의 실행 증거",
+      "description": "서비스 신원, 스레드 토큰, 프로세스 생성 증거를 구분합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 16,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 6,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "서비스 신원, 스레드 토큰, 프로세스 생성 증거를 구분합니다.",
+        "links": [
+          [
+            "screen-148",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2618,6 +2670,16 @@
           "76-sql-clr-assembly-trust-audit",
           "screen-146",
           "4강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "77-sql-linked-server-remote-identity",
+          "screen-147",
+          "5강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "78-sql-service-account-impersonation-evidence",
+          "screen-148",
+          "6강 · Beacon Console 세션 문맥"
         ]
       ]
     }
