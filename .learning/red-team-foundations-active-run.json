@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1009",
+  "owner": "scheduled-20261109-1113",
   "scope": [
-    71,
-    72
+    73,
+    74
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T10:11:15.341Z",
-  "next_scope": "16장 Microsoft SQL Server 원본 전체 검토 및 상세 분할 계획. 전역 ID73부터.",
-  "completed_at": "2026-11-09T10:18:26.163Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T11:15:18.827Z",
+  "expires_at": "2026-11-09T12:09:00Z",
+  "next_scope": "16장 Microsoft SQL Server 1~2강 (ID73~74)"
 }

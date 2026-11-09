@@ -76,8 +76,8 @@
     72
   ],
   "published_unit": "1~15장 공개: 2장만 핵심 요약",
-  "next_scope": "16장 Microsoft SQL Server 원본 전체 검토 및 상세 분할 계획. 전역 ID73부터.",
-  "next_lesson_status": "planned",
+  "next_scope": "16장 Microsoft SQL Server 1~2강 (ID73~74)",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -992,5 +992,51 @@
     "diagrams": 18,
     "official_image_occurrences": 12,
     "review_questions": 48
+  },
+  "unit_16": {
+    "title": "Microsoft SQL Server",
+    "status": "in_progress",
+    "source_scope_reviewed": true,
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      73,
+      74,
+      75,
+      76,
+      77,
+      78
+    ],
+    "planned_lessons": [
+      {
+        "id": 73,
+        "number": 1,
+        "scope": "인스턴스 식별·SPN·SQL Browser·포트와 연결 증거"
+      },
+      {
+        "id": 74,
+        "number": 2,
+        "scope": "로그인·데이터베이스 사용자·역할과 읽기 전용 쿼리"
+      },
+      {
+        "id": 75,
+        "number": 3,
+        "scope": "xp_cmdshell·OLE의 경계와 구성 감사"
+      },
+      {
+        "id": 76,
+        "number": 4,
+        "scope": "SQL CLR 어셈블리와 실행 신뢰"
+      },
+      {
+        "id": 77,
+        "number": 5,
+        "scope": "연결 서버·로그인 매핑과 원격 권한"
+      },
+      {
+        "id": 78,
+        "number": 6,
+        "scope": "서비스 계정과 가장 권한의 실행 증거"
+      }
+    ]
   }
 }
