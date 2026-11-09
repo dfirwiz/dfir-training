@@ -2269,6 +2269,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 81,
+      "slug": "81-kerberos-silver-ticket-service-trust",
+      "title": "Silver Ticket과 서비스 키의 신뢰 경계",
+      "short_title": "Silver Ticket과 서비스 키의 신뢰 경계",
+      "description": "서비스 키의 영향 범위와 대상 감사 증거를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 17,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 3,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "서비스 키의 영향 범위와 대상 감사 증거를 구별합니다.",
+        "links": [
+          [
+            "screen-151",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 82,
+      "slug": "82-kerberos-golden-ticket-domain-trust",
+      "title": "Golden Ticket과 도메인 TGT의 신뢰 경계",
+      "short_title": "Golden Ticket과 도메인 TGT의 신뢰 경계",
+      "description": "도메인 키 노출과 후속 티켓 요청·서비스 사용을 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 17,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 4,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "도메인 키 노출과 후속 티켓 요청·서비스 사용을 대조합니다.",
+        "links": [
+          [
+            "screen-152",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2752,6 +2804,16 @@
           "80-ad-dcsync-audit-correlation",
           "screen-150",
           "2강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "81-kerberos-silver-ticket-service-trust",
+          "screen-151",
+          "3강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "82-kerberos-golden-ticket-domain-trust",
+          "screen-152",
+          "4강 · Beacon Console 세션 문맥"
         ]
       ]
     }

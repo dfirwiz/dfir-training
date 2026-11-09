@@ -84,8 +84,8 @@
     80
   ],
   "published_unit": "1~17장 공개: 17장 1~2강, 2장만 핵심 요약",
-  "next_scope": "17장 Domain Dominance 3~4강 (ID81~82): 최신 main 대조 및 검증 후 게시 재개. 이후 ID83~84.",
-  "next_lesson_status": "blocked",
+  "next_scope": "17장 3~4강 공개 배포 검증 후 ID83~84",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1175,16 +1175,21 @@
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42644868849",
       "public_files_verified": 23
     },
-    "pending_verification": {
-      "date": "2026-11-10",
+    "batch_3_4": {
       "lesson_ids": [
         81,
         82
       ],
-      "draft_status": "본문·개념도·메타데이터 작성, 빌드 및 모바일 사전 검사 완료, 공개 미반영",
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
       "verification_scope": "82강 빌드, HTML 83개·내부 참조 9959건·공식 링크 8개, 기존 본문 80개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 스크롤·앵커·목차와 즉시 해설 16개 검사.",
-      "blocker": "게시 직전 원격 main 재조회에 필요한 네트워크 승인 요청이 결정 전에 취소됨",
-      "resume": "새 실행에서 원격 main과 원본을 확보하고 변경을 재작성·대조해 게시 및 공개 페이지와 다운로드를 검증한다."
+      "verification_limits": "제품·티켓·인증·키 변경 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/81-kerberos-silver-ticket-service-trust.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/82-kerberos-golden-ticket-domain-trust.html"
+      ]
     }
   }
 }

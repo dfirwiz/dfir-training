@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1519",
+  "owner": "scheduled-20261109-1708",
   "scope": [
     81,
     82
   ],
-  "status": "blocked",
-  "started_at": "2026-11-09T15:27:00.330Z",
-  "next_scope": "17장 Domain Dominance 3~4강 (ID81~82): 최신 main 대조 및 검증 후 게시 재개. 이후 ID83~84.",
-  "stopped_at": "2026-11-09T16:24:05.930Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T17:14:03.359Z",
+  "next_scope": "17장 3~4강 공개 배포 검증 후 ID83~84",
+  "expires_at": "2026-11-09T18:08:00Z"
 }
