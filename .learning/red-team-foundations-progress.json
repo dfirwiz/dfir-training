@@ -63,11 +63,13 @@
     59,
     60,
     61,
-    62
+    62,
+    63,
+    64
   ],
-  "published_unit": "1~13장 공개: 2장만 핵심 요약",
-  "next_scope": "14장 1~2강 공개 배포 검증 후 ID65~66",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~14장 공개: 14장 1~2강, 2장만 핵심 요약",
+  "next_scope": "14장 Pivoting 3~4강 (ID65~66): 프록시 경로와 인증, 역방향 포트 전달.",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -129,7 +131,8 @@
       "10": 6,
       "11": 5,
       "12": 6,
-      "13": 6
+      "13": 6,
+      "14": 2
     },
     "updated": "2026-11-09"
   },
@@ -800,7 +803,7 @@
   },
   "unit_14": {
     "title": "Pivoting",
-    "status": "in_progress",
+    "status": "partially_published",
     "source_scope_reviewed": true,
     "planned_lessons": [
       {
@@ -824,10 +827,11 @@
         "scope": "역방향 포트 전달의 바인딩·응답·정리 증거"
       }
     ],
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       63,
-      64,
+      64
+    ],
+    "remaining_lesson_ids": [
       65,
       66
     ],
@@ -836,7 +840,7 @@
         63,
         64
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "review_questions": 16,
@@ -845,7 +849,10 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/63-socks-pivot-path-evidence.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/64-proxy-client-routing-dns-evidence.html"
-      ]
+      ],
+      "commit": "2d955296e9d8ffa56acd39cfd9d903a3dd17f935",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42572645996",
+      "public_files_verified": 25
     }
   }
 }
