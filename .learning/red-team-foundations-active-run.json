@@ -3,9 +3,9 @@
     59,
     60
   ],
-  "owner": "scheduled-20261105-1517",
+  "owner": "scheduled-20261109-0415",
   "status": "in_progress",
-  "started_at": "2026-11-05T15:26:47Z",
-  "expires_at": "2026-11-05T16:09:00Z",
+  "started_at": "2026-11-09T04:17:09.558Z",
+  "expires_at": "2026-11-09T05:09:00Z",
   "next_scope": "13장 Lateral Movement 3~4강 (ID59~60): PsExec 계열과 서비스 제어 관리자 증거 및 확장 등록과 기존 서비스 변경의 검증"
 }
