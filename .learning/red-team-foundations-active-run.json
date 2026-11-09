@@ -4,8 +4,8 @@
     79,
     80
   ],
-  "status": "in_progress",
+  "status": "blocked",
   "started_at": "2026-11-09T14:24:27.171Z",
-  "expires_at": "2026-11-09T15:08:00Z",
-  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 복제 권한과 감사 증거"
+  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 원격 main 및 원본을 새로 확보한 뒤 본문·그림·빌드·모바일 검증부터 재개.",
+  "stopped_at": "2026-11-09T14:26:04.531Z"
 }

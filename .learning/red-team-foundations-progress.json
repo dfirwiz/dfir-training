@@ -82,8 +82,8 @@
     78
   ],
   "published_unit": "1~16장 공개: 2장만 핵심 요약",
-  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 복제 권한과 감사 증거",
-  "next_lesson_status": "in_progress",
+  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 원격 main 및 원본을 새로 확보한 뒤 본문·그림·빌드·모바일 검증부터 재개.",
+  "next_lesson_status": "blocked",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1109,7 +1109,7 @@
   },
   "unit_17": {
     "title": "Domain Dominance",
-    "status": "in_progress",
+    "status": "blocked",
     "source_scope_reviewed": true,
     "lesson_ids": [],
     "remaining_lesson_ids": [
@@ -1151,6 +1151,17 @@
         "number": 6,
         "scope": "DPAPI 도메인 백업 키의 복구·감사"
       }
-    ]
+    ],
+    "pending_verification": {
+      "date": "2026-11-10",
+      "lesson_ids": [
+        79,
+        80
+      ],
+      "source_review": "원본 장 전체 대조 및 6강 분할 완료",
+      "draft_status": "1~2강 본문 초안 작성, 공개 산출물 미반영",
+      "blocker": "저장소 복제와 아카이브 HTTP 403 및 검증 실행 환경 연결 끊김",
+      "resume": "최신 main과 연결된 원본을 새로 읽고 ID79~80을 작성·검증한다. 그림, 메타데이터, 빌드, 모바일, 공개 파일 및 다운로드를 검증한 뒤 완료로 표시한다."
+    }
   }
 }
