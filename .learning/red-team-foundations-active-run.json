@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-2112",
+  "owner": "scheduled-20261109-2215",
   "scope": [
-    87,
-    88
+    89,
+    90
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T21:12:13Z",
-  "next_scope": "19장 Defence Evasion 원본 전체 검토 및 상세 강의 분할. 전역 ID89부터.",
-  "completed_at": "2026-11-09T21:17:47Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T22:15:13Z",
+  "next_scope": "19장 1~2강(ID89~90) 공개 페이지 및 다운로드 검증. 완료 기록 후 19장 3~4강(ID91~92).",
+  "expires_at": "2026-11-09T23:15:13Z"
 }

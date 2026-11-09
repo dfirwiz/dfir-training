@@ -2477,6 +2477,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 89,
+      "slug": "89-artifact-file-detection-evidence",
+      "title": "파일 산출물과 탐지·격리의 증거",
+      "short_title": "파일 산출물과 탐지·격리의 증거",
+      "description": "템플릿, 최종 파일, 실행, 보호 조치와 중앙 보고를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 19,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 1,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 확인 위치 읽기",
+        "description": "템플릿, 최종 파일, 실행, 보호 조치와 중앙 보고를 구별합니다.",
+        "links": [
+          [
+            "screen-159",
+            "Script Manager 등록 위치"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 90,
+      "slug": "90-amsi-script-inspection-evidence",
+      "title": "AMSI와 스크립트 검사 증거",
+      "short_title": "AMSI와 스크립트 검사 증거",
+      "description": "파일 검사, 스크립트 블록 감사, 보안 판정과 업무 결과를 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 19,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 확인 위치 읽기",
+        "description": "파일 검사, 스크립트 블록 감사, 보안 판정과 업무 결과를 대조합니다.",
+        "links": [
+          [
+            "screen-160",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -3010,6 +3062,26 @@
           "88-ad-outbound-trust-account-audit",
           "screen-158",
           "4강 · Beacon Console 세션 문맥"
+        ]
+      ]
+    },
+    {
+      "id": 19,
+      "title": "Defence Evasion",
+      "title_ko": "방어 계층과 보안 검증",
+      "practice_entry": "89-artifact-file-detection-evidence",
+      "practice_label": "공식 화면에서 관측 위치 확인",
+      "practice_description": "도구의 등록과 실행 문맥을 보호 기록과 구별합니다.",
+      "practice_links": [
+        [
+          "89-artifact-file-detection-evidence",
+          "screen-159",
+          "1강 · Script Manager 등록 위치"
+        ],
+        [
+          "90-amsi-script-inspection-evidence",
+          "screen-160",
+          "2강 · Beacon Console 세션 문맥"
         ]
       ]
     }
