@@ -73,11 +73,13 @@
     69,
     70,
     71,
-    72
+    72,
+    73,
+    74
   ],
-  "published_unit": "1~15장 공개: 2장만 핵심 요약",
-  "next_scope": "16장 1~2강 공개 배포 검증 후 ID75~76",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~16장 공개: 16장 1~2강, 2장만 핵심 요약",
+  "next_scope": "16장 Microsoft SQL Server 3~4강 (ID75~76): xp_cmdshell·OLE의 경계와 구성 감사 및 SQL CLR 실행 신뢰. 이후 5~6강 (ID77~78).",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -141,7 +143,8 @@
       "12": 6,
       "13": 6,
       "14": 4,
-      "15": 6
+      "15": 6,
+      "16": 2
     },
     "updated": "2026-11-09"
   },
@@ -995,12 +998,13 @@
   },
   "unit_16": {
     "title": "Microsoft SQL Server",
-    "status": "in_progress",
+    "status": "partially_published",
     "source_scope_reviewed": true,
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       73,
-      74,
+      74
+    ],
+    "remaining_lesson_ids": [
       75,
       76,
       77,
@@ -1043,7 +1047,7 @@
         73,
         74
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 2,
       "review_questions": 16,
@@ -1052,7 +1056,10 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/73-sql-server-instance-discovery-evidence.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/74-sql-server-login-role-query-evidence.html"
-      ]
+      ],
+      "commit": "66ce9537b62686e9d4bf6106fe4da0b5bbad3608",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42608254598",
+      "public_files_verified": 23
     }
   }
 }

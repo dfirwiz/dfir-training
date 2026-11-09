@@ -4,8 +4,8 @@
     73,
     74
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T11:15:18.827Z",
-  "expires_at": "2026-11-09T12:09:00Z",
-  "next_scope": "16장 1~2강 공개 배포 검증 후 ID75~76"
+  "next_scope": "16장 Microsoft SQL Server 3~4강 (ID75~76): xp_cmdshell·OLE의 경계와 구성 감사 및 SQL CLR 실행 신뢰. 이후 5~6강 (ID77~78).",
+  "completed_at": "2026-11-09T11:25:32.118Z"
 }
