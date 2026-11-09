@@ -1213,7 +1213,54 @@
       ],
       "commit": "6b6166d26cfb0a6e0c30930651064218bfb526f1",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42672801121",
-      "deployment_details": "GitHub Pages 빌드와 산출물 업로드는 성공. 전체 실행은 배포 작업 생성 전에 failure로 종료. 실패 작업 재실행 API는 403(This workflow run cannot be retried). 83강 공개 경로 HTTP 404 관측. 근본 원인 미확인."
+      "deployment_details": "GitHub Pages 빌드와 산출물 업로드는 성공. 전체 실행은 배포 작업 생성 전에 failure로 종료. 실패 작업 재실행 API는 403(This workflow run cannot be retried). 83강 공개 경로 HTTP 404 관측. 근본 원인 미확인.",
+      "latest_recheck": {
+        "date": "2026-11-10",
+        "run": "https://github.com/dfirwiz/dfir-training/actions/runs/42673429269",
+        "build": "success",
+        "deployment": "failure",
+        "error": "GitHub Pages Internal server error",
+        "correlation_id": "4380ad90-8fa1-41bf-9ea2-793d1e9a62c0",
+        "public_http_status": {
+          "83": 404,
+          "84": 404
+        }
+      }
     }
+  },
+  "unit_18": {
+    "title": "Forest & Domain Trusts",
+    "status": "planned",
+    "source_scope_reviewed": true,
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      85,
+      86,
+      87,
+      88
+    ],
+    "planned_lessons": [
+      {
+        "id": 85,
+        "number": 1,
+        "scope": "포리스트·도메인 신뢰 유형, TDO 방향과 전이 플래그, 상호 도메인 관점 대조"
+      },
+      {
+        "id": 86,
+        "number": 2,
+        "scope": "부모·자식 도메인, PAC의 SID와 마이그레이션 이력, 포리스트 내부 권한 검증"
+      },
+      {
+        "id": 87,
+        "number": 3,
+        "scope": "단방향 수신 신뢰, 외부 보안 주체와 그룹·ACL, 참조 티켓과 SID 필터링 증거"
+      },
+      {
+        "id": 88,
+        "number": 4,
+        "scope": "단방향 송신 신뢰, 별도 인증 문맥, 신뢰 계정과 키 노출 범위 및 감사"
+      }
+    ],
+    "depends_on": "ID83~84 공개 페이지 및 다운로드 확인"
   }
 }
