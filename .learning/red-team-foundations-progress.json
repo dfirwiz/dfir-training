@@ -81,7 +81,7 @@
   ],
   "published_unit": "1~16장 공개: 16장 1~4강, 2장만 핵심 요약",
   "next_scope": "16장 Microsoft SQL Server 5~6강 (ID77~78): 연결 서버·로그인 매핑과 원격 권한 및 서비스 계정·가장 권한의 실행 증거.",
-  "next_lesson_status": "planned",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {

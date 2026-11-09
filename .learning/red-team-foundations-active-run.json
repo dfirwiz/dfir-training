@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1214",
+  "owner": "scheduled-20261109-1317",
   "scope": [
-    75,
-    76
+    77,
+    78
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T12:16:02.700Z",
-  "next_scope": "16장 Microsoft SQL Server 5~6강 (ID77~78): 연결 서버·로그인 매핑과 원격 권한 및 서비스 계정·가장 권한의 실행 증거.",
-  "completed_at": "2026-11-09T12:22:30.321Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T13:19:22.673Z",
+  "expires_at": "2026-11-09T14:09:00Z",
+  "next_scope": "16장 Microsoft SQL Server 5~6강 (ID77~78): 연결 서버·로그인 매핑과 원격 권한 및 서비스 계정·가장 권한의 실행 증거."
 }
