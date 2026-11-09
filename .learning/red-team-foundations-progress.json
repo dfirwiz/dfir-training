@@ -69,11 +69,13 @@
     65,
     66,
     67,
-    68
+    68,
+    69,
+    70
   ],
-  "published_unit": "1~15장 공개: 15장 1~2강, 2장만 핵심 요약",
-  "next_scope": "15장 3~4강 공개 배포 검증 후 ID71~72",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~15장 공개: 15장 1~4강, 2장만 핵심 요약",
+  "next_scope": "15장 Kerberos 5~6강 (ID71~72): 서비스 주체·티켓 대상 검증 및 리소스 기반 제한 위임·디렉터리 권한과 변경 감사.",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -137,7 +139,7 @@
       "12": 6,
       "13": 6,
       "14": 4,
-      "15": 2
+      "15": 4
     },
     "updated": "2026-11-09"
   },
@@ -888,11 +890,11 @@
     "source_scope_reviewed": true,
     "lesson_ids": [
       67,
-      68
+      68,
+      69,
+      70
     ],
     "remaining_lesson_ids": [
-      69,
-      70,
       71,
       72
     ],
@@ -952,7 +954,7 @@
         69,
         70
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "review_questions": 16,
@@ -961,7 +963,10 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/69-kerberos-unconstrained-delegation-evidence.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/70-kerberos-constrained-delegation-s4u.html"
-      ]
+      ],
+      "commit": "0832cb5bd42477d51d98503467b2490ac0763a12",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42592883273",
+      "public_files_verified": 25
     }
   }
 }

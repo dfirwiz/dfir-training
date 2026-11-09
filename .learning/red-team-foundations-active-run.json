@@ -4,8 +4,8 @@
     69,
     70
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T09:17:33.221Z",
-  "expires_at": "2026-11-09T10:09:00Z",
-  "next_scope": "15장 3~4강 공개 배포 검증 후 ID71~72"
+  "next_scope": "15장 Kerberos 5~6강 (ID71~72): 서비스 주체·티켓 대상 검증 및 리소스 기반 제한 위임·디렉터리 권한과 변경 감사.",
+  "completed_at": "2026-11-09T09:23:57.030Z"
 }
