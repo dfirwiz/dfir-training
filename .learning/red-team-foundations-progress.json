@@ -74,8 +74,8 @@
     70
   ],
   "published_unit": "1~15장 공개: 15장 1~4강, 2장만 핵심 요약",
-  "next_scope": "15장 Kerberos 5~6강 (ID71~72): 서비스 주체·티켓 대상 검증 및 리소스 기반 제한 위임·디렉터리 권한과 변경 감사.",
-  "next_lesson_status": "in_progress",
+  "next_scope": "15장 5~6강 공개 배포 검증 후 16장 Microsoft SQL Server",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -967,6 +967,22 @@
       "commit": "0832cb5bd42477d51d98503467b2490ac0763a12",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42592883273",
       "public_files_verified": 25
+    },
+    "batch_5_6": {
+      "lesson_ids": [
+        71,
+        72
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "review_questions": 16,
+      "verification_scope": "72강 빌드, HTML 73개·내부 참조 8057건·공식 출처 링크 12개, 기존 본문 70개 및 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차 검증, 즉시 해설 16개.",
+      "verification_limits": "Windows·Cobalt Strike·티켓·인증·정책 변경·자격 증명 작업 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/71-kerberos-service-principal-validation.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/72-kerberos-rbcd-directory-audit.html"
+      ]
     }
   }
 }

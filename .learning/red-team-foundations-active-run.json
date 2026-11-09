@@ -7,5 +7,5 @@
   "status": "in_progress",
   "started_at": "2026-11-09T10:11:15.341Z",
   "expires_at": "2026-11-09T11:08:00Z",
-  "next_scope": "15장 Kerberos 5~6강 (ID71~72): 서비스 주체·티켓 대상 검증 및 리소스 기반 제한 위임·디렉터리 권한과 변경 감사."
+  "next_scope": "15장 5~6강 공개 배포 검증 후 16장 Microsoft SQL Server"
 }

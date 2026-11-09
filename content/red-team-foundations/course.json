@@ -2001,6 +2001,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 71,
+      "slug": "71-kerberos-service-principal-validation",
+      "title": "Kerberos 서비스 주체와 티켓 대상 검증",
+      "short_title": "Kerberos 서비스 주체와 티켓 대상 검증",
+      "description": "SPN, 키 소유자, 실제 서비스와 자원 권한을 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 15,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 5,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "SPN, 키 소유자, 실제 서비스와 자원 권한을 구별합니다.",
+        "links": [
+          [
+            "screen-139",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-140",
+            "Windows 이벤트 4624"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 72,
+      "slug": "72-kerberos-rbcd-directory-audit",
+      "title": "리소스 기반 제한 위임과 디렉터리 변경 감사",
+      "short_title": "리소스 기반 제한 위임과 디렉터리 변경 감사",
+      "description": "RBCD 신뢰 관계와 수정 권한, 발급 및 접근 증거를 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 15,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 6,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "RBCD 신뢰 관계와 수정 권한, 발급 및 접근 증거를 대조합니다.",
+        "links": [
+          [
+            "screen-141",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-142",
+            "DC 이벤트와 변경 감사"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2404,6 +2464,26 @@
           "70-kerberos-constrained-delegation-s4u",
           "screen-138",
           "4강 · 이벤트 뷰어와 4769 검토"
+        ],
+        [
+          "71-kerberos-service-principal-validation",
+          "screen-139",
+          "5강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "71-kerberos-service-principal-validation",
+          "screen-140",
+          "5강 · Windows 이벤트 4624"
+        ],
+        [
+          "72-kerberos-rbcd-directory-audit",
+          "screen-141",
+          "6강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "72-kerberos-rbcd-directory-audit",
+          "screen-142",
+          "6강 · DC 이벤트와 변경 감사"
         ]
       ]
     }
