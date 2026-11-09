@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1113",
+  "owner": "scheduled-20261109-1214",
   "scope": [
-    73,
-    74
+    75,
+    76
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T11:15:18.827Z",
-  "next_scope": "16장 Microsoft SQL Server 3~4강 (ID75~76): xp_cmdshell·OLE의 경계와 구성 감사 및 SQL CLR 실행 신뢰. 이후 5~6강 (ID77~78).",
-  "completed_at": "2026-11-09T11:25:32.118Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T12:16:02.700Z",
+  "expires_at": "2026-11-09T13:10:00Z",
+  "next_scope": "16장 Microsoft SQL Server 3~4강 (ID75~76): xp_cmdshell·OLE의 경계와 구성 감사 및 SQL CLR 실행 신뢰. 이후 5~6강 (ID77~78)."
 }
