@@ -3,9 +3,9 @@
     65,
     66
   ],
-  "status": "in_progress",
+  "status": "completed",
   "owner": "scheduled-20261109-0720",
   "started_at": "2026-11-09T07:22:19.291Z",
-  "expires_at": "2026-11-09T08:09:00Z",
-  "next_scope": "14장 3~4강 공개 배포 검증 후 15장 Kerberos"
+  "next_scope": "15장 Kerberos 원본 전체 검토 및 상세 분할 계획. 전역 ID67부터.",
+  "completed_at": "2026-11-09T07:28:59.820Z"
 }
