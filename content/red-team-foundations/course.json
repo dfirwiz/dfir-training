@@ -2425,6 +2425,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 87,
+      "slug": "87-ad-inbound-trust-resource-evidence",
+      "title": "수신 신뢰와 외부 주체의 자원 접근",
+      "short_title": "수신 신뢰와 외부 주체의 자원 접근",
+      "description": "외부 보안 주체·그룹·ACL과 참조 티켓의 관측 범위를 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 18,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 3,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "외부 보안 주체·그룹·ACL과 참조 티켓의 관측 범위를 연결합니다.",
+        "links": [
+          [
+            "screen-157",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 88,
+      "slug": "88-ad-outbound-trust-account-audit",
+      "title": "송신 신뢰와 신뢰 계정의 감사",
+      "short_title": "송신 신뢰와 신뢰 계정의 감사",
+      "description": "신뢰 방향, 별도 인증 신원과 방향별 키 노출 가설을 검토합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 18,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 4,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "신뢰 방향, 별도 인증 신원과 방향별 키 노출 가설을 검토합니다.",
+        "links": [
+          [
+            "screen-158",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2948,6 +3000,16 @@
           "86-ad-parent-child-pac-evidence",
           "screen-156",
           "2강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "87-ad-inbound-trust-resource-evidence",
+          "screen-157",
+          "3강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "88-ad-outbound-trust-account-audit",
+          "screen-158",
+          "4강 · Beacon Console 세션 문맥"
         ]
       ]
     }

@@ -90,8 +90,8 @@
     86
   ],
   "published_unit": "1~18장 공개: 18장 1~2강, 2장만 핵심 요약",
-  "next_scope": "18장 Forest & Domain Trusts 3~4강(ID87~88). 단방향 수신·송신 신뢰와 자원·인증 증거.",
-  "next_lesson_status": "planned",
+  "next_scope": "18장 3~4강(ID87~88) 공개 페이지 및 다운로드 검증. 완료 기록 후 19장 Defence Evasion 원본 전체 검토와 분할(ID89부터).",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1293,6 +1293,22 @@
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42691888286",
       "public_files_verified": 21,
       "verified_at": "2026-11-09T20:21:13Z"
+    },
+    "batch_3_4": {
+      "lesson_ids": [
+        87,
+        88
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "88강 빌드, HTML 89개·내부 참조 11196건·공식 링크 11개, 기존 본문 86개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차·해설·SVG 글자 배치 확인.",
+      "verification_limits": "제품·인증·티켓·비밀 수집·보호 정책 변경 미실행.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/87-ad-inbound-trust-resource-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/88-ad-outbound-trust-account-audit.html"
+      ]
     }
   }
 }
