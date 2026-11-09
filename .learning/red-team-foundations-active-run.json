@@ -1,11 +1,11 @@
 {
   "scope": [
-    59,
-    60
+    61,
+    62
   ],
-  "owner": "scheduled-20261109-0415",
-  "status": "completed",
-  "started_at": "2026-11-09T04:17:09.558Z",
-  "completed_at": "2026-11-09T04:28:49.927Z",
+  "status": "in_progress",
+  "owner": "scheduled-20261109-0512",
+  "started_at": "2026-11-09T05:13:42.492Z",
+  "expires_at": "2026-11-09T06:09:00Z",
   "next_scope": "13장 Lateral Movement 5~6강 (ID61~62): 서명된 Windows 도구와 MavInject 실행 증거 및 Windows 로그온 유형과 두 번째 홉"
 }
