@@ -1641,6 +1641,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 59,
+      "slug": "59-psexec-service-control-evidence",
+      "title": "PsExec 계열과 서비스 제어 관리자 증거",
+      "short_title": "PsExec 계열과 서비스 제어 관리자 증거",
+      "description": "파일·서비스 설치·실행과 후속 통신을 구분합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 13,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 3,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 증거 확인",
+        "description": "파일·서비스 설치·실행과 후속 통신을 구분합니다.",
+        "links": [
+          [
+            "screen-115",
+            "Beacon Console 등록 목록"
+          ],
+          [
+            "screen-116",
+            "Windows 이벤트 4697"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 60,
+      "slug": "60-service-change-extension-evidence",
+      "title": "확장 등록과 기존 서비스 변경의 검증",
+      "short_title": "확장 등록과 기존 서비스 변경의 검증",
+      "description": "클라이언트 확장과 대상 실행을 구분하고 기존 서비스 변경과 원복을 검증합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 13,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 4,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 증거 확인",
+        "description": "클라이언트 확장과 대상 실행을 구분하고 기존 서비스 변경과 원복을 검증합니다.",
+        "links": [
+          [
+            "screen-117",
+            "Fortra Script Manager"
+          ],
+          [
+            "screen-118",
+            "Windows 이벤트 4657"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1904,6 +1964,26 @@
           "58-winrm-authentication-execution-evidence",
           "screen-114",
           "2강 · 이벤트 뷰어 4624"
+        ],
+        [
+          "59-psexec-service-control-evidence",
+          "screen-115",
+          "3강 · Beacon Console 등록 목록"
+        ],
+        [
+          "59-psexec-service-control-evidence",
+          "screen-116",
+          "3강 · Windows 이벤트 4697"
+        ],
+        [
+          "60-service-change-extension-evidence",
+          "screen-117",
+          "4강 · Fortra Script Manager"
+        ],
+        [
+          "60-service-change-extension-evidence",
+          "screen-118",
+          "4강 · Windows 이벤트 4657"
         ]
       ]
     }
