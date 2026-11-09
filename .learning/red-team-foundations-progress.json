@@ -73,7 +73,7 @@
   ],
   "published_unit": "1~15장 공개: 15장 1~2강, 2장만 핵심 요약",
   "next_scope": "15장 Kerberos 3~4강 (ID69~70): 비제한 위임과 제한 위임·S4U·프로토콜 전환. 이후 5~6강 (ID71~72).",
-  "next_lesson_status": "planned",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {

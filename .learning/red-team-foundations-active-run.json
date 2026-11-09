@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-0835",
+  "owner": "scheduled-20261109-0915",
   "scope": [
-    67,
-    68
+    69,
+    70
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T08:38:04.080Z",
-  "next_scope": "15장 Kerberos 3~4강 (ID69~70): 비제한 위임과 제한 위임·S4U·프로토콜 전환. 이후 5~6강 (ID71~72).",
-  "completed_at": "2026-11-09T08:44:34.083Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T09:17:33.221Z",
+  "expires_at": "2026-11-09T10:09:00Z",
+  "next_scope": "15장 Kerberos 3~4강 (ID69~70): 비제한 위임과 제한 위임·S4U·프로토콜 전환. 이후 5~6강 (ID71~72)."
 }
