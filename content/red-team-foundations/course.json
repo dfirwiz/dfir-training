@@ -1941,6 +1941,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 69,
+      "slug": "69-kerberos-unconstrained-delegation-evidence",
+      "title": "비제한 위임과 전달된 TGT의 증거",
+      "short_title": "비제한 위임과 전달된 TGT의 증거",
+      "description": "설정, 전달 가능성, 뒤쪽 서비스 접근을 따로 확인합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 15,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 3,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "설정, 전달 가능성, 뒤쪽 서비스 접근을 따로 확인합니다.",
+        "links": [
+          [
+            "screen-135",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-136",
+            "Windows 이벤트 4624"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 70,
+      "slug": "70-kerberos-constrained-delegation-s4u",
+      "title": "제한 위임과 S4U·프로토콜 전환",
+      "short_title": "제한 위임과 S4U·프로토콜 전환",
+      "description": "허용 대상, 증거 티켓, KDC 판단과 자원 인가를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 15,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 4,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "허용 대상, 증거 티켓, KDC 판단과 자원 인가를 구별합니다.",
+        "links": [
+          [
+            "screen-137",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-138",
+            "이벤트 뷰어와 4769 검토"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2324,6 +2384,26 @@
           "68-kerberos-tgs-ap-pac-evidence",
           "screen-134",
           "2강 · Windows 이벤트 4624"
+        ],
+        [
+          "69-kerberos-unconstrained-delegation-evidence",
+          "screen-135",
+          "3강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "69-kerberos-unconstrained-delegation-evidence",
+          "screen-136",
+          "3강 · Windows 이벤트 4624"
+        ],
+        [
+          "70-kerberos-constrained-delegation-s4u",
+          "screen-137",
+          "4강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "70-kerberos-constrained-delegation-s4u",
+          "screen-138",
+          "4강 · 이벤트 뷰어와 4769 검토"
         ]
       ]
     }

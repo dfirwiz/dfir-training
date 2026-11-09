@@ -72,8 +72,8 @@
     68
   ],
   "published_unit": "1~15장 공개: 15장 1~2강, 2장만 핵심 요약",
-  "next_scope": "15장 Kerberos 3~4강 (ID69~70): 비제한 위임과 제한 위임·S4U·프로토콜 전환. 이후 5~6강 (ID71~72).",
-  "next_lesson_status": "in_progress",
+  "next_scope": "15장 3~4강 공개 배포 검증 후 ID71~72",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -946,6 +946,22 @@
       "commit": "03136242d4804268041d10d2bbac66392c8608fc",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42587913488",
       "public_files_verified": 25
+    },
+    "batch_3_4": {
+      "lesson_ids": [
+        69,
+        70
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "review_questions": 16,
+      "verification_scope": "70강 빌드, HTML 71개·내부 참조 7691건·공식 출처 링크 10개, 기존 본문 68개 및 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차 검증, 즉시 해설 16개.",
+      "verification_limits": "Windows·Cobalt Strike·티켓·인증·위임 변경·자격 증명 작업 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/69-kerberos-unconstrained-delegation-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/70-kerberos-constrained-delegation-s4u.html"
+      ]
     }
   }
 }
