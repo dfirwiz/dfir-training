@@ -88,8 +88,8 @@
     84
   ],
   "published_unit": "1~17장 공개: 17장 1~6강, 2장만 핵심 요약",
-  "next_scope": "18장 Forest & Domain Trusts 1~2강(ID85~86). 원본 전체 대조 후 신뢰 방향·TDO와 부모·자식 신뢰의 권한 검증.",
-  "next_lesson_status": "planned",
+  "next_scope": "18장 1~2강(ID85~86) 공개 페이지 및 다운로드 확인. 완료 기록 후 18장 3~4강(ID87~88).",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1269,6 +1269,22 @@
         "number": 4,
         "scope": "단방향 송신 신뢰, 별도 인증 문맥, 신뢰 계정과 키 노출 범위 및 감사"
       }
-    ]
+    ],
+    "batch_1_2": {
+      "lesson_ids": [
+        85,
+        86
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "86강 빌드, HTML 87개·내부 참조 10776건·공식 링크 9개, 기존 본문 84개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차·해설·SVG 글자 배치 확인.",
+      "verification_limits": "제품·인증·티켓·비밀 수집·보호 정책 변경 미실행.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/85-ad-trust-direction-and-tdo.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/86-ad-parent-child-pac-evidence.html"
+      ]
+    }
   }
 }

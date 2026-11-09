@@ -2373,6 +2373,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 85,
+      "slug": "85-ad-trust-direction-and-tdo",
+      "title": "도메인 신뢰 방향과 TDO 읽기",
+      "short_title": "도메인 신뢰 방향과 TDO 읽기",
+      "description": "도메인·포리스트 신뢰를 유형, 방향, 전이, 실제 접근 증거로 나눕니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 18,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 1,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "도메인·포리스트 신뢰를 유형, 방향, 전이, 실제 접근 증거로 나눕니다.",
+        "links": [
+          [
+            "screen-155",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 86,
+      "slug": "86-ad-parent-child-pac-evidence",
+      "title": "부모·자식 신뢰와 PAC 권한 증거",
+      "short_title": "부모·자식 신뢰와 PAC 권한 증거",
+      "description": "포리스트 내부의 신뢰 경로와 SID, 마이그레이션 이력, 자원 사용을 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 18,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "포리스트 내부의 신뢰 경로와 SID, 마이그레이션 이력, 자원 사용을 대조합니다.",
+        "links": [
+          [
+            "screen-156",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2876,6 +2928,26 @@
           "84-dpapi-domain-backup-key-audit",
           "screen-154",
           "6강 · Beacon Console 세션 문맥"
+        ]
+      ]
+    },
+    {
+      "id": 18,
+      "title": "Forest & Domain Trusts",
+      "title_ko": "포리스트와 도메인 신뢰의 방향 및 권한 증거",
+      "practice_entry": "85-ad-trust-direction-and-tdo",
+      "practice_label": "공식 화면에서 관측 문맥 확인",
+      "practice_description": "세션 보고 문맥과 신뢰 구성·대상 권한을 구별합니다.",
+      "practice_links": [
+        [
+          "85-ad-trust-direction-and-tdo",
+          "screen-155",
+          "1강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "86-ad-parent-child-pac-evidence",
+          "screen-156",
+          "2강 · Beacon Console 세션 문맥"
         ]
       ]
     }

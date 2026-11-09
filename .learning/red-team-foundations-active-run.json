@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1814",
+  "owner": "scheduled-20261109-2015",
   "scope": [
-    83,
-    84
+    85,
+    86
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T18:14:31.628Z",
-  "next_scope": "18장 Forest & Domain Trusts 1~2강(ID85~86). 원본 전체 대조 후 신뢰 방향·TDO와 부모·자식 신뢰의 권한 검증.",
-  "completed_at": "2026-11-09T19:15:42Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T20:15:54Z",
+  "next_scope": "18장 1~2강(ID85~86) 공개 페이지 및 다운로드 확인. 완료 기록 후 18장 3~4강(ID87~88).",
+  "expires_at": "2026-11-09T21:15:54Z"
 }
