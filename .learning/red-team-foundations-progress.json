@@ -59,11 +59,13 @@
     55,
     56,
     57,
-    58
+    58,
+    59,
+    60
   ],
-  "published_unit": "1~12장과 13장 1~2강 공개: 2장만 핵심 요약",
-  "next_scope": "13장 Lateral Movement 3~4강 (ID59~60): PsExec 계열과 서비스 제어 관리자 증거 및 확장 등록과 기존 서비스 변경의 검증",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~12장과 13장 1~4강 공개: 2장만 핵심 요약",
+  "next_scope": "13장 Lateral Movement 5~6강 (ID61~62): 서명된 Windows 도구와 MavInject 실행 증거 및 Windows 로그온 유형과 두 번째 홉",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -125,9 +127,9 @@
       "10": 6,
       "11": 5,
       "12": 6,
-      "13": 2
+      "13": 4
     },
-    "updated": "2026-11-06"
+    "updated": "2026-11-09"
   },
   "unit_5": {
     "status": "published",
@@ -714,11 +716,11 @@
     ],
     "lesson_ids": [
       57,
-      58
+      58,
+      59,
+      60
     ],
     "remaining_lesson_ids": [
-      59,
-      60,
       61,
       62
     ],
@@ -746,16 +748,16 @@
       "deployment_status": "success",
       "public_files_verified": 25
     },
-    "diagrams": 6,
-    "official_image_occurrences": 4,
-    "review_questions": 16,
+    "diagrams": 12,
+    "official_image_occurrences": 8,
+    "review_questions": 32,
     "batch_3_4": {
       "date": "2026-11-09",
       "lesson_ids": [
         59,
         60
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 4,
       "review_questions": 16,
@@ -764,7 +766,12 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/59-psexec-service-control-evidence.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/60-service-change-extension-evidence.html"
-      ]
+      ],
+      "status": "published_verified",
+      "commit": "a32f6e3aa7c2710a1430b7fcfc9c3d311af236b1",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42561899001",
+      "deployment_status": "success",
+      "public_files_verified": 26
     }
   }
 }

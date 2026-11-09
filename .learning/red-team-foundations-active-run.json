@@ -4,8 +4,8 @@
     60
   ],
   "owner": "scheduled-20261109-0415",
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T04:17:09.558Z",
-  "expires_at": "2026-11-09T05:09:00Z",
-  "next_scope": "13장 3~4강 공개 검증 후 완료. 다음은 5~6강."
+  "completed_at": "2026-11-09T04:28:49.927Z",
+  "next_scope": "13장 Lateral Movement 5~6강 (ID61~62): 서명된 Windows 도구와 MavInject 실행 증거 및 Windows 로그온 유형과 두 번째 홉"
 }
