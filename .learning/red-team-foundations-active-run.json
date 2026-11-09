@@ -4,8 +4,8 @@
     85,
     86
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T20:15:54Z",
-  "next_scope": "18장 1~2강(ID85~86) 공개 페이지 및 다운로드 확인. 완료 기록 후 18장 3~4강(ID87~88).",
-  "expires_at": "2026-11-09T21:15:54Z"
+  "next_scope": "18장 Forest & Domain Trusts 3~4강(ID87~88). 단방향 수신·송신 신뢰와 자원·인증 증거.",
+  "completed_at": "2026-11-09T20:21:13Z"
 }
