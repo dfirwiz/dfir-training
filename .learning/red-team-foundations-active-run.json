@@ -4,8 +4,8 @@
     67,
     68
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T08:38:04.080Z",
-  "expires_at": "2026-11-09T09:09:00Z",
-  "next_scope": "15장 1~2강 공개 배포 검증 후 ID69~70"
+  "next_scope": "15장 Kerberos 3~4강 (ID69~70): 비제한 위임과 제한 위임·S4U·프로토콜 전환. 이후 5~6강 (ID71~72).",
+  "completed_at": "2026-11-09T08:44:34.083Z"
 }
