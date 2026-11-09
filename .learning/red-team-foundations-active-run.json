@@ -4,8 +4,8 @@
     89,
     90
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-09T22:15:13Z",
-  "next_scope": "19장 1~2강(ID89~90) 공개 페이지 및 다운로드 검증. 완료 기록 후 19장 3~4강(ID91~92).",
-  "expires_at": "2026-11-09T23:15:13Z"
+  "next_scope": "19장 Defence Evasion 3~4강(ID91~92). 메모리·이미지 매핑과 분리 실행의 관측 증거.",
+  "completed_at": "2026-11-09T22:19:13Z"
 }
