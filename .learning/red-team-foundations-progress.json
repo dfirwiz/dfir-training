@@ -82,8 +82,8 @@
     78
   ],
   "published_unit": "1~16장 공개: 2장만 핵심 요약",
-  "next_scope": "17장 Domain Dominance 원본 전체 검토 및 상세 분할 계획. 전역 ID79부터.",
-  "next_lesson_status": "planned",
+  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 복제 권한과 감사 증거",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1106,5 +1106,51 @@
     "diagrams": 18,
     "official_image_occurrences": 6,
     "review_questions": 48
+  },
+  "unit_17": {
+    "title": "Domain Dominance",
+    "status": "in_progress",
+    "source_scope_reviewed": true,
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      79,
+      80,
+      81,
+      82,
+      83,
+      84
+    ],
+    "planned_lessons": [
+      {
+        "id": 79,
+        "number": 1,
+        "scope": "디렉터리 복제와 유효 권한"
+      },
+      {
+        "id": 80,
+        "number": 2,
+        "scope": "복제 요청의 감사 상관관계와 노출 판단"
+      },
+      {
+        "id": 81,
+        "number": 3,
+        "scope": "서비스 키와 Silver Ticket 위험"
+      },
+      {
+        "id": 82,
+        "number": 4,
+        "scope": "도메인 키와 Golden Ticket 위험"
+      },
+      {
+        "id": 83,
+        "number": 5,
+        "scope": "Diamond Ticket과 티켓 계보 검증"
+      },
+      {
+        "id": 84,
+        "number": 6,
+        "scope": "DPAPI 도메인 백업 키의 복구·감사"
+      }
+    ]
   }
 }

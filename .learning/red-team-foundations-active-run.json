@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-1317",
+  "owner": "scheduled-20261109-1420",
   "scope": [
-    77,
-    78
+    79,
+    80
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T13:19:22.673Z",
-  "next_scope": "17장 Domain Dominance 원본 전체 검토 및 상세 분할 계획. 전역 ID79부터.",
-  "completed_at": "2026-11-09T13:25:54.362Z"
+  "status": "in_progress",
+  "started_at": "2026-11-09T14:24:27.171Z",
+  "expires_at": "2026-11-09T15:08:00Z",
+  "next_scope": "17장 Domain Dominance 1~2강 (ID79~80): 복제 권한과 감사 증거"
 }
