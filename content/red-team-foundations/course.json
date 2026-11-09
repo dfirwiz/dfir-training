@@ -1821,6 +1821,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 65,
+      "slug": "65-proxy-kerberos-auth-evidence",
+      "title": "프록시 경로와 Kerberos 인증 증거",
+      "short_title": "프록시 경로와 Kerberos 인증 증거",
+      "description": "프록시 도달성, 서비스 주체와 티켓 캐시, 대상 인증과 인가를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 14,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 3,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "프록시 도달성, 서비스 주체와 티켓 캐시, 대상 인증과 인가를 구별합니다.",
+        "links": [
+          [
+            "screen-127",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-128",
+            "Windows 이벤트 4768"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 66,
+      "slug": "66-reverse-port-forward-evidence",
+      "title": "역방향 포트 전달의 연결과 종료 증거",
+      "short_title": "역방향 포트 전달의 연결과 종료 증거",
+      "description": "수신과 최종 연결의 주체를 비교하고 응답과 종료를 검증합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 14,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 4,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "수신과 최종 연결의 주체를 비교하고 응답과 종료를 검증합니다.",
+        "links": [
+          [
+            "screen-129",
+            "Beacon Console 전달 도움말"
+          ],
+          [
+            "screen-130",
+            "Web Log 메뉴"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2154,6 +2214,26 @@
           "64-proxy-client-routing-dns-evidence",
           "screen-126",
           "2강 · Beacon Console 도움말"
+        ],
+        [
+          "65-proxy-kerberos-auth-evidence",
+          "screen-127",
+          "3강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "65-proxy-kerberos-auth-evidence",
+          "screen-128",
+          "3강 · Windows 이벤트 4768"
+        ],
+        [
+          "66-reverse-port-forward-evidence",
+          "screen-129",
+          "4강 · Beacon Console 전달 도움말"
+        ],
+        [
+          "66-reverse-port-forward-evidence",
+          "screen-130",
+          "4강 · Web Log 메뉴"
         ]
       ]
     }

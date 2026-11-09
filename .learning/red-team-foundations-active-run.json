@@ -7,5 +7,5 @@
   "owner": "scheduled-20261109-0720",
   "started_at": "2026-11-09T07:22:19.291Z",
   "expires_at": "2026-11-09T08:09:00Z",
-  "next_scope": "14장 Pivoting 3~4강 (ID65~66): 프록시 경로와 인증, 역방향 포트 전달."
+  "next_scope": "14장 3~4강 공개 배포 검증 후 15장 Kerberos"
 }
