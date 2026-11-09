@@ -70,8 +70,8 @@
     66
   ],
   "published_unit": "1~14장 공개: 2장만 핵심 요약",
-  "next_scope": "15장 Kerberos 원본 전체 검토 및 상세 분할 계획. 전역 ID67부터.",
-  "next_lesson_status": "planned",
+  "next_scope": "15장 Kerberos 1~2강 (ID67~68)",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -878,5 +878,51 @@
     "diagrams": 12,
     "official_image_occurrences": 8,
     "review_questions": 32
+  },
+  "unit_15": {
+    "title": "Kerberos",
+    "status": "in_progress",
+    "source_scope_reviewed": true,
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      67,
+      68,
+      69,
+      70,
+      71,
+      72
+    ],
+    "planned_lessons": [
+      {
+        "id": 67,
+        "number": 1,
+        "scope": "AS 교환과 사전 인증·TGT의 키 경계"
+      },
+      {
+        "id": 68,
+        "number": 2,
+        "scope": "TGS·AP 교환, 서비스 키와 PAC·인가"
+      },
+      {
+        "id": 69,
+        "number": 3,
+        "scope": "비제한 위임과 전달된 TGT의 노출 범위"
+      },
+      {
+        "id": 70,
+        "number": 4,
+        "scope": "제한 위임과 S4U·프로토콜 전환"
+      },
+      {
+        "id": 71,
+        "number": 5,
+        "scope": "서비스 주체·컴퓨터 계정과 티켓 대상 검증"
+      },
+      {
+        "id": 72,
+        "number": 6,
+        "scope": "리소스 기반 제한 위임·디렉터리 권한과 변경 감사"
+      }
+    ]
   }
 }
