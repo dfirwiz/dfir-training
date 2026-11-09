@@ -2529,6 +2529,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 91,
+      "slug": "91-memory-mapping-page-evidence",
+      "title": "메모리 매핑과 페이지 권한의 증거",
+      "short_title": "메모리 매핑과 페이지 권한의 증거",
+      "description": "이미지 매핑·보호 속성·PE 구조와 실제 실행을 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 19,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 3,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 확인 위치 읽기",
+        "description": "이미지 매핑·보호 속성·PE 구조와 실제 실행을 구별합니다.",
+        "links": [
+          [
+            "screen-161",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 92,
+      "slug": "92-separated-execution-telemetry",
+      "title": "분리 실행과 프로세스 감사 증거",
+      "short_title": "분리 실행과 프로세스 감사 증거",
+      "description": "프로세스 계보·스레드·파이프·이미지 로드를 시간선에서 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 19,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 4,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 확인 위치 읽기",
+        "description": "프로세스 계보·스레드·파이프·이미지 로드를 시간선에서 대조합니다.",
+        "links": [
+          [
+            "screen-162",
+            "Process Browser 조회 위치"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -3082,6 +3134,16 @@
           "90-amsi-script-inspection-evidence",
           "screen-160",
           "2강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "91-memory-mapping-page-evidence",
+          "screen-161",
+          "3강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "92-separated-execution-telemetry",
+          "screen-162",
+          "4강 · Process Browser 조회 위치"
         ]
       ]
     }

@@ -94,8 +94,8 @@
     90
   ],
   "published_unit": "1~19장 공개: 19장 1~2강, 2장만 핵심 요약",
-  "next_scope": "19장 Defence Evasion 3~4강(ID91~92). 메모리·이미지 매핑과 분리 실행의 관측 증거.",
-  "next_lesson_status": "planned",
+  "next_scope": "19장 3~4강(ID91~92) 공개 페이지 및 다운로드 검증. 완료 기록 후 19장 5~6강(ID93~94).",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1390,6 +1390,22 @@
       "verified_at": "2026-11-09T22:19:13Z",
       "official_image_source_match": true,
       "deployment_evidence": "GitHub Pages 공개 응답의 강의·홈 코스 영역·목차·SVG·화면·다운로드를 빌드와 대조. 공개 Actions 조회의 HTTP 403으로 실행 ID는 기록하지 않음."
+    },
+    "batch_3_4": {
+      "lesson_ids": [
+        91,
+        92
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "92강 빌드, HTML 93개·내부 참조 12061건·공식 링크 9개, 기존 본문 90개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차·해설·SVG 글자 배치 및 공식 화면 원본 일치 확인.",
+      "verification_limits": "제품·대상 접근·메모리 조작·주입·파이프 통신·보호 정책 변경 미실행.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/91-memory-mapping-page-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/92-separated-execution-telemetry.html"
+      ]
     }
   }
 }
