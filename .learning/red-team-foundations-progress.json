@@ -66,8 +66,8 @@
     62
   ],
   "published_unit": "1~13장 공개: 2장만 핵심 요약",
-  "next_scope": "14장 Pivoting 원본 전체 검토 및 상세 분할 계획. 전역 ID63부터.",
-  "next_lesson_status": "planned",
+  "next_scope": "14장 Pivoting 1~2강 (ID63~64)",
+  "next_lesson_status": "in_progress",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -797,5 +797,39 @@
       "public_files_verified": 25
     },
     "publication_status": "published_verified"
+  },
+  "unit_14": {
+    "title": "Pivoting",
+    "status": "in_progress",
+    "source_scope_reviewed": true,
+    "planned_lessons": [
+      {
+        "id": 63,
+        "number": 1,
+        "scope": "피벗 경로와 SOCKS의 연결·확인 증거"
+      },
+      {
+        "id": 64,
+        "number": 2,
+        "scope": "Windows·Linux 클라이언트의 프록시 적용과 이름 해석"
+      },
+      {
+        "id": 65,
+        "number": 3,
+        "scope": "프록시 경로와 디렉터리 인증·Kerberos 캐시의 경계"
+      },
+      {
+        "id": 66,
+        "number": 4,
+        "scope": "역방향 포트 전달의 바인딩·응답·정리 증거"
+      }
+    ],
+    "lesson_ids": [],
+    "remaining_lesson_ids": [
+      63,
+      64,
+      65,
+      66
+    ]
   }
 }
