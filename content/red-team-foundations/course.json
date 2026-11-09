@@ -2113,6 +2113,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 75,
+      "slug": "75-sql-os-boundary-configuration-audit",
+      "title": "SQL 운영체제 실행 경계와 구성 감사",
+      "short_title": "SQL 운영체제 실행 경계와 구성 감사",
+      "description": "xp_cmdshell과 OLE의 요청·실행 및 적용 상태를 구분합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 16,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 3,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "xp_cmdshell과 OLE의 요청·실행 및 적용 상태를 구분합니다.",
+        "links": [
+          [
+            "screen-145",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 76,
+      "slug": "76-sql-clr-assembly-trust-audit",
+      "title": "SQL CLR 어셈블리 신뢰와 실행 감사",
+      "short_title": "SQL CLR 어셈블리 신뢰와 실행 감사",
+      "description": "권한 집합과 신뢰 목록, 등록과 호출의 증거를 구분합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 16,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 4,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 조회 위치 확인",
+        "description": "권한 집합과 신뢰 목록, 등록과 호출의 증거를 구분합니다.",
+        "links": [
+          [
+            "screen-146",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2556,6 +2608,16 @@
           "74-sql-server-login-role-query-evidence",
           "screen-144",
           "2강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "75-sql-os-boundary-configuration-audit",
+          "screen-145",
+          "3강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "76-sql-clr-assembly-trust-audit",
+          "screen-146",
+          "4강 · Beacon Console 세션 문맥"
         ]
       ]
     }

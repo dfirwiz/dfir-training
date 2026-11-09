@@ -78,8 +78,8 @@
     74
   ],
   "published_unit": "1~16장 공개: 16장 1~2강, 2장만 핵심 요약",
-  "next_scope": "16장 Microsoft SQL Server 3~4강 (ID75~76): xp_cmdshell·OLE의 경계와 구성 감사 및 SQL CLR 실행 신뢰. 이후 5~6강 (ID77~78).",
-  "next_lesson_status": "in_progress",
+  "next_scope": "16장 3~4강 공개 배포 검증 후 ID77~78",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1060,6 +1060,22 @@
       "commit": "66ce9537b62686e9d4bf6106fe4da0b5bbad3608",
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42608254598",
       "public_files_verified": 23
+    },
+    "batch_3_4": {
+      "lesson_ids": [
+        75,
+        76
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "76강 빌드, HTML 77개·내부 참조 8794건·공식 링크 9개, 기존 본문 74개와 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표·코드 스크롤·앵커·목차, 즉시 해설 16개 검사.",
+      "verification_limits": "SQL Server·SSMS·Cobalt Strike·쿼리·호스트 명령·정책 변경·어셈블리 작업 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/75-sql-os-boundary-configuration-audit.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/76-sql-clr-assembly-trust-audit.html"
+      ]
     }
   }
 }
