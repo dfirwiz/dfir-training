@@ -1,11 +1,11 @@
 {
   "owner": "scheduled-20261109-1519",
   "scope": [
-    79,
-    80
+    81,
+    82
   ],
-  "status": "completed",
+  "status": "blocked",
   "started_at": "2026-11-09T15:27:00.330Z",
-  "next_scope": "17장 Domain Dominance 3~4강 (ID81~82): Silver Ticket·Golden Ticket 위험. 이후 ID83~84.",
-  "completed_at": "2026-11-09T15:31:40.687Z"
+  "next_scope": "17장 Domain Dominance 3~4강 (ID81~82): 최신 main 대조 및 검증 후 게시 재개. 이후 ID83~84.",
+  "stopped_at": "2026-11-09T16:24:05.930Z"
 }
