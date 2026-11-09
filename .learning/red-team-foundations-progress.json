@@ -70,8 +70,8 @@
     66
   ],
   "published_unit": "1~14장 공개: 2장만 핵심 요약",
-  "next_scope": "15장 Kerberos 1~2강 (ID67~68)",
-  "next_lesson_status": "in_progress",
+  "next_scope": "15장 1~2강 공개 배포 검증 후 ID69~70",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -923,6 +923,22 @@
         "number": 6,
         "scope": "리소스 기반 제한 위임·디렉터리 권한과 변경 감사"
       }
-    ]
+    ],
+    "batch_1_2": {
+      "lesson_ids": [
+        67,
+        68
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "review_questions": 16,
+      "verification_scope": "68강 빌드, HTML 69개·내부 참조 7333건·공식 출처 링크 10개, 기존 본문 66개 및 홈페이지 타영역 보존, Chromium 1366/390/320px 그림·표 내부 스크롤·앵커·목차 검증, 즉시 해설 16개.",
+      "verification_limits": "Windows·Cobalt Strike·티켓·인증·대상 접속 미실행. Chromium 화면 폭 검사.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/67-kerberos-as-key-boundaries.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/68-kerberos-tgs-ap-pac-evidence.html"
+      ]
+    }
   }
 }

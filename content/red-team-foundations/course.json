@@ -1881,6 +1881,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 67,
+      "slug": "67-kerberos-as-key-boundaries",
+      "title": "Kerberos 첫 발급과 AS 교환의 키 경계",
+      "short_title": "Kerberos 첫 발급과 AS 교환의 키 경계",
+      "description": "사전 인증, TGT와 응답의 키 경계, DC 관측을 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 15,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 1,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "사전 인증, TGT와 응답의 키 경계, DC 관측을 연결합니다.",
+        "links": [
+          [
+            "screen-131",
+            "Windows 이벤트 4768"
+          ],
+          [
+            "screen-132",
+            "Beacon Console 사용자 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 68,
+      "slug": "68-kerberos-tgs-ap-pac-evidence",
+      "title": "서비스 티켓과 AP 인증·PAC의 증거",
+      "short_title": "서비스 티켓과 AP 인증·PAC의 증거",
+      "description": "서비스 티켓 발급, 서비스 인증과 자원 인가를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 15,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 2,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "서비스 티켓 발급, 서비스 인증과 자원 인가를 구별합니다.",
+        "links": [
+          [
+            "screen-133",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-134",
+            "Windows 이벤트 4624"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -2234,6 +2294,36 @@
           "66-reverse-port-forward-evidence",
           "screen-130",
           "4강 · Web Log 메뉴"
+        ]
+      ]
+    },
+    {
+      "id": 15,
+      "title": "Kerberos",
+      "title_ko": "티켓 교환과 위임의 신뢰 경계",
+      "practice_entry": "67-kerberos-as-key-boundaries",
+      "practice_label": "공식 화면에서 발급과 서비스 로그온 확인",
+      "practice_description": "Windows 이벤트 4768·4624와 Fortra 콘솔의 관측 지점을 대조합니다.",
+      "practice_links": [
+        [
+          "67-kerberos-as-key-boundaries",
+          "screen-131",
+          "1강 · Windows 이벤트 4768"
+        ],
+        [
+          "67-kerberos-as-key-boundaries",
+          "screen-132",
+          "1강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "68-kerberos-tgs-ap-pac-evidence",
+          "screen-133",
+          "2강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "68-kerberos-tgs-ap-pac-evidence",
+          "screen-134",
+          "2강 · Windows 이벤트 4624"
         ]
       ]
     }
