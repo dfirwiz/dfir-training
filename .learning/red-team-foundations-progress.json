@@ -65,7 +65,7 @@
   ],
   "published_unit": "1~12장과 13장 1~4강 공개: 2장만 핵심 요약",
   "next_scope": "13장 Lateral Movement 5~6강 (ID61~62): 서명된 Windows 도구와 MavInject 실행 증거 및 Windows 로그온 유형과 두 번째 홉",
-  "next_lesson_status": "in_progress",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -772,6 +772,23 @@
       "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42561899001",
       "deployment_status": "success",
       "public_files_verified": 26
+    },
+    "batch_5_6": {
+      "date": "2026-11-09",
+      "lesson_ids": [
+        61,
+        62
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 4,
+      "review_questions": 16,
+      "verification_scope": "62강 빌드, 기존 60강 본문과 홈 타영역 보존, 내부 참조 6305건·공식 출처 링크 10개와 Chromium 1366/390/320px 그림·표·앵커·복습·이동 검사.",
+      "verification_limits": "Windows·Cobalt Strike·원격 실행·주입·인증·자격 증명·위임/보호 변경 미실행. 실제 모바일 단말과 미확보 UI 사진 범위를 구분.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/61-signed-tools-mavinject-evidence.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/62-windows-logon-types-second-hop.html"
+      ]
     }
   }
 }

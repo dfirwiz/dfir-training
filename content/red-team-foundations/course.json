@@ -1701,6 +1701,66 @@
           ]
         ]
       }
+    },
+    {
+      "id": 61,
+      "slug": "61-signed-tools-mavinject-evidence",
+      "title": "서명된 Windows 도구와 MavInject 실행 증거",
+      "short_title": "서명된 Windows 도구와 MavInject 실행 증거",
+      "description": "서명, 프로세스 접근, 모듈 로드와 후속 통신의 근거를 구분합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 13,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 5,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "서명, 프로세스 접근, 모듈 로드와 후속 통신의 근거를 구분합니다.",
+        "links": [
+          [
+            "screen-119",
+            "Fortra Process Browser"
+          ],
+          [
+            "screen-120",
+            "Beacon Console 조회 도움말"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 62,
+      "slug": "62-windows-logon-types-second-hop",
+      "title": "Windows 로그온 유형과 두 번째 홉",
+      "short_title": "Windows 로그온 유형과 두 번째 홉",
+      "description": "첫 로그온과 후속 인증·인가를 Windows 이벤트로 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 5,
+      "unit": 13,
+      "format": "full",
+      "updated": "2026-11-09",
+      "lesson_number": 6,
+      "screenshots": 2,
+      "practice": {
+        "title": "공식 화면에서 관측 위치 확인",
+        "description": "첫 로그온과 후속 인증·인가를 Windows 이벤트로 구별합니다.",
+        "links": [
+          [
+            "screen-121",
+            "Beacon Console 사용자 문맥"
+          ],
+          [
+            "screen-122",
+            "Windows 이벤트 4624"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -1984,6 +2044,26 @@
           "60-service-change-extension-evidence",
           "screen-118",
           "4강 · Windows 이벤트 4657"
+        ],
+        [
+          "61-signed-tools-mavinject-evidence",
+          "screen-119",
+          "5강 · Fortra Process Browser"
+        ],
+        [
+          "61-signed-tools-mavinject-evidence",
+          "screen-120",
+          "5강 · Beacon Console 조회 도움말"
+        ],
+        [
+          "62-windows-logon-types-second-hop",
+          "screen-121",
+          "6강 · Beacon Console 사용자 문맥"
+        ],
+        [
+          "62-windows-logon-types-second-hop",
+          "screen-122",
+          "6강 · Windows 이벤트 4624"
         ]
       ]
     }
