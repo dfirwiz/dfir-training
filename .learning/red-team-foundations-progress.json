@@ -91,11 +91,13 @@
     87,
     88,
     89,
-    90
+    90,
+    91,
+    92
   ],
-  "published_unit": "1~19장 공개: 19장 1~2강, 2장만 핵심 요약",
-  "next_scope": "19장 3~4강(ID91~92) 공개 페이지 및 다운로드 검증. 완료 기록 후 19장 5~6강(ID93~94).",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~19장 공개: 19장 1~4강, 2장만 핵심 요약",
+  "next_scope": "19장 Defence Evasion 5~6강(ID93~94). AppLocker 유효 정책과 경로 ACL·언어 모드·DLL 적용 범위.",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -163,7 +165,7 @@
       "16": 6,
       "17": 6,
       "18": 4,
-      "19": 2
+      "19": 4
     },
     "updated": "2026-11-10"
   },
@@ -1330,11 +1332,11 @@
     "source_scope_reviewed": true,
     "lesson_ids": [
       89,
-      90
+      90,
+      91,
+      92
     ],
     "remaining_lesson_ids": [
-      91,
-      92,
       93,
       94
     ],
@@ -1396,7 +1398,7 @@
         91,
         92
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 2,
       "review_questions": 16,
@@ -1405,7 +1407,12 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/91-memory-mapping-page-evidence.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/92-separated-execution-telemetry.html"
-      ]
+      ],
+      "commit": "96ffe0a8fc1be05545ef9fe679781ead932e8076",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42719830855",
+      "public_files_verified": 22,
+      "verified_at": "2026-11-09T23:24:25Z",
+      "official_image_source_match": true
     }
   }
 }
