@@ -79,11 +79,13 @@
     75,
     76,
     77,
-    78
+    78,
+    79,
+    80
   ],
-  "published_unit": "1~16장 공개: 2장만 핵심 요약",
-  "next_scope": "17장 1~2강 공개 배포 검증 후 ID81~82",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~17장 공개: 17장 1~2강, 2장만 핵심 요약",
+  "next_scope": "17장 Domain Dominance 3~4강 (ID81~82): Silver Ticket·Golden Ticket 위험. 이후 ID83~84.",
+  "next_lesson_status": "planned",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -148,7 +150,8 @@
       "13": 6,
       "14": 4,
       "15": 6,
-      "16": 6
+      "16": 6,
+      "17": 2
     },
     "updated": "2026-11-10"
   },
@@ -1109,12 +1112,13 @@
   },
   "unit_17": {
     "title": "Domain Dominance",
-    "status": "awaiting_public_verification",
+    "status": "partially_published",
     "source_scope_reviewed": true,
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       79,
-      80,
+      80
+    ],
+    "remaining_lesson_ids": [
       81,
       82,
       83,
@@ -1157,7 +1161,7 @@
         79,
         80
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 2,
       "review_questions": 16,
@@ -1166,7 +1170,10 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/79-ad-replication-rights-boundaries.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/80-ad-dcsync-audit-correlation.html"
-      ]
+      ],
+      "commit": "01d9264a71ba96c88884fdb42c3653ca3556d201",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42644868849",
+      "public_files_verified": 23
     }
   }
 }
