@@ -1,11 +1,11 @@
 {
-  "owner": "scheduled-20261109-2318",
+  "owner": "scheduled-20261110-0011",
   "scope": [
-    91,
-    92
+    93,
+    94
   ],
-  "status": "completed",
-  "started_at": "2026-11-09T23:18:55Z",
-  "next_scope": "19장 Defence Evasion 5~6강(ID93~94). AppLocker 유효 정책과 경로 ACL·언어 모드·DLL 적용 범위.",
-  "completed_at": "2026-11-09T23:24:25Z"
+  "status": "in_progress",
+  "started_at": "2026-11-10T00:11:39Z",
+  "next_scope": "19장 5~6강(ID93~94) 공개 페이지 및 다운로드 검증. 완료 기록 후 20장 Reporting 원본 전체 검토와 분할(ID95부터).",
+  "expires_at": "2026-11-10T01:11:39Z"
 }

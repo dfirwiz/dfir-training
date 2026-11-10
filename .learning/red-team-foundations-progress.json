@@ -96,8 +96,8 @@
     92
   ],
   "published_unit": "1~19장 공개: 19장 1~4강, 2장만 핵심 요약",
-  "next_scope": "19장 Defence Evasion 5~6강(ID93~94). AppLocker 유효 정책과 경로 ACL·언어 모드·DLL 적용 범위.",
-  "next_lesson_status": "planned",
+  "next_scope": "19장 5~6강(ID93~94) 공개 페이지 및 다운로드 검증. 완료 기록 후 20장 Reporting 원본 전체 검토와 분할(ID95부터).",
+  "next_lesson_status": "awaiting_public_verification",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -1413,6 +1413,22 @@
       "public_files_verified": 22,
       "verified_at": "2026-11-09T23:24:25Z",
       "official_image_source_match": true
+    },
+    "batch_5_6": {
+      "lesson_ids": [
+        93,
+        94
+      ],
+      "publication_status": "awaiting_public_verification",
+      "diagrams": 6,
+      "official_image_occurrences": 2,
+      "review_questions": 16,
+      "verification_scope": "94강 빌드, HTML 95개·내부 참조 12505건·공식 링크 9개, 기존 본문 92개와 홈페이지 타영역 보존, Chromium 1366/390/320px 표·그림 스크롤·화면 앵커·목차·해설·SVG 글자 배치 및 공식 화면 원본 일치 확인.",
+      "verification_limits": "제품·파일 배치 및 실행·정책 또는 보호 설정 변경 미실행.",
+      "urls": [
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/93-applocker-effective-policy-audit.html",
+        "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/94-applocker-acl-language-dll-audit.html"
+      ]
     }
   }
 }

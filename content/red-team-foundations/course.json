@@ -2581,6 +2581,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 93,
+      "slug": "93-applocker-effective-policy-audit",
+      "title": "AppLocker 유효 정책과 감사 판정",
+      "short_title": "AppLocker 유효 정책과 감사 판정",
+      "description": "규칙 컬렉션과 정책 적용, 감사와 실제 차단의 근거를 구별합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 19,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 5,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 확인 위치 읽기",
+        "description": "규칙 컬렉션과 정책 적용, 감사와 실제 차단의 근거를 구별합니다.",
+        "links": [
+          [
+            "screen-163",
+            "Beacon Console 세션 문맥"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 94,
+      "slug": "94-applocker-acl-language-dll-audit",
+      "title": "경로 ACL과 PowerShell·DLL 적용 범위",
+      "short_title": "경로 ACL과 PowerShell·DLL 적용 범위",
+      "description": "유효 경로 권한과 PowerShell 언어 모드, DLL 컬렉션을 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 19,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 6,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 화면에서 확인 위치 읽기",
+        "description": "유효 경로 권한과 PowerShell 언어 모드, DLL 컬렉션을 대조합니다.",
+        "links": [
+          [
+            "screen-164",
+            "Process Browser 조회 위치"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -3144,6 +3196,16 @@
           "92-separated-execution-telemetry",
           "screen-162",
           "4강 · Process Browser 조회 위치"
+        ],
+        [
+          "93-applocker-effective-policy-audit",
+          "screen-163",
+          "5강 · Beacon Console 세션 문맥"
+        ],
+        [
+          "94-applocker-acl-language-dll-audit",
+          "screen-164",
+          "6강 · Process Browser 조회 위치"
         ]
       ]
     }
