@@ -93,11 +93,13 @@
     89,
     90,
     91,
-    92
+    92,
+    93,
+    94
   ],
-  "published_unit": "1~19장 공개: 19장 1~4강, 2장만 핵심 요약",
-  "next_scope": "19장 5~6강(ID93~94) 공개 페이지 및 다운로드 검증. 완료 기록 후 20장 Reporting 원본 전체 검토와 분할(ID95부터).",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~19장 공개: 19장 1~6강, 2장만 핵심 요약",
+  "next_scope": "20장 Reporting 원본 전체 검토 및 상세 강의 분할. 전역 ID95부터.",
+  "next_lesson_status": "source_review_pending",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -165,7 +167,7 @@
       "16": 6,
       "17": 6,
       "18": 4,
-      "19": 4
+      "19": 6
     },
     "updated": "2026-11-10"
   },
@@ -1328,18 +1330,17 @@
   },
   "unit_19": {
     "title": "Defence Evasion",
-    "status": "partially_published",
+    "status": "published",
     "source_scope_reviewed": true,
     "lesson_ids": [
       89,
       90,
       91,
-      92
-    ],
-    "remaining_lesson_ids": [
+      92,
       93,
       94
     ],
+    "remaining_lesson_ids": [],
     "planned_lessons": [
       {
         "id": 89,
@@ -1419,7 +1420,7 @@
         93,
         94
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 6,
       "official_image_occurrences": 2,
       "review_questions": 16,
@@ -1428,7 +1429,16 @@
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/93-applocker-effective-policy-audit.html",
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/94-applocker-acl-language-dll-audit.html"
-      ]
-    }
+      ],
+      "commit": "8f2afbd2ca9d006f4098293fc044339a8771a251",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42726800816",
+      "public_files_verified": 22,
+      "verified_at": "2026-11-10T00:16:04Z",
+      "official_image_source_match": true
+    },
+    "publication_status": "published_verified",
+    "diagrams": 18,
+    "official_image_occurrences": 6,
+    "review_questions": 48
   }
 }
