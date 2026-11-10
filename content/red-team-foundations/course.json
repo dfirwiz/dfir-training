@@ -2633,6 +2633,58 @@
           ]
         ]
       }
+    },
+    {
+      "id": 95,
+      "slug": "95-report-export-evidence-review",
+      "title": "제품 보고서 내보내기와 증거 검토",
+      "short_title": "제품 보고서 내보내기와 증거 검토",
+      "description": "보고서 유형·수집 범위·비식별화와 원본 근거를 대조합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 20,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 1,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 내보내기 화면 읽기",
+        "description": "보고서 유형·수집 범위·비식별화와 원본 근거를 대조합니다.",
+        "links": [
+          [
+            "screen-165",
+            "Hosts Report 내보내기"
+          ]
+        ]
+      }
+    },
+    {
+      "id": 96,
+      "slug": "96-assessment-report-and-retest",
+      "title": "평가 보고서와 권고·재검증",
+      "short_title": "평가 보고서와 권고·재검증",
+      "description": "업무 위험과 시간선, 조치 담당자 및 재검증 기준을 연결합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 20,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 2,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 내보내기 화면 읽기",
+        "description": "업무 위험과 시간선, 조치 담당자 및 재검증 기준을 연결합니다.",
+        "links": [
+          [
+            "screen-166",
+            "Activity Report 부록"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -3206,6 +3258,26 @@
           "94-applocker-acl-language-dll-audit",
           "screen-164",
           "6강 · Process Browser 조회 위치"
+        ]
+      ]
+    },
+    {
+      "id": 20,
+      "title": "Reporting",
+      "title_ko": "증거 검토와 최종 평가 보고서",
+      "practice_entry": "95-report-export-evidence-review",
+      "practice_label": "공식 내보내기 화면 확인",
+      "practice_description": "입력과 결과 검토 위치를 비교합니다.",
+      "practice_links": [
+        [
+          "95-report-export-evidence-review",
+          "screen-165",
+          "1강 · Hosts Report 내보내기"
+        ],
+        [
+          "96-assessment-report-and-retest",
+          "screen-166",
+          "2강 · Activity Report 부록"
         ]
       ]
     }
