@@ -2685,6 +2685,32 @@
           ]
         ]
       }
+    },
+    {
+      "id": 97,
+      "slug": "97-final-assessment-evidence-review",
+      "title": "최종 평가의 범위·제출·결과 검토",
+      "short_title": "최종 평가의 범위·제출·결과 검토",
+      "description": "승인 범위와 운영 규율, 두 시간 제약, 제출과 결과 검토를 종합합니다.",
+      "status": "published",
+      "sections": 11,
+      "review_questions": 8,
+      "figures": 4,
+      "unit": 21,
+      "format": "full",
+      "updated": "2026-11-10",
+      "lesson_number": 1,
+      "screenshots": 1,
+      "practice": {
+        "title": "공식 내보내기 화면 읽기",
+        "description": "승인 범위와 운영 규율, 두 시간 제약, 제출과 결과 검토를 종합합니다.",
+        "links": [
+          [
+            "screen-167",
+            "평가 부록 내보내기"
+          ]
+        ]
+      }
     }
   ],
   "chapters": [
@@ -3278,6 +3304,21 @@
           "96-assessment-report-and-retest",
           "screen-166",
           "2강 · Activity Report 부록"
+        ]
+      ]
+    },
+    {
+      "id": 21,
+      "title": "Final Exam",
+      "title_ko": "최종 평가의 계획과 증거 검토",
+      "practice_entry": "97-final-assessment-evidence-review",
+      "practice_label": "공식 내보내기 화면 확인",
+      "practice_description": "부록 생성과 평가 제출을 구별합니다.",
+      "practice_links": [
+        [
+          "97-final-assessment-evidence-review",
+          "screen-167",
+          "1강 · 평가 부록 내보내기"
         ]
       ]
     }
