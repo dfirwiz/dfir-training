@@ -97,11 +97,12 @@
     93,
     94,
     95,
-    96
+    96,
+    97
   ],
-  "published_unit": "1~20장 공개: 20장 1~2강, 2장만 핵심 요약",
-  "next_scope": "마지막 21장 1강(ID97)의 공개 페이지 및 다운로드를 검증하고 과정 완료를 기록한다.",
-  "next_lesson_status": "awaiting_public_verification",
+  "published_unit": "1~21장 전체 공개 및 검증 완료. 총 97강, 2장만 핵심 요약.",
+  "next_scope": "없음. 마지막 21장 Final Exam까지 원본 범위 완료.",
+  "next_lesson_status": "completed",
   "workflow": "원본 순서대로 매 실행 최대 2강 작성·검증·직접 게시. 다음 장 대기 규칙은 사용자 자동 진행 승인으로 충족.",
   "build": "python3 scripts/build_red_team_foundations.py",
   "unit_2": {
@@ -170,7 +171,8 @@
       "17": 6,
       "18": 4,
       "19": 6,
-      "20": 2
+      "20": 2,
+      "21": 1
     },
     "updated": "2026-11-10"
   },
@@ -1493,13 +1495,13 @@
   },
   "unit_21": {
     "title": "Final Exam",
-    "status": "planned",
+    "status": "published",
     "source_scope_reviewed": true,
     "final_source_chapter": true,
-    "lesson_ids": [],
-    "remaining_lesson_ids": [
+    "lesson_ids": [
       97
     ],
+    "remaining_lesson_ids": [],
     "planned_lessons": [
       {
         "id": 97,
@@ -1511,7 +1513,7 @@
       "lesson_ids": [
         97
       ],
-      "publication_status": "awaiting_public_verification",
+      "publication_status": "published_verified",
       "diagrams": 3,
       "official_image_occurrences": 1,
       "review_questions": 8,
@@ -1519,7 +1521,23 @@
       "verification_limits": "가상 평가 기준·시간 사용. 실제 제품·내보내기·평가 제출 미실행.",
       "urls": [
         "https://dfirwiz.github.io/dfir-training/courses/red-team-foundations/97-final-assessment-evidence-review.html"
-      ]
-    }
+      ],
+      "commit": "1e20df2f3d59d2a30355ee00314606b7417be16a",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/42742375996",
+      "public_files_verified": 17,
+      "verified_at": "2026-11-10T02:24:55Z",
+      "official_image_source_match": true
+    },
+    "publication_status": "published_verified",
+    "diagrams": 3,
+    "official_image_occurrences": 1,
+    "review_questions": 8
+  },
+  "course_completion": {
+    "status": "published_verified",
+    "chapters": 21,
+    "lessons": 97,
+    "final_lesson_id": 97,
+    "verified_at": "2026-11-10T02:24:55Z"
   }
 }

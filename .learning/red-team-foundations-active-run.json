@@ -3,8 +3,8 @@
   "scope": [
     97
   ],
-  "status": "in_progress",
+  "status": "completed",
   "started_at": "2026-11-10T02:20:05Z",
-  "next_scope": "마지막 21장 1강(ID97)의 공개 페이지 및 다운로드를 검증하고 과정 완료를 기록한다.",
-  "expires_at": "2026-11-10T03:20:05Z"
+  "next_scope": "없음. 마지막 21장 Final Exam까지 원본 범위 완료.",
+  "completed_at": "2026-11-10T02:24:55Z"
 }
