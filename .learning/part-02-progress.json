@@ -93,7 +93,7 @@
     ],
     "next_lesson_id": 34,
     "next_day_lesson": 12,
-    "last_review": ".learning/reviews/day-two-11-revision-20261118.md",
+    "last_review": ".learning/reviews/day-two-12-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 33,
@@ -117,7 +117,12 @@
       "udp_principles_lesson11": "Textbook goals mapped; own UDP header/checksum/length/jumbogram, ICMP quote and traceroute probe/time examples checked. Prior DNS PCAP observations distinguished; original workbook/PCAP re-access, filter engines and actual endpoint/path execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 34,
+      "day_lesson": 12,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-12-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 33,
       "content_commit": "259a6e87411579b403638db45f2aafffb42ed430",
@@ -130,7 +135,10 @@
       "live_index_sha256": "0e031643423e7e7d11997ec992957f6d94b85145ad5983b051959319a2a2d2a4"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 34,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; older findings are distinguished.",
       "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",
