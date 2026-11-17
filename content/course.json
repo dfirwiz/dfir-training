@@ -435,7 +435,7 @@
       "id": 32,
       "slug": "32-tcp-response",
       "title": "같은 SYN에 다른 응답이 돌아오는 이유",
-      "description": "수신 대기·거절·도달 실패·무응답을 비교하고 응답의 주체와 관측 지점으로 가설을 검증합니다.",
+      "description": "SYN/ACK·RST/ACK·ICMP·무응답을 번호와 수집 위치로 비교하고, 필터 누락·반사 응답·재조립의 한계를 예제로 검산합니다.",
       "day": 2,
       "day_lesson": 10,
       "printed_pages": [
@@ -443,9 +443,9 @@
         114
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-18",
+      "minutes": 115,
+      "editorial_status": "revised"
     },
     {
       "id": 33,

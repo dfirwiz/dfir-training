@@ -89,7 +89,7 @@
     ],
     "next_lesson_id": 32,
     "next_day_lesson": 10,
-    "last_review": ".learning/reviews/day-two-09-revision-20261117.md",
+    "last_review": ".learning/reviews/day-two-10-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 31,
@@ -111,7 +111,12 @@
       }
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 32,
+      "day_lesson": 10,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-10-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 31,
       "content_commit": "216655842ded94e467af1cf42d9e6a8ed248847e",
@@ -124,7 +129,10 @@
       "verified_at": "2026-11-18T00:02:48.395457+10:30"
     },
     "updated": "2026-11-17",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 32,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; older findings are distinguished.",
       "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",
