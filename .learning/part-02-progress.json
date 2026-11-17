@@ -11,7 +11,8 @@
     28,
     29,
     30,
-    31
+    31,
+    32
   ],
   "completed_day_lessons": [
     1,
@@ -22,15 +23,16 @@
     6,
     7,
     8,
-    9
+    9,
+    10
   ],
-  "completed_printed_through": 106,
-  "completed_pdf_through": 108,
-  "next_lesson_id": 32,
-  "next_printed_page": 107,
-  "updated": "2026-11-17",
-  "scope": "Day-two lesson9 detailed revision published; actual desktop and narrow CSS viewport responsive layouts checked. Mobile device emulation unavailable; no original PCAP or workbook re-execution. Next day-two lesson10/internalID32. Remaining8 lessons are abbreviated drafts.",
-  "review": ".learning/reviews/day-two-09-revision-20261117.md",
+  "completed_printed_through": 114,
+  "completed_pdf_through": 116,
+  "next_lesson_id": 33,
+  "next_printed_page": 115,
+  "updated": "2026-11-18",
+  "scope": "Day-two lesson10 detailed revision published and verified on desktop and narrow CSS viewport. Next lesson11/internal33. Seven abbreviated drafts and final workbook audit remain.",
+  "review": ".learning/reviews/day-two-10-revision-20261118.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -75,10 +77,10 @@
       28,
       29,
       30,
-      31
+      31,
+      32
     ],
     "pending_lesson_ids": [
-      32,
       33,
       34,
       35,
@@ -87,12 +89,12 @@
       38,
       39
     ],
-    "next_lesson_id": 32,
-    "next_day_lesson": 10,
+    "next_lesson_id": 33,
+    "next_day_lesson": 11,
     "last_review": ".learning/reviews/day-two-10-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 31,
+    "last_published_lesson_id": 32,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -107,32 +109,25 @@
         "exercise4": "flags_0x3f_and_stored_fields_checked_lesson28; checksum_window_MSS_response_and_acceptance_pending_followup",
         "urgent_extra": "SEQ_pointer_and_two_segment_stream_positions_checked_lesson28; current_standard_and_ordinary_OOB_API_conditions_explained_lesson29; socket_reads_and_sensor_reassembly_not_executed",
         "checksum_principles_lesson8": "Pseudo-header12, TCP23 synthetic bytes checksum79cf and source change79ce verified. Earlier workbook exercise1/4 source-item audit and original PCAP re-access remain pending; no endpoint or filter-engine execution.",
-        "options_principles_lesson9": "Direction-specific MSS/WS, TCP option-byte lengths and budget, SACK interval union, Timestamp timing and TFO cookie/ACK synthetic examples checked. Earlier exercise4/5 source-item and target VM response audit remains pending; original workbook/PCAP not re-accessed."
+        "options_principles_lesson9": "Direction-specific MSS/WS, TCP option-byte lengths and budget, SACK interval union, Timestamp timing and TFO cookie/ACK synthetic examples checked. Earlier exercise4/5 source-item and target VM response audit remains pending; original workbook/PCAP not re-accessed.",
+        "response_principles_lesson10": "CLOSED response generation, SYN/ACK numbers, quoted TCP ports/SEQ, capture/ARP scope, retry timing and reflected-response hypotheses explained and synthetic calculations verified. Original workbook exercise4/5 source-item audit and actual VM/PCAP/filter-engine responses remain pending."
       }
     },
     "remaining_render_review": [],
-    "active_lesson": {
-      "lesson_id": 32,
-      "day_lesson": 10,
-      "status": "publication_pending",
-      "review": ".learning/reviews/day-two-10-revision-20261118.md"
-    },
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 31,
-      "content_commit": "216655842ded94e467af1cf42d9e6a8ed248847e",
-      "workflow_run": 44092814914,
-      "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/31-tcp-options.html",
-      "render_review": "Actual HTTPS desktop1363x936 and narrow CSS454x312 at temporary300percent browser zoom; root449/scroll449. Three SVGs visually checked on desktop. Option diagram/table/pre actual horizontal scrollLeft149.67/149.67/88.33; zoom restored100percent. Not mobile device emulation.",
-      "live_page_sha256": "6270d636dfe3d6ee1e6f5f9d2d5c356c788889c9a5e603d3a10c461afa505646",
-      "live_index_sha256": "d0630b224273e4c67e2f84c2513fab49e3a3f1e36679352bc9357f00eae53e80",
-      "verified_at": "2026-11-18T00:02:48.395457+10:30"
-    },
-    "updated": "2026-11-17",
-    "publication_pending": {
       "lesson_id": 32,
-      "status": "awaiting_pages_and_browser_verification"
+      "content_commit": "a410a1883a18064063618a680490ba0565b48843",
+      "workflow_run": 44100058380,
+      "deployment": "success",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/32-tcp-response.html",
+      "render_review": "Actual HTTPS desktop1363x936; both SVGs checked. Narrow CSS454x312 at300percent zoom: root449/scroll449; diagram/table/code scrollLeft50.67/149.67/124.33 verified; zoom restored. Not actual mobile device emulation.",
+      "verified_at": "2026-11-17T14:12:31.635670+00:00",
+      "live_page_sha256": "64ba30592976ce1be3db04c8ec6aff4c0023528f60c55f5c252b2c99d8bf14c0",
+      "live_index_sha256": "fcd408bf862f96b5cc670d05fce9ae818c4f8fd86aca91a741eead6f39674a20"
     },
+    "updated": "2026-11-18",
+    "publication_pending": null,
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; older findings are distinguished.",
       "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",
