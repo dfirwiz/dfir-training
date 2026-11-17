@@ -17,7 +17,8 @@
     34,
     35,
     36,
-    37
+    37,
+    38
   ],
   "completed_day_lessons": [
     1,
@@ -34,15 +35,16 @@
     12,
     13,
     14,
-    15
+    15,
+    16
   ],
-  "completed_printed_through": 174,
-  "completed_pdf_through": 176,
-  "next_lesson_id": 38,
-  "next_printed_page": 175,
+  "completed_printed_through": 184,
+  "completed_pdf_through": 186,
+  "next_lesson_id": 39,
+  "next_printed_page": null,
   "updated": "2026-11-18",
-  "scope": "Day-two lesson15 detailed revision published and verified on desktop and narrow CSS viewport. Next lesson16/internal38. Two abbreviated drafts and final workbook audit remain.",
-  "review": ".learning/reviews/day-two-15-revision-20261118.md",
+  "scope": "Day-two lesson16 detailed revision published and verified. Textbook through printed184 mapped lesson by lesson; lesson17 workbook revision and whole-textbook/workbook final goal audit remain. Page coverage is not final completion.",
+  "review": ".learning/reviews/day-two-16-revision-20261118.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -93,18 +95,18 @@
       34,
       35,
       36,
-      37
+      37,
+      38
     ],
     "pending_lesson_ids": [
-      38,
       39
     ],
-    "next_lesson_id": 38,
-    "next_day_lesson": 16,
-    "last_review": ".learning/reviews/day-two-15-revision-20261118.md",
+    "next_lesson_id": 39,
+    "next_day_lesson": 17,
+    "last_review": ".learning/reviews/day-two-16-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 37,
+    "last_published_lesson_id": 38,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -126,34 +128,32 @@
       "icmp_principles_lesson12": "Textbook goals mapped; own ICMPv4/v6 header, checksum, Echo data-copy, ID/SEQ pairing, crossed-response timing and malformed-Code examples checked. Prior source/static review distinguished from resumed publication verification. Original workbook/PCAP item audit and actual filter-engine/endpoint execution remain pending; Scapy construction attempt did not complete.",
       "icmp_error_principles_lesson13": "Textbook goals mapped; own quotation offsets, UDP/TCP bytes, PMTU, fragments and RTT verified. Capture/display filter scope and ICMPv6 suppression/policy explained from current official sources; original workbook/PCAP item audit, filter engines and endpoint/NAT execution remain pending.",
       "ipv6_principles_lesson14": "Textbook topics mapped; own IPv6 address normalization, prefix counts, modified EUI-64, header bytes, extension offsets, pseudo-header UDP checksum and jumbo lengths checked. Original workbook/PCAP item audit and actual filter-engine/endpoint/path execution remain pending.",
-      "nd_principles_lesson15": "Textbook topics mapped; own solicited-node/Ethernet mapping, NS32 bytes/checksum03d6, NA flag masks, RA option lengths and lifetime units checked. DAD/NUD, on-link/default-router/address-state and current unsolicited NA rules explained. Original workbook/PCAP item audit, filter engine, actual endpoint/cache/route/RA Guard/tunnel execution remain pending."
+      "nd_principles_lesson15": "Textbook topics mapped; own solicited-node/Ethernet mapping, NS32 bytes/checksum03d6, NA flag masks, RA option lengths and lifetime units checked. DAD/NUD, on-link/default-router/address-state and current unsolicited NA rules explained. Original workbook/PCAP item audit, filter engine, actual endpoint/cache/route/RA Guard/tunnel execution remain pending.",
+      "investigation_principles_lesson16": "Textbook printed175-184 directly read and image-checked. Own six-row TCP and three-row UDP ledgers, all256 flag-byte comparisons, NOTE prefix/length and timing calculations verified. Current classic/AccECN, capture scope and structured-field limits explained. Original workbook/PCAP item audit, filter engines, actual endpoint/NAT/firewall/application execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": {
-      "lesson_id": 38,
-      "day_lesson": 16,
-      "status": "publication_pending",
-      "review": ".learning/reviews/day-two-16-revision-20261118.md"
-    },
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 37,
+      "lesson_id": 38,
       "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/37-ipv6-neighbor-router.html",
-      "verified_at": "2026-11-17T21:10:55.393Z",
-      "render_review": "Actual public HTTPS desktop1363x936 with both SVGs; root1348/scroll1348. Narrow CSS454x312 at300percent zoom: root449/scroll449; NS diagram409/660 scrollLeft149.67; RA table409/580 scrollLeft149.67; filter code409/440 scrollLeft30.67. Actual before/after scroll screens checked, zoom restored100percent. Not physical mobile device, touch or device emulation.",
-      "live_page_sha256": "18a0c1ea0360f6ba466ddad54da25139f412cba096e9defd676d6c5cf0bad036",
-      "live_index_sha256": "07b276b79e9c965852aa7e192ce4e412cfb956ec8626ce27dc7e4de18e1aa72f"
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/38-day-two-investigation.html",
+      "verified_at": "2026-11-17T22:20:10Z",
+      "render_review": "Actual public HTTPS desktop1363x936; root1348/scroll1348. Narrow CSS454x312 at300percent zoom; root449/scroll449. Direction SVG329/640 scrolled0->149.67->310.67; mask table409/580 scrolled0->170.67; ICMP code409/1153 scrolled0->743.33. Before/after screens checked and zoom restored100percent. Not physical mobile, touch or device emulation.",
+      "live_page_sha256": "0729ab7c3907860bcff180d00eb202ffd93b1ee3a709615cf87e34f6ae4520a6",
+      "live_index_sha256": "45e94467832e76b3b52a069a9c8a2ecef62faca599066c87bd9e05328d79f653"
     },
     "updated": "2026-11-18",
-    "publication_pending": {
-      "lesson_id": 38,
-      "stage": "awaiting_exact_pages_success_and_public_render_review",
-      "review": ".learning/reviews/day-two-16-revision-20261118.md"
-    },
+    "publication_pending": null,
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
-      "No Wireshark/TShark filter-engine or actual ND packet/cache/route/DAD/NUD/RA Guard/tunnel/VM execution.",
+      "No tcpdump/libpcap or TShark/Wireshark filter-engine, actual endpoint/VM/NAT/firewall/application execution.",
       "Physical mobile device, touch and device emulation not verified; actual narrow CSS viewport checked."
-    ]
-  }
+    ],
+    "final_goal_audit": {
+      "status": "pending",
+      "scope": "Whole textbook and original workbook learning goals, including existing exercise-specific residual items. Finish lesson17 and resolve source-item gaps before overall completion.",
+      "page_coverage_is_not_completion": true
+    }
+  },
+  "next_scope": "Day-two lesson17/internal39 workbook synthesis and final source-item audit; no new sequential textbook page."
 }
