@@ -24,7 +24,7 @@
   "completed_pdf_through": 87,
   "next_lesson_id": 30,
   "next_printed_page": 86,
-  "updated": "2026-11-07",
+  "updated": "2026-11-17",
   "scope": "Day-two lesson7 detailed revision published and verified in actual desktop/mobile HTTPS views. Next: day-two lesson8/internalID30. Remaining10 lessons stay abbreviated drafts awaiting detailed revision.",
   "review": ".learning/reviews/day-two-07-revision-20261104.md",
   "validation_limits": [
@@ -85,9 +85,9 @@
     ],
     "next_lesson_id": 30,
     "next_day_lesson": 8,
-    "last_review": ".learning/reviews/day-two-07-revision-20261104.md",
+    "last_review": ".learning/reviews/day-two-08-revision-20261117.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
-    "automation_id": "automation",
+    "automation_id": "Automation_c438c3448cd081919dc19f3e01282a57",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 29,
     "workbook_coverage": {
@@ -106,7 +106,13 @@
       }
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 30,
+      "day_lesson": 8,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-08-revision-20261117.md",
+      "prepared_at": "2026-11-17"
+    },
     "last_publication": {
       "lesson_id": 29,
       "content_commit": "28a906afbbf50966ecd11ad9a509cc4d8ef1d96b",
@@ -115,6 +121,13 @@
       "live_page": "https://dfirwiz.github.io/dfir-training/notes/29-tcp-close-retries.html",
       "render_review": "desktop1280_mobile390x844_screenshots_DOM_geometry_actual_inner_scroll_verified",
       "verified_at": "2026-11-07 10:01:25 UTC"
-    }
+    },
+    "updated": "2026-11-17",
+    "publication_pending": {
+      "lesson_id": 30,
+      "status": "awaiting_pages_and_browser_verification"
+    },
+    "automation_resumed_at": "2026-11-17",
+    "automation_execution_requirement": "Cloud-only; source from remote Library and GitHub; do not depend on user PC files or powered-on desktop."
   }
 }

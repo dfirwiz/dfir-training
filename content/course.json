@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-07",
+  "updated": "2026-11-17",
   "lessons": [
     {
       "id": 1,
@@ -403,7 +403,7 @@
       "id": 30,
       "slug": "30-tcp-length-window-checksum",
       "title": "TCP 길이·윈도·체크섬을 검산하기",
-      "description": "두 가변 헤더의 길이에서 페이로드를 구하고, 수신 윈도와 오프로딩이 분석에 미치는 영향을 살펴봅니다.",
+      "description": "두 헤더의 바이트 경계부터 수신 윈도·왕복 시간·오프로딩·체크섬까지, 조건을 바꾼 계산과 합성 바이트로 검산하고 관측의 한계를 구분합니다.",
       "day": 2,
       "day_lesson": 8,
       "printed_pages": [
@@ -411,9 +411,9 @@
         97
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-17",
+      "minutes": 120,
+      "editorial_status": "revised"
     },
     {
       "id": 31,
