@@ -87,7 +87,7 @@
     ],
     "next_lesson_id": 31,
     "next_day_lesson": 9,
-    "last_review": ".learning/reviews/day-two-08-revision-20261117.md",
+    "last_review": ".learning/reviews/day-two-09-revision-20261117.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "automation_id": "Automation_c438c3448cd081919dc19f3e01282a57",
     "cadence": "hourly_one_lesson",
@@ -109,7 +109,12 @@
       }
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 31,
+      "day_lesson": 9,
+      "status": "manual_publication_pending",
+      "review": ".learning/reviews/day-two-09-revision-20261117.md"
+    },
     "last_publication": {
       "lesson_id": 30,
       "content_commit": "6a7a7020346dfb4c49984ca0bed19e37786db33f",
@@ -120,7 +125,10 @@
       "verified_at": "2026-11-17T13:06:27.775037+00:00"
     },
     "updated": "2026-11-17",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 31,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "automation_resumed_at": "2026-11-17",
     "automation_execution_requirement": "Cloud-only; source from remote Library and GitHub; do not depend on user PC files or powered-on desktop.",
     "last_validation_limits": [
@@ -128,6 +136,7 @@
       "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",
       "Mobile device emulation unavailable under browser policy; narrow CSS viewport rendering was checked.",
       "Automation saved and enabled, but inherited execution-environment metadata is unavailable; no powered-off-computer scheduled run verified."
-    ]
+    ],
+    "manual_lesson_automation_handoff": "User requests manual day-two lesson9; automation starts lesson10 only after lesson9 is verified complete, then follows latest progress."
   }
 }

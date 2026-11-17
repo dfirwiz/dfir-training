@@ -1,34 +1,208 @@
 <div class="callout"><span class="label">학습 범위와 예제</span><p>둘째 날 9강 · 교재 인쇄 98~106쪽의 학습 주제를 자체 예제와 해설로 풀었습니다. 아래 주소·숫자·흐름은 별도 표시가 없으면 가상 학습 예시입니다. 명령은 분석 절차이며 실제 실행 출력으로 제시하지 않습니다.</p></div><section id="goal"><h2>1. 같은 TCP라도 조건을 맞추는 방법이 다릅니다</h2>
+<p>같은 파일을 보내는데 어떤 연결은 첫 응답이 빠르고, 어떤 연결은 빠진 구간만 다시 보내며, 어떤 연결은 큰 윈도로 먼 거리를 효율적으로 채웁니다. 기본 TCP 헤더만 보면 모두 같은 TCP인데 왜 다를까요? 연결 시작 때 주고받는 옵션과 그 뒤에 싣는 보조 정보가 다르기 때문입니다. 이 차이를 모르고 옵션 이름만 외우면 “SYN에 데이터가 있으니 공격”, “윈도가 크니 큰 패킷”처럼 서로 다른 조건을 섞게 됩니다.</p>
+<p>8강에서는 헤더의 경계와 원시 윈도를 읽었습니다. 이번에는 그 경계 안에 든 작은 항목을 실제 바이트로 풀고, 어느 방향에 적용되는지와 상대가 무엇을 확인했는지를 따라가겠습니다. 본문의 숫자·바이트·흐름은 독립적인 학습 예제입니다. 원본 PCAP을 실행한 출력이나 실제 단말이 받아들인 결과로 읽지 마세요.</p>
+
 <p>큰 물건을 배달하기 전에 문 크기와 보관 공간을 확인하면 효율적이겠지요. TCP 옵션도 연결 양끝이 추가 능력과 조건을 알리는 데 사용됩니다. TCP 기본 헤더 뒤에 붙으며 전체 헤더 길이는 Data Offset으로 확인합니다. 옵션의 종류·길이·값을 읽고 NOP와 EOL 같은 특수 옵션을 구별합니다.</p>
 <p>헤더 전체는 4바이트 단위에 맞춰집니다. 각 옵션이 모두 개별적으로 4바이트 길이여야 한다는 뜻은 아닙니다. NOP를 포함한 옵션 순서가 구현의 단서가 될 수 있지만, 특정 배열 하나로 운영체제와 버전을 확정할 수는 없습니다.</p>
 </section>
-<section id="mss"><h2>2. MSS는 내가 받을 수 있는 TCP 데이터 크기를 알립니다</h2>
+<section id="option-map"><h2>2. 옵션의 종류·길이·값은 서로 다른 바이트입니다</h2>
+
+<p>옵션을 배달 신청서의 추가 항목이라고 생각해 보죠. “한 상자의 크기”, “창고 수용량의 배율”, “뒤에 도착한 상자 목록”은 모두 추가 정보지만 의미는 다릅니다. TCP에서도 한 옵션을 발견했다고 다른 기능까지 사용할 수 있다고 추정하지 않습니다. 비유와 달리 TCP는 신청서 문장을 읽는 것이 아니라 정해진 바이트 형식을 해석합니다.</p>
+<p>보통은 Kind·Length·Value 순서로 읽습니다. Kind는 옵션의 종류 번호, Length는 Kind와 Length 자체를 포함한 <strong>그 옵션 전체의 바이트 수</strong>, Value는 나머지 값입니다. 예를 들어 <code>02 04 05 64</code>에서 Kind=2는 MSS, Length=4는 전체 네 바이트, 값은 뒤의 두 바이트 <code>05 64</code>입니다. <code>0x0564</code>는 5×256+6×16+4=1380입니다.</p>
+<p>예외는 EOL과 NOP입니다. 각각 Kind 한 바이트만 있으며 Length 바이트가 따로 없습니다. EOL=0은 목록을 끝내고, NOP=1은 한 바이트 자리를 차지합니다. 그러므로 모든 옵션을 무조건 두 바이트씩 건너뛰는 해석기는 다음 옵션을 놓칩니다. 번호와 형식의 기준은 IANA 등록표와 각 RFC입니다.</p>
+<div class="table-wrap"><table><caption>이번 강의에서 읽는 TCP 옵션 · 길이는 바이트</caption><thead><tr><th>Kind</th><th>이름</th><th>전체 길이</th><th>읽을 내용</th></tr></thead><tbody><tr><td>0</td><td>EOL</td><td>1</td><td>옵션 목록 끝. 헤더 끝까지 남은 패딩은0</td></tr><tr><td>1</td><td>NOP</td><td>1</td><td>한 바이트 정렬 공간. Length 필드 없음</td></tr><tr><td>2</td><td>MSS</td><td>4</td><td>16비트 수신 최대 세그먼트 데이터 크기</td></tr><tr><td>3</td><td>Window Scale</td><td>3</td><td>8비트 shift count</td></tr><tr><td>4</td><td>SACK Permitted</td><td>2</td><td>SACK 보고를 받을 수 있음을 알림</td></tr><tr><td>5</td><td>SACK</td><td>2+8×블록 수</td><td>각 블록의32비트 왼쪽·오른쪽 경계</td></tr><tr><td>8</td><td>Timestamp</td><td>10</td><td>TSval4 + TSecr4</td></tr><tr><td>34 (0x22)</td><td>Fast Open</td><td>요청2 / 쿠키6~18</td><td>쿠키 요청 또는 불투명한 쿠키 값</td></tr></tbody></table></div>
+<p>표의 MSS는 세그먼트 하나, 윈도는 미확인 데이터의 범위, SACK은 받은 구간, Timestamp는 시간·신선도 보조 정보입니다. 모두 단위가 바이트인 것처럼 보여도 질문이 다릅니다. Fast Open 쿠키는 짝수 길이의4~16바이트일 수 있으며, 옵션 전체 Length는 여기에 Kind·Length 두 바이트를 더합니다.</p>
+
+</section>
+<section id="option-bytes"><h2>3. 20바이트 옵션을 기준점과 함께 해독해 봅시다</h2>
+
+<p>다음은 설명을 위해 새로 만든 옵션 영역입니다. 주소나 운영체제에서 수집한 지문이 아닙니다. TCP 기본 헤더20바이트 바로 뒤, TCP 기준 오프셋20부터 시작한다고 정합니다. 16진수 두 자리 하나가 한 바이트입니다.</p>
+<pre><code>02 04 05 64  04 02  08 0a 01 02 03 04 00 00 00 00  01  03 03 06
+MSS 4바이트 + SACK Permitted 2바이트 + Timestamp 10바이트
++ NOP 1바이트 + Window Scale 3바이트 = 옵션 20바이트
+기본 TCP 20 + 옵션 20 = TCP 헤더 40바이트
+Data Offset = 40 ÷ 4 = 10 (16진수 0xa)</code></pre>
+<div class="table-wrap"><table><caption>합성 옵션 영역의 TCP 상대 위치</caption><thead><tr><th>TCP 오프셋 구간</th><th>바이트</th><th>해독</th></tr></thead><tbody><tr><td>[20,24)</td><td>02 04 05 64</td><td>MSS1380</td></tr><tr><td>[24,26)</td><td>04 02</td><td>SACK Permitted</td></tr><tr><td>[26,36)</td><td>08 0a 01 02 03 04 00 00 00 00</td><td>TSval0x01020304 / TSecr0</td></tr><tr><td>[36,37)</td><td>01</td><td>NOP</td></tr><tr><td>[37,40)</td><td>03 03 06</td><td>윈도 shift6</td></tr></tbody></table></div>
+<p><code>[20,24)</code>는20을 포함하고24는 포함하지 않는 구간입니다. Length를 읽었으면 시작점에 더해 다음 Kind의 위치를 구합니다. MSS는20+4=24에서 끝나고, SACK Permitted는24+2=26에서 끝납니다. Timestamp의 <code>0a</code>는 길이10이고, 이어지는 <code>01 02 03 04</code> 네 바이트는 네 옵션이 아니라 TSval 하나입니다. 네트워크 바이트 순서에서는 큰 자리 바이트를 먼저 읽습니다.</p>
+<figure class="diagram filter-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 245" role="img" aria-labelledby="opt-svg-title opt-svg-desc"><title id="opt-svg-title">TCP 기본 헤더 뒤의20바이트 옵션 배치</title><desc id="opt-svg-desc">TCP 상대 오프셋20부터 MSS4,SACK Permitted2,Timestamp10,NOP1,Window Scale3 순서이며 끝은40이다. 가로 폭은 옵션 바이트 수에 비례한다.</desc><defs><marker id="opt-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#6de1c4"/></marker></defs><text x="24" y="29">단위: 바이트 · TCP 시작점 기준 오프셋</text><line x1="25" y1="55" x2="750" y2="55" stroke="#6de1c4" stroke-width="2" marker-end="url(#opt-arrow)"/><rect x="25" y="90" width="144" height="66" fill="#25584e"/><rect x="169" y="90" width="72" height="66" fill="#20434d"/><rect x="241" y="90" width="360" height="66" fill="#18394e"/><rect x="601" y="90" width="36" height="66" fill="#534438"/><rect x="637" y="90" width="108" height="66" fill="#345049"/><text x="75" y="130">MSS</text><text class="svg-label" x="176" y="118">SACK</text><text class="svg-label" x="176" y="140">허용</text><text x="365" y="130">Timestamp</text><text x="666" y="130">WS</text><text x="25" y="181">20</text><text x="159" y="181">24</text><text x="231" y="181">26</text><text x="590" y="181">36</text><text x="628" y="181">37</text><text x="727" y="181">40</text><text class="svg-label" x="25" y="211">범례: 갈색1바이트는NOP. TCP 기본20바이트는 그림 왼쪽 바깥.</text><text class="svg-label" x="25" y="233">전체 헤더만4바이트 배수입니다. 개별 옵션은4바이트 경계에서 시작하지 않아도 됩니다.</text></svg><figcaption>화살표는 시간이나 패킷 송신이 아니라 바이트 위치의 증가입니다. 각 옵션의 의미는 별도 협상·처리 규칙과 연결해야 합니다.</figcaption></figure>
+<p>이 예제에서 Timestamp는 TCP 오프셋26에서 시작합니다. 4로 나누어떨어지지 않아도 그 사실만으로 잘못된 옵션이 아닙니다. 정렬을 위해 NOP를 놓는 구현은 있지만 <strong>각 옵션의 시작·길이가 전부4바이트 배수여야 한다는 규칙은 없습니다.</strong> 전체 TCP 헤더 길이와 개별 옵션의 정렬을 구분하세요.</p>
+
+</section>
+<section id="option-bounds"><h2>4. 모르는 옵션도 길이 검사를 생략할 이유는 아닙니다</h2>
+
+<p>헤더 끝이40인데 오프셋37의 옵션이 Length=8이라고 주장하면45까지 필요하므로 경계와 맞지 않습니다. EOL·NOP가 아닌데 Length가0이나1인 경우도 일반 Kind-Length 형식에 맞지 않아요. 저장이 잘려서 뒤 바이트가 없는 것인지, Data Offset을 잘못 읽었는지, 원본 값 자체가 모순인지 구분합니다.</p>
+<p>새로운 Kind라서 의미를 지원하지 못해도 형식이 유효하면 Length를 사용해 다음 항목을 찾는 것이 기본적인 해석 방향입니다. 모르는 항목을 한 바이트만 건너뛰고 이어 읽으면 값 바이트를 다음 Kind로 오인할 수 있습니다. 실제 종단과 센서의 옵션 처리 차이가 분석 불일치를 만들 수 있으므로 “내 도구가 표시하지 않았다”와 “송신자가 보내지 않았다”도 다릅니다.</p>
+<p>이상한 길이·중복 옵션은 조사할 단서지만 의도적인 회피 성공의 증명은 아닙니다. 원본 바이트·캡처 길이·분석기 버전·수집 위치를 먼저 보존하고, 필요하면 재현 가능한 별도 시험 환경에서 종단과 센서의 동작을 비교합니다. 본문은 그 실제 수용 시험을 했다고 주장하지 않습니다.</p>
+
+</section>
+
+<section id="mss"><h2>5. MSS는 내가 받을 수 있는 TCP 데이터 크기를 알립니다</h2>
 <p>MSS는 한 TCP 세그먼트의 데이터 크기에 관한 값입니다. A가 SYN에서 광고한 MSS는 B가 A에게 보낼 때 참고할 수신 한도입니다. B도 자기 값을 따로 광고합니다. 교재의 “둘 중 작은 값을 양방향에 쓴다”는 식의 단순화 대신 방향별 광고로 이해해야 합니다.</p>
 <p>기본 IPv4 헤더 20바이트와 TCP 헤더 20바이트, 경로 MTU 1500이라는 단순 조건에서는 1460바이트 데이터 예산을 생각할 수 있습니다. 실제 IP·TCP 옵션과 터널이 있으면 송신 시 데이터에 쓸 수 있는 공간은 더 줄 수 있습니다. 광고된 MSS와 모든 패킷의 실제 페이로드 길이가 같아야 하는 것은 아닙니다.</p>
 <p>MSS는 전체 Ethernet 프레임 길이도 아니고 수신 버퍼 전체 크기도 아닙니다. 큰 파일을 보낼 때는 많은 세그먼트로 나누고, 재전송도 따로 관리합니다. MTU·MSS·수신 윈도를 구별하면 “크다”는 말을 서로 다른 단위로 혼용하지 않게 됩니다.</p>
 </section>
-<section id="scaling"><h2>3. 윈도 스케일 값 7은 일곱 배가 아닙니다</h2>
+<section id="mss-direction"><h2>6. 서로 다른 MSS를 광고하면 방향도 따로 계산합니다</h2>
+
+<p>배달 문이 작은 쪽에 맞춘다는 비유는 한 방향에는 유용하지만, 왕복을 한 숫자로 묶으면 틀립니다. A가 MSS1440을 보낸 것은 “A가 받을 때의 한도”를 B에게 알리는 것입니다. B가 MSS1360을 보내면 A는 B→A가 아니라 A→B 송신에 그 값을 사용합니다. 두 광고 중 작은 값1360을 양방향에 무조건 적용하는 협상이 아닙니다.</p>
+<div class="table-wrap"><table><caption>가상 연결 · IP/TCP 추가 옵션과 더 작은 경로 제한이 없는 기본 조건</caption><thead><tr><th>광고한 패킷</th><th>광고 값</th><th>그 광고를 참고하는 송신 방향</th></tr></thead><tbody><tr><td>A→B SYN</td><td>MSS1440</td><td>B→A 데이터의 수신 한도는 A의1440</td></tr><tr><td>B→A SYN/ACK</td><td>MSS1360</td><td>A→B 데이터의 수신 한도는 B의1360</td></tr></tbody></table></div>
+<p>여기서 “한도”는 매번 그 크기만큼 보내야 한다는 뜻이 아닙니다. 보낼 데이터가 짧으면 짧게 보내고, 손실 복구·윈도·혼잡 제어와 경로 크기도 실제 분할에 영향을 줍니다. MSS가1460인데80바이트 데이터가 보인다는 것은 모순이 아니에요.</p>
+<p>MSS 옵션은 SYN이 설정된 연결 시작 교환에서 광고하며 일반 후속 데이터 세그먼트마다 반복하는 필드가 아닙니다. 중간부터 수집해 MSS가 없으면 “이 연결은 MSS를 광고하지 않았다”고 단정할 수 없습니다. SYN이 포함된 완전한 시작 교환을 먼저 확보해야 합니다.</p>
+
+</section>
+<section id="mss-budget"><h2>7. 광고하는 MSS와 그때그때의 데이터 예산은 다릅니다</h2>
+
+<p>현재 표준에서 광고할 MSS를 계산할 때는 기본 IP·TCP 헤더를 빼는 규칙을 사용하고, 각 패킷에 실제 옵션이 붙으면 송신 데이터 길이를 그만큼 줄입니다. 옵션을 미리 모두 추정해서 광고값에서 빼고, 실제 송신 때 또 빼면 같은 공간을 두 번 차감할 수 있어요.</p>
+<p>단순 IPv4 경로 MTU1500이면 기본 IP20과 TCP20을 빼1460바이트를 광고할 규모가 됩니다. 후속 TCP에 Timestamp와 정렬12바이트가 추가되어 TCP 헤더32가 되면, 같은 IP1500 안의 데이터는1500-20-32=1448바이트입니다. IPv6의 기본 헤더40과 TCP20이면 MTU1500에서1440이지만, 확장 헤더나 TCP 옵션이 붙으면 실제 데이터 예산은 다시 달라집니다.</p>
+<div class="table-wrap"><table><caption>방향별 수신 MSS와 실제 헤더를 함께 적용한 자체 계산</caption><thead><tr><th>방향·조건</th><th>수신 측 광고 MSS</th><th>경로와 헤더</th><th>데이터 예산</th></tr></thead><tbody><tr><td>A→B 기본</td><td>1360</td><td>IPv4 MTU1500, IP20/TCP20</td><td>1360바이트</td></tr><tr><td>B→A 기본</td><td>1440</td><td>IPv4 MTU1500, IP20/TCP20</td><td>1440바이트</td></tr><tr><td>A→B TCP옵션12 추가</td><td>1360</td><td>IPv4 MTU1500, IP20/TCP32</td><td>1360-12=1348바이트</td></tr><tr><td>B→A TCP옵션12 추가</td><td>1440</td><td>IPv4 MTU1500, IP20/TCP32</td><td>1440-12=1428바이트</td></tr><tr><td>A→B 경로도1280으로 제한</td><td>1360</td><td>IPv4 MTU1280, IP20/TCP32</td><td>1280-20-32=1228바이트</td></tr></tbody></table></div>
+<p>표의 앞 네 행은 경로가 광고 MSS보다 더 좁히지 않는다는 조건입니다. 마지막은 송신 가능한 IP 크기가1280이라 더 작게 잘립니다. 실제 유효 송신 MSS는 상대의 수신 한도와 IP 계층의 송신 크기를 함께 반영하므로, “항상 MTU에서 옵션만 빼면 끝”도 아닙니다. RFC9293의 유효 송신 MSS 규칙과 RFC6691이 이 차이를 설명합니다.</p>
+<p>MTU는 IP 패킷의 경로 크기, MSS는 TCP 데이터의 세그먼트 크기, 수신 윈도는 미확인 상태로 허용하는 데이터 범위입니다. 창고 전체 수용량과 한 상자의 크기를 구분하듯 읽으면 됩니다. 터널·NAT·중간 장비의 MSS 조정, 호스트 오프로딩 전후 캡처도 실제 크기 해석에 반영하세요.</p>
+
+</section>
+<section id="mss-default"><h2>8. 옵션이 없을 때의 기본값을 최소 데이터 길이로 읽지 않습니다</h2>
+
+<p>연결 시작을 완전히 관찰했고 상대가 MSS 옵션을 보내지 않았다면 현재 TCP 기본 규격의 송신 MSS 기본값은 IPv4에서536, IPv6에서1220바이트입니다. 각각576-20-20,1280-40-20이라는 기본 헤더 계산과 이어집니다. 이것은 모든 실제 TCP 데이터가536바이트 이상이어야 한다는 의미가 아닙니다. 1바이트 데이터도 있을 수 있습니다.</p>
+<p>또 “MSS 옵션이 안 보인다”가 “상대가 보내지 않았다”와 항상 같지는 않습니다. SYN이 누락됐거나, 캡처가 잘렸거나, 다른 흐름을 골랐을 수도 있어요. 옵션 부재라는 관측의 범위를 먼저 적고 기본값을 적용한 가정을 분리하세요. 단말 설정과 실제 경로를 확인하지 않고 운영체제나 취약성을 확정하지 않습니다.</p>
+
+</section>
+
+<section id="scaling"><h2>9. 윈도 스케일 값 7은 일곱 배가 아닙니다</h2>
 <p>윈도 스케일은 왼쪽으로 몇 비트 이동할지 알리는 값입니다. 스케일이 7이면 2의 7승, 즉 128배입니다. 원시 윈도 값이 1000이고 그 방향의 광고에 적용할 스케일이 7이라면 계산값은 128000바이트입니다. 이 옵션도 양방향을 따로 추적합니다.</p>
 <p>스케일은 SYN 교환에서 협상하며 SYN 자체의 윈도 필드에는 스케일을 적용하지 않습니다. 연결 중간부터 캡처하면 협상 값을 몰라 계산이 불확실할 수 있습니다. Wireshark의 원시 윈도와 계산된 윈도를 구별하고 추정값을 확정값으로 보고하지 않습니다.</p>
 <p>기다리는 동안 선로를 채우려면 왕복 시간도 고려해야 합니다. 100Mbps에 RTT 40ms라면 단순 대역폭·지연 곱은 100000000×0.04/8=500000바이트입니다. 윈도/RTT는 윈도 제한을 이해하는 근사이며 실제 속도 보증은 아닙니다. 손실·혼잡·응용·장치 성능을 함께 봅니다.</p>
 </section>
+<section id="scale-directions"><h2>10. 두 방향의 배율을 한 장의 표로 추적합니다</h2>
+
+<p>A가 SYN에서 shift6, B가 SYN/ACK에서 shift8을 주고받았다고 정하겠습니다. shift는 왼쪽 이동 횟수이고, 실제 곱하는 배율은 각각64와256입니다. A가 나중에 광고한 Window에 A의6을 적용하고, B가 광고한 Window에는 B의8을 적용합니다. 자신이 보낸 옵션은 자신의 수신 윈도 해석과 연결됩니다.</p>
+<div class="table-wrap"><table><caption>합성 협상과 후속 Window 해석 · 부호 없는 원시 값</caption><thead><tr><th>패킷 방향·단계</th><th>원시 Window</th><th>적용</th><th>의미</th></tr></thead><tbody><tr><td>A→B SYN, shift6 제시</td><td>24000</td><td>SYN은배율미적용</td><td>A의초기수신윈도24000바이트</td></tr><tr><td>B→A SYN/ACK, shift8 제시</td><td>16000</td><td>SYN/ACK도배율미적용</td><td>B의초기수신윈도16000바이트</td></tr><tr><td>협상 뒤 A→B ACK</td><td>1500</td><td>1500×64=96000</td><td>B→A 데이터를 받는 A의 광고</td></tr><tr><td>협상 뒤 B→A ACK</td><td>1500</td><td>1500×256=384000</td><td>A→B 데이터를 받는 B의 광고</td></tr></tbody></table></div>
+<p>원시 Window가 똑같이1500이어도 방향별 수신 여유는 다릅니다. SYN에 있던24000을64배 하는 실수와, 양방향에 더 큰 배율8 하나를 넣는 실수를 따로 점검하세요. 한쪽만 옵션을 보내고 상대가 지원하지 않으면 이 확장을 양쪽이 정상 협상한 것으로 처리하지 않습니다.</p>
+<p>Wireshark의 원시 윈도와 계산된 윈도를 비교할 때는 도구가 SYN 교환을 보았는지도 확인합니다. 연결 중간에서 추정된 배율을 원시 저장 필드처럼 보고하면 안 됩니다. 8강에서 구분한 수신 윈도·혼잡 윈도·미확인 바이트 관계도 그대로 적용됩니다.</p>
+
+</section>
+<section id="scale-limit"><h2>11. 최대14와 shift0의 의미를 숫자로 확인합니다</h2>
+
+<p>Window Scale의 shift count는 최대14입니다. 원시 최대값65535에16384(2의14승)를 곱하면1073725440바이트입니다. 2의30승인1073741824바이트, 즉1GiB보다16384바이트 작아요. “약1GiB”라는 크기와 정확한 필드 계산값을 구분하면 경계를 더 정확히 읽을 수 있습니다.</p>
+<p>shift0은2의0승=1배입니다. 옵션을 넣어 스케일 확장에 동의하면서 자기 수신 윈도에는 추가 배율을 쓰지 않을 수 있습니다. 옵션 자체가 없거나 양쪽 협상이 안 된 경우와 무조건 같은 협상 기록으로 묶지 마세요.14보다 큰 값을 받으면 RFC7323은 오류 기록을 권고하고14로 제한하여 사용하도록 규정합니다. 분석 도구의 경고와 실제 구현의 처리는 별도 확인이 필요합니다.</p>
+<p>확장이 있다고 속도가 자동으로 빨라지는 것은 아닙니다. 앞의100Mbit/s·RTT40ms에서 경로를 채울 규모는500000바이트였지요.128000바이트가 유효 윈도의 제한이면 단순 상한은128000×8÷0.04=25600000bit/s, 즉25.6Mbit/s입니다. 혼잡·손실·응용이 더 제한할 수 있으니 이 수치를 실제 속도 보증이나 장애 원인의 단독 증명으로 쓰지 않습니다.</p>
+
+</section>
+
 <pre><code>가상 계산
 원시 윈도 1000, 협상 스케일 7
 1000 × 2^7 = 128000바이트
 
-100Mbps × RTT 0.04초 ÷ 8 = 500000바이트</code></pre><section id="sack"><h2>4. SACK은 뒤쪽에 도착한 구간도 알려줍니다</h2>
+100Mbps × RTT 0.04초 ÷ 8 = 500000바이트</code></pre><section id="sack"><h2>12. SACK은 뒤쪽에 도착한 구간도 알려줍니다</h2>
 <p>받는 쪽이 1001~1500을 기다리는데 1501~2000이 먼저 왔다고 합시다. 누적 ACK는 1001에 머물 수 있습니다. SACK은 뒤쪽의 어느 구간을 받았는지 추가로 알려 손실 복구를 돕습니다. SACK 블록의 왼쪽 경계는 포함하고 오른쪽 경계는 포함하지 않는 방식으로 읽습니다.</p>
 <p>예를 들어 [1501,2001)은 500바이트 구간입니다. SYN의 SACK Permitted는 기능을 허용한다는 뜻이며 실제 수신 블록이 아닙니다. SACK 정보를 받았다고 응용이 그 구간을 이미 처리했다고 해석하지도 않습니다. 여전히 중간 공백과 누적 ACK를 함께 봐야 합니다.</p>
 </section>
-<section id="timestamp-fast"><h2>5. Timestamp와 Fast Open은 무엇을 바꾸나요?</h2>
+<section id="sack-flow"><h2>13. 뒤쪽 도착과 앞쪽 공백을 같은 좌표에 놓습니다</h2>
+
+<p>SACK은 Selective Acknowledgment, 즉 선택적 확인입니다. 누적 ACK를 없애는 대신 그 ACK 뒤쪽에서 확보한 구간을 추가로 알립니다. 다음은 B가 A의1001번 데이터부터 기다리는 별도 예제입니다. 구간의 양 끝은 바이트 번호이고, 오른쪽 끝은 포함하지 않습니다.</p>
+<div class="table-wrap"><table><caption>세 번 도착할 때 누적 ACK와 SACK이 바뀌는 과정</caption><thead><tr><th>도착한 A의 구간</th><th>이번 길이</th><th>B가 보고할 수 있는 누적 ACK</th><th>보고할 수 있는 SACK</th></tr></thead><tbody><tr><td>[1801,2101)</td><td>2101-1801=300</td><td>1001</td><td>[1801,2101)</td></tr><tr><td>[1501,1801)</td><td>1801-1501=300</td><td>1001</td><td>앞블록과붙어[1501,2101)</td></tr><tr><td>[1001,1501)</td><td>1501-1001=500</td><td>2101</td><td>앞공백이메워져이예제의뒤블록보고가더이상필요없음</td></tr></tbody></table></div>
+<figure class="diagram filter-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 365" role="img" aria-labelledby="sack-svg-title sack-svg-desc"><title id="sack-svg-title">공백을 유지하는 누적ACK와확장되는SACK구간</title><desc id="sack-svg-desc">같은1001부터2101까지좌표에서 첫도착은1801부터2101,두번째후는1501부터2101,세번째후는1001부터2101전체이다. 처음두단계ACK1001,마지막ACK2101.</desc><text x="24" y="28">A의 데이터 번호 · 단위: 바이트 · 오른쪽 경계 제외</text><text x="155" y="65">1001</text><text x="409" y="65">1501</text><text x="562" y="65">1801</text><text x="715" y="65">2101</text><rect x="170" y="85" width="560" height="48" fill="#422c3f"/><rect x="577.27" y="85" width="152.73" height="48" fill="#25584e"/><text x="25" y="115">첫도착</text><text class="svg-label" x="195" y="115">앞공백 · ACK1001</text><rect x="170" y="165" width="560" height="48" fill="#422c3f"/><rect x="424.55" y="165" width="305.45" height="48" fill="#25584e"/><text x="25" y="195">두번째후</text><text class="svg-label" x="195" y="195">공백500</text><text class="svg-label" x="460" y="195">SACK[1501,2101)</text><rect x="170" y="245" width="560" height="48" fill="#25584e"/><text x="25" y="275">세번째후</text><text x="290" y="275">연속1100바이트 · ACK2101</text><text class="svg-label" x="25" y="330">범례: 민트=확보구간,자주색=아직연속확인하지못한구간. 폭은같은바이트좌표에비례.</text><text class="svg-label" x="25" y="352">첫두단계의ACK1001은“1001을이미받았다”가아니라“다음으로1001을기대한다”입니다.</text></svg><figcaption>아래 행으로 갈수록 도착 단계가 진행됩니다. 송신 의도나 응용의 읽기 완료를 나타내는 그림은 아닙니다.</figcaption></figure>
+<p>마지막 누적 ACK는2100이 아니라2101입니다. ACK가 다음 기대 번호이기 때문이에요. 전체 고유 데이터는300+300+500=1100바이트이고2101-1001도1100입니다. 중간 두 ACK가 같은1001이더라도 뒤쪽 수신 상태는 달라졌습니다. 같은 ACK 숫자만 세면 이 차이를 놓칩니다.</p>
+<p>뒤쪽 데이터가 먼저 보였다는 것은 센서에서의 관측입니다. 실제 망의 순서 바뀜·손실·수집 누락·재전송을 구분해야 합니다. 위 표는 정한 도착 조건 아래의 학습 모델이며, 실제로 어떤 세그먼트를 언제 재전송할지는 송신 복구 알고리즘과 확보한 증거를 더 봅니다.</p>
+
+</section>
+<section id="sack-budget"><h2>14. SACK 허용과 실제 블록 보고는 다른 옵션입니다</h2>
+
+<p>SYN의 Kind4·Length2는 SACK Permitted입니다. 아직 받은 구간을 담지 않습니다. A가 이 옵션을 보내면 A의 데이터를 받는 B는 그 연결에서 A에게 SACK을 보낼 수 있습니다. 반대 데이터 방향은 B의 시작 광고를 따로 확인합니다. 어느 한쪽 SYN만 보았다고 양방향 협상이 완전하다고 하지 않습니다.</p>
+<p>실제 SACK 보고는 Kind5입니다. 한 블록에 왼쪽4바이트·오른쪽4바이트, 총8바이트가 들어갑니다. Kind와 Length 두 바이트를 더해 블록 n개의 길이는2+8×n입니다. n은 블록 수를 나타내는 기호이지 데이터 바이트 길이가 아닙니다. [1501,2101) 한 블록이면600바이트 수신 범위를10바이트 옵션으로 보고합니다.</p>
+<div class="table-wrap"><table><caption>일반 TCP 옵션 공간40바이트 안의 SACK블록 예산</caption><thead><tr><th>조건</th><th>계산</th><th>가능한 블록 수</th></tr></thead><tbody><tr><td>SACK만보고</td><td>2+8×4=34;정렬하면36</td><td>최대4개.5개면42로초과</td></tr><tr><td>Timestamp10+NOP2도사용</td><td>12+(2+8×3)=38;정렬하면40</td><td>이조건에서최대3개.4개면46으로초과</td></tr></tbody></table></div>
+<p>따라서 SACK에 블록 하나만 있다고 수신 큐의 모든 공백이 하나라고 보장할 수 없습니다. 공간과 보고 규칙의 영향을 받습니다. SACK은 수신 측의 보조 보고이며, 수신 측이 나중에 이미 보고한 데이터를 버리는 경우도 표준이 다룹니다. 송신 측은 누적 ACK가 확인할 때까지 해당 데이터의 재전송 책임을 유지합니다. SACK과 응용 처리 성공을 같은 것으로 읽지 마세요.</p>
+
+</section>
+
+<section id="timestamp-fast"><h2>15. Timestamp와 Fast Open은 무엇을 바꾸나요?</h2>
 <p>TCP Timestamp는 TSval과 TSecr를 통해 RTT 측정과 오래된 세그먼트 구별 같은 기능을 돕습니다. 보통의 날짜·시각 문자열이 아니며 값의 증가 속도를 모든 호스트에서 같다고 가정할 수 없습니다. 이 값 하나로 정확한 부팅 시각이나 운영체제를 확정하지 마세요.</p>
 <p>Fast Open은 지원되는 조건에서 초기 SYN 등에 데이터를 실어 연결 초기에 데이터를 전달할 수 있게 합니다. 그러므로 SYN에 데이터가 있다는 이유 하나로 악성이라고 단정하지 않습니다. 옵션과 쿠키, 재전송·재생 가능성 및 응용의 적합성을 함께 살핍니다. 모든 서버가 이를 수용한다고 가정할 수도 없습니다.</p>
 <p>OS 지문은 옵션 순서·MSS·윈도·TTL 같은 여러 단서가 맞는지 보는 추정입니다. 프록시나 부하분산 장비가 종단 대신 응답할 수 있고 설정도 달라집니다. 보고할 때는 “해당 구현과 일치하는 단서”와 실제 자산 정보의 확인을 나눕니다.</p>
 </section>
-<section id="review"><h2>복습 · 조건을 바꾸어 생각하기</h2>
+<section id="timestamps"><h2>16. TSval과 TSecr는 어느 쪽 시계의 값인가요?</h2>
+
+<p>Timestamp 옵션은 Kind8·Length10, TSval4바이트와 TSecr4바이트입니다. TSval은 이번 송신자가 붙인 시계 값이고, TSecr는 상대에게서 받은 Timestamp를 정해진 규칙으로 되돌려주는 echo 값입니다. 두 필드가 같은 호스트의 현재 시각 두 개가 아니에요. 최초 SYN의 TSecr0도 상대의 부팅 시간이0초라는 뜻이 아닙니다.</p>
+<p>예를 들어 A가 자기 tick123450을 붙여 데이터를 보냈고, B가 그 값을 TSecr로 되돌렸다고 합시다. A가 응답을 받을 때 자신의 시계가123470이면 차이는20tick입니다. tick은 시계가 한 칸 증가하는 단위입니다. A의 한 tick이10ms라는 조건을 알고 있으면20×10=200ms라는 경과 시간을 얻습니다. 다른 호스트 B의 TSval을 A의123450에서 빼면 시계의 기준과 속도가 달라 계산이 성립하지 않습니다.</p>
+<p>분석자는 종종 호스트의 내부 시계 속도를 모릅니다. 같은 센서의 패킷 시각10.100초에 요청이 보이고10.160초에 대응하는 응답이 보였다면 관측 간격은0.060초=60ms입니다. 이것도 요청·응답 대응, 캡처 위치·방향·시간 정밀도, ACK 지연과 재전송 여부를 확인한 뒤 써야 합니다. TS echo 하나를 골라 모든 패킷이 독립적인 정확 RTT 표본이라고 하지 않습니다.</p>
+<p>Timestamp는 TCP의 RTT 측정과 재전송 타이머 조정에 도움을 주고 PAWS에도 사용됩니다. 버퍼 자동 조정이 연관될 수 있어도 Timestamp 자체가 “수신 버퍼 크기”를 담는 옵션은 아닙니다. 숫자의 용도를 혼동하지 않으면 윈도 문제와 시간 측정 문제를 분리할 수 있습니다.</p>
+
+</section>
+<section id="paws"><h2>17. 오래된 세그먼트 구별과 부팅 시간 추정은 다릅니다</h2>
+
+<p>PAWS는 Protection Against Wrapped Sequences, 순서 번호 순환으로 오래된 세그먼트가 섞이는 상황을 줄이는 보호 방식입니다. TCP 데이터 번호는32비트라 계속 바이트를 보내면 한 바퀴 돌아 같은 값이 다시 나올 수 있어요. 오직 번호와 윈도만 보고 오래된 것을 새것으로 오인하는 위험에 Timestamp의 시간 순서 정보를 보탭니다.</p>
+<p>고유 TCP 데이터를 매초1000000000비트씩 보낸다는 단순 가정에서 번호 공간2의32승 바이트를 소비하는 시간은4294967296×8÷1000000000=34.359738368초입니다. 링크 헤더·정체를 무시한 예제이지만, 빠른 연결에서는 “32비트라 충분히 커서 절대 안 돈다”가 틀린 이유를 보여 줍니다. 실제 보호에는 연결 상태·Timestamp 최근값·유휴 시간·순환 비교 규칙도 함께 들어갑니다.</p>
+<p>Timestamp 값 역시32비트라1ms tick 조건이면4294967296ms, 즉 약49.71일에 한 바퀴 돕니다. 그래서 단순히 새 정수 값이 이전보다 작으면 무조건 위조라고 비교하지 않습니다. 같은 값이 여러 패킷에 반복될 수도 있고, 순환과 구현 조건이 있습니다. PAWS는 암호학적 인증이나 모든 재생 공격의 해결책이 아닙니다.</p>
+<p>RFC7323은 RTT 측정과 PAWS의 요구를 함께 고려해 tick당1ms~1초의 시계 범위를 설명합니다. 이것을 관측한 모든 숫자의 고정 단위라고 가정할 수는 없습니다. 또1ms 시계의 전체32비트 순환 약49.71일과, 순환 비교에서 부호 비트가 돌아오는 절반 기간 약24.86일은 다릅니다. 오래 유휴한 연결에서는 저장한 최근값의 노후화 조건도 필요하므로 숫자 크기 비교 하나로 PAWS 수용 여부를 재현하지 않습니다.</p>
+<p>교재의 “부팅 후 tick” 설명은 일부 구현을 이해하는 역사적 단서입니다. 현재 RFC7323은 연결마다 무작위 오프셋을 더하는 방식을 권고하며, 호스트별 tick 속도·가상화·중간 종단도 다를 수 있습니다. TSval을1000으로 나누어 정확한 가동 시간이라고 쓰지 마세요. 부팅 시각이나 OS를 확인하려면 자산·단말 기록이 필요합니다.</p>
+
+</section>
+<section id="fastopen-flow"><h2>18. Fast Open은 시작 교환을 지우는 기능이 아닙니다</h2>
+
+<p>TFO(TCP Fast Open)는 연결 초기에 데이터를 처리하기 위해 기다리는 시간을 줄이려는 확장입니다. 일반 TCP의 세 단계 연결 시작을 없앤다는 뜻이 아닙니다. 조건이 맞으면 후속 연결의 SYN에 데이터와 쿠키를 넣고, 수신 측이 시작 교환 완료 전에 그 데이터를 처리할 수 있게 합니다. 줄일 수 있는 것은 최대 한 번의 왕복 대기이며 전체 패킷 수가 항상 정해진 만큼 줄어드는 보장은 아닙니다.</p>
+<p>보통 첫 연결에서 클라이언트가 쿠키를 요청하고 서버가 되돌린 값을 저장합니다. 다음 연결에서는 그 값을 제시하며 SYN에 데이터를 실을 수 있습니다. 쿠키는 서버가 검증할 불투명한 값입니다. 사용자 로그인 토큰이나 TLS 인증서가 아니며, 서버와 응용이 초기 데이터를 수용했다는 사실까지 쿠키 관측 하나로 증명하지 않습니다.</p>
+<figure class="diagram filter-wide"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 780 580" role="img" aria-labelledby="tfo-svg-title tfo-svg-desc"><title id="tfo-svg-title">쿠키 요청 연결과후속FastOpen연결</title><desc id="tfo-svg-desc">위첫연결은SYN쿠키요청,SYNACK쿠키응답,ACK이다. 아래후속연결은SYN쿠키및24바이트데이터,SYNACK가7025까지확인,마지막ACK이다. 시간은아래로진행하며주소는문서용이다.</desc><defs><marker id="tfo-arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0 0 L6 3 L0 6" fill="#6de1c4"/></marker></defs><text x="24" y="28">가상 예제 · 시간은 아래로 · 쿠키 수용 조건을 가정</text><text x="80" y="64">클라이언트 A</text><text x="555" y="64">서버 B</text><text class="svg-label" x="45" y="86">192.0.2.20</text><text class="svg-label" x="555" y="86">198.51.100.30</text><line x1="145" y1="105" x2="145" y2="525" stroke="#557b8e"/><line x1="635" y1="105" x2="635" y2="525" stroke="#557b8e"/><text class="svg-label" x="24" y="113">접속1</text><line x1="145" y1="145" x2="630" y2="145" stroke="#6de1c4" stroke-width="2" marker-end="url(#tfo-arrow)"/><text x="205" y="134">SYN · 포트54000→443 · 쿠키 요청</text><line x1="635" y1="205" x2="150" y2="205" stroke="#6de1c4" stroke-width="2" marker-end="url(#tfo-arrow)"/><text x="255" y="194">SYN/ACK · 쿠키8바이트</text><line x1="145" y1="265" x2="630" y2="265" stroke="#6de1c4" stroke-width="2" marker-end="url(#tfo-arrow)"/><text x="315" y="254">ACK · 시작 교환 완료</text><line x1="25" y1="300" x2="750" y2="300" stroke="#557b8e" stroke-dasharray="5 5"/><text class="svg-label" x="24" y="327">접속2</text><line x1="145" y1="365" x2="630" y2="365" stroke="#6de1c4" stroke-width="2" marker-end="url(#tfo-arrow)"/><text x="180" y="351">SYN · 포트54001→443 · 쿠키+데이터24</text><text class="svg-label" x="240" y="386">SEQ7000 · 수용하면 끝다음7025</text><line x1="635" y1="435" x2="150" y2="435" stroke="#6de1c4" stroke-width="2" marker-end="url(#tfo-arrow)"/><text x="265" y="423">SYN/ACK · ACK7025</text><line x1="145" y1="495" x2="630" y2="495" stroke="#6de1c4" stroke-width="2" marker-end="url(#tfo-arrow)"/><text x="335" y="483">ACK</text><text class="svg-label" x="24" y="548">범례: 선=메시지 방향. 데이터 길이 단위=바이트. 두 연결의포트/SEQ를별도로추적합니다.</text><text class="svg-label" x="24" y="570">재전송·응답 데이터·종료는생략했습니다. 전체트래픽의고정패킷수를뜻하지않습니다.</text></svg><figcaption>상단과 하단은 서로 다른 연결입니다. 후속 SYN 데이터가 수용되는 조건을 설명하는 자체 흐름도이며, 실습 파일을 캡처한 그림이 아닙니다.</figcaption></figure>
+<p>일반 연결에서도 세 번째 ACK에 TLS ClientHello 같은 데이터를 함께 실을 수 있습니다. 따라서 “ACK와 데이터가 한 패킷”이라는 관측만으로 TFO라고 이름 붙이면 안 됩니다. SYN의 옵션·데이터, 쿠키 요청과 반환, 후속 ACK의 수용 범위를 같이 보세요. TCP의 TFO와 TLS의0-RTT 응용 데이터도 계층과 조건이 다른 기능입니다.</p>
+
+</section>
+<section id="fastopen-bytes"><h2>19. 빈 쿠키 요청과8바이트 쿠키의 길이를 구분합니다</h2>
+
+<pre><code>쿠키 요청: 22 02
+Kind 0x22 = 34, Length 2 = Kind와Length만있음
+
+합성 쿠키 반환: 22 0a 11 22 33 44 55 66 77 88
+Length 0x0a = 10바이트 = 앞머리2 + 쿠키8
+합성 쿠키 값: 11 22 33 44 55 66 77 88</code></pre>
+<p>요청의 Length2는 “두 바이트짜리 쿠키”가 아닙니다. 옵션 앞머리만 있다는 뜻입니다. 반환 예제의 쿠키 바이트는 일반 숫자처럼 의미를 해독하는 필드가 아니라 서버가 나중에 확인할 값입니다. 이 예제는 단순한 설명용 상수이며 실제 보안 쿠키 생성 알고리즘이나 유효 토큰이 아닙니다.</p>
+<p>같은 값을 가진 후속 SYN을 보려면 흐름 식별도 분리합니다. 출발지·목적지 주소와 포트, 프로토콜의 조합인5튜플과 시작 시각·SYN·SEQ를 함께 추적하세요. 예제의54000→443과54001→443은 별도 연결로 설정했습니다. 실제 분석에서는 포트 재사용·NAT·프록시 때문에 포트 하나만 바뀌거나 같다는 사실로 전체 세션 문맥을 생략하지 않습니다.</p>
+<p>서버가 쿠키를 반환하지 않거나 나중에 유효하지 않다고 판단할 수도 있습니다. 쿠키 길이가 맞아도 서버의 내부 검증이 통과했다는 증거는 아니지요. 옵션 지원 여부, 후속 ACK, 응용/서버 로그를 단계별로 맞춥니다. 특정 날짜의 구현 지원을 모든 운영체제·서버에 일반화하지 않습니다.</p>
+
+</section>
+<section id="fastopen-sequence"><h2>20. SYN의1과 데이터24를 따로 더합니다</h2>
+
+<p>자체 후속 연결에서 A의 SYN SEQ를7000, SYN에 실은 TCP 데이터를24바이트로 정했습니다. SYN은 번호1을 소비하고 데이터도24를 소비하므로, 모두 수용한 B의 누적 ACK는7000+1+24=7025입니다. 데이터 구간은[7001,7025)입니다. TCP 옵션은 헤더에 있으므로 쿠키8바이트를 이 데이터 구간에 다시 더하지 않습니다.</p>
+<p>반대로 B가 SYN만 확인하고 초기 데이터를 수용하지 않았다면 ACK7001이 돌아올 수 있습니다. A는 정상 연결 시작을 마친 뒤 확인되지 않은 데이터를7001부터 다시 전송하는 흐름을 검토합니다. 이것을 무조건 새 공격이나 “서버가24바이트를 잃었다”고 부르지 마세요. 실제 수용 범위와 재시도·캡처 누락을 구분해야 합니다.</p>
+<p>서버의 SYN/ACK도 자기 쪽 SYN과 데이터가 있으면 독립적인 번호 공간을 사용합니다. A의24바이트를 B의 SEQ에도 똑같이 더하지 않습니다. Wireshark의 상대 번호와 저장된 실제 번호를 섞으면7001/7025가1/25처럼 보이는 차이를 설명할 수 없게 됩니다. 원시 필드와 도구 표시 방식을 먼저 맞추세요.</p>
+
+</section>
+<section id="fastopen-limits"><h2>21. 빠르게 시작했다는 것과 안전하게 한 번 처리했다는 것은 다릅니다</h2>
+
+<p>TFO는 재생·중복 수신 가능성을 응용이 감당할 수 있는지 검토해야 합니다. 어떤 요청이 올 때마다 서버 카운터를1씩 증가시키는 응용이라면, 같은 초기 요청이 예외 상황에서 다시 처리되는 것이 문제일 수 있어요. 쿠키가 있다는 이유만으로 “정확히한번” 의미가 생기지 않습니다. 실제 서비스에서는 응용의 중복 처리 방지와 프로토콜 적합성을 따로 설계해야 합니다.</p>
+<p>RFC7413은 실험적 규격이며 초기 데이터 재생을 허용할 수 없는 응용의 사용에 조건을 둡니다. 쿠키 수용·중간 장비 호환성·재전송·일반 TCP로의 폴백에 따라 이점이 달라집니다. “SYN 데이터를 보냈다”→“상대가 조기 수용했다”→“응용이 처리했다”→“처리가 성공했다”는 서로 다른 증거 단계입니다.</p>
+<p>현대의 웹이 언제나 객체마다 새 TCP 연결을 만든다고 가정하지도 마세요. 연결 재사용과 상위 프로토콜의 동작에 따라 초기 연결 최적화의 비중이 달라집니다. 여기서는 TCP에서 관측할 수 있는 조건을 다루며, 과거의 패킷 절약 예시를 오늘 모든 서비스의 고정 성능 결과로 옮기지 않습니다.</p>
+
+</section>
+<section id="fingerprint"><h2>22. 옵션 순서는 지문 단서이지 자산 목록이 아닙니다</h2>
+
+<p>같은 옵션이라도 배치가 다르면 구현을 추정하는 단서가 될 수 있습니다. 다음 두 줄은 실제 Windows/Linux 지문을 복제한 것이 아니라 길이·순서를 비교하기 위해 새로 정한 가상 프로필입니다. 프로필 P는 앞에서 해독한20바이트 옵션이고, Q는 다른 배치를 택했습니다.</p>
+<div class="table-wrap"><table><caption>가상 프로필의 옵션 공간 비교</caption><thead><tr><th>프로필</th><th>옵션 순서와 길이</th><th>합계와 헤더</th></tr></thead><tbody><tr><td>P</td><td>MSS4,SACK허용2,Timestamp10,NOP1,WS3</td><td>20바이트옵션;TCP40;DataOffset10</td></tr><tr><td>Q</td><td>MSS4,NOP1,WS3,NOP1,NOP1,SACK허용2</td><td>12바이트옵션;TCP32;DataOffset8</td></tr></tbody></table></div>
+<p>이처럼 배치를 읽으면 순서·지원 기능·초기 윈도·MSS·TTL 등 여러 단서를 비교할 수 있습니다. Nmap의 OS 탐지도 하나의 배열만 외워 찍는 방식으로 설명하지 않습니다. 도구는 다양한 자극에 대한 응답 특성을 조합합니다. 여기서는 실제 스캔을 실행하거나 어떤 호스트의 OS를 식별하지 않았습니다.</p>
+<p>프록시·부하분산기·방화벽이 응답의 TCP 종단이거나 옵션을 조정할 수 있고, 같은 OS도 버전·설정·네트워크 경로에 따라 달라집니다. 도구가 보여 준 지문과 실제 자산 정보는 별도 확인입니다. “특정 계열과 일치하는 단서가 있다”는 가설에 자산·단말·서버 설정을 연결하세요. 옵션의 비정상성만으로 도구 이름·공격자 숙련도·회피 성공을 단정하지 않습니다.</p>
+
+</section>
+<section id="tools"><h2>23. 필터 이름과 관측 범위를 함께 읽습니다</h2>
+
+<pre><code>tcp.flags.syn == 1
+tcp.options.mss_val
+tcp.options.timestamp.tsval
+tcp.options.sack_le
+tcp.options.tfo.request || tcp.options.tfo.cookie
+tcp.flags.syn == 1 &amp;&amp; tcp.len &gt; 0</code></pre>
+<p>위는 Wireshark <strong>표시 필터</strong> 예시입니다. <code>tcp.flags.syn == 1</code>은 SYN이 설정된 패킷을 고르므로 SYN/ACK도 포함합니다. MSS·Timestamp·SACK·TFO 필드 이름만 놓은 식은 해당 필드가 존재하는지 확인합니다. 값이0인 경우에도 필드가 존재할 수 있으므로 존재 검사와 숫자 비교를 구분하세요.</p>
+<p><code>||</code>는 둘 중 하나라도 만족하는 OR, <code>&amp;&amp;</code>는 둘 다 만족하는 AND, <code>&gt;</code>는 크다는 비교입니다. 마지막 식은 SYN과 TCP 데이터가 함께 해석된 후보를 찾습니다. 이것만으로 TFO 수용이나 악성을 입증하지는 않습니다. 실제로 명령·필터 엔진을 실행한 결과는 제시하지 않습니다.</p>
+<p>확인할 필드로는 <code>tcp.options.mss_val</code>, <code>tcp.options.wscale.shift</code>, <code>tcp.option_kind == 4</code>로 확인하는 SACK Permitted, <code>tcp.options.sack_le</code>/<code>tcp.options.sack_re</code>, <code>tcp.options.timestamp.tsval</code>/<code>tcp.options.timestamp.tsecr</code>, <code>tcp.options.tfo.request</code>/<code>tcp.options.tfo.cookie</code>가 있습니다. <code>tcp.option_kind</code>는 옵션 종류 번호이며 값4가 SACK Permitted입니다. 예전 필드 <code>tcp.options.sack_perm</code>는 공식 사전에서2.2.17까지로 표시되므로 현재 필터로 무조건 재사용하지 않습니다. le/re는 블록의왼쪽/오른쪽 경계입니다. 블록이 여러 개일 수 있으므로 목록의 대응도 함께 확인합니다.</p>
+<p>패킷 상세의 옵션을 선택해 바이트 패널의 Kind·Length·Value를 대조하고, 수집 시작 전에 SYN이 빠졌는지와 IP 단편·잘림·재조립 여부를 확인하세요. Wireshark의 TFO 수용·무시 분석 표시는 원시 비트와 다른 추론입니다. 공식 필드 사전의 버전 범위와 설치 버전 차이, 디섹터 설정을 기록해야 같은 분석을 재현하기 쉽습니다.</p>
+
+</section>
+<section id="investigation"><h2>24. 관측·가설·추가 증거를 나눠 보고합니다</h2>
+
+<p>“A의SYN에서MSS1440/shift6/SACK허용을 관측했다”는 저장된 필드에 대한 사실입니다. “A가 특정 OS일 가능성이 있다”는 여러 단서에 근거한 가설이고, “자산 기록과 실제 TCP 종단을 확인한다”는 다음 검증입니다. 이 세 문장을 분리하면 숫자의 정확성과 결론의 범위가 함께 드러납니다.</p>
+<p>“후속SYN에쿠키와24바이트데이터가있고B의ACK가7025였다”는 조건도 시간·수집 방향·번호 대응을 붙여 보고하세요. 캡처 누락과 암호화 때문에 응용 결과를 읽지 못했다면 그 한계를 남깁니다. SACK은 수신 구간, Timestamp는 시계 정보, 쿠키는 확장 절차의 증거일 뿐 사용자 인증이나 침해 성공의 단독 증거가 아닙니다.</p>
+<p>이번 개정에서는 본 교재9쪽의 설명과 렌더된 그림을 대조하고 위 합성 옵션·길이·구간·번호 계산을 검산했습니다. 과거 워크북2.3의 MSS·윈도 관련 요구와 연결했지만 원본 워크북·PCAP을 이번에 재실행하지 않았습니다. 따라서 남은 원본 문항의 최종 대응과 실제 대상 호스트의 수용 검증은 별도 미해결 범위로 유지합니다.</p>
+
+</section>
+
+<section id="review"><h2>25. 복습 · 조건을 바꾸어 생각하기</h2>
 <p><strong>질문 1. A가 광고한 MSS는 누구의 송신을 제한하나요?</strong></p><p>B→A 방향에서 A가 받을 수 있는 TCP 데이터 크기에 대한 정보입니다.</p>
 <p><strong>질문 2. 스케일 4, 원시 윈도 2000의 계산값은?</strong></p><p>SYN 이외의 적용 대상이라면 2000×16=32000바이트입니다.</p>
 <p><strong>질문 3. SACK [3001,3501)은 몇 바이트인가요?</strong></p><p>500바이트입니다. 오른쪽 경계 3501은 포함하지 않습니다.</p>
 <p><strong>질문 4. SYN의 데이터가 보이면 무조건 비정상인가요?</strong></p><p>Fast Open 등과 수신 구현을 검토합니다. 플래그 하나만으로 악성을 확정하지 않습니다.</p>
-</section>
-<section id="references" class="references"><h2>근거와 더 읽을 자료</h2><p>공식 자료 확인: 2026년 11월 3일. 오래된 화면의 메뉴 위치와 설치한 버전의 차이를 구별하세요.</p><ul><li><a href="https://www.rfc-editor.org/rfc/rfc7323.html">RFC 7323 · Window Scale와 Timestamp</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc2018.html">RFC 2018 · Selective Acknowledgment</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc7413.html">RFC 7413 · TCP Fast Open</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293 · TCP 기본 규격</a></li></ul></section>
+<p><strong>질문 5. 02 04 05 64의 MSS는 4인가요, 1380인가요?</strong></p><p>4는 옵션 전체 길이입니다. 값은 뒤의 05 64이며, 5×256+6×16+4=1380바이트입니다. Kind 2는 MSS 종류 번호입니다.</p><p><strong>질문 6. NOP 두 개 다음에 Timestamp 10바이트가 오면 옵션과 TCP 헤더 길이는?</strong></p><p>NOP 1+NOP 1+Timestamp 10=12바이트입니다. 기본 20을 더하면 TCP 헤더는 32바이트이고, Data Offset은 32÷4=8입니다. 개별 옵션이 모두 4바이트 길이여야 하는 것은 아닙니다.</p><p><strong>질문 7. A가 MSS 1440, B가 1360을 광고하면 양방향 모두 1360인가요?</strong></p><p>아닙니다. 기본 헤더와 충분한 경로 크기라는 조건에서 A→B는 B의 1360, B→A는 A의 1440을 참고합니다. 옵션과 더 작은 경로 크기는 실제 데이터 예산을 추가로 줄일 수 있습니다.</p><p><strong>질문 8. MTU 1500, IPv4 헤더 20, TCP 헤더 32이면 데이터 예산은?</strong></p><p>1500-20-32=1448바이트입니다. 기본 헤더 기준 광고 MSS 1460과 충돌하는 값이 아닙니다. 상대의 수신 MSS가 더 작다면 그 조건도 함께 적용해야 합니다.</p><p><strong>질문 9. 협상 뒤 A의 shift가 6, B가 8일 때 원시 Window 1500을 각각 보내면?</strong></p><p>A의 광고는 1500×64=96000바이트이며 B→A 수신 범위와 관련됩니다. B의 광고는 1500×256=384000바이트이며 A→B 수신 범위와 관련됩니다. SYN 자체의 Window는 이 배율 계산에서 제외합니다.</p><p><strong>질문 10. MSS 기본값 536은 그보다 짧은 데이터가 금지라는 뜻인가요?</strong></p><p>아닙니다. 완전한 연결 시작에서 MSS 옵션을 받지 못한 IPv4 송신의 기본 한도입니다. 실제 데이터는 짧을 수 있습니다. SYN을 놓친 수집에서는 옵션 부재 자체도 확정하지 않습니다.</p><p><strong>질문 11. ACK 1001에서 SACK [1801,2101) 뒤에 [1501,1801)이 오면?</strong></p><p>뒤 구간은 붙어 [1501,2101) 600바이트가 됩니다. 그러나 앞의 [1001,1501) 500바이트 공백은 남아 ACK는 1001입니다. 공백이 메워진 뒤 누적 ACK는 2101이 됩니다.</p><p><strong>질문 12. Timestamp에 12바이트 공간을 쓰면 SACK 4블록도 들어가나요?</strong></p><p>SACK 4블록은 2+8×4=34바이트입니다. 12를 더하면 46으로 일반 옵션 공간 40바이트를 넘습니다. 이 조건에서는 3블록의 26+12=38을 정렬해 40바이트로 담을 수 있습니다.</p><p><strong>질문 13. A의 TSval에서 B의 TSval을 빼면 바로 RTT인가요?</strong></p><p>아닙니다. 서로 다른 시계의 기준과 tick 속도를 모릅니다. 자기 시계의 송신 값과 돌아온 echo를 대응하고 단위를 알아야 합니다. 패킷 캡처 시간의 차이를 쓸 때도 위치·방향·재전송을 확인합니다.</p><p><strong>질문 14. TFO 요청 22 02에는 2바이트 쿠키가 있나요?</strong></p><p>없습니다. Kind와 Length 두 바이트만 있습니다. 8바이트 쿠키를 가진 옵션은 Length 10이 됩니다. 쿠키 관측만으로 인증·수용·응용 처리 성공을 확정하지 않습니다.</p><p><strong>질문 15. SEQ 7000의 SYN에 24바이트가 실렸을 때 ACK 7025와 7001의 차이는?</strong></p><p>7025는 SYN의 1과 데이터 24까지 누적 수용한 범위와 맞습니다. 7001은 SYN만 확인한 범위와 맞으므로 초기 데이터 미수용·폴백 등을 검토합니다. 쿠키 옵션의 바이트는 SEQ에 더하지 않습니다.</p><p><strong>질문 16. 세 번째 ACK의 TLS ClientHello와 특정 옵션 순서로 TFO·OS를 확정하나요?</strong></p><p>그 ACK의 데이터는 일반 TCP에서도 가능합니다. TFO는 SYN의 옵션·데이터와 후속 수용 범위를 대조해야 합니다. OS도 여러 필드·자극과 응답·중간 종단·자산 정보를 함께 확인하는 추정입니다.</p></section>
+<section id="references" class="references"><h2>26. 근거와 더 읽을 자료</h2><p>공식 자료 확인: 2026년 11월 17일. 오래된 화면의 메뉴 위치와 설치한 버전의 차이를 구별하세요.</p><ul><li><a href="https://www.rfc-editor.org/rfc/rfc7323.html">RFC 7323 · Window Scale와 Timestamp</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc2018.html">RFC 2018 · Selective Acknowledgment</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc7413.html">RFC 7413 · TCP Fast Open</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293 · TCP 기본 규격</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc6691.html">RFC6691 · 광고MSS와실제옵션공간</a></li><li><a href="https://www.iana.org/assignments/tcp-parameters">IANA · TCP옵션종류등록표</a></li><li><a href="https://www.wireshark.org/docs/dfref/t/tcp.html">Wireshark · TCP옵션필드와지원버전</a></li><li><a href="https://nmap.org/book/osdetect-methods.html">Nmap제작사 · OS탐지의복합단서</a></li></ul></section>

@@ -419,7 +419,7 @@
       "id": 31,
       "slug": "31-tcp-options",
       "title": "TCP 옵션으로 성능과 수신 범위를 이해하기",
-      "description": "MSS·윈도 스케일·Timestamp·SACK·Fast Open을 계산 예제와 관측 한계로 연결합니다.",
+      "description": "옵션 바이트와 방향별 MSS·윈도부터 Timestamp·SACK·Fast Open까지, 쿠키·구간·순서 번호를 예제로 검산하고 관측과 수용을 구분합니다.",
       "day": 2,
       "day_lesson": 9,
       "printed_pages": [
@@ -427,9 +427,9 @@
         106
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 65,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-17",
+      "minutes": 125,
+      "editorial_status": "revised"
     },
     {
       "id": 32,
