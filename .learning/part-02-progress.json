@@ -129,7 +129,12 @@
       "nd_principles_lesson15": "Textbook topics mapped; own solicited-node/Ethernet mapping, NS32 bytes/checksum03d6, NA flag masks, RA option lengths and lifetime units checked. DAD/NUD, on-link/default-router/address-state and current unsolicited NA rules explained. Original workbook/PCAP item audit, filter engine, actual endpoint/cache/route/RA Guard/tunnel execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 38,
+      "day_lesson": 16,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-16-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 37,
       "deployment": "success",
@@ -140,7 +145,11 @@
       "live_index_sha256": "07b276b79e9c965852aa7e192ce4e412cfb956ec8626ce27dc7e4de18e1aa72f"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 38,
+      "stage": "awaiting_exact_pages_success_and_public_render_review",
+      "review": ".learning/reviews/day-two-16-revision-20261118.md"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
       "No Wireshark/TShark filter-engine or actual ND packet/cache/route/DAD/NUD/RA Guard/tunnel/VM execution.",
