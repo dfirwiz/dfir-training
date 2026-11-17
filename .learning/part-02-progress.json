@@ -91,7 +91,7 @@
     ],
     "next_lesson_id": 33,
     "next_day_lesson": 11,
-    "last_review": ".learning/reviews/day-two-10-revision-20261118.md",
+    "last_review": ".learning/reviews/day-two-11-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 32,
@@ -114,7 +114,12 @@
       }
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 33,
+      "day_lesson": 11,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-11-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 32,
       "content_commit": "a410a1883a18064063618a680490ba0565b48843",
@@ -127,7 +132,10 @@
       "live_index_sha256": "fcd408bf862f96b5cc670d05fce9ae818c4f8fd86aca91a741eead6f39674a20"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 33,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; older findings are distinguished.",
       "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",

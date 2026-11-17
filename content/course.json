@@ -451,7 +451,7 @@
       "id": 33,
       "slug": "33-udp-traceroute",
       "title": "UDP 헤더와 경로 추적을 연결하기",
-      "description": "8바이트 헤더의 길이·체크섬을 읽고 UDP 무응답과 traceroute의 ICMP 응답을 해석합니다.",
+      "description": "UDP 바이트·길이·체크섬을 직접 계산하고, IPv6 특수 조건과 traceroute 탐사 장부·ICMP 인용·왕복 시간의 해석을 연결합니다.",
       "day": 2,
       "day_lesson": 11,
       "printed_pages": [
@@ -459,9 +459,9 @@
         127
       ],
       "status": "published",
-      "updated": "2026-11-03",
-      "minutes": 55,
-      "editorial_status": "revision_pending"
+      "updated": "2026-11-18",
+      "minutes": 140,
+      "editorial_status": "revised"
     },
     {
       "id": 34,
