@@ -99,7 +99,7 @@
     ],
     "next_lesson_id": 37,
     "next_day_lesson": 15,
-    "last_review": ".learning/reviews/day-two-14-revision-20261118.md",
+    "last_review": ".learning/reviews/day-two-15-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 36,
@@ -126,7 +126,12 @@
       "ipv6_principles_lesson14": "Textbook topics mapped; own IPv6 address normalization, prefix counts, modified EUI-64, header bytes, extension offsets, pseudo-header UDP checksum and jumbo lengths checked. Original workbook/PCAP item audit and actual filter-engine/endpoint/path execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 37,
+      "day_lesson": 15,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-15-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 36,
       "deployment": "success",
@@ -137,7 +142,10 @@
       "live_index_sha256": "4a94b9533c368622d5cf2513cd4505c2bd0599affd7177749e93a77ec19586a9"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 37,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
       "No Wireshark/TShark filter engine, actual IPv6 transfer/routing/fragmentation/jumbo or endpoint/VM/firewall execution.",
