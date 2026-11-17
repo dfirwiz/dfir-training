@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090e18">
+  <meta name="description" content="Sliver 콘솔의 서버 표시와 Beacon·Session의 차이를 배우고 Sysmon 합성 로그로 의심 연결을 조사합니다.">
+  <title>1강. Sliver 콘솔·Beacon·Session | DFIR Training</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/notes.css">
+  <link rel="stylesheet" href="../../assets/red-team-foundations/course.css">
+</head>
+<body>
+<a class="skip" href="#content">본문으로 건너뛰기</a>
+<header class="shell nav">
+  <a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a>
+  <nav class="navlinks" aria-label="주요 메뉴">
+    <a href="../../index.html#courses">교육 과정</a>
+    <a href="index.html">Sliver 과정 목차</a>
+  </nav>
+  <a class="navbtn" href="#lab">실습 바로가기 ↗</a>
+</header>
+<main id="content" class="note-layout">
+  <aside class="course-sidebar"><nav class="toc" aria-label="1강 소제목">
+    <h2>1강 목차</h2>
+    <ol>
+      <li><a href="#roles">C2의 구성</a></li>
+      <li><a href="#screen">실제 Sliver 콘솔 읽기</a></li>
+      <li><a href="#modes">Beacon과 Session</a></li>
+      <li><a href="#lab">시나리오 실습</a></li>
+      <li><a href="#review">복습과 해설</a></li>
+      <li><a href="#sources">출처</a></li>
+    </ol>
+  </nav></aside>
+  <article class="note">
+    <header class="note-header">
+      <div class="eyebrow">Sliver C2 입문과 탐지 · 1강</div>
+      <h1>Sliver 콘솔·Beacon·Session</h1>
+      <p>콘솔이 알려주는 상태와 Windows 로그가 증명하는 동작을 연결해 봅니다.</p>
+    </header>
+    <div class="callout ui-screen-nav">
+      <strong>1강 학습 목표</strong>
+      <ul>
+        <li>Sliver 콘솔, C2 서버, Windows 단말에서 실행되는 구성 요소의 역할을 설명합니다.</li>
+        <li>Beacon의 체크인과 Session의 대화형 연결을 구분합니다.</li>
+        <li>Sysmon의 프로세스·DNS·네트워크 이벤트를 묶고, 조사 결과를 세 문장으로 작성합니다.</li>
+      </ul>
+      <p><a href="#screen">실제 콘솔 읽기</a> · <a href="#lab">Windows 로그 실습</a></p>
+    </div>
+
+    <section id="roles">
+      <h2>1. C2 서버와 콘솔의 역할</h2>
+      <p><strong>Sliver</strong>는 Bishop Fox의 오픈소스 레드팀 프레임워크입니다. C2는 <em>Command and Control</em>의 약칭입니다. 콘솔은 사람이 상태를 확인하는 인터페이스이고, 서버는 작업과 통신을 관리합니다. 단말 쪽 실행 구성 요소는 Sliver 문서에서 <em>implant</em>라고 부릅니다. 서버에 내장된 콘솔과 별도의 운영자 클라이언트는 모두 서버와 상호작용합니다. <a href="https://github.com/BishopFox/sliver/wiki/Architecture/a1016f154840c2d9508e38a8201d887744ba5afb">Bishop Fox 아키텍처 설명</a></p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Sliver 구성 요소와 관련 증거">
+      <table>
+        <thead><tr><th scope="col">구성 요소</th><th scope="col">역할</th><th scope="col">이 기록이 답하는 질문</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">운영자 콘솔</th><td>사람이 작업과 상태를 확인하는 텍스트 화면</td><td>운영자 또는 서버가 어떤 상태를 표시했나?</td></tr>
+          <tr><th scope="row">C2 서버</th><td>단말과의 통신과 작업을 관리하는 구성 요소</td><td>언제 체크인했고, 작업의 어떤 상태가 기록됐나?</td></tr>
+          <tr><th scope="row">단말의 Implant</th><td>서버와 통신하는 단말 측 프로그램</td><td>어떤 프로세스가 실행되고 어떤 네트워크 활동이 관측됐나?</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>레드팀 기초의 Cobalt Strike 장에서도 <strong>도구가 표시하는 상태</strong>와 <strong>단말에서 확인한 결과</strong>를 나눠 봤습니다. Sliver에서도 서버 콘솔이 열렸다는 사실만으로는 어느 Windows 단말에서 실행이 있었는지 알 수 없습니다. 단말에서 프로세스가 생성됐다는 기록이 있다면, 이어서 그 프로세스의 연결과 실행 문맥을 확인합니다.</p>
+    </section>
+
+    <section id="screen">
+      <h2>2. 실제 Sliver 서버 콘솔 읽기</h2>
+      <p>Virus Bulletin의 C2 탐지 연구에 실린 <strong>그림 2</strong>를 엽니다. 공개 원본은 <strong>Sliver v1.5.34</strong>가 Kali에서 열린 실제 콘솔 화면입니다. 연구 자료의 해당 화면에서 아래 항목만 짚어봅니다. <a href="https://www.virusbulletin.com/uploads/pdf/conference/vb2023/papers/C2F2-a-framework-for-detecting-C2-frameworks-at-scale.pdf#page=5">실제 콘솔 원본 열기</a></p>
+      <ol>
+        <li><strong>화면 가운데 아래의 서버 버전</strong>에서 <code>v1.5.34</code>를 찾습니다. 이는 보고 있는 서버 화면의 버전입니다. 버전이 다른 교육 자료를 비교할 때 기준으로 쓰세요.</li>
+        <li><strong>맨 아랫줄의 <code>[server] sliver &gt;</code></strong>를 찾습니다. 텍스트를 입력하는 콘솔 프롬프트이고, <code>[server]</code> 표시는 서버 콘솔 문맥을 알려줍니다.</li>
+        <li><strong>증거로 기록할 내용</strong>은 ‘Sliver 서버 콘솔이 열려 있음’입니다. 이 화면에 단말명, 체크인 시각, 작업 결과는 표시되어 있지 않습니다. 그 정보가 필요하면 별도의 상태 기록이나 단말 로그를 확인합니다.</li>
+      </ol>
+    </section>
+
+    <section id="modes">
+      <h2>3. Beacon과 Session의 차이</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Sliver Beacon과 Session의 차이">
+      <table>
+        <thead><tr><th scope="col">구분</th><th scope="col">통신 방식</th><th scope="col">조사할 때 볼 점</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Beacon</th><td>단말이 주기적으로 서버에 체크인하고, 대기 중인 작업을 받아 결과를 돌려주는 비동기 방식</td><td>동일한 프로세스와 목적지의 연결 반복 여부, 기록 시각, 정상 소프트웨어에서 알려진 패턴</td></tr>
+          <tr><th scope="row">Session</th><td>지속 연결 또는 롱 폴링 등 통신 방식에 따라 대화형 상호작용을 제공</td><td>연결 시작 시각, 흐름 지속 시간, 단말의 실행 기록. 지속 시간은 흐름·방화벽·프록시 로그에서 확인</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p>대기 중인 작업, 단말에서 실행된 작업, 서버가 결과를 받은 작업은 각각 별도의 상태입니다. 그리고 백업·업데이트 서비스도 정기적으로 서버를 확인합니다. 반복 연결이 보이면 <strong>누가 연결했고, 목적지가 업무상 기대되는 곳인지</strong>부터 조사합니다. Sliver의 Beacon과 Cobalt Strike의 Beacon은 각 제품의 용어이므로 해당 제품 문서에서 의미를 확인합니다. <a href="https://github.com/BishopFox/sliver/wiki/Getting-Started/40aac50a3c31e8f347517aba5dc0d9dff5351b40#implants-beacon-vs-session">Bishop Fox 모드 설명</a></p>
+    </section>
+
+    <section id="lab">
+      <h2>4. 시나리오 실습. 연결을 만든 프로세스 찾기</h2>
+      <p>가상 회사의 SOC가 <code>WS-FIN-07</code>에서 반복적인 외부 연결 경보를 받았습니다. 정상 업데이트 프로그램도 같은 시간에 TCP 443을 사용했습니다. 다음 표와 <a href="01-synthetic-sysmon.csv" download>합성 Sysmon CSV</a>를 이용해 둘을 가려냅니다. 이 자료는 수업용으로 작성했으며 실제 Sliver 실행이나 Windows 수집 결과는 포함하지 않습니다. 시각은 UTC이며, 표의 A·B는 실제 <code>ProcessGuid</code>를 대신하는 예제 표시입니다.</p>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="가상 Windows 단말의 이벤트 시간표">
+      <table>
+        <thead><tr><th scope="col">시각 (UTC)</th><th scope="col">Sysmon ID</th><th scope="col">프로세스 키</th><th scope="col">관측 내용</th></tr></thead>
+        <tbody>
+          <tr><td>09:13:02</td><td>1</td><td>B</td><td><code>C:\Program Files\ExampleCorp\updater.exe</code> 시작</td></tr>
+          <tr><td>09:14:01</td><td>1</td><td>A</td><td><code>C:\Users\training\Downloads\invoice-viewer.exe</code> 시작. 부모는 <code>explorer.exe</code></td></tr>
+          <tr><td>09:14:07</td><td>22</td><td>A</td><td><code>sync-telemetry.example</code> DNS 조회. 응답 <code>203.0.113.25</code></td></tr>
+          <tr><td>09:14:08</td><td>3</td><td>A</td><td><code>203.0.113.25:443</code> 연결</td></tr>
+          <tr><td>09:14:09</td><td>3</td><td>B</td><td><code>198.51.100.41:443</code> 연결</td></tr>
+          <tr><td>09:15:08</td><td>3</td><td>A</td><td><code>203.0.113.25:443</code> 재연결</td></tr>
+          <tr><td>09:16:09</td><td>3</td><td>A</td><td><code>203.0.113.25:443</code> 재연결</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <h3>직접 확인하는 순서</h3>
+      <ol>
+        <li>CSV를 열어 <strong>EventID가 3이고 DestinationIp가 203.0.113.25</strong>인 행을 찾습니다. 세 행의 <strong>Computer</strong>와 <strong>ProcessGuid</strong>를 적습니다.</li>
+        <li>목적지와 EventID 필터를 해제하고, 방금 기록한 <strong>Computer와 ProcessGuid</strong>로 다시 필터링합니다. 이벤트 1에서 <strong>Image</strong>와 <strong>ParentImage</strong>, 이벤트 22에서 <strong>QueryName</strong>과 <strong>QueryResults</strong>를 읽습니다.</li>
+        <li>09:14:08→09:15:08과 09:15:08→09:16:09 사이 간격을 계산합니다. 같은 포트를 쓴 프로세스 B의 <strong>ProcessGuid</strong>와 <strong>DestinationIp</strong>도 비교합니다.</li>
+        <li>티켓에 <strong>관찰한 사실 한 문장, 가설 한 문장, 다음 확인 한 문장</strong>을 씁니다.</li>
+      </ol>
+      <p>실제 Windows에서는 이벤트 뷰어의 <strong>응용 프로그램 및 서비스 로그 → Microsoft → Windows → Sysmon → Operational</strong>에서 <strong>현재 로그 필터링</strong>을 열고 이벤트 ID에 <code>1,3,22</code>를 넣습니다. 개별 이벤트의 <strong>자세히 → XML 보기</strong>에서 해당 필드를 확인합니다. Sysmon의 이벤트 3은 기본적으로 비활성화되어 있으므로 보이지 않으면 수집 설정과 필터를 먼저 확인합니다. DNS 조회 이벤트 자체는 TCP 연결이나 데이터 전송을 증명하지 않습니다. <a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon#events">Microsoft Sysmon 이벤트 설명</a></p>
+      <h3>실습 해설과 티켓 예시</h3>
+      <ol>
+        <li><strong>관찰.</strong> <code>WS-FIN-07</code>에서 <code>invoice-viewer.exe</code> 프로세스 A가 <code>sync-telemetry.example</code>을 조회한 후 응답 IP의 TCP 443으로 세 차례 연결했습니다. 두 간격은 60초와 61초입니다.</li>
+        <li><strong>가설.</strong> 다운로드 폴더의 프로그램이 약 1분 간격으로 같은 목적지에 접속해 C2 체크인 가능성을 조사합니다. 해당 패턴의 원인과 도구 식별은 미확정입니다.</li>
+        <li><strong>다음 확인.</strong> EDR에서 파일 해시·서명·최초 실행 이력을 확인하고, 프록시나 방화벽 기록에서 같은 시각과 목적지를 대조합니다. 프로세스 B는 GUID와 목적지가 다르므로 별개 연결로 기록합니다.</li>
+      </ol>
+    </section>
+
+    <section id="review">
+      <h2>5. 복습과 즉시 해설</h2>
+      <ol>
+        <li><strong>서버 콘솔이 열려 있으면 단말도 연결된 상태인가요?</strong> 화면으로 확인한 것은 서버 콘솔 문맥입니다. 단말 접속 상태를 판단하려면 체크인 기록이나 통신 증거가 필요합니다.</li>
+        <li><strong>어떤 필드로 세 종류의 이벤트를 묶나요?</strong> 이 사례에서는 <code>Computer</code>와 <code>ProcessGuid</code>를 함께 사용합니다. PID만 쓰면 시간이 흐른 뒤 재사용된 PID와 혼동할 수 있습니다.</li>
+        <li><strong>443번 연결이 1분마다 발생하면 Sliver인가요?</strong> 반복은 조사 단서입니다. 포트만으로 애플리케이션 프로토콜이나 도구를 식별할 수 없으며, 정상 업데이트에도 반복 통신이 발생합니다.</li>
+        <li><strong>DNS 조회는 있고 이벤트 3은 없으면 어떻게 쓰나요?</strong> ‘DNS 조회 관측, 네트워크 연결 여부 미확인’으로 적습니다. Sysmon의 수집 범위를 확인하고, 네트워크 기록과 대조합니다.</li>
+      </ol>
+    </section>
+
+    <section id="sources" class="references">
+      <h2>출처</h2>
+      <ul>
+        <li><a href="https://github.com/BishopFox/sliver/wiki/Architecture/a1016f154840c2d9508e38a8201d887744ba5afb">Bishop Fox · Sliver Architecture</a></li>
+        <li><a href="https://attack.mitre.org/software/S0633/">MITRE ATT&amp;CK · Sliver (S0633)</a></li>
+        <li><a href="https://attack.mitre.org/detectionstrategies/DET0444/">MITRE ATT&amp;CK · Detection of Command and Control Over Application Layer Protocols</a></li>
+        <li><a href="https://learn.microsoft.com/en-us/sysinternals/downloads/sysmon">Microsoft Learn · Sysmon</a></li>
+      </ul>
+      <p><a href="index.html#plan">과정 목차로 돌아가기</a> · 다음 강의는 통신 흔적 읽기입니다.</p>
+    </section>
+  </article>
+</main>
+</body>
+</html>

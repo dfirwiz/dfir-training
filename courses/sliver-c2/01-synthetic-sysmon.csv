@@ -1,0 +1,8 @@
+UtcTime,Computer,EventID,ProcessGuid,Image,ParentImage,QueryName,QueryResults,DestinationIp,DestinationPort
+2026-11-18T09:13:02Z,WS-FIN-07,1,{00d1f304-58d1-687d-1900-000000000500},C:\Program Files\ExampleCorp\updater.exe,C:\Windows\System32\services.exe,,,,
+2026-11-18T09:14:01Z,WS-FIN-07,1,{00d1f304-590c-687d-1a00-000000000500},C:\Users\training\Downloads\invoice-viewer.exe,C:\Windows\explorer.exe,,,,
+2026-11-18T09:14:07Z,WS-FIN-07,22,{00d1f304-590c-687d-1a00-000000000500},C:\Users\training\Downloads\invoice-viewer.exe,,sync-telemetry.example,203.0.113.25,,
+2026-11-18T09:14:08Z,WS-FIN-07,3,{00d1f304-590c-687d-1a00-000000000500},C:\Users\training\Downloads\invoice-viewer.exe,,,,203.0.113.25,443
+2026-11-18T09:14:09Z,WS-FIN-07,3,{00d1f304-58d1-687d-1900-000000000500},C:\Program Files\ExampleCorp\updater.exe,,,,198.51.100.41,443
+2026-11-18T09:15:08Z,WS-FIN-07,3,{00d1f304-590c-687d-1a00-000000000500},C:\Users\training\Downloads\invoice-viewer.exe,,,,203.0.113.25,443
+2026-11-18T09:16:09Z,WS-FIN-07,3,{00d1f304-590c-687d-1a00-000000000500},C:\Users\training\Downloads\invoice-viewer.exe,,,,203.0.113.25,443

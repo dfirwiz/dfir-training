@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#090e18">
+  <meta name="description" content="Sliver C2의 화면과 통신 원리를 이해하고 Windows 로그를 통해 의심스러운 원격 제어를 조사하는 초보자 과정.">
+  <title>Sliver C2 입문과 탐지 | DFIR Training</title>
+  <link rel="stylesheet" href="../../assets/site.css">
+  <link rel="stylesheet" href="../../assets/notes.css">
+  <link rel="stylesheet" href="../../assets/red-team-foundations/course.css">
+</head>
+<body>
+<a class="skip" href="#content">본문으로 건너뛰기</a>
+<header class="shell nav">
+  <a class="brand" href="../../index.html"><span class="mark">D</span>DFIR TRAINING</a>
+  <nav class="navlinks" aria-label="주요 메뉴">
+    <a href="../../index.html#courses">교육 과정</a>
+    <a href="../red-team-foundations/index.html">레드팀 기초</a>
+  </nav>
+  <a class="navbtn" href="01-console-beacon-session.html">1강 읽기 ↗</a>
+</header>
+<main id="content" class="note-layout">
+  <aside class="course-sidebar"><nav class="toc" aria-label="과정 안내">
+    <h2>과정 안내</h2>
+    <ol>
+      <li><a href="#scenario">공통 시나리오</a></li>
+      <li><a href="#plan">6강 계획</a></li>
+      <li><a href="01-console-beacon-session.html#screen">Sliver 콘솔 화면</a></li>
+      <li><a href="01-console-beacon-session.html#lab">1강 실습</a></li>
+    </ol>
+  </nav></aside>
+  <article class="note">
+    <header class="note-header">
+      <div class="eyebrow">레드팀 기초 후속 과정 · 초보자</div>
+      <h1>Sliver C2 입문과 탐지</h1>
+      <p>Sliver 화면의 용어를 읽고, Windows와 네트워크에 남는 증거를 연결해 원격 제어 의심 사례를 조사합니다.</p>
+    </header>
+    <section id="scenario">
+      <h2>공통 시나리오</h2>
+      <p>가상 회사의 회계팀 Windows 단말 <code>WS-FIN-07</code>에서 외부 연결 경보가 발생합니다. 1강에서는 연결을 만든 프로세스를 찾고, 이후 강의에서는 실행 출처와 정상 소프트웨어 여부, 영향을 받은 단말 범위를 좁힙니다. 마지막에는 조사 결과를 인계 보고서로 작성합니다.</p>
+      <p><a href="../red-team-foundations/01-purpose-ttp-evidence.html">레드팀 기초의 목표·TTP·증거</a>와 <a href="../red-team-foundations/index.html#chapter-4">4장 Cobalt Strike Primer</a>에서 배운 개념을 가져옵니다. 각 강의는 <strong>원리 → 화면 또는 로그 읽기 → 시나리오 실습 → 즉시 해설</strong> 순서입니다. 첫 실습에는 브라우저나 스프레드시트만 있으면 됩니다.</p>
+    </section>
+    <section id="plan">
+      <h2>6강 계획</h2>
+      <div class="table-wrap" tabindex="0" role="region" aria-label="Sliver C2 전체 강의 계획">
+      <table>
+        <thead><tr><th scope="col">강의</th><th scope="col">레드팀 기초 연결</th><th scope="col">실습 결과물</th></tr></thead>
+        <tbody>
+          <tr><th scope="row"><a href="01-console-beacon-session.html">1강. 콘솔·Beacon·Session</a></th><td>C2 구성 요소와 작업 흐름</td><td>프로세스·DNS·연결을 엮은 타임라인</td></tr>
+          <tr><th scope="row">2강. 통신 흔적 읽기</th><td>HTTP·DNS와 C2 관찰</td><td>합성 DNS·프록시 로그의 질의·응답·연결 비교</td></tr>
+          <tr><th scope="row">3강. 최초 실행 조사</th><td>최초 접근과 실행 문맥</td><td>부모 프로세스·실행 경로를 바탕으로 세운 최초 실행 가설</td></tr>
+          <tr><th scope="row">4강. 작업 이력과 Windows 증거</th><td>접근 후 활동·지속성·권한</td><td>요청·실행·결과를 구분한 증거표</td></tr>
+          <tr><th scope="row">5강. Splunk에서 탐지 검증</th><td>TTP와 방어 통제 검증</td><td>합성 로그를 검색하는 SPL과 정상 업데이트 오탐 분석</td></tr>
+          <tr><th scope="row">6강. 범위 확인과 SOC 인계</th><td>영향 범위·보고</td><td>관찰 사실, 가설, 증거 공백을 담은 인계 보고서</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><a class="primary" href="01-console-beacon-session.html">1강 시작하기 ↗</a></p>
+    </section>
+  </article>
+</main>
+</body>
+</html>
