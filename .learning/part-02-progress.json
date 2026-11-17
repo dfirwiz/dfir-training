@@ -95,7 +95,7 @@
     ],
     "next_lesson_id": 35,
     "next_day_lesson": 13,
-    "last_review": ".learning/reviews/day-two-12-revision-20261118.md",
+    "last_review": ".learning/reviews/day-two-13-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 34,
@@ -120,7 +120,12 @@
       "icmp_principles_lesson12": "Textbook goals mapped; own ICMPv4/v6 header, checksum, Echo data-copy, ID/SEQ pairing, crossed-response timing and malformed-Code examples checked. Prior source/static review distinguished from resumed publication verification. Original workbook/PCAP item audit and actual filter-engine/endpoint execution remain pending; Scapy construction attempt did not complete."
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 35,
+      "day_lesson": 13,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-13-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 34,
       "deployment": "success",
@@ -131,7 +136,10 @@
       "live_index_sha256": "3c1a197e43d5d7cf6b774861d93e12a926f52b2cc5aa1680c12b8e211f4e22d2"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 35,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; older findings are distinguished.",
       "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",
