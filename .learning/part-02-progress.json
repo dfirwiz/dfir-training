@@ -97,7 +97,7 @@
     ],
     "next_lesson_id": 36,
     "next_day_lesson": 14,
-    "last_review": ".learning/reviews/day-two-13-revision-20261118.md",
+    "last_review": ".learning/reviews/day-two-14-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 35,
@@ -123,7 +123,12 @@
       "icmp_error_principles_lesson13": "Textbook goals mapped; own quotation offsets, UDP/TCP bytes, PMTU, fragments and RTT verified. Capture/display filter scope and ICMPv6 suppression/policy explained from current official sources; original workbook/PCAP item audit, filter engines and endpoint/NAT execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 36,
+      "day_lesson": 14,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-14-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 35,
       "deployment": "success",
@@ -134,7 +139,10 @@
       "live_index_sha256": "9cec8cae09e539d981fb2c211fda7141ae6fe42f00943d175a2abff0528bbd87"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 36,
+      "status": "awaiting_pages_and_browser_verification"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
       "No tcpdump/TShark/Wireshark filter-engine, tracert, endpoint/VM or NAT execution.",
