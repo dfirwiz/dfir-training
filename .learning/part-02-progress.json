@@ -14,7 +14,8 @@
     31,
     32,
     33,
-    34
+    34,
+    35
   ],
   "completed_day_lessons": [
     1,
@@ -28,15 +29,16 @@
     9,
     10,
     11,
-    12
+    12,
+    13
   ],
-  "completed_printed_through": 141,
-  "completed_pdf_through": 143,
-  "next_lesson_id": 35,
-  "next_printed_page": 142,
+  "completed_printed_through": 152,
+  "completed_pdf_through": 154,
+  "next_lesson_id": 36,
+  "next_printed_page": 153,
   "updated": "2026-11-18",
-  "scope": "Day-two lesson12 detailed revision published and verified on desktop and narrow CSS viewport. Next lesson13/internal35. Five abbreviated drafts and final workbook audit remain.",
-  "review": ".learning/reviews/day-two-12-revision-20261118.md",
+  "scope": "Day-two lesson13 detailed revision published and verified on desktop and narrow CSS viewport. Next lesson14/internal36. Four abbreviated drafts and final workbook audit remain.",
+  "review": ".learning/reviews/day-two-13-revision-20261118.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -84,21 +86,21 @@
       31,
       32,
       33,
-      34
+      34,
+      35
     ],
     "pending_lesson_ids": [
-      35,
       36,
       37,
       38,
       39
     ],
-    "next_lesson_id": 35,
-    "next_day_lesson": 13,
+    "next_lesson_id": 36,
+    "next_day_lesson": 14,
     "last_review": ".learning/reviews/day-two-13-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 34,
+    "last_published_lesson_id": 35,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -117,34 +119,26 @@
         "response_principles_lesson10": "CLOSED response generation, SYN/ACK numbers, quoted TCP ports/SEQ, capture/ARP scope, retry timing and reflected-response hypotheses explained and synthetic calculations verified. Original workbook exercise4/5 source-item audit and actual VM/PCAP/filter-engine responses remain pending."
       },
       "udp_principles_lesson11": "Textbook goals mapped; own UDP header/checksum/length/jumbogram, ICMP quote and traceroute probe/time examples checked. Prior DNS PCAP observations distinguished; original workbook/PCAP re-access, filter engines and actual endpoint/path execution remain pending.",
-      "icmp_principles_lesson12": "Textbook goals mapped; own ICMPv4/v6 header, checksum, Echo data-copy, ID/SEQ pairing, crossed-response timing and malformed-Code examples checked. Prior source/static review distinguished from resumed publication verification. Original workbook/PCAP item audit and actual filter-engine/endpoint execution remain pending; Scapy construction attempt did not complete."
+      "icmp_principles_lesson12": "Textbook goals mapped; own ICMPv4/v6 header, checksum, Echo data-copy, ID/SEQ pairing, crossed-response timing and malformed-Code examples checked. Prior source/static review distinguished from resumed publication verification. Original workbook/PCAP item audit and actual filter-engine/endpoint execution remain pending; Scapy construction attempt did not complete.",
+      "icmp_error_principles_lesson13": "Textbook goals mapped; own quotation offsets, UDP/TCP bytes, PMTU, fragments and RTT verified. Capture/display filter scope and ICMPv6 suppression/policy explained from current official sources; original workbook/PCAP item audit, filter engines and endpoint/NAT execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": {
-      "lesson_id": 35,
-      "day_lesson": 13,
-      "status": "publication_pending",
-      "review": ".learning/reviews/day-two-13-revision-20261118.md"
-    },
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 34,
+      "lesson_id": 35,
       "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/34-icmp-echo.html",
-      "render_review": "Actual public HTTPS desktop1363x936; both SVGs checked; root1348/scroll1348. Narrow CSS454x312 at300percent zoom: root449/scroll449; diagram409/640 scrollLeft149.67; table409/580 scrollLeft149.67; command code409/1131 scrollLeft149.67. Zoom restored100percent. Not physical mobile device or device emulation.",
-      "verified_at": "2026-11-17T18:07:18.952441+00:00",
-      "live_page_sha256": "db71e0662bab8787ddde0e4460f365721730d5cb24ceba372c9d7d4dcd47d1d5",
-      "live_index_sha256": "3c1a197e43d5d7cf6b774861d93e12a926f52b2cc5aa1680c12b8e211f4e22d2"
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/35-icmp-errors.html",
+      "verified_at": "2026-11-17T19:12:49.922Z",
+      "render_review": "Actual public HTTPS desktop1363x936 with both SVGs; root1348/scroll1348. Narrow CSS454x312 at300percent zoom: root449/scroll449; diagram409/460 left50.67; table409/580 left149.67; command409/786 left149.67. Actual before/after scroll screens checked, zoom restored100percent. Not physical mobile device or device emulation.",
+      "live_page_sha256": "56b2ad8b77da28d9352a3e8c6e3092f313c582547188001a51e48d7822ff502e",
+      "live_index_sha256": "9cec8cae09e539d981fb2c211fda7141ae6fe42f00943d175a2abff0528bbd87"
     },
     "updated": "2026-11-18",
-    "publication_pending": {
-      "lesson_id": 35,
-      "status": "awaiting_pages_and_browser_verification"
-    },
+    "publication_pending": null,
     "last_validation_limits": [
-      "Original workbook and PCAP were not re-accessed or re-executed; older findings are distinguished.",
-      "No tcpdump/TShark/Wireshark filter engine or target VM/NIC/IDS execution.",
-      "Mobile device emulation unavailable under browser policy; narrow CSS viewport rendering was checked.",
-      "Scapy construction attempt did not complete during interface discovery; no Scapy serialization or endpoint execution was verified."
+      "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
+      "No tcpdump/TShark/Wireshark filter-engine, tracert, endpoint/VM or NAT execution.",
+      "Physical mobile device, touch and device emulation not verified; actual narrow CSS viewport checked."
     ]
   }
 }
