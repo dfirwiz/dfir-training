@@ -132,7 +132,12 @@
       "investigation_principles_lesson16": "Textbook printed175-184 directly read and image-checked. Own six-row TCP and three-row UDP ledgers, all256 flag-byte comparisons, NOTE prefix/length and timing calculations verified. Current classic/AccECN, capture scope and structured-field limits explained. Original workbook/PCAP item audit, filter engines, actual endpoint/NAT/firewall/application execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": null,
+    "active_lesson": {
+      "lesson_id": 39,
+      "day_lesson": 17,
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-17-revision-20261118.md"
+    },
     "last_publication": {
       "lesson_id": 38,
       "deployment": "success",
@@ -143,16 +148,26 @@
       "live_index_sha256": "45e94467832e76b3b52a069a9c8a2ecef62faca599066c87bd9e05328d79f653"
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 39,
+      "stage": "awaiting_pages_and_screen_checks_then_source_audit"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
       "No tcpdump/libpcap or TShark/Wireshark filter-engine, actual endpoint/VM/NAT/firewall/application execution.",
       "Physical mobile device, touch and device emulation not verified; actual narrow CSS viewport checked."
     ],
     "final_goal_audit": {
-      "status": "pending",
+      "status": "blocked_source_access",
       "scope": "Whole textbook and original workbook learning goals, including existing exercise-specific residual items. Finish lesson17 and resolve source-item gaps before overall completion.",
-      "page_coverage_is_not_completion": true
+      "page_coverage_is_not_completion": true,
+      "unresolved": [
+        "Original workbook whole and extra-item audit",
+        "Original six PCAP re-access for remaining field/context verification",
+        "TCP exercise1/4/5 detailed source requirements",
+        "UDP/ICMP whole and extra requirements",
+        "Whole textbook/workbook final cross-check"
+      ]
     }
   },
   "next_scope": "Day-two lesson17/internal39 workbook synthesis and final source-item audit; no new sequential textbook page."
