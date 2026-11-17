@@ -16,7 +16,8 @@
     33,
     34,
     35,
-    36
+    36,
+    37
   ],
   "completed_day_lessons": [
     1,
@@ -32,15 +33,16 @@
     11,
     12,
     13,
-    14
+    14,
+    15
   ],
-  "completed_printed_through": 162,
-  "completed_pdf_through": 164,
-  "next_lesson_id": 37,
-  "next_printed_page": 163,
+  "completed_printed_through": 174,
+  "completed_pdf_through": 176,
+  "next_lesson_id": 38,
+  "next_printed_page": 175,
   "updated": "2026-11-18",
-  "scope": "Day-two lesson14 detailed revision published and verified on desktop and narrow CSS viewport. Next lesson15/internal37. Three abbreviated drafts and final workbook audit remain.",
-  "review": ".learning/reviews/day-two-14-revision-20261118.md",
+  "scope": "Day-two lesson15 detailed revision published and verified on desktop and narrow CSS viewport. Next lesson16/internal38. Two abbreviated drafts and final workbook audit remain.",
+  "review": ".learning/reviews/day-two-15-revision-20261118.md",
   "validation_limits": [
     "Wireshark GUI and tcpdump/TShark execution",
     "target VM receive behavior",
@@ -90,19 +92,19 @@
       33,
       34,
       35,
-      36
+      36,
+      37
     ],
     "pending_lesson_ids": [
-      37,
       38,
       39
     ],
-    "next_lesson_id": 37,
-    "next_day_lesson": 15,
+    "next_lesson_id": 38,
+    "next_day_lesson": 16,
     "last_review": ".learning/reviews/day-two-15-revision-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 36,
+    "last_published_lesson_id": 37,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -123,32 +125,25 @@
       "udp_principles_lesson11": "Textbook goals mapped; own UDP header/checksum/length/jumbogram, ICMP quote and traceroute probe/time examples checked. Prior DNS PCAP observations distinguished; original workbook/PCAP re-access, filter engines and actual endpoint/path execution remain pending.",
       "icmp_principles_lesson12": "Textbook goals mapped; own ICMPv4/v6 header, checksum, Echo data-copy, ID/SEQ pairing, crossed-response timing and malformed-Code examples checked. Prior source/static review distinguished from resumed publication verification. Original workbook/PCAP item audit and actual filter-engine/endpoint execution remain pending; Scapy construction attempt did not complete.",
       "icmp_error_principles_lesson13": "Textbook goals mapped; own quotation offsets, UDP/TCP bytes, PMTU, fragments and RTT verified. Capture/display filter scope and ICMPv6 suppression/policy explained from current official sources; original workbook/PCAP item audit, filter engines and endpoint/NAT execution remain pending.",
-      "ipv6_principles_lesson14": "Textbook topics mapped; own IPv6 address normalization, prefix counts, modified EUI-64, header bytes, extension offsets, pseudo-header UDP checksum and jumbo lengths checked. Original workbook/PCAP item audit and actual filter-engine/endpoint/path execution remain pending."
+      "ipv6_principles_lesson14": "Textbook topics mapped; own IPv6 address normalization, prefix counts, modified EUI-64, header bytes, extension offsets, pseudo-header UDP checksum and jumbo lengths checked. Original workbook/PCAP item audit and actual filter-engine/endpoint/path execution remain pending.",
+      "nd_principles_lesson15": "Textbook topics mapped; own solicited-node/Ethernet mapping, NS32 bytes/checksum03d6, NA flag masks, RA option lengths and lifetime units checked. DAD/NUD, on-link/default-router/address-state and current unsolicited NA rules explained. Original workbook/PCAP item audit, filter engine, actual endpoint/cache/route/RA Guard/tunnel execution remain pending."
     },
     "remaining_render_review": [],
-    "active_lesson": {
-      "lesson_id": 37,
-      "day_lesson": 15,
-      "status": "publication_pending",
-      "review": ".learning/reviews/day-two-15-revision-20261118.md"
-    },
+    "active_lesson": null,
     "last_publication": {
-      "lesson_id": 36,
+      "lesson_id": 37,
       "deployment": "success",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/36-ipv6-header-address.html",
-      "verified_at": "2026-11-17T20:08:53.463Z",
-      "render_review": "Actual public HTTPS desktop1363x936, both SVGs checked, root1348/scroll1348. Narrow CSS454x312 at300percent zoom: root449/scroll449. Diagram minimum width increased to640 after screen review; final diagram409/660 scrollLeft149.67. Table409/580 scrollLeft149.67. All5 code blocks409/409 fit. Zoom restored100percent. Not physical mobile device, touch or device emulation.",
-      "live_page_sha256": "204ba645deec0aa902ced9ae04e483f9f7456e3fd50803d9eb35bfe5e024b8a9",
-      "live_index_sha256": "4a94b9533c368622d5cf2513cd4505c2bd0599affd7177749e93a77ec19586a9"
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/37-ipv6-neighbor-router.html",
+      "verified_at": "2026-11-17T21:10:55.393Z",
+      "render_review": "Actual public HTTPS desktop1363x936 with both SVGs; root1348/scroll1348. Narrow CSS454x312 at300percent zoom: root449/scroll449; NS diagram409/660 scrollLeft149.67; RA table409/580 scrollLeft149.67; filter code409/440 scrollLeft30.67. Actual before/after scroll screens checked, zoom restored100percent. Not physical mobile device, touch or device emulation.",
+      "live_page_sha256": "18a0c1ea0360f6ba466ddad54da25139f412cba096e9defd676d6c5cf0bad036",
+      "live_index_sha256": "07b276b79e9c965852aa7e192ce4e412cfb956ec8626ce27dc7e4de18e1aa72f"
     },
     "updated": "2026-11-18",
-    "publication_pending": {
-      "lesson_id": 37,
-      "status": "awaiting_pages_and_browser_verification"
-    },
+    "publication_pending": null,
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
-      "No Wireshark/TShark filter engine, actual IPv6 transfer/routing/fragmentation/jumbo or endpoint/VM/firewall execution.",
+      "No Wireshark/TShark filter-engine or actual ND packet/cache/route/DAD/NUD/RA Guard/tunnel/VM execution.",
       "Physical mobile device, touch and device emulation not verified; actual narrow CSS viewport checked."
     ]
   }
