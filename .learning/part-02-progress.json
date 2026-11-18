@@ -105,7 +105,7 @@
     "last_review": ".learning/reviews/day-two-final-goals-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
-    "last_published_lesson_id": 38,
+    "last_published_lesson_id": 39,
     "workbook_coverage": {
       "2.1": "detailed_explanations_and_bytes_checked_in_lesson24_not_gui_execution",
       "2.2": {
@@ -144,7 +144,7 @@
     "active_lesson": {
       "lesson_id": 39,
       "day_lesson": 17,
-      "status": "publication_pending",
+      "status": "final_goal_audit_pending",
       "review": ".learning/reviews/day-two-final-goals-20261118.md"
     },
     "last_publication": {
@@ -152,16 +152,13 @@
       "deployment": "success",
       "editorial_completion": false,
       "live_page": "https://dfirwiz.github.io/dfir-training/notes/39-day-two-workbook.html",
-      "verified_at": "2026-11-18T04:02:34.286071+00:00",
-      "live_page_sha256": "a908c57f796ad8b21aca99c0d0341f702ac7dabe4dda615f0e1fc104059f5e7a",
-      "live_index_sha256": "3061254d0c6907ed7fe823343690dac2852e7de7a2fcc696813e889b86c0913f",
-      "render_review": "Actual public HTTPS desktop1363x936 root1348/scroll1348. Narrow CSS454x312 at300percent zoom root449/scroll449; new table409/580 scrollLeft170.67 and code409/454 scrollLeft45, before/after screenshots inspected. Restored100percent. No physical mobile/touch/device emulation."
+      "verified_at": "2026-11-18T04:18:33.397409+00:00",
+      "live_page_sha256": "16f35f12812bc590b9cc4a6a314633912d507eed5bf0c1d76f7c374dbd83f17a",
+      "live_index_sha256": "39afd088101e5407e2b556c94f111d9210aa69c99555e182d500910eae570fe6",
+      "render_review": "Public desktop 1363x936 and narrow CSS viewport 454x312; no root overflow. New timeline table internally scrolls from 0 to 170.67 CSS px. Physical mobile and touch not tested."
     },
     "updated": "2026-11-18",
-    "publication_pending": {
-      "lesson_id": 39,
-      "stage": "awaiting_exact_pages_and_public_screen_checks"
-    },
+    "publication_pending": null,
     "last_validation_limits": [
       "Current six-PCAP rerun and Wireshark/tcpdump/TShark filter-engine execution not performed.",
       "Target VM/socket/IDS/endpoint acceptance and score-server behavior not reproduced.",
@@ -194,6 +191,6 @@
     },
     "workbook_coverage_history_note": "Entries below record earlier lesson-specific verification and access limits at their original dates. The current_workbook_pdf_review entry supersedes workbook-PDF access-pending statements; it does not assert a fresh PCAP, filter-engine or endpoint run."
   },
-  "next_scope": "Resume publication verification for lesson17. After public page and screen checks, continue the same final audit when the separate capstone materials can be accessed.",
+  "next_scope": "Resume the same final goal audit when the separate capstone records or question materials can be accessed. The public capstone example is verified.",
   "prior_pcap_review": "See the prior day-two offline capture review; no capture was rerun in the current audit."
 }
