@@ -556,8 +556,8 @@
       ],
       "status": "published",
       "updated": "2026-11-18",
-      "minutes": 150,
-      "editorial_status": "source_audit_pending"
+      "minutes": 180,
+      "editorial_status": "workbook_source_reviewed_final_audit_pending"
     }
   ]
 }

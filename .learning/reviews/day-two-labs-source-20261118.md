@@ -1,0 +1,54 @@
+# 둘째 날 랩 PDF 직접 대조 및 콘텐츠 보강 · 2026-11-18
+
+사용자가 새로 제공한 랩 PDF4개(15+14+14+10=53쪽)를 직접 읽었다. 네 파일 모두 네이티브 텍스트가 비어 각 페이지를 렌더하고 OCR했다. 53쪽 전체 접촉시트를 직접 대조했고 OCR의 숫자0/O·대소문자X·쉘따옴표·옵션/컬럼 오인은 원래 화면과 비교했다. 원본·화면·OCR전문·내부경로·원본식별자를 공개하지 않는다. 새 교재를 재확보한 것이 아닌 이번 첨부 랩 원본 확인이다.
+
+최신 main의 EDITORIAL·진도 전체·course·생성기·17강·직전 검토를 GitHub로 읽고 현재 검토 대기인17강만 수정했다. 다른 과정과 나머지38강은 보존한다. 과거검토와 이번직접대조를 구분한다.
+
+## 전체 본 실습18개 + 추가5개 대응
+
+표의 번호는 이번에 확인한 랩 내부 학습 목표이며 독점 문항·정답·원문을 공개하지 않는다. 범위 단위로 목표를 바꿔 써 본문에 대응했다.
+
+|원본 구분·쪽|학습 목표|본문 절·새 보강|실제 검증/한계|
+|---|---|---|---|
+|표시 준비1·1~3|표현식 작성·적용·상세 검증·초기화|display,labs-source-refresh|새 문서도메인·질문/응답 QR 구분|
+|표시1·1~3|DNS 질문 부분문자열|labs-source-refresh|요청/응답이 모두 질문 포함 가능|
+|표시2·4~8|ARP 요청·자발적 ARP|display,labs-source-refresh|Opcode와isgratuitous 및같은주소비교 구별|
+|표시3·8~11|Echo Reply·짧은 IP·패딩|display,labs-source-refresh|IP Total Length≠헤더길이·정상패딩≠손상runt|
+|표시4·12~14|UDP DNS 추출·저장·재열기·계수|display,labs-source-refresh|Captured/Displayed·wc소문자L·줄수≠패킷수|
+|표시추가·14~15|첫 IP 옵션·옵션 존재 선행조건|display,labs-source-refresh|옵션없는UDP포트 바이트의 거짓양성|
+|BPF 준비·1~3|숫자/시각옵션·플래그·검증|bpf,labs-source-refresh|ACK항상/PSH모든데이터 일반화 교정|
+|BPF1·2~4|정확 SYN·목적지 고유 포트|bpf,16강 연계|패킷·고유값·시도·응용성공 분리|
+|BPF2·4~6|정확 SYNACK·출발지 고유 포트|bpf,labs-source-refresh|수집중복/재전송·환경설명 이식 금지|
+|BPF3·6~8|FIN/RST 하나라도·추가비트허용|bpf|기존5개독립반례 유지·ACK필수 일반화 금지|
+|BPF4·9~10|목적지포트·PSH/ACK 모두·첫5개|bpf|필터후개수 제한·반대방향 구별|
+|BPF추가1·10~12|UDP/DNS고정 QR/ARCOUNT|bpf|UDP+10/+18·선언/실재/EDNS 구별|
+|BPF추가2·12~14|주소 끝 마스크·두 구간|mask-extra|0~255·/24 별도제한|
+|TCP 준비·1|원본과도구·필드/출력표현|tcp,evidence-flow|화면은실제실행이아님|
+|TCP1·1~3|내부TCP체크섬·프로토콜 기준점|tcp,labs-source-refresh|IP+9/TCP+16~17·TCP0≠생략·오프로딩한계|
+|TCP2·3~5|같은SEQ·다른내용·SYN데이터·회피가설|tcp|기존새5바이트충돌/순서공간 검산|
+|TCP3·5~6|재시도/별도시도·포트/ISN/간격|tcp,labs-source-refresh|다른시도≠성공·수집중복 가설|
+|TCP4·6~8|포트/플래그/MSS/윈도/번호/URG|labs-source-refresh|6필드판단표·0값·윈도·현재세그먼트범위 일반화교정|
+|TCP5·8~10|미관측SYN·반사·동일포트/ACK|labs-source-refresh|새ACK9001→SEQ9000 역추론조건·도스성공미확정|
+|TCP6·10~12|RST체크섬·후속재조립·센서/종단차이|tcp,labs-source-refresh|당시기재결과≠현재모든IDS회피|
+|TCP추가·12~14|URG후속세그먼트·응용출력|tcp,labs-source-refresh|기존ABCD/EFGH경계·소켓/API·wire삭제교정|
+|UDP/ICMP준비·1|수집/도구·프로토콜/오류|udp-icmp|전체문서확인·실제패킷재실행아님|
+|UDP/ICMP1·1~3|브로드캐스트/비초기조각/오류의오류|udp-icmp,labs-source-refresh|첫조각없는재조립시간초과·관측누락과수신부재구별|
+|UDP/ICMP2·3~4|TTL그룹·Echo·경로·OS해석|labs-source-refresh|ICMP방식≠Windows확정·응답인터페이스≠전체경로|
+|UDP/ICMP3·4~8|재조립/포트오류의 인용원본 찾기|labs-source-refresh|체크섬16비트충돌/NAT/TTL·복합키·바깥/인용 계층|
+|UDP/ICMP4·8~9|Echo운반데이터·SSH단서·불균형|labs-source-refresh|여러프레임/종단자료·도구/로그인성공 단정금지|
+|UDP/ICMP추가·10|Echo/프로토콜도달불가 모순검토|labs-source-refresh|프로토콜생성능력과정책허용구분·원문숙련도추정금지|
+
+## 새 보강과 현재 근거
+
+랩 PDF의 원문·힌트·기재 결과가 확인되어 이전 워크북 접근 보류 안내를 현행화했다. 기존53쪽의 문항을 웹에 복사하지 않고 새로운 주소·도메인·ACK수치·표와 해설로 원리를 보강했다. 기존상세문단·그림·예제·복습은 유지하고 변한 것은 자료접근시점/진도안내 및 이번보강이다.
+
+2026-11-18 공식 RFC9293/1122, Wireshark 표시필터/ARP필드/pcap-filter/내보내기, Microsoft tracert, FreeBSD traceroute를 실제 조회했다. TCP윈도0·URG경계·RST상태, IPv4재조립시간초과의fragment-zero조건, arp.isgratuitous지원, traceroute프로토콜선택을 대조하고 본문 링크를 보존/추가했다.
+
+## 검증 범위
+
+이번 직접 확인은 PDF53쪽의 학습목표·문장·그림·기재값이다. PCAP 여섯 개 원본·실제필터엔진·GUI내보내기·VM/소켓·IDS·종단/서버로그를 이번에 실행한 것은 아니다. 과거1067레코드 검증은 이전기록이며 이번 원본 재계산으로 바꾸지 않았다.
+
+독립예제의ACK9001−1=9000,16비트2^16=65536,주소마스크전체·플래그반례·DNS고정헤더·체크섬자리올림·겹침·URG·간격·패딩 계산을 실제검산했다. 기존본문·앵커·내부링크·SVG·표·목차·일차별번호와 다른과정 보존도 검사한다. 실제게시파일일치/정확한Pages배포/화면검증은 아래 후속기록으로 구분한다.
+
+전체 교재와 워크북 목표의 최종 종합 판정은 별도이며 이번 원문 접근 회복만으로 전체 completed를 부여하지 않는다. 후속은 같은17강의 최종감사를 이어 읽고, 이미 게시한 상세원고를 다시 생성하지 않는다. 예약 설정 변경은 이번 콘텐츠 갱신의 범위에 포함하지 않는다.
+

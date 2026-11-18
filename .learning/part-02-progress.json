@@ -136,9 +136,8 @@
     "active_lesson": {
       "lesson_id": 39,
       "day_lesson": 17,
-      "status": "source_audit_pending",
-      "review": ".learning/reviews/day-two-17-revision-20261118.md",
-      "resume": "Do not rewrite the published guide. Re-access original workbook and six PCAP files; map whole and extra-item goals and resolve final audit residuals."
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-labs-source-20261118.md"
     },
     "last_publication": {
       "lesson_id": 39,
@@ -151,24 +150,31 @@
       "render_review": "Actual HTTPS desktop1363x936 root1348/scroll1348. Narrow CSS454x312 at300percent zoom root449/scroll449. SVG409/640 scrollLeft230.67; table409/580 scrollLeft170.67; code409/670 scrollLeft261. Before/after screenshots inspected; restored100percent. No physical mobile, touch or device emulation."
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 39,
+      "stage": "awaiting_exact_pages_and_public_screen_checks"
+    },
     "last_validation_limits": [
       "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
       "No tcpdump/libpcap or TShark/Wireshark filter-engine, actual endpoint/VM/NAT/firewall/application execution.",
       "Physical mobile device, touch and device emulation not verified; actual narrow CSS viewport checked."
     ],
     "final_goal_audit": {
-      "status": "blocked_source_access",
+      "status": "in_progress",
       "scope": "Whole textbook and original workbook learning goals, including existing exercise-specific residual items. Finish lesson17 and resolve source-item gaps before overall completion.",
       "page_coverage_is_not_completion": true,
       "unresolved": [
-        "Original workbook whole and extra-item audit",
-        "Original six PCAP re-access for remaining field/context verification",
-        "TCP exercise1/4/5 detailed source requirements",
-        "UDP/ICMP whole and extra requirements",
-        "Whole textbook/workbook final cross-check"
+        "Whole textbook/workbook final cross-check",
+        "Current PCAP/engine/endpoint verification limits must remain explicit"
       ],
       "review": ".learning/reviews/day-two-17-revision-20261118.md"
+    },
+    "workbook_pdf_review": {
+      "date": "2026-11-18",
+      "pdf_count": 4,
+      "pages": 53,
+      "status": "all_primary_and_extra_learning_goals_directly_compared",
+      "pcap_rerun": false
     }
   },
   "next_scope": "Re-access original workbook plus six original PCAP files; finish lesson17 source-item and whole-textbook/workbook final audit. Do not regenerate the already-published guide."
