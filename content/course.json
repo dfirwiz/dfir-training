@@ -547,7 +547,7 @@
       "id": 39,
       "slug": "39-day-two-workbook",
       "title": "둘째 날 워크북: 네 실습의 판단 과정",
-      "description": "표시 필터·BPF·TCP·UDP/ICMP 실습을 원리·검산·반례로 연결하고 오프라인 검증 범위를 기록합니다.",
+      "description": "표시 필터·BPF·TCP·UDP/ICMP 실습을 검산하고, 두 수집 지점의 DNS·ICMP·TCP 증거를 맞춰 장애 범위를 좁힙니다.",
       "day": 2,
       "day_lesson": 17,
       "printed_pages": [
@@ -556,8 +556,8 @@
       ],
       "status": "published",
       "updated": "2026-11-18",
-      "minutes": 180,
-      "editorial_status": "workbook_source_reviewed_final_audit_pending"
+      "minutes": 190,
+      "editorial_status": "textbook_and_available_labs_reviewed_capstone_sources_pending"
     }
   ]
 }

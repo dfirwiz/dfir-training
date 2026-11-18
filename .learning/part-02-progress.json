@@ -43,14 +43,13 @@
   "next_lesson_id": 39,
   "next_printed_page": null,
   "updated": "2026-11-18",
-  "scope": "Four supplied lab PDFs (53 pages) directly reviewed; all 18 primary and 5 extra exercise goals mapped. Lesson17 supplemental update published and publicly verified. Whole-textbook/workbook final audit remains pending; detailed-completed remains through16.",
-  "review": ".learning/reviews/day-two-labs-source-20261118.md",
+  "scope": "Textbook goals (printed 4–184) and four supplied lab PDFs cross-checked. Lesson17 adds a synthetic correlation exercise. Separate capstone workbook materials referenced by the textbook remain unavailable.",
+  "review": ".learning/reviews/day-two-final-goals-20261118.md",
   "validation_limits": [
     "Current six-PCAP rerun and Wireshark/tcpdump/TShark filter-engine execution not performed.",
     "Target VM/socket/IDS/endpoint acceptance and score-server behavior not reproduced.",
     "Physical mobile/touch/device emulation not tested; actual narrow CSS viewport checked."
   ],
-  "pcap_records_offline_checked": 1067,
   "pcap_files": 6,
   "initial_abbreviated_publication": {
     "lesson_ids": [
@@ -103,7 +102,7 @@
     ],
     "next_lesson_id": 39,
     "next_day_lesson": 17,
-    "last_review": ".learning/reviews/day-two-labs-source-20261118.md",
+    "last_review": ".learning/reviews/day-two-final-goals-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 38,
@@ -116,7 +115,7 @@
       "2.3": {
         "exercise3": "repeat_vs_new_attempt_fields_checked_lesson27; 3_6_12second_intervals_RTO_calculation_and_capture_limits_explained_and_checked_lesson29; no_endpoint_or_filter_engine_execution",
         "exercise2": "raw_sequence_payload_conflict_checked_lesson27; SYN_data_and_negotiation_context_explained_lesson28; actual_sensor_endpoint_acceptance_unverified",
-        "exercise6": "detailed_RST128_checksum0010_folda795_recomputed587a_and_frames129_134_data_ACK_explained_and_stored_bytes_checked_lesson29; no_VM_endpoint_IDS_or_filter_engine_execution; general_checksum_length_window_followup_lesson30",
+        "exercise6": "Prior stored-byte checksum and continuing-stream analysis documented in lesson7 review; actual endpoint, IDS and filter engine execution remains unverified.",
         "other_requirements": "exercise1_checksum, exercise4_crafted_fields, exercise5_responses, URG_extra_and_final_lab_audit_pending_followup",
         "exercise4": "flags_0x3f_and_stored_fields_checked_lesson28; checksum_window_MSS_response_and_acceptance_pending_followup",
         "urgent_extra": "SEQ_pointer_and_two_segment_stream_positions_checked_lesson28; current_standard_and_ordinary_OOB_API_conditions_explained_lesson29; socket_reads_and_sensor_reassembly_not_executed",
@@ -145,8 +144,8 @@
     "active_lesson": {
       "lesson_id": 39,
       "day_lesson": 17,
-      "status": "final_goal_audit_pending",
-      "review": ".learning/reviews/day-two-labs-source-20261118.md"
+      "status": "publication_pending",
+      "review": ".learning/reviews/day-two-final-goals-20261118.md"
     },
     "last_publication": {
       "lesson_id": 39,
@@ -159,21 +158,30 @@
       "render_review": "Actual public HTTPS desktop1363x936 root1348/scroll1348. Narrow CSS454x312 at300percent zoom root449/scroll449; new table409/580 scrollLeft170.67 and code409/454 scrollLeft45, before/after screenshots inspected. Restored100percent. No physical mobile/touch/device emulation."
     },
     "updated": "2026-11-18",
-    "publication_pending": null,
+    "publication_pending": {
+      "lesson_id": 39,
+      "stage": "awaiting_exact_pages_and_public_screen_checks"
+    },
     "last_validation_limits": [
       "Current six-PCAP rerun and Wireshark/tcpdump/TShark filter-engine execution not performed.",
       "Target VM/socket/IDS/endpoint acceptance and score-server behavior not reproduced.",
       "Physical mobile/touch/device emulation not tested; actual narrow CSS viewport checked."
     ],
     "final_goal_audit": {
-      "status": "in_progress",
-      "scope": "Whole textbook/workbook final cross-check remains. Four supplied lab PDFs and all main/extra goals were directly reviewed and mapped; source-access blocker resolved for these PDFs. Current PCAP/engine/endpoint execution limits remain explicit.",
+      "status": "blocked_capstone_source_access",
+      "scope": "Textbook plus available four lab PDFs audited; separate capstone records and question materials referenced by printed 176/184 not accessed.",
       "page_coverage_is_not_completion": true,
       "unresolved": [
-        "Whole textbook/workbook final cross-check",
-        "Current PCAP/engine/endpoint verification limits must remain explicit"
+        "Separate capstone workbook/score-server source-item check",
+        "PCAP, filter engine and endpoint verification limits retained"
       ],
-      "review": ".learning/reviews/day-two-labs-source-20261118.md"
+      "review": ".learning/reviews/day-two-final-goals-20261118.md",
+      "textbook_printed_range": [
+        4,
+        184
+      ],
+      "available_lab_primary_goals": 18,
+      "available_lab_extra_goals": 5
     },
     "workbook_pdf_review": {
       "date": "2026-11-18",
@@ -186,5 +194,6 @@
     },
     "workbook_coverage_history_note": "Entries below record earlier lesson-specific verification and access limits at their original dates. The current_workbook_pdf_review entry supersedes workbook-PDF access-pending statements; it does not assert a fresh PCAP, filter-engine or endpoint run."
   },
-  "next_scope": "Continue same lesson17 final whole-textbook/workbook cross-check using the newly reviewed PDF goal mapping. Preserve published supplemental guide; distinguish prior PCAP byte checks from current engine and endpoint verification limits."
+  "next_scope": "Resume publication verification for lesson17. After public page and screen checks, continue the same final audit when the separate capstone materials can be accessed.",
+  "prior_pcap_review": "See the prior day-two offline capture review; no capture was rerun in the current audit."
 }
