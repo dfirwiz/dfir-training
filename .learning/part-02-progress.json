@@ -43,12 +43,12 @@
   "next_lesson_id": 39,
   "next_printed_page": null,
   "updated": "2026-11-18",
-  "scope": "Lesson17 expanded guide published and screen-verified; original workbook/PCAP source-item audit blocked. Detailed-completed remains through16. Resume same lesson17 and final goal audit after source access is restored.",
-  "review": ".learning/reviews/day-two-17-revision-20261118.md",
+  "scope": "Four supplied lab PDFs (53 pages) directly reviewed; all 18 primary and 5 extra exercise goals mapped. Lesson17 supplemental update published and publicly verified. Whole-textbook/workbook final audit remains pending; detailed-completed remains through16.",
+  "review": ".learning/reviews/day-two-labs-source-20261118.md",
   "validation_limits": [
-    "Wireshark GUI and tcpdump/TShark execution",
-    "target VM receive behavior",
-    "bootcamp score server questions unavailable"
+    "Current six-PCAP rerun and Wireshark/tcpdump/TShark filter-engine execution not performed.",
+    "Target VM/socket/IDS/endpoint acceptance and score-server behavior not reproduced.",
+    "Physical mobile/touch/device emulation not tested; actual narrow CSS viewport checked."
   ],
   "pcap_records_offline_checked": 1067,
   "pcap_files": 6,
@@ -103,7 +103,7 @@
     ],
     "next_lesson_id": 39,
     "next_day_lesson": 17,
-    "last_review": ".learning/reviews/day-two-17-revision-20261118.md",
+    "last_review": ".learning/reviews/day-two-labs-source-20261118.md",
     "completion_rule": "Require source-topic and workbook-item mapping, detailed explanation and worked examples, targeted checks, and verified publication for each lesson. Page-range assignment and HTML checks alone do not establish content coverage.",
     "cadence": "hourly_one_lesson",
     "last_published_lesson_id": 38,
@@ -130,13 +130,22 @@
       "ipv6_principles_lesson14": "Textbook topics mapped; own IPv6 address normalization, prefix counts, modified EUI-64, header bytes, extension offsets, pseudo-header UDP checksum and jumbo lengths checked. Original workbook/PCAP item audit and actual filter-engine/endpoint/path execution remain pending.",
       "nd_principles_lesson15": "Textbook topics mapped; own solicited-node/Ethernet mapping, NS32 bytes/checksum03d6, NA flag masks, RA option lengths and lifetime units checked. DAD/NUD, on-link/default-router/address-state and current unsolicited NA rules explained. Original workbook/PCAP item audit, filter engine, actual endpoint/cache/route/RA Guard/tunnel execution remain pending.",
       "investigation_principles_lesson16": "Textbook printed175-184 directly read and image-checked. Own six-row TCP and three-row UDP ledgers, all256 flag-byte comparisons, NOTE prefix/length and timing calculations verified. Current classic/AccECN, capture scope and structured-field limits explained. Original workbook/PCAP item audit, filter engines, actual endpoint/NAT/firewall/application execution remain pending.",
-      "lesson17_synthesis": "Published expanded independent guide, calculation and public-render checks passed. Original workbook/PCAP access unavailable; whole/extra-item and final cross-source audit NOT completed. Completed lists and next39 retained."
+      "lesson17_synthesis": "Existing detailed guide retained and supplemented from all four supplied lab PDFs. All 18 primary and 5 extra goals directly mapped; publication, live bytes and desktop/narrow-screen checks passed. Whole-textbook/workbook final audit remains pending; completed lists and next39 retained.",
+      "current_workbook_pdf_review": {
+        "date": "2026-11-18",
+        "review": ".learning/reviews/day-two-labs-source-20261118.md",
+        "primary_goals": 18,
+        "extra_goals": 5,
+        "pages": 53,
+        "status": "all_supplied_pdf_goals_directly_mapped_and_lesson17_update_published",
+        "pcap_engine_endpoint_rerun": false
+      }
     },
     "remaining_render_review": [],
     "active_lesson": {
       "lesson_id": 39,
       "day_lesson": 17,
-      "status": "publication_pending",
+      "status": "final_goal_audit_pending",
       "review": ".learning/reviews/day-two-labs-source-20261118.md"
     },
     "last_publication": {
@@ -144,38 +153,38 @@
       "deployment": "success",
       "editorial_completion": false,
       "live_page": "https://dfirwiz.github.io/dfir-training/notes/39-day-two-workbook.html",
-      "verified_at": "2026-11-17T23:05:19Z",
-      "live_page_sha256": "e4b9b28e4b3ad9a68559b50e04b120aa633fcb8da98ca45f9beaeaf23877d2ed",
-      "live_index_sha256": "ceaeeee465d5ed200873aa598b2565dd3a4d44052d6b968ce3bd618f5770b013",
-      "render_review": "Actual HTTPS desktop1363x936 root1348/scroll1348. Narrow CSS454x312 at300percent zoom root449/scroll449. SVG409/640 scrollLeft230.67; table409/580 scrollLeft170.67; code409/670 scrollLeft261. Before/after screenshots inspected; restored100percent. No physical mobile, touch or device emulation."
+      "verified_at": "2026-11-18T04:02:34.286071+00:00",
+      "live_page_sha256": "a908c57f796ad8b21aca99c0d0341f702ac7dabe4dda615f0e1fc104059f5e7a",
+      "live_index_sha256": "3061254d0c6907ed7fe823343690dac2852e7de7a2fcc696813e889b86c0913f",
+      "render_review": "Actual public HTTPS desktop1363x936 root1348/scroll1348. Narrow CSS454x312 at300percent zoom root449/scroll449; new table409/580 scrollLeft170.67 and code409/454 scrollLeft45, before/after screenshots inspected. Restored100percent. No physical mobile/touch/device emulation."
     },
     "updated": "2026-11-18",
-    "publication_pending": {
-      "lesson_id": 39,
-      "stage": "awaiting_exact_pages_and_public_screen_checks"
-    },
+    "publication_pending": null,
     "last_validation_limits": [
-      "Original workbook and PCAP were not re-accessed or re-executed; earlier findings distinguished.",
-      "No tcpdump/libpcap or TShark/Wireshark filter-engine, actual endpoint/VM/NAT/firewall/application execution.",
-      "Physical mobile device, touch and device emulation not verified; actual narrow CSS viewport checked."
+      "Current six-PCAP rerun and Wireshark/tcpdump/TShark filter-engine execution not performed.",
+      "Target VM/socket/IDS/endpoint acceptance and score-server behavior not reproduced.",
+      "Physical mobile/touch/device emulation not tested; actual narrow CSS viewport checked."
     ],
     "final_goal_audit": {
       "status": "in_progress",
-      "scope": "Whole textbook and original workbook learning goals, including existing exercise-specific residual items. Finish lesson17 and resolve source-item gaps before overall completion.",
+      "scope": "Whole textbook/workbook final cross-check remains. Four supplied lab PDFs and all main/extra goals were directly reviewed and mapped; source-access blocker resolved for these PDFs. Current PCAP/engine/endpoint execution limits remain explicit.",
       "page_coverage_is_not_completion": true,
       "unresolved": [
         "Whole textbook/workbook final cross-check",
         "Current PCAP/engine/endpoint verification limits must remain explicit"
       ],
-      "review": ".learning/reviews/day-two-17-revision-20261118.md"
+      "review": ".learning/reviews/day-two-labs-source-20261118.md"
     },
     "workbook_pdf_review": {
       "date": "2026-11-18",
       "pdf_count": 4,
       "pages": 53,
       "status": "all_primary_and_extra_learning_goals_directly_compared",
-      "pcap_rerun": false
-    }
+      "pcap_rerun": false,
+      "publication_verified": true,
+      "review": ".learning/reviews/day-two-labs-source-20261118.md"
+    },
+    "workbook_coverage_history_note": "Entries below record earlier lesson-specific verification and access limits at their original dates. The current_workbook_pdf_review entry supersedes workbook-PDF access-pending statements; it does not assert a fresh PCAP, filter-engine or endpoint run."
   },
-  "next_scope": "Re-access original workbook plus six original PCAP files; finish lesson17 source-item and whole-textbook/workbook final audit. Do not regenerate the already-published guide."
+  "next_scope": "Continue same lesson17 final whole-textbook/workbook cross-check using the newly reviewed PDF goal mapping. Preserve published supplemental guide; distinguish prior PCAP byte checks from current engine and endpoint verification limits."
 }
