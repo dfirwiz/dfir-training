@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-19",
+  "updated": "2026-11-20",
   "lessons": [
     {
       "id": 1,
@@ -620,6 +620,38 @@
       ],
       "status": "published",
       "updated": "2026-11-19",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 44,
+      "slug": "44-snort-sensor-alerts",
+      "title": "Snort 센서는 패킷을 어떻게 경보로 바꿀까요?",
+      "description": "패킷 입력·재조립·규칙 평가·경보 출력의 흐름을 따라가고 가상 로그의 필드를 검산합니다.",
+      "day_lesson": 5,
+      "printed_pages": [
+        51,
+        65
+      ],
+      "day": 3,
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 45,
+      "slug": "45-snort-rule-anatomy",
+      "title": "Snort 규칙의 머리말과 검사 조건 읽기",
+      "description": "주소·방향·포트와 검사 영역을 분리해 읽고 정상 표본과 반례로 규칙의 기대 결과를 확인합니다.",
+      "day_lesson": 6,
+      "printed_pages": [
+        66,
+        77
+      ],
+      "day": 3,
+      "status": "published",
+      "updated": "2026-11-20",
       "minutes": 50,
       "editorial_status": "detailed_revision"
     }
