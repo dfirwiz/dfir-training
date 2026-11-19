@@ -14,9 +14,16 @@
   "next_lesson_id": 42,
   "next_day_lesson": 3,
   "next_printed_page": 26,
-  "publication_pending": null,
-  "review": ".learning/reviews/day-three-02-20261119.md",
-  "scope": "One lesson per update. The first two cover printed pages 4–25. Separate workbook and original captures have not been accessed; synthetic checks are recorded separately.",
+  "publication_pending": {
+    "lesson_id": 42,
+    "additional_lesson_ids": [
+      43
+    ],
+    "stage": "awaiting_pages_and_public_screen_checks",
+    "review": ".learning/reviews/day-three-03-20261119.md"
+  },
+  "review": ".learning/reviews/day-three-03-20261119.md",
+  "scope": "Up to two sequential lessons per update. Lessons 3–4 cover printed pages 26–50. Separate workbook and original captures have not been accessed; independent example checks are recorded separately.",
   "completed_printed_through": 25,
   "last_publication": {
     "lesson_id": 41,

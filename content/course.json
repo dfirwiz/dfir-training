@@ -590,6 +590,38 @@
       "updated": "2026-11-19",
       "minutes": 45,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 42,
+      "slug": "42-wireshark-object-extraction",
+      "title": "Wireshark에서 파일을 꺼내고 원본과 대조하기",
+      "description": "HTTP 객체와 SMTP 첨부를 찾아 재조립·형식·바이트 수·해시를 확인합니다.",
+      "day": 3,
+      "day_lesson": 3,
+      "printed_pages": [
+        26,
+        35
+      ],
+      "status": "published",
+      "updated": "2026-11-19",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 43,
+      "slug": "43-wireshark-incident-timeline",
+      "title": "Wireshark에서 사건의 시간순서를 재구성하기",
+      "description": "프로토콜 통계와 TCP 대화에서 출발해 HTTP·DNS·메일 단서를 가상 사건 장부에 연결합니다.",
+      "day": 3,
+      "day_lesson": 4,
+      "printed_pages": [
+        36,
+        50
+      ],
+      "status": "published",
+      "updated": "2026-11-19",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
