@@ -718,6 +718,38 @@
       "updated": "2026-11-20",
       "minutes": 50,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 50,
+      "slug": "50-dns-resolution-wire-format",
+      "title": "DNS 응답을 수집 위치와 바이트로 읽기",
+      "description": "재귀 조회와 위임을 나누고 DNS 헤더·레코드·이름 압축을 가상 응답으로 확인합니다.",
+      "day": 3,
+      "day_lesson": 11,
+      "printed_pages": [
+        115,
+        123
+      ],
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 51,
+      "slug": "51-dns-transport-byte-test",
+      "title": "DNS 수송과 잘림 표시를 검증하기",
+      "description": "UDP·TCP·암호화 DNS의 차이와 BPF·Snort의 바이트 검사를 정상 표본으로 비교합니다.",
+      "day": 3,
+      "day_lesson": 12,
+      "printed_pages": [
+        124,
+        136
+      ],
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

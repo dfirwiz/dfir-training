@@ -1,0 +1,47 @@
+<div class="callout"><span class="label">학습 범위</span><p>셋째 날 12강에서는 DNS 캡처에서 잘림 표시를 찾아 수송 방식, 리졸버의 판단, 분석기의 가시성을 구분합니다. 바이트와 결과는 정상 합성 응답의 독립 예제입니다.</p></div>
+
+<section id="question"><h2>1. 답이 짧아졌을 때 먼저 물어볼 것</h2>
+<p>단말이 이름 조회를 두 번 한 것처럼 보이는데 첫 응답은 UDP, 두 번째는 TCP입니다. 이때 두 건을 장애로 세기 전에 DNS 서버가 첫 응답에 잘림 표시를 달았는지 보세요. 큰 답변을 전부 보내기 어려우면 서버는 <code>TC</code>(Truncated) 비트로 메시지가 잘렸음을 알릴 수 있습니다. 리졸버가 TCP로 다시 물었다면 두 기록은 같은 조회를 끝내는 과정일 수 있습니다.</p>
+<p>창구에서 결과를 한 장에 다 담지 못해 별도 첨부를 안내하는 것과 비슷합니다. 하지만 TC는 DNS가 만든 표시이고, 센서가 데이터를 일부만 저장하는 일과는 다릅니다. 캡처 잘림은 원래 프레임 길이와 저장된 길이를 비교해 확인합니다. 응답이 전혀 보이지 않으면 수집 방향, 패킷 손실, 암호화, 서버 기록을 별도로 확인해야 합니다.</p>
+</section>
+
+<section id="transport"><h2>2. 같은 DNS라도 전송 방식과 옵션이 다릅니다</h2>
+<p>고전적인 DNS는 확장 없는 UDP 메시지에 512바이트 한도를 둡니다. EDNS(0)는 추가 구역의 <code>OPT</code> 의사 레코드로 요청자가 받을 수 있는 UDP DNS 메시지 크기 등을 알립니다. 가상 요청에 1232바이트가 제시되면 1232는 IP나 UDP 헤더까지 합친 길이가 아니라 DNS를 담는 UDP 페이로드 크기입니다. 이 값은 그 크기의 응답이 꼭 오거나 센서가 전부 기록한다는 의미가 아닙니다. 서버와 경로의 제한을 함께 봅니다. DNSSEC 데이터를 받고자 하는 <code>DO</code> 비트도 이 OPT에 놓일 수 있습니다. DO는 검증에 성공했다는 표시가 아닙니다.</p>
+<p>TCP로 DNS를 읽을 때는 각 DNS 메시지 앞에 2바이트 길이 접두사가 붙습니다. 예를 들어 DNS 메시지 자체가 48바이트면 TCP의 해당 메시지 앞 값은 십진 48, 16진수 <code>00 30</code>이고, TCP 스트림에서 이 구간은 2 + 48 = 50바이트입니다. TCP는 큰 응답의 재시도 외에도 평상시 사용될 수 있습니다. <code>AXFR</code>도 TCP를 사용하지만, 이것은 권한 서버 사이에서 영역의 내용을 복제하는 전체 전송입니다. TCP 53이라는 사실만으로 영역 전송이라고 판단하지 말고 요청 유형과 참여한 서버, 승인된 복제 기록을 확인합니다.</p>
+<p>IPv6 주소용 AAAA는 128비트 ÷ 8 = 16바이트, A는 32비트 ÷ 8 = 4바이트입니다. 질문 유형과 리졸버까지 가는 IP 경로는 독립적이라 IPv4로 AAAA를 질의할 수도 있어요. IPv6 역조회는 각 16진수 자리의 순서를 거꾸로 놓아 <code>ip6.arpa</code>에서 PTR을 묻습니다. 예를 들어 <code>2001:db8::1</code>의 끝 16진수 자리부터 읽으면 <code>1.0.0.0</code>으로 시작합니다. 정방향 답에 나오는 이름·주소 관계가 역조회에서도 항상 같다고 가정하지 않습니다.</p>
+</section>
+
+<section id="flags"><h2>3. 수집 파일에서 비트 위치를 확인합니다</h2>
+<p>DNS 메시지의 0, 1번은 ID이고 2, 3번은 플래그입니다. UDP 머리말은 8바이트라 <code>udp[10]</code>은 UDP 시작에서 8 + 2 = 10, 곧 DNS 플래그의 첫 바이트입니다. 첫 바이트의 최상위 비트 <code>0x80</code>은 QR, <code>0x02</code>는 TC입니다. <code>0x82</code>는 두 표시를 함께 고르는 마스크입니다. 마스크는 확인할 비트만 남기는 수이고 <code>&amp;</code>는 두 값에서 모두 1인 비트를 남기는 연산입니다.</p>
+<pre tabindex="0"><code>tcpdump -nn -r sample-dns.pcap 'ip and udp and src port 53 and (udp[10] &amp; 0x82 = 0x82)'</code></pre>
+<p><code>-r</code>은 저장 파일을 읽고, <code>-nn</code>은 이름과 서비스명 변환 없이 숫자를 표시합니다. <code>ip and udp</code>는 여기서 IPv4 UDP로 제한하고, <code>src port 53</code>은 출발 포트가 53인 것만 고릅니다. 괄호 안은 QR·TC가 모두 켜졌는지 확인합니다. 이 읽기 전용 예시는 UDP 머리말과 플래그 바이트가 보이는 경우를 가정한 후보 추출입니다. 포트와 두 비트만으로 전체 DNS 형식이 유효한지 검증할 수 없고, 잘린 캡처·다른 포트·IPv6·TCP·암호화 수송에는 그대로 적용할 수 없습니다.</p>
+<p>추출 후보를 Wireshark에서 읽을 수 있다면 <code>dns.flags.response == 1 &amp;&amp; dns.flags.truncated == 1</code>처럼 해석된 표시 필드를 비교할 수 있습니다. <code>==</code>는 같음, <code>&amp;&amp;</code>는 두 조건 모두라는 뜻입니다. 첫 단계의 BPF와 화면 표시 필터는 서로 다른 문법입니다. 필드가 비어 있으면 상태를 읽지 못했는지, 프로토콜로 해석되지 않은 것인지 확인하세요.</p>
+<p>Snort 3에서 DNS UDP 데이터가 현재 검사 버퍼의 0번부터 있다는 것을 검증했다면 다음 옵션 조각은 TC 비트만 읽습니다. <code>1</code>은 읽을 바이트 수, <code>&amp;</code>는 비트 AND 시험, <code>0x02</code>는 비교할 비트, <code>2</code>는 버퍼 시작 기준 오프셋입니다. <code>pkt_data</code>는 패킷 데이터 검사 버퍼를 선택합니다. QR과 방향 등 다른 조건은 따로 확인해야 합니다. 기본 다중 바이트 읽기는 빅엔디언이지만 여기서는 한 바이트여서 순서 영향이 없습니다. TCP 길이 접두사가 포함된 버퍼나 다른 검사기가 제공하는 버퍼의 기준점은 그대로 옮기면 안 됩니다.</p>
+<pre tabindex="0"><code>pkt_data;
+byte_test:1,&amp;,0x02,2;</code></pre>
+<div class="table-wrap" tabindex="0" role="region" aria-label="DNS 플래그 마스크 계산"><table><caption>교체한 플래그 첫 바이트로 기대 결과를 확인</caption><thead><tr><th scope="col">가상 값</th><th scope="col">의미</th><th scope="col">두 비트 마스크</th><th scope="col">TC만 검사</th></tr></thead><tbody>
+<tr><td><code>0x81</code></td><td>QR·RD</td><td><code>0x80</code>, 제외</td><td>꺼짐</td></tr>
+<tr><td><code>0x83</code></td><td>QR·TC·RD</td><td><code>0x82</code>, 선택</td><td>켜짐</td></tr>
+<tr><td><code>0x01</code></td><td>RD, 질의 방향</td><td><code>0x00</code>, 제외</td><td>꺼짐</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="trust"><h2>4. 응답이 보이는 것과 답을 신뢰하는 것은 별개입니다</h2>
+<p>가령 한 이름의 주소가 짧은 TTL로 자주 바뀐다고 해 봅시다. 이런 패턴이 악성 인프라에서도 쓰일 수 있지만 콘텐츠 전송망과 장애 조치에서도 나타납니다. 시간대별 응답 집합, 권한 영역, 알려진 서비스 정책, 종단의 후속 연결을 비교하세요. TTL이 짧다는 이유로 공격이나 감염을 판단하지 않습니다.</p>
+<p>응답이 같은 요청에 두 번 보이는 상황도 있습니다. 캡처 복제, 재시도, 비정상 응답 등 여러 원인이 있으니 관측을 기록하고 리졸버가 어떤 답을 채택했는지 확인합니다. DNS 응답 위조는 정당한 답과 다른 데이터를 보이게 하는 문제이며, 캐시 오염은 그 데이터가 리졸버에 받아들여져 이후 질의에 영향을 끼치는 문제입니다. 패킷을 봤다는 사실만으로 캐시에 들어갔다고 할 수 없습니다. 출발·목적 주소와 포트, 거래 ID와 질문, 리졸버의 로그·검증 결과를 함께 확인합니다. 올바른 응답이 나중에 보였다는 사실만으로 이미 반환한 답이 자동으로 고쳐졌다고 판단하지 않습니다.</p>
+<p>DNSSEC는 데이터 출처와 무결성을 검증할 수 있게 합니다. <code>RRSIG</code>는 레코드 집합의 서명, <code>DNSKEY</code>는 영역 공개키, <code>DS</code>는 위임에서 하위 영역 키에 연결되는 정보입니다. <code>NSEC</code> 또는 <code>NSEC3</code>는 인증된 부재 증명에 쓰입니다. 서명이 보인다는 것과 신뢰 기준점까지 연결해 유효성을 확인했다는 것은 다른 기록입니다. <code>AD</code>는 검증된 데이터 여부를 전달하는 표시가 될 수 있으나, 신뢰하는 리졸버와 채널에서 온 것인지 확인해야 합니다. DNSSEC 자체는 이름과 질의 내용을 암호화하지 않습니다.</p>
+</section>
+
+<section id="visibility"><h2>5. 암호화 DNS는 관측 지점을 바꿉니다</h2>
+<p>DoT는 DNS를 TLS 위에 두고 통상 TCP 853을 사용합니다. DoH는 HTTPS 안에서 DNS를 보내고, DoQ는 전용 QUIC 연결로 DNS를 운반합니다. DNSSEC의 검증과 수송 구간 암호화는 서로 다른 기능입니다. 범용 HTTPS나 QUIC 통신의 포트만 보고 개별 DNS 질의를 확정하거나 원문을 복원할 수 없습니다. 같은 단말이라도 운영체제 리졸버와 애플리케이션의 설정이 다를 수 있어요.</p>
+<p>조사 메모에는 센서 위치, 평문 여부, 프로토콜 해석 여부와 방향을 남기세요. 가령 “센서는 TCP 853 연결을 봤다”는 관측이고 “관리 리졸버에 암호화된 DNS를 보냈다”는 가설입니다. 단말 설정과 승인된 리졸버의 질의 로그를 봐야 확인할 수 있습니다. 예전 자료의 해석기 지원 설명은 설치한 제품과 버전의 문서로 다시 확인하세요. 구조를 해석할 수 있는 경우 이름·유형·응답 코드를 먼저 대조하면 원시 바이트 조건만 썼을 때보다 의미를 확인하기 쉽습니다.</p>
+</section>
+
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. UDP 시작에서 DNS 플래그의 첫 바이트는?</dt><dd>UDP의 8바이트에 DNS ID 2바이트를 더해 오프셋 10입니다. DNS 버퍼만 볼 때는 오프셋 2입니다.</dd>
+<dt>2. <code>0x83 &amp; 0x82</code>의 결과는?</dt><dd>0x82입니다. QR과 TC는 남고 RD는 마스크에서 선택하지 않았으므로 없어집니다.</dd>
+<dt>3. TCP 53을 보면 AXFR인가요?</dt><dd>일반 DNS 질의나 UDP 잘림 후의 재질의일 수 있습니다. 질의 유형과 복제 기록을 확인하세요.</dd>
+<dt>4. OPT가 1232이고 DO가 켜져 있으면 검증 완료인가요?</dt><dd>수신 가능 크기와 DNSSEC 데이터 요청을 본 것입니다. 검증 결과는 리졸버의 상태와 기록을 대조하세요.</dd>
+<dt>5. 같은 이름의 짧은 TTL과 주소 변경을 봤다면?</dt><dd>변경 주기와 실제 접속, 승인된 서비스 목록, 권한 응답·리졸버 기록을 비교합니다. 주소 변경만으로 원인을 정하지 않습니다.</dd>
+</dl></section>
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-20에 <a href="https://www.rfc-editor.org/rfc/rfc1035">DNS 형식</a>, <a href="https://www.rfc-editor.org/rfc/rfc6891">EDNS</a>, <a href="https://www.rfc-editor.org/rfc/rfc7766">DNS의 TCP 수송</a>, <a href="https://www.rfc-editor.org/rfc/rfc5936">AXFR</a>, <a href="https://www.rfc-editor.org/rfc/rfc3596">IPv6 DNS</a>, <a href="https://www.rfc-editor.org/rfc/rfc4033">DNSSEC</a> 및 <a href="https://www.rfc-editor.org/rfc/rfc4035">DNSSEC 검증 플래그</a>, <a href="https://www.rfc-editor.org/rfc/rfc5452">DNS 응답 검증</a>, <a href="https://www.rfc-editor.org/rfc/rfc7858">DoT</a>, <a href="https://www.rfc-editor.org/rfc/rfc8484">DoH</a>, <a href="https://www.rfc-editor.org/rfc/rfc9250">DoQ</a>를 확인했습니다. <a href="https://github.com/the-tcpdump-group/libpcap/blob/master/pcap-filter.manmisc.in">libpcap 필터 문서</a>, <a href="https://www.wireshark.org/docs/dfref/d/dns.html">Wireshark의 DNS 필드</a>, Snort 3의 <a href="https://docs.snort.org/rules/options/payload/pkt_data">패킷 데이터</a>·<a href="https://docs.snort.org/rules/options/payload/byte_test">바이트 검사</a>도 확인했습니다. 이 예시의 도구 명령이나 엔진은 실행하지 않았고 바이트와 마스크의 기대 결과를 독립 검산했습니다.</p></section>

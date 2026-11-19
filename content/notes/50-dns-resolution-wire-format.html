@@ -1,0 +1,59 @@
+<div class="callout"><span class="label">학습 범위</span><p>셋째 날 11강에서는 이름 조회가 어디서 끝났는지 찾고, DNS의 네 구역과 이름 압축을 한 바이트씩 읽습니다. 주소·도메인·바이트열은 모두 독립적인 교육 예제입니다.</p></div>
+
+<section id="resolution"><h2>1. 주소가 필요해진 순간부터 수집 위치를 나눕니다</h2>
+<p>운영팀에서 <code>status.example</code>에 접속할 수 없다는 신고를 받았다고 해 보세요. 단말에서 이름 질의는 보이는데, 리졸버 외부 링크에서는 그 이름을 찾을 수 없습니다. 그럼 질의가 버려졌을까요? 리졸버가 이전에 저장해 둔 답을 바로 사용했다면 상위 서버로 나가는 질의는 생기지 않습니다.</p>
+<p>안내 데스크가 답을 알고 있으면 바로 알려 주고, 모르면 해당 부서 연락처를 찾아주는 상황과 비슷합니다. DNS에서는 단말의 스텁 리졸버가 보통 재귀 리졸버에 최종 답을 요청합니다. 재귀 리졸버는 캐시 또는 로컬 데이터를 먼저 확인할 수 있습니다. 아직 모르면 루트, 최상위 도메인, 대상 영역의 권한 서버로 이어지는 안내를 따라갑니다. 환경에 따라 상위 전달 리졸버가 이 일을 맡기도 합니다. 비유와 달리 저장된 각 답에는 유효 시간인 TTL이 있고, 어떤 응답은 답 대신 위임 정보를 전달합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="DNS 수집 위치와 관측 대상"><table><caption>같은 이름 조회라도 수집 위치별로 보이는 메시지</caption><thead><tr><th scope="col">방향</th><th scope="col">가상 상황</th><th scope="col">관측으로 말할 수 있는 것</th></tr></thead><tbody>
+<tr><td>단말 → 재귀 리졸버</td><td>주소를 묻는 <code>A</code> 질의</td><td>단말 측에서 리졸버로 보낸 요청입니다.</td></tr>
+<tr><td>상위 서버 → 재귀 리졸버</td><td>위임 영역의 NS와 그 서버에 닿기 위한 주소</td><td>다음에 어느 권한 서버를 확인할지에 관한 정보입니다.</td></tr>
+<tr><td>재귀 리졸버 → 단말</td><td>캐시 또는 상위 단계에서 얻은 A 응답</td><td>단말이 받은 조회 결과입니다. 캐시 여부는 리졸버 기록으로 확인합니다.</td></tr>
+<tr><td>단말 → 서비스</td><td>이후 연결이 있을 수도 있음</td><td>DNS 응답만으로는 실제 연결을 확인할 수 없습니다.</td></tr>
+</tbody></table></div>
+<p>위임에 필요한 NS는 보통 권한 구역에, 그 서버에 접근할 주소는 추가 구역에 붙을 수 있습니다. 이 주소를 글루(glue)라고 부르는 경우는 위임을 따라가는 데 필요한 주소를 상위 영역이 제공할 때입니다. 추가 구역에 주소가 있다는 사실만으로 그 주소를 질의한 이름의 답으로 처리하면 안 됩니다. 영역은 서버가 권한을 갖고 관리하는 이름 공간의 범위입니다.</p>
+</section>
+
+<section id="message"><h2>2. 고정 머리말과 그 뒤에 오는 네 구역을 읽습니다</h2>
+<p>DNS 메시지 처음 12바이트에는 16비트 값 여섯 개가 있습니다. ID와 플래그, 그리고 질문·답·권한·추가 구역의 항목 수입니다. <code>QR</code>은 조회와 응답, <code>Opcode</code>는 작업 종류, <code>AA</code>는 권한 응답 표시, <code>TC</code>는 잘림, <code>RD</code>는 재귀 요청, <code>RA</code>는 재귀 응답 가능 여부, <code>RCODE</code>는 결과 코드입니다. 예약 비트와 현대 DNSSEC 관련 <code>AD</code>·<code>CD</code> 비트는 적용 맥락을 확인하세요. 네 개의 수는 바이트 수가 아니라 항목 개수입니다. 그 뒤는 가변 길이여서 각 이름과 레코드를 읽어야 다음 경계를 찾습니다.</p>
+<figure><div class="table-wrap" tabindex="0" role="region" aria-label="DNS 메시지의 고정 머리말">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 190" width="720" height="190" style="width:100%;min-width:650px;height:auto;display:block" role="img" aria-labelledby="dns-header-title dns-header-desc">
+<title id="dns-header-title">DNS 메시지 첫 12바이트</title><desc id="dns-header-desc">왼쪽에서 오른쪽으로 ID, 플래그, 질문 수, 답 수, 권한 수, 추가 수가 2바이트씩 배치되고 오프셋 12에서 가변 구역이 시작한다.</desc>
+<rect x="1" y="1" width="718" height="188" rx="12" fill="#111d2e" stroke="#39536c"/>
+<g fill="#e3edf8" font-family="sans-serif" font-size="17"><text x="25" y="34">DNS 메시지 시작 → 바이트 오프셋</text><text x="25" y="70">0</text><text x="131" y="70">2</text><text x="237" y="70">4</text><text x="343" y="70">6</text><text x="449" y="70">8</text><text x="555" y="70">10</text><text x="661" y="70">12</text></g>
+<g fill="#224257" stroke="#80dccc" stroke-width="2"><rect x="25" y="80" width="636" height="48"/><path d="M131 80v48m106 -48v48m106 -48v48m106 -48v48m106 -48v48" fill="none"/></g>
+<g fill="#fff" text-anchor="middle" font-size="16" font-family="sans-serif"><text x="78" y="111">ID</text><text x="184" y="111">플래그</text><text x="290" y="111">질문 수</text><text x="396" y="111">답 수</text><text x="502" y="111">권한 수</text><text x="608" y="111">추가 수</text></g>
+<text x="25" y="159" fill="#c8e2ed" font-family="sans-serif" font-size="15">민트 칸 · 각각 2바이트. 12부터 질문·답·권한·추가 구역을 차례로 읽습니다.</text></svg></div><figcaption>기준 0은 DNS 메시지의 처음입니다. Ethernet, IP, UDP 머리말의 시작과 섞지 않습니다.</figcaption></figure>
+<p>질문에는 <code>QNAME</code>(이름), <code>QTYPE</code>(요청한 유형), <code>QCLASS</code>(클래스)가 있습니다. 답·권한·추가 구역에 들어가는 리소스 레코드(RR)는 일반적으로 이름, TYPE, CLASS, TTL, RDLENGTH, RDATA를 가집니다. TTL은 캐시용 초 단위 수, RDLENGTH는 바로 뒤 데이터의 바이트 수이며 RDATA의 구조는 유형별로 다릅니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="기본 DNS 레코드 유형"><table><caption>레코드 유형은 값의 역할도 알려 줍니다</caption><thead><tr><th scope="col">유형</th><th scope="col">결과</th></tr></thead><tbody>
+<tr><th scope="row">A / AAAA</th><td>IPv4 주소 4바이트 또는 IPv6 주소 16바이트를 반환합니다.</td></tr>
+<tr><th scope="row">CNAME</th><td>별칭을 정식 이름으로 연결합니다. 숫자 주소를 직접 담는 유형과 다릅니다.</td></tr>
+<tr><th scope="row">MX</th><td>메일 수신 서버의 이름과 선택 우선순위를 알립니다.</td></tr>
+<tr><th scope="row">NS</th><td>영역의 권한 이름 서버를 가리킵니다.</td></tr>
+<tr><th scope="row">PTR</th><td>지정한 이름의 포인터입니다. 역방향 주소 조회에 주로 사용합니다.</td></tr>
+<tr><th scope="row">SOA</th><td>영역의 기준 정보입니다. 주 서버, 일련번호와 복제·캐시 관련 시간 등도 포함합니다.</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="example"><h2>3. 가상 응답을 바이트 단위로 따라가 봅니다</h2>
+<p>가상 단말 <code>192.0.2.36:53000</code>이 리졸버 <code>192.0.2.53:53</code>에 <code>status.example.</code>의 A를 물었습니다. 거래 ID인 <code>0x1a2b</code>는 26 × 256 + 43 = 6699입니다. 로그가 <code>6699+ A?</code>처럼 보인다면 이 표기에서 <code>+</code>는 재귀 요청, <code>A?</code>는 질문 유형을 말합니다. 반대 방향 응답에 <code>6699 1/0/0</code>처럼 나오면 답 1개, 권한 0개, 추가 0개입니다. 이 표시는 읽기 예제이며 명령 실행 출력이 아닙니다. 관측 지점·시간·방향·포트·질문 이름과 유형도 같이 연결합니다.</p>
+<pre tabindex="0"><code>가상 DNS 응답 · 16진수 · IP/UDP 머리말 제외
+ID·플래그·구역 수   1a 2b 81 80 00 01 00 01 00 00 00 00
+질문                06 73 74 61 74 75 73 07 65 78 61 6d 70 6c 65 00 00 01 00 01
+답                  c0 0c 00 01 00 01 00 00 00 3c 00 04 c6 33 64 2a</code></pre>
+<p>질문의 <code>06</code>은 <code>status</code>의 6글자 길이, <code>07</code>은 <code>example</code>의 7글자 길이, <code>00</code>은 이름 끝을 뜻합니다. 따라서 이름은 (1 + 6) + (1 + 7) + 1 = 16바이트입니다. 유형과 클래스가 2바이트씩이라 질문은 20바이트이고, 첫 답은 12 + 20 = 32번 위치에 시작합니다.</p>
+<p>답의 <code>c0 0c</code>는 이름을 다시 적는 대신 전에 나온 이름의 위치를 참조합니다. 첫 두 비트 <code>11</code>이 포인터 표시이고 나머지 14비트 값은 <code>0x000c</code>, 즉 DNS 시작부터 12바이트인 질문 이름의 시작점입니다. 포인터 자체는 2바이트이므로 그 뒤에서 TYPE을 읽습니다. <code>00 01</code>은 A와 IN(인터넷 클래스), TTL <code>00 00 00 3c</code>은 60초입니다. RDLENGTH <code>00 04</code> 다음의 <code>c6 33 64 2a</code>는 십진수 198, 51, 100, 42로 <code>198.51.100.42</code>입니다. 답은 2 + 2 + 2 + 4 + 2 + 4 = 16바이트, 메시지는 12 + 20 + 16 = 48바이트입니다.</p>
+</section>
+
+<section id="investigation"><h2>4. 답이 비어 있을 때 DNS 상황을 나눠 기록합니다</h2>
+<p>만약 <code>ANCOUNT</code>가 0이라면, 먼저 결과 코드와 나머지 구역을 보세요. <code>NOERROR</code>이며 Authority에 위임 NS가 있다면 다음 서버로 안내하는 응답일 수 있습니다. 존재하는 이름에서 요청한 유형만 없을 때도 답은 비어 있을 수 있고, <code>NXDOMAIN</code>은 이름이 존재하지 않는다는 결과입니다. <code>SERVFAIL</code>은 서버가 질의를 처리하지 못했다는 뜻이므로 원인은 서버 기록에서 확인합니다. TCP로 다시 조회하거나 부정 응답을 캐시하는 경우도 있어 후속 기록까지 봐야 합니다.</p>
+<p>같은 ID가 다른 거래에서 재사용될 수 있습니다. 응답 단독으로 원인을 확정하지 말고, 앞뒤의 질의와 응답 방향, 클라이언트가 문의한 리졸버, 이름·유형·시간을 확인하세요. 리졸버가 반환한 답과 클라이언트의 실제 연결도 별도 단계로 남깁니다. 암호화된 DNS 채널에서는 평문의 필드나 이름을 볼 수 없는 구간이 있으므로 승인된 리졸버·단말 로그에서 관측을 보충합니다.</p>
+</section>
+
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. 단말은 DNS 답을 받았는데 외부 링크에 같은 질의가 없다면?</dt><dd>캐시·로컬 데이터·별도 전달 경로를 확인합니다. 센서 위치와 리졸버 기록으로 구분하세요.</dd>
+<dt>2. <code>c0 0c</code>가 가리키는 위치는?</dt><dd>DNS 메시지 시작에서 12번 바이트입니다. Ethernet 프레임 시작이나 IP 시작에서 센 숫자가 아닙니다.</dd>
+<dt>3. 질문 이름의 글자 길이 합은 13인데 이름이 왜 16바이트인가요?</dt><dd>두 레이블의 길이 표시 2바이트와 종료 1바이트가 더해집니다.</dd>
+<dt>4. 답 구역이 비어 있으면 항상 이름이 없나요?</dt><dd>위임, 해당 유형 부재, 오류가 모두 가능합니다. 결과 코드와 권한 구역 및 질의 내용을 확인합니다.</dd>
+<dt>5. 응답 주소가 확인되면 해당 서비스에 연결했다고 쓸 수 있나요?</dt><dd>조회 결과까지 관측했습니다. 이후 흐름이나 종단 기록으로 접속을 확인합니다.</dd>
+</dl></section>
+
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-20에 <a href="https://www.rfc-editor.org/rfc/rfc9499">RFC 9499 DNS 용어</a>, <a href="https://www.rfc-editor.org/rfc/rfc1035">RFC 1035 DNS 메시지 형식</a>, <a href="https://www.rfc-editor.org/rfc/rfc3596">RFC 3596 IPv6 주소 레코드</a>, <a href="https://man.openbsd.org/tcpdump">tcpdump 매뉴얼</a>을 참고했습니다. 합성 바이트는 독립 검산했으며 원본 캡처나 탐지 엔진을 실행하지 않았습니다.</p></section>
