@@ -750,6 +750,38 @@
       "updated": "2026-11-20",
       "minutes": 50,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 52,
+      "slug": "52-alert-log-triage",
+      "title": "경보 로그를 집계하고 조사 순서를 정하기",
+      "description": "Snort와 Suricata 등의 경보를 읽고 가상 기록을 규칙·목적지·흐름별로 집계합니다.",
+      "day": 3,
+      "day_lesson": 13,
+      "printed_pages": [
+        137,
+        141
+      ],
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 53,
+      "slug": "53-capture-protocol-research",
+      "title": "저장된 캡처에서 연결과 프로토콜 확인하기",
+      "description": "SYN과 SYN/ACK의 방향, 저장 파일 필터, 응용 메시지와 서버 기록을 연결합니다.",
+      "day": 3,
+      "day_lesson": 14,
+      "printed_pages": [
+        142,
+        148
+      ],
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

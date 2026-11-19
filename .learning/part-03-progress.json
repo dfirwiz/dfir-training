@@ -34,9 +34,16 @@
   "next_lesson_id": 52,
   "next_day_lesson": 13,
   "next_printed_page": 137,
-  "publication_pending": null,
-  "review": ".learning/reviews/day-three-12-20261120.md",
-  "scope": "Lessons 11–12 cover printed pages 115–136. Separate workbook and original captures were not accessed. Independent byte checks are recorded separately.",
+  "publication_pending": {
+    "lesson_id": 52,
+    "additional_lesson_ids": [
+      53
+    ],
+    "stage": "awaiting_pages_and_public_screen_checks",
+    "review": ".learning/reviews/day-three-13-20261120.md"
+  },
+  "review": ".learning/reviews/day-three-13-20261120.md",
+  "scope": "Lessons 13–14 cover printed pages 137–148. Separate workbook and original captures were not accessed. Synthetic log command and independent byte checks are recorded separately.",
   "completed_printed_through": 136,
   "last_publication": {
     "lesson_id": 51,

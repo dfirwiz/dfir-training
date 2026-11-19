@@ -1,0 +1,36 @@
+<div class="callout"><span class="label">학습 범위</span><p>셋째 날 14강에서는 권한을 갖고 이미 수집한 캡처의 TCP 포트를 조사하고, 연결 상태와 응용 프로토콜의 증거를 분리합니다. 아래 주소와 연결 기록은 독립적인 가상 표본입니다.</p></div>
+<section id="question"><h2>1. 포트가 예상과 다를 때 어디부터 확인할까요?</h2>
+<p>서버의 TCP 8088로 통신이 있었다는 기록이 있습니다. 인벤토리에는 이 번호에 대한 설명이 없어요. 포트 이름표부터 확인할 수 있지만, 애플리케이션이 기본값을 바꾸거나 프록시가 같은 포트에서 여러 서비스를 내보낼 수 있습니다. 분석할 파일에서 먼저 기본적인 연결이 보이는지 확인하고, 이어서 서버 역할과 메시지 구조를 찾아봅시다.</p>
+<p>문 앞에 붙은 번호를 생각해 보세요. 호수를 알면 어디인지 찾기는 편하지만, 안에서 어떤 일을 하는지는 문패와 실제 기록을 함께 봐야 합니다. 네트워크 주소에는 NAT나 프록시 때문에 관측 위치마다 다른 번호가 보일 수 있다는 차이까지 있습니다. IANA 등록은 표준 이름을 찾으려는 첫 단서이고, 이 연결에서 실제로 사용된 프로토콜은 따로 확인합니다.</p>
+</section>
+<section id="handshake"><h2>2. 접속 시도와 응답 방향에서 다른 단서를 얻습니다</h2>
+<p>TCP의 최초 <code>SYN</code>은 연결 시작 요청이며 목적 포트가 이 방향에서 찾는 서비스 후보입니다. 서버 쪽의 <code>SYN/ACK</code>은 반대 방향으로 오므로 출발 포트가 후보입니다. 마지막 <code>ACK</code>까지 맞아야 센서에서 세 방향 메시지를 확인했다고 말할 수 있습니다. 이 마지막 메시지에도 데이터가 있을 수 있습니다. SYN/ACK 하나를 보았어도 프록시나 방화벽이 대신 응답했을 수 있고, 응용이 요청을 받아 처리했다는 증거는 아닙니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="가상 연결의 관측 증거"><table><caption>같은 목적 포트에서 무엇까지 확인했는지 비교</caption><thead><tr><th scope="col">표본</th><th scope="col">가상 관측</th><th scope="col">남길 해석</th></tr></thead><tbody>
+<tr><td>A</td><td><code>192.0.2.21:51000</code> → <code>198.51.100.88:8088</code>의 SYN, 반대 방향 SYN/ACK, 마지막 ACK, 정상 HTTP 요청·응답</td><td>센서가 연결과 응용 왕복까지 관측했습니다.</td></tr>
+<tr><td>B</td><td><code>192.0.2.22:51001</code> → 같은 목적지의 같은 순서 번호 SYN 두 개</td><td>동일 시도의 재전송 후보입니다. 응답이 캡처 범위 밖이었는지 확인합니다.</td></tr>
+<tr><td>C</td><td><code>192.0.2.23:51002</code>의 SYN과 반대 방향 SYN/ACK만 보임</td><td>응답은 관측했습니다. 연결 완료와 응용 사용은 추가 증거가 필요합니다.</td></tr>
+</tbody></table></div>
+<p>이 표본에서 8088로 향한 SYN은 네 줄입니다. A와 C가 한 줄씩, B가 두 줄입니다. 서로 다른 출발 연결 후보는 세 개이고 응용 요청·응답을 본 것은 A 한 건입니다. B의 중복을 판정할 때는 TCP 순서 번호, 시간과 주소·포트를 같이 보세요. 일치하지 않는 나중 시도나 같은 포트 재사용은 별개일 수 있습니다.</p>
+</section>
+<section id="filter"><h2>3. 먼저 저장 파일에서 후보를 좁힙니다</h2>
+<p>TCP 헤더의 플래그 바이트는 TCP의 시작을 0으로 셌을 때 13번입니다. 예제의 비트 마스크 <code>0x3f</code>는 하위 6비트를 남기고 나머지를 비교에서 제외합니다. <code>0x02</code>는 그 범위의 SYN, <code>0x12</code>는 SYN 0x02와 ACK 0x10을 합친 값입니다. 예를 들어 <code>0xc2</code>는 상위 비트와 SYN이 켜져 있어도 <code>0xc2 &amp; 0x3f</code>가 0x02입니다. 하위 비트만 비교했으므로 모든 플래그가 정확히 SYN 하나라는 설명은 피해야 합니다.</p>
+<pre tabindex="0"><code>tcpdump -nn -r sample-connections.pcap 'ip and tcp and (tcp[13] &amp; 0x3f = 0x02)'
+tcpdump -nn -r sample-connections.pcap 'ip and tcp and (tcp[13] &amp; 0x3f = 0x12)'
+tcpdump -r sample-connections.pcap -w only-8088.pcap 'tcp port 8088'
+tshark -r sample-connections.pcap -Y 'tcp.port == 8088' -w only-8088.pcapng</code></pre>
+<p><code>-r</code>은 저장 파일을 읽고 <code>-nn</code>은 주소와 포트를 숫자로 보여 줍니다. <code>ip and tcp</code>로 시작한 첫 두 줄은 이 예제에서 IPv4 TCP 후보를 봅니다. <code>tcp[13]</code>은 TCP 헤더 기준 바이트이고, <code>&amp;</code>는 마스크와의 비트 AND입니다. PCAP에 TCP 헤더가 충분히 있어야 하며, IPv6 확장 헤더·조각이나 손상된 입력에 이 오프셋 식을 일반화하면 안 됩니다.</p>
+<p><code>-w</code>는 화면 대신 새 캡처 파일에 기록합니다. libpcap의 <code>tcp port 8088</code>은 TCP의 출발 또는 목적 포트 8088을, TShark의 <code>-Y</code>는 Wireshark 표시 필터를 적용합니다. 포트로 뽑은 파일만 보면 다른 연결이나 선행 DNS·프록시 흐름을 놓치므로 원본과 추출 조건을 보존하세요. 파일을 시간이나 프레임 번호로 자를 때는 <code>editcap</code>을 사용할 수 있고, 시간으로 잘라도 연결 시작이 보존되는지는 따로 확인해야 합니다. 여기서는 패킷을 송신하지 않고 저장 데이터를 읽는 예만 보여 줍니다.</p>
+</section>
+<section id="protocol"><h2>4. 실제 응용 메시지와 서버 기록으로 확인합니다</h2>
+<p>일부 프로토콜에는 평문 명령이나 응답 코드가 나옵니다. 예를 들어 SMTP는 메일 전송 대화, IMAP·POP는 메일함 접근, FTP는 명령 연결과 데이터 연결, Syslog는 로그 메시지에 관한 구조가 있습니다. Telnet에서도 사람이 읽을 수 있는 부분이 보일 수 있지만 협상 바이트가 섞일 수 있습니다. 읽기 쉬운 일부 문자열만으로 형식 전체를 정하지 마세요. SMTP처럼 연결 중에 TLS로 바뀌는 경우에는 전환 이후에 보이는 범위가 달라집니다. 반대로 평문으로 보이지 않는 바이트라도 암호화가 아닌 이진 프로토콜일 수 있습니다.</p>
+<p>가상 A에서는 <code>GET /health HTTP/1.1</code> 요청과 반대 방향의 <code>HTTP/1.1 200 OK</code>가 같은 흐름에 있는지 확인합니다. 요청 대상과 응답으로 HTTP/1.1 가설을 지지합니다. 한 줄이 단순히 다른 로그 데이터에 포함될 수도 있으므로 메시지 경계와 여러 교환의 일관성을 확인하세요. Wireshark 자동 해석이 비어 있으면 승인된 오프라인 파일에서 재조립 상태와 <em>Decode As</em>의 가정을 기록하고 표준 형식에 대조합니다. 강제로 해석했을 때 필드가 만들어지는 것만으로는 프로토콜의 증거가 충분하지 않습니다.</p>
+<p>최종 보고에는 관측 시각과 구간, 연결과 응용 확인 수준, 해석하지 못한 이유를 적습니다. 예를 들어 “A에서 평문 HTTP 형식과 200을 관측했다. 업무상 상태 점검인지는 서버 라우팅 및 단말 프로세스 기록에서 확인한다”라고 남깁니다. B에서 응답이 없으면 방화벽과 서버의 접속 기록을 비교해 실제 미응답과 수집 누락을 나눕니다. 포트 목록만으로 검색 목적이나 침해 여부를 판정하지 않습니다.</p>
+</section>
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. 최초 SYN에서 어느 포트가 서비스 후보인가요?</dt><dd>이 방향의 목적 포트입니다. 뒤따르는 SYN/ACK에서는 반대로 출발 포트가 후보입니다.</dd>
+<dt>2. 같은 SYN이 두 번 보이면?</dt><dd>경보나 패킷 줄은 두 줄일 수 있지만, 같은 주소·포트와 순서 번호라면 재전송 가능성을 확인한 뒤 연결 수를 셉니다.</dd>
+<dt>3. <code>0xc2 &amp; 0x3f</code>가 0x02인 이유는?</dt><dd>상위 두 비트는 마스크 값이 0이라 없어지고, 하위 범위에서 SYN 비트만 남습니다.</dd>
+<dt>4. 같은 포트에 TLS만 보이면 응용 이름을 알 수 있나요?</dt><dd>TLS 후보의 관측은 기록할 수 있습니다. 전환 전 메시지, 종단·서버 로그와 구성까지 확인해야 실제 응용을 판단할 수 있습니다.</dd>
+<dt>5. 추출 파일을 분석했더니 SYN/ACK가 보이지 않습니다. 접속이 실패했나요?</dt><dd>파일의 필터 조건이나 수집 방향, 시간 범위, 재조립에 필요한 데이터부터 확인하세요. 이 관측만으로 실패를 확정할 수 없습니다.</dd>
+</dl></section>
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-20에 <a href="https://www.rfc-editor.org/rfc/rfc9293">RFC 9293 TCP</a>, <a href="https://www.iana.org/assignments/service-names-port-numbers/service-names-port-numbers.xhtml">IANA 서비스·포트 등록</a>, <a href="https://github.com/the-tcpdump-group/libpcap/blob/master/pcap-filter.manmisc.in">libpcap 필터 문서</a>, <a href="https://www.wireshark.org/docs/man-pages/tshark.html">TShark</a>, <a href="https://www.wireshark.org/docs/man-pages/editcap.html">editcap</a>와 <a href="https://www.wireshark.org/docs/wsug_html_chunked/ChCustProtocolDissectionSection.html">Wireshark 프로토콜 해석 설정</a>, <a href="https://www.rfc-editor.org/rfc/rfc3207">SMTP STARTTLS</a>를 확인했습니다. 명령은 예시이며 플래그·연결 집계만 합성 수치로 독립 검산했습니다.</p></section>

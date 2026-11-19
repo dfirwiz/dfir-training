@@ -1,0 +1,48 @@
+<div class="callout"><span class="label">학습 범위</span><p>셋째 날 13강에서는 경보 기록을 빈도, 우선순위, 관련 호스트로 나눠 읽습니다. 아래 주소와 이벤트는 실제 탐지 로그에서 가져오지 않은 독립 가상 표본입니다.</p></div>
+<section id="question"><h2>1. 경보가 가장 많이 뜬 규칙부터 조사하면 될까요?</h2>
+<p>아침 근무를 시작했더니 상태 수집 서비스 쪽으로 경보가 몰렸습니다. 맨 위에 온 규칙은 백 번 발생했고, 다른 규칙은 한 번뿐입니다. 발생 수는 규모를 알려 주지만, 어느 경보가 중요할지는 규칙의 의도와 시스템 역할을 알아야 판단할 수 있습니다. 백 번이 모두 같은 자동 점검일 수 있고, 한 번은 중요한 서버에서 평소와 다른 연결을 포착한 것일 수 있어요.</p>
+<p>수리점의 접수 장부라고 생각해 봅시다. 같은 고객의 전화가 세 번 적혔다고 세 대가 고장 난 것은 아니죠. 네트워크 장부에서는 한 TCP 연결의 여러 패킷, 규칙 여러 개, 또는 센서 여러 대가 서로 다른 줄을 남길 수 있습니다. 한 줄을 셌는지, 서로 다른 흐름을 셌는지, 어느 호스트가 관련됐는지 분리해서 말해야 합니다.</p>
+</section>
+<section id="fields"><h2>2. 서로 다른 로그의 필드를 조사 목적에 맞춰 구분합니다</h2>
+<p>Snort 3의 <code>alert_json</code>은 구성한 필드에 따라 사건 시각, 주소·포트, 규칙 식별자 등을 JSON으로 내보낼 수 있습니다. Snort의 규칙 표기에서 생성기 ID, 규칙 ID, 개정 번호를 구분해서 규칙의 설명과 조건을 찾아봅니다. Suricata의 EVE는 <code>event_type</code>으로 <code>alert</code>, <code>flow</code> 등 이벤트 종류를 나누고, 설정과 기록에 따라 <code>flow_id</code>를 연결 단서로 씁니다. Cisco 관리 화면의 침입 이벤트는 제품의 열과 내보내기 설정을 확인해야 합니다. 이름이 닮은 필드라도 제품이 정한 우선순위와 센서가 본 방향을 각자 확인하세요.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="경보 조사 필드"><table><caption>경보를 읽을 때 먼저 고정할 기준</caption><thead><tr><th scope="col">질문</th><th scope="col">확인할 값</th><th scope="col">실수하기 쉬운 점</th></tr></thead><tbody>
+<tr><td>어떤 규칙인가요?</td><td>엔진·센서와 규칙 식별자·개정</td><td>메시지 문구가 같아도 조건이나 개정이 다를 수 있습니다.</td></tr>
+<tr><td>얼마나 반복되나요?</td><td>동일 기간의 이벤트 줄 수와 흐름 수</td><td>경보 줄 수를 피해 단말 수로 읽지 않습니다.</td></tr>
+<tr><td>어떤 시스템이 관련됐나요?</td><td>출발·목적 주소, 방향, NAT·자산·시간 정보</td><td>같은 목적지가 곧 같은 사용자나 다음 조사 대상이라는 뜻은 아닙니다.</td></tr>
+<tr><td>우선 확인할 것은 무엇인가요?</td><td>규칙 설정과 제품의 심각도, 자산의 업무 영향, 다른 기록</td><td>출고 우선순위는 조사 순서를 정하는 자료 중 하나입니다.</td></tr>
+</tbody></table></div>
+</section>
+<section id="example"><h2>3. 가상 장부를 직접 집계합니다</h2>
+<p>각 줄이 JSON 객체 하나인 아래 표본을 <code>sample-eve.jsonl</code>로 저장하는 상황입니다. 숫자 <code>severity</code>는 이 연습에서 1을 3보다 높은 우선순위로 해석합니다. 주소는 문서용이고, 모든 시각은 <code>Z</code>가 붙은 UTC입니다. 교육을 위해 필요한 필드만 실었습니다. 같은 센서·같은 파일에서만 <code>flow_id</code>를 비교합니다.</p>
+<pre tabindex="0"><code>{"timestamp":"2026-11-20T08:00:00Z","event_type":"alert","flow_id":7001,"src_ip":"192.0.2.22","dest_ip":"198.51.100.40","alert":{"signature_id":1000052,"severity":3}}
+{"timestamp":"2026-11-20T08:00:01Z","event_type":"alert","flow_id":7001,"src_ip":"192.0.2.22","dest_ip":"198.51.100.40","alert":{"signature_id":1000052,"severity":3}}
+{"timestamp":"2026-11-20T08:00:02Z","event_type":"alert","flow_id":7002,"src_ip":"192.0.2.23","dest_ip":"198.51.100.40","alert":{"signature_id":1000052,"severity":3}}
+{"timestamp":"2026-11-20T08:00:03Z","event_type":"alert","flow_id":7003,"src_ip":"192.0.2.22","dest_ip":"198.51.100.41","alert":{"signature_id":1001052,"severity":1}}
+{"timestamp":"2026-11-20T08:00:05Z","event_type":"flow","flow_id":7001,"src_ip":"192.0.2.22","dest_ip":"198.51.100.40"}</code></pre>
+<pre tabindex="0"><code>jq -r 'select(.event_type == "alert") | [.alert.signature_id, .alert.severity, .dest_ip, .flow_id] | @tsv' sample-eve.jsonl &gt; alerts.tsv
+cut -f 1 alerts.tsv | sort | uniq -c | sort -nr
+cut -f 3 alerts.tsv | sort | uniq -c | sort -nr
+cut -f 1,4 alerts.tsv | sort -u | cut -f 1 | sort | uniq -c | sort -nr
+grep -F '198.51.100.41' alerts.tsv</code></pre>
+<p><code>jq</code>가 구조를 읽고 <code>select</code>가 경보만 골라냅니다. 대괄호 안은 필요한 네 필드를 순서대로 묶습니다. <code>@tsv</code>는 탭으로 나눈 행, <code>-r</code>은 그 행을 JSON 따옴표 없이 출력합니다. 셸의 <code>&gt;</code>는 결과를 파일에 씁니다. <code>cut -f 1</code>은 탭으로 구분된 첫 열을 고릅니다. 중간의 <code>sort</code>가 같은 값을 붙여 주면 <code>uniq -c</code>가 연속 줄을 셉니다. 마지막 <code>sort -nr</code>은 줄 앞의 수를 큰 순서대로 정렬합니다. <code>sort -u</code>는 규칙·흐름 두 값의 조합을 중복 없이 남깁니다. <code>grep -F</code>는 점을 정규식 기호가 아닌 글자 그대로 취급하는 빠른 확인입니다. 주소 필드의 완전 일치가 필요하다면 부분 문자열 검색 대신 구조를 읽어 비교하세요.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="합성 경보의 실제 집계 결과"><table><caption>가상 표본에서 집계 단위를 바꿔 본 결과</caption><thead><tr><th scope="col">단위</th><th scope="col">결과</th><th scope="col">해석</th></tr></thead><tbody>
+<tr><td>규칙별 경보 행</td><td>1000052 3건, 1001052 1건</td><td>전체 4건 중 3건이 한 규칙입니다.</td></tr>
+<tr><td>목적지별 경보 행</td><td>198.51.100.40 3건, 198.51.100.41 1건</td><td>주소별로 경보가 몰린 곳을 확인했습니다.</td></tr>
+<tr><td>규칙별 서로 다른 흐름</td><td>1000052 2개, 1001052 1개</td><td>동일 규칙의 7001에 경보 두 줄이 있었습니다.</td></tr>
+</tbody></table></div>
+<p>다섯 번째 줄은 <code>flow</code>라 경보 네 줄에 더하지 않았습니다. 여러 센서를 합칠 때는 엔진·센서·수집 시간과 주소 변환을 확인하고 새로 만든 규칙보다 이전 개정이 포함되지 않았는지 봅니다. 집계 시간이 같아 보여도 소스 시각과 수집 시각이 다를 수 있습니다. 중복처럼 보이는 행도 독립 센서에서 얻은 별도 관측일 수 있으니 원본을 보존하고 복제본에서 집계하세요.</p>
+</section>
+
+<section id="investigation"><h2>4. 숫자 다음에 원본 증거를 찾아갑니다</h2>
+<p>우선 “목적지가 .40인 기록이 3줄이고 2개 흐름에 걸쳐 있다”라고 관측을 적습니다. “정기 점검이 반복됐을 수 있다”는 가설을 별도 줄에 씁니다. 규칙의 개정과 검사 버퍼를 찾아 실제 어떤 조건이 맞았는지, 그 시간에 서버가 무엇을 처리했는지 확인하세요. 낮게 표시된 경보라도 민감한 서비스와 새로운 단말에 관련되면 추가 확인이 필요합니다.</p>
+<p>반대로 경보가 한 줄도 없으면 저장 복제, 센서 위치, 규칙 활성 상태, 암호화와 이벤트 유형을 살펴봐야 합니다. 포트·규칙 이름·경보 부재만으로 행위가 성공했거나 안전했다고 결론 내리지 않습니다. 다음 강의에서는 저장된 트래픽에서 포트 가설을 좁히고, 재조립과 서비스 로그로 어디까지 확인할 수 있는지 이어갑니다.</p>
+</section>
+
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. 경보 네 줄과 흐름 이벤트 한 줄이 있으면 경보 수는?</dt><dd>경보는 네 줄입니다. 이벤트 타입을 먼저 나눕니다.</dd>
+<dt>2. 1000052의 경보가 3건이고 7001이 두 번입니다. 흐름은 몇 개인가요?</dt><dd>이 파일에서 7001·7002의 두 개입니다. 센서를 섞으면 비교 단위가 달라집니다.</dd>
+<dt>3. 정렬 전에 바로 <code>uniq -c</code>를 쓰면?</dt><dd>서로 떨어진 동일 키를 한 번에 집계하지 못합니다. 키를 정렬해 이웃하게 만든 뒤 세세요.</dd>
+<dt>4. 낮은 우선순위는 무시해도 되나요?</dt><dd>자산 역할과 규칙 의도, 다른 증거를 함께 봅니다. 하나의 숫자로 조사 우선순위를 확정할 수 없습니다.</dd>
+<dt>5. 규칙 이름에 특정 행위가 들어 있으면 그 행위가 성공했나요?</dt><dd>규칙의 일치 조건을 먼저 확인하고, 서버가 수락·처리했는지 종단 및 서비스 기록을 대조합니다.</dd>
+</dl></section>
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-20에 <a href="https://docs.snort.org/start/alert_logging">Snort 3 경보 로깅</a>, <a href="https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-format.html">Suricata EVE 형식</a>, <a href="https://www.cisco.com/c/en/us/td/docs/security/secure-firewall/management-center/admin/770/management-center-admin-77/events-intrusion.html">Cisco 침입 이벤트</a>, <a href="https://jqlang.org/manual/">jq 매뉴얼</a>, <a href="https://www.gnu.org/software/coreutils/manual/coreutils.pdf">GNU Coreutils 매뉴얼</a>을 참고했습니다. 집계 명령은 이 강의의 합성 JSON으로 실행했습니다. 탐지 엔진이나 원본 실습 로그는 사용하지 않았습니다.</p></section>
