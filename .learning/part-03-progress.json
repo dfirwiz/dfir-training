@@ -1,7 +1,7 @@
 {
   "part": "03",
   "day": 3,
-  "status": "in_progress",
+  "status": "completed",
   "updated": "2026-11-20",
   "completed_lesson_ids": [
     40,
@@ -17,7 +17,9 @@
     50,
     51,
     52,
-    53
+    53,
+    54,
+    55
   ],
   "completed_day_lessons": [
     1,
@@ -33,55 +35,54 @@
     11,
     12,
     13,
-    14
+    14,
+    15,
+    16
   ],
-  "next_lesson_id": 54,
-  "next_day_lesson": 15,
-  "next_printed_page": 149,
-  "publication_pending": {
-    "lesson_id": 54,
-    "additional_lesson_ids": [
-      55
-    ],
-    "stage": "awaiting_pages_and_public_screen_checks",
-    "review": ".learning/reviews/day-three-15-20261120.md"
-  },
-  "review": ".learning/reviews/day-three-15-20261120.md",
-  "scope": "Lessons 15–16 cover printed pages 149–167. Book-wide review recorded separately. Separate workbook and original captures were not accessed.",
-  "completed_printed_through": 148,
+  "next_lesson_id": null,
+  "next_day_lesson": null,
+  "next_printed_page": null,
+  "publication_pending": null,
+  "review": ".learning/reviews/day-three-final-20261120.md",
+  "scope": "Day 3 textbook publication and whole-book coverage review complete for printed pages 4–167. Printed page 168 is a resources and contacts page. Separate workbook and original captures were not accessed.",
+  "completed_printed_through": 167,
   "last_publication": {
-    "lesson_id": 53,
+    "lesson_id": 55,
     "deployment": "success",
-    "verified_at": "2026-11-19T17:40:49.022242+00:00",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/53-capture-protocol-research.html",
-    "live_page_sha256": "4ca3badd1144f0ff935b377a6e7dfeed7aa12d9f5631cf009801bea79de12cbd",
-    "live_index_sha256": "92b9473c1eaf8576fd5db22061f3d16b14fa84c947dbc75abc107965b0bb1fec",
+    "verified_at": "2026-11-19T18:43:43.718837+00:00",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/55-rpc-endpoint-correlation.html",
+    "live_page_sha256": "a1b602ef2e71ee11510a47fa28cfd0bbd9132df5ed9d2cb78c65c1d17501e283",
+    "live_index_sha256": "580123f93dd05cae6c659aabecf5a875d992e24f05a44f5b8afd039f1482a936",
     "render_review": "Public desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
-    "deployed_commit": "ab879f09cd13f06f2818478a32078ae77c2ea5d5",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44579382901"
+    "deployed_commit": "cc135ded2b456ed39ca2951f032441dfba880abc",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44590506939"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 52,
+      "lesson_id": 54,
       "deployment": "success",
-      "verified_at": "2026-11-19T17:40:49.022228+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/52-alert-log-triage.html",
-      "live_page_sha256": "92bf55a6657230db5fe9aa4db569aa116570eb98e4504d68ccb36d369e8e01dc",
-      "live_index_sha256": "92b9473c1eaf8576fd5db22061f3d16b14fa84c947dbc75abc107965b0bb1fec",
+      "verified_at": "2026-11-19T18:43:43.718826+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/54-smb-share-trace.html",
+      "live_page_sha256": "155fde246efbd567c5c4017f2e92f8caea0d35c862328b654421c95eb0b1f40b",
+      "live_index_sha256": "580123f93dd05cae6c659aabecf5a875d992e24f05a44f5b8afd039f1482a936",
       "render_review": "Public desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
-      "deployed_commit": "ab879f09cd13f06f2818478a32078ae77c2ea5d5",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44579382901"
+      "deployed_commit": "cc135ded2b456ed39ca2951f032441dfba880abc",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44590506939"
     },
     {
-      "lesson_id": 53,
+      "lesson_id": 55,
       "deployment": "success",
-      "verified_at": "2026-11-19T17:40:49.022242+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/53-capture-protocol-research.html",
-      "live_page_sha256": "4ca3badd1144f0ff935b377a6e7dfeed7aa12d9f5631cf009801bea79de12cbd",
-      "live_index_sha256": "92b9473c1eaf8576fd5db22061f3d16b14fa84c947dbc75abc107965b0bb1fec",
+      "verified_at": "2026-11-19T18:43:43.718837+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/55-rpc-endpoint-correlation.html",
+      "live_page_sha256": "a1b602ef2e71ee11510a47fa28cfd0bbd9132df5ed9d2cb78c65c1d17501e283",
+      "live_index_sha256": "580123f93dd05cae6c659aabecf5a875d992e24f05a44f5b8afd039f1482a936",
       "render_review": "Public desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
-      "deployed_commit": "ab879f09cd13f06f2818478a32078ae77c2ea5d5",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44579382901"
+      "deployed_commit": "cc135ded2b456ed39ca2951f032441dfba880abc",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44590506939"
     }
-  ]
+  ],
+  "final_review": ".learning/reviews/day-three-final-20261120.md",
+  "textbook_coverage_review": "completed",
+  "separate_workbook_verification": "pending_source_access",
+  "original_capture_verification": "pending_source_access"
 }
