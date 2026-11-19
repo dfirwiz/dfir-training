@@ -9,7 +9,9 @@
     42,
     43,
     44,
-    45
+    45,
+    46,
+    47
   ],
   "completed_day_lessons": [
     1,
@@ -17,55 +19,50 @@
     3,
     4,
     5,
-    6
+    6,
+    7,
+    8
   ],
-  "next_lesson_id": 46,
-  "next_day_lesson": 7,
-  "next_printed_page": 78,
-  "publication_pending": {
-    "lesson_id": 46,
-    "additional_lesson_ids": [
-      47
-    ],
-    "stage": "awaiting_pages_and_public_screen_checks",
-    "review": ".learning/reviews/day-three-07-20261120.md"
-  },
-  "review": ".learning/reviews/day-three-07-20261120.md",
+  "next_lesson_id": 48,
+  "next_day_lesson": 9,
+  "next_printed_page": 98,
+  "publication_pending": null,
+  "review": ".learning/reviews/day-three-08-20261120.md",
   "scope": "Lessons 7–8 cover printed pages 78–97. Separate workbook and original captures have not been accessed. Independent example checks are recorded separately.",
-  "completed_printed_through": 77,
+  "completed_printed_through": 97,
   "last_publication": {
-    "lesson_id": 45,
+    "lesson_id": 47,
     "deployment": "success",
-    "verified_at": "2026-11-19T13:43:25.144988+00:00",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/45-snort-rule-anatomy.html",
-    "live_page_sha256": "fd64e15bbb98584d42560d2e209c21578a0739886514f9fcb3fdda13ed59312b",
-    "live_index_sha256": "1ced41e611270123b2daeabe0fe383677a33e27578d17c0a5873162c1519e976",
-    "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested.",
-    "deployed_commit": "9150ffed8a19592b9a4d9c2d053d6c344dea584d",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44535671465"
+    "verified_at": "2026-11-19T14:44:33.571813+00:00",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/47-snort-stream-alert-validation.html",
+    "live_page_sha256": "7d7432b6d480e26ae6f8bc0fa23eb9c1b81c4ed981e533ccd57a9e2672afca85",
+    "live_index_sha256": "42b0b21f3f4399c6b98bf31b45308d953837efe8c32c9ae131d31d647fa62ded",
+    "render_review": "Desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
+    "deployed_commit": "92324067cda1d06034175f106fcdba3b4607854d",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44546662688"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 44,
+      "lesson_id": 46,
       "deployment": "success",
-      "verified_at": "2026-11-19T13:43:25.144975+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/44-snort-sensor-alerts.html",
-      "live_page_sha256": "b4faa78537bee86a9829d81f72ee6a7542374cf10b0382c7d18ce13614118c78",
-      "live_index_sha256": "1ced41e611270123b2daeabe0fe383677a33e27578d17c0a5873162c1519e976",
-      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested.",
-      "deployed_commit": "9150ffed8a19592b9a4d9c2d053d6c344dea584d",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44535671465"
+      "verified_at": "2026-11-19T14:44:33.571799+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/46-snort-content-search.html",
+      "live_page_sha256": "d8e83ac1b882ac82630ea5e1112ef11ea6a7de96bb9dfa4a478411dd34e23eba",
+      "live_index_sha256": "42b0b21f3f4399c6b98bf31b45308d953837efe8c32c9ae131d31d647fa62ded",
+      "render_review": "Desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
+      "deployed_commit": "92324067cda1d06034175f106fcdba3b4607854d",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44546662688"
     },
     {
-      "lesson_id": 45,
+      "lesson_id": 47,
       "deployment": "success",
-      "verified_at": "2026-11-19T13:43:25.144988+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/45-snort-rule-anatomy.html",
-      "live_page_sha256": "fd64e15bbb98584d42560d2e209c21578a0739886514f9fcb3fdda13ed59312b",
-      "live_index_sha256": "1ced41e611270123b2daeabe0fe383677a33e27578d17c0a5873162c1519e976",
-      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested.",
-      "deployed_commit": "9150ffed8a19592b9a4d9c2d053d6c344dea584d",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44535671465"
+      "verified_at": "2026-11-19T14:44:33.571813+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/47-snort-stream-alert-validation.html",
+      "live_page_sha256": "7d7432b6d480e26ae6f8bc0fa23eb9c1b81c4ed981e533ccd57a9e2672afca85",
+      "live_index_sha256": "42b0b21f3f4399c6b98bf31b45308d953837efe8c32c9ae131d31d647fa62ded",
+      "render_review": "Desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
+      "deployed_commit": "92324067cda1d06034175f106fcdba3b4607854d",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44546662688"
     }
   ]
 }
