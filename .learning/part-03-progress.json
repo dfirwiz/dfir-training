@@ -5,33 +5,50 @@
   "updated": "2026-11-19",
   "completed_lesson_ids": [
     40,
-    41
+    41,
+    42,
+    43
   ],
   "completed_day_lessons": [
     1,
-    2
+    2,
+    3,
+    4
   ],
-  "next_lesson_id": 42,
-  "next_day_lesson": 3,
-  "next_printed_page": 26,
-  "publication_pending": {
-    "lesson_id": 42,
-    "additional_lesson_ids": [
-      43
-    ],
-    "stage": "awaiting_pages_and_public_screen_checks",
-    "review": ".learning/reviews/day-three-03-20261119.md"
-  },
-  "review": ".learning/reviews/day-three-03-20261119.md",
+  "next_lesson_id": 44,
+  "next_day_lesson": 5,
+  "next_printed_page": 51,
+  "publication_pending": null,
+  "review": ".learning/reviews/day-three-04-20261119.md",
   "scope": "Up to two sequential lessons per update. Lessons 3–4 cover printed pages 26–50. Separate workbook and original captures have not been accessed; independent example checks are recorded separately.",
-  "completed_printed_through": 25,
+  "completed_printed_through": 50,
   "last_publication": {
-    "lesson_id": 41,
+    "lesson_id": 43,
     "deployment": "success",
-    "verified_at": "2026-11-19T11:32:13.496645+00:00",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/41-capture-copy-checksums.html",
-    "live_page_sha256": "ba44a5b06048be36ecf53c72f4492a8e1c367539073fcdd09e3777e588208d14",
-    "live_index_sha256": "0b35a50c6aab917a07e31bcd55cfe3ad6cfc5534f982a2309c9f44a0f8c37f4e",
-    "render_review": "Desktop 1363x936 and narrow CSS width 454 preview checked. Table, diagram and code scrolled internally. Physical mobile and touch were not tested."
-  }
+    "verified_at": "2026-11-19T13:10:56.603278+00:00",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/43-wireshark-incident-timeline.html",
+    "live_page_sha256": "fe5462eccfedd1bc316409509cbec3141928d79df829a34aabe08e105d9962b7",
+    "live_index_sha256": "59072825d93cc8dceb7db6bcab444e5f3ee48ccbefd85cee20f173c6d3a4ef5a",
+    "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested."
+  },
+  "last_batch_publication": [
+    {
+      "lesson_id": 42,
+      "deployment": "success",
+      "verified_at": "2026-11-19T13:10:56.603261+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/42-wireshark-object-extraction.html",
+      "live_page_sha256": "17ee6440b8164d0a96ebc254c0637b5193a4acf6a7516934969ebe6533c4ad46",
+      "live_index_sha256": "59072825d93cc8dceb7db6bcab444e5f3ee48ccbefd85cee20f173c6d3a4ef5a",
+      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested."
+    },
+    {
+      "lesson_id": 43,
+      "deployment": "success",
+      "verified_at": "2026-11-19T13:10:56.603278+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/43-wireshark-incident-timeline.html",
+      "live_page_sha256": "fe5462eccfedd1bc316409509cbec3141928d79df829a34aabe08e105d9962b7",
+      "live_index_sha256": "59072825d93cc8dceb7db6bcab444e5f3ee48ccbefd85cee20f173c6d3a4ef5a",
+      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested."
+    }
+  ]
 }
