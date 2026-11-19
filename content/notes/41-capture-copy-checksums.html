@@ -1,0 +1,114 @@
+<div class="callout"><span class="label">실습 준비</span><p><a href="40-first-signature-test.html#build">1강의 가상 UDP 캡처 만들기</a>에서 생성한 파일을 사용합니다. 셋째 날 2강에서는 기본 표본을 복사해 데이터만 바꾼 뒤 새 파일에 씁니다. 예제 주소와 문자열은 모두 학습용이며, 결과는 파일 안에서 비교합니다.</p></div>
+<section id="goal"><h2>1. 데이터는 바뀌었는데 헤더가 그대로라면요?</h2>
+<p>탐지 규칙이 메시지 앞의 여섯 바이트를 잘 읽는지 확인하려고, 어제 만든 캡처에서 텍스트만 바꿨다고 해 봅시다. 새 파일을 열어 보니 데이터는 바뀌었는데 분석기가 체크섬 오류를 표시합니다. 규칙이 다르게 반응했다면 새 문구 때문일까요, 잘못된 체크섬 때문일까요? 한 조건만 바꾸려던 시험에서 관련 필드가 함께 갱신되지 않으면, 어느 차이가 결과를 만들었는지 분리하기 어렵습니다.</p>
+<p>택배 상자의 내용물을 바꾼 뒤 무게표를 다시 붙이는 상황을 떠올려 보세요. 바뀐 내용이 같은 무게라면 무게표는 그대로일 수 있습니다. 그러나 내용물을 비트 단위로 계산하는 체크섬은 무게표와 달리, 길이가 같아도 바이트 값이 바뀌면 달라질 수 있습니다. 반대로 서로 다른 바이트가 우연히 같은 체크섬을 가질 수도 있어요. 체크섬은 잘못된 값을 찾는 데 도움을 주지만, 내용이 같은지 또는 누가 만든 자료인지 증명하는 도구는 아닙니다.</p>
+</section>
+<section id="evidence-copy"><h2>2. 원본, 작업용 사본, 변형 파일을 구분합니다</h2>
+<p>조사에서 획득한 캡처는 확보한 형태 그대로 보존합니다. 읽어서 분석하는 작업용 사본과, 시험을 위해 값을 바꾼 파생 표본에는 각각 다른 역할이 있어요. 뒤의 코드에서 사용하는 원본은 1강에서 직접 생성한 가상 자료입니다. 실제 조사에서도 파일의 출처, 수집 시각, 복사 전후의 해시, 어떤 부분을 변형했는지 기록하면 이후에 파일을 바꿔 읽는 실수를 줄일 수 있습니다.</p>
+<p><code>rdpcap</code>은 저장 파일의 패킷을 읽어 Scapy 패킷 목록으로 돌려줍니다. <code>records[0]</code>은 그 목록에서 0부터 세어 첫 레코드를 고르는 표현입니다. Wireshark의 첫 프레임 번호가 보통 1이라는 점과 비교해 보세요. 선택한 레코드가 이더넷·IPv4·UDP로 해석됐는지 먼저 확인하고, <code>packet.copy()</code>로 메모리에 별도 객체를 만든 뒤 변경합니다. 큰 파일 전체를 목록에 올리기 어렵다면 필요한 레코드의 선택 기준을 세우고 제작사 문서의 <code>PcapReader</code>처럼 순차적으로 읽는 방식을 고려하세요.</p>
+<p>가상 기본 표본과 두 변형 모두 같은 출발지·목적지 주소, UDP 포트, IPv4 ID를 유지합니다. 의도적으로 데이터만 바꿨기 때문입니다. 변형 두 개가 같은 시각과 ID를 물려받더라도 실제 네트워크에서 패킷을 두 번 관측했다는 기록은 아닙니다. 파생 파일 안에서는 “같은 길이”와 “더 긴 데이터”라는 시험 사례로 구별합니다.</p>
+</section>
+<section id="dependencies"><h2>3. 어떤 필드가 변경의 영향을 받는지 먼저 그립니다</h2>
+<p>IPv4의 체크섬은 <strong>IPv4 헤더</strong>를 검사합니다. UDP 체크섬은 <strong>UDP 헤더와 데이터</strong>에 더해, IPv4 출발·목적 주소, 프로토콜 번호와 UDP 길이로 구성한 <strong>가상 헤더</strong>도 계산에 사용합니다. 가상 헤더는 체크섬 계산에만 쓰는 바이트 묶음이며, UDP 앞에 별도로 전송되는 헤더가 아닙니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="데이터 변경과 재계산 순서"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 244" style="display:block;min-width:640px;width:100%;height:auto" role="img" aria-labelledby="deps-title deps-desc">
+<title id="deps-title">UDP 데이터 변경 뒤 길이와 체크섬을 확인하는 순서</title><desc id="deps-desc">데이터를 편집하면 UDP 길이를 고려한다. 그 길이는 IPv4 Total Length와 UDP 체크섬의 입력이다. IPv4 헤더와 UDP 체크섬의 검사 범위는 다르다.</desc>
+<defs><marker id="deps-arrow" markerWidth="8" markerHeight="8" refX="7" refY="4" orient="auto"><path d="M0 0L8 4L0 8Z" fill="#6ee7ce"/></marker></defs>
+<rect x="4" y="4" width="712" height="236" rx="14" fill="#101b2b" stroke="#36516b"/>
+<g font-family="Pretendard,sans-serif" font-size="16" fill="#e8f2ff">
+<text x="24" y="35" font-size="20">변경한 데이터 → 길이 확인 → 검사 범위별 체크섬</text>
+<rect x="24" y="66" width="142" height="50" rx="9" fill="#173e3b"/><text x="39" y="97">UDP 데이터 편집</text>
+<rect x="212" y="66" width="187" height="50" rx="9" fill="#20334d"/><text x="227" y="97">UDP Length = 8 + 데이터</text>
+<rect x="445" y="66" width="238" height="50" rx="9" fill="#20334d"/><text x="458" y="97" font-size="14">IPv4 전체 = IP 헤더 길이 + UDP 길이</text>
+<rect x="178" y="153" width="267" height="46" rx="9" fill="#173e3b"/><text x="193" y="181">UDP 체크섬 · 가상 헤더·UDP·데이터</text>
+<rect x="478" y="153" width="205" height="46" rx="9" fill="#173e3b"/><text x="493" y="181">IPv4 체크섬 · IPv4 헤더</text>
+<text x="24" y="224" font-size="14">길이 단위는 바이트 · IHL은 IP 헤더 길이로 환산 · 화살표는 확인 순서</text>
+</g><g fill="none" stroke="#6ee7ce" stroke-width="2" marker-end="url(#deps-arrow)"><path d="M168 91H204"/><path d="M401 91H437"/><path d="M306 118V145"/><path d="M563 118V145"/></g></svg></div>
+<p>기본 표본의 UDP 데이터는 6바이트입니다. UDP 헤더 8 + 데이터 6 = UDP 길이 14바이트이고, IPv4 헤더 20 + UDP 14 = IP 전체 길이 34바이트입니다. 데이터가 8바이트가 되면 각각 8 + 8 = 16바이트, 20 + 16 = 36바이트입니다. Ethernet의 14바이트는 이 두 길이에 더하지 않습니다. IPv4의 <code>IHL</code>은 4바이트 단위의 헤더 길이 필드이므로 이 예제에서는 <code>5 × 4 = 20</code>바이트로 환산합니다.</p>
+<p>내용만 바꿔 길이가 그대로라면 IPv4 헤더의 바이트는 그대로일 수 있습니다. 이때 IPv4 체크섬은 유지되고 UDP 체크섬만 바뀔 수 있죠. 데이터가 길어지면 IPv4의 Total Length 자체도 바뀌므로 IPv4 헤더 체크섬까지 다시 확인해야 합니다. 주소만 바뀌어도 UDP 가상 헤더의 값이 바뀝니다. 화면에서 데이터가 그대로라는 이유로 UDP 체크섬을 그대로 두지 않는 이유입니다.</p>
+</section>
+<section id="rebuild"><h2>4. 값을 0으로 덮느냐, 자동 계산에 맡기느냐</h2>
+<p>디스크에서 읽은 패킷에는 앞서 계산된 길이와 체크섬이 <em>구체적인 값</em>으로 들어 있습니다. 그 객체에서 데이터만 교체하면 이 구체적인 값이 남을 수 있습니다. 예제에서는 영향을 받을 길이와 체크섬을 <code>del</code>로 지워 기본값으로 되돌린 뒤, 바이트를 조립할 때 Scapy가 계산하게 합니다. 0을 넣는 방식과 구별하세요. IPv4 UDP에서 저장된 체크섬 0은 체크섬을 전달하지 않았다는 특별한 뜻이 있습니다. 계산 결과가 0인 경우에 규격이 전송하라고 정한 값은 <code>0xffff</code>입니다.</p>
+<p>이 예제의 <code>del changed[IP].chksum</code>은 메모리에 있는 복사본의 <code>chksum</code> 필드 설정을 제거합니다. 파일에서 IPv4 헤더의 두 바이트가 없어지는 것은 아닙니다. 직렬화하는 과정에서 필드 자리는 그대로 있고, 그 자리에 다시 계산한 값이 기록됩니다. <code>len</code>이라는 이름은 <code>IP</code>와 <code>UDP</code>에 각각 있으므로, 바깥과 안쪽의 길이를 한꺼번에 의미하는 이름으로 읽으면 혼동하기 쉽습니다.</p>
+<p>어떻게 계산되는지도 떠올려 봅시다. 체크섬 입력을 2바이트씩 읽고, 위로 올라온 자리올림은 아래 16비트에 다시 더한 뒤 비트를 반전합니다. 남는 데이터가 홀수 바이트라면 계산할 때만 0 한 바이트를 붙입니다. 예를 들어 <code>0xfffe + 0x0003 = 0x10001</code>이고, 자리올림 1을 아래 값 1에 더해 <code>0x0002</code>가 됩니다. 이를 반전한 값은 <code>0xfffd</code>입니다. 이 작은 산술은 계산 방식을 보여 주며, 실제 표본의 체크섬은 해당 헤더와 전체 검사 구간을 넣어 구합니다.</p>
+</section>
+<section id="exercise"><h2>5. 기본 표본을 복사해 두 변형을 저장합니다</h2>
+<p>1강의 코드로 만든 가상 파일이 현재 폴더에 있는 상태에서 아래 코드를 실행합니다. 원래 입력은 읽기만 하고 출력에는 새 이름을 씁니다. 예제의 포트나 문자열이 다른 파일을 잘못 읽었을 때는 초기에 멈추도록 했습니다.</p>
+<pre tabindex="0"><code>from pathlib import Path
+from scapy.all import Ether, IP, UDP, Raw, rdpcap, wrpcap
+
+source = Path("signature-check.pcap")
+output = Path("signature-variants.pcap")
+records = rdpcap(str(source))
+if len(records) == 0:
+    raise ValueError("캡처 파일에 패킷이 없습니다.")
+
+original = records[0]
+if not original.haslayer(Ether) or not original.haslayer(IP) or not original.haslayer(UDP):
+    raise ValueError("1강에서 만든 Ether / IPv4 / UDP 표본이 필요합니다.")
+if (original[UDP].dport, bytes(original[UDP].payload)) != (5514, b"LAB-OK"):
+    raise ValueError("1강의 기본 표본을 확인해 주세요.")
+
+def variant(packet, data):
+    changed = packet.copy()
+    changed[UDP].remove_payload()
+    changed[UDP].add_payload(Raw(load=data))
+
+    del changed[IP].len
+    del changed[IP].chksum
+    del changed[UDP].len
+    del changed[UDP].chksum
+    changed.wirelen = None
+    return changed
+
+changed = [variant(original, b"LAB-NO"), variant(original, b"LAB-OK:2")]
+with output.open("xb") as destination:
+    wrpcap(destination, changed)
+
+for label, packet in zip(("원본", "같은 길이", "더 긴 데이터"),
+                         [original, *rdpcap(str(output))]):
+    print(label, packet[IP].len, packet[UDP].len,
+          f"0x{packet[IP].chksum:04x}", f"0x{packet[UDP].chksum:04x}",
+          bytes(packet[UDP].payload))</code></pre>
+<p><code>haslayer</code>는 기대한 계층이 해석 결과에 있는지 묻습니다. 괄호 안의 두 값을 <code>!=</code>로 비교한 부분은 기본 표본의 목적지 포트와 데이터가 둘 다 맞는지 확인합니다. <code>def variant(packet, data)</code>는 “어떤 패킷을 복사해 어떤 데이터로 교체할지”를 인수로 받는 함수입니다. <code>remove_payload()</code>는 UDP 아래에 있던 데이터를 떼고, <code>add_payload(Raw(load=data))</code>는 제공한 바이트를 붙입니다. 네 개의 <code>del</code>은 복사본의 IP·UDP 길이와 체크섬에만 작용합니다. <code>changed.wirelen = None</code>은 복사한 PCAP 레코드의 원래 프레임 길이 메타데이터를 초기화합니다. 가상 표본을 늘렸을 때 캡처 길이는 50인데 원래 길이가 48로 남는 모순을 막고, 이 합성 기록에서는 새로 만든 바이트 수를 기록합니다. 실제 캡처에서는 원래 프레임 길이와 저장된 바이트 수가 잘림 등으로 다를 수 있습니다.</p>
+<p><code>output.open("xb")</code>에서 <code>x</code>는 새 파일만 만든다는 뜻이라 같은 이름이 있으면 오류를 냅니다. <code>b</code>는 바이트로 연다는 뜻입니다. 이미 출력이 있다면 시험별로 새 파일 이름을 정하면 두 결과를 비교할 수 있습니다. 마지막의 <code>zip</code>은 세 이름과 세 패킷을 순서대로 짝짓습니다. <code>*rdpcap(...)</code>의 <code>*</code>는 다시 읽은 두 패킷을 목록 안에 펼치고, <code>:04x</code>는 체크섬을 네 자리 16진수로 표시합니다.</p>
+</section>
+<section id="results"><h2>6. 저장 파일에서 실제로 읽은 값</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="세 표본의 길이와 체크섬"><table><caption>Scapy 2.5.0으로 다시 읽고 별도 바이트 검사로 확인한 값</caption><thead><tr><th scope="col">표본</th><th scope="col">UDP 데이터</th><th scope="col">IPv4 전체 · 바이트</th><th scope="col">UDP 전체 · 바이트</th><th scope="col">IPv4 체크섬</th><th scope="col">UDP 체크섬</th></tr></thead><tbody>
+<tr><th scope="row">기본</th><td><code>LAB-OK</code></td><td>34</td><td>14</td><td><code>0x8d3f</code></td><td><code>0x5133</code></td></tr>
+<tr><th scope="row">같은 길이</th><td><code>LAB-NO</code></td><td>34</td><td>14</td><td><code>0x8d3f</code></td><td><code>0x522f</code></td></tr>
+<tr><th scope="row">더 긴 데이터</th><td><code>LAB-OK:2</code></td><td>36</td><td>16</td><td><code>0x8d3d</code></td><td><code>0x16fd</code></td></tr>
+</tbody></table></div>
+<p>기본 표본에서 같은 길이 변형으로 갈 때 IPv4 헤더의 길이와 주소·식별자는 변하지 않았습니다. IPv4 체크섬은 <code>0x8d3f</code>이고 UDP 체크섬은 <code>0x5133 → 0x522f</code>로 바뀝니다. 더 긴 데이터에서는 IP 전체 길이가 34에서 36으로 늘었습니다. 20바이트 IPv4 헤더에서 이 길이 워드만 2 늘어난 조건이므로 IPv4 체크섬도 <code>0x8d3f → 0x8d3d</code>가 됐습니다. UDP 쪽은 자체 길이 워드, 가상 헤더의 길이 워드, 끝에 붙은 두 바이트를 모두 포함해서 값이 달라집니다.</p>
+<p>검산에 쓴 바이트 위치도 확인해 보세요. Ethernet 헤더가 14바이트인 이 예제에서 IPv4 Total Length는 프레임의 오프셋 16~17에, IPv4 체크섬은 24~25에 있습니다. UDP는 IP 헤더 20바이트를 건넌 오프셋 34에서 시작합니다. 따라서 UDP 길이는 38~39, UDP 체크섬은 40~41, 데이터는 42에서 시작합니다. VLAN 태그, 다른 링크 유형, IPv4 옵션이 있는 파일이라면 이 절대 오프셋을 그대로 가져가지 말고 각 헤더의 시작점과 실제 길이를 다시 읽습니다.</p>
+<p>1강의 규칙은 목적지 포트와 데이터 첫 여섯 바이트를 봅니다. 그 조건대로라면 더 긴 변형은 여전히 일치하고, 같은 길이의 변형은 빠져야 합니다. 체크섬이 유효해졌다는 사실은 바이트를 제대로 준비했다는 증거입니다. 탐지 엔진의 실제 경보 여부에는 어떤 규칙·설정으로 어느 파일을 읽었는지 보여 주는 별도 실행 기록이 필요합니다.</p>
+</section>
+<section id="live-capture"><h2>7. 파일 작업과 실제 관측을 연결할 때 확인할 것</h2>
+<p>파일에 프레임을 만들어 넣는 작업에서 우리는 바이트와 메타데이터를 직접 정했습니다. 일반적인 앱이 운영체제의 연결 인터페이스를 사용하면 커널이 포트와 순서 번호, 연결 상태처럼 전송에 필요한 정보를 관리합니다. 반면 패킷 객체는 그 값을 파일에 담아 보여 줄 수 있을 뿐입니다. 수집한 트래픽을 분석할 때도 “캡처에 상태를 주장하는 필드가 있다”와 “종단이 그 상태를 갖고 있었다” 사이에 이 차이가 있습니다.</p>
+<p>예를 들어 센서에 TCP RST가 보이면 먼저 어느 쪽에서 어느 연결로 온 것인지 확인하세요. 시작 교환과 직전 순서 번호, 뒤에 이어진 데이터, 방화벽이나 종단이 기록한 상태가 근거입니다. UDP 요청 뒤의 ICMP 포트 도달 불가도 바깥 주소만 읽으면 부족합니다. 오류가 인용한 IP·UDP 헤더가 해당 요청과 맞는지 확인합니다. 응답이 없는 화면에서는 누락, 수집 방향, 정책, 경로를 같이 고려하세요. 수동 캡처와 종단 기록을 맞춰 보면 응답이 만들어지지 않은 경우와 센서가 응답을 놓친 경우를 구별하는 데 도움이 됩니다.</p>
+<p>와이어에 가까운 센서와 송신 단말의 캡처도 다를 수 있습니다. 단말에서 체크섬 검증 오류가 보인다면 NIC가 송신 직전에 체크섬을 채우는 <strong>체크섬 오프로딩</strong>의 영향을 먼저 확인합니다. 실제 회선 쪽에서 똑같은 방향·시간의 패킷을 볼 수 있는지, 캡처가 잘려 전체 데이터를 못 읽은 것은 아닌지, 분석기에서 검증을 켰는지 함께 확인하세요. 이번 합성 파일의 검산 결과를 운영 파일의 오류 판정에 그대로 적용하지 않습니다.</p>
+</section>
+<section id="window"><h2>8. TCP 윈도 0과 응답 지연을 관측했다면</h2>
+<p>교재에는 응답을 늘어지게 하는 방어용 타핏 사례도 있습니다. 관측자에게 보이는 단서 중 하나는 TCP 수신 윈도 0입니다. 윈도 광고는 이 값을 보낸 쪽의 현재 수신 여유를 뜻합니다. 예를 들어 서버가 0을 광고했다면 클라이언트 쪽의 수신 여유가 0이라는 뜻으로 읽지 않습니다. 실제 업무에서는 응용이 데이터를 늦게 읽는 경우나 일시적 부하에서도 윈도 0을 볼 수 있습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="TCP 수신 윈도 관측의 해석"><table><caption>윈도와 응답 간격을 보고 다음 증거를 정하는 예</caption><thead><tr><th scope="col">관측</th><th scope="col">가능한 설명</th><th scope="col">추가로 볼 자료</th></tr></thead><tbody>
+<tr><td>서버가 잠깐 윈도 0을 광고한 뒤 양수로 갱신함</td><td>버퍼 여유가 바뀌었을 수 있습니다.</td><td>같은 방향의 Window Update, 서버 부하와 앱 읽기 시각</td></tr>
+<tr><td>수신 윈도 0이 반복되고 연결이 오래 남음</td><td>지속된 수신 지연, 별도 방어 정책, 수집 누락이 후보입니다.</td><td>정책과 자산 정보, 양쪽 센서에서 관측한 갱신·프로브·연결 종료</td></tr>
+<tr><td>앞선 주소 질의 뒤에 TCP 흐름이 등장함</td><td>링크 계층의 주소 해석과 전송 계층의 교환이 연속해 나타났습니다.</td><td>질의와 응답의 주소·시각, 자산/이웃 기록, TCP의 주소·포트 쌍</td></tr>
+</tbody></table></div>
+<p>여기서 프로브는 다시 받을 여유가 생겼는지 확인하기 위한 짧은 확인 전송을 뜻합니다. 방어 장비가 통신을 지연시켰다는 가설은 정책과 장비 기록으로 확인해야 합니다. 주소 질의, SYN, 윈도 0이 늘어서 있다는 사실만으로 어떤 장비가 개입했는지, 상대방이 공격을 했는지 정하지 않습니다.</p>
+</section>
+<section id="automation"><h2>9. 자동화할 때 먼저 고정할 것들</h2>
+<p>대화형 도구는 어떤 계층과 값이 들어 있는지 탐색할 때 편하고, 짧은 스크립트는 그 검사를 같은 입력에 반복 적용할 때 편합니다. 파일을 여러 개 처리한다면 먼저 “어느 파일의 어떤 레코드인가”, “어떤 필드를 바꿨는가”, “결과에서 어떤 조건이 보여야 하는가”를 기록하고 나서 반복 작업으로 옮기세요. 결과의 이름, 파일 해시, 도구 버전, 예상 값과 읽어낸 값을 나란히 남겨 두면 차이가 생겼을 때 처음부터 다시 찾을 필요가 없습니다.</p>
+<p>이번에는 공개 본문의 두 변형을 직접 생성해 다시 읽고, IPv4·UDP 길이와 체크섬을 별도 바이트 검사로 확인했습니다. 교재의 원래 워크북과 캡처는 이번에 확보하지 못했고, 실제 송신·응답 수집 및 IDS/IPS 경보 검증은 수행하지 않았습니다. 다음 주제는 Wireshark에서 저장된 트래픽의 객체를 추출하고, 추출 결과가 원래 통신과 어디까지 연결되는지 확인하는 것입니다.</p>
+</section>
+<section id="review"><h2>복습 · 어떤 값이 따라 바뀌는지 말해 보세요</h2>
+<p><strong>1. 데이터 길이는 기존 6바이트와 같습니다. 어떤 값부터 비교할까요?</strong></p><p>IPv4와 UDP 길이는 원래 값과 같은지 확인하고, UDP 데이터와 체크섬은 새로 검산합니다. IPv4 헤더 바이트가 그대로라면 IPv4 체크섬은 동일하게 나올 수 있습니다.</p>
+<p><strong>2. IPv4 주소만 바꿨습니다. UDP 데이터는 그대로인데 UDP 체크섬을 다시 확인해야 할까요?</strong></p><p>네. UDP 가상 헤더에 IPv4 출발·목적 주소가 들어 있습니다. UDP 자체의 내용이 그대로여도 계산 입력은 달라집니다. IPv4 헤더 체크섬도 주소 변경의 영향을 받습니다.</p>
+<p><strong>3. UDP의 체크섬 필드를 0으로 지정하면 Scapy가 구해 주나요?</strong></p><p>명시한 0과 자동 채움에 맡긴 상태를 구별합니다. 이 예제에서는 기존 값을 지워 재계산하게 했습니다. IPv4 UDP에서 저장된 0은 체크섬을 보내지 않았다는 규격상의 표시입니다.</p>
+<p><strong>4. 더 긴 변형이 1강 규칙에 계속 걸리는 것은 왜인가요?</strong></p><p>뒤에 <code>:2</code>가 붙어도 처음 여섯 바이트가 <code>LAB-OK</code>입니다. 그 규칙이 비교하는 것은 이 접두부와 주소·목적지 포트입니다. 전체 메시지 길이를 제한하는 별도 조건은 없습니다.</p>
+<p><strong>5. 송신 단말에서 체크섬 오류, 다른 센서에서는 정상 값이 보였습니다. 무엇을 확인하나요?</strong></p><p>먼저 양쪽 레코드가 같은 송신을 찍었는지 주소·포트·시각·데이터로 맞춥니다. 그다음 수집 위치, 오프로딩, 잘림, 분석기 검증 설정을 봅니다. 같은 위치와 방식으로 봤다는 전제를 확인해야 오류 차이의 의미를 해석할 수 있습니다.</p>
+<p><strong>6. 서버가 윈도 0을 한 번 광고하면 방어 장비가 개입했다고 볼 수 있나요?</strong></p><p>그 서버 방향의 수신 여유가 0으로 광고됐다는 관측입니다. 이후 윈도 갱신과 프로브, 앱과 장비의 상태·정책 기록을 봐야 부하나 방어 정책 같은 설명을 구별할 수 있습니다.</p>
+</section>
+<section id="references" class="references"><h2>근거와 더 읽을 자료</h2>
+<p>2026년 11월 19일에 확인한 자료입니다. 실행값은 Scapy 2.5.0의 합성 파일이며, 현재 문서의 동작과 실행 환경에서 검증한 범위를 구분했습니다.</p>
+<ul><li><a href="https://scapy.readthedocs.io/en/latest/usage.html">Scapy · 패킷 검사와 파일 읽기·쓰기</a></li><li><a href="https://scapy.readthedocs.io/en/latest/build_dissect.html">Scapy · 계층의 조립과 다시 해석하기</a></li><li><a href="https://scapy.readthedocs.io/en/latest/api/scapy.utils.html">Scapy · rdpcap, PcapReader, wrpcap</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc768.html">RFC 768 · UDP 길이, 가상 헤더와 체크섬</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc1071.html">RFC 1071 · 인터넷 체크섬 계산</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9293.html">RFC 9293 · TCP 수신 윈도와 윈도 0 처리</a></li><li><a href="https://www.wireshark.org/docs/wsug_html_chunked/ChAdvChecksums.html">Wireshark · 체크섬 검증과 오프로딩</a></li></ul>
+</section>

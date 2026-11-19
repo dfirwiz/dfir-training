@@ -574,6 +574,22 @@
       "updated": "2026-11-19",
       "minutes": 45,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 41,
+      "slug": "41-capture-copy-checksums",
+      "title": "저장된 캡처를 바꾸면 체크섬은 어떻게 달라질까요?",
+      "description": "가상 UDP 캡처를 복사해 같은 길이와 늘어난 길이의 두 표본을 만들고, 저장된 바이트와 체크섬을 직접 비교합니다.",
+      "day": 3,
+      "day_lesson": 2,
+      "printed_pages": [
+        14,
+        25
+      ],
+      "status": "published",
+      "updated": "2026-11-19",
+      "minutes": 45,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
