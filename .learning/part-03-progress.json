@@ -7,55 +7,58 @@
     40,
     41,
     42,
-    43
+    43,
+    44,
+    45
   ],
   "completed_day_lessons": [
     1,
     2,
     3,
-    4
+    4,
+    5,
+    6
   ],
-  "next_lesson_id": 44,
-  "next_day_lesson": 5,
-  "next_printed_page": 51,
-  "publication_pending": {
-    "lesson_id": 44,
-    "additional_lesson_ids": [
-      45
-    ],
-    "stage": "awaiting_pages_and_public_screen_checks",
-    "review": ".learning/reviews/day-three-05-20261120.md"
-  },
-  "review": ".learning/reviews/day-three-05-20261120.md",
+  "next_lesson_id": 46,
+  "next_day_lesson": 7,
+  "next_printed_page": 78,
+  "publication_pending": null,
+  "review": ".learning/reviews/day-three-06-20261120.md",
   "scope": "Up to two sequential lessons per update. Lessons 5–6 cover printed pages 51–77. Separate workbook and original captures have not been accessed; independent example checks are recorded separately.",
-  "completed_printed_through": 50,
+  "completed_printed_through": 77,
   "last_publication": {
-    "lesson_id": 43,
+    "lesson_id": 45,
     "deployment": "success",
-    "verified_at": "2026-11-19T13:10:56.603278+00:00",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/43-wireshark-incident-timeline.html",
-    "live_page_sha256": "fe5462eccfedd1bc316409509cbec3141928d79df829a34aabe08e105d9962b7",
-    "live_index_sha256": "59072825d93cc8dceb7db6bcab444e5f3ee48ccbefd85cee20f173c6d3a4ef5a",
-    "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested."
+    "verified_at": "2026-11-19T13:43:25.144988+00:00",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/45-snort-rule-anatomy.html",
+    "live_page_sha256": "fd64e15bbb98584d42560d2e209c21578a0739886514f9fcb3fdda13ed59312b",
+    "live_index_sha256": "1ced41e611270123b2daeabe0fe383677a33e27578d17c0a5873162c1519e976",
+    "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested.",
+    "deployed_commit": "9150ffed8a19592b9a4d9c2d053d6c344dea584d",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44535671465"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 42,
+      "lesson_id": 44,
       "deployment": "success",
-      "verified_at": "2026-11-19T13:10:56.603261+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/42-wireshark-object-extraction.html",
-      "live_page_sha256": "17ee6440b8164d0a96ebc254c0637b5193a4acf6a7516934969ebe6533c4ad46",
-      "live_index_sha256": "59072825d93cc8dceb7db6bcab444e5f3ee48ccbefd85cee20f173c6d3a4ef5a",
-      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested."
+      "verified_at": "2026-11-19T13:43:25.144975+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/44-snort-sensor-alerts.html",
+      "live_page_sha256": "b4faa78537bee86a9829d81f72ee6a7542374cf10b0382c7d18ce13614118c78",
+      "live_index_sha256": "1ced41e611270123b2daeabe0fe383677a33e27578d17c0a5873162c1519e976",
+      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested.",
+      "deployed_commit": "9150ffed8a19592b9a4d9c2d053d6c344dea584d",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44535671465"
     },
     {
-      "lesson_id": 43,
+      "lesson_id": 45,
       "deployment": "success",
-      "verified_at": "2026-11-19T13:10:56.603278+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/43-wireshark-incident-timeline.html",
-      "live_page_sha256": "fe5462eccfedd1bc316409509cbec3141928d79df829a34aabe08e105d9962b7",
-      "live_index_sha256": "59072825d93cc8dceb7db6bcab444e5f3ee48ccbefd85cee20f173c6d3a4ef5a",
-      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested."
+      "verified_at": "2026-11-19T13:43:25.144988+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/45-snort-rule-anatomy.html",
+      "live_page_sha256": "fd64e15bbb98584d42560d2e209c21578a0739886514f9fcb3fdda13ed59312b",
+      "live_index_sha256": "1ced41e611270123b2daeabe0fe383677a33e27578d17c0a5873162c1519e976",
+      "render_review": "Public desktop and narrow CSS viewport checked. Physical mobile and touch were not tested.",
+      "deployed_commit": "9150ffed8a19592b9a4d9c2d053d6c344dea584d",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44535671465"
     }
   ]
 }
