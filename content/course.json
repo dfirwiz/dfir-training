@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-18",
+  "updated": "2026-11-19",
   "lessons": [
     {
       "id": 1,
@@ -558,6 +558,22 @@
       "updated": "2026-11-18",
       "minutes": 190,
       "editorial_status": "textbook_and_available_labs_reviewed_capstone_sources_pending"
+    },
+    {
+      "id": 40,
+      "slug": "40-first-signature-test",
+      "title": "탐지 규칙을 믿기 전에 패킷으로 검증하기",
+      "description": "Scapy로 정상 UDP 표본을 만들어 길이와 체크섬을 검산하고, 시그니처가 기대한 표본만 고르는지 확인합니다.",
+      "day": 3,
+      "day_lesson": 1,
+      "printed_pages": [
+        4,
+        13
+      ],
+      "status": "published",
+      "updated": "2026-11-19",
+      "minutes": 45,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

@@ -16,7 +16,11 @@ for item in lessons:
     lesson_numbers[item['id']] = day_counts[day]
 
 def day_title(day):
-    return {1: '첫째 날 · 기초 네트워크 분석', 2: '둘째 날 · 필터와 전송 프로토콜'}.get(day, f'{day}일차')
+    return {
+        1: '첫째 날 · 기초 네트워크 분석',
+        2: '둘째 날 · 필터와 전송 프로토콜',
+        3: '셋째 날 · 시그니처 기반 탐지',
+    }.get(day, f'{day}일차')
 
 def lesson_label(item):
     day = item.get('day', 1)
