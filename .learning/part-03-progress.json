@@ -3,16 +3,26 @@
   "day": 3,
   "status": "in_progress",
   "updated": "2026-11-19",
-  "completed_lesson_ids": [],
-  "completed_day_lessons": [],
-  "next_lesson_id": 40,
-  "next_day_lesson": 1,
-  "next_printed_page": 4,
-  "publication_pending": {
-    "lesson_id": 40,
-    "stage": "awaiting_pages_and_public_screen_checks",
-    "review": ".learning/reviews/day-three-01-20261119.md"
-  },
+  "completed_lesson_ids": [
+    40
+  ],
+  "completed_day_lessons": [
+    1
+  ],
+  "next_lesson_id": 41,
+  "next_day_lesson": 2,
+  "next_printed_page": 14,
+  "publication_pending": null,
   "review": ".learning/reviews/day-three-01-20261119.md",
-  "scope": "One lesson per update. The first covers printed pages 4–13. Separate workbook and original captures have not been accessed; synthetic checks are recorded separately."
+  "scope": "One lesson per update. The first covers printed pages 4–13. Separate workbook and original captures have not been accessed; synthetic checks are recorded separately.",
+  "completed_printed_through": 13,
+  "last_publication": {
+    "lesson_id": 40,
+    "deployment": "success",
+    "verified_at": "2026-11-19T09:43:21.684468+00:00",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/40-first-signature-test.html",
+    "live_page_sha256": "8e5045446e3402f5e94fe3eb601f8ed402e938f028132402e41b57523978a029",
+    "live_index_sha256": "a1e3063cf14e5952b5f2a9ec78ae869c5126e4499f6b9de6e31d5e9f5ec23d4c",
+    "render_review": "Desktop 1363x936 and narrow CSS width 454 preview checked. Table, diagram and code scrolled internally. Physical mobile and touch were not tested."
+  }
 }
