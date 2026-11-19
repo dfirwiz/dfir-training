@@ -26,9 +26,16 @@
   "next_lesson_id": 48,
   "next_day_lesson": 9,
   "next_printed_page": 98,
-  "publication_pending": null,
-  "review": ".learning/reviews/day-three-08-20261120.md",
-  "scope": "Lessons 7–8 cover printed pages 78–97. Separate workbook and original captures have not been accessed. Independent example checks are recorded separately.",
+  "publication_pending": {
+    "lesson_id": 48,
+    "additional_lesson_ids": [
+      49
+    ],
+    "stage": "awaiting_pages_and_public_screen_checks",
+    "review": ".learning/reviews/day-three-09-20261120.md"
+  },
+  "review": ".learning/reviews/day-three-09-20261120.md",
+  "scope": "Lessons 9–10 cover printed pages 98–114. No separate workbook or original captures were accessed. Independent example checks are recorded separately.",
   "completed_printed_through": 97,
   "last_publication": {
     "lesson_id": 47,

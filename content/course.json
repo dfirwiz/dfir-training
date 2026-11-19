@@ -686,6 +686,38 @@
       "updated": "2026-11-20",
       "minutes": 50,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 48,
+      "slug": "48-http-message-detection",
+      "title": "HTTP/1.1 요청과 응답에서 탐지 조건 찾기",
+      "description": "요청·응답의 경계와 상태 코드, Snort의 HTTP 필드 조건을 정상 표본으로 비교합니다.",
+      "day_lesson": 9,
+      "printed_pages": [
+        98,
+        103
+      ],
+      "day": 3,
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 49,
+      "slug": "49-http2-http3-visibility",
+      "title": "HTTP/2와 HTTP/3의 스트림은 어디까지 보일까요?",
+      "description": "프레임 길이를 계산하고 HTTP/2와 QUIC의 스트림 및 암호화 가시성을 구분합니다.",
+      "day_lesson": 10,
+      "printed_pages": [
+        104,
+        114
+      ],
+      "day": 3,
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
