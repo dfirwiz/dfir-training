@@ -782,6 +782,38 @@
       "updated": "2026-11-20",
       "minutes": 50,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 54,
+      "slug": "54-smb-share-trace",
+      "title": "SMB 공유에서 요청과 응답 짝짓기",
+      "description": "공유 연결, 파일 열기와 읽기를 나누고 SMB2 Message ID와 반환 데이터 길이를 확인합니다.",
+      "day": 3,
+      "day_lesson": 15,
+      "printed_pages": [
+        149,
+        161
+      ],
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 55,
+      "slug": "55-rpc-endpoint-correlation",
+      "title": "RPC 매핑과 후속 호출을 하나의 흐름으로 읽기",
+      "description": "TCP 135 매핑에서 후속 바인드와 호출까지 따라가며 RPC 관측과 업무 결과를 구분합니다.",
+      "day": 3,
+      "day_lesson": 16,
+      "printed_pages": [
+        162,
+        167
+      ],
+      "status": "published",
+      "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

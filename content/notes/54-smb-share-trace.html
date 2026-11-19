@@ -1,0 +1,47 @@
+<div class="callout"><span class="label">학습 범위</span><p>셋째 날 15강에서는 정상 파일 공유의 SMB2/3 요청·응답을 짝지어 읽습니다. 주소, 공유명, 바이트와 시간은 독립적인 가상 예제입니다.</p></div>
+<section id="question"><h2>1. 파일 서버에 연결했다는 기록은 어디까지 말해 줄까요?</h2>
+<p>단말이 <code>198.51.100.54</code>의 TCP 445에 연결했습니다. 센서에 연결 내역이 남았고, 운영팀은 공유의 파일을 읽었는지 알고 싶어 합니다. 첫 줄에서 알 수 있는 건 네트워크 연결이라는 점입니다. 공유 접근을 말하려면 SMB 협상과 세션, 접근 요청과 서버 응답을 더 따라가야 해요.</p>
+<p>자료실에 비유해 보죠. 직원과 어떤 언어로 이야기할지 정하고, 이용자 자격을 확인한 뒤, 서가를 골라 자료를 요청합니다. SMB도 비슷한 단계가 있습니다. 다만 한 직원의 접수 동안 여러 서가와 파일이 동시에 열릴 수 있어 앞뒤 줄만으로 짝을 지을 수 없습니다. 각 단계에서 어떤 식별자가 이어지는지 확인합니다.</p>
+</section>
+<section id="flow"><h2>2. 공유에 접근하는 네 단계를 분리합니다</h2>
+<p>SMB(Server Message Block)는 파일과 디렉터리, 프린터 등 네트워크 자원을 공유하는 프로토콜입니다. 이름 있는 파이프로 프로세스 간 데이터도 전달할 수 있습니다. 오래된 CIFS·SMB1 계열과 SMB2/3은 메시지 표현과 해석이 다릅니다. SMB2/3에서도 다이얼렉트, 즉 서로 합의한 프로토콜 버전에 따라 기능이 달라집니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="SMB2 및 SMB3 공유 접근의 네 단계"><table><caption>단계마다 서버의 응답과 식별자를 확인합니다</caption><thead><tr><th scope="col">요청 단계</th><th scope="col">무엇을 정하나요?</th><th scope="col">조사 기록에 남길 것</th></tr></thead><tbody>
+<tr><th scope="row">NEGOTIATE</th><td>지원하는 다이얼렉트와 기능을 협상합니다.</td><td>선택된 버전과 서명 또는 암호화 관련 기능을 확인합니다.</td></tr>
+<tr><th scope="row">SESSION_SETUP</th><td>세션을 만들며 인증을 진행합니다.</td><td>최종 결과와 Session ID를 남깁니다. 추가 인증 단계가 필요한 중간 상태도 있습니다.</td></tr>
+<tr><th scope="row">TREE_CONNECT</th><td>인증된 세션에서 공유에 연결합니다.</td><td>서버가 응답한 Tree ID와 요청의 공유 경로를 연결합니다.</td></tr>
+<tr><th scope="row">자원 사용</th><td>디렉터리를 묻거나 파일을 열고 읽고 씁니다.</td><td>명령, Message ID, 파일 핸들, 반환된 상태와 데이터 길이를 구분합니다.</td></tr>
+</tbody></table></div>
+<p><code>CREATE</code>라는 이름이 보여도 새 파일을 만들었다고 바로 결론 내리지 마세요. 기존 파일을 여는 요청에도 쓰입니다. <code>QUERY_DIRECTORY</code>는 목록, <code>READ</code>·<code>WRITE</code>는 읽기·쓰기, <code>CLOSE</code>는 핸들 닫기입니다. <code>IOCTL</code>은 제어 작업으로 구체적인 기능 코드를 함께 확인합니다. <code>FLUSH</code>, <code>LOCK</code>, <code>CANCEL</code>, <code>ECHO</code>, <code>CHANGE_NOTIFY</code>, <code>QUERY_INFO</code>·<code>SET_INFO</code>, <code>OPLOCK_BREAK</code> 같은 명령은 버퍼 처리, 잠금, 작업 관리, 상태 조회에 쓰입니다. 공유나 세션을 끝낼 때는 <code>TREE_DISCONNECT</code>와 <code>LOGOFF</code>를 볼 수 있습니다.</p>
+</section>
+<section id="pairs"><h2>3. 번호가 이어지는 곳과 끊기는 곳을 표로 확인합니다</h2>
+<p>가상 클라이언트 <code>192.0.2.54</code>가 <code>files.example</code>의 문서 공유에 접근합니다. 아래에서 C는 클라이언트, S는 서버이고 시간은 첫 줄 대비 밀리초입니다. 협상과 인증은 먼저 끝났다고 가정합니다. 같은 TCP 연결 안에서 요청과 응답의 Message ID를 맞추고, Session ID·Tree ID·명령과 방향도 함께 읽습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="SMB2 요청과 응답의 예시 시간표"><table><caption>같은 연결에서 다른 요청을 먼저 끝낼 수 있습니다</caption><thead><tr><th scope="col">시각(ms)</th><th scope="col">방향</th><th scope="col">Message ID</th><th scope="col">명령·결과</th></tr></thead><tbody>
+<tr><td>0</td><td>C → S</td><td>18</td><td>TREE_CONNECT · 문서 공유 요청</td></tr>
+<tr><td>4</td><td>S → C</td><td>18</td><td>SUCCESS · Tree ID 7</td></tr>
+<tr><td>6</td><td>C → S</td><td>19</td><td>CREATE · 기존 <code>guide.txt</code> 열기</td></tr>
+<tr><td>9</td><td>S → C</td><td>19</td><td>SUCCESS · 파일 핸들 반환</td></tr>
+<tr><td>10</td><td>C → S</td><td>20</td><td>READ · 파일 핸들에서 16바이트 요청</td></tr>
+<tr><td>11</td><td>C → S</td><td>21</td><td>QUERY_INFO · 같은 핸들의 속성 조회</td></tr>
+<tr><td>13</td><td>S → C</td><td>21</td><td>SUCCESS · 속성 응답</td></tr>
+<tr><td>16</td><td>S → C</td><td>20</td><td>SUCCESS · 데이터 길이 12바이트</td></tr>
+</tbody></table></div>
+<p>ID 20의 응답까지 걸린 관측 시간은 16 − 10 = 6ms입니다. 그 사이에 끝난 ID 21을 잘못 붙이면 13 − 10 = 3ms로 계산하게 됩니다. 요청의 16바이트와 응답의 12바이트도 다른 값입니다. 성공 상태와 반환 데이터 길이를 확인해야 캡처에서 서버가 송신한 범위를 말할 수 있어요. 파일 한 개의 전체를 읽었는지, 단말에서 저장했는지는 다른 증거가 필요합니다. 응답이 <code>STATUS_PENDING</code>이면 그 줄을 최종 성공으로 세지 말고, 같은 요청의 후속 비동기 응답을 찾습니다.</p>
+</section>
+<section id="decode"><h2>4. 바이트 순서와 화면의 행 수를 그대로 믿지 않습니다</h2>
+<p>네트워크 단위가 모두 같은 바이트 순서라는 가정은 위험합니다. TCP 포트 같은 필드에서는 상위 바이트가 먼저 오지만 SMB2 헤더의 Message ID는 리틀엔디언 8바이트입니다. 예를 들어 <code>14 00 00 00 00 00 00 00</code>이면 값은 십진 20입니다. 경로나 파일 이름에는 UTF-16LE인 필드가 있으며 ASCII처럼 1바이트씩 읽을 수 없습니다. 예전 SMB 형식은 두 16비트 필드를 나누어 한 값을 표현하기도 합니다. 현재 규격에서 필드별 크기·인코딩·오프셋을 확인합니다.</p>
+<p>TCP는 SMB 메시지 중간에서 나뉠 수 있고, 여러 SMB2 명령이 한 전송에 복합 메시지로 들어갈 수도 있습니다. SMB2 헤더의 <code>NextCommand</code>는 복합 메시지의 다음 헤더까지의 상대 바이트 오프셋이고, 0은 다음 명령이 없다는 표시입니다. 이 규칙을 SMB1의 AndX 연결 방식에 대입하지 않습니다. 세그먼트 재조립과 간격을 건너뛴 후 원래 명령 경계를 따라가세요. “한 프레임은 한 명령”이라고 세면 복합 요청과 여러 명령의 응답을 빠뜨리기 쉽습니다.</p>
+</section>
+<section id="wireshark"><h2>5. 표시 열을 만들고 종단 기록과 대조합니다</h2>
+<p>Wireshark에서는 설정 프로필을 만들어 기존 열 구성을 보존할 수 있습니다. 패킷 상세에서 Message ID에 <em>Apply as Column</em>을 적용하고 시간·방향·명령·NT Status를 나란히 두면 비교가 쉽습니다. 조사 목적에 따라 트리나 파일 이름을 더하되 열이 비어 있다는 이유로 동작이 없었다고 단정하지 마세요. 복합 메시지는 한 줄의 열에 여러 값이 보일 수 있으므로 세부 트리를 다시 열어 확인합니다.</p>
+<pre tabindex="0"><code>tcp.stream == 4 &amp;&amp; smb2.msg_id == 20</code></pre>
+<p><code>tcp.stream</code>은 해당 파일에서 Wireshark가 매긴 연결 번호, <code>smb2.msg_id</code>는 해석된 SMB 메시지 ID입니다. <code>==</code>는 값이 같다는 뜻이고 <code>&amp;&amp;</code>는 두 조건을 함께 만족해야 한다는 뜻입니다. 숫자 4는 예시이므로 실제 파일에서 발견한 연결 번호를 쓰세요. ID 20은 다른 연결에도 나올 수 있고 암호화됐거나 캡처가 중간부터 있다면 이 필드가 보이지 않을 수 있습니다.</p>
+<p>SMB 서명은 메시지 무결성을 위한 기능이고, 암호화는 내용 가시성을 제한합니다. 암호화 구간에서 이름이나 결과를 보지 못했다면 승인된 서버의 공유 접근 기록과 종단의 파일·프로세스 기록을 연결합니다. Zeek의 SMB 로그도 환경과 파서가 노출한 필드 범위 안에서 비교 자료가 됩니다. 요청, 성공 응답, 종단의 보존 기록은 각자 의미가 있습니다.</p>
+</section>
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. TREE_CONNECT 성공의 의미는?</dt><dd>그 단계에서 공유 연결을 승인한 결과입니다. 파일별 접근은 이후 요청·응답을 확인합니다.</dd>
+<dt>2. ID 20 직후 ID 21이 먼저 돌아오면?</dt><dd>같은 연결에서 ID로 각각 짝을 찾습니다. 예시의 ID 20은 16 − 10 = 6ms입니다.</dd>
+<dt>3. CREATE가 보이면 새 파일이 생겼나요?</dt><dd>기존 파일 열기에도 사용됩니다. 열기 조건과 상태·서버 기록을 확인합니다.</dd>
+<dt>4. 하나의 프레임에 응답이 두 개 보이면 어느 것을 읽나요?</dt><dd>복합 응답일 수 있습니다. 각 SMB 명령의 경계와 Message ID 및 상태를 확인합니다.</dd>
+<dt>5. 읽기 요청은 16바이트인데 응답은 12바이트입니다.</dt><dd>캡처에 보인 응답의 실제 데이터 길이는 12바이트입니다. 전체 읽기나 단말 저장은 따로 검증합니다.</dd>
+</dl></section>
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-20에 Microsoft의 <a href="https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-smb2/c9efe8ca-ff34-44d0-bfbe-58a9b9db50d4">공유 연결 예시</a>, <a href="https://learn.microsoft.com/openspecs/windows_protocols/ms-smb2/fb188936-5050-48d3-b350-dc43059638a4">SMB2 헤더</a>, <a href="https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-signing">서명</a>, <a href="https://learn.microsoft.com/en-us/windows-server/storage/file-server/smb-feature-descriptions">SMB 기능</a>과 Wireshark의 <a href="https://www.wireshark.org/docs/dfref/s/smb2.html">SMB2 필드</a>·<a href="https://www.wireshark.org/docs/wsug_html_chunked/ChCustConfigProfilesSection.html">설정 프로필</a>, <a href="https://docs.zeek.org/en/current/reference/logs/smb.html">Zeek SMB 로그</a>를 확인했습니다. 표의 요청 짝·시간과 바이트 순서는 독립 검산했습니다. 실제 캡처 분석이나 SMB 통신은 실행하지 않았습니다.</p></section>
