@@ -13,7 +13,9 @@
     46,
     47,
     48,
-    49
+    49,
+    50,
+    51
   ],
   "completed_day_lessons": [
     1,
@@ -25,55 +27,50 @@
     7,
     8,
     9,
-    10
+    10,
+    11,
+    12
   ],
-  "next_lesson_id": 50,
-  "next_day_lesson": 11,
-  "next_printed_page": 115,
-  "publication_pending": {
-    "lesson_id": 50,
-    "additional_lesson_ids": [
-      51
-    ],
-    "stage": "awaiting_pages_and_public_screen_checks",
-    "review": ".learning/reviews/day-three-11-20261120.md"
-  },
-  "review": ".learning/reviews/day-three-11-20261120.md",
+  "next_lesson_id": 52,
+  "next_day_lesson": 13,
+  "next_printed_page": 137,
+  "publication_pending": null,
+  "review": ".learning/reviews/day-three-12-20261120.md",
   "scope": "Lessons 11–12 cover printed pages 115–136. Separate workbook and original captures were not accessed. Independent byte checks are recorded separately.",
-  "completed_printed_through": 114,
+  "completed_printed_through": 136,
   "last_publication": {
-    "lesson_id": 49,
+    "lesson_id": 51,
     "deployment": "success",
-    "verified_at": "2026-11-19T15:39:30.103614+00:00",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/49-http2-http3-visibility.html",
-    "live_page_sha256": "699610c1c9044bc65b88fa0e254b555610367510c3c31e7343ecf9483ec9ead0",
-    "live_index_sha256": "2fdbc4f1713bb87f55b61a6f006af3373abc023c74498b8ff7704c757de3eac8",
+    "verified_at": "2026-11-19T16:43:44.073516+00:00",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/51-dns-transport-byte-test.html",
+    "live_page_sha256": "cb16929e818e1880ccb56dc63411e3596bde1dc36bd723a54ce31ab545a0d473",
+    "live_index_sha256": "706d9b4da145798ea15f37935c6c58293d1e5a21ab9996978e094a8224f2c53a",
     "render_review": "Public desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
-    "deployed_commit": "10e71eabf432109df3a038e0da0145fb9a54d747",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44556865310"
+    "deployed_commit": "c94ac8c77b4a53e7274b1cf7c033f94b94c08be5",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44568978690"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 48,
+      "lesson_id": 50,
       "deployment": "success",
-      "verified_at": "2026-11-19T15:39:30.103542+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/48-http-message-detection.html",
-      "live_page_sha256": "c64f6e52dac8a7a0f637a974ba15509a1bc69e7118abe2b81de1d9531cca03d9",
-      "live_index_sha256": "2fdbc4f1713bb87f55b61a6f006af3373abc023c74498b8ff7704c757de3eac8",
+      "verified_at": "2026-11-19T16:43:44.073502+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/50-dns-resolution-wire-format.html",
+      "live_page_sha256": "1c723634aab41a93a447f1566a578d3a3fe747b7c0730ef8bdb322a4fa59d199",
+      "live_index_sha256": "706d9b4da145798ea15f37935c6c58293d1e5a21ab9996978e094a8224f2c53a",
       "render_review": "Public desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
-      "deployed_commit": "10e71eabf432109df3a038e0da0145fb9a54d747",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44556865310"
+      "deployed_commit": "c94ac8c77b4a53e7274b1cf7c033f94b94c08be5",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44568978690"
     },
     {
-      "lesson_id": 49,
+      "lesson_id": 51,
       "deployment": "success",
-      "verified_at": "2026-11-19T15:39:30.103614+00:00",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/49-http2-http3-visibility.html",
-      "live_page_sha256": "699610c1c9044bc65b88fa0e254b555610367510c3c31e7343ecf9483ec9ead0",
-      "live_index_sha256": "2fdbc4f1713bb87f55b61a6f006af3373abc023c74498b8ff7704c757de3eac8",
+      "verified_at": "2026-11-19T16:43:44.073516+00:00",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/51-dns-transport-byte-test.html",
+      "live_page_sha256": "cb16929e818e1880ccb56dc63411e3596bde1dc36bd723a54ce31ab545a0d473",
+      "live_index_sha256": "706d9b4da145798ea15f37935c6c58293d1e5a21ab9996978e094a8224f2c53a",
       "render_review": "Public desktop and narrow CSS viewport verified. Physical mobile and touch not tested.",
-      "deployed_commit": "10e71eabf432109df3a038e0da0145fb9a54d747",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44556865310"
+      "deployed_commit": "c94ac8c77b4a53e7274b1cf7c033f94b94c08be5",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/44568978690"
     }
   ]
 }
