@@ -1,0 +1,78 @@
+<div class="callout"><span class="label">학습 범위</span><p>넷째 날 9강에서는 Zeek 스크립트가 패킷을 위에서 아래로 한 줄씩 처리하는 프로그램이 아니라, <strong>관측된 사건을 이벤트로 받아 필요한 코드만 실행하는 정책 계층</strong>이라는 점을 배웁니다. <code>zeek_init</code>, <code>new_connection</code>, <code>connection</code> 레코드, <code>$</code> 필드 접근, <code>signature_match</code> 연결을 안전한 오프라인 예제로 읽습니다.</p></div>
+
+<section id="why-events"><h2>1. 패킷보다 이벤트를 먼저 생각해야 합니다</h2>
+<p>센서에서 “새 연결을 보았을 때만 자산 정보를 덧붙이고 싶다”고 해볼게요. 패킷마다 같은 코드를 실행하면 SYN, 재전송, ACK, 응답처럼 서로 다른 조각을 매번 직접 정리해야 합니다. Zeek은 패킷과 스트림을 먼저 분석한 뒤 <code>new_connection</code>, <code>dns_request</code>, <code>ssl_established</code> 같은 <strong>이벤트</strong>를 스크립트 계층에 전달합니다. 이벤트는 “관심 있는 일이 관측됐다”는 알림이지, 공격 판정이 아닙니다.</p>
+<p>식당의 주문 벨을 떠올리면 쉬워요. 주방 직원이 손님이 움직일 때마다 반응하는 대신 “주문 접수”, “조리 완료” 같은 벨에 맞춰 일을 나눕니다. 다만 비유의 한계가 있습니다. 네트워크 이벤트는 센서 위치·패킷 손실·분석기 활성화 상태에 따라 아예 발생하지 않거나 불완전한 문맥을 가질 수 있습니다.</p>
+<figure class="diagram" tabindex="0" aria-label="패킷에서 이벤트와 정책 결과로 이어지는 Zeek 처리 흐름, 좁은 화면에서는 가로 스크롤"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 330" style="min-width:760px" role="img" aria-labelledby="event-flow-title event-flow-desc">
+<title id="event-flow-title">패킷 관측에서 이벤트 기반 정책 처리까지</title><desc id="event-flow-desc">왼쪽의 패킷 스트림이 프로토콜 분석과 연결 상태를 거쳐 여러 이벤트가 되고, 관심 이벤트의 핸들러만 실행되어 로그나 조사 후보를 만든다.</desc>
+<defs><marker id="event-flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1l8 4-8 4z" fill="#80dccc"/></marker></defs>
+<g fill="#172c3e" stroke="#39536c"><rect x="20" y="120" width="130" height="64" rx="8"/><rect x="190" y="120" width="150" height="64" rx="8"/><rect x="380" y="120" width="140" height="64" rx="8"/><rect x="560" y="50" width="148" height="64" rx="8"/><rect x="560" y="190" width="148" height="64" rx="8"/><rect x="748" y="120" width="132" height="64" rx="8"/></g>
+<g fill="none" stroke="#80dccc" stroke-width="3" marker-end="url(#event-flow-arrow)"><path d="M152 152h32"/><path d="M342 152h32"/><path d="M522 142c20 0 12-60 32-60"/><path d="M522 162c20 0 12 60 32 60"/><path d="M710 82c32 0 16 70 32 70"/><path d="M710 222c32 0 16-70 32-70"/></g>
+<g text-anchor="middle"><text x="85" y="145">패킷·스트림</text><text x="85" y="168">수집</text><text x="265" y="145">프로토콜 분석</text><text x="265" y="168">연결 상태</text><text x="450" y="145">이벤트 큐</text><text x="450" y="168">정책 중립 관측</text><text x="634" y="75">관심 이벤트</text><text x="634" y="98">핸들러 실행</text><text x="634" y="215">다른 이벤트</text><text x="634" y="238">다른 핸들러</text><text x="814" y="145">로그·notice</text><text x="814" y="168">조사 후보</text></g>
+<text x="20" y="28">민트 화살표: 관측이 구조화되고 선택된 정책 코드로 전달되는 방향</text><text x="20" y="298" class="svg-label">한 패킷이 여러 이벤트의 재료가 될 수 있고, 하나의 이벤트를 여러 독립 핸들러가 받을 수 있습니다.</text></svg><figcaption>스크립트는 원시 패킷을 대신 해석하는 계층이 아니라, 분석기가 만든 이벤트와 상태를 조직의 질문으로 연결합니다.</figcaption></figure>
+</section>
+
+<section id="lifecycle"><h2>2. 시작·관측·종료 이벤트는 실행 시점이 다릅니다</h2>
+<p><code>zeek_init()</code>은 입력 처리 직전에 한 번 발생해 초기 설정에 적합합니다. <code>new_connection(c: connection)</code>은 Zeek이 새 흐름을 인식할 때마다 발생하며 TCP뿐 아니라 UDP·ICMP의 흐름 개념도 포함합니다. <code>zeek_done()</code>은 정상적인 입력 종료 시점의 집계 출력에 쓸 수 있습니다. 같은 파일의 첫 줄부터 마지막 줄까지 직선으로 실행된다고 생각하면 이 순서를 놓치기 쉽습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Zeek 대표 이벤트의 시점과 주의점"><table><caption>이벤트별로 답할 수 있는 질문</caption><thead><tr><th scope="col">이벤트</th><th scope="col">발생 시점</th><th scope="col">적합한 작업</th><th scope="col">주의점</th></tr></thead><tbody>
+<tr><th scope="row"><code>zeek_init()</code></th><td>정상 입력 처리 직전</td><td>테이블 초기화, 정책 준비</td><td>아직 패킷 기반 네트워크 시간이 준비되지 않았을 수 있음</td></tr>
+<tr><th scope="row"><code>new_connection(c)</code></th><td>새 연결·흐름을 처음 인식</td><td>끝점·서비스 후보 기록</td><td>연결 성공이나 악성 여부를 뜻하지 않음</td></tr>
+<tr><th scope="row"><code>signature_match(...)</code></th><td>로드한 시그니처 조건 일치</td><td>일치 문맥을 후속 정책에 전달</td><td>일치 데이터는 전체 스트림이 아니라 마지막 조각일 수 있음</td></tr>
+<tr><th scope="row"><code>zeek_done()</code></th><td>정상적인 입력 종료 전</td><td>누적 건수·요약 출력</td><td>비정상 종료 방식에 따라 호출되지 않을 수 있음</td></tr>
+</tbody></table></div>
+<p>하나의 이벤트를 여러 스크립트가 독립적으로 처리할 수도 있습니다. 실행 순서가 중요한 핸들러는 우선순위를 명시해야 하며, 단순히 파일에 먼저 적었다고 먼저 실행된다고 가정하면 안 됩니다.</p>
+</section>
+
+<section id="small-script"><h2>3. 작은 스크립트를 문장처럼 분해해 봅니다</h2>
+<p>다음 코드는 문서용 주소가 포함된 승인된 저장 캡처를 읽는 상황을 설명하기 위한 예시입니다. 이번 실행에서는 Zeek 명령이나 캡처를 실행하지 않았습니다.</p>
+<pre><code>event new_connection(c: connection)
+    {
+    local origin: addr = c$id$orig_h;
+    local responder: addr = c$id$resp_h;
+    print fmt("flow candidate %s -> %s", origin, responder);
+    }</code></pre>
+<p><code>event</code>는 이벤트 처리기를 선언하는 키워드, <code>new_connection</code>은 받을 이벤트 이름입니다. 괄호 속 <code>c: connection</code>은 이름이 <code>c</code>이고 형식이 <code>connection</code>인 인자를 받는다는 뜻입니다. 중괄호는 이 이벤트 때 실행할 코드 블록, 세미콜론은 한 문장의 끝입니다.</p>
+<p><code>local</code> 변수는 현재 처리기 안에서만 쓰입니다. <code>addr</code>는 IP 주소 형식이고, <code>fmt</code>의 두 <code>%s</code> 자리에 뒤의 값이 순서대로 들어갑니다. 이 출력은 “연결 후보를 관측했다”는 사실만 남깁니다. 연결이 성공했는지, 허용됐는지, 사용자가 누구였는지는 추가 증거가 필요합니다.</p>
+</section>
+
+<section id="records"><h2>4. <code>connection</code> 레코드는 상자 안의 작은 상자입니다</h2>
+<p><code>connection</code>은 연결에 관한 이름 붙은 값들의 묶음인 <strong>레코드</strong>입니다. <code>c$id$orig_h</code>를 왼쪽부터 읽으면 “연결 레코드 <code>c</code> 안의 끝점 식별자 <code>id</code> 안에 있는 시작 측 호스트 <code>orig_h</code>”입니다. 달러 기호(<code>$</code>)는 중첩된 레코드의 필드를 찾아가는 연산자입니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="connection id 필드 해석"><table><caption>문서용 흐름 <code>192.0.2.24:53000 → 198.51.100.80:443</code>의 필드</caption><thead><tr><th scope="col">필드</th><th scope="col">예시 값</th><th scope="col">뜻</th></tr></thead><tbody>
+<tr><th scope="row"><code>c$id$orig_h</code></th><td><code>192.0.2.24</code></td><td>Zeek이 정한 연결 시작 측 주소</td></tr>
+<tr><th scope="row"><code>c$id$orig_p</code></th><td><code>53000/tcp</code></td><td>시작 측 포트와 전송 프로토콜</td></tr>
+<tr><th scope="row"><code>c$id$resp_h</code></th><td><code>198.51.100.80</code></td><td>응답 측 주소</td></tr>
+<tr><th scope="row"><code>c$id$resp_p</code></th><td><code>443/tcp</code></td><td>응답 측 포트와 전송 프로토콜</td></tr>
+</tbody></table></div>
+<p><strong>originator/responder</strong>는 매 패킷의 source/destination과 다릅니다. 보통 첫 패킷을 보낸 쪽이 originator지만, 캡처 손실과 프로토콜 의미에 따라 분석기가 역할을 바로잡을 수 있습니다. 따라서 한 패킷 헤더와 연결 레코드의 역할을 같은 말로 바꾸지 않습니다.</p>
+<p>확장 레코드에는 <code>&amp;optional</code> 필드가 있을 수 있습니다. 존재를 보장할 수 없는 필드는 <code>c?$http</code>처럼 <code>?$</code>로 확인한 뒤 접근해야 합니다. 확인 없이 없는 필드를 읽으면 표현식 오류가 생길 수 있습니다.</p>
+</section>
+
+<section id="signature-event"><h2>5. 시그니처 일치는 스크립트의 시작점이 될 수 있습니다</h2>
+<p>앞 강의의 시그니처가 일치하면 <code>signature_match</code> 이벤트가 발생할 수 있습니다. 현재 Zeek 문서는 세 인자 형식과 일치 종료 위치를 추가한 네 인자 형식을 함께 설명합니다. <code>state$sig_id</code>는 어떤 시그니처였는지, <code>state$conn</code>은 관련 연결 문맥을 찾는 데 쓰입니다.</p>
+<pre><code>event signature_match(state: signature_state, msg: string, data: string)
+    {
+    if ( state$sig_id == "training-policy-marker" )
+        print fmt("review candidate on %s", state$conn$uid);
+    }</code></pre>
+<p>여기서 <code>==</code>는 같은지 비교하고, <code>if</code>는 조건이 참일 때만 다음 문장을 실행합니다. <code>data</code>를 전체 요청이나 전체 스트림이라고 가정하면 안 됩니다. 현재 문서상 일치를 촉발한 최근 입력 조각일 수 있으므로, 자세한 해석은 원시 패킷·재조립 상태·같은 UID의 로그와 연결합니다.</p>
+<div class="callout"><span class="label">조건을 바꾸면</span><p>시그니처 이름이 다르면 이 처리기는 출력하지 않습니다. 시그니처가 로드되지 않았거나 암호화·누락 때문에 일치하지 않으면 이벤트 자체가 없습니다. 출력이 없다는 사실만으로 대상 행위가 없었다고 결론 내리지 않습니다.</p></div>
+</section>
+
+<section id="investigation"><h2>6. 스크립트 결과도 관측·가설·추가 증거로 나눕니다</h2>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Zeek 스크립트 결과의 증거 수준"><table><caption>한 줄 출력 뒤의 조사 순서</caption><thead><tr><th scope="col">구분</th><th scope="col">말할 수 있는 것</th><th scope="col">함께 볼 증거</th></tr></thead><tbody>
+<tr><th scope="row">관측</th><td>특정 이벤트와 조건이 센서에서 발생함</td><td>센서 시각, UID, 원시 캡처, 관련 로그</td></tr>
+<tr><th scope="row">가설</th><td>새 외부 서비스 또는 정책 위반 가능성</td><td>자산 역할, 변경 기록, 허용 목록, 사용자 활동</td></tr>
+<tr><th scope="row">결론 전 확인</th><td>연결 성공·업무 영향·침해 여부</td><td>방화벽 허용 결과, 종단 프로세스, 서버·인증 로그</td></tr>
+</tbody></table></div>
+<p>고속 링크에서 <code>new_connection</code>마다 콘솔에 출력하면 처리 비용과 저장량이 커질 수 있습니다. 초당 5,000개 이벤트가 각각 평균 120바이트 한 줄을 만들면 <strong>5,000 × 120 = 600,000바이트/초</strong>, 약 0.6MB/초입니다. 60초에는 약 36MB가 됩니다. 운영에서는 구조화 로그, 필터링, 집계와 센서 성능 지표를 함께 설계합니다.</p>
+</section>
+
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. 이벤트는 경보와 같은 말인가요?</dt><dd>아닙니다. 이벤트는 관측된 활동이나 상태를 스크립트에 전달하는 진입점입니다. 정책 코드가 문맥을 더한 뒤 로그나 notice로 만들 수 있습니다.</dd>
+<dt>2. <code>new_connection</code>이 발생하면 TCP 연결이 성공했다는 뜻인가요?</dt><dd>아닙니다. Zeek이 새 흐름을 인식했다는 뜻입니다. 성공 여부는 연결 상태, 응답, 방화벽과 종단 로그를 확인해야 합니다.</dd>
+<dt>3. <code>c$id$orig_h</code>의 달러 기호는 무엇을 하나요?</dt><dd>중첩 레코드의 이름 붙은 필드를 따라갑니다. <code>c</code> 안의 <code>id</code>, 그 안의 <code>orig_h</code>를 읽습니다.</dd>
+<dt>4. 조건을 바꿔 캡처가 중간부터 시작되면 무엇이 달라질까요?</dt><dd>연결 역할과 프로토콜 상태가 불완전할 수 있고 기대한 이벤트가 누락될 수 있습니다. 센서 위치·패킷 손실·분석기 상태를 함께 기록합니다.</dd>
+<dt>5. 스크립트가 한 줄을 출력했으면 침해가 확정되나요?</dt><dd>아닙니다. 처리기가 정의한 조건을 만족했다는 관측입니다. UID, 원시 패킷, 자산·사용자·종단 결과로 가설을 검증합니다.</dd>
+</dl></section>
+
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-25에 <a href="https://docs.zeek.org/en/current/tutorial/scripting/index.html">Zeek 9.0.1 Scripting 튜토리얼</a>, <a href="https://docs.zeek.org/en/current/tutorial/scripting/basics.html">이벤트·connection 레코드·선택 필드의 현행 설명</a>, <a href="https://docs.zeek.org/en/current/frameworks/signatures.html">Signature Framework의 <code>signature_match</code> 인자와 데이터 범위</a>를 확인했습니다. 예시 스크립트와 명령은 이번 회차에서 실행하지 않았습니다.</p></section>

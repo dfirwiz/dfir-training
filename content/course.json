@@ -942,6 +942,38 @@
       "updated": "2026-11-25",
       "minutes": 55,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 64,
+      "slug": "64-zeek-event-driven-scripting",
+      "title": "Zeek 이벤트 기반 스크립팅 시작하기",
+      "description": "패킷이 이벤트와 연결 레코드로 바뀌는 흐름을 이해하고 new_connection, 중첩 필드와 시그니처 일치 후속 처리를 증거 범위에 맞게 읽습니다.",
+      "day": 4,
+      "day_lesson": 9,
+      "printed_pages": [
+        59,
+        77
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 60,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 65,
+      "slug": "65-behavior-chain-threat-model",
+      "title": "행동 연쇄로 위협 모델 만들기",
+      "description": "메시지 URL, DNS 해석과 외부 연결을 주체·대상·시간으로 연결하고 센서 관측 경계와 오탐·누락을 구분합니다.",
+      "day": 4,
+      "day_lesson": 10,
+      "printed_pages": [
+        78,
+        99
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 60,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
