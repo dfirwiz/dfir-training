@@ -4,33 +4,50 @@
   "status": "in_progress",
   "updated": "2026-11-25",
   "completed_lesson_ids": [
-    56
+    56,
+    57
   ],
   "completed_day_lessons": [
-    1
+    1,
+    2
   ],
-  "completed_printed_through": 9,
-  "next_lesson_id": 57,
-  "next_day_lesson": 2,
-  "next_printed_page": 10,
-  "publication_pending": {
-    "lesson_id": 57,
-    "day_lesson": 2,
-    "slug": "57-tap-span-traffic-collection",
-    "printed_pages": [
-      10,
-      20
-    ],
-    "review": ".learning/reviews/day-four-02-20261125.md"
-  },
+  "completed_printed_through": 20,
+  "next_lesson_id": 58,
+  "next_day_lesson": 3,
+  "next_printed_page": 21,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 56,
+    "lesson_id": 57,
     "deployment": "success",
-    "verified_at": "2026-11-25T00:44:23+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/56-ids-ips-placement.html",
-    "live_page_sha256": "0f027db8272dea9a7ddf41ae098fc3c6329e3d6c20234039221e32a446d31709",
+    "verified_at": "2026-11-25T00:48:48+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/57-tap-span-traffic-collection.html",
+    "live_page_sha256": "a7f477f7295faa59e98bab027e070532de56b84fca0b30dc03c56ea3ae6911f7",
+    "live_index_sha256": "96e714613896fe3222c5ffa5c900e8ec55ef1eb71a76da14b5c7498c886f8540",
     "render_review": "Public desktop and 454px CSS viewport verified using browser zoom; physical mobile not tested.",
-    "deployed_commit": "44e43f31d78c05f16adde94afe055c0accf1d789",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45411012593"
-  }
+    "deployed_commit": "c0aa4b09d6832af8095156fd5956171307bf9af8",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45412324814"
+  },
+  "last_batch_publication": [
+    {
+      "lesson_id": 56,
+      "deployment": "success",
+      "verified_at": "2026-11-25T00:44:23+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/56-ids-ips-placement.html",
+      "live_page_sha256": "0f027db8272dea9a7ddf41ae098fc3c6329e3d6c20234039221e32a446d31709",
+      "render_review": "Public desktop and 454px CSS viewport verified using browser zoom; physical mobile not tested.",
+      "deployed_commit": "44e43f31d78c05f16adde94afe055c0accf1d789",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45411012593"
+    },
+    {
+      "lesson_id": 57,
+      "deployment": "success",
+      "verified_at": "2026-11-25T00:48:48+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/57-tap-span-traffic-collection.html",
+      "live_page_sha256": "a7f477f7295faa59e98bab027e070532de56b84fca0b30dc03c56ea3ae6911f7",
+      "live_index_sha256": "96e714613896fe3222c5ffa5c900e8ec55ef1eb71a76da14b5c7498c886f8540",
+      "render_review": "Public desktop and 454px CSS viewport verified using browser zoom; physical mobile not tested.",
+      "deployed_commit": "c0aa4b09d6832af8095156fd5956171307bf9af8",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45412324814"
+    }
+  ]
 }
