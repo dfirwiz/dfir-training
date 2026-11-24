@@ -7,59 +7,55 @@
     56,
     57,
     58,
-    59
+    59,
+    60,
+    61
   ],
   "completed_day_lessons": [
     1,
     2,
     3,
-    4
+    4,
+    5,
+    6
   ],
-  "completed_printed_through": 30,
-  "next_lesson_id": 60,
-  "next_day_lesson": 5,
-  "next_printed_page": 31,
-  "publication_pending": {
-    "lesson_ids": [
-      60,
-      61
-    ],
-    "state": "awaiting_deployment_and_live_review",
-    "prepared_at": "2026-11-25T03:15:00+10:30",
-    "content_commit": null
-  },
+  "completed_printed_through": 45,
+  "next_lesson_id": 62,
+  "next_day_lesson": 7,
+  "next_printed_page": 46,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 59,
+    "lesson_id": 61,
     "deployment": "success",
-    "verified_at": "2026-11-25T01:48:44+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/59-tls-starttls-observation.html",
-    "live_page_sha256": "0d8de6849f4575d5de91b4b55401fd14968260f79ea358dd0c985d84bbe58467",
-    "live_index_sha256": "b6f5f9dfa67452b13c096f197da3ff51022b153bea6222924659608fb5306f5e",
-    "render_review": "Public desktop and approximately 454px CSS viewport verified using 300% browser zoom; physical mobile not tested.",
-    "deployed_commit": "49336b74dcdd80b5e43879ee0187477da5929dc8",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45423183740"
+    "verified_at": "2026-11-25T05:40:38+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/61-zeek-event-cluster-architecture.html",
+    "live_page_sha256": "803a7e7c1594909f412d05b64507076ebd846dc58657c3bc663f48031d22cebd",
+    "live_index_sha256": "7b44095211e61c271491cbd2b61282c363d4eaba75b0fb92c9029a5ce94b1575",
+    "render_review": "Public desktop at 100% browser zoom and a 454px CSS viewport were verified; physical mobile was not tested.",
+    "deployed_commit": "4bbfac064bbf9f95880caf92c142eaa4979fc86f",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45466902212"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 58,
+      "lesson_id": 60,
       "deployment": "success",
-      "verified_at": "2026-11-25T01:48:44+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/58-full-packet-capture-retention.html",
-      "live_page_sha256": "2e75771a8f1e50722eb9dc010d6c24b59258e17bafc0e3d280f80f1c29f4747c",
-      "render_review": "Public desktop and approximately 454px CSS viewport verified using 300% browser zoom; physical mobile not tested.",
-      "deployed_commit": "49336b74dcdd80b5e43879ee0187477da5929dc8",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45423183740"
+      "verified_at": "2026-11-25T05:40:38+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/60-tls-inspection-governance.html",
+      "live_page_sha256": "148933ef04f36bf2cc7b124eecaef85ab061c5200284cd37621517d15070ef59",
+      "render_review": "Public desktop at 100% browser zoom and a 454px CSS viewport were verified; physical mobile was not tested.",
+      "deployed_commit": "4bbfac064bbf9f95880caf92c142eaa4979fc86f",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45466902212"
     },
     {
-      "lesson_id": 59,
+      "lesson_id": 61,
       "deployment": "success",
-      "verified_at": "2026-11-25T01:48:44+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/59-tls-starttls-observation.html",
-      "live_page_sha256": "0d8de6849f4575d5de91b4b55401fd14968260f79ea358dd0c985d84bbe58467",
-      "live_index_sha256": "b6f5f9dfa67452b13c096f197da3ff51022b153bea6222924659608fb5306f5e",
-      "render_review": "Public desktop and approximately 454px CSS viewport verified using 300% browser zoom; physical mobile not tested.",
-      "deployed_commit": "49336b74dcdd80b5e43879ee0187477da5929dc8",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45423183740"
+      "verified_at": "2026-11-25T05:40:38+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/61-zeek-event-cluster-architecture.html",
+      "live_page_sha256": "803a7e7c1594909f412d05b64507076ebd846dc58657c3bc663f48031d22cebd",
+      "live_index_sha256": "7b44095211e61c271491cbd2b61282c363d4eaba75b0fb92c9029a5ce94b1575",
+      "render_review": "Public desktop at 100% browser zoom and a 454px CSS viewport were verified; physical mobile was not tested.",
+      "deployed_commit": "4bbfac064bbf9f95880caf92c142eaa4979fc86f",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45466902212"
     }
   ]
 }
