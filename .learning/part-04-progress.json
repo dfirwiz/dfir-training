@@ -5,60 +5,53 @@
   "updated": "2026-11-25",
   "completed_lesson_ids": [
     56,
-    57
+    57,
+    58,
+    59
   ],
   "completed_day_lessons": [
     1,
-    2
+    2,
+    3,
+    4
   ],
-  "completed_printed_through": 20,
-  "next_lesson_id": 58,
-  "next_day_lesson": 3,
-  "next_printed_page": 21,
-  "publication_pending": {
-    "lesson_ids": [
-      58,
-      59
-    ],
-    "state": "awaiting_deployment_and_live_review",
-    "source_ranges": [
-      "printed 21-24",
-      "printed 25-30"
-    ],
-    "prepared_at": "2026-11-25"
-  },
+  "completed_printed_through": 30,
+  "next_lesson_id": 60,
+  "next_day_lesson": 5,
+  "next_printed_page": 31,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 57,
+    "lesson_id": 59,
     "deployment": "success",
-    "verified_at": "2026-11-25T00:48:48+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/57-tap-span-traffic-collection.html",
-    "live_page_sha256": "a7f477f7295faa59e98bab027e070532de56b84fca0b30dc03c56ea3ae6911f7",
-    "live_index_sha256": "96e714613896fe3222c5ffa5c900e8ec55ef1eb71a76da14b5c7498c886f8540",
-    "render_review": "Public desktop and 454px CSS viewport verified using browser zoom; physical mobile not tested.",
-    "deployed_commit": "c0aa4b09d6832af8095156fd5956171307bf9af8",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45412324814"
+    "verified_at": "2026-11-25T01:48:44+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/59-tls-starttls-observation.html",
+    "live_page_sha256": "0d8de6849f4575d5de91b4b55401fd14968260f79ea358dd0c985d84bbe58467",
+    "live_index_sha256": "b6f5f9dfa67452b13c096f197da3ff51022b153bea6222924659608fb5306f5e",
+    "render_review": "Public desktop and approximately 454px CSS viewport verified using 300% browser zoom; physical mobile not tested.",
+    "deployed_commit": "49336b74dcdd80b5e43879ee0187477da5929dc8",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45423183740"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 56,
+      "lesson_id": 58,
       "deployment": "success",
-      "verified_at": "2026-11-25T00:44:23+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/56-ids-ips-placement.html",
-      "live_page_sha256": "0f027db8272dea9a7ddf41ae098fc3c6329e3d6c20234039221e32a446d31709",
-      "render_review": "Public desktop and 454px CSS viewport verified using browser zoom; physical mobile not tested.",
-      "deployed_commit": "44e43f31d78c05f16adde94afe055c0accf1d789",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45411012593"
+      "verified_at": "2026-11-25T01:48:44+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/58-full-packet-capture-retention.html",
+      "live_page_sha256": "2e75771a8f1e50722eb9dc010d6c24b59258e17bafc0e3d280f80f1c29f4747c",
+      "render_review": "Public desktop and approximately 454px CSS viewport verified using 300% browser zoom; physical mobile not tested.",
+      "deployed_commit": "49336b74dcdd80b5e43879ee0187477da5929dc8",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45423183740"
     },
     {
-      "lesson_id": 57,
+      "lesson_id": 59,
       "deployment": "success",
-      "verified_at": "2026-11-25T00:48:48+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/57-tap-span-traffic-collection.html",
-      "live_page_sha256": "a7f477f7295faa59e98bab027e070532de56b84fca0b30dc03c56ea3ae6911f7",
-      "live_index_sha256": "96e714613896fe3222c5ffa5c900e8ec55ef1eb71a76da14b5c7498c886f8540",
-      "render_review": "Public desktop and 454px CSS viewport verified using browser zoom; physical mobile not tested.",
-      "deployed_commit": "c0aa4b09d6832af8095156fd5956171307bf9af8",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45412324814"
+      "verified_at": "2026-11-25T01:48:44+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/59-tls-starttls-observation.html",
+      "live_page_sha256": "0d8de6849f4575d5de91b4b55401fd14968260f79ea358dd0c985d84bbe58467",
+      "live_index_sha256": "b6f5f9dfa67452b13c096f197da3ff51022b153bea6222924659608fb5306f5e",
+      "render_review": "Public desktop and approximately 454px CSS viewport verified using 300% browser zoom; physical mobile not tested.",
+      "deployed_commit": "49336b74dcdd80b5e43879ee0187477da5929dc8",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45423183740"
     }
   ]
 }
