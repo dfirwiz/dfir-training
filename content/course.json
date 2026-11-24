@@ -878,6 +878,38 @@
       "updated": "2026-11-25",
       "minutes": 55,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 60,
+      "slug": "60-tls-inspection-governance",
+      "title": "TLS 복호화 프록시와 가시성 선택하기",
+      "description": "종단 프록시·중간 프록시·세션 키 분석의 관측 경계를 비교하고 개인정보, 키 관리, 용량과 메타데이터 대안을 함께 판단합니다.",
+      "day": 4,
+      "day_lesson": 5,
+      "printed_pages": [
+        31,
+        37
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 55,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 61,
+      "slug": "61-zeek-event-cluster-architecture",
+      "title": "Zeek의 이벤트와 클러스터 구조 이해하기",
+      "description": "패킷이 프로토콜 이벤트와 로그로 바뀌는 흐름을 따라가고 Zeek 클러스터 역할, 부하 분산과 행위 상관분석을 검산합니다.",
+      "day": 4,
+      "day_lesson": 6,
+      "printed_pages": [
+        38,
+        45
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 55,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

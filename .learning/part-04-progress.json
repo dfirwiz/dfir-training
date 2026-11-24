@@ -19,7 +19,15 @@
   "next_lesson_id": 60,
   "next_day_lesson": 5,
   "next_printed_page": 31,
-  "publication_pending": null,
+  "publication_pending": {
+    "lesson_ids": [
+      60,
+      61
+    ],
+    "state": "awaiting_deployment_and_live_review",
+    "prepared_at": "2026-11-25T03:15:00+10:30",
+    "content_commit": null
+  },
   "last_publication": {
     "lesson_id": 59,
     "deployment": "success",
