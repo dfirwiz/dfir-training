@@ -1,0 +1,63 @@
+<div class="callout"><span class="label">학습 범위</span><p>넷째 날 8강에서는 Zeek의 정책 중립성과 사이트별 판단, 시그니처의 조건·동작 구조, 스트림과 방향을 고려한 일치 검증, <code>signature_match</code> 이벤트와 notice의 차이를 배웁니다. 예시는 승인된 오프라인 정상 합성 표본을 위한 방어 검증이며 실제 외부 시스템에 패킷을 보내지 않습니다.</p></div>
+<section id="policy"><h2>1. 같은 관측도 조직마다 의미가 다를 수 있습니다</h2>
+<p>개발망의 8443/TCP 통신은 승인된 시험 서비스일 수 있지만 일반 사무 단말에서는 확인이 필요한 새 서비스일 수 있습니다. 그래서 Zeek은 모든 이벤트에 보편적인 위험 점수를 고정하기보다, 이벤트와 데이터를 제공하고 사이트가 자산 역할·허용 정책·시간·사용자를 결합하도록 설계됐습니다. 이를 <strong>정책 중립성</strong>이라고 부릅니다.</p>
+<p>연기 감지기를 떠올리면 쉬워요. 연기라는 관측은 같아도 주방 조리 시간과 서버실의 의미는 다릅니다. 하지만 비유의 한계도 있습니다. 네트워크 센서는 암호화·패킷 누락·수집 위치 때문에 “연기” 자체를 못 볼 수 있고, 한 문자열 일치는 실제 행위 성공을 뜻하지 않습니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="Zeek 사이트 정책 구성 방법 비교"><table><caption>관측을 사이트별 판단으로 바꾸는 세 층</caption><thead><tr><th scope="col">수단</th><th scope="col">잘하는 일</th><th scope="col">한계</th></tr></thead><tbody>
+<tr><th scope="row">스크립트</th><td>이벤트·자산·시간을 누적하고 상태 기반 조건을 표현</td><td>메모리·우선순위·배포·테스트 관리가 필요</td></tr>
+<tr><th scope="row">시그니처</th><td>헤더와 평문 페이로드의 저수준 패턴을 빠르게 후보화</td><td>암호화·변형·문맥 부족과 패턴 범위에 영향</td></tr>
+<tr><th scope="row">Notice 프레임워크</th><td>사이트가 중요하다고 정한 사건을 조사 신호로 승격</td><td>notice가 곧 침해 확정은 아니며 억제·집계 정책 필요</td></tr>
+</tbody></table></div>
+</section>
+<section id="anatomy"><h2>2. 시그니처는 조건과 동작을 분리해서 읽습니다</h2>
+<p>Zeek 시그니처는 <code>signature 식별자 { ... }</code> 블록 안에 <strong>조건</strong>과 <strong>동작</strong>을 적습니다. 헤더 조건은 IP 프로토콜·주소·포트 같은 범위를 좁히고, 콘텐츠 조건은 페이로드 또는 분석기가 추출한 특정 응용 영역의 정규표현식을 검사합니다. <code>event</code> 동작은 일치 정보를 <code>signature_match</code> 이벤트로 보냅니다.</p>
+<pre><code># 관리되는 오프라인 합성 표본을 설명하기 위한 예시
+signature training-policy-marker {
+    ip-proto == tcp
+    dst-port == 8443
+    payload /.*X-Training-Policy: blocked/
+    event "training policy marker observed"
+}</code></pre>
+<p><code>ip-proto == tcp</code>는 TCP 연결만, <code>dst-port == 8443</code>은 응답 포트가 8443인 후보만 검사합니다. <code>payload /.../</code>는 재조립된 TCP 페이로드에서 정규표현식을 찾고, <code>event</code> 문자열은 일치 이유를 이벤트에 전달합니다. 이 예시는 탐지 파이프라인 검증용 표식일 뿐 공격 문자열이나 취약점 재현 절차가 아닙니다.</p>
+<figure class="diagram" tabindex="0" aria-label="Zeek 시그니처의 헤더 조건 콘텐츠 조건 이벤트와 정책 처리 흐름, 좁은 화면에서는 가로 스크롤"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 340" style="min-width:740px" role="img" aria-labelledby="sig-flow-title sig-flow-desc">
+<title id="sig-flow-title">시그니처 후보 축소에서 사이트 정책 판단까지</title><desc id="sig-flow-desc">왼쪽의 오프라인 합성 흐름이 헤더 조건과 콘텐츠 조건을 차례로 통과하면 signature_match 이벤트가 발생하고 사이트 스크립트가 자산 문맥을 더해 로그 또는 notice를 결정한다.</desc>
+<defs><marker id="sig-flow-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1l8 4-8 4z" fill="#80dccc"/></marker></defs>
+<g fill="#172c3e" stroke="#39536c"><rect x="18" y="126" width="130" height="58" rx="7"/><rect x="184" y="126" width="132" height="58" rx="7"/><rect x="352" y="126" width="132" height="58" rx="7"/><rect x="520" y="126" width="138" height="58" rx="7"/><rect x="694" y="64" width="126" height="58" rx="7"/><rect x="694" y="190" width="126" height="58" rx="7"/></g>
+<g fill="none" stroke="#80dccc" stroke-width="3" marker-end="url(#sig-flow-arrow)"><path d="M150 155h28"/><path d="M318 155h28"/><path d="M486 155h28"/><path d="M660 145c18 0 12-52 28-52"/><path d="M660 165c18 0 12 54 28 54"/></g>
+<g text-anchor="middle"><text x="83" y="149">오프라인</text><text x="83" y="170">합성 표본</text><text x="250" y="149">헤더 조건</text><text x="250" y="170">TCP·포트</text><text x="418" y="149">콘텐츠 조건</text><text x="418" y="170">평문 패턴</text><text x="589" y="149">signature_match</text><text x="589" y="170">일치 이벤트</text><text x="757" y="87">구조화 로그</text><text x="757" y="108">관측 보존</text><text x="757" y="213">notice</text><text x="757" y="234">정책 판단</text></g>
+<text x="18" y="25">민트 화살표: 후보를 좁히고 문맥을 더하는 방향</text><text x="18" y="290" class="svg-label">일치 자체는 관측입니다. 사이트 스크립트가 자산·시간·허용 정책을 확인한 뒤 중요도를 정합니다.</text></svg><figcaption>시그니처가 직접 침해를 증명하는 것이 아니라, 일치 이벤트를 사이트별 조사 흐름으로 전달합니다.</figcaption></figure>
+</section>
+<section id="regex"><h2>3. 정규표현식은 보이는 문자열보다 경계가 중요합니다</h2>
+<p>예시의 <code>.*</code>에서 점(<code>.</code>)은 임의의 한 문자, 별표(<code>*</code>)는 앞 요소의 0회 이상 반복을 뜻합니다. 따라서 뒤의 표식 앞에 다른 문자가 있어도 찾도록 범위를 넓힙니다. 넓은 표현은 놓침을 줄일 수 있지만 오탐과 처리 비용을 늘립니다. 고정 접두사·메시지 경계·대소문자·인코딩을 확인하고 가능한 한 필요한 범위만 표현합니다.</p>
+<p>조건을 바꿔 페이로드가 TLS로 암호화돼 있으면 평문 표식은 보이지 않습니다. 포트가 9443으로 바뀌면 <code>dst-port == 8443</code> 조건에서 제외됩니다. TCP 분할은 재조립 가능한 스트림이라면 처리될 수 있지만 캡처 누락·중간부터 수집·재조립 설정이 일치를 방해할 수 있습니다. “경보가 없음”을 “행위가 없음”으로 바꾸지 않는 이유입니다.</p>
+</section>
+<section id="direction"><h2>4. 주소와 포트 조건은 방향을 먼저 확인합니다</h2>
+<p><code>dst-port</code>는 해당 방향 패킷의 목적지 포트 조건입니다. 요청 방향에서 8443을 보더라도 응답 방향은 목적지 포트가 임시 클라이언트 포트가 되므로 같은 조건을 만족하지 않을 수 있습니다. 연결을 시작한 쪽과 응답한 쪽, 수집 지점의 NAT 전후를 구분합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="시그니처 방향과 조건 변경 결과"><table><caption>문서용 흐름에서 조건을 한 가지씩 바꾼 결과</caption><thead><tr><th scope="col">합성 조건</th><th scope="col">예상 후보</th><th scope="col">추가 확인</th></tr></thead><tbody>
+<tr><th scope="row"><code>192.0.2.20:51000 → 198.51.100.44:8443</code></th><td>TCP·목적지 포트 조건 충족</td><td>평문 표식과 재조립 가능 여부</td></tr>
+<tr><th scope="row">같은 흐름의 응답 방향</th><td>목적지 포트가 51000이므로 해당 조건 제외</td><td>역방향 조건이 필요한 조사인지 검토</td></tr>
+<tr><th scope="row">목적지 포트 9443</th><td>현재 시그니처 후보에서 제외</td><td>서비스 정책과 포트 독립 분석이 필요한지 검토</td></tr>
+<tr><th scope="row">8443이지만 TLS 암호문</th><td>헤더 후보지만 평문 패턴 불일치</td><td>TLS·프록시·종단 로그와 메타데이터 연결</td></tr>
+</tbody></table></div>
+</section>
+<section id="load"><h2>5. 로드 방법과 결과 파일을 구분합니다</h2>
+<p>현재 공식 문서에서 시그니처 파일은 명령행의 <code>-s</code>, <code>signature_files</code> 변수, 또는 스크립트의 <code>@load-sigs</code>로 불러올 수 있습니다. 안전한 오프라인 검증의 형식은 <code>zeek -r managed-sample.pcap -s policy-marker.sig</code>처럼 쓸 수 있습니다. <code>-r</code>은 저장 캡처 읽기, <code>-s</code>는 시그니처 파일 로드를 뜻합니다. 이 명령은 이번 회차에서 실행하지 않았고 예시 파일도 공개하지 않습니다.</p>
+<p>시그니처가 일치하면 <code>signature_match</code> 이벤트가 생길 수 있으며, 관련 프레임워크를 로드한 정책은 이를 notice로 바꿀 수 있습니다. <code>signatures.log</code> 한 줄, notice 한 줄, 실제 침해 성공은 서로 다른 사실입니다. 원시 패킷, 같은 UID의 연결·프로토콜 로그, 단말·서버 결과를 이어야 합니다.</p>
+</section>
+<section id="validation"><h2>6. 규칙 검증은 일치·비일치·누락 조건을 함께 봅니다</h2>
+<p>정상 합성 표본 20개 중 표식을 의도적으로 넣은 4개가 모두 일치하고, 넣지 않은 16개 중 1개도 비슷한 문자열 때문에 일치했다고 합시다. 관측된 참양성 후보는 4, 거짓양성 후보는 1입니다. 이 표본에서 정밀도 후보는 <strong>4 ÷ (4 + 1) = 0.8, 즉 80%</strong>입니다.</p>
+<p>하지만 80%를 운영 성능으로 일반화할 수 없습니다. 표본이 작고 정상 합성 데이터이며 암호화·손실·다른 인코딩을 포함하지 않았기 때문입니다. 조건을 바꾼 비일치 표본, 경계 문자열, 분할 스트림, 수집 누락을 추가하고 관측 사실·예상 결과·실제 결과·차이를 기록해야 합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="시그니처 오프라인 검증 체크리스트"><table><caption>배포 전에 보존할 검증 증거</caption><thead><tr><th scope="col">검증 묶음</th><th scope="col">확인 질문</th><th scope="col">실패 때 볼 곳</th></tr></thead><tbody>
+<tr><th scope="row">일치 표본</th><td>원하는 방향·경계·메시지만 잡는가?</td><td>헤더 조건, 정규표현식, 재조립</td></tr>
+<tr><th scope="row">비일치 표본</th><td>비슷하지만 허용된 문자열을 제외하는가?</td><td>경계, 대소문자, 와일드카드 범위</td></tr>
+<tr><th scope="row">관측 한계</th><td>암호화·누락·중간 수집에서 무엇이 사라지는가?</td><td>센서 위치, 드롭, 분석기·TLS 상태</td></tr>
+<tr><th scope="row">정책 결과</th><td>로그·notice·억제가 의도대로 분리되는가?</td><td>로드 스크립트, notice 정책, 중복 이벤트</td></tr>
+</tbody></table></div>
+</section>
+<section id="review"><h2>복습과 해설</h2><dl class="glossary">
+<dt>1. 정책 중립성은 Zeek이 아무 판단도 하지 않는다는 뜻인가요?</dt><dd>아닙니다. 프로토콜·이벤트·로그라는 관측을 제공하고, 조직이 자산 역할과 허용 정책을 더해 중요도와 조치를 정하도록 분리한 설계입니다.</dd>
+<dt>2. 시그니처의 조건과 동작은 어떻게 다른가요?</dt><dd>조건은 어떤 헤더·콘텐츠가 후보인지 정하고, 동작은 일치했을 때 어떤 이벤트를 발생시킬지 정합니다.</dd>
+<dt>3. 8443/TCP 조건이 맞으면 표식도 반드시 탐지되나요?</dt><dd>아닙니다. TLS 암호화, 다른 포트, 잘린 캡처, 재조립 실패, 인코딩 차이 때문에 콘텐츠 조건이 보이지 않을 수 있습니다.</dd>
+<dt>4. <code>signatures.log</code> 한 줄은 침해 성공 증거인가요?</dt><dd>아닙니다. 정의한 조건이 관측됐다는 기록입니다. 같은 UID의 흐름, 원시 패킷과 종단·서버 결과를 확인합니다.</dd>
+<dt>5. 합성 표본 정밀도 80%를 운영 환경에도 그대로 적용할 수 있나요?</dt><dd>안 됩니다. 작은 합성 표본의 결과일 뿐입니다. 실제 기준선·암호화·누락과 다양한 비일치 표본으로 별도 검증해야 합니다.</dd>
+</dl></section>
+<section id="sources"><h2>공식 자료와 확인일</h2><p>2026-11-25에 <a href="https://docs.zeek.org/en/current/frameworks/signatures.html">Zeek 9.0.1 Signature Framework의 조건·동작·로드·<code>signature_match</code></a>와 <a href="https://docs.zeek.org/en/current/frameworks/notice.html">Zeek Notice Framework의 사이트별 정책 처리</a>를 확인했습니다. 실제 Zeek 명령, 워크북, 캡처와 외부 시스템 시험은 수행하지 않았습니다.</p></section>
