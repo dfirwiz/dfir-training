@@ -830,6 +830,22 @@
       "updated": "2026-11-25",
       "minutes": 50,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 57,
+      "slug": "57-tap-span-traffic-collection",
+      "title": "TAP과 스위치 미러로 양방향 트래픽 모으기",
+      "description": "관측 지점을 고르고 양방향 복사, 출력 용량, 패킷 브로커의 흐름 분산을 검산합니다.",
+      "day": 4,
+      "day_lesson": 2,
+      "printed_pages": [
+        10,
+        20
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 55,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
