@@ -1,7 +1,7 @@
 {
   "title": "네트워크 트래픽 분석과 위협 탐지",
   "part": "기초 네트워크 분석",
-  "updated": "2026-11-20",
+  "updated": "2026-11-25",
   "lessons": [
     {
       "id": 1,
@@ -812,6 +812,22 @@
       ],
       "status": "published",
       "updated": "2026-11-20",
+      "minutes": 50,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 56,
+      "slug": "56-ids-ips-placement",
+      "title": "IDS와 IPS를 어디에 배치할까요?",
+      "description": "복사본과 실제 전달 경로를 구분하고 관리망, 장애 정책, 규칙 범위를 서비스 증거와 연결합니다.",
+      "day": 4,
+      "day_lesson": 1,
+      "printed_pages": [
+        4,
+        9
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
       "minutes": 50,
       "editorial_status": "detailed_revision"
     }

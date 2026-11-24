@@ -1,0 +1,19 @@
+{
+  "part": "04",
+  "day": 4,
+  "status": "in_progress",
+  "updated": "2026-11-25",
+  "completed_lesson_ids": [],
+  "completed_day_lessons": [],
+  "completed_printed_through": null,
+  "next_lesson_id": 56,
+  "next_day_lesson": 1,
+  "next_printed_page": 4,
+  "publication_pending": {
+    "lesson_id": 56,
+    "day_lesson": 1,
+    "slug": "56-ids-ips-placement",
+    "printed_pages": [4, 9],
+    "review": ".learning/reviews/day-four-01-20261125.md"
+  }
+}
