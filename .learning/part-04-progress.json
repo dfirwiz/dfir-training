@@ -17,7 +17,9 @@
     66,
     67,
     68,
-    69
+    69,
+    70,
+    71
   ],
   "completed_day_lessons": [
     1,
@@ -33,51 +35,48 @@
     11,
     12,
     13,
-    14
+    14,
+    15,
+    16
   ],
-  "completed_printed_through": 130,
-  "next_lesson_id": 70,
-  "next_day_lesson": 15,
-  "next_printed_page": 131,
-  "publication_pending": {
-    "lesson_ids": [70, 71],
-    "stage": "content_ready",
-    "prepared_at": "2026-11-25",
-    "note": "Awaiting GitHub Pages and live content, navigation and layout verification. Completion pointers remain unchanged."
-  },
+  "completed_printed_through": 141,
+  "next_lesson_id": 72,
+  "next_day_lesson": 17,
+  "next_printed_page": 142,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 69,
+    "lesson_id": 71,
     "deployment": "success",
-    "verified_at": "2026-11-25T17:41:00+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/69-sensor-endpoint-reassembly.html",
-    "live_page_sha256": "a01533ffd1c366499cc0294003a6f771a9400937e9a9e38e381d7a58180fa43b",
-    "live_index_sha256": "aec626ed21e2bfeeb2f834474ebac2e51be429450a02f4da9e943274f2d319c6",
-    "render_review": "Public pages, homepage cards, the 14-item Day 4 menu, and previous/next links were verified in a 1363px desktop window and a 545px CSS viewport; wide tables and diagrams use internal horizontal scrolling. Physical mobile was not tested.",
-    "deployed_commit": "c3ab15abf00171c21a11ee4ea07f8e6a19739745",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45565947744"
+    "verified_at": "2026-11-25T18:45:07+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/71-application-parsing-detection-validation.html",
+    "live_page_sha256": "8e5d41066ed8a9933dfe59f9430df8f171e2dbcd0d6551b50328182c8ce606ce",
+    "live_index_sha256": "dcaab28eab547b863c3c5cddf5e1dc05e3accf58c52405ce796cea8618f7d7fc",
+    "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables and diagrams.",
+    "deployed_commit": "6bafb791f4f244766d62e36153beed278af6326b",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45574168266"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 68,
+      "lesson_id": 70,
       "deployment": "success",
-      "verified_at": "2026-11-25T17:41:00+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/68-spicy-custom-protocol-analysis.html",
-      "live_page_sha256": "b33226e148153071e33e164333a102174a268ce834d758f8a50572470542491e",
-      "live_index_sha256": "aec626ed21e2bfeeb2f834474ebac2e51be429450a02f4da9e943274f2d319c6",
-      "render_review": "The public lesson, homepage card, 14-item Day 4 menu, and pager were verified in a 1363px desktop window and a 545px CSS viewport; physical mobile was not tested.",
-      "deployed_commit": "c3ab15abf00171c21a11ee4ea07f8e6a19739745",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45565947744"
+      "verified_at": "2026-11-25T18:45:07+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/70-tcp-state-alert-validation.html",
+      "live_page_sha256": "f6e668b3e1efdb8f6c07089f61d0bed5f66a60cf34906f16e8b15f9414db4c62",
+      "live_index_sha256": "dcaab28eab547b863c3c5cddf5e1dc05e3accf58c52405ce796cea8618f7d7fc",
+      "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables and diagrams.",
+      "deployed_commit": "6bafb791f4f244766d62e36153beed278af6326b",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45574168266"
     },
     {
-      "lesson_id": 69,
+      "lesson_id": 71,
       "deployment": "success",
-      "verified_at": "2026-11-25T17:41:00+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/69-sensor-endpoint-reassembly.html",
-      "live_page_sha256": "a01533ffd1c366499cc0294003a6f771a9400937e9a9e38e381d7a58180fa43b",
-      "live_index_sha256": "aec626ed21e2bfeeb2f834474ebac2e51be429450a02f4da9e943274f2d319c6",
-      "render_review": "The public lesson, homepage card, 14-item Day 4 menu, and pager were verified in a 1363px desktop window and a 545px CSS viewport; wide content uses internal horizontal scrolling. Physical mobile was not tested.",
-      "deployed_commit": "c3ab15abf00171c21a11ee4ea07f8e6a19739745",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45565947744"
+      "verified_at": "2026-11-25T18:45:07+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/71-application-parsing-detection-validation.html",
+      "live_page_sha256": "8e5d41066ed8a9933dfe59f9430df8f171e2dbcd0d6551b50328182c8ce606ce",
+      "live_index_sha256": "dcaab28eab547b863c3c5cddf5e1dc05e3accf58c52405ce796cea8618f7d7fc",
+      "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables and diagrams.",
+      "deployed_commit": "6bafb791f4f244766d62e36153beed278af6326b",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45574168266"
     }
   ]
 }
