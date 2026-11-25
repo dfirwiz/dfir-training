@@ -13,7 +13,9 @@
     62,
     63,
     64,
-    65
+    65,
+    66,
+    67
   ],
   "completed_day_lessons": [
     1,
@@ -25,62 +27,48 @@
     7,
     8,
     9,
-    10
+    10,
+    11,
+    12
   ],
-  "completed_printed_through": 99,
-  "next_lesson_id": 66,
-  "next_day_lesson": 11,
-  "next_printed_page": 100,
-  "publication_pending": {
-    "lesson_ids": [
-      66,
-      67
-    ],
-    "day_lessons": [
-      11,
-      12
-    ],
-    "printed_pages": [
-      100,
-      119
-    ],
-    "state": "source_ready",
-    "prepared_at": "2026-11-25T13:30:00+10:30",
-    "note": "원고·검토·정적 생성 후 정확한 Pages 배포와 공개 데스크톱·좁은 화면 검증을 기다림"
-  },
+  "completed_printed_through": 119,
+  "next_lesson_id": 68,
+  "next_day_lesson": 13,
+  "next_printed_page": 120,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 65,
+    "lesson_id": 67,
     "deployment": "success",
-    "verified_at": "2026-11-25T12:34:52+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/65-behavior-chain-threat-model.html",
-    "live_page_sha256": "0f8da40b8015bcfeb69be2a66ff976c562e9e6d3c5b5861aef2d7a99cdbe3a8b",
-    "live_index_sha256": "d1b0261250b42eeb79e5adcbb6727b9d9f9f10df5d7ae4e14970ae579df6f148",
-    "render_review": "The public homepage catalog and lesson pages were verified at desktop width and a 545px CSS viewport; physical mobile was not tested.",
-    "deployed_commit": "230779e7da366a09fa81f3ca1c342aa262a3c623",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45530098297"
+    "verified_at": "2026-11-25T13:44:57+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/67-behavior-baseline-stream-monitoring.html",
+    "live_page_sha256": "9fcaba40733b1167774b4825827d1dc13d5c2a80d3044150190809caa08c8e39",
+    "live_index_sha256": "5324a6d2638e034c0e20bef61ec8c1f2c9d4a6ac7d370bfc0b65460d1da65aa2",
+    "render_review": "Public pages, homepage cards, the 12-item Day 4 menu, and previous/next links were verified in a 1363px desktop window and a 545px CSS viewport; wide tables and diagrams use internal horizontal scrolling. Physical mobile was not tested.",
+    "deployed_commit": "7a0945f664d8af093790888ce159c48318537d73",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45538054757"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 64,
+      "lesson_id": 66,
       "deployment": "success",
-      "verified_at": "2026-11-25T12:34:52+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/64-zeek-event-driven-scripting.html",
-      "live_page_sha256": "70518eeca3976a1c63ae33cdfb38288494e98f8fb65f95ed26f1cc56c184eb99",
-      "live_index_sha256": "d1b0261250b42eeb79e5adcbb6727b9d9f9f10df5d7ae4e14970ae579df6f148",
-      "render_review": "The public lesson and homepage card were verified at desktop width and a 545px CSS viewport; physical mobile was not tested.",
-      "deployed_commit": "230779e7da366a09fa81f3ca1c342aa262a3c623",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45530098297"
+      "verified_at": "2026-11-25T13:44:57+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/66-zeek-stateful-correlation.html",
+      "live_page_sha256": "67c09f6843d41f2f8f05db18777f7633e209915bd6cbc746367752f49f44a6b4",
+      "live_index_sha256": "5324a6d2638e034c0e20bef61ec8c1f2c9d4a6ac7d370bfc0b65460d1da65aa2",
+      "render_review": "The public lesson, homepage card, Day 4 menu, and pager were verified in a 1363px desktop window and a 545px CSS viewport; physical mobile was not tested.",
+      "deployed_commit": "7a0945f664d8af093790888ce159c48318537d73",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45538054757"
     },
     {
-      "lesson_id": 65,
+      "lesson_id": 67,
       "deployment": "success",
-      "verified_at": "2026-11-25T12:34:52+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/65-behavior-chain-threat-model.html",
-      "live_page_sha256": "0f8da40b8015bcfeb69be2a66ff976c562e9e6d3c5b5861aef2d7a99cdbe3a8b",
-      "live_index_sha256": "d1b0261250b42eeb79e5adcbb6727b9d9f9f10df5d7ae4e14970ae579df6f148",
-      "render_review": "The public lesson and homepage card were verified at desktop width and a 545px CSS viewport; physical mobile was not tested.",
-      "deployed_commit": "230779e7da366a09fa81f3ca1c342aa262a3c623",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45530098297"
+      "verified_at": "2026-11-25T13:44:57+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/67-behavior-baseline-stream-monitoring.html",
+      "live_page_sha256": "9fcaba40733b1167774b4825827d1dc13d5c2a80d3044150190809caa08c8e39",
+      "live_index_sha256": "5324a6d2638e034c0e20bef61ec8c1f2c9d4a6ac7d370bfc0b65460d1da65aa2",
+      "render_review": "The public lesson, homepage card, Day 4 menu, and pager were verified in a 1363px desktop window and a 545px CSS viewport; wide content uses internal horizontal scrolling. Physical mobile was not tested.",
+      "deployed_commit": "7a0945f664d8af093790888ce159c48318537d73",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45538054757"
     }
   ]
 }
