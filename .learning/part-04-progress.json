@@ -11,7 +11,9 @@
     60,
     61,
     62,
-    63
+    63,
+    64,
+    65
   ],
   "completed_day_lessons": [
     1,
@@ -21,70 +23,48 @@
     5,
     6,
     7,
-    8
+    8,
+    9,
+    10
   ],
-  "completed_printed_through": 58,
-  "next_lesson_id": 64,
-  "next_day_lesson": 9,
-  "next_printed_page": 59,
-  "publication_pending": {
-    "lesson_ids": [
-      64,
-      65
-    ],
-    "state": "homepage_catalog_update_blocked",
-    "prepared_at": "2026-11-25T07:33:01+10:30",
-    "content_commit": "e806c9e36c8d5e33ee6c6d08ffab404d91c99a04",
-    "deployment": "success",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45489155287",
-    "live_reviewed_at": "2026-11-25T11:35:42+10:30",
-    "live_pages": [
-      {
-        "lesson_id": 64,
-        "url": "https://dfirwiz.github.io/dfir-training/notes/64-zeek-event-driven-scripting.html",
-        "sha256": "70518eeca3976a1c63ae33cdfb38288494e98f8fb65f95ed26f1cc56c184eb99"
-      },
-      {
-        "lesson_id": 65,
-        "url": "https://dfirwiz.github.io/dfir-training/notes/65-behavior-chain-threat-model.html",
-        "sha256": "0f8da40b8015bcfeb69be2a66ff976c562e9e6d3c5b5861aef2d7a99cdbe3a8b"
-      }
-    ],
-    "render_review": "Public desktop at 100% browser zoom and a 545px CSS viewport were verified. Wide tables and the diagram use internal horizontal scrolling; physical mobile was not tested.",
-    "blocking_item": "The public homepage catalog still reports 63 / 63 lessons and does not list lessons 64 and 65. Keep the batch pending and do not advance next_lesson_id until the catalog is updated and verified."
-  },
+  "completed_printed_through": 99,
+  "next_lesson_id": 66,
+  "next_day_lesson": 11,
+  "next_printed_page": 100,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 63,
+    "lesson_id": 65,
     "deployment": "success",
-    "verified_at": "2026-11-25T06:46:04+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/63-zeek-site-policy-signatures.html",
-    "live_page_sha256": "210e5f942d16cc1fc34562d78a14bc0ad589dcd33b43e9ec9aa323b192f3612a",
-    "live_index_sha256": "e3ed65a45df62560102834e2c0763a67cdc280f57e49eced9270321e7673f2b1",
-    "render_review": "Public desktop at 100% browser zoom and a 454px CSS viewport were verified; physical mobile was not tested.",
-    "deployed_commit": "3f856b961505f040dc0f25c1a0731a7210ff5ee0",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45478162875"
+    "verified_at": "2026-11-25T12:34:52+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/65-behavior-chain-threat-model.html",
+    "live_page_sha256": "0f8da40b8015bcfeb69be2a66ff976c562e9e6d3c5b5861aef2d7a99cdbe3a8b",
+    "live_index_sha256": "d1b0261250b42eeb79e5adcbb6727b9d9f9f10df5d7ae4e14970ae579df6f148",
+    "render_review": "The public homepage catalog and lesson pages were verified at desktop width and a 545px CSS viewport; physical mobile was not tested.",
+    "deployed_commit": "230779e7da366a09fa81f3ca1c342aa262a3c623",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45530098297"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 62,
+      "lesson_id": 64,
       "deployment": "success",
-      "verified_at": "2026-11-25T06:46:04+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/62-zeek-logs-uid-pivot.html",
-      "live_page_sha256": "fe6aebab537b57813f45f978322b54d54b7ee7a9901eed89174e402bb7c0476e",
-      "render_review": "Public desktop at 100% browser zoom and a 454px CSS viewport were verified; physical mobile was not tested.",
-      "deployed_commit": "3f856b961505f040dc0f25c1a0731a7210ff5ee0",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45478162875"
+      "verified_at": "2026-11-25T12:34:52+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/64-zeek-event-driven-scripting.html",
+      "live_page_sha256": "70518eeca3976a1c63ae33cdfb38288494e98f8fb65f95ed26f1cc56c184eb99",
+      "live_index_sha256": "d1b0261250b42eeb79e5adcbb6727b9d9f9f10df5d7ae4e14970ae579df6f148",
+      "render_review": "The public lesson and homepage card were verified at desktop width and a 545px CSS viewport; physical mobile was not tested.",
+      "deployed_commit": "230779e7da366a09fa81f3ca1c342aa262a3c623",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45530098297"
     },
     {
-      "lesson_id": 63,
+      "lesson_id": 65,
       "deployment": "success",
-      "verified_at": "2026-11-25T06:46:04+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/63-zeek-site-policy-signatures.html",
-      "live_page_sha256": "210e5f942d16cc1fc34562d78a14bc0ad589dcd33b43e9ec9aa323b192f3612a",
-      "live_index_sha256": "e3ed65a45df62560102834e2c0763a67cdc280f57e49eced9270321e7673f2b1",
-      "render_review": "Public desktop at 100% browser zoom and a 454px CSS viewport were verified; physical mobile was not tested.",
-      "deployed_commit": "3f856b961505f040dc0f25c1a0731a7210ff5ee0",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45478162875"
+      "verified_at": "2026-11-25T12:34:52+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/65-behavior-chain-threat-model.html",
+      "live_page_sha256": "0f8da40b8015bcfeb69be2a66ff976c562e9e6d3c5b5861aef2d7a99cdbe3a8b",
+      "live_index_sha256": "d1b0261250b42eeb79e5adcbb6727b9d9f9f10df5d7ae4e14970ae579df6f148",
+      "render_review": "The public lesson and homepage card were verified at desktop width and a 545px CSS viewport; physical mobile was not tested.",
+      "deployed_commit": "230779e7da366a09fa81f3ca1c342aa262a3c623",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45530098297"
     }
   ]
 }
