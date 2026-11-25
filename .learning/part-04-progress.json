@@ -1,7 +1,7 @@
 {
   "part": "04",
   "day": 4,
-  "status": "in_progress",
+  "status": "verification_pending",
   "updated": "2026-11-25",
   "completed_lesson_ids": [
     56,
@@ -19,7 +19,9 @@
     68,
     69,
     70,
-    71
+    71,
+    72,
+    73
   ],
   "completed_day_lessons": [
     1,
@@ -37,51 +39,57 @@
     13,
     14,
     15,
-    16
+    16,
+    17,
+    18
   ],
-  "completed_printed_through": 141,
-  "next_lesson_id": 72,
-  "next_day_lesson": 17,
-  "next_printed_page": 142,
-  "publication_pending": {
-    "lesson_ids": [72, 73],
-    "stage": "content_ready",
-    "prepared_at": "2026-11-25",
-    "note": "Awaiting GitHub Pages and verification of live content, navigation and layouts."
-  },
+  "completed_printed_through": 152,
+  "next_lesson_id": null,
+  "next_day_lesson": null,
+  "next_printed_page": null,
+  "publication_pending": null,
   "last_publication": {
-    "lesson_id": 71,
+    "lesson_id": 73,
     "deployment": "success",
-    "verified_at": "2026-11-25T18:45:07+10:30",
-    "live_page": "https://dfirwiz.github.io/dfir-training/notes/71-application-parsing-detection-validation.html",
-    "live_page_sha256": "8e5d41066ed8a9933dfe59f9430df8f171e2dbcd0d6551b50328182c8ce606ce",
-    "live_index_sha256": "dcaab28eab547b863c3c5cddf5e1dc05e3accf58c52405ce796cea8618f7d7fc",
-    "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables and diagrams.",
-    "deployed_commit": "6bafb791f4f244766d62e36153beed278af6326b",
-    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45574168266"
+    "verified_at": "2026-11-25T19:40:36+10:30",
+    "live_page": "https://dfirwiz.github.io/dfir-training/notes/73-zeek-investigation-capstone.html",
+    "live_page_sha256": "26257ef4a770bd79cf3beab39df18db312e8978e38d01d51182e0938e491b928",
+    "live_index_sha256": "79a8f589b47d1d49e8bfb3c90c53acd7d30272c20295a167fb50731938dc6742",
+    "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables, diagrams and code.",
+    "deployed_commit": "e7b409069a842d97dcbfcf4ad7da87eab8961aca",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45582337530"
   },
   "last_batch_publication": [
     {
-      "lesson_id": 70,
+      "lesson_id": 72,
       "deployment": "success",
-      "verified_at": "2026-11-25T18:45:07+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/70-tcp-state-alert-validation.html",
-      "live_page_sha256": "f6e668b3e1efdb8f6c07089f61d0bed5f66a60cf34906f16e8b15f9414db4c62",
-      "live_index_sha256": "dcaab28eab547b863c3c5cddf5e1dc05e3accf58c52405ce796cea8618f7d7fc",
+      "verified_at": "2026-11-25T19:40:36+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/72-target-aware-inspection.html",
+      "live_page_sha256": "862386bfd2b393661d30ae356f3932fca9cd477d0d873f22a488523e161cc564",
+      "live_index_sha256": "79a8f589b47d1d49e8bfb3c90c53acd7d30272c20295a167fb50731938dc6742",
       "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables and diagrams.",
-      "deployed_commit": "6bafb791f4f244766d62e36153beed278af6326b",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45574168266"
+      "deployed_commit": "e7b409069a842d97dcbfcf4ad7da87eab8961aca",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45582337530"
     },
     {
-      "lesson_id": 71,
+      "lesson_id": 73,
       "deployment": "success",
-      "verified_at": "2026-11-25T18:45:07+10:30",
-      "live_page": "https://dfirwiz.github.io/dfir-training/notes/71-application-parsing-detection-validation.html",
-      "live_page_sha256": "8e5d41066ed8a9933dfe59f9430df8f171e2dbcd0d6551b50328182c8ce606ce",
-      "live_index_sha256": "dcaab28eab547b863c3c5cddf5e1dc05e3accf58c52405ce796cea8618f7d7fc",
-      "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables and diagrams.",
-      "deployed_commit": "6bafb791f4f244766d62e36153beed278af6326b",
-      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45574168266"
+      "verified_at": "2026-11-25T19:40:36+10:30",
+      "live_page": "https://dfirwiz.github.io/dfir-training/notes/73-zeek-investigation-capstone.html",
+      "live_page_sha256": "26257ef4a770bd79cf3beab39df18db312e8978e38d01d51182e0938e491b928",
+      "live_index_sha256": "79a8f589b47d1d49e8bfb3c90c53acd7d30272c20295a167fb50731938dc6742",
+      "render_review": "Verified 1363px desktop and 545px narrow browser layouts, homepage cards, course entry sidebar, previous and next links, and internal scrolling for wide tables, diagrams and code.",
+      "deployed_commit": "e7b409069a842d97dcbfcf4ad7da87eab8961aca",
+      "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45582337530"
     }
-  ]
+  ],
+  "coverage_review": {
+    "status": "verification_pending",
+    "review_path": ".learning/reviews/day-four-coverage-20261125.md",
+    "printed_pages": [
+      4,
+      152
+    ],
+    "remaining": "Original workbook, associated supplied captures and capstone data/grading verification."
+  }
 }
