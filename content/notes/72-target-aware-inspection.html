@@ -1,0 +1,51 @@
+<div class="callout"><span class="label">학습 범위</span><p>넷째 날 17강에서는 수신 장비의 처리 방식을 고려하는 탐지와 IPv4 조각 재조립을 살펴봅니다. 정상 조각의 위치를 계산한 뒤, 수집 공백과 처리 정책 차이를 어떻게 조사하고 방어 검증에 기록하는지 익힙니다.</p></div>
+
+<section id="target"><h2>1. 같은 패킷 기록에서도 왜 결론이 달라질까요?</h2>
+<p>검수대와 창고에 같은 물품 목록이 도착했다고 해봅시다. 검수대는 문 앞에서 확인한 출입 기록을, 창고는 안에서 실제 등록한 재고를 봅니다. 중간에 물건이 빠졌다면 숫자는 달라집니다. 재조립도 비슷합니다. 센서는 자신이 확보한 조각을 읽고, 목적지 호스트는 자신에게 도착해 수용된 조각을 처리합니다. 다만 택배에는 물건 한 개의 경계가 보이지만, 패킷은 수신 상태와 바이트 위치를 함께 해석해야 합니다.</p>
+<p><strong>종단별 분석</strong>은 센서의 처리 정책을 보호 대상의 네트워크 스택과 가까이 맞추는 접근입니다. IP 주소의 자산 목록이 출발점입니다. 로드밸런서가 연결을 끝내고 별도 연결을 열면 센서가 보는 첫 종단은 뒤쪽 서버와 다릅니다. 운영체제 이름만으로 정책을 확정하기보다 커널과 센서 버전, 캡처 위치, 네트워크 카드 오프로딩, 정책 적용 기록을 함께 확인합니다. 오프로딩은 네트워크 카드나 드라이버가 일부 처리를 맡는 방식입니다. 호스트에서 보이는 세그먼트 크기가 선로에서 본 것과 다를 수 있습니다.</p>
+</section>
+
+<section id="ranges"><h2>2. 정상 조각은 바이트 구간으로 맞춰 봅니다</h2>
+<p>문서용 IPv4 출발지 <code>192.0.2.10</code>에서 목적지 <code>198.51.100.20</code>로 온 정상 데이터그램의 IP 페이로드가 48바이트라고 합시다. 헤더는 각 조각에 따로 붙습니다. IPv4의 조각 오프셋은 원래 IP 페이로드의 시작으로부터 <strong>8바이트 단위</strong>로 계산합니다. 원래 페이로드 내부에 있는 UDP 같은 상위 프로토콜 헤더의 길이를 오프셋에서 추가로 빼지 않습니다.</p>
+<p>아래에서 <code>[0, 24)</code>는 0부터 23까지 24바이트라는 뜻입니다. 오른쪽 끝은 포함하지 않습니다. 두 번째 조각의 오프셋 3은 3 × 8바이트 = 24바이트입니다. 두 구간은 경계 24에서 만납니다. <strong>MF</strong>(More Fragments)는 뒤에 조각이 더 있는지 나타내는 플래그입니다. IPv4에서는 같은 데이터그램을 식별할 때 출발지, 목적지, 상위 프로토콜 및 Identification 값을 함께 봅니다. 서로 다른 인터페이스나 중복 캡처를 함께 읽을 때는 수집 위치와 시각도 남깁니다.</p>
+<figure class="diagram" tabindex="0" aria-label="정상 IPv4 조각의 순서와 바이트 축"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 215" style="min-width:740px" role="img" aria-labelledby="target-svg-title target-svg-desc">
+<title id="target-svg-title">정상 조각 두 개가 48바이트 페이로드를 채우는 모습</title><desc id="target-svg-desc">왼쪽 조각은 바이트 0부터 23, 오른쪽은 24부터 47이다. 가로축은 원래 IP 페이로드의 바이트 위치를 나타낸다.</desc>
+<defs><marker id="target-axis-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M1 1l8 4-8 4z" fill="#80dccc"/></marker></defs>
+<text x="35" y="30">원래 IP 페이로드 기준 · 가로축 단위는 바이트</text>
+<rect x="90" y="59" width="330" height="48" rx="5" fill="#214b4c"/><rect x="420" y="59" width="330" height="48" rx="5" fill="#274761"/>
+<g text-anchor="middle"><text x="255" y="89">조각 A · 오프셋 0 · MF 1</text><text x="585" y="89">조각 B · 오프셋 3 · MF 0</text><text x="90" y="153">0</text><text x="420" y="153">24</text><text x="750" y="153">48</text></g>
+<path d="M90 124H790" fill="none" stroke="#80dccc" stroke-width="2" marker-end="url(#target-axis-arrow)"/><path d="M90 116v17m330-17v17m330-17v17" stroke="#80dccc"/>
+<text x="90" y="190">녹색과 파란색은 각각 조각 A와 B의 데이터입니다. 오른쪽 끝은 제외합니다.</text></svg>
+<figcaption>두 번째 조각이 화면에 먼저 나타나도 시작 위치는 오프셋으로 결정됩니다.</figcaption></figure>
+<div class="table-wrap" tabindex="0" role="region" aria-label="정상 IPv4 조각 계산 표"><table><caption>예제 조각 위치와 끝 경계</caption><thead><tr><th scope="col">조각</th><th scope="col">헤더의 오프셋 값</th><th scope="col">데이터 길이</th><th scope="col">원래 데이터에서 차지한 구간</th></tr></thead><tbody>
+<tr><th scope="row">A</th><td>0</td><td>24바이트</td><td>[0, 24)</td></tr>
+<tr><th scope="row">B</th><td>3</td><td>24바이트</td><td>[24, 48)</td></tr></tbody></table></div>
+<p>조건을 바꿔 센서에서 A만 보인다면 확인 범위는 첫 24바이트입니다. 뒤쪽 조각이 실제로 전달됐는지, 센서 포트에서 빠졌는지, 캡처가 조기에 끝났는지는 수신 측 기록이 필요합니다. 분석기는 관측하지 못한 구간을 채워 넣을 수 없으므로 보고서에 공백을 적습니다.</p>
+</section>
+
+<section id="overlap"><h2>3. 겹침을 발견하면 원시 기록과 정책을 보존합니다</h2>
+<p>같은 위치의 바이트를 두 기록에서 읽을 수 있는 경우가 있습니다. 동일 조각의 복제와 바이트 내용이 충돌하는 겹침은 조사 의미가 다릅니다. 구간이 완전히 겹치는 경우와 앞부분 또는 뒷부분만 겹치는 경우도 분리해 기록합니다. 예전 IPv4 연구에서 수신 구현에 따라 결과가 달랐다는 사실은 유효한 경고입니다. 과거 실험에 나온 운영체제 이름으로 현재 커널의 결과를 단정할 수는 없어요. 방어자는 패킷과 구간의 관계, 센서 정책, 종단에서 확인한 데이터를 보존하고 정책이 실제로 적용된 범위를 대조합니다.</p>
+<p>IPv6는 RFC 8200에 따라 중첩 조각이 확인되면 해당 데이터그램 재조립을 포기하고 조각을 폐기해야 합니다. 구현에 따라 정확히 동일한 복제 조각만 따로 걸러 나머지를 유지할 수 있다는 주석도 있습니다. IPv4의 역사적 동작을 그대로 대입하지 않습니다. TCP의 재전송과 세그먼트 처리 역시 IP 조각의 규칙과 별개입니다. TCP는 연결 상태와 방향별 순서 번호를 함께 보며, IP는 한 데이터그램을 채우는 바이트 위치를 봅니다.</p>
+</section>
+
+<section id="configuration"><h2>4. 정책을 선택한 뒤 실제 적용 범위를 확인합니다</h2>
+<p>Suricata 8.0.3 문서는 IP 주소·대역과 호스트 처리 정책을 연결하는 <code>host-os-policy</code>를 설명합니다. Snort 3의 <code>stream_tcp</code>는 TCP 흐름 추적·정규화·재조립을 담당하는 검사 모듈입니다. 설치된 Snort 3에서 <code>snort --help-config stream_tcp</code>는 해당 모듈의 설정 도움말을 출력합니다. <code>--help-config</code>는 설정 옵션 조회, <code>stream_tcp</code>는 조회 범위이며 이 명령은 실제 트래픽 입력을 요구하지 않습니다. 과거 버전의 모듈명이나 정책 표를 적용하기 전에 배포 버전의 문서와 적용 환경을 맞춥니다.</p>
+<p>Zeek는 연결 및 프로토콜 로그, 수집 공백 진단을 분석 근거로 제공합니다. 센서의 로그가 종단 스택의 수용 결과까지 알려 주는지는 설치 환경에서 따로 확인합니다. Suricata 문서에는 HTTP/2 스트림 제한과 HTTP/2·QUIC 로그 항목도 있습니다. 이 기능은 해당 버전에 분석 지원이 있다는 근거이며, 암호화된 모든 데이터와 모든 재조립 경계를 관측한다는 뜻까지 포함하지는 않습니다.</p>
+<p>안전한 오프라인 검증에서는 정상 조각, 정상 재전송의 기록, 캡처가 한쪽 방향만 보이는 경우를 따로 둡니다. 기대 범위와 센서 출력, 종단의 기존 로그, 적용한 도움말 버전을 기록합니다. 수집 손실이나 재조립 자원 제한이 의심되면 장비 상태와 오류 통계를 비교합니다. 인라인에서 동작을 바꾸기 전에는 승인된 검증에서 서비스 영향과 복구 조건도 확인합니다.</p>
+</section>
+
+<section id="interpret"><h2>5. 센서 기록을 종단 증거와 연결합니다</h2>
+<p><strong>관측:</strong> 센서에 두 IPv4 조각이 표시되고, 재조립 결과의 길이는 48바이트입니다. <strong>가설:</strong> 종단도 같은 데이터그램을 구성해 응용 입력으로 전달했을 가능성이 있습니다. <strong>추가 증거:</strong> 서버 앞 수집 지점의 캡처, 호스트 방어 로그와 프록시 또는 응용 요청 기록을 시각과 흐름 방향으로 맞춥니다. 이후 보고서에는 센서가 확인한 범위, 종단이 확인한 범위, 둘을 연결한 근거를 적으세요.</p>
+</section>
+
+<section id="review"><h2>복습과 바로 읽는 해설</h2><dl class="glossary">
+<dt>1. 정상 조각의 오프셋 필드가 3이라면 어디서 시작하나요?</dt><dd>원래 IP 페이로드 24바이트 위치입니다. 8바이트 단위로 환산합니다.</dd>
+<dt>2. A만 보이면 데이터그램 길이가 24바이트인가요?</dt><dd>MF가 1인 A에서는 뒤 조각이 필요합니다. 24바이트는 현재 확보한 범위입니다.</dd>
+<dt>3. IPv6에서 겹치는 조각을 확인하면 어떤 표준 동작을 기대하나요?</dt><dd>RFC 8200은 중첩이 확인된 데이터그램의 재조립 포기와 폐기를 요구합니다. 정확한 복제 조각의 별도 처리 여지는 문서에 명시돼 있습니다.</dd>
+<dt>4. 방화벽 정책이 바뀐 날 센서와 종단 결과가 달라졌다면 무엇부터 볼까요?</dt><dd>수집 지점과 실제 종단을 확인하고 각 정책의 변경 시각, 적용 대상, 종단의 응용 증거를 맞춥니다.</dd>
+</dl></section>
+
+<section id="sources"><h2>공식 자료와 확인일</h2>
+<p>2026-11-25에 확인했습니다. 수치와 주소는 정상 합성 표본입니다. 제공 실습 캡처 및 엔진은 이번에 실행하지 않았습니다.</p>
+<ul><li><a href="https://www.rfc-editor.org/rfc/rfc791.html">RFC 791 · IPv4 조각 식별과 오프셋</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc8200.html#section-4.5">RFC 8200 · IPv6 조각과 중첩 수용 규칙</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc9293.html">RFC 9293 · TCP 처리 상태</a></li><li><a href="https://docs.snort.org/start/configuration">Snort 3 · 모듈 설정 도움말</a></li><li><a href="https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html">Suricata 8.0.3 · 호스트 정책과 HTTP/2</a></li><li><a href="https://docs.suricata.io/en/suricata-8.0.3/output/eve/eve-json-format.html">Suricata 8.0.3 · EVE 이벤트 형식</a></li><li><a href="https://docs.zeek.org/en/current/reference/logs/capture-loss-and-reporter.html">Zeek · 수집 누락과 내부 경고 로그</a></li></ul>
+</section>

@@ -1070,6 +1070,38 @@
       "updated": "2026-11-25",
       "minutes": 55,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 72,
+      "slug": "72-target-aware-inspection",
+      "title": "종단에 맞춰 패킷 재조립 검증하기",
+      "description": "IPv4 조각 위치를 계산하고 IPv6 중첩 규칙, 대상별 정책, 센서와 종단의 증거를 대조합니다.",
+      "day": 4,
+      "day_lesson": 17,
+      "printed_pages": [
+        142,
+        149
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 65,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 73,
+      "slug": "73-zeek-investigation-capstone",
+      "title": "Zeek 로그 상관분석 종합 실습",
+      "description": "합성 연결·DNS·TLS 기록으로 시각과 UID를 맞추고 관측, 가설, 추가 증거가 담긴 장부를 작성합니다.",
+      "day": 4,
+      "day_lesson": 18,
+      "printed_pages": [
+        150,
+        152
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 55,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
