@@ -974,6 +974,38 @@
       "updated": "2026-11-25",
       "minutes": 60,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 66,
+      "slug": "66-zeek-stateful-correlation",
+      "title": "Zeek 상태로 행동 연쇄 이어 붙이기",
+      "description": "MIME·DNS·연결 이벤트를 만료되는 상태로 연결하고 URL 정규화, TTL, IPv6, 메모리와 오탐 조건을 검토합니다.",
+      "day": 4,
+      "day_lesson": 11,
+      "printed_pages": [
+        100,
+        108
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 60,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 67,
+      "slug": "67-behavior-baseline-stream-monitoring",
+      "title": "행위 기준선과 진행 중인 흐름 관찰하기",
+      "description": "HTTP·TLS·TCP의 단순 규칙을 기준선으로 확장하고 장기 연결, 방향별 바이트와 연결 수를 중간 점검합니다.",
+      "day": 4,
+      "day_lesson": 12,
+      "printed_pages": [
+        109,
+        119
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 60,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

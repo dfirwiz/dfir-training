@@ -31,7 +31,23 @@
   "next_lesson_id": 66,
   "next_day_lesson": 11,
   "next_printed_page": 100,
-  "publication_pending": null,
+  "publication_pending": {
+    "lesson_ids": [
+      66,
+      67
+    ],
+    "day_lessons": [
+      11,
+      12
+    ],
+    "printed_pages": [
+      100,
+      119
+    ],
+    "state": "source_ready",
+    "prepared_at": "2026-11-25T13:30:00+10:30",
+    "note": "원고·검토·정적 생성 후 정확한 Pages 배포와 공개 데스크톱·좁은 화면 검증을 기다림"
+  },
   "last_publication": {
     "lesson_id": 65,
     "deployment": "success",
