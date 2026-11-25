@@ -35,7 +35,12 @@
   "next_lesson_id": 68,
   "next_day_lesson": 13,
   "next_printed_page": 120,
-  "publication_pending": null,
+  "publication_pending": {
+    "lesson_ids": [68, 69],
+    "stage": "content_ready",
+    "prepared_at": "2026-11-25T17:29:00+10:30",
+    "note": "Static and public deployment verification pending; completion pointers remain unchanged."
+  },
   "last_publication": {
     "lesson_id": 67,
     "deployment": "success",

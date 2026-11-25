@@ -1006,6 +1006,38 @@
       "updated": "2026-11-25",
       "minutes": 60,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 68,
+      "slug": "68-spicy-custom-protocol-analysis",
+      "title": "Spicy로 낯선 프로토콜 구조화하기",
+      "description": "사용자 정의 프로토콜의 바이트 문법을 필드와 Zeek 이벤트로 바꾸고 정상·경계·오류 합성 표본으로 안전하게 검증합니다.",
+      "day": 4,
+      "day_lesson": 13,
+      "printed_pages": [
+        120,
+        122
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 55,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 69,
+      "slug": "69-sensor-endpoint-reassembly",
+      "title": "센서와 종단의 재조립 차이 검증하기",
+      "description": "체크섬·순서 번호·재조립 정책과 수집 위치가 만드는 해석 차이를 이해하고 종단 증거로 경보를 검증합니다.",
+      "day": 4,
+      "day_lesson": 14,
+      "printed_pages": [
+        123,
+        130
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 60,
+      "editorial_status": "detailed_revision"
     }
   ]
 }
