@@ -1,0 +1,51 @@
+<div class="callout"><span class="label">학습 범위</span><p>같은 TCP 연결에서 센서의 패킷 기록은 남았지만 경보가 없고, 서버에는 요청 처리 기록이 있습니다. 넷째 날 15강에서는 TCP 상태, 체크섬, 타임스탬프, 긴급 데이터, TCP Fast Open, 경보 큐를 따라 어디까지 검사했는지 확인합니다.</p></div>
+
+<section id="decision-path"><h2>1. 패킷을 봤다는 말은 어느 단계까지 확인했다는 뜻일까요?</h2>
+<p>책 반납함에 책이 들어오면 담당자는 책을 꺼내고, 바코드를 읽고, 반납을 처리한 뒤 영수증을 남깁니다. 영수증이 없다면 반납함에 책이 없었을 수도 있고, 바코드를 읽지 못했거나 출력이 밀렸을 수도 있죠. 네트워크 센서에서도 캡처, 전송계층 상태 추적, 응용 분석, 규칙 일치, 경보 발행은 다른 단계입니다. 비유에서 책은 한 권으로 도착하지만 TCP 메시지는 여러 세그먼트에 걸쳐 들어오며 같은 바이트가 재전송될 수 있습니다.</p>
+<p><strong>IDS</strong>는 침입 탐지 시스템, <strong>IPS</strong>는 차단 동작도 수행할 수 있는 침입 방지 시스템입니다. 수동 센서라면 미러에서 받은 복사본으로 연결 상태를 추정합니다. 수신 운영체제는 자신이 허용한 데이터로 소켓을 갱신합니다. 캡처 시작 위치나 패킷 손실이 다르면 추정 상태와 서버 상태도 달라질 수 있습니다.</p>
+<figure class="diagram" tabindex="0" aria-label="TCP 수집과 경보 처리 흐름. 좁은 화면에서 가로 스크롤"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 870 225" style="min-width:740px" role="img" aria-labelledby="tcp-validation-title tcp-validation-desc"><title id="tcp-validation-title">캡처에서 경보 저장까지</title><desc id="tcp-validation-desc">패킷 수집, TCP 검증과 상태, 재조립과 규칙 평가, 경보 출력 순서다. 센서 카운터와 종단 기록은 각 단계의 증거를 보강한다.</desc><defs><marker id="tcp-validation-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M1 1l8 4-8 4z" fill="#80dccc"/></marker></defs><g fill="#172c3e" stroke="#39536c"><rect x="18" y="66" width="178" height="78" rx="8"/><rect x="236" y="66" width="178" height="78" rx="8"/><rect x="454" y="66" width="178" height="78" rx="8"/><rect x="672" y="66" width="178" height="78" rx="8"/></g><g fill="none" stroke="#80dccc" stroke-width="3" marker-end="url(#tcp-validation-arrow)"><path d="M198 105h32"/><path d="M416 105h32"/><path d="M634 105h32"/></g><g text-anchor="middle"><text x="107" y="97">패킷 수집</text><text x="107" y="121">방향 · 손실</text><text x="325" y="97">TCP 상태</text><text x="325" y="121">체크섬 · 옵션</text><text x="543" y="97">재조립 · 일치</text><text x="543" y="121">흐름 · 규칙</text><text x="761" y="97">경보 기록</text><text x="761" y="121">큐 · 저장</text></g><text x="18" y="28">민트 화살표는 센서의 처리 순서입니다.</text><text x="18" y="192">종단 로그와 센서 통계를 대조하면 결과가 달라진 구간을 좁힐 수 있습니다.</text></svg><figcaption>규칙 평가와 외부 저장소에서 경보를 조회하는 사이에도 확인할 단계가 있습니다.</figcaption></figure>
+</section>
+
+<section id="headers"><h2>2. 체크섬·시간값·URG는 서로 다른 판단 근거입니다</h2>
+<p>TCP 체크섬은 헤더·본문과 IP 주소 등이 들어간 의사 헤더를 대상으로 하는 16비트 검사 값입니다. TCP 표준은 송신 측 생성과 수신 측 검사를 요구합니다. 같은 순서 범위가 여러 번 보이면 프레임별 체크섬 상태와 캡처 위치, 센서가 채택한 스트림, 종단에서 확인한 요청을 맞춥니다. 호스트의 송신 캡처는 NIC가 값을 채우기 전일 수 있으므로, 선로 캡처나 수신 측 관측과 나란히 보는 것이 좋습니다. 체크섬은 전송 오류 판별에 쓰이며 송신자 인증은 별도입니다.</p>
+<p><strong>TSval</strong>은 보내는 쪽의 TCP 타임스탬프 값, <strong>TSecr</strong>은 상대 값에 대한 반향입니다. RFC 7323의 <strong>PAWS</strong>(Protection Against Wrapped Sequences)는 한 연결에서 유지한 타임스탬프 상태를 사용해 오래된 중복 세그먼트를 거르는 데 도움을 줍니다. 32비트 TCP 순서 번호는 2<sup>32</sup>개의 값을 사용합니다. 데이터가 초당 125,000,000바이트로 계속 흐른다는 이상적인 가정에서는 4,294,967,296바이트 ÷ 125,000,000바이트/초 ≈ <strong>34.36초</strong>에 번호 공간 전체를 한 바퀴 돕니다. 여기서 125,000,000바이트/초는 1,000,000,000비트/초를 바이트당 8비트로 나눈 값입니다. 실제 데이터 속도에는 오버헤드와 혼잡이 영향을 줍니다.</p>
+<p>TV 자막의 장면 번호처럼 TCP 타임스탬프에는 각 송신 측의 눈금이 있습니다. TCP 헤더의 값을 두 장비의 벽시계처럼 비교하면 오판할 수 있습니다. 반대 방향이나 새 연결끼리는 기준이 다르고, 한 연결 안에서도 순서가 뒤집힌 캡처·동일 눈금·값의 순환을 고려해야 합니다. 옵션 구문 이상은 제품 버전, 파서 결과, 종단 수신 근거를 확인할 계기입니다.</p>
+<p><strong>URG</strong>는 긴급 포인터가 의미 있다는 TCP 플래그입니다. RFC 9293에서 포인터는 세그먼트 순서 번호를 기준으로 긴급 데이터 뒤 옥텟을 가리키는 양의 오프셋입니다. 옥텟은 8비트, 곧 1바이트입니다. 레거시 구현의 소켓 전달 방식과 포인터 해석 차이는 현장 검증 대상입니다. 정상 서비스에서 긴급 표시가 관측되면 자산·애플리케이션 버전과 해당 방향의 수신을 확인하고, 응용 프로그램이 실제 소비한 바이트를 비교하세요.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="TCP 헤더 근거 표"><table><caption>헤더에서 본 것과 종단에서 확인할 것</caption><thead><tr><th scope="col">관측</th><th scope="col">가능한 설명</th><th scope="col">보강할 증거</th></tr></thead><tbody>
+<tr><th scope="row">송신 캡처의 체크섬 이상</th><td>오프로딩 또는 실제 오류</td><td>동일 방향 선로 캡처, 수신 측 검사 상태</td></tr>
+<tr><th scope="row">타임스탬프 비교가 어긋남</th><td>중복, 재정렬, 방향 혼동, 캡처 시작 시점</td><td>초기 옵션 협상과 해당 방향의 전체 흐름</td></tr>
+<tr><th scope="row">URG 플래그 관측</th><td>레거시 애플리케이션 사용 또는 비정상 입력</td><td>자산 기준선, 종단 소켓 기록과 응용 로그</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="state"><h2>3. 상태를 요구하는 규칙이 사용하는 증거</h2>
+<p>표준적인 TCP 연결에서 클라이언트는 <strong>SYN</strong>으로 시작하고, 서버는 <strong>SYN/ACK</strong>로 응답하며, 클라이언트는 <strong>ACK</strong>로 확인합니다. ACK는 승인 번호를 전달하는 플래그입니다. 오래된 내용 중심 규칙은 상태 근거 없이 문자열을 보고 많은 경보를 남길 수 있었습니다. TCP 인스펙터는 방향과 상태를 추적해 실제 응용 요청으로 이어진 후보를 좁힙니다. 같은 시그니처라도 규칙이 본 범위가 하나의 프레임인지, 재조립된 스트림인지, 응용 필드인지에 따라 의미가 달라집니다.</p>
+<p>Snort 3에서 <code>flow:to_server,established;</code>는 서버 방향과 엔진이 수립된 것으로 분류한 흐름을 함께 요구합니다. <code>flow:</code>는 흐름 조건, 쉼표는 여러 조건의 구분, 세미콜론은 규칙 옵션의 끝입니다. 미러가 연결 중간부터 기록했다면 시작 패킷을 보지 못합니다. 이때는 센서의 중간 세션 추적과 비대칭 경로를 먼저 확인하고, 프록시의 앞뒤 연결도 구분합니다.</p>
+</section>
+
+<section id="fast-open"><h2>4. TCP Fast Open이면 응용 데이터가 보이는 시점이 달라집니다</h2>
+<p><strong>TCP Fast Open</strong>(TFO)은 초기 TCP 교환 중 데이터 전달을 허용하는 실험적 확장입니다. 지연이 30ms인 경로에서 왕복 1회가 줄면 이상적 절감은 30ms입니다. 실제 성능은 TFO를 사용할 수 있는지, 중간 장비가 지원하는지, 서버가 초기 데이터를 처리했는지에 따라 달라집니다. 서비스의 일반 연결과 TFO 연결을 파악한 뒤, 프로그램 로그가 요청을 얼마나 처리했는지 확인합니다. RFC 7413은 초기 데이터가 반복 처리될 가능성 때문에 응용 처리의 재실행 영향을 고려하도록 설명합니다.</p>
+<p>합성 조사에서 <code>192.0.2.10</code>의 클라이언트가 <code>198.51.100.20</code>의 상태 조회 서비스에 접속한다고 합시다. 일반 연결은 수립 뒤 요청이 보이며, TFO 사용 서비스는 연결 시작 단계부터 초기 데이터가 관측될 수 있습니다. <code>established</code>를 요구하는 규칙의 결과는 설치 버전, 스트림 인스펙터와 해당 데이터가 전달되는 버퍼에 따라 검증합니다. 동일한 무해 요청에 대해 캡처의 시점, 센서 분류, 서버 요청 식별자를 짝지으면 경보 차이를 더 좁힐 수 있습니다.</p>
+</section>
+
+<section id="queue"><h2>5. 규칙 일치 수와 저장된 경보 수를 나눠 읽습니다</h2>
+<p>센서는 여러 규칙의 결과를 제한된 큐에 정리할 수 있습니다. 예를 들어 오프라인 검증 장부에서 기대한 무해 테스트 일치 12건 중 센서 로그에서 10건, 중앙 저장소에서 9건을 확인했다고 합시다. 센서 쪽에서 미확인인 건은 12 − 10 = 2건이고, 센서가 기록했지만 중앙에서 미확인인 건은 10 − 9 = 1건입니다. 두 수치는 원인이 밝혀졌다는 의미보다 어느 단계의 증거를 더 볼지 알려 줍니다.</p>
+<p>Suricata 8.0.3 문서는 패킷별 경보 큐와 <code>detect.alert_queue_overflow</code>(큐 용량으로 빠진 결과), <code>detect.alerts_suppressed</code>(<code>noalert</code> 규칙의 일치) 통계를 설명합니다. 통계는 집계이므로 특정 흐름의 어느 규칙이 누락됐는지 확인하려면 패킷·센서 로그도 필요합니다. 제품의 실제 설정과 수집기 오류, 시간대와 인덱싱 지연을 함께 확인합니다. 과거 Snort 사례의 경보 개수나 동작은 당시 환경의 관측이며, 지금 설치한 센서의 한도는 현장 설정과 버전에 따라 확인합니다.</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="경보 누락 조사 표"><table><caption>무해 합성 검증에서 미확인 건을 좁히는 순서</caption><thead><tr><th scope="col">확인 지점</th><th scope="col">확인할 근거</th><th scope="col">남은 질문</th></tr></thead><tbody>
+<tr><th scope="row">캡처</th><td>시간대, 양방향 프레임, 캡처 손실</td><td>양쪽의 요청과 응답이 들어왔나요?</td></tr>
+<tr><th scope="row">엔진</th><td>정확한 규칙 리비전, 서비스 분류, 재조립, 센서 통계</td><td>어떤 상태·버퍼가 평가됐나요?</td></tr>
+<tr><th scope="row">출력·수집</th><td>센서 로컬 기록과 중앙 수집 식별자</td><td>억제, 큐, 전송, 검색 시간 중 어디를 더 볼까요?</td></tr>
+</tbody></table></div>
+</section>
+
+<section id="review"><h2>복습과 바로 읽는 해설</h2><dl class="glossary">
+<dt>1. 송신 호스트에서 체크섬 오류를 봤습니다. 먼저 무엇을 확인하나요?</dt><dd>수집 위치와 오프로딩 설정을 확인한 뒤 가능하면 같은 흐름의 선로 또는 수신 측 사본과 비교합니다.</dd>
+<dt>2. 지연이 60ms라면 왕복 1회 감소의 이상적 절감은 얼마인가요?</dt><dd>60ms입니다. 서버 처리 시간, 경로, 협상 및 재전송 상태에 따라 총 소요 시간의 변화는 달라집니다.</dd>
+<dt>3. 서버에 요청 로그가 있지만 센서가 연결 시작을 보지 못했습니다. 어떤 기록이 도움이 될까요?</dt><dd>수집 시간과 위치, 양방향 프레임, 센서의 중간 세션 처리 설정을 대조하고 종단의 연결 및 요청 식별자를 붙입니다.</dd>
+<dt>4. 경보 로그가 모자라면 바로 규칙을 고쳐야 하나요?</dt><dd>먼저 캡처, 파싱·일치, 센서 출력과 중앙 적재를 비교합니다. 누락 단계가 다르면 수정할 대상도 달라집니다.</dd>
+</dl></section>
+
+<section id="sources"><h2>공식 자료와 확인일</h2>
+<p>2026-11-25에 확인했습니다. 예제의 주소와 수치는 합성입니다. 실제 센서·서버의 TCP 정책과 제공 캡처는 시험하지 않았습니다.</p>
+<ul><li><a href="https://www.rfc-editor.org/rfc/rfc9293.html">RFC 9293 · TCP 체크섬, 연결 상태, 긴급 포인터와 수신 처리</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc7323.html#section-5">RFC 7323 · 타임스탬프 및 PAWS</a></li><li><a href="https://www.rfc-editor.org/rfc/rfc7413.html">RFC 7413 · TCP Fast Open과 응용 처리 고려 사항</a></li><li><a href="https://docs.snort.org/rules/options/non_payload/flow">Snort 3 Rule Writing Guide · 흐름 상태 옵션</a></li><li><a href="https://docs.suricata.io/en/suricata-8.0.3/configuration/suricata-yaml.html">Suricata 8.0.3 · 경보 큐, 통계와 스트림 설정</a></li></ul>
+</section>

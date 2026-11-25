@@ -1038,6 +1038,38 @@
       "updated": "2026-11-25",
       "minutes": 60,
       "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 70,
+      "slug": "70-tcp-state-alert-validation",
+      "title": "TCP 상태와 경보 누락 검증하기",
+      "description": "체크섬, 타임스탬프, 긴급 데이터, TCP Fast Open과 경보 큐를 읽고 누락이 발생한 단계를 좁힙니다.",
+      "day": 4,
+      "day_lesson": 15,
+      "printed_pages": [
+        131,
+        137
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 60,
+      "editorial_status": "detailed_revision"
+    },
+    {
+      "id": 71,
+      "slug": "71-application-parsing-detection-validation",
+      "title": "응용 필드와 탐지 결과 검증하기",
+      "description": "DHCP 옵션, HTTP 검사 버퍼와 메일 인코딩을 비교하고 운영 피크에도 관측 차이를 확인합니다.",
+      "day": 4,
+      "day_lesson": 16,
+      "printed_pages": [
+        138,
+        141
+      ],
+      "status": "published",
+      "updated": "2026-11-25",
+      "minutes": 55,
+      "editorial_status": "detailed_revision"
     }
   ]
 }

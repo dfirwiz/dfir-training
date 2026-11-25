@@ -39,7 +39,12 @@
   "next_lesson_id": 70,
   "next_day_lesson": 15,
   "next_printed_page": 131,
-  "publication_pending": null,
+  "publication_pending": {
+    "lesson_ids": [70, 71],
+    "stage": "content_ready",
+    "prepared_at": "2026-11-25",
+    "note": "Awaiting GitHub Pages and live content, navigation and layout verification. Completion pointers remain unchanged."
+  },
   "last_publication": {
     "lesson_id": 69,
     "deployment": "success",
