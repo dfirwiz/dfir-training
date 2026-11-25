@@ -32,9 +32,26 @@
       64,
       65
     ],
-    "state": "awaiting_homepage_catalog_and_live_review",
+    "state": "homepage_catalog_update_blocked",
     "prepared_at": "2026-11-25T07:33:01+10:30",
-    "content_commit": null
+    "content_commit": "e806c9e36c8d5e33ee6c6d08ffab404d91c99a04",
+    "deployment": "success",
+    "deployment_run": "https://github.com/dfirwiz/dfir-training/actions/runs/45489155287",
+    "live_reviewed_at": "2026-11-25T11:35:42+10:30",
+    "live_pages": [
+      {
+        "lesson_id": 64,
+        "url": "https://dfirwiz.github.io/dfir-training/notes/64-zeek-event-driven-scripting.html",
+        "sha256": "70518eeca3976a1c63ae33cdfb38288494e98f8fb65f95ed26f1cc56c184eb99"
+      },
+      {
+        "lesson_id": 65,
+        "url": "https://dfirwiz.github.io/dfir-training/notes/65-behavior-chain-threat-model.html",
+        "sha256": "0f8da40b8015bcfeb69be2a66ff976c562e9e6d3c5b5861aef2d7a99cdbe3a8b"
+      }
+    ],
+    "render_review": "Public desktop at 100% browser zoom and a 545px CSS viewport were verified. Wide tables and the diagram use internal horizontal scrolling; physical mobile was not tested.",
+    "blocking_item": "The public homepage catalog still reports 63 / 63 lessons and does not list lessons 64 and 65. Keep the batch pending and do not advance next_lesson_id until the catalog is updated and verified."
   },
   "last_publication": {
     "lesson_id": 63,
